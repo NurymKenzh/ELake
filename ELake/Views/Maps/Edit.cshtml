@@ -1,0 +1,119 @@
+﻿@model ELake.Models.Map
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Edit"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Edit"]</h2>
+
+<h4>@SharedLocalizer["Map"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="NameKK" class="control-label"></label>
+                <input asp-for="NameKK" class="form-control" />
+                <span asp-validation-for="NameKK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameRU" class="control-label"></label>
+                <input asp-for="NameRU" class="form-control" />
+                <span asp-validation-for="NameRU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameEN" class="control-label"></label>
+                <input asp-for="NameEN" class="form-control" />
+                <span asp-validation-for="NameEN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Layers)
+                            </th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <div hidden="hidden">
+                                    <select id="selectadd" class="form-control" asp-items="@ViewBag.Layers"></select>
+                                </div>
+                                <input type="button" value="@SharedLocalizer["Add"]" class="btn btn-default" onclick="Add()">
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.LayersId.Length; i++)
+                        {
+                            string trid = "tr" + i.ToString(),
+                                removeid = "remove" + i.ToString();
+                            <tr id="@trid">
+                                <td>
+                                    <select asp-for="LayersId[i]" class="form-control" asp-items="@ViewBag.Layers"></select>
+                                </td>
+                                <td>
+                                    <input id="@removeid" type="button" value="@SharedLocalizer["Remove"]" class="btn btn-default" onclick="Remove(@i)">
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    var count = @Model.LayersId.Length;
+
+    function Add() {
+        var tr = "";
+        tr += "<tr id=\"tr" + count.toString() + "\">";
+        tr += "<td>";
+        tr += "<select name=\"LayersId[" + count.toString() + "]\" class=\"form-control\" id=\"LayersId_" + count.toString() + "_\" data-val-required=\"The Int32 field is required.\" data-val=\"true\">";
+        tr += "</select>";
+        tr += "</td>";
+        tr += "<td>";
+        tr += "<input class=\"btn btn-default\" id=\"remove" + count.toString() + "\" onclick=\"remove(" + count.toString() + ")\" type=\"button\" value=\"@SharedLocalizer["Remove"]\">";
+        tr += "</td>";
+        tr += "</tr>";
+        $('table').append(tr);
+
+        var $options = $('#selectadd option').clone();
+        $('#LayersId_' + count + '_').append($options);
+        count++;
+    };
+
+    function Remove(i) {
+        for (j = i + 1; j < count; j++) {
+            $('#LayersId_' + j + '_').attr("name", "LayersId[" + (j - 1).toString() + "]");
+            $('#remove' + j).attr("onclick", "remove(" + (j - 1).toString() + ")");
+            jQuery('#remove' + j).attr("id", "remove" + (j - 1).toString());
+            jQuery('#tr' + j).attr("id", "tr" + (j - 1).toString());
+            jQuery('#LayersId_' + j + '_').attr("id", "LayersId_" + (j - 1).toString() + "_");
+        }
+        $('#tr' + i).remove();
+        count--;
+    };
+</script>

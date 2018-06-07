@@ -1,0 +1,24 @@
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["UnpublishShape"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["UnpublishShape"]</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UnpublishShape">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Layer"]</label>
+                <select name="LayerName" class="form-control" asp-items="ViewBag.ShapeLayers"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

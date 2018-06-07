@@ -1,0 +1,137 @@
+﻿@model ELake.Models.Map
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Details"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link href="~/lib/ol/ol.css" rel="stylesheet" />
+<script src="~/lib/ol/ol.js"></script>
+
+<h2>@SharedLocalizer["Details"]</h2>
+
+<div>
+    <h4>@SharedLocalizer["Map"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LayersId)
+        </dt>
+        <dd>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Layers)
+                        </th>
+                        <th>
+                            @SharedLocalizer["Show"]
+                        </th>
+                        <th>
+                            @SharedLocalizer["Opacity"]
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.LayersId.Length; i++)
+                    {
+                        string layerGeoServerName = $"layerGeoServerName{i.ToString()}",
+                            ShowHideId = $"ShowHide{i.ToString()}",
+                            OpacityId = $"Opacity{i.ToString()}";
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.Layers[i].Name)
+                                <input id="@layerGeoServerName" type="hidden" value="@Html.DisplayFor(model => model.Layers[i].GeoServerName)" />
+                            </td>
+                            <td>
+                                <input id="@ShowHideId" type="checkbox" onclick="ShowHideLayers()" checked="checked"/>
+                            </td>
+                            <td>
+                                <input id="@OpacityId" type="range" oninput="OpacityLayers()" min="0" max="100" value="100"/>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </dd>
+
+        <dt>
+            @SharedLocalizer["Map"]
+        </dt>
+        <dd>
+            <div id="map" style="height: 400px; width: 100%;"></div>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@SharedLocalizer["Edit"]</a> |
+    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+</div>
+<script type="text/javascript">
+    var layers = [];
+    layers.push(new ol.layer.Tile({
+        source: new ol.source.OSM()
+    }));
+    layers[0].set('name', 'OSM');
+
+    var geoserverPort = '8080',
+        geoserverAddress = window.location.hostname;
+
+    for (i = 0; i <@Model.Layers.Length; i++) {
+        var LAYERS_ = 'ELake:' + $('#layerGeoServerName' + i).val();
+        var Source_Current = new ol.source.TileWMS({
+            url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+            params: {
+                'LAYERS': LAYERS_,
+                'VERSION': '1.1.0',
+                'FORMAT': 'image/png',
+                'TILED': true
+            },
+            serverType: 'geoserver'
+        });
+        var Layer_Current = new ol.layer.Tile({
+            source: Source_Current
+        });
+        layers.push(Layer_Current);
+    }
+
+    var source = new ol.source.Vector();
+    var layer = new ol.layer.Vector({
+        source: source
+    });
+
+    var map = new ol.Map({
+        target: 'map',
+        layers: layers,
+        view: new ol.View({
+            center: ol.proj.fromLonLat([69, 48]),
+            zoom: 4
+        })
+    });
+
+    function ShowHideLayers() {
+        for (i = 1; i < layers.length; i++) {
+            var shid = i - 1;
+            if ($('#ShowHide' + shid).is(':checked')) {
+                layers[i].setVisible(true);
+            } else {
+                layers[i].setVisible(false);
+            }
+        }
+    };
+
+    function OpacityLayers() {
+        for (i = 1; i < layers.length; i++) {
+            var oid = i - 1;
+            layers[i].setOpacity($('#Opacity' + oid).val() / 100);
+        }
+    };
+</script>

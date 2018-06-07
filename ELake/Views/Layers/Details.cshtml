@@ -1,0 +1,98 @@
+﻿@model ELake.Models.Layer
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Details"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/lib/ol/ol.css" rel="stylesheet" />
+<script src="~/lib/ol/ol.js"></script>
+
+<h2>@SharedLocalizer["Details"]</h2>
+
+<div>
+    <h4>@SharedLocalizer["Layer"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GeoServerName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GeoServerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FileNameWithPath)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FileNameWithPath)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GeoServerStyle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GeoServerStyle)
+        </dd>
+        <dt>
+            @SharedLocalizer["Map"]
+        </dt>
+        <dd>
+            <div id="map" style="height: 400px; width: 100%;"></div>
+        </dd>
+    </dl>
+</div>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
+    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+</div>
+<div hidden="hidden">
+    <input type="text" id="GeoServerName" value="@Model.GeoServerName"/>
+</div>
+
+<script type="text/javascript">
+    var layers = [];
+    layers.push(new ol.layer.Tile({
+        source: new ol.source.OSM()
+    }));
+    layers[0].set('name', 'OSM');
+
+    var geoserverPort = '8080',
+        geoserverAddress = window.location.hostname;
+
+    var Source_Current = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:@Model.GeoServerName',
+            'VERSION': '1.1.0',
+            'FORMAT': 'image/png',
+            'TILED': true
+        },
+        serverType: 'geoserver'
+    });
+    var Layer_Current = new ol.layer.Tile({
+        source: Source_Current
+    });
+    Layer_Current.setOpacity(0.80);
+    layers.push(Layer_Current);
+
+    var source = new ol.source.Vector();
+    var layer = new ol.layer.Vector({
+        source: source
+    });
+
+    var map = new ol.Map({
+        target: 'map',
+        layers: layers,
+        view: new ol.View({
+            center: ol.proj.fromLonLat([69, 48]),
+            zoom: 4
+        })
+    });
+</script>

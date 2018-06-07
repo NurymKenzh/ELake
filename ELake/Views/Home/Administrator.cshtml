@@ -1,0 +1,31 @@
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Administration"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Administration"]</h2>
+
+<a class="btn btn-default" asp-controller="Users" asp-action="Index">@SharedLocalizer["Users"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="GeoServer" asp-action="UploadGeoTIFFFiles">@SharedLocalizer["UploadGeoTIFFFiles"]</a>
+<a class="btn btn-default" asp-controller="GeoServer" asp-action="DeleteGeoTIFFFile">@SharedLocalizer["DeleteGeoTIFFFile"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="GeoServer" asp-action="PublishGeoTIFF">@SharedLocalizer["PublishGeoTIFF"]</a>
+<a class="btn btn-default" asp-controller="GeoServer" asp-action="UnpublishGeoTIFF">@SharedLocalizer["UnpublishGeoTIFF"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="GeoServer" asp-action="UploadShapeFiles">@SharedLocalizer["UploadShapeFiles"]</a>
+<a class="btn btn-default" asp-controller="GeoServer" asp-action="DeleteShapeFile">@SharedLocalizer["DeleteShapeFile"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="GeoServer" asp-action="PublishShape">@SharedLocalizer["PublishShape"]</a>
+<a class="btn btn-default" asp-controller="GeoServer" asp-action="UnpublishShape">@SharedLocalizer["UnpublishShape"]</a>
+<br />
+<br />
+<a class="btn btn-default" asp-controller="Layers" asp-action="Index">@SharedLocalizer["Layers"]</a>
+<a class="btn btn-default" asp-controller="Maps" asp-action="Index">@SharedLocalizer["Maps"]</a>
