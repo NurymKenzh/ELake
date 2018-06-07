@@ -481,7 +481,28 @@ namespace ELake.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Удаляет слой GeoServer
+        /// </summary>
+        /// <param name="WorkspaceName"></param>
+        /// <param name="Style"></param>
+        public void DeleteStyle(string WorkspaceName, string Style)
+        {
+            try
+            {
+                Process process = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -u -XDELETE" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/styles/{Style}");
+                process.WaitForExit();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
 
         /// <summary>
         /// Публикация GeoTIFF-файла в GeoServer
