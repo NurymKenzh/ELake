@@ -407,15 +407,28 @@ namespace ELake.Controllers
         }
 
         /// <summary>
-        /// Проверяет, существует ли 
+        /// Проверяет, существует ли в рабочей области GeoServer стиль
         /// </summary>
         /// <param name="WorkspaceName"></param>
         /// <param name="style"></param>
         /// <returns></returns>
-        public bool ExistWorkspaceStyle(string WorkspaceName, string style)
+        public bool ExistWorkspaceStyle(string WorkspaceName, string Style)
         {
-            bool exist = false;
-            return exist;
+            try
+            {
+                if (GetWorkspaceStyles(WorkspaceName).Contains(Style))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
         }
 
         /// <summary>
