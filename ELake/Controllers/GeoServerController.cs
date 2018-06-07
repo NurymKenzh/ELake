@@ -432,6 +432,58 @@ namespace ELake.Controllers
         }
 
         /// <summary>
+        /// Создает стиль GeoServer
+        /// </summary>
+        /// <param name="WorkspaceName"></param>
+        /// <param name="Style">
+        /// Название стиля
+        /// </param>
+        /// <param name="StyleText">
+        /// Текст стиля
+        /// </param>
+        public void CreateStyle(string WorkspaceName, string Style, string StyleText)
+        {
+            try
+            {
+                string styleFile = Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.ChangeExtension(Style, ".sld"));
+                if (!System.IO.File.Exists(styleFile))
+                {
+                    using (StreamWriter sw = System.IO.File.CreateText(styleFile))
+                    {
+                        sw.WriteLine(StyleText);
+                    }
+                }
+
+                Process process1 = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -v -u -XPOST" +
+                    $" -H \"Content-type: text/xml\"" +
+                    $" -d \"<style><name>{Style}</name><filename>{Style}.sld</filename></style>\"" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/styles");
+                process1.WaitForExit();
+                Process process2 = CurlExecute($" -v -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -v -u -XPUT" +
+                    $" -H \"Content-type: application/vnd.ogc.sld+xml\"" +
+                    $" --data-binary @\"{styleFile}\"" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/styles/{Style}");
+                process2.WaitForExit();
+
+                System.IO.File.Delete(styleFile);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+
+
+        /// <summary>
         /// Публикация GeoTIFF-файла в GeoServer
         /// </summary>
         /// <remarks>
@@ -1012,23 +1064,6 @@ namespace ELake.Controllers
                 {
                     throw new Exception("File extension must be \"shp\"!");
                 }
-
-                string s1 = $" -u " +
-                    $"{Startup.Configuration["GeoServer:User"]}:" +
-                    $"{Startup.Configuration["GeoServer:Password"]}" +
-                    $" -v -XPUT" +
-                    $" -H \"Content-type: application/zip\"" +
-                    $" --data-binary @\"{zipFile}\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
-                    $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/datastores/{fileNameWithoutExtension}/file.shp",
-                    s2 = $" -v -u " +
-                    $"{Startup.Configuration["GeoServer:User"]}:" +
-                    $"{Startup.Configuration["GeoServer:Password"]}" +
-                    $" -XPUT" +
-                    $" -H \"Content-type: text/xml\"" +
-                    $" -d \"<layer><defaultStyle><name>{WorkspaceName}:{Style}</name></defaultStyle></layer>\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
-                    $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers/{WorkspaceName}:{fileNameWithoutExtension}";
 
                 Process process1 = CurlExecute($" -u " +
                     $"{Startup.Configuration["GeoServer:User"]}:" +
