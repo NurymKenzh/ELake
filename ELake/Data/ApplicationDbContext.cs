@@ -28,5 +28,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.Layer> Layer { get; set; }
 
         public DbSet<ELake.Models.Map> Map { get; set; }
+
+        public DbSet<ELake.Models.WaterLevel> WaterLevel { get; set; }
     }
 }

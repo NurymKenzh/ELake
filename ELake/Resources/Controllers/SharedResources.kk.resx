@@ -177,6 +177,9 @@
   <data name="Home" xml:space="preserve">
     <value>Басты</value>
   </data>
+  <data name="LakeId" xml:space="preserve">
+    <value>Көлдің иесі</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Тіл</value>
   </data>
@@ -281,5 +284,17 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Пайдаланушылар</value>
+  </data>
+  <data name="WaterLavelM" xml:space="preserve">
+    <value>Судың орташа деңгейі, м</value>
+  </data>
+  <data name="WaterLevel" xml:space="preserve">
+    <value>Көлдің су деңгейі</value>
+  </data>
+  <data name="WaterLevels" xml:space="preserve">
+    <value>Көлдің су деңгейлері</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Жыл</value>
   </data>
 </root>

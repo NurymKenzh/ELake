@@ -177,6 +177,9 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="LakeId" xml:space="preserve">
+    <value>Id of the lake</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -281,5 +284,17 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Users</value>
+  </data>
+  <data name="WaterLavelM" xml:space="preserve">
+    <value>Average water level, m</value>
+  </data>
+  <data name="WaterLevel" xml:space="preserve">
+    <value>Lake water level</value>
+  </data>
+  <data name="WaterLevels" xml:space="preserve">
+    <value>Lakes water levels</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
   </data>
 </root>

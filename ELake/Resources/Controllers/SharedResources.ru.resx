@@ -177,6 +177,9 @@
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
   </data>
+  <data name="LakeId" xml:space="preserve">
+    <value>Id озера</value>
+  </data>
   <data name="Language" xml:space="preserve">
     <value>Язык</value>
   </data>
@@ -281,5 +284,17 @@
   </data>
   <data name="Users" xml:space="preserve">
     <value>Пользователи</value>
+  </data>
+  <data name="WaterLavelM" xml:space="preserve">
+    <value>Средний уровень воды, м</value>
+  </data>
+  <data name="WaterLevel" xml:space="preserve">
+    <value>Уровень воды озера</value>
+  </data>
+  <data name="WaterLevels" xml:space="preserve">
+    <value>Уровни воды озер</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Год</value>
   </data>
 </root>
