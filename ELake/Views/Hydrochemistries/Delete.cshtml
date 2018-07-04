@@ -1,0 +1,180 @@
+﻿@model ELake.Models.Hydrochemistry
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Delete"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Delete"]</h2>
+
+<h3>@SharedLocalizer["Delete"]?</h3>
+<div>
+    <h4>@SharedLocalizer["Hydrochemistry"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mineralization)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mineralization)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalHardness)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalHardness)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DissOxygWater)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DissOxygWater)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PercentOxygWater)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PercentOxygWater)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.pH)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.pH)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OrganicSubstances)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OrganicSubstances)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ca)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ca)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mg)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NaK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NaK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.HCO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HCO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NH)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NH)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NO2)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NO2)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NO3)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NO3)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PPO)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PPO)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Zn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Zn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pb)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pb)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ni)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ni)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Co)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Co)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CIWP)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CIWP)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-default" /> |
+        <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+    </form>
+</div>

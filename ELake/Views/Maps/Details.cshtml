@@ -22,6 +22,803 @@
         <dd>
             @Html.DisplayFor(model => model.Name)
         </dd>
+        @if (Model.Layers.Count(l => l.Lake) > 0)
+        {
+            <dt>
+                @SharedLocalizer["Year"]
+            </dt>
+            <dd>
+                <span id="year">@ViewBag.MinYear</span>
+                <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);" />
+            </dd>
+            <dt>
+                @SharedLocalizer["DataType"]
+            </dt>
+            <dd>
+                @Html.DropDownList("DataType", (IEnumerable<SelectListItem>)ViewBag.DataType, htmlAttributes: new { @class = "form-control", @id = "DataType", @onchange = "ChangeDataType()" })
+            </dd>
+
+            <dt>
+                @SharedLocalizer["Legend"]
+            </dt>
+            <dd>
+                <table class="table Legend WaterLevel" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsWaterLevel"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesWaterLevel"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesWaterLevel.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsWaterLevel[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesWaterLevel[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend SurfaceFlow" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsSurfaceFlow"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesSurfaceFlow"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesSurfaceFlow.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsSurfaceFlow[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesSurfaceFlow[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend Precipitation" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsPrecipitation"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesPrecipitation"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesPrecipitation.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsPrecipitation[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesPrecipitation[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend UndergroundFlow" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsUndergroundFlow"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesUndergroundFlow"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesUndergroundFlow.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsUndergroundFlow[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesUndergroundFlow[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend SurfaceOutflow" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsSurfaceOutflow"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesSurfaceOutflow"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesSurfaceOutflow.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsSurfaceOutflow[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesSurfaceOutflow[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend Evaporation" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsEvaporation"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesEvaporation"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesEvaporation.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsEvaporation[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesEvaporation[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend UndergroundOutflow" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsUndergroundOutflow"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesUndergroundOutflow"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesUndergroundOutflow.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsUndergroundOutflow[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesUndergroundOutflow[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryMineralization" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryMineralization"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMineralization"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMineralization.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryMineralization[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMineralization[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryTotalHardness" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryTotalHardness"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryTotalHardness"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryTotalHardness.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryTotalHardness[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryTotalHardness[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryDissOxygWater" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryDissOxygWater"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryDissOxygWater"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryDissOxygWater.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryDissOxygWater[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryDissOxygWater[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryPercentOxygWater" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryPercentOxygWater"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPercentOxygWater"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPercentOxygWater.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryPercentOxygWater[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPercentOxygWater[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistrypH" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistrypH"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistrypH"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistrypH.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistrypH[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistrypH[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryOrganicSubstances" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryOrganicSubstances"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryOrganicSubstances"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryOrganicSubstances.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryOrganicSubstances[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryOrganicSubstances[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryCa" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCa"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCa"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCa.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCa[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCa[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryMg" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryMg"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMg"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMg.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryMg[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMg[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryNaK" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNaK"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNaK"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNaK.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNaK[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNaK[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryCl" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCl"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCl"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCl.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCl[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCl[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryHCO" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryHCO"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryHCO"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryHCO.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryHCO[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryHCO[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistrySO" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistrySO"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistrySO"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistrySO.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistrySO[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistrySO[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryNH" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNH"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNH"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNH.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNH[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNH[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryNO2" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNO2"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNO2"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNO2.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNO2[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNO2[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryNO3" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNO3"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNO3"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNO3.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNO3[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNO3[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryPPO" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryPPO"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPPO"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPPO.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryPPO[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPPO[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryCu" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCu"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCu"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCu.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCu[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCu[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryZn" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryZn"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryZn"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryZn.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryZn[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryZn[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryMn" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryMn"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMn"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMn.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryMn[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryMn[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryPb" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryPb"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPb"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPb.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryPb[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryPb[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryNi" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNi"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNi"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNi.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryNi[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryNi[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryCd" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCd"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCd"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCd.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCd[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCd[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryCo" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCo"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCo"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCo.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCo[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCo[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+                <table class="table Legend HydrochemistryCIWP" hidden="hidden">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCIWP"></label>
+                            </th>
+                            <th>
+                                <label asp-for="Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCIWP"></label>
+                            </th>
+                        </tr>
+                    </thead>
+                    @for (int i = 0; i < Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCIWP.Count(); i++)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div style="height: 15px; width: 30px; background: @Model.Layers.FirstOrDefault(l => l.Lake).ColorsHydrochemistryCIWP[i]"></div>
+                                </td>
+                                <td>
+                                    @Model.Layers.FirstOrDefault(l => l.Lake).MinValuesHydrochemistryCIWP[i]
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+            </dd>
+        }
         <dt>
             @Html.DisplayNameFor(model => model.LayersId)
         </dt>
@@ -44,24 +841,31 @@
                     @for (int i = 0; i < Model.LayersId.Length; i++)
                     {
                         string layerGeoServerName = $"layerGeoServerName{i.ToString()}",
+                            layerLake = $"layerLake{i.ToString()}",
                             ShowHideId = $"ShowHide{i.ToString()}",
-                            OpacityId = $"Opacity{i.ToString()}";
+                            OpacityId = $"Opacity{i.ToString()}",
+                            checkedLayer = Model.Layers[i].Lake ? "checked" : "",
+                            layerId = $"layerId{i.ToString()}";
                         <tr>
                             <td>
                                 @Html.DisplayFor(model => model.Layers[i].Name)
                                 <input id="@layerGeoServerName" type="hidden" value="@Html.DisplayFor(model => model.Layers[i].GeoServerName)" />
+                                <input id="@layerLake" type="checkbox" @checkedLayer hidden="hidden" />
+                                <input id="@layerId" type="hidden" value="@Html.DisplayFor(model => model.Layers[i].Id)" />
                             </td>
                             <td>
-                                <input id="@ShowHideId" type="checkbox" onclick="ShowHideLayers()" checked="checked"/>
+                                <input id="@ShowHideId" type="checkbox" onclick="ShowHideLayers()" checked="checked" />
                             </td>
                             <td>
-                                <input id="@OpacityId" type="range" oninput="OpacityLayers()" min="0" max="100" value="100"/>
+                                <input id="@OpacityId" type="range" oninput="OpacityLayers()" min="0" max="100" value="100" />
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
         </dd>
+
+
 
         <dt>
             @SharedLocalizer["Map"]
@@ -134,4 +938,1770 @@
             layers[i].setOpacity($('#Opacity' + oid).val() / 100);
         }
     };
+
+    function SlideYear(year) {
+        $('#year').html(year);
+    };
+
+    function ChangeYear(year) {
+        $('#year').html(year);
+        var lakeLayerId = 0;
+        for (i = 1; i < layers.length; i++) {
+            if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                lakeLayerId = $('#layerId' + (i - 1).toString()).val();
+                break;
+            }
+        }
+
+        if ($('#DataType').val() == "WaterLevels") {
+            $.ajax({
+                url: '@Url.Action("GetWaterLevelsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "SurfaceFlows") {
+            $.ajax({
+                url: '@Url.Action("GetSurfaceFlowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "Precipitations") {
+            $.ajax({
+                url: '@Url.Action("GetPrecipitationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "UndergroundFlows") {
+            $.ajax({
+                url: '@Url.Action("GetUndergroundFlowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "SurfaceOutflows") {
+            $.ajax({
+                url: '@Url.Action("GetSurfaceOutflowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "Evaporations") {
+            $.ajax({
+                url: '@Url.Action("GetEvaporationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "UndergroundOutflows") {
+            $.ajax({
+                url: '@Url.Action("GetUndergroundOutflowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryMineralizations") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMineralizationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryTotalHardnesss") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryTotalHardnesssStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryDissOxygWaters") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryDissOxygWatersStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryPercentOxygWaters") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPercentOxygWatersStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistrypHs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistrypHsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryOrganicSubstancess") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryOrganicSubstancessStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryCas") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCasStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryMgs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMgsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryNaKs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNaKsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryCls") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryClsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryHCOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryHCOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistrySOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistrySOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryNHs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNHsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryNO2s") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNO2sStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryNO3s") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNO3sStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryPPOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPPOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryCus") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCusStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryZns") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryZnsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryMns") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMnsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryPbs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPbsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryNis") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNisStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryCds") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCdsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryCos") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCosStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+        if ($('#DataType').val() == "HydrochemistryCIWPs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCIWPsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+        }
+    };
+
+    function ChangeDataType() {
+        var year = $('#Year').val();
+        var lakeLayerId = 0;
+        for (i = 1; i < layers.length; i++) {
+            if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                lakeLayerId = $('#layerId' + (i - 1).toString()).val();
+                break;
+            }
+        }
+
+        if ($('#DataType').val() == "WaterLevels") {
+            $.ajax({
+                url: '@Url.Action("GetWaterLevelsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.WaterLevel').show();
+        }
+        if ($('#DataType').val() == "SurfaceFlows") {
+            $.ajax({
+                url: '@Url.Action("GetSurfaceFlowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.SurfaceFlow').show();
+        }
+        if ($('#DataType').val() == "Precipitations") {
+            $.ajax({
+                url: '@Url.Action("GetPrecipitationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.Precipitation').show();
+        }
+        if ($('#DataType').val() == "UndergroundFlows") {
+            $.ajax({
+                url: '@Url.Action("GetUndergroundFlowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.UndergroundFlow').show();
+        }
+        if ($('#DataType').val() == "SurfaceOutflows") {
+            $.ajax({
+                url: '@Url.Action("GetSurfaceOutflowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.SurfaceOutflow').show();
+        }
+        if ($('#DataType').val() == "Evaporations") {
+            $.ajax({
+                url: '@Url.Action("GetEvaporationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.Evaporation').show();
+        }
+        if ($('#DataType').val() == "UndergroundOutflows") {
+            $.ajax({
+                url: '@Url.Action("GetUndergroundOutflowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.UndergroundOutflow').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryMineralizations") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMineralizationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMineralization').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryTotalHardnesss") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryTotalHardnesssStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryTotalHardness').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryDissOxygWaters") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryDissOxygWatersStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryDissOxygWater').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryPercentOxygWaters") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPercentOxygWatersStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPercentOxygWater').show();
+        }
+        if ($('#DataType').val() == "HydrochemistrypHs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistrypHsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistrypH').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryOrganicSubstancess") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryOrganicSubstancessStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryOrganicSubstances').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryCas") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCasStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCa').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryMgs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMgsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMg').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryNaKs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNaKsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNaK').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryCls") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryClsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCl').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryHCOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryHCOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryHCO').show();
+        }
+        if ($('#DataType').val() == "HydrochemistrySOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistrySOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistrySO').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryNHs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNHsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNH').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryNO2s") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNO2sStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNO2').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryNO3s") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNO3sStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNO3').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryPPOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPPOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPPO').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryCus") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCusStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCu').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryZns") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryZnsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryZn').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryMns") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMnsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMn').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryPbs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPbsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPb').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryNis") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNisStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNi').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryCds") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCdsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCd').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryCos") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCosStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCo').show();
+        }
+        if ($('#DataType').val() == "HydrochemistryCIWPs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCIWPsStyleLink", "Layers")',
+                data: { Year: year, LayerId: lakeLayerId },
+                type: 'POST',
+                success: function (data) {
+                    for (i = 1; i < layers.length; i++) {
+                        if (document.getElementById('layerLake' + (i - 1).toString()).checked) {
+                            var Source_New = new ol.source.TileWMS({
+                                url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                                params: {
+                                    'LAYERS': 'ELake:' + $('#layerGeoServerName' + (i - 1).toString()).val(),
+                                    'VERSION': '1.1.0',
+                                    'FORMAT': 'image/png',
+                                    'TILED': true
+                                },
+                                serverType: 'geoserver'
+                            });
+                            var l = map.getLayers().getArray()[i];
+                            l.setSource(Source_New);
+                        }
+                    }
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCIWP').show();
+        }
+    };
+
+    ChangeDataType();
 </script>

@@ -1,12 +1,23 @@
 import shapefile
-sf=shapefile.Reader(r'D:\Documents\Google Drive\Maps\IG\3857\W1251\Lakes.shp')
-##for sr in sf.shapeRecords():
-##	print "STATEFP: ", sr.record
-field = "['id']"
 
-for sr in sf.fields :
-    if field == sr[0:1]:
-       print "___: ", sr[0:1]
-    else:
-       print "STATEFP: ", type(sr[0])
-       print "STATEFP: ", sr[0]
+file = raw_input()
+sf = shapefile.Reader(file)
+field = raw_input()
+fieldIndex = 1
+currentIndex = 0
+
+for sr in sf.fields:
+##    print "Field: ", sr[0]
+    currentIndex += 1
+    if field == sr[0]:
+        fieldIndex = currentIndex
+        break
+
+values = []
+
+for sr in sf.shapeRecords():
+##    print "Value: ", sr.record[1:fieldIndex][0]
+    values.append(sr.record[1:fieldIndex][0])
+##    break
+
+print values

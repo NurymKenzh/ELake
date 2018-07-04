@@ -47,7 +47,8 @@ namespace ELake
             // Add application services.
             services
                 .AddTransient<IEmailSender, EmailSender>()
-                .AddTransient<Controllers.GeoServerController, Controllers.GeoServerController>();
+                .AddTransient<Controllers.GeoServerController, Controllers.GeoServerController>()
+                .AddTransient<Controllers.GDALController, Controllers.GDALController>();
 
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
 

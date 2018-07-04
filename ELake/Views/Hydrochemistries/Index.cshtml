@@ -1,0 +1,273 @@
+﻿@model ELake.Models.HydrochemistryIndexPageViewModel
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@using System.Net
+@{
+    ViewData["Title"] = SharedLocalizer["Hydrochemistries"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Hydrochemistries"]</h2>
+
+<p>
+    <a asp-action="Create">@SharedLocalizer["Create"]</a>
+</p>
+@using (Html.BeginForm("Index", "SurfaceFlows", new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter }, FormMethod.Get))
+{
+    @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
+    @if (Model.Pager.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (Model.Pager.CurrentPage > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                        new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                        new { Page = Model.Pager.CurrentPage - 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+            }
+
+            @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+            {
+                <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                        new { Page = page, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+            }
+
+            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                        new { Page = Model.Pager.CurrentPage + 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                        new { Page = Model.Pager.TotalPages, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+            }
+        </ul>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
+                        new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                    <br />
+                    @Html.Editor("LakeId", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().Year).ToString(), "Index",
+                        new { SortOrder = ViewBag.YearSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                    <br />
+                    @Html.Editor("Year", null, new { htmlAttributes = new { @class = "form-control" }, value = "" })
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Mineralization)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().TotalHardness)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().DissOxygWater)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().PercentOxygWater)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().pH)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().OrganicSubstances)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Ca)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Mg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NaK)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Cl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HCO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().SO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NH)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NO2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NO3)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().PPO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Cu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Zn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Mn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Pb)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Ni)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Cd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Co)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(b => b.Items.FirstOrDefault().CIWP)
+                </th>
+                <th>
+                    <br />
+                    <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-default">
+                </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LakeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mineralization)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalHardness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DissOxygWater)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PercentOxygWater)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrganicSubstances)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ca)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NaK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HCO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NO2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NO3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PPO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ni)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Co)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CIWP)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">@SharedLocalizer["Delete"]</a>
+                </td>
+            </tr>
+        }
+    </table>
+    @if (Model.Pager.EndPage > 1)
+    {
+        <ul class="pagination">
+            @if (Model.Pager.CurrentPage > 1)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                        new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                        new { Page = Model.Pager.CurrentPage - 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+            }
+
+            @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+            {
+                <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                    @Html.ActionLink(page.ToString(), "Index",
+                        new { Page = page, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+            }
+
+            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+            {
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                        new { Page = Model.Pager.CurrentPage + 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+                <li>
+                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                        new { Page = Model.Pager.TotalPages, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                </li>
+            }
+        </ul>
+    }
+}

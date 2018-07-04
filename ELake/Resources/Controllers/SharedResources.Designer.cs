@@ -81,9 +81,81 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string AsLakeLayer {
+            get {
+                return ResourceManager.GetString("AsLakeLayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string BackToList {
             get {
                 return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Ca {
+            get {
+                return ResourceManager.GetString("Ca", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Cd {
+            get {
+                return ResourceManager.GetString("Cd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string CIWP {
+            get {
+                return ResourceManager.GetString("CIWP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Cl {
+            get {
+                return ResourceManager.GetString("Cl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Co {
+            get {
+                return ResourceManager.GetString("Co", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string ColorPicker {
+            get {
+                return ResourceManager.GetString("ColorPicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Colors {
+            get {
+                return ResourceManager.GetString("Colors", resourceCulture);
             }
         }
         
@@ -111,6 +183,24 @@ namespace ELake.Resources.Controllers {
         public static string CreateANewAccount {
             get {
                 return ResourceManager.GetString("CreateANewAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Cu {
+            get {
+                return ResourceManager.GetString("Cu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DataType {
+            get {
+                return ResourceManager.GetString("DataType", resourceCulture);
             }
         }
         
@@ -153,6 +243,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DissOxygWater {
+            get {
+                return ResourceManager.GetString("DissOxygWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
@@ -165,6 +264,24 @@ namespace ELake.Resources.Controllers {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Evaporation {
+            get {
+                return ResourceManager.GetString("Evaporation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Evaporations {
+            get {
+                return ResourceManager.GetString("Evaporations", resourceCulture);
             }
         }
         
@@ -234,9 +351,261 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string HCO {
+            get {
+                return ResourceManager.GetString("HCO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Hydrochemistries {
+            get {
+                return ResourceManager.GetString("Hydrochemistries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Hydrochemistry {
+            get {
+                return ResourceManager.GetString("Hydrochemistry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryCas {
+            get {
+                return ResourceManager.GetString("HydrochemistryCas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryCds {
+            get {
+                return ResourceManager.GetString("HydrochemistryCds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryCIWPs {
+            get {
+                return ResourceManager.GetString("HydrochemistryCIWPs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryCls {
+            get {
+                return ResourceManager.GetString("HydrochemistryCls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryCos {
+            get {
+                return ResourceManager.GetString("HydrochemistryCos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryCus {
+            get {
+                return ResourceManager.GetString("HydrochemistryCus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryDissOxygWaters {
+            get {
+                return ResourceManager.GetString("HydrochemistryDissOxygWaters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryHCOs {
+            get {
+                return ResourceManager.GetString("HydrochemistryHCOs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryMgs {
+            get {
+                return ResourceManager.GetString("HydrochemistryMgs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryMineralizations {
+            get {
+                return ResourceManager.GetString("HydrochemistryMineralizations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryMns {
+            get {
+                return ResourceManager.GetString("HydrochemistryMns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryNaKs {
+            get {
+                return ResourceManager.GetString("HydrochemistryNaKs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryNHs {
+            get {
+                return ResourceManager.GetString("HydrochemistryNHs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryNis {
+            get {
+                return ResourceManager.GetString("HydrochemistryNis", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryNO2s {
+            get {
+                return ResourceManager.GetString("HydrochemistryNO2s", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryNO3s {
+            get {
+                return ResourceManager.GetString("HydrochemistryNO3s", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryOrganicSubstancess {
+            get {
+                return ResourceManager.GetString("HydrochemistryOrganicSubstancess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryPbs {
+            get {
+                return ResourceManager.GetString("HydrochemistryPbs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryPercentOxygWaters {
+            get {
+                return ResourceManager.GetString("HydrochemistryPercentOxygWaters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistrypHs {
+            get {
+                return ResourceManager.GetString("HydrochemistrypHs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryPPOs {
+            get {
+                return ResourceManager.GetString("HydrochemistryPPOs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistrySOs {
+            get {
+                return ResourceManager.GetString("HydrochemistrySOs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryTotalHardnesss {
+            get {
+                return ResourceManager.GetString("HydrochemistryTotalHardnesss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HydrochemistryZns {
+            get {
+                return ResourceManager.GetString("HydrochemistryZns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Lake {
+            get {
+                return ResourceManager.GetString("Lake", resourceCulture);
             }
         }
         
@@ -288,6 +657,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Legend {
+            get {
+                return ResourceManager.GetString("Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LogIn {
             get {
                 return ResourceManager.GetString("LogIn", resourceCulture);
@@ -318,6 +696,51 @@ namespace ELake.Resources.Controllers {
         public static string Maps {
             get {
                 return ResourceManager.GetString("Maps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Mg {
+            get {
+                return ResourceManager.GetString("Mg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Mineralization {
+            get {
+                return ResourceManager.GetString("Mineralization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MinValues {
+            get {
+                return ResourceManager.GetString("MinValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Mn {
+            get {
+                return ResourceManager.GetString("Mn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string NaK {
+            get {
+                return ResourceManager.GetString("NaK", resourceCulture);
             }
         }
         
@@ -360,6 +783,42 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string NH {
+            get {
+                return ResourceManager.GetString("NH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Ni {
+            get {
+                return ResourceManager.GetString("Ni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string NO2 {
+            get {
+                return ResourceManager.GetString("NO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string NO3 {
+            get {
+                return ResourceManager.GetString("NO3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Opacity {
             get {
                 return ResourceManager.GetString("Opacity", resourceCulture);
@@ -369,9 +828,72 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string OrganicSubstances {
+            get {
+                return ResourceManager.GetString("OrganicSubstances", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Pb {
+            get {
+                return ResourceManager.GetString("Pb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PercentOxygWater {
+            get {
+                return ResourceManager.GetString("PercentOxygWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string pH {
+            get {
+                return ResourceManager.GetString("pH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PPO {
+            get {
+                return ResourceManager.GetString("PPO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Precipitation {
+            get {
+                return ResourceManager.GetString("Precipitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Precipitations {
+            get {
+                return ResourceManager.GetString("Precipitations", resourceCulture);
             }
         }
         
@@ -477,9 +999,387 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string ShapeFile {
+            get {
+                return ResourceManager.GetString("ShapeFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Show {
             get {
                 return ResourceManager.GetString("Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SO {
+            get {
+                return ResourceManager.GetString("SO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleEvaporation {
+            get {
+                return ResourceManager.GetString("StyleEvaporation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryCa {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryCa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryCd {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryCIWP {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryCIWP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryCl {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryCl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryCo {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryCo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryCu {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryCu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryDissOxygWater {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryDissOxygWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryHCO {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryHCO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryMg {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryMg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryMineralization {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryMineralization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryMn {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryMn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryNaK {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryNaK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryNH {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryNH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryNi {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryNi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryNO2 {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryNO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryNO3 {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryNO3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryOrganicSubstances {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryOrganicSubstances", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryPb {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryPb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryPercentOxygWater {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryPercentOxygWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistrypH {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistrypH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryPPO {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryPPO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistrySO {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistrySO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryTotalHardness {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryTotalHardness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleHydrochemistryZn {
+            get {
+                return ResourceManager.GetString("StyleHydrochemistryZn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StylePrecipitation {
+            get {
+                return ResourceManager.GetString("StylePrecipitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleSurfaceFlow {
+            get {
+                return ResourceManager.GetString("StyleSurfaceFlow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleSurfaceOutflow {
+            get {
+                return ResourceManager.GetString("StyleSurfaceOutflow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleUndergroundFlow {
+            get {
+                return ResourceManager.GetString("StyleUndergroundFlow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleUndergroundOutflow {
+            get {
+                return ResourceManager.GetString("StyleUndergroundOutflow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string StyleWaterLevel {
+            get {
+                return ResourceManager.GetString("StyleWaterLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SurfaceFlow {
+            get {
+                return ResourceManager.GetString("SurfaceFlow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SurfaceFlows {
+            get {
+                return ResourceManager.GetString("SurfaceFlows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SurfaceOutflow {
+            get {
+                return ResourceManager.GetString("SurfaceOutflow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SurfaceOutflows {
+            get {
+                return ResourceManager.GetString("SurfaceOutflows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string TotalHardness {
+            get {
+                return ResourceManager.GetString("TotalHardness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UndergroundFlow {
+            get {
+                return ResourceManager.GetString("UndergroundFlow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UndergroundFlows {
+            get {
+                return ResourceManager.GetString("UndergroundFlows", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UndergroundOutflow {
+            get {
+                return ResourceManager.GetString("UndergroundOutflow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UndergroundOutflows {
+            get {
+                return ResourceManager.GetString("UndergroundOutflows", resourceCulture);
             }
         }
         
@@ -507,6 +1407,24 @@ namespace ELake.Resources.Controllers {
         public static string UnpublishShape {
             get {
                 return ResourceManager.GetString("UnpublishShape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UpdateLakeLayerStyle {
+            get {
+                return ResourceManager.GetString("UpdateLakeLayerStyle", resourceCulture);
             }
         }
         
@@ -567,6 +1485,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Value {
+            get {
+                return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string WaterLavelM {
             get {
                 return ResourceManager.GetString("WaterLavelM", resourceCulture);
@@ -597,6 +1524,15 @@ namespace ELake.Resources.Controllers {
         public static string Year {
             get {
                 return ResourceManager.GetString("Year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Zn {
+            get {
+                return ResourceManager.GetString("Zn", resourceCulture);
             }
         }
     }

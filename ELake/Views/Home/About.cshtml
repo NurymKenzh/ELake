@@ -5,3 +5,34 @@
 <h3>@ViewData["Message"]</h3>
 
 <p>Use this area to provide additional information.</p>
+
+<link href="~/lib/ol/ol.css" rel="stylesheet" />
+<script src="~/lib/ol/ol.js"></script>
+
+<div id="map" class="map"></div>
+<script>
+    var layers = [
+        new ol.layer.Tile({
+            source: new ol.source.OSM()
+        }),
+        new ol.layer.Tile({
+            source: new ol.source.TileWMS({
+                url: 'http://localhost:8080/geoserver/wms?env=color601810:00ff00;color500030:9c4555;color500062:56bb5e;color500063:d58e40;color500080:DC143C;color500090:66CDAA;color500100:FFF0F5;color500110:40E0D0;color500120:5F9EA0;color500130:000080;',
+                params: {
+                    'LAYERS': 'ELake:Lakes',
+                    'VERSION': '1.1.0',
+                    'FORMAT': 'image/png',
+                    'TILED': true },
+                serverType: 'geoserver'
+            })
+        })
+    ];
+    var map = new ol.Map({
+        layers: layers,
+        target: 'map',
+        view: new ol.View({
+            center: ol.proj.fromLonLat([69, 48]),
+            zoom: 4
+        })
+    });
+</script>

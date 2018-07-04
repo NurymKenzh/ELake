@@ -7,22 +7,36 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ELake.Data;
 using ELake.Models;
+using Microsoft.Extensions.Localization;
 
 namespace ELake.Controllers
 {
     public class MapsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<SharedResources> _sharedLocalizer;
 
-        public MapsController(ApplicationDbContext context)
+        public MapsController(ApplicationDbContext context,
+            IStringLocalizer<SharedResources> sharedLocalizer)
         {
             _context = context;
+            _sharedLocalizer = sharedLocalizer;
         }
 
         // GET: Maps
         public async Task<IActionResult> Index()
         {
             return View(await _context.Map.ToListAsync());
+        }
+
+        public static int Max(params int[] values)
+        {
+            return Enumerable.Max(values);
+        }
+
+        public static int Min(params int[] values)
+        {
+            return Enumerable.Min(values);
         }
 
         // GET: Maps/Details/5
@@ -41,6 +55,59 @@ namespace ELake.Controllers
             }
 
             map.Layers = FormLayers(map.LayersId);
+
+            ViewBag.MinYear = Min(_context.WaterLevel.Min(w => w.Year),
+                _context.SurfaceFlow.Min(w => w.Year),
+                _context.Precipitation.Min(w => w.Year),
+                _context.UndergroundFlow.Min(w => w.Year),
+                _context.SurfaceOutflow.Min(w => w.Year),
+                _context.Evaporation.Min(w => w.Year),
+                _context.UndergroundOutflow.Min(w => w.Year),
+                _context.Hydrochemistry.Min(w => w.Year));
+            ViewBag.MaxYear = Max(_context.WaterLevel.Max(w => w.Year),
+                _context.SurfaceFlow.Max(w => w.Year),
+                _context.Precipitation.Max(w => w.Year),
+                _context.UndergroundFlow.Max(w => w.Year),
+                _context.SurfaceOutflow.Max(w => w.Year),
+                _context.Evaporation.Max(w => w.Year),
+                _context.UndergroundOutflow.Max(w => w.Year),
+                _context.Hydrochemistry.Max(w => w.Year));
+
+            string[] DataTypes = new string[] {
+                "WaterLevels",
+                "SurfaceFlows",
+                "Precipitations",
+                "UndergroundFlows",
+                "SurfaceOutflows",
+                "Evaporations",
+                "UndergroundOutflows",
+                "HydrochemistryMineralizations",
+                "HydrochemistryTotalHardnesss",
+                "HydrochemistryDissOxygWaters",
+                "HydrochemistryPercentOxygWaters",
+                "HydrochemistrypHs",
+                "HydrochemistryOrganicSubstancess",
+                "HydrochemistryCas",
+                "HydrochemistryMgs",
+                "HydrochemistryNaKs",
+                "HydrochemistryCls",
+                "HydrochemistryHCOs",
+                "HydrochemistrySOs",
+                "HydrochemistryNHs",
+                "HydrochemistryNO2s",
+                "HydrochemistryNO3s",
+                "HydrochemistryPPOs",
+                "HydrochemistryCus",
+                "HydrochemistryZns",
+                "HydrochemistryMns",
+                "HydrochemistryPbs",
+                "HydrochemistryNis",
+                "HydrochemistryCds",
+                "HydrochemistryCos",
+                "HydrochemistryCIWPs"
+            };
+            ViewBag.DataType = DataTypes.Select(r => new SelectListItem { Text = _sharedLocalizer[r], Value = r });
+
 
             return View(map);
         }

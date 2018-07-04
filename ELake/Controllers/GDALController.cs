@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace ELake.Controllers
 {
@@ -67,6 +68,7 @@ namespace ELake.Controllers
                             Path.Combine("Python", Arguments[0])),
                         "py")
                     );
+                Arguments[0] = $"\"{Arguments[0]}\"";
 
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardOutput = true;
@@ -123,6 +125,21 @@ namespace ELake.Controllers
                 {
                     return shellOutput;
                 }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+        public int[] GetShpColumnValues(string File, string Field)
+        {
+            int[] values = new int[1];
+            try
+            {
+                string jsonArray = PythonExecute("GetShpValues", $"{File}", Field);
+                values = Newtonsoft.Json.JsonConvert.DeserializeObject<int[]>(jsonArray);
+                return values;
             }
             catch (Exception exception)
             {

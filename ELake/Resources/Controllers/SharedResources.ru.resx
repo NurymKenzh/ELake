@@ -123,8 +123,32 @@
   <data name="Administration" xml:space="preserve">
     <value>Администрирование</value>
   </data>
+  <data name="AsLakeLayer" xml:space="preserve">
+    <value>Слой озер</value>
+  </data>
   <data name="BackToList" xml:space="preserve">
     <value>Обратно к списку</value>
+  </data>
+  <data name="Ca" xml:space="preserve">
+    <value>Катионы кальция,мг/дм3</value>
+  </data>
+  <data name="Cd" xml:space="preserve">
+    <value>Cd</value>
+  </data>
+  <data name="CIWP" xml:space="preserve">
+    <value>КИЗВ с учетом Ко</value>
+  </data>
+  <data name="Cl" xml:space="preserve">
+    <value>Хлоридные анионы, мг/дм3</value>
+  </data>
+  <data name="Co" xml:space="preserve">
+    <value>Co</value>
+  </data>
+  <data name="ColorPicker" xml:space="preserve">
+    <value>Тематические цвета, Стандартные цвета, Цветовая гамма, Цвет темы, Назад в палитру, История, История еще не существует.</value>
+  </data>
+  <data name="Colors" xml:space="preserve">
+    <value>Цвета</value>
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Подтвердите пароль</value>
@@ -134,6 +158,9 @@
   </data>
   <data name="CreateANewAccount" xml:space="preserve">
     <value>Создать новый аккаунт.</value>
+  </data>
+  <data name="Cu" xml:space="preserve">
+    <value>Cu</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Удалить</value>
@@ -147,11 +174,20 @@
   <data name="Details" xml:space="preserve">
     <value>Детали</value>
   </data>
+  <data name="DissOxygWater" xml:space="preserve">
+    <value>Растворенный в воде кислород, мг-экв/дм3</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Эл. адрес</value>
+  </data>
+  <data name="Evaporation" xml:space="preserve">
+    <value>Испарение</value>
+  </data>
+  <data name="Evaporations" xml:space="preserve">
+    <value>Испарения</value>
   </data>
   <data name="FileNameWithPath" xml:space="preserve">
     <value>Путь к файлу</value>
@@ -174,8 +210,20 @@
   <data name="GeoTIFFFile" xml:space="preserve">
     <value>GeoTIFF-файл</value>
   </data>
+  <data name="HCO" xml:space="preserve">
+    <value>Гидрокорбонатные анионы, мг/дм3</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
+  </data>
+  <data name="Hydrochemistries" xml:space="preserve">
+    <value>Гидрохимия</value>
+  </data>
+  <data name="Hydrochemistry" xml:space="preserve">
+    <value>Гидрохимия</value>
+  </data>
+  <data name="Lake" xml:space="preserve">
+    <value>Озеро</value>
   </data>
   <data name="LakeId" xml:space="preserve">
     <value>Id озера</value>
@@ -204,6 +252,21 @@
   <data name="Maps" xml:space="preserve">
     <value>Карты</value>
   </data>
+  <data name="Mg" xml:space="preserve">
+    <value>Катионы магния, мг/дм3</value>
+  </data>
+  <data name="Mineralization" xml:space="preserve">
+    <value>Значение минерализации, мг/дм3</value>
+  </data>
+  <data name="MinValues" xml:space="preserve">
+    <value>Минимальные значения</value>
+  </data>
+  <data name="Mn" xml:space="preserve">
+    <value>Mn</value>
+  </data>
+  <data name="NaK" xml:space="preserve">
+    <value>Катионы натрий калия, мг/дм3</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Название</value>
   </data>
@@ -216,11 +279,44 @@
   <data name="NameRU" xml:space="preserve">
     <value>Название (русский)</value>
   </data>
+  <data name="NH" xml:space="preserve">
+    <value>NH</value>
+  </data>
+  <data name="Ni" xml:space="preserve">
+    <value>Ni</value>
+  </data>
+  <data name="NO2" xml:space="preserve">
+    <value>NO2</value>
+  </data>
+  <data name="NO3" xml:space="preserve">
+    <value>NO3</value>
+  </data>
   <data name="Opacity" xml:space="preserve">
     <value>Непрозрачность</value>
   </data>
+  <data name="OrganicSubstances" xml:space="preserve">
+    <value>Органические вещества,мгО/дм3</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
+  </data>
+  <data name="Pb" xml:space="preserve">
+    <value>Pb</value>
+  </data>
+  <data name="PercentOxygWater" xml:space="preserve">
+    <value>Процент насыщенности, %</value>
+  </data>
+  <data name="pH" xml:space="preserve">
+    <value>Значение рН</value>
+  </data>
+  <data name="PPO" xml:space="preserve">
+    <value>PPO</value>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Осадки</value>
+  </data>
+  <data name="Precipitations" xml:space="preserve">
+    <value>Осадки</value>
   </data>
   <data name="Publish" xml:space="preserve">
     <value>Опубликовать</value>
@@ -255,8 +351,44 @@
   <data name="Save" xml:space="preserve">
     <value>Сохранить</value>
   </data>
+  <data name="ShapeFile" xml:space="preserve">
+    <value>Shape-файл</value>
+  </data>
   <data name="Show" xml:space="preserve">
     <value>Показать</value>
+  </data>
+  <data name="SO" xml:space="preserve">
+    <value>Сульфатные анионы, мг/дм3</value>
+  </data>
+  <data name="StyleWaterLevel" xml:space="preserve">
+    <value>Стиль уровней вод озер</value>
+  </data>
+  <data name="SurfaceFlow" xml:space="preserve">
+    <value>Поверхностный приток</value>
+  </data>
+  <data name="SurfaceFlows" xml:space="preserve">
+    <value>Поверхностные притоки</value>
+  </data>
+  <data name="SurfaceOutflow" xml:space="preserve">
+    <value>Поверхностный отток</value>
+  </data>
+  <data name="SurfaceOutflows" xml:space="preserve">
+    <value>Поверхностные оттоки</value>
+  </data>
+  <data name="TotalHardness" xml:space="preserve">
+    <value>Общая жесткость воды, мг-экв/дм3</value>
+  </data>
+  <data name="UndergroundFlow" xml:space="preserve">
+    <value>Подземный приток</value>
+  </data>
+  <data name="UndergroundFlows" xml:space="preserve">
+    <value>Подземные притоки</value>
+  </data>
+  <data name="UndergroundOutflow" xml:space="preserve">
+    <value>Подземный отток</value>
+  </data>
+  <data name="UndergroundOutflows" xml:space="preserve">
+    <value>Подземные оттоки</value>
   </data>
   <data name="Unpublish" xml:space="preserve">
     <value>Отменить публикацию</value>
@@ -285,6 +417,9 @@
   <data name="Users" xml:space="preserve">
     <value>Пользователи</value>
   </data>
+  <data name="Value" xml:space="preserve">
+    <value>Значение</value>
+  </data>
   <data name="WaterLavelM" xml:space="preserve">
     <value>Средний уровень воды, м</value>
   </data>
@@ -296,5 +431,182 @@
   </data>
   <data name="Year" xml:space="preserve">
     <value>Год</value>
+  </data>
+  <data name="Zn" xml:space="preserve">
+    <value>Zn</value>
+  </data>
+  <data name="DataType" xml:space="preserve">
+    <value>Тип данных</value>
+  </data>
+  <data name="StyleEvaporation" xml:space="preserve">
+    <value>Стиль испарений</value>
+  </data>
+  <data name="StylePrecipitation" xml:space="preserve">
+    <value>Стиль осадков</value>
+  </data>
+  <data name="StyleSurfaceFlow" xml:space="preserve">
+    <value>Стиль поверхностных притоков</value>
+  </data>
+  <data name="StyleSurfaceOutflow" xml:space="preserve">
+    <value>Стиль поверхностных оттоков</value>
+  </data>
+  <data name="StyleUndergroundFlow" xml:space="preserve">
+    <value>Стиль подземных притоков</value>
+  </data>
+  <data name="StyleUndergroundOutflow" xml:space="preserve">
+    <value>Стиль подземных оттоков</value>
+  </data>
+  <data name="HydrochemistryCas" xml:space="preserve">
+    <value>Катионы кальция,мг/дм3</value>
+  </data>
+  <data name="HydrochemistryCds" xml:space="preserve">
+    <value>Cd</value>
+  </data>
+  <data name="HydrochemistryCIWPs" xml:space="preserve">
+    <value>КИЗВ с учетом Ко</value>
+  </data>
+  <data name="HydrochemistryCls" xml:space="preserve">
+    <value>Хлоридные анионы, мг/дм3</value>
+  </data>
+  <data name="HydrochemistryCos" xml:space="preserve">
+    <value>Co</value>
+  </data>
+  <data name="HydrochemistryCus" xml:space="preserve">
+    <value>Cu</value>
+  </data>
+  <data name="HydrochemistryDissOxygWaters" xml:space="preserve">
+    <value>Растворенный в воде кислород, мг-экв/дм3</value>
+  </data>
+  <data name="HydrochemistryHCOs" xml:space="preserve">
+    <value>Гидрокорбонатные анионы, мг/дм3</value>
+  </data>
+  <data name="HydrochemistryMgs" xml:space="preserve">
+    <value>Катионы магния, мг/дм3</value>
+  </data>
+  <data name="HydrochemistryMineralizations" xml:space="preserve">
+    <value>Значение минерализации, мг/дм3</value>
+  </data>
+  <data name="HydrochemistryMns" xml:space="preserve">
+    <value>Mn</value>
+  </data>
+  <data name="HydrochemistryNaKs" xml:space="preserve">
+    <value>Катионы натрий калия, мг/дм3</value>
+  </data>
+  <data name="HydrochemistryNHs" xml:space="preserve">
+    <value>NH</value>
+  </data>
+  <data name="HydrochemistryNis" xml:space="preserve">
+    <value>Ni</value>
+  </data>
+  <data name="HydrochemistryNO2s" xml:space="preserve">
+    <value>NO2</value>
+  </data>
+  <data name="HydrochemistryNO3s" xml:space="preserve">
+    <value>NO3</value>
+  </data>
+  <data name="HydrochemistryOrganicSubstancess" xml:space="preserve">
+    <value>Органические вещества,мгО/дм3</value>
+  </data>
+  <data name="HydrochemistryPbs" xml:space="preserve">
+    <value>Pb</value>
+  </data>
+  <data name="HydrochemistryPercentOxygWaters" xml:space="preserve">
+    <value>Процент насыщенности, %</value>
+  </data>
+  <data name="HydrochemistrypHs" xml:space="preserve">
+    <value>Значение рН</value>
+  </data>
+  <data name="HydrochemistryPPOs" xml:space="preserve">
+    <value>PPO</value>
+  </data>
+  <data name="HydrochemistrySOs" xml:space="preserve">
+    <value>Сульфатные анионы, мг/дм3</value>
+  </data>
+  <data name="HydrochemistryTotalHardnesss" xml:space="preserve">
+    <value>Общая жесткость воды, мг-экв/дм3</value>
+  </data>
+  <data name="HydrochemistryZns" xml:space="preserve">
+    <value>Zn</value>
+  </data>
+  <data name="StyleHydrochemistryCa" xml:space="preserve">
+    <value>Стиль катионов кальция</value>
+  </data>
+  <data name="StyleHydrochemistryCd" xml:space="preserve">
+    <value>Стиль Cd</value>
+  </data>
+  <data name="StyleHydrochemistryCIWP" xml:space="preserve">
+    <value>Стиль КИЗВ с учетом Ко</value>
+  </data>
+  <data name="StyleHydrochemistryCl" xml:space="preserve">
+    <value>Стиль хлоридных анионов</value>
+  </data>
+  <data name="StyleHydrochemistryCo" xml:space="preserve">
+    <value>Стиль Co</value>
+  </data>
+  <data name="StyleHydrochemistryCu" xml:space="preserve">
+    <value>Стиль Cu</value>
+  </data>
+  <data name="StyleHydrochemistryDissOxygWater" xml:space="preserve">
+    <value>Стиль растворенного в воде кислорода</value>
+  </data>
+  <data name="StyleHydrochemistryHCO" xml:space="preserve">
+    <value>Стиль гидрокорбонатных анионов</value>
+  </data>
+  <data name="StyleHydrochemistryMg" xml:space="preserve">
+    <value>Стиль катионов магния</value>
+  </data>
+  <data name="StyleHydrochemistryMineralization" xml:space="preserve">
+    <value>Стиль минерализации</value>
+  </data>
+  <data name="StyleHydrochemistryMn" xml:space="preserve">
+    <value>Стиль Mn</value>
+  </data>
+  <data name="StyleHydrochemistryNaK" xml:space="preserve">
+    <value>Стиль катионов натрий калия</value>
+  </data>
+  <data name="StyleHydrochemistryNH" xml:space="preserve">
+    <value>Стиль NH</value>
+  </data>
+  <data name="StyleHydrochemistryNi" xml:space="preserve">
+    <value>Стиль Ni</value>
+  </data>
+  <data name="StyleHydrochemistryNO2" xml:space="preserve">
+    <value>Стиль NO2</value>
+  </data>
+  <data name="StyleHydrochemistryNO3" xml:space="preserve">
+    <value>Стиль NO3</value>
+  </data>
+  <data name="StyleHydrochemistryOrganicSubstances" xml:space="preserve">
+    <value>Стиль органических веществ</value>
+  </data>
+  <data name="StyleHydrochemistryPb" xml:space="preserve">
+    <value>Стиль Pb</value>
+  </data>
+  <data name="StyleHydrochemistryPercentOxygWater" xml:space="preserve">
+    <value>Стиль процента насыщенности</value>
+  </data>
+  <data name="StyleHydrochemistrypH" xml:space="preserve">
+    <value>Стиль рН</value>
+  </data>
+  <data name="StyleHydrochemistryPPO" xml:space="preserve">
+    <value>Стиль PPO</value>
+  </data>
+  <data name="StyleHydrochemistrySO" xml:space="preserve">
+    <value>Стиль сульфатных анионов</value>
+  </data>
+  <data name="StyleHydrochemistryTotalHardness" xml:space="preserve">
+    <value>Стиль общей жесткости воды</value>
+  </data>
+  <data name="StyleHydrochemistryZn" xml:space="preserve">
+    <value>Стиль Zn</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Легенда</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="UpdateLakeLayerStyle" xml:space="preserve">
+    <value>Обновить стиль слоя озер</value>
   </data>
 </root>

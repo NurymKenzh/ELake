@@ -30,5 +30,19 @@ namespace ELake.Data
         public DbSet<ELake.Models.Map> Map { get; set; }
 
         public DbSet<ELake.Models.WaterLevel> WaterLevel { get; set; }
+
+        public DbSet<ELake.Models.SurfaceFlow> SurfaceFlow { get; set; }
+
+        public DbSet<ELake.Models.Precipitation> Precipitation { get; set; }
+
+        public DbSet<ELake.Models.UndergroundFlow> UndergroundFlow { get; set; }
+
+        public DbSet<ELake.Models.SurfaceOutflow> SurfaceOutflow { get; set; }
+
+        public DbSet<ELake.Models.Evaporation> Evaporation { get; set; }
+
+        public DbSet<ELake.Models.UndergroundOutflow> UndergroundOutflow { get; set; }
+
+        public DbSet<ELake.Models.Hydrochemistry> Hydrochemistry { get; set; }
     }
 }

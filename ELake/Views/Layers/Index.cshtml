@@ -46,11 +46,21 @@
             <td>
                 @Html.DisplayFor(modelItem => item.GeoServerStyle)
             </td>
-            <td>
-                @*<a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |*@
-                <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a> @*|
-                <a asp-action="Delete" asp-route-id="@item.Id">@SharedLocalizer["Delete"]</a>*@
-            </td>
+            @if(item.Lake)
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a>
+                </td>
+            }
+            else
+            {
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |*@
+                    <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a> @*|
+                    <a asp-action="Delete" asp-route-id="@item.Id">@SharedLocalizer["Delete"]</a>*@
+                </td>
+            }
         </tr>
         }
     </tbody>
