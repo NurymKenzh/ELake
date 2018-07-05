@@ -1340,7 +1340,7 @@ namespace ELake.Controllers
         /// Файлы могут быть разделены на zip-архивы
         /// </remarks>
         [DisableRequestSizeLimit]
-        [RequestSizeLimit(long.MaxValue)]
+        //[RequestSizeLimit(long.MaxValue)]
         [Authorize(Roles = "Administrator, Moderator")]
         public IActionResult UploadGeoTIFFFiles()
         {
@@ -1357,7 +1357,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [DisableRequestSizeLimit]
-        [RequestSizeLimit(long.MaxValue)]
+        //[RequestSizeLimit(long.MaxValue)]
         [Authorize(Roles = "Administrator, Moderator")]
         public async Task<string> UploadGeoTIFFFiles(List<IFormFile> Files)
         {
