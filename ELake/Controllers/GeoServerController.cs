@@ -709,29 +709,37 @@ namespace ELake.Controllers
 
                 }
                 List<string> unzipfiles = new List<string>();
-                foreach (IFormFile file in Files)
+                //foreach (IFormFile file in Files)
+                foreach (string file in Directory.GetFiles(GetWorkspaceDirectoryPath(WorkspaceName), "*.zip", SearchOption.TopDirectoryOnly))
                 {
-                    if (Path.GetExtension(file.FileName) == ".zip")
+                    if (Path.GetExtension(file) == ".zip")
                     {
-                        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-                        using (ZipFile zip = ZipFile.Read(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileName(file.FileName))))
+                        try
                         {
-                            foreach (ZipEntry filefromzip in zip)
+                            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+                            using (ZipFile zip = ZipFile.Read(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileName(file))))
                             {
-                                filefromzip.Extract(GetWorkspaceDirectoryPath(WorkspaceName), ExtractExistingFileAction.OverwriteSilently);
-                                unzipfiles.Add(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), filefromzip.FileName));
+                                foreach (ZipEntry filefromzip in zip)
+                                {
+                                    filefromzip.Extract(GetWorkspaceDirectoryPath(WorkspaceName), ExtractExistingFileAction.OverwriteSilently);
+                                    unzipfiles.Add(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), filefromzip.FileName));
+                                }
                             }
+                        }
+                        catch
+                        {
+
                         }
                     }
                 }
                 IConfigurationSection geoTIFFFileExtentions = Startup.Configuration.GetSection("GeoServer:GeoTIFFFileExtentions");
-                foreach (IFormFile file in Files)
-                {
-                    if (!geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(file.FileName)))
-                    {
-                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileName(file.FileName)));
-                    }
-                }
+                //foreach (IFormFile file in Files)
+                //{
+                //    if (!geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(file.FileName)))
+                //    {
+                //        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileName(file.FileName)));
+                //    }
+                //}
                 foreach (string file in unzipfiles)
                 {
                     if (!geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(file)))
