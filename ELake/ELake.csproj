@@ -44,8 +44,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Video\" />
     <Folder Include="Python\" />
     <Folder Include="wwwroot\Uploads\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Video\PublishGeoTIFF.mp4" />
+    <None Include="wwwroot\Video\PublishShape.mp4" />
+    <None Include="wwwroot\Video\UploadGeoTIFFFiles.mp4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +61,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>SharedResources.resx</DependentUpon>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Python\GetShpValues.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

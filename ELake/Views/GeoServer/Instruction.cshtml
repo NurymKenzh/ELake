@@ -8,9 +8,27 @@
 
 <h2>@SharedLocalizer["Instruction"]</h2>
 
-@if(ViewBag.Type != "")
+@if (ViewBag.Type == "UploadGeoTIFFFiles")
 {
-<div>
-    @ViewBag.Type
-</div>
+    <h3>@SharedLocalizer["UploadGeoTIFFFiles"]</h3>
+    <video style="max-width: 970px;" controls>
+        <source src="~/Video/UploadGeoTIFFFiles.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+}
+@if (ViewBag.Type == "PublishGeoTIFF")
+{
+    <h3>@SharedLocalizer["PublishGeoTIFF"]</h3>
+    <video style="max-width: 970px;" controls>
+        <source src="~/Video/PublishGeoTIFF.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+}
+@if (ViewBag.Type == "PublishShape")
+{
+    <h3>@SharedLocalizer["PublishShape"]</h3>
+    <video style="max-width: 970px;" controls>
+        <source src="~/Video/PublishShape.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 }
