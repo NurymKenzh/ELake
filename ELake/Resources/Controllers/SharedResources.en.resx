@@ -322,7 +322,7 @@
     <value>Publish</value>
   </data>
   <data name="PublishDescription" xml:space="preserve">
-    <value>Files must have a coordinate system EPSG:3857</value>
+    <value>The files must have a coordinate system EPSG:3857. The file size should be no more than 1 GB. Files can be in the zip archive.</value>
   </data>
   <data name="PublishGeoTIFF" xml:space="preserve">
     <value>Publish GeoTIFF file</value>
@@ -608,5 +608,26 @@
   </data>
   <data name="UpdateLakeLayerStyle" xml:space="preserve">
     <value>Update lake layer style</value>
+  </data>
+  <data name="MessageCantBeDeleted" xml:space="preserve">
+    <value>{0} can't be deleted because it is used in current layers: {1}!</value>
+  </data>
+  <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
+    <value>File extension must be "shp"!</value>
+  </data>
+  <data name="MessageFileWasDeleted" xml:space="preserve">
+    <value>File {0} was deleted!</value>
+  </data>
+  <data name="MessageLayerAlreadyExist" xml:space="preserve">
+    <value>Layer {0} is already exist in {1} workspace!</value>
+  </data>
+  <data name="MessageLayerIsntExist" xml:space="preserve">
+    <value>Layer {0} isn't exist in {1} workspace!</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Instruction</value>
+  </data>
+  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
+    <value>File extension must be "tif" or "tiff"!</value>
   </data>
 </root>

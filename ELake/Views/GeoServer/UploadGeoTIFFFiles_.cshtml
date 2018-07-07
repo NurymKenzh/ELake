@@ -8,14 +8,10 @@
 
 <h2>@SharedLocalizer["UploadGeoTIFFFiles"]</h2>
 
-<script src="~/lib/jquery/dist/jquery.js"></script>
+@*<script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery-form/jquery.form.js"></script>
 
 <h3>@SharedLocalizer["PublishDescription"]</h3>
-
-@Html.ActionLink(SharedLocalizer["Instruction"], "Instruction", new { Type = "UploadGeoTIFFFiles" })
-<br />
-<br />
 
 <div class="row">
     <div class="col-md-4">
@@ -63,4 +59,18 @@
             }
         });
     });
-</script>
+</script>*@
+
+<form method="post" enctype="multipart/form-data" asp-action="UploadGeoTIFFFiles_">
+    <div>
+        <p>Upload one or more files using this form:</p>
+        <input type="file" name="files" multiple />
+    </div>
+    <div>
+        <p>Your Username</p>
+        <input type="text" name="username" />
+    </div>
+    <div>
+        <input type="submit" value="Upload" />
+    </div>
+</form>

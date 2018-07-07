@@ -609,4 +609,25 @@
   <data name="UpdateLakeLayerStyle" xml:space="preserve">
     <value />
   </data>
+  <data name="MessageCantBeDeleted" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MessageFileWasDeleted" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MessageLayerAlreadyExist" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MessageLayerIsntExist" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
+    <value />
+  </data>
 </root>

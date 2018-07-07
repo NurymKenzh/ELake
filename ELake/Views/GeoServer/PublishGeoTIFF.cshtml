@@ -7,6 +7,9 @@
 }
 
 <h2>@SharedLocalizer["PublishGeoTIFF"]</h2>
+@Html.ActionLink(SharedLocalizer["Instruction"], "Instruction", new { Type = "PublishGeoTIFF" })
+<br />
+<br />
 
 @if (!string.IsNullOrEmpty(ViewBag.Message))
 {

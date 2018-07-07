@@ -609,4 +609,25 @@
   <data name="UpdateLakeLayerStyle" xml:space="preserve">
     <value>Қабат қабаты деңгейін жаңарту</value>
   </data>
+  <data name="MessageCantBeDeleted" xml:space="preserve">
+    <value>{0} жою мүмкін емес, себебі ол ағымдағы қабаттарда қолданылады: {1}!</value>
+  </data>
+  <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
+    <value>Файл кеңейтімі «shp» болуы керек!</value>
+  </data>
+  <data name="MessageFileWasDeleted" xml:space="preserve">
+    <value>{0} файлы жойылды!</value>
+  </data>
+  <data name="MessageLayerAlreadyExist" xml:space="preserve">
+    <value>{0} қабаты {1} жұмыс кеңістігінде бұрыннан бар!</value>
+  </data>
+  <data name="MessageLayerIsntExist" xml:space="preserve">
+    <value>{0} қабаты жұмыс кеңістігінде {1} жоқ!</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Нұсқаулық</value>
+  </data>
+  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
+    <value>Файл кеңейтімі «tif» болуы керек!</value>
+  </data>
 </root>

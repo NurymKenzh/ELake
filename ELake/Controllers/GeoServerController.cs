@@ -13,7 +13,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
 
@@ -725,6 +727,8 @@ namespace ELake.Controllers
                                     unzipfiles.Add(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), filefromzip.FileName));
                                 }
                             }
+                            unzipfiles.Add(file);
+                            unzipfiles.AddRange(Directory.GetFiles(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileNameWithoutExtension(file) + ".z*", SearchOption.TopDirectoryOnly));
                         }
                         catch
                         {
@@ -905,7 +909,8 @@ namespace ELake.Controllers
                 string[] geoTIFFFileLayers = GetGeoTIFFFileLayers(WorkspaceName, FileName);
                 if (geoTIFFFileLayers.Count()>0)
                 {
-                    throw new Exception($"{FileName} can't be deleted because it is used in current layers: {string.Join(", ", geoTIFFFileLayers)}!");
+                    //throw new Exception($"{FileName} can't be deleted because it is used in current layers: {string.Join(", ", geoTIFFFileLayers)}!");
+                    throw new Exception(string.Format(_sharedLocalizer["MessageCantBeDeleted"], FileName, string.Join(", ", geoTIFFFileLayers)));
                 }
                 System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), FileName));
             }
@@ -1081,7 +1086,8 @@ namespace ELake.Controllers
                 string[] shapeFileLayers = GetShapeFileLayers(WorkspaceName, FileName);
                 if (shapeFileLayers.Count() > 0)
                 {
-                    throw new Exception($"{FileName} can't be deleted because it is used in current layers: {string.Join(", ", shapeFileLayers)}!");
+                    //throw new Exception($"{FileName} can't be deleted because it is used in current layers: {string.Join(", ", shapeFileLayers)}!");
+                    throw new Exception(string.Format(_sharedLocalizer["MessageCantBeDeleted"], FileName, string.Join(", ", shapeFileLayers)));
                 }
                 Directory.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileNameWithoutExtension(FileName)), true);
             }
@@ -1130,12 +1136,14 @@ namespace ELake.Controllers
 
                 if (GetWorkspaceLayers(WorkspaceName).Contains(fileNameWithoutExtension))
                 {
-                    throw new Exception($"Layer {fileNameWithoutExtension} is already exist in {WorkspaceName} workspace!");
+                    //throw new Exception($"Layer {fileNameWithoutExtension} is already exist in {WorkspaceName} workspace!");
+                    throw new Exception(string.Format(_sharedLocalizer["MessageLayerAlreadyExist"], fileNameWithoutExtension, WorkspaceName));
                 }
 
                 if (Path.GetExtension(FileName).ToLower() != ".shp")
                 {
-                    throw new Exception("File extension must be \"shp\"!");
+                    //throw new Exception("File extension must be \"shp\"!");
+                    throw new Exception(_sharedLocalizer["MessageFileExtensionMustBeShp"]);
                 }
 
                 Process process1 = CurlExecute($" -u " +
@@ -1306,7 +1314,8 @@ namespace ELake.Controllers
             {
                 if (!GetWorkspaceLayers(WorkspaceName).Contains(LayerName))
                 {
-                    throw new Exception($"Layer {LayerName} isn't exist in {WorkspaceName} workspace!");
+                    //throw new Exception($"Layer {LayerName} isn't exist in {WorkspaceName} workspace!");
+                    throw new Exception(string.Format(_sharedLocalizer["MessageLayerIsntExist"], LayerName, WorkspaceName));
                 }
 
                 Process process1 = CurlExecute($" -u " +
@@ -1381,6 +1390,49 @@ namespace ELake.Controllers
             return message;
         }
 
+        //[Authorize(Roles = "Administrator, Moderator")]
+        //public IActionResult UploadGeoTIFFFiles_()
+        //{
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[DisableFormValueModelBinding]
+        //public async Task<IActionResult> UploadGeoTIFFFiles_(string username)
+        //{
+        //    FormValueProvider formModel;
+        //    using (var stream = System.IO.File.Create("d:\\temp\\myfile.temp"))
+        //    {
+        //        formModel = await Request.StreamFile(stream);
+        //    }
+
+        //    //FormValueProvider formModel;
+        //    ////var webRoot = _env.ContentRootPath;
+        //    //var uploadPath = "d:\\temp";
+        //    //var filename = Request.Form.Files[0].FileName;
+        //    //using (var stream = System.IO.File.Create(uploadPath + "\\" + filename))
+        //    //{
+        //    //    formModel = await Request.StreamFile(stream);
+        //    //}
+
+
+
+        //    var viewModel = new MyViewModel();
+
+        //    var bindingSuccessful = await TryUpdateModelAsync(viewModel, prefix: "",
+        //       valueProvider: formModel);
+
+        //    if (!bindingSuccessful)
+        //    {
+        //        if (!ModelState.IsValid)
+        //        {
+        //            return BadRequest(ModelState);
+        //        }
+        //    }
+
+        //    return Ok(viewModel);
+        //}
+
         /// <summary>
         /// Удаление GeoTIFF-файлов из рабочей области GeoServer (Get)
         /// </summary>
@@ -1408,7 +1460,8 @@ namespace ELake.Controllers
             try
             {
                 DeleteGeoTIFFFile(Startup.Configuration["GeoServer:Workspace"], GeoTIFFFile);
-                ViewData["Message"] = $"File {GeoTIFFFile} was deleted!";
+                //ViewData["Message"] = $"File {GeoTIFFFile} was deleted!";
+                ViewData["Message"] = string.Format(_sharedLocalizer["MessageFileWasDeleted"], GeoTIFFFile);
             }
             catch (Exception exception)
             {
@@ -1577,7 +1630,8 @@ namespace ELake.Controllers
             try
             {
                 DeleteShapeFile(Startup.Configuration["GeoServer:Workspace"], ShapeFile);
-                ViewData["Message"] = $"File {ShapeFile} was deleted!";
+                //ViewData["Message"] = $"File {ShapeFile} was deleted!";
+                ViewData["Message"] = string.Format(_sharedLocalizer["MessageFileWasDeleted"], ShapeFile);
             }
             catch (Exception exception)
             {
@@ -2841,6 +2895,12 @@ namespace ELake.Controllers
             }
             //ViewBag.ShapeFiles = new SelectList(GetShapeFiles(Startup.Configuration["GeoServer:Workspace"]));
             ViewBag.ShapeFiles = new SelectList(_context.Layer.Where(l => l.Lake).Select(l => l.GeoServerName + ".shp"));
+            return View();
+        }
+
+        public IActionResult Instruction(string Type)
+        {
+            ViewBag.Type = Type;
             return View();
         }
     }

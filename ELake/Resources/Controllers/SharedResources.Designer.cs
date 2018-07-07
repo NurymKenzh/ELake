@@ -603,6 +603,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Lake {
             get {
                 return ResourceManager.GetString("Lake", resourceCulture);
@@ -696,6 +705,60 @@ namespace ELake.Resources.Controllers {
         public static string Maps {
             get {
                 return ResourceManager.GetString("Maps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MessageCantBeDeleted {
+            get {
+                return ResourceManager.GetString("MessageCantBeDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MessageFileExtensionMustBeShp {
+            get {
+                return ResourceManager.GetString("MessageFileExtensionMustBeShp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MessageFileExtensionMustBeTiff {
+            get {
+                return ResourceManager.GetString("MessageFileExtensionMustBeTiff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MessageFileWasDeleted {
+            get {
+                return ResourceManager.GetString("MessageFileWasDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MessageLayerAlreadyExist {
+            get {
+                return ResourceManager.GetString("MessageLayerAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MessageLayerIsntExist {
+            get {
+                return ResourceManager.GetString("MessageLayerIsntExist", resourceCulture);
             }
         }
         

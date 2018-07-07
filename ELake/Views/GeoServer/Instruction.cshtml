@@ -1,0 +1,16 @@
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Instruction"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Instruction"]</h2>
+
+@if(ViewBag.Type != "")
+{
+<div>
+    @ViewBag.Type
+</div>
+}

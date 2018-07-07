@@ -322,7 +322,7 @@
     <value>Опубликовать</value>
   </data>
   <data name="PublishDescription" xml:space="preserve">
-    <value>Файлы должны иметь систему координат EPSG:3857</value>
+    <value>Файлы должны иметь систему координат EPSG:3857. Размер файлов должен быть не более 1 ГБ. Файлы могут быть в zip архиве.</value>
   </data>
   <data name="PublishGeoTIFF" xml:space="preserve">
     <value>Опубликовать GeoTIFF-файл</value>
@@ -608,5 +608,26 @@
   </data>
   <data name="UpdateLakeLayerStyle" xml:space="preserve">
     <value>Обновить стиль слоя озер</value>
+  </data>
+  <data name="MessageCantBeDeleted" xml:space="preserve">
+    <value>{0} нельзя удалить, поскольку он используется в текущих слоях: {1}!</value>
+  </data>
+  <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
+    <value>Расширение файла должно быть «shp»!</value>
+  </data>
+  <data name="MessageFileWasDeleted" xml:space="preserve">
+    <value>Файл {0} удален!</value>
+  </data>
+  <data name="MessageLayerAlreadyExist" xml:space="preserve">
+    <value>Слой {0} уже существует в {1} рабочем пространстве!</value>
+  </data>
+  <data name="MessageLayerIsntExist" xml:space="preserve">
+    <value>Слой {0} не существует в рабочем пространстве {1}!</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Инструкция</value>
+  </data>
+  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
+    <value>Расширение файла должно быть «tif»!</value>
   </data>
 </root>
