@@ -1,0 +1,129 @@
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Categories"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/lib/jstree/themes/default/style.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jstree/jstree.js"></script>
+<h2>@SharedLocalizer["Categories"]</h2>
+
+
+<div id="jstree_demo_div"></div>
+<input type="text" id="Categories" value="@ViewBag.Categories">
+<script>
+    var dataCategories = jQuery.parseJSON($('#Categories').val());
+    console.log(JSON.stringify(dataCategories));
+    $(function () {
+        var jstree = $("#jstree_demo_div")
+            .on('changed.jstree', function (e, data) {
+                var i, j, r = [];
+                for (i = 0, j = data.selected.length; i < j; i++) {
+                    r.push(data.instance.get_node(data.selected[i]).text);
+                }
+                //$('#event_result').html('Selected: ' + r.join(', '));
+                console.log('Selected: ' + r.join(', '));
+            })
+            .jstree({
+            "core": {
+                "check_callback": true,
+                'data': dataCategories
+                    //[
+                    //    {
+                    //        'text': 'Root node',
+                    //        'data': [
+                    //            {
+                    //                'textKK': 'Түбір торабы',
+                    //                'textRU': 'Корневой узел',
+                    //                'textEN': 'Root node'
+                    //            }
+                    //        ],
+                    //        'children': [
+                    //            {
+                    //                'text': 'Child 1',
+                    //                'data': [
+                    //                    {
+                    //                        'textKK': 'Бала 1',
+                    //                        'textRU': 'Ребенок 1' ,
+                    //                        'textEN': 'Child 1'
+                    //                    }
+                    //                ]
+                    //            }
+                    //        ]
+                    //    }
+                    //]
+                    //[{ "id": "j1_1", "text": "Root node 123", "icon": true, "li_attr": { "id": "j1_1" }, "a_attr": { "href": "#", "id": "j1_1_anchor" }, "state": { "loaded": true, "opened": false, "selected": false, "disabled": false }, "data": [{ "textKK": "Түбір торабы", "textRU": "Корневой узел", "textEN": "Root node" }], "children": [{ "id": "j1_2", "text": "Child 1", "icon": true, "li_attr": { "id": "j1_2" }, "a_attr": { "href": "#" }, "state": { "loaded": true, "opened": false, "selected": false, "disabled": false }, "data": [{ "textKK": "Бала 1", "textRU": "Ребенок 1", "textEN": "Child 1" }], "children": [] }] }]
+            },
+            "plugins": ["contextmenu", "dnd", "unique"],
+            "contextmenu": {
+                "items": function ($node) {
+                    var tree = $("#jstree_demo_div");
+                    return {
+                        "Create": {
+                            "label": "@SharedLocalizer["Create"]",
+                            "action": function (obj) {
+                                $node = tree.jstree('create_node', $node);
+                                tree.jstree('edit', $node);
+                            }
+                        },
+                        "Rename": {
+                            "label": "@SharedLocalizer["Edit"]",
+                            "action": function (obj) {
+                                tree.jstree('edit', $node);
+                            }
+                        },
+                        "Remove": {
+                            "label": "@SharedLocalizer["Delete"]",
+                            "action": function (obj) {
+                                var nodeCount = 0;
+                                $(tree.jstree().get_json(tree, {
+                                    flat: true
+                                }))
+                                    .each(function (index, value) {
+                                        //var node = $("#jstree_demo_div").jstree().get_node(this.id);
+                                        //var lvl = node.parents.length;
+                                        //var idx = index;
+                                        //console.log('node index = ' + idx + ' level = ' + lvl);
+                                        nodeCount++;
+                                    });
+                                if (nodeCount != 1)
+                                    tree.jstree('delete_node', $node);
+                            }
+                        }
+                    };
+                }
+            }
+        });
+    });
+</script>
+<input type="button" value="@SharedLocalizer["Save"]" onclick="Save()"/>
+<script>
+    function Save() {
+        var json = "";
+        $($("#jstree_demo_div").jstree().get_json($("#jstree_demo_div"), {
+            flat: true
+        }))
+            .each(function (index, value) {
+                var node = $("#jstree_demo_div").jstree().get_node(this.id);
+                var lvl = node.parents.length;
+                var idx = index;
+                console.log('node index = ' + idx + ' level = ' + lvl + ' text = ' + node.text);
+                if (node.data != null) {
+                    console.log('textRU = ' + node.data[0].textRU);
+                }
+            });
+
+        console.log(JSON.stringify($("#jstree_demo_div").jstree(true).get_json('#', { no_state: false}, { flat: true })));
+        $.ajax({
+            url: '@Url.Action("SaveCategories")',
+            data: { Json: JSON.stringify($("#jstree_demo_div").jstree().get_json($("#jstree_demo_div"))) },
+            type: 'POST',
+            success: function (data) {
+            },
+            error: function () {
+            }
+        });
+    }
+</script>
