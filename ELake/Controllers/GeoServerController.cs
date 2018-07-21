@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
 
@@ -697,13 +698,15 @@ namespace ELake.Controllers
         /// </summary>
         /// <param name="WorkspaceName"></param>
         /// <param name="Files"></param>
-        private async void UploadGeoTIFFFiles(string WorkspaceName, List<IFormFile> Files)
+        private string[] UploadGeoTIFFFiles(string WorkspaceName, List<IFormFile> Files)
         {
+            List<string> filesreport = new List<string>(),
+            report = new List<string>();
             try
             {
                 foreach (IFormFile file in Files)
                 {
-                    var filePath = Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileName(file.FileName));
+                    var filePath = Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", Path.GetFileName(file.FileName));
                     using (var fileStream = new FileStream(filePath, FileMode.Create))
                     {
                         file.CopyTo(fileStream);
@@ -711,24 +714,24 @@ namespace ELake.Controllers
 
                 }
                 List<string> unzipfiles = new List<string>();
-                //foreach (IFormFile file in Files)
-                foreach (string file in Directory.GetFiles(GetWorkspaceDirectoryPath(WorkspaceName), "*.zip", SearchOption.TopDirectoryOnly))
+                List<string> zipfiles = new List<string>();
+                foreach (string file in Directory.GetFiles(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload"), "*.zip", SearchOption.TopDirectoryOnly))
                 {
                     if (Path.GetExtension(file) == ".zip")
                     {
                         try
                         {
                             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-                            using (ZipFile zip = ZipFile.Read(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileName(file))))
+                            using (ZipFile zip = ZipFile.Read(Path.Combine(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload"), Path.GetFileName(file))))
                             {
                                 foreach (ZipEntry filefromzip in zip)
                                 {
-                                    filefromzip.Extract(GetWorkspaceDirectoryPath(WorkspaceName), ExtractExistingFileAction.OverwriteSilently);
-                                    unzipfiles.Add(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), filefromzip.FileName));
+                                    filefromzip.Extract(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload"), ExtractExistingFileAction.OverwriteSilently);
+                                    unzipfiles.Add(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", filefromzip.FileName));
                                 }
                             }
-                            unzipfiles.Add(file);
-                            unzipfiles.AddRange(Directory.GetFiles(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileNameWithoutExtension(file) + ".z*", SearchOption.TopDirectoryOnly));
+                            //zipfiles.Add(file);
+                            zipfiles.AddRange(Directory.GetFiles(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload"), Path.GetFileNameWithoutExtension(file) + ".z*", SearchOption.TopDirectoryOnly));
                         }
                         catch
                         {
@@ -737,18 +740,56 @@ namespace ELake.Controllers
                     }
                 }
                 IConfigurationSection geoTIFFFileExtentions = Startup.Configuration.GetSection("GeoServer:GeoTIFFFileExtentions");
-                //foreach (IFormFile file in Files)
-                //{
-                //    if (!geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(file.FileName)))
-                //    {
-                //        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileName(file.FileName)));
-                //    }
-                //}
-                foreach (string file in unzipfiles)
+                
+                foreach(string file in Files.Select(f => f.FileName))
+                {
+                    var fileName = Path.GetFileName(file);
+                    if(geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName)))
+                    {
+                        if (System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName)))
+                        {
+                            report.Add($"{fileName}: {_sharedLocalizer["exist"]}!");
+                            System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                        }
+                        else
+                        {
+                            System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                            report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                        }
+                    }
+                    else
+                    {
+                        report.Add($"{fileName}: {_sharedLocalizer["notGeoTIFF"]}!");
+                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                    }
+                }
+                foreach(string file in unzipfiles)
+                {
+                    var fileName = Path.GetFileName(file);
+                    if (geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName)))
+                    {
+                        if (System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName)))
+                        {
+                            report.Add($"{fileName}: {_sharedLocalizer["exist"]}!");
+                            System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                        }
+                        else
+                        {
+                            System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                            report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                        }
+                    }
+                    else
+                    {
+                        report.Add($"{fileName}: {_sharedLocalizer["notGeoTIFF"]}!");
+                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                    }
+                }
+                foreach (string file in zipfiles)
                 {
                     if (!geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(file)))
                     {
-                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), file));
+                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", file));
                     }
                 }
             }
@@ -756,6 +797,7 @@ namespace ELake.Controllers
             {
                 throw new Exception(exception.ToString(), exception.InnerException);
             }
+            return report.ToArray();
         }
 
         /// <summary>
@@ -1381,7 +1423,7 @@ namespace ELake.Controllers
             string message = _sharedLocalizer["FilesUploaded"];
             try
             {
-                UploadGeoTIFFFiles(Startup.Configuration["GeoServer:Workspace"], Files);
+                message = string.Join("; ", UploadGeoTIFFFiles(Startup.Configuration["GeoServer:Workspace"], Files));
             }
             catch (Exception exception)
             {
@@ -2766,6 +2808,67 @@ namespace ELake.Controllers
             }
             ViewBag.ShapeLayers = new SelectList(GetWorkspaceShapeLayers(Startup.Configuration["GeoServer:Workspace"]));
             return View();
+        }
+
+        // GET: Layers/Edit/5
+        public async Task<IActionResult> AddLakes(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var layer = await _context.Layer.SingleOrDefaultAsync(m => m.Id == id);
+            if (layer == null)
+            {
+                return NotFound();
+            }
+
+            var publicshedLayers = GetWorkspaceLayers(Startup.Configuration["GeoServer:Workspace"]);
+            ViewBag.ShapeFiles = new SelectList(GetShapeFiles(Startup.Configuration["GeoServer:Workspace"])
+                .Where(l => !publicshedLayers.Contains(Path.GetFileNameWithoutExtension(l))));
+            return View(layer);
+        }
+
+        // POST: Layers/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id, [Bind("Id,Lake,GeoServerName,FileNameWithPath,GeoServerStyle,NameKK,NameRU,NameEN,LayerIntervalsWaterLevel,LayerIntervalsSurfaceFlow,LayerIntervalsPrecipitation,LayerIntervalsUndergroundFlow,LayerIntervalsSurfaceOutflow,LayerIntervalsEvaporation,LayerIntervalsUndergroundOutflow,LayerIntervalsHydrochemistry")] Layer layer)
+        public async Task<IActionResult> AddLakes(Layer layer, string ShapeFile, int[] ReplaceIds, bool[] Replaces)
+        {
+            Layer layerOld = _context.Layer.FirstOrDefault(l => l.Id == layer.Id);
+            string oldShape = layerOld.FileNameWithPath,
+                newShape = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(ShapeFile), ShapeFile);
+            List<int> replaceIds = new List<int>();
+            for(int i=0;i<ReplaceIds.Count();i++)
+            {
+                if(Replaces[i])
+                {
+                    replaceIds.Add(ReplaceIds[i]);
+                }
+            }
+
+            var publicshedLayers = GetWorkspaceLayers(Startup.Configuration["GeoServer:Workspace"]);
+            ViewBag.ShapeFiles = new SelectList(GetShapeFiles(Startup.Configuration["GeoServer:Workspace"])
+                .Where(l => !publicshedLayers.Contains(Path.GetFileNameWithoutExtension(l))));
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetComparedLakes(int OldLakeLayerId, string NewLakeShapeFileName)
+        {
+            Layer layer = _context.Layer.FirstOrDefault(l => l.Id == OldLakeLayerId);
+            string oldShape = layer.FileNameWithPath,
+                newShape = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(NewLakeShapeFileName), NewLakeShapeFileName);
+            int[] oldLakes = _GDAL.GetShpColumnValues(oldShape, "id"),
+                newLakes = _GDAL.GetShpColumnValues(newShape, "id");
+            int[] commonLakes = oldLakes.Intersect(newLakes).ToArray();
+            return Json(new
+            {
+                commonLakes
+            });
         }
 
         public struct LakeData

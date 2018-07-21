@@ -1,0 +1,90 @@
+﻿@model ELake.Models.Layer
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["AddLakes"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ui/jquery-ui.js"></script>
+<script src="~/lib/evol-colorpicker/js/evol-colorpicker.js"></script>
+<link href="~/lib/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet" />
+<link href="~/lib/evol-colorpicker/css/evol-colorpicker.css" rel="stylesheet" />
+
+<h2>@SharedLocalizer["AddLakes"]</h2>
+<br />
+<br />
+
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+<div>
+    @ViewBag.Message
+</div>
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddLakes">
+            <input id="Id" type="hidden" asp-for="Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["ShapeFile"]</label>
+                <select id="ShapeFile" name="ShapeFile" class="form-control" asp-items="ViewBag.ShapeFiles"></select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Compare"]</label>
+                <input type="button" value="@SharedLocalizer["Compare"]" class="btn btn-default" onclick="Compare()" />
+                <table id="Compared" class="table">
+                    <thead>
+                        <tr>
+                            <td>
+                                @SharedLocalizer["LakeId"]
+                            </td>
+                            <td>
+                                @SharedLocalizer["Action"]
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@SharedLocalizer["Add"]" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function Compare(){
+        $.ajax({
+            url: '@Url.Action("GetComparedLakes", "GeoServer")',
+            data: {
+                OldLakeLayerId: $('#Id').val(),
+                NewLakeShapeFileName: $('#ShapeFile').val()
+            },
+            type: 'POST',
+            success: function (data) {
+                var optionhtml = '';
+                $.each(data.commonLakes, function (i) {
+                    optionhtml += '<tr>'+
+                                        '<td>' +
+                                            '<input name="ReplaceIds[' + i.toString() + ']" value="' + data.commonLakes[i] + '" class="form-control" type="hidden"/>' +
+                                            data.commonLakes[i] +
+                                        '</td>' +
+                                        '<td>' +
+                                            '<input name="Replaces[' + i.toString() + ']" type="checkbox" checked="checked" value="true"> @SharedLocalizer["Replace"]' +
+                                        '</td>' +
+                                    '</tr>';
+                });
+                $("#Compared > tbody").html("");
+                $("#Compared tbody").append(optionhtml);
+            },
+            error: function () {
+            }
+        });
+    }
+</script>
