@@ -630,4 +630,16 @@
   <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
     <value>File extension must be "tif" or "tiff"!</value>
   </data>
+  <data name="exist" xml:space="preserve">
+    <value>already exists</value>
+  </data>
+  <data name="notGeoTIFF" xml:space="preserve">
+    <value>not GeoTIFF</value>
+  </data>
+  <data name="notShape" xml:space="preserve">
+    <value>not a Shape-file</value>
+  </data>
+  <data name="uploaded" xml:space="preserve">
+    <value>uploaded</value>
+  </data>
 </root>

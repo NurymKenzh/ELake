@@ -288,6 +288,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string exist {
+            get {
+                return ResourceManager.GetString("exist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string FileNameWithPath {
             get {
                 return ResourceManager.GetString("FileNameWithPath", resourceCulture);
@@ -876,6 +885,24 @@ namespace ELake.Resources.Controllers {
         public static string NO3 {
             get {
                 return ResourceManager.GetString("NO3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string notGeoTIFF {
+            get {
+                return ResourceManager.GetString("notGeoTIFF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string notShape {
+            get {
+                return ResourceManager.GetString("notShape", resourceCulture);
             }
         }
         
@@ -1497,6 +1524,15 @@ namespace ELake.Resources.Controllers {
         public static string Upload {
             get {
                 return ResourceManager.GetString("Upload", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string uploaded {
+            get {
+                return ResourceManager.GetString("uploaded", resourceCulture);
             }
         }
         

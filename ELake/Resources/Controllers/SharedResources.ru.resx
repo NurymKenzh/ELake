@@ -630,4 +630,16 @@
   <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
     <value>Расширение файла должно быть «tif»!</value>
   </data>
+  <data name="exist" xml:space="preserve">
+    <value>уже существует</value>
+  </data>
+  <data name="notGeoTIFF" xml:space="preserve">
+    <value>не GeoTIFF</value>
+  </data>
+  <data name="notShape" xml:space="preserve">
+    <value>не Shape-файл</value>
+  </data>
+  <data name="uploaded" xml:space="preserve">
+    <value>загружен</value>
+  </data>
 </root>
