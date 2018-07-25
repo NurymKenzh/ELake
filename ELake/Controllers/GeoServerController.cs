@@ -2887,24 +2887,69 @@ namespace ELake.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Edit(int id, [Bind("Id,Lake,GeoServerName,FileNameWithPath,GeoServerStyle,NameKK,NameRU,NameEN,LayerIntervalsWaterLevel,LayerIntervalsSurfaceFlow,LayerIntervalsPrecipitation,LayerIntervalsUndergroundFlow,LayerIntervalsSurfaceOutflow,LayerIntervalsEvaporation,LayerIntervalsUndergroundOutflow,LayerIntervalsHydrochemistry")] Layer layer)
         public async Task<IActionResult> AddLakes(Layer layer, string ShapeFile, int[] ReplaceIds, bool[] Replaces)
         {
+            //200090  B don't replace
+            //601810  T replace
+
+
             Layer layerOld = _context.Layer.FirstOrDefault(l => l.Id == layer.Id);
             string oldShape = layerOld.FileNameWithPath,
                 newShape = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(ShapeFile), ShapeFile);
-            List<int> replaceIds = new List<int>();
-            for(int i=0;i<ReplaceIds.Count();i++)
+            List<int> replaceIds = new List<int>(),
+                dontReplaceIds = new List<int>();
+            for (int i = 0; i < ReplaceIds.Count(); i++)
             {
-                if(Replaces[i])
+                if (Replaces[i])
                 {
                     replaceIds.Add(ReplaceIds[i]);
                 }
+                else
+                {
+                    dontReplaceIds.Add(ReplaceIds[i]);
+                }
             }
 
-            var publicshedLayers = GetWorkspaceLayers(Startup.Configuration["GeoServer:Workspace"]);
+            // копирование shape файлов в одну папку
+            foreach(string file in Directory.GetFiles(Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer"), "*.*"))
+            {
+                System.IO.File.Delete(file);
+            }
+            foreach(string file in Directory.GetFiles(Path.GetDirectoryName(oldShape), Path.GetFileNameWithoutExtension(oldShape) + ".*"))
+            {
+                System.IO.File.Copy(file, Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer", Path.GetFileName(file)));
+            }
+            foreach(string file in Directory.GetFiles(Path.GetDirectoryName(newShape), Path.GetFileNameWithoutExtension(newShape) + ".*"))
+            {
+                System.IO.File.Copy(file, Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer", Path.GetFileName(file)));
+            }
+
+            // удаление объектов с файлов
+            foreach(int feature in replaceIds)
+            {
+                _GDAL.DeleteFeatures(Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer", Path.GetFileName(oldShape)), "id", feature.ToString());
+            }
+            foreach(int feature in dontReplaceIds)
+            {
+                _GDAL.DeleteFeatures(Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer", Path.GetFileName(newShape)), "id", feature.ToString());
+            }
+
+            _GDAL.MergeShapes(Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer"), Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer", Path.GetFileName(oldShape)));
+
+            foreach (string file in Directory.GetFiles(Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer"), Path.GetFileNameWithoutExtension(oldShape) + ".*"))
+            {
+                System.IO.File.Delete(Path.Combine(Path.GetDirectoryName(oldShape), Path.GetFileName(file)));
+                System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer", Path.GetFileName(file)), Path.Combine(Path.GetDirectoryName(oldShape), Path.GetFileName(file)));
+            }
+
+            foreach (string file in Directory.GetFiles(Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), "_Bufer"), "*.*"))
+            {
+                System.IO.File.Delete(file);
+            }
+
+            var publishedLayers = GetWorkspaceLayers(Startup.Configuration["GeoServer:Workspace"]);
             ViewBag.ShapeFiles = new SelectList(GetShapeFiles(Startup.Configuration["GeoServer:Workspace"])
-                .Where(l => !publicshedLayers.Contains(Path.GetFileNameWithoutExtension(l))));
+                .Where(l => !publishedLayers.Contains(Path.GetFileNameWithoutExtension(l))));
             return View();
         }
 

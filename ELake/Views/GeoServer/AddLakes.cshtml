@@ -48,6 +48,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @*<tr>
+                            <td>
+                                <input name="ReplaceIds[0]" value="1" class="form-control" type="hidden" />1
+                            </td>
+                            <td>
+                                <input id="Replaces0" type="checkbox" checked="checked" onclick="Checkbox(0)"> @SharedLocalizer["Replace"]
+                                <input id="ReplacesV0" name="Replaces[0]" type="hidden" value="false">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input name="ReplaceIds[1]" value="2" class="form-control" type="hidden" />2
+                            </td>
+                            <td>
+                                <input id="Replaces1" type="checkbox" checked="checked" onclick="Checkbox(1)"> @SharedLocalizer["Replace"]
+                                <input id="ReplacesV1" name="Replaces[1]" type="hidden" value="true">
+                            </td>
+                        </tr>*@
                     </tbody>
                 </table>
             </div>
@@ -76,7 +94,8 @@
                                             data.commonLakes[i] +
                                         '</td>' +
                                         '<td>' +
-                                            '<input name="Replaces[' + i.toString() + ']" type="checkbox" checked="checked" value="true"> @SharedLocalizer["Replace"]' +
+                                            '<input id="Replaces' + i.toString() + '" type="checkbox" checked="checked" onclick="Checkbox(' + i.toString() + ')"> @SharedLocalizer["Replace"]' +
+                                            '<input id="ReplacesV' + i.toString() + '" name="Replaces[' + i.toString() + ']" type="hidden" value="true">' +
                                         '</td>' +
                                     '</tr>';
                 });
@@ -86,5 +105,14 @@
             error: function () {
             }
         });
+    }
+
+    function Checkbox(i) {
+        if (document.getElementById('Replaces' + i.toString()).checked) {
+            $('#ReplacesV' + i.toString()).val(true);
+        }
+        else {
+            $('#ReplacesV' + i.toString()).val(false);
+        }
     }
 </script>

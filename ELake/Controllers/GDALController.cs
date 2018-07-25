@@ -146,5 +146,29 @@ namespace ELake.Controllers
                 throw new Exception(exception.ToString(), exception.InnerException);
             }
         }
+
+        public void DeleteFeatures(string File, string FieldName, string FieldValue)
+        {
+            try
+            {
+                PythonExecute("FilterAndDelete", File, FieldName, FieldValue);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+        public void MergeShapes(string Folder, string OutFileName)
+        {
+            try
+            {
+                PythonExecute("MergeShpLayers", Folder, OutFileName);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
     }
 }
