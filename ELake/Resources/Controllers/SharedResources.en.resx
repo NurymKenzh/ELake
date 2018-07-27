@@ -642,4 +642,16 @@
   <data name="uploaded" xml:space="preserve">
     <value>uploaded</value>
   </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="AddLakes" xml:space="preserve">
+    <value>Add Lakes</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Compare</value>
+  </data>
+  <data name="Replace" xml:space="preserve">
+    <value>Replace</value>
+  </data>
 </root>

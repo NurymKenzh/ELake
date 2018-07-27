@@ -642,4 +642,16 @@
   <data name="uploaded" xml:space="preserve">
     <value>загружен</value>
   </data>
+  <data name="Action" xml:space="preserve">
+    <value>Действие</value>
+  </data>
+  <data name="AddLakes" xml:space="preserve">
+    <value>Добавить озера</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Сравнить</value>
+  </data>
+  <data name="Replace" xml:space="preserve">
+    <value>Заменить</value>
+  </data>
 </root>

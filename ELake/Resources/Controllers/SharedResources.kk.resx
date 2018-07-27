@@ -642,4 +642,16 @@
   <data name="uploaded" xml:space="preserve">
     <value>жүктелді</value>
   </data>
+  <data name="Action" xml:space="preserve">
+    <value>Әрекет</value>
+  </data>
+  <data name="AddLakes" xml:space="preserve">
+    <value>Көлдерді қосыңыз</value>
+  </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Салыстыру</value>
+  </data>
+  <data name="Replace" xml:space="preserve">
+    <value>Ауыстыру</value>
+  </data>
 </root>
