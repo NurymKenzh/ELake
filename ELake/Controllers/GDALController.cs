@@ -170,5 +170,49 @@ namespace ELake.Controllers
                 throw new Exception(exception.ToString(), exception.InnerException);
             }
         }
+
+        public string GetGeometry(string File, string FieldName, string FieldValue)
+        {
+            string geometry = "";
+            try
+            {
+                geometry = PythonExecute("GetGeometryRef", $"{File}", FieldName, FieldValue);
+                return geometry;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+        /// <summary>
+        /// Возвращает пересечение объекта (геометрии) с объектами в shape-файле
+        /// </summary>
+        /// <param name="File">
+        /// Shape-файл
+        /// </param>
+        /// <param name="Field">
+        /// Поле в shape-файле, значения которого будут выданы (объектов, с которыми есть пересечение)
+        /// </param>
+        /// <param name="Geometry">
+        /// Геометрия в формате WKT объекта, пересечения которого надо найти
+        /// </param>
+        /// <returns></returns>
+        public string[] GetFeatureCrossFeatures(string File,
+            string Field,
+            string Geometry)
+        {
+            string[] values = new string[1];
+            try
+            {
+                string jsonArray = PythonExecute("GetIdByLocation", $"{File}", Field, Geometry);
+                values = Newtonsoft.Json.JsonConvert.DeserializeObject<string[]>(jsonArray);
+                return values;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
     }
 }

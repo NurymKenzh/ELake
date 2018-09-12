@@ -1442,6 +1442,87 @@ namespace ELake.Controllers
                 throw new Exception(exception.ToString(), exception.InnerException);
             }
         }
+
+        private void FindKATO(string LayerFile)
+        {
+            _context.LakeKATO.RemoveRange(_context.LakeKATO);
+            _context.SaveChanges();
+            int[] lakesIds = _GDAL.GetShpColumnValues(LayerFile, Startup.Configuration["LakesIdField"]);
+            //foreach (int lakeId in lakesIds)
+            //{
+            //    string geometry = _GDAL.GetGeometry(LayerFile, Startup.Configuration["LakesIdField"], lakeId.ToString());
+            //    string[] katoes1 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm1File"], Startup.Configuration["KATO:KATOField"], geometry),
+            //        katoes2 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm2File"], Startup.Configuration["KATO:KATOField"], geometry),
+            //        katoes3 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm3File"], Startup.Configuration["KATO:KATOField"], geometry);
+            //    foreach(string kato in katoes1)
+            //    {
+            //        _context.LakeKATO.Add(new LakeKATO()
+            //        {
+            //            LakeId = lakeId,
+            //            KATOId = _context.KATO.FirstOrDefault(k => k.Number == kato).Id
+            //        });
+            //    }
+            //    foreach(string kato in katoes2)
+            //    {
+            //        _context.LakeKATO.Add(new LakeKATO()
+            //        {
+            //            LakeId = lakeId,
+            //            KATOId = _context.KATO.FirstOrDefault(k => k.Number == kato).Id
+            //        });
+            //    }
+            //    foreach(string kato in katoes3)
+            //    {
+            //        _context.LakeKATO.Add(new LakeKATO()
+            //        {
+            //            LakeId = lakeId,
+            //            KATOId = _context.KATO.FirstOrDefault(k => k.Number == kato).Id
+            //        });
+            //    }
+            //}
+            //_context.SaveChanges();
+            foreach (int lakeId in lakesIds)
+            {
+                Task task = Task.Run(() =>
+                {
+                    var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+                    optionsBuilder.UseNpgsql("Host=localhost;Database=ELake;Username=postgres;Password=postgres");
+
+                    using (var _taskContext = new ApplicationDbContext(optionsBuilder.Options))
+                    {
+                        string geometry = _GDAL.GetGeometry(LayerFile, Startup.Configuration["LakesIdField"], lakeId.ToString());
+                        string[] katoes1 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm1File"], Startup.Configuration["KATO:KATOField"], geometry),
+                            katoes2 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm2File"], Startup.Configuration["KATO:KATOField"], geometry),
+                            katoes3 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm3File"], Startup.Configuration["KATO:KATOField"], geometry);
+
+                        foreach (string kato in katoes1)
+                        {
+                            _taskContext.LakeKATO.Add(new LakeKATO()
+                            {
+                                LakeId = lakeId,
+                                KATOId = _taskContext.KATO.FirstOrDefault(k => k.Number == kato).Id
+                            });
+                        }
+                        foreach (string kato in katoes2)
+                        {
+                            _taskContext.LakeKATO.Add(new LakeKATO()
+                            {
+                                LakeId = lakeId,
+                                KATOId = _taskContext.KATO.FirstOrDefault(k => k.Number == kato).Id
+                            });
+                        }
+                        foreach (string kato in katoes3)
+                        {
+                            _taskContext.LakeKATO.Add(new LakeKATO()
+                            {
+                                LakeId = lakeId,
+                                KATOId = _taskContext.KATO.FirstOrDefault(k => k.Number == kato).Id
+                            });
+                        }
+                        _taskContext.SaveChanges();
+                    }
+                });
+            }
+        }
         //===========================================================================================================================================================================
         /// <summary>
         /// Загрузка GeoTIFF-файлов в папку рабочей области GeoServer (Get)
@@ -3101,6 +3182,22 @@ namespace ELake.Controllers
         public IActionResult Instruction(string Type)
         {
             ViewBag.Type = Type;
+            return View();
+        }
+
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult FindKATO(int LayerId)
+        {
+            ViewBag.LakeLayers = new SelectList(_context.Layer.Where(l => l.Lake), "Id", "Name");
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> FindKATO(int LayerId, string KATOLayerFile)
+        {
+            ViewBag.LakeLayers = new SelectList(_context.Layer.Where(l => l.Lake), "Id", "Name", LayerId);
+            FindKATO(_context.Layer.FirstOrDefault(l => l.Id == LayerId).FileNameWithPath);
             return View();
         }
     }

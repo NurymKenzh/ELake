@@ -48,11 +48,12 @@
             </td>
             @if(item.Lake)
             {
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |
-                    <a asp-action="AddLakes" asp-controller="GeoServer" asp-route-id="@item.Id">@SharedLocalizer["Add"]</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a>
-                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |
+                <a asp-action="AddLakes" asp-controller="GeoServer" asp-route-id="@item.Id">@SharedLocalizer["Add"]</a> |
+                <a asp-action="FindKATO" asp-controller="GeoServer" asp-route-id="@item.Id">@SharedLocalizer["FindKATO"]</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a>
+            </td>
             }
             else
             {

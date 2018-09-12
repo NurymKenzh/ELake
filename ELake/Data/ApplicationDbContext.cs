@@ -44,5 +44,9 @@ namespace ELake.Data
         public DbSet<ELake.Models.UndergroundOutflow> UndergroundOutflow { get; set; }
 
         public DbSet<ELake.Models.Hydrochemistry> Hydrochemistry { get; set; }
+
+        public DbSet<ELake.Models.KATO> KATO { get; set; }
+
+        public DbSet<ELake.Models.LakeKATO> LakeKATO { get; set; }
     }
 }

@@ -360,6 +360,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string FindKATO {
+            get {
+                return ResourceManager.GetString("FindKATO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string GeoServerName {
             get {
                 return ResourceManager.GetString("GeoServerName", resourceCulture);

@@ -11,9 +11,10 @@ using System;
 namespace ELake.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180912041344_KATO_20180912_00")]
+    partial class KATO_20180912_00
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,22 +163,6 @@ namespace ELake.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("KATO");
-                });
-
-            modelBuilder.Entity("ELake.Models.LakeKATO", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("KATOId");
-
-                    b.Property<int>("LakeId");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("KATOId");
-
-                    b.ToTable("LakeKATO");
                 });
 
             modelBuilder.Entity("ELake.Models.Layer", b =>
@@ -551,14 +536,6 @@ namespace ELake.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("ELake.Models.LakeKATO", b =>
-                {
-                    b.HasOne("ELake.Models.KATO", "KATO")
-                        .WithMany()
-                        .HasForeignKey("KATOId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ELake.Models.Layer", b =>

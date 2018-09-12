@@ -654,4 +654,7 @@
   <data name="Replace" xml:space="preserve">
     <value>Заменить</value>
   </data>
+  <data name="FindKATO" xml:space="preserve">
+    <value>Найти КАТО</value>
+  </data>
 </root>
