@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -137,7 +138,7 @@ namespace ELake.Controllers
             int[] values = new int[1];
             try
             {
-                string jsonArray = PythonExecute("GetShpValues", $"{File}", Field);
+                string jsonArray = PythonExecute("GetShpValues01", $"{File}", Field);
                 values = Newtonsoft.Json.JsonConvert.DeserializeObject<int[]>(jsonArray);
                 return values;
             }
