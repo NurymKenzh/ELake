@@ -1447,10 +1447,10 @@ namespace ELake.Controllers
         {
             _context.LakeKATO.RemoveRange(_context.LakeKATO);
             _context.SaveChanges();
-            int[] lakesIds = _GDAL.GetShpColumnValues(LayerFile, Startup.Configuration["LakesIdField"]);
+            int[] lakesIds = _GDAL.GetShpColumnValues(LayerFile, Startup.Configuration["Lakes:IdField"]);
             //foreach (int lakeId in lakesIds)
             //{
-            //    string geometry = _GDAL.GetGeometry(LayerFile, Startup.Configuration["LakesIdField"], lakeId.ToString());
+            //    string geometry = _GDAL.GetGeometry(LayerFile, Startup.Configuration["Lakes:IdField"], lakeId.ToString());
             //    string[] katoes1 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm1File"], Startup.Configuration["KATO:KATOField"], geometry),
             //        katoes2 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm2File"], Startup.Configuration["KATO:KATOField"], geometry),
             //        katoes3 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm3File"], Startup.Configuration["KATO:KATOField"], geometry);
@@ -1485,11 +1485,12 @@ namespace ELake.Controllers
                 Task task = Task.Run(() =>
                 {
                     var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-                    optionsBuilder.UseNpgsql("Host=localhost;Database=ELake;Username=postgres;Password=postgres");
+                    //optionsBuilder.UseNpgsql("Host=localhost;Database=ELake;Username=postgres;Password=postgres");
+                    optionsBuilder.UseNpgsql(Startup.Configuration["ConnectionStrings:DefaultConnection"]);
 
                     using (var _taskContext = new ApplicationDbContext(optionsBuilder.Options))
                     {
-                        string geometry = _GDAL.GetGeometry(LayerFile, Startup.Configuration["LakesIdField"], lakeId.ToString());
+                        string geometry = _GDAL.GetGeometry(LayerFile, Startup.Configuration["Lakes:IdField"], lakeId.ToString());
                         string[] katoes1 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm1File"], Startup.Configuration["KATO:KATOField"], geometry),
                             katoes2 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm2File"], Startup.Configuration["KATO:KATOField"], geometry),
                             katoes3 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm3File"], Startup.Configuration["KATO:KATOField"], geometry);
