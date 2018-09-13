@@ -70,11 +70,15 @@
 
 <div class="row">
     <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
+        <h2>Find lake</h2>
+        @*<ul>
             <li>Sample pages using ASP.NET Core MVC</li>
             <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
+        </ul>*@
+        @Html.DropDownList("KATO1", (IEnumerable<SelectListItem>)ViewBag.KATO1, htmlAttributes: new { @class = "form-control", @id = "KATO1", @onchange = "ChangeKATO1()" })
+        @Html.DropDownList("KATO2", null, htmlAttributes: new { @class = "form-control", @id = "KATO2", @onchange = "ChangeKATO2()" })
+        @Html.DropDownList("KATO3", null, htmlAttributes: new { @class = "form-control", @id = "KATO3", @onchange = "ChangeKATO3()" })
+        @Html.DropDownList("Lakes", null, htmlAttributes: new { @class = "form-control", @id = "Lakes" })
     </div>
     <div class="col-md-3">
         <h2>How to</h2>
@@ -107,3 +111,87 @@
         </ul>
     </div>
 </div>
+
+<script>
+    function ChangeKATO1() {
+        $.ajax({
+            url: '@Url.Action("GetKATO2")',
+            data: { KATO1Number: $('#KATO1').val() },
+            type: 'POST',
+            success: function (data) {
+                var optionhtml = '';
+                $.each(data, function (i) {
+                    optionhtml += '<option value="' + data[i]['number'] + '"' +
+                        (data[i]['name'] === $('#KATO2').val() ? 'selected' : '') +
+                        '>' + data[i]['name'] +
+                        '</option>';
+                });
+                $("#KATO2").empty();
+                $('#KATO2').append(optionhtml);
+                ChangeKATO2();
+                ChangeKATO3();
+            },
+            error: function () {
+            }
+        });
+    }
+
+    function ChangeKATO2() {
+        $.ajax({
+            url: '@Url.Action("GetKATO3")',
+            data: { KATO2Number: $('#KATO2').val() },
+            type: 'POST',
+            success: function (data) {
+                var optionhtml = '<option value=""></option>';
+                $.each(data, function (i) {
+                    optionhtml += '<option value="' + data[i]['number'] + '"' +
+                        (data[i]['name'] === $('#KATO3').val() ? 'selected' : '') +
+                        '>' + data[i]['name'] +
+                        '</option>';
+                });
+                $("#KATO3").empty();
+                $('#KATO3').append(optionhtml);
+                ChangeKATO3();
+            },
+            error: function () {
+            }
+        });
+    }
+
+    function ChangeKATO3() {
+        var KATONumber = $('#KATO1').val();
+        var KATOLevel = 1;
+        if ($('#KATO2').val() !== null && $('#KATO2').val() !== '') {
+            KATONumber = $('#KATO2').val();
+            KATOLevel = 2;
+        }
+        if ($('#KATO3').val() !== null && $('#KATO3').val() !== '') {
+            KATONumber = $('#KATO3').val();
+            KATOLevel = 3;
+        }
+        $.ajax({
+            url: '@Url.Action("GetLakes")',
+            data: {
+                KATONumber: KATONumber,
+                KATOLevel: KATOLevel
+            },
+            type: 'POST',
+            success: function (data) {
+                var optionhtml = '';
+                $.each(data, function (i) {
+                    optionhtml += '<option value="' + data[i]['id'] + '"' +
+                        '>' + data[i]['name'] +
+                        '</option>';
+                });
+                $("#Lakes").empty();
+                $('#Lakes').append(optionhtml);
+            },
+            error: function () {
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        ChangeKATO1();
+    });
+</script>

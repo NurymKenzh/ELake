@@ -1,11 +1,13 @@
 import shapefile
 
+##file=r'D:\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
+##field = 'name'
 file = raw_input()
-sf = shapefile.Reader(file)
 field = raw_input()
+
+sf = shapefile.Reader(file)
 fieldIndex = 1
 currentIndex = 0
-
 for sr in sf.fields:
 ##    print "Field: ", sr[0]
     currentIndex += 1
@@ -13,13 +15,13 @@ for sr in sf.fields:
         fieldIndex = currentIndex
         break
 
+fieldIndex = fieldIndex - 1
 ##print fieldIndex
 
 values = []
-
 for sr in sf.shapeRecords():
-##    print "Value: ", sr.record[1:fieldIndex][0]
-    values.append(sr.record[1:fieldIndex][0])
-##    break
+##    print type(sr.record)
+    values.append(sr.record[fieldIndex-1:fieldIndex][0])
+##    print '[%s]' % ', '.join(map(str, sr.record))
 
-print values
+print '[%s]' % ', '.join(map(str, values))

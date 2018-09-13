@@ -8,20 +8,30 @@ using ELake.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Http;
+using ELake.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ELake.Controllers
 {
     public class HomeController : Controller
     {
         private readonly GeoServerController _GeoServer;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(GeoServerController GeoServer)
+        public HomeController(GeoServerController GeoServer,
+            ApplicationDbContext context)
         {
             _GeoServer = GeoServer;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            ViewBag.KATO1 = new SelectList(_context.KATO.Where(k => k.Level == 1).OrderBy(k => k.Name), "Number", "Name");
+            ViewBag.KATO2 = new SelectList(_context.KATO.Where(k => k.Level == 2).OrderBy(k => k.Name), "Number", "Name");
+            ViewBag.KATO3 = new SelectList(_context.KATO.Where(k => k.Level == 3).OrderBy(k => k.Name), "Number", "Name");
+            ViewBag.Lakes = new SelectList(new List<Lake>(), "Id", "Name");
+            
             return View();
         }
 
@@ -125,6 +135,44 @@ namespace ELake.Controllers
         public IActionResult Administrator()
         {
             return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetKATO2(string KATO1Number)
+        {
+            if (string.IsNullOrEmpty(KATO1Number))
+            {
+                JsonResult resultNull = new JsonResult(null);
+                return resultNull;
+            }
+            var KATO2 = _context.KATO
+                .Where(k => k.Number.Substring(0, 2) == KATO1Number.Substring(0, 2) && k.Level == 2)
+                .OrderBy(k => k.Name);
+            JsonResult result = new JsonResult(KATO2);
+            return result;
+        }
+
+        [HttpPost]
+        public JsonResult GetKATO3(string KATO2Number)
+        {
+            if(string.IsNullOrEmpty(KATO2Number))
+            {
+                JsonResult resultNull = new JsonResult(null);
+                return resultNull;
+            }
+            var KATO3 = _context.KATO
+                .Where(k => k.Number.Substring(0, 4) == KATO2Number.Substring(0, 4) && k.Level == 3)
+                .OrderBy(k => k.Name);
+            JsonResult result = new JsonResult(KATO3);
+            return result;
+        }
+
+        [HttpPost]
+        public JsonResult GetLakes(string KATONumber, int KATOLevel)
+        {
+            var lakes = _GeoServer.FindLakesInKATO(KATONumber, KATOLevel);
+            JsonResult result = new JsonResult(lakes);
+            return result;
         }
     }
 }

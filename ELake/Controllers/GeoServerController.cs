@@ -1448,13 +1448,14 @@ namespace ELake.Controllers
             _context.LakeKATO.RemoveRange(_context.LakeKATO);
             _context.SaveChanges();
             int[] lakesIds = _GDAL.GetShpColumnValues(LayerFile, Startup.Configuration["Lakes:IdField"]);
+            // one thread
             //foreach (int lakeId in lakesIds)
             //{
             //    string geometry = _GDAL.GetGeometry(LayerFile, Startup.Configuration["Lakes:IdField"], lakeId.ToString());
             //    string[] katoes1 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm1File"], Startup.Configuration["KATO:KATOField"], geometry),
             //        katoes2 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm2File"], Startup.Configuration["KATO:KATOField"], geometry),
             //        katoes3 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm3File"], Startup.Configuration["KATO:KATOField"], geometry);
-            //    foreach(string kato in katoes1)
+            //    foreach (string kato in katoes1)
             //    {
             //        _context.LakeKATO.Add(new LakeKATO()
             //        {
@@ -1462,7 +1463,7 @@ namespace ELake.Controllers
             //            KATOId = _context.KATO.FirstOrDefault(k => k.Number == kato).Id
             //        });
             //    }
-            //    foreach(string kato in katoes2)
+            //    foreach (string kato in katoes2)
             //    {
             //        _context.LakeKATO.Add(new LakeKATO()
             //        {
@@ -1470,7 +1471,7 @@ namespace ELake.Controllers
             //            KATOId = _context.KATO.FirstOrDefault(k => k.Number == kato).Id
             //        });
             //    }
-            //    foreach(string kato in katoes3)
+            //    foreach (string kato in katoes3)
             //    {
             //        _context.LakeKATO.Add(new LakeKATO()
             //        {
@@ -1480,12 +1481,12 @@ namespace ELake.Controllers
             //    }
             //}
             //_context.SaveChanges();
+            // multi thread
             foreach (int lakeId in lakesIds)
             {
                 Task task = Task.Run(() =>
                 {
                     var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-                    //optionsBuilder.UseNpgsql("Host=localhost;Database=ELake;Username=postgres;Password=postgres");
                     optionsBuilder.UseNpgsql(Startup.Configuration["ConnectionStrings:DefaultConnection"]);
 
                     using (var _taskContext = new ApplicationDbContext(optionsBuilder.Options))
@@ -1523,6 +1524,51 @@ namespace ELake.Controllers
                     }
                 });
             }
+        }
+
+        private int[] FindLakeIdsInKATO(string KATONumber, int KATOLevel)
+        {
+            string KATOFile = Startup.Configuration["KATO:Adm1File"];
+            if(KATOLevel == 2)
+            {
+                KATOFile = Startup.Configuration["KATO:Adm2File"];
+            }
+            if(KATOLevel == 3)
+            {
+                KATOFile = Startup.Configuration["KATO:Adm3File"];
+            }
+            string geometry = _GDAL.GetGeometry(KATOFile, Startup.Configuration["KATO:KATOField"], KATONumber);
+            string lakesFile = _context.Layer.FirstOrDefault(l => l.Lake).FileNameWithPath;
+            if(string.IsNullOrEmpty(lakesFile))
+            {
+                return new int[0];
+            }
+            string[] lakesIdsS = _GDAL.GetFeatureCrossFeatures(lakesFile, Startup.Configuration["Lakes:IdField"], geometry);
+            int[] lakesIds = new int[lakesIdsS.Count()];
+            for(int i=0;i<lakesIdsS.Count();i++)
+            {
+                lakesIds[i] = Convert.ToInt32(lakesIdsS[i]);
+            }
+            return lakesIds;
+        }
+
+        public Lake[] FindLakesInKATO(string KATONumber, int KATOLevel)
+        {
+            int[] lakesIds = FindLakeIdsInKATO(KATONumber, KATOLevel);
+            string lakesFile = _context.Layer.FirstOrDefault(l => l.Lake).FileNameWithPath;
+            if (string.IsNullOrEmpty(lakesFile))
+            {
+                return new Lake[0];
+            }
+            List<Lake> lakes = new List<Lake>();
+            foreach(int lakeId in lakesIds)
+            {
+                lakes.Add(new Lake() {
+                    Id = lakeId,
+                    Name = _GDAL.GetFeatureValue(lakesFile, Startup.Configuration["Lakes:IdField"], lakeId.ToString(), Startup.Configuration["Lakes:NameField"])
+                });
+            }
+            return lakes.ToArray();
         }
         //===========================================================================================================================================================================
         /// <summary>

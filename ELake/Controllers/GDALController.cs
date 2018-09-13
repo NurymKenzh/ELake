@@ -138,7 +138,7 @@ namespace ELake.Controllers
             int[] values = new int[1];
             try
             {
-                string jsonArray = PythonExecute("GetShpValues01", $"{File}", Field);
+                string jsonArray = PythonExecute("GetShpValues", $"{File}", Field);
                 values = Newtonsoft.Json.JsonConvert.DeserializeObject<int[]>(jsonArray);
                 return values;
             }
@@ -209,6 +209,23 @@ namespace ELake.Controllers
                 string jsonArray = PythonExecute("GetIdByLocation", $"{File}", Field, Geometry);
                 values = Newtonsoft.Json.JsonConvert.DeserializeObject<string[]>(jsonArray);
                 return values;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+        public string GetFeatureValue(string File,
+            string Field,
+            string Value,
+            string FieldToShow)
+        {
+            string value = "";
+            try
+            {
+                value = PythonExecute("GetFeatureField", $"{File}", Field, Value, FieldToShow);
+                return value;
             }
             catch (Exception exception)
             {
