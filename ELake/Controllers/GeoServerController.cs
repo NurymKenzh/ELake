@@ -1106,6 +1106,7 @@ namespace ELake.Controllers
                 }
                 foreach (string file in Files.Select(f => f.FileName))
                 {
+                    var filePath = Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", Path.GetFileName(file));
                     var fileName = Path.GetFileName(file);
                     if (shapeFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName)))
                     {
@@ -1119,7 +1120,7 @@ namespace ELake.Controllers
                         }
                         else
                         {
-                            System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                            System.IO.File.Move(filePath, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
                             report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
                         }
                     }
