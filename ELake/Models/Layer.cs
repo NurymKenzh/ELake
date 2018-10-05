@@ -47,6 +47,8 @@ namespace ELake.Models
             }
         }
 
+        public string MetaData { get; set; }
+
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Lake")]
         public bool Lake { get; set; }
 

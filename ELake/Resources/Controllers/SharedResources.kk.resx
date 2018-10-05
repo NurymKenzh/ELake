@@ -657,4 +657,7 @@
   <data name="FindKATO" xml:space="preserve">
     <value>KATO-ны табыңыз</value>
   </data>
+  <data name="noMetaData" xml:space="preserve">
+    <value>метадеректер жоқ</value>
+  </data>
 </root>

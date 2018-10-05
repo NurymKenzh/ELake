@@ -16,12 +16,15 @@ namespace ELake.Controllers
     public class HomeController : Controller
     {
         private readonly GeoServerController _GeoServer;
+        private readonly GDALController _GDAL;
         private readonly ApplicationDbContext _context;
 
         public HomeController(GeoServerController GeoServer,
+            GDALController GDAL,
             ApplicationDbContext context)
         {
             _GeoServer = GeoServer;
+            _GDAL = GDAL;
             _context = context;
         }
 
@@ -64,40 +67,42 @@ namespace ELake.Controllers
 
                 //_GeoServer.MoveShapeFilesToDirectories(Startup.Configuration["GeoServer:Workspace"]);
 
-                string styleText = "<?xml version=\"1.0\" encoding=\"Windows-1251\"?>" +
-                    "<StyledLayerDescriptor version=\"1.0.0\" " +
-                    " xsi:schemaLocation=\"http://www.opengis.net/sld StyledLayerDescriptor.xsd\" " +
-                    " xmlns=\"http://www.opengis.net/sld\" " +
-                    " xmlns:ogc=\"http://www.opengis.net/ogc\" " +
-                    " xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
-                    " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
-                    "  <!-- a Named Layer is the basic building block of an SLD document -->" +
-                    "  <NamedLayer>" +
-                    "    <Name>default_line</Name>" +
-                    "    <UserStyle>" +
-                    "    <!-- Styles can have names, titles and abstracts -->" +
-                    "      <Title>Default Line</Title>" +
-                    "      <Abstract>A sample style that draws a line</Abstract>" +
-                    "      <!-- FeatureTypeStyles describe how to render different features -->" +
-                    "      <!-- A FeatureTypeStyle for rendering lines -->" +
-                    "      <FeatureTypeStyle>" +
-                    "        <Rule>" +
-                    "          <Name>rule1</Name>" +
-                    "          <Title>Blue Line</Title>" +
-                    "          <Abstract>A solid blue line with a 1 pixel width</Abstract>" +
-                    "          <LineSymbolizer>" +
-                    "            <Stroke>" +
-                    "              <CssParameter name=\"stroke\">#00FF00</CssParameter>" +
-                    "            </Stroke>" +
-                    "          </LineSymbolizer>" +
-                    "        </Rule>" +
-                    "      </FeatureTypeStyle>" +
-                    "    </UserStyle>" +
-                    "  </NamedLayer>" +
-                    "</StyledLayerDescriptor>";
+                //string styleText = "<?xml version=\"1.0\" encoding=\"Windows-1251\"?>" +
+                //    "<StyledLayerDescriptor version=\"1.0.0\" " +
+                //    " xsi:schemaLocation=\"http://www.opengis.net/sld StyledLayerDescriptor.xsd\" " +
+                //    " xmlns=\"http://www.opengis.net/sld\" " +
+                //    " xmlns:ogc=\"http://www.opengis.net/ogc\" " +
+                //    " xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
+                //    " xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">" +
+                //    "  <!-- a Named Layer is the basic building block of an SLD document -->" +
+                //    "  <NamedLayer>" +
+                //    "    <Name>default_line</Name>" +
+                //    "    <UserStyle>" +
+                //    "    <!-- Styles can have names, titles and abstracts -->" +
+                //    "      <Title>Default Line</Title>" +
+                //    "      <Abstract>A sample style that draws a line</Abstract>" +
+                //    "      <!-- FeatureTypeStyles describe how to render different features -->" +
+                //    "      <!-- A FeatureTypeStyle for rendering lines -->" +
+                //    "      <FeatureTypeStyle>" +
+                //    "        <Rule>" +
+                //    "          <Name>rule1</Name>" +
+                //    "          <Title>Blue Line</Title>" +
+                //    "          <Abstract>A solid blue line with a 1 pixel width</Abstract>" +
+                //    "          <LineSymbolizer>" +
+                //    "            <Stroke>" +
+                //    "              <CssParameter name=\"stroke\">#00FF00</CssParameter>" +
+                //    "            </Stroke>" +
+                //    "          </LineSymbolizer>" +
+                //    "        </Rule>" +
+                //    "      </FeatureTypeStyle>" +
+                //    "    </UserStyle>" +
+                //    "  </NamedLayer>" +
+                //    "</StyledLayerDescriptor>";
 
 
-                _GeoServer.ChangeStyle(Startup.Configuration["GeoServer:Workspace"], "line", styleText);
+                //_GeoServer.ChangeStyle(Startup.Configuration["GeoServer:Workspace"], "line", styleText);
+
+                //_GDAL.GetLayerMetaData("D:\\Documents\\New\\ArcGIS2\\Adm_Obl_RK_1mln.shp.xml");
             }
             catch (Exception exception)
             {

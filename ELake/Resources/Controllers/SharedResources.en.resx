@@ -657,4 +657,7 @@
   <data name="FindKATO" xml:space="preserve">
     <value>Find KATO</value>
   </data>
+  <data name="noMetaData" xml:space="preserve">
+    <value>no metadata</value>
+  </data>
 </root>

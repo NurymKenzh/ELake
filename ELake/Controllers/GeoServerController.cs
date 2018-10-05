@@ -690,6 +690,22 @@ namespace ELake.Controllers
             List<string> geoTIFFFiles = Directory.GetFiles(GetWorkspaceDirectoryPath(WorkspaceName), "*.*", SearchOption.TopDirectoryOnly).OrderBy(l => l).ToList();
             geoTIFFFiles.RemoveAll(l => !geoTIFFFileExtentions.AsEnumerable().Select(e => e.Value).Contains(Path.GetExtension(l)));
             geoTIFFFiles = geoTIFFFiles.Select(l => { return Path.GetFileName(l); }).ToList();
+            for (int i = geoTIFFFiles.Count - 1; i >= 0; i--)
+            {
+                bool ok = false;
+                foreach(string ext in geoTIFFFileExtentions.AsEnumerable().Select(e => e.Value))
+                {
+                    if((Path.GetExtension(geoTIFFFiles[i]) == ext)&&(ext!=".xml"))
+                    {
+                        ok = true;
+                        break;
+                    }
+                }
+                if(!ok)
+                {
+                    geoTIFFFiles.RemoveAt(i);
+                }
+            }
             return geoTIFFFiles.ToArray();
         }
 
@@ -749,7 +765,7 @@ namespace ELake.Controllers
                 foreach (string file in Files.Select(f => f.FileName))
                 {
                     var fileName = Path.GetFileName(file);
-                    if(geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName)))
+                    if(geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName).ToLower()))
                     {
                         if (System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName)))
                         {
@@ -758,8 +774,18 @@ namespace ELake.Controllers
                         }
                         else
                         {
-                            System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
-                            report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            string metaDataFile = fileName + ".xml";
+                            if(!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", metaDataFile))
+                                &&(Path.GetExtension(fileName)!=".xml"))
+                            {
+                                report.Add($"{fileName}: {_sharedLocalizer["noMetaData"]}!");
+                                System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                            }
+                            else
+                            {
+                                System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName), Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            }
                         }
                     }
                     else if(Path.GetExtension(file)[1] != 'z')
@@ -771,7 +797,7 @@ namespace ELake.Controllers
                 foreach(string file in unzipfiles)
                 {
                     var fileName = Path.GetFileName(file);
-                    if (geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName)))
+                    if (geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName).ToLower()))
                     {
                         if (System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName)))
                         {
@@ -780,8 +806,18 @@ namespace ELake.Controllers
                         }
                         else
                         {
-                            System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
-                            report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            string metaDataFile = fileName + ".xml";
+                            if (!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", metaDataFile))
+                                && (Path.GetExtension(fileName) != ".xml"))
+                            {
+                                report.Add($"{fileName}: {_sharedLocalizer["noMetaData"]}!");
+                                System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                            }
+                            else
+                            {
+                                System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName), Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            }
                         }
                     }
                     else
@@ -953,6 +989,14 @@ namespace ELake.Controllers
                     throw new Exception(string.Format(_sharedLocalizer["MessageCantBeDeleted"], FileName, string.Join(", ", geoTIFFFileLayers)));
                 }
                 System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), FileName));
+                try
+                {
+                    System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), FileName + ".xml"));
+                }
+                catch
+                {
+
+                }
             }
             catch (Exception exception)
             {
@@ -1108,7 +1152,7 @@ namespace ELake.Controllers
                 {
                     var filePath = Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", Path.GetFileName(file));
                     var fileName = Path.GetFileName(file);
-                    if (shapeFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName)))
+                    if (shapeFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName).ToLower()))
                     {
                         if (System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileNameWithoutExtension(fileName), fileName)))
                         {
@@ -1120,8 +1164,22 @@ namespace ELake.Controllers
                         }
                         else
                         {
-                            System.IO.File.Move(filePath, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
-                            report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            string metaDataFile = fileName + ".xml",
+                                metaDataFile2 = Path.ChangeExtension(fileName, ".shp") + ".xml";
+                            if ((!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", metaDataFile))
+                                &&(!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", metaDataFile2))))
+                                && (!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), metaDataFile)))
+                                && (!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), metaDataFile2)))
+                                && (Path.GetExtension(fileName) != ".xml"))
+                            {
+                                report.Add($"{fileName}: {_sharedLocalizer["noMetaData"]}!");
+                                System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                            }
+                            else
+                            {
+                                System.IO.File.Move(filePath, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            }
                         }
                     }
                     else if (Path.GetExtension(file)[1] != 'z')
@@ -1133,7 +1191,7 @@ namespace ELake.Controllers
                 foreach (string file in unzipfiles)
                 {
                     var fileName = Path.GetFileName(file);
-                    if (shapeFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName)))
+                    if (shapeFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName).ToLower()))
                     {
                         if (System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Path.GetFileNameWithoutExtension(fileName), fileName)))
                         {
@@ -1145,8 +1203,22 @@ namespace ELake.Controllers
                         }
                         else
                         {
-                            System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
-                            report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            string metaDataFile = fileName + ".xml",
+                                metaDataFile2 = Path.ChangeExtension(fileName, ".shp") + ".xml";
+                            if ((!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", metaDataFile))
+                                && (!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", metaDataFile2))))
+                                && (!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), metaDataFile)))
+                                && (!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), metaDataFile2)))
+                                && (Path.GetExtension(fileName) != ".xml"))
+                            {
+                                report.Add($"{fileName}: {_sharedLocalizer["noMetaData"]}!");
+                                System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                            }
+                            else
+                            {
+                                System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            }
                         }
                     }
                     else
@@ -1765,13 +1837,16 @@ namespace ELake.Controllers
             try
             {
                 PublishGeoTIFF(Startup.Configuration["GeoServer:Workspace"], GeoTIFFFile, Style);
+                string xml = GeoTIFFFile + ".xml";
+                xml = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), xml);
                 Layer layer = new Layer() {
                     NameKK = NameKK,
                     NameRU = NameRU,
                     NameEN = NameEN,
                     GeoServerStyle = Style,
                     GeoServerName = Path.GetFileNameWithoutExtension(GeoTIFFFile),
-                    FileNameWithPath = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), GeoTIFFFile)
+                    FileNameWithPath = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), GeoTIFFFile),
+                    MetaData = _GDAL.GetLayerMetaData(xml)
                 };
                 _context.Add(layer);
                 await _context.SaveChangesAsync();
@@ -2576,6 +2651,8 @@ namespace ELake.Controllers
                 if(!AsLakeLayer)
                 {
                     PublishShape(Startup.Configuration["GeoServer:Workspace"], ShapeFile, Style);
+                    string xml = ShapeFile + ".xml";
+                    xml = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(ShapeFile), xml);
                     Layer layer = new Layer()
                     {
                         NameKK = NameKK,
@@ -2584,7 +2661,8 @@ namespace ELake.Controllers
                         GeoServerStyle = Style,
                         GeoServerName = Path.GetFileNameWithoutExtension(ShapeFile),
                         FileNameWithPath = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(ShapeFile), ShapeFile),
-                        Lake = false
+                        Lake = false,
+                        MetaData = _GDAL.GetLayerMetaData(xml)
                     };
                     _context.Add(layer);
                     await _context.SaveChangesAsync();
@@ -2611,12 +2689,14 @@ namespace ELake.Controllers
                     string styleText = CreateStyleForLakes(shp.ToArray());
                     CreateStyle(Startup.Configuration["GeoServer:Workspace"], Path.GetFileNameWithoutExtension(ShapeFile), styleText);
                     PublishShape(Startup.Configuration["GeoServer:Workspace"], ShapeFile, Path.GetFileNameWithoutExtension(ShapeFile));
-
+                    string xml = ShapeFile + ".xml";
+                    xml = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(ShapeFile), xml);
                     Layer layer = new Layer()
                     {
                         NameKK = NameKK,
                         NameRU = NameRU,
                         NameEN = NameEN,
+                        MetaData = _GDAL.GetLayerMetaData(xml),
                         GeoServerStyle = Path.GetFileNameWithoutExtension(ShapeFile),
                         GeoServerName = Path.GetFileNameWithoutExtension(ShapeFile),
                         FileNameWithPath = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(ShapeFile), ShapeFile),
