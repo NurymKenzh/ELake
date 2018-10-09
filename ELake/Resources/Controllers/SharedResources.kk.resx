@@ -660,4 +660,7 @@
   <data name="noMetaData" xml:space="preserve">
     <value>метадеректер жоқ</value>
   </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Тегтер</value>
+  </data>
 </root>

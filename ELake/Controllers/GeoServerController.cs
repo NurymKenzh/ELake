@@ -783,7 +783,18 @@ namespace ELake.Controllers
                             }
                             else
                             {
-                                System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName), Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                if(cs != "EPSG:3857")
+                                {
+                                    _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                        Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
+                                        "EPSG:3857");
+                                }
+                                else
+                                {
+                                    System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                        Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                }                                
                                 report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
                             }
                         }
@@ -1831,7 +1842,7 @@ namespace ELake.Controllers
         /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> PublishGeoTIFF(string GeoTIFFFile, string Style, string NameKK, string NameRU, string NameEN)
+        public async Task<IActionResult> PublishGeoTIFF(string GeoTIFFFile, string Style, string NameKK, string NameRU, string NameEN, string Tags)
         {
             string message = "";
             try
@@ -1844,6 +1855,7 @@ namespace ELake.Controllers
                     NameRU = NameRU,
                     NameEN = NameEN,
                     GeoServerStyle = Style,
+                    Tags = Tags,
                     GeoServerName = Path.GetFileNameWithoutExtension(GeoTIFFFile),
                     FileNameWithPath = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), GeoTIFFFile),
                     MetaData = _GDAL.GetLayerMetaData(xml)
@@ -2209,7 +2221,7 @@ namespace ELake.Controllers
         [DisableRequestSizeLimit]
         [RequestSizeLimit(long.MaxValue)]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> PublishShape(string ShapeFile, string Style, bool AsLakeLayer, string NameKK, string NameRU, string NameEN, Layer Layer)
+        public async Task<IActionResult> PublishShape(string ShapeFile, string Style, bool AsLakeLayer, string NameKK, string NameRU, string NameEN, string Tags, Layer Layer)
         {
             if (Layer.LayerIntervalsWaterLevel == null)
             {
@@ -2658,6 +2670,7 @@ namespace ELake.Controllers
                         NameKK = NameKK,
                         NameRU = NameRU,
                         NameEN = NameEN,
+                        Tags = Tags,
                         GeoServerStyle = Style,
                         GeoServerName = Path.GetFileNameWithoutExtension(ShapeFile),
                         FileNameWithPath = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(ShapeFile), ShapeFile),
@@ -2696,6 +2709,7 @@ namespace ELake.Controllers
                         NameKK = NameKK,
                         NameRU = NameRU,
                         NameEN = NameEN,
+                        Tags = Tags,
                         MetaData = _GDAL.GetLayerMetaData(xml),
                         GeoServerStyle = Path.GetFileNameWithoutExtension(ShapeFile),
                         GeoServerName = Path.GetFileNameWithoutExtension(ShapeFile),

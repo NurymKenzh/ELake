@@ -320,5 +320,29 @@ namespace ELake.Controllers
 
             return r;
         }
+
+        public string GetLayerCoordinateSystemName(string FilePath)
+        {
+            try
+            {
+                return PythonExecute("GetLayerCoordinateSystemName", FilePath).Trim();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+        public void SaveLayerWithNewCoordinateSystem(string FilePathFrom, string FilePathTo, string CoordinateSystem)
+        {
+            try
+            {
+                GDALShellExecute(Startup.Configuration["GDAL:gdalwarpFullPath"], FilePathFrom, FilePathTo, "-t_srs " + CoordinateSystem);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
     }
 }
