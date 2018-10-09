@@ -663,4 +663,13 @@
   <data name="Tags" xml:space="preserve">
     <value>Тегтер</value>
   </data>
+  <data name="DescriptionEN" xml:space="preserve">
+    <value>Сипаттама ағылшын тілінде</value>
+  </data>
+  <data name="DescriptionKK" xml:space="preserve">
+    <value>Сипаттама қазақ тілінде</value>
+  </data>
+  <data name="DescriptionRU" xml:space="preserve">
+    <value>Сипаттама орыс тілінде</value>
+  </data>
 </root>

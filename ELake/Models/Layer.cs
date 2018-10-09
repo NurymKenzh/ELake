@@ -52,6 +52,13 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Tags")]
         public string Tags { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "DescriptionKK")]
+        public string DescriptionKK { get; set; }
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "DescriptionRU")]
+        public string DescriptionRU { get; set; }
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "DescriptionEN")]
+        public string DescriptionEN { get; set; }
+
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Lake")]
         public bool Lake { get; set; }
 

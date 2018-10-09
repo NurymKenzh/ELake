@@ -1842,7 +1842,10 @@ namespace ELake.Controllers
         /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> PublishGeoTIFF(string GeoTIFFFile, string Style, string NameKK, string NameRU, string NameEN, string Tags)
+        public async Task<IActionResult> PublishGeoTIFF(string GeoTIFFFile, string Style, string NameKK, string NameRU, string NameEN, string Tags,
+            string DescriptionKK,
+            string DescriptionRU,
+            string DescriptionEN)
         {
             string message = "";
             try
@@ -1856,6 +1859,9 @@ namespace ELake.Controllers
                     NameEN = NameEN,
                     GeoServerStyle = Style,
                     Tags = Tags,
+                    DescriptionKK = DescriptionKK,
+                    DescriptionRU = DescriptionRU,
+                    DescriptionEN = DescriptionEN,
                     GeoServerName = Path.GetFileNameWithoutExtension(GeoTIFFFile),
                     FileNameWithPath = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), GeoTIFFFile),
                     MetaData = _GDAL.GetLayerMetaData(xml)
@@ -2221,7 +2227,10 @@ namespace ELake.Controllers
         [DisableRequestSizeLimit]
         [RequestSizeLimit(long.MaxValue)]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> PublishShape(string ShapeFile, string Style, bool AsLakeLayer, string NameKK, string NameRU, string NameEN, string Tags, Layer Layer)
+        public async Task<IActionResult> PublishShape(string ShapeFile, string Style, bool AsLakeLayer, string NameKK, string NameRU, string NameEN, string Tags,
+            string DescriptionKK,
+            string DescriptionRU,
+            string DescriptionEN, Layer Layer)
         {
             if (Layer.LayerIntervalsWaterLevel == null)
             {
@@ -2671,6 +2680,9 @@ namespace ELake.Controllers
                         NameRU = NameRU,
                         NameEN = NameEN,
                         Tags = Tags,
+                        DescriptionKK = DescriptionKK,
+                        DescriptionRU = DescriptionRU,
+                        DescriptionEN = DescriptionEN,
                         GeoServerStyle = Style,
                         GeoServerName = Path.GetFileNameWithoutExtension(ShapeFile),
                         FileNameWithPath = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Path.GetFileNameWithoutExtension(ShapeFile), ShapeFile),
@@ -2710,6 +2722,9 @@ namespace ELake.Controllers
                         NameRU = NameRU,
                         NameEN = NameEN,
                         Tags = Tags,
+                        DescriptionKK = DescriptionKK,
+                        DescriptionRU = DescriptionRU,
+                        DescriptionEN = DescriptionEN,
                         MetaData = _GDAL.GetLayerMetaData(xml),
                         GeoServerStyle = Path.GetFileNameWithoutExtension(ShapeFile),
                         GeoServerName = Path.GetFileNameWithoutExtension(ShapeFile),

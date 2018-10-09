@@ -261,6 +261,33 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DescriptionEN {
+            get {
+                return ResourceManager.GetString("DescriptionEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DescriptionKK {
+            get {
+                return ResourceManager.GetString("DescriptionKK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DescriptionRU {
+            get {
+                return ResourceManager.GetString("DescriptionRU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Details {
             get {
                 return ResourceManager.GetString("Details", resourceCulture);
