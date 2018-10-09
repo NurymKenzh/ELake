@@ -669,4 +669,7 @@
   <data name="DescriptionRU" xml:space="preserve">
     <value />
   </data>
+  <data name="not3857" xml:space="preserve">
+    <value />
+  </data>
 </root>

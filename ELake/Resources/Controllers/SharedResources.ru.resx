@@ -672,4 +672,7 @@
   <data name="DescriptionRU" xml:space="preserve">
     <value>Описание на русском</value>
   </data>
+  <data name="not3857" xml:space="preserve">
+    <value>Система координат не EPSG:3857</value>
+  </data>
 </root>

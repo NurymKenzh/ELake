@@ -783,19 +783,30 @@ namespace ELake.Controllers
                             }
                             else
                             {
-                                string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                if(cs != "EPSG:3857")
+                                if(Path.GetExtension(fileName)==".tif")
                                 {
-                                    _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
-                                        Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
-                                        "EPSG:3857");
+                                    string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    if (cs != "EPSG:3857")
+                                    {
+                                        //_GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                        //    Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
+                                        //    "EPSG:3857");
+                                        report.Add($"{fileName}: {_sharedLocalizer["not3857"]}!");
+                                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    }
+                                    else
+                                    {
+                                        System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                            Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                        report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                    }
                                 }
                                 else
                                 {
                                     System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
-                                        Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
-                                }                                
-                                report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                            Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                    report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                }
                             }
                         }
                     }
@@ -1188,8 +1199,28 @@ namespace ELake.Controllers
                             }
                             else
                             {
-                                System.IO.File.Move(filePath, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
-                                report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                if (Path.GetExtension(fileName) == ".shp")
+                                {
+                                    string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    if (cs != "EPSG:3857")
+                                    {
+                                        //_GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                        //    Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
+                                        //    "EPSG:3857");
+                                        report.Add($"{fileName}: {_sharedLocalizer["not3857"]}!");
+                                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    }
+                                    else
+                                    {
+                                        System.IO.File.Move(filePath, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                        report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                    }
+                                }
+                                else
+                                {
+                                    System.IO.File.Move(filePath, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                    report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                }
                             }
                         }
                     }
@@ -1227,8 +1258,28 @@ namespace ELake.Controllers
                             }
                             else
                             {
-                                System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
-                                report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                if (Path.GetExtension(fileName) == ".shp")
+                                {
+                                    string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    if (cs != "EPSG:3857")
+                                    {
+                                        //_GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                        //    Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
+                                        //    "EPSG:3857");
+                                        report.Add($"{fileName}: {_sharedLocalizer["not3857"]}!");
+                                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    }
+                                    else
+                                    {
+                                        System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                        report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                    }
+                                }
+                                else
+                                {
+                                    System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
+                                    report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                                }
                             }
                         }
                     }

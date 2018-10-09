@@ -672,4 +672,7 @@
   <data name="DescriptionRU" xml:space="preserve">
     <value>Сипаттама орыс тілінде</value>
   </data>
+  <data name="not3857" xml:space="preserve">
+    <value>Координаттар жүйесі EPSG:3857 емес</value>
+  </data>
 </root>
