@@ -76,6 +76,22 @@
                 <span asp-validation-for="NameEN" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label class="control-label">@SharedLocalizer["DescriptionKK"]</label>
+                <textarea name="DescriptionKK" class="form-control" type="text" asp-for="DescriptionKK"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["DescriptionRU"]</label>
+                <textarea name="DescriptionRU" class="form-control" type="text" asp-for="DescriptionRU"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["DescriptionEN"]</label>
+                <textarea name="DescriptionEN" class="form-control" type="text" asp-for="DescriptionEN"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="control-label">@SharedLocalizer["Tags"]</label>
+                <textarea name="Tags" class="form-control" type="text" asp-for="Tags"></textarea>
+            </div>
+            <div class="form-group">
                 <label class="col-md-2 control-label">@SharedLocalizer["StyleWaterLevel"]</label>
                 <div class="col-md-10">
                     <input type="button" value="@SharedLocalizer["Add"]" class="btn btn-default" onclick="AddColorWaterLevel()" />

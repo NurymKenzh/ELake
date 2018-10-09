@@ -65,6 +65,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Layers\EditNL.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Python\GetShpValues.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

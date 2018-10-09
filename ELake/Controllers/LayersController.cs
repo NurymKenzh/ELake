@@ -467,7 +467,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         //public async Task<IActionResult> Edit(int id, [Bind("Id,Lake,GeoServerName,FileNameWithPath,GeoServerStyle,NameKK,NameRU,NameEN,LayerIntervalsWaterLevel,LayerIntervalsSurfaceFlow,LayerIntervalsPrecipitation,LayerIntervalsUndergroundFlow,LayerIntervalsSurfaceOutflow,LayerIntervalsEvaporation,LayerIntervalsUndergroundOutflow,LayerIntervalsHydrochemistry")] Layer layer)
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Lake,GeoServerName,FileNameWithPath,GeoServerStyle,NameKK,NameRU,NameEN,LayerIntervalsWaterLevel,LayerIntervalsSurfaceFlow,LayerIntervalsPrecipitation,LayerIntervalsUndergroundFlow,LayerIntervalsSurfaceOutflow,LayerIntervalsEvaporation,LayerIntervalsUndergroundOutflow,LayerIntervalsHydrochemistryMineralization,LayerIntervalsHydrochemistryTotalHardness,LayerIntervalsHydrochemistryDissOxygWater,LayerIntervalsHydrochemistryPercentOxygWater,LayerIntervalsHydrochemistrypH,LayerIntervalsHydrochemistryOrganicSubstances,LayerIntervalsHydrochemistryCa,LayerIntervalsHydrochemistryMg,LayerIntervalsHydrochemistryNaK,LayerIntervalsHydrochemistryCl,LayerIntervalsHydrochemistryHCO,LayerIntervalsHydrochemistrySO,LayerIntervalsHydrochemistryNH,LayerIntervalsHydrochemistryNO2,LayerIntervalsHydrochemistryNO3,LayerIntervalsHydrochemistryPPO,LayerIntervalsHydrochemistryCu,LayerIntervalsHydrochemistryZn,LayerIntervalsHydrochemistryMn,LayerIntervalsHydrochemistryPb,LayerIntervalsHydrochemistryNi,LayerIntervalsHydrochemistryCd,LayerIntervalsHydrochemistryCo,LayerIntervalsHydrochemistryCIWP")] Layer layer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Lake,GeoServerName,FileNameWithPath,GeoServerStyle,NameKK,NameRU,NameEN,Tags,DescriptionKK,DescriptionRU,DescriptionEN,LayerIntervalsWaterLevel,LayerIntervalsSurfaceFlow,LayerIntervalsPrecipitation,LayerIntervalsUndergroundFlow,LayerIntervalsSurfaceOutflow,LayerIntervalsEvaporation,LayerIntervalsUndergroundOutflow,LayerIntervalsHydrochemistryMineralization,LayerIntervalsHydrochemistryTotalHardness,LayerIntervalsHydrochemistryDissOxygWater,LayerIntervalsHydrochemistryPercentOxygWater,LayerIntervalsHydrochemistrypH,LayerIntervalsHydrochemistryOrganicSubstances,LayerIntervalsHydrochemistryCa,LayerIntervalsHydrochemistryMg,LayerIntervalsHydrochemistryNaK,LayerIntervalsHydrochemistryCl,LayerIntervalsHydrochemistryHCO,LayerIntervalsHydrochemistrySO,LayerIntervalsHydrochemistryNH,LayerIntervalsHydrochemistryNO2,LayerIntervalsHydrochemistryNO3,LayerIntervalsHydrochemistryPPO,LayerIntervalsHydrochemistryCu,LayerIntervalsHydrochemistryZn,LayerIntervalsHydrochemistryMn,LayerIntervalsHydrochemistryPb,LayerIntervalsHydrochemistryNi,LayerIntervalsHydrochemistryCd,LayerIntervalsHydrochemistryCo,LayerIntervalsHydrochemistryCIWP")] Layer layer)
         {
             if (id != layer.Id)
             {
@@ -930,7 +930,63 @@ namespace ELake.Controllers
             }
             return View(layer);
         }
-       
+
+
+        // GET: Layers/Edit/5
+        public async Task<IActionResult> EditNL(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var layer = await _context.Layer.SingleOrDefaultAsync(m => m.Id == id);
+            if (layer == null)
+            {
+                return NotFound();
+            }
+
+
+            return View(layer);
+        }
+
+        // POST: Layers/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id, [Bind("Id,Lake,GeoServerName,FileNameWithPath,GeoServerStyle,NameKK,NameRU,NameEN,LayerIntervalsWaterLevel,LayerIntervalsSurfaceFlow,LayerIntervalsPrecipitation,LayerIntervalsUndergroundFlow,LayerIntervalsSurfaceOutflow,LayerIntervalsEvaporation,LayerIntervalsUndergroundOutflow,LayerIntervalsHydrochemistry")] Layer layer)
+        public async Task<IActionResult> EditNL(int id, [Bind("Id,Lake,GeoServerName,FileNameWithPath,GeoServerStyle,NameKK,NameRU,NameEN,Tags,DescriptionKK,DescriptionRU,DescriptionEN,LayerIntervalsWaterLevel,LayerIntervalsSurfaceFlow,LayerIntervalsPrecipitation,LayerIntervalsUndergroundFlow,LayerIntervalsSurfaceOutflow,LayerIntervalsEvaporation,LayerIntervalsUndergroundOutflow,LayerIntervalsHydrochemistryMineralization,LayerIntervalsHydrochemistryTotalHardness,LayerIntervalsHydrochemistryDissOxygWater,LayerIntervalsHydrochemistryPercentOxygWater,LayerIntervalsHydrochemistrypH,LayerIntervalsHydrochemistryOrganicSubstances,LayerIntervalsHydrochemistryCa,LayerIntervalsHydrochemistryMg,LayerIntervalsHydrochemistryNaK,LayerIntervalsHydrochemistryCl,LayerIntervalsHydrochemistryHCO,LayerIntervalsHydrochemistrySO,LayerIntervalsHydrochemistryNH,LayerIntervalsHydrochemistryNO2,LayerIntervalsHydrochemistryNO3,LayerIntervalsHydrochemistryPPO,LayerIntervalsHydrochemistryCu,LayerIntervalsHydrochemistryZn,LayerIntervalsHydrochemistryMn,LayerIntervalsHydrochemistryPb,LayerIntervalsHydrochemistryNi,LayerIntervalsHydrochemistryCd,LayerIntervalsHydrochemistryCo,LayerIntervalsHydrochemistryCIWP")] Layer layer)
+        {
+            if (id != layer.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(layer);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!LayerExists(layer.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(layer);
+        }
+
+
         // GET: Layers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
