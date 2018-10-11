@@ -119,7 +119,7 @@ namespace ELake.Controllers
                 string shellOutput = process.StandardOutput.ReadToEnd();
                 string shellError = process.StandardError.ReadToEnd();
                 process.WaitForExit();
-                if (!string.IsNullOrEmpty(shellError))
+                if (!string.IsNullOrEmpty(shellError) && (!shellError.Contains("ogr_FileGDB.dll")))
                 {
                     throw new Exception(shellError);
                 }
@@ -333,11 +333,23 @@ namespace ELake.Controllers
             }
         }
 
+        public string GetLayerCoordinateSystemNameShp(string FilePath)
+        {
+            try
+            {
+                return PythonExecute("GetLayerCoordinateSystemNameShp", FilePath).Trim();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
         public void SaveLayerWithNewCoordinateSystem(string FilePathFrom, string FilePathTo, string CoordinateSystem)
         {
             try
             {
-                GDALShellExecute(Startup.Configuration["GDAL:gdalwarpFullPath"], FilePathFrom, FilePathTo, "-t_srs " + CoordinateSystem);
+                GDALShellExecute(Startup.Configuration["GDAL:gdalwarpFullPath"], $"\"{FilePathFrom}\"", $"\"{FilePathTo}\"", "-t_srs " + CoordinateSystem);
             }
             catch (Exception exception)
             {

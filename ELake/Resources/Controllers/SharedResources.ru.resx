@@ -675,4 +675,7 @@
   <data name="not3857" xml:space="preserve">
     <value>Система координат не EPSG:3857</value>
   </data>
+  <data name="not3857Changed" xml:space="preserve">
+    <value>Система координат не EPSG:3857. Изменено.</value>
+  </data>
 </root>

@@ -963,6 +963,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string not3857Changed {
+            get {
+                return ResourceManager.GetString("not3857Changed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string notGeoTIFF {
             get {
                 return ResourceManager.GetString("notGeoTIFF", resourceCulture);
