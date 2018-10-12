@@ -678,4 +678,19 @@
   <data name="not3857Changed" xml:space="preserve">
     <value>Координаттар жүйесі EPSG:3857 емес. Өзгертілді.</value>
   </data>
+  <data name="Month" xml:space="preserve">
+    <value>Ай</value>
+  </data>
+  <data name="MonthlyHistory" xml:space="preserve">
+    <value>Айлар бойынша</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Түрі</value>
+  </data>
+  <data name="UploadGeoTIFFFilesWater" xml:space="preserve">
+    <value>GeoTIFF файлдарын су арқылы жүктеңіз</value>
+  </data>
+  <data name="YearlyHistory" xml:space="preserve">
+    <value>Жылдар бойынша</value>
+  </data>
 </root>

@@ -678,4 +678,19 @@
   <data name="not3857Changed" xml:space="preserve">
     <value>The coordinate system is not EPSG:3857. Changed.</value>
   </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="MonthlyHistory" xml:space="preserve">
+    <value>By months</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="UploadGeoTIFFFilesWater" xml:space="preserve">
+    <value>Upload GeoTIFF files by water</value>
+  </data>
+  <data name="YearlyHistory" xml:space="preserve">
+    <value>By years</value>
+  </data>
 </root>

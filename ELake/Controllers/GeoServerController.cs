@@ -885,6 +885,141 @@ namespace ELake.Controllers
             return report.ToArray();
         }
 
+        private string[] UploadGeoTIFFFilesWater(string WorkspaceName, string Folder, int Year, int Month, List<IFormFile> Files)
+        {
+            string monthS = Month.ToString();
+            if (monthS.Length < 2)
+            {
+                monthS = "0" + monthS;
+            }
+            string subfolder = Year.ToString();
+            if (Folder == "MonthlyHistory")
+            {
+                subfolder += "_" + monthS;
+            }
+            string fullfolder = Path.Combine(Folder, subfolder);
+
+            Folder = Path.Combine(Startup.Configuration["WaterFolder"], fullfolder);
+
+            List<string> filesreport = new List<string>(),
+            report = new List<string>();
+            try
+            {
+                foreach (IFormFile file in Files)
+                {
+                    var filePath = Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", Path.GetFileName(file.FileName));
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        file.CopyTo(fileStream);
+                    }
+                }
+                List<string> unzipfiles = new List<string>();
+                List<string> zipfiles = new List<string>();
+                foreach (string file in Directory.GetFiles(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload"), "*.zip", SearchOption.TopDirectoryOnly))
+                {
+                    if (Path.GetExtension(file) == ".zip")
+                    {
+                        try
+                        {
+                            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+                            using (ZipFile zip = ZipFile.Read(Path.Combine(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload"), Path.GetFileName(file))))
+                            {
+                                foreach (ZipEntry filefromzip in zip)
+                                {
+                                    filefromzip.Extract(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload"), ExtractExistingFileAction.OverwriteSilently);
+                                    unzipfiles.Add(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", filefromzip.FileName));
+                                }
+                            }
+                            //zipfiles.Add(file);
+                            zipfiles.AddRange(Directory.GetFiles(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload"), Path.GetFileNameWithoutExtension(file) + ".z*", SearchOption.TopDirectoryOnly));
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                }
+                IConfigurationSection geoTIFFFileExtentions = Startup.Configuration.GetSection("GeoServer:GeoTIFFFileExtentions");
+                foreach (string file in zipfiles)
+                {
+                    if (!geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(file)))
+                    {
+                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", file));
+                    }
+                }
+                
+                foreach (string file in Files.Select(f => f.FileName))
+                {
+                    var fileName = Path.GetFileName(file);
+                    if (geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName).ToLower()))
+                    {
+                        if (System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Folder, fileName)))
+                        {
+                            report.Add($"{fileName}: {_sharedLocalizer["exist"]}!");
+                            System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                        }
+                        else
+                        {
+                            if (!Directory.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Folder)))
+                            {
+                                Directory.CreateDirectory(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Folder));
+                            }
+                            System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Folder, fileName));
+                            report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                        }
+                    }
+                    else if (Path.GetExtension(file)[1] != 'z')
+                    {
+                        report.Add($"{fileName}: {_sharedLocalizer["notGeoTIFF"]}!");
+                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                    }
+                }
+                foreach (string file in unzipfiles)
+                {
+                    var fileName = Path.GetFileName(file);
+                    if (geoTIFFFileExtentions.AsEnumerable().Select(l => l.Value).Contains(Path.GetExtension(fileName).ToLower()))
+                    {
+                        if (System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Folder, fileName)))
+                        {
+                            report.Add($"{fileName}: {_sharedLocalizer["exist"]}!");
+                            System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                        }
+                        else
+                        {
+                            string metaDataFile = fileName + ".xml";
+                            if (!System.IO.File.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", metaDataFile))
+                                && (Path.GetExtension(fileName) != ".xml"))
+                            {
+                                report.Add($"{fileName}: {_sharedLocalizer["noMetaData"]}!");
+                                System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                            }
+                            else
+                            {
+                                if (!Directory.Exists(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Folder)))
+                                {
+                                    Directory.CreateDirectory(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Folder));
+                                }
+                                System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                    Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Folder, fileName));
+                                report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        report.Add($"{fileName}: {_sharedLocalizer["notGeoTIFF"]}!");
+                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+            return report.ToArray();
+        }
+
         /// <summary>
         /// Возвращает файл (путь, расширение) хранилища типа "coveragestores"
         /// </summary>
@@ -1768,6 +1903,50 @@ namespace ELake.Controllers
             try
             {
                 message = string.Join("<br/>", UploadGeoTIFFFiles(Startup.Configuration["GeoServer:Workspace"], Files));
+            }
+            catch (Exception exception)
+            {
+                message = $"{exception.ToString()}. {exception.InnerException?.Message}";
+            }
+            return message;
+        }
+
+        [DisableRequestSizeLimit]
+        //[RequestSizeLimit(long.MaxValue)]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult UploadGeoTIFFFilesWater()
+        {
+            ViewBag.Folder = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            ViewBag.Year = new SelectList(Enumerable.Range(Convert.ToInt32(Startup.Configuration["MinYear"]),
+                (DateTime.Now.Year - Convert.ToInt32(Startup.Configuration["MinYear"])) + 1), DateTime.Now.Year);
+            ViewBag.Month = new SelectList(Enumerable.Range(1, 12));
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [DisableRequestSizeLimit]
+        //[RequestSizeLimit(long.MaxValue)]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<string> UploadGeoTIFFFilesWater(List<IFormFile> Files, string Folder, int Year, int Month)
+        {
+            ViewBag.Folder = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            ViewBag.Year = new SelectList(Enumerable.Range(Convert.ToInt32(Startup.Configuration["MinYear"]),
+                (DateTime.Now.Year - Convert.ToInt32(Startup.Configuration["MinYear"])) + 1), DateTime.Now.Year);
+            ViewBag.Month = new SelectList(Enumerable.Range(1, 12));
+
+            string message = _sharedLocalizer["FilesUploaded"];
+            try
+            {
+                message = string.Join("<br/>", UploadGeoTIFFFilesWater(Startup.Configuration["GeoServer:Workspace"], Folder, Year, Month, Files));
             }
             catch (Exception exception)
             {

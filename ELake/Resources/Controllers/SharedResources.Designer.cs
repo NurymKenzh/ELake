@@ -873,6 +873,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Month {
+            get {
+                return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MonthlyHistory {
+            get {
+                return ResourceManager.GetString("MonthlyHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string NaK {
             get {
                 return ResourceManager.GetString("NaK", resourceCulture);
@@ -1539,6 +1557,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string UndergroundFlow {
             get {
                 return ResourceManager.GetString("UndergroundFlow", resourceCulture);
@@ -1647,6 +1674,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string UploadGeoTIFFFilesWater {
+            get {
+                return ResourceManager.GetString("UploadGeoTIFFFilesWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string UploadShapeFiles {
             get {
                 return ResourceManager.GetString("UploadShapeFiles", resourceCulture);
@@ -1722,6 +1758,15 @@ namespace ELake.Resources.Controllers {
         public static string Year {
             get {
                 return ResourceManager.GetString("Year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string YearlyHistory {
+            get {
+                return ResourceManager.GetString("YearlyHistory", resourceCulture);
             }
         }
         

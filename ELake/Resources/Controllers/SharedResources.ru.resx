@@ -678,4 +678,19 @@
   <data name="not3857Changed" xml:space="preserve">
     <value>Система координат не EPSG:3857. Изменено.</value>
   </data>
+  <data name="Month" xml:space="preserve">
+    <value>Месяц</value>
+  </data>
+  <data name="MonthlyHistory" xml:space="preserve">
+    <value>По месяцам</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="UploadGeoTIFFFilesWater" xml:space="preserve">
+    <value>Загрузить GeoTIFF-файлы по воде</value>
+  </data>
+  <data name="YearlyHistory" xml:space="preserve">
+    <value>По годам</value>
+  </data>
 </root>
