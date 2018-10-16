@@ -396,6 +396,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Folder {
+            get {
+                return ResourceManager.GetString("Folder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string GeoServerName {
             get {
                 return ResourceManager.GetString("GeoServerName", resourceCulture);
@@ -1110,6 +1119,15 @@ namespace ELake.Resources.Controllers {
         public static string PublishGeoTIFF {
             get {
                 return ResourceManager.GetString("PublishGeoTIFF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PublishGeoTIFFWater {
+            get {
+                return ResourceManager.GetString("PublishGeoTIFFWater", resourceCulture);
             }
         }
         

@@ -235,5 +235,11 @@ namespace ELake.Controllers
             }
             return layers;
         }
+
+        // GET: Maps/Details/5
+        public async Task<IActionResult> Test()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link href="~/lib/ol/ol.css" rel="stylesheet" />
+<script src="~/lib/ol/ol.js"></script>
+@*<link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/css/ol.css" type="text/css">
+<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.2.0/build/ol.js"></script>*@
+
+<h2>Test</h2>
+
+<div id="map" class="map"></div>
+<input type="button" value="Test" onclick="Test()"/>
+<input type="text" id="coord" style="width: 500px;"/>
+
+<script>
+    var geoserverAddress = "localhost",
+        geoserverPort = "8080";
+
+    var layers = [];
+    layers.push(new ol.layer.Tile({
+        source: new ol.source.OSM()
+    }));
+    layers[0].set('name', 'OSM');
+
+    var Source_Modis = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:YearlyHistory2015',
+            'VERSION': '1.1.1',
+            //'FORMAT': 'image/png',
+            //'TILED': true
+        },
+        serverType: 'geoserver',
+        //projection: 'EPSG:4326',
+    });
+    var Layer_Modis = new ol.layer.Tile({
+        source: Source_Modis
+    });
+    Layer_Modis.setOpacity(0.80);
+    layers.push(Layer_Modis);
+
+    var map = new ol.Map({
+        target: 'map',
+        layers: layers,
+        view: new ol.View({
+            //projection: 'EPSG:4326',
+            center: [0, 0],
+            zoom: 2
+        })
+    });
+
+    //let coord = [];
+    // We track coordinate change each time the mouse is moved
+    map.on('pointermove', function (evt) {
+        //coord = evt.coordinate;
+        $("#coord").val(evt.coordinate);
+    })
+
+    function Test() {
+        //alert(map.getLayers().getArray().length);
+
+        
+        //map.getView().fitExtent(Layer_Modis.getSource().getExtent(), map.getSize());
+        alert(map.getLayers().getArray()[1].getSource().getExtent());
+    }
+</script>
