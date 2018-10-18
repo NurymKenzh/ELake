@@ -699,4 +699,10 @@
   <data name="PublishGeoTIFFWater" xml:space="preserve">
     <value>Опубликовать GeoTIFF-файл (вода)</value>
   </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>Удалить GeoTIFF-файл по воде</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>Отменить публикацию GeoTIFF-файла по воде</value>
+  </data>
 </root>

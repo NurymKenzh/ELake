@@ -696,4 +696,10 @@
   <data name="PublishGeoTIFFWater" xml:space="preserve">
     <value />
   </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value />
+  </data>
 </root>

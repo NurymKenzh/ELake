@@ -699,4 +699,10 @@
   <data name="PublishGeoTIFFWater" xml:space="preserve">
     <value>GeoTIFF файлын жариялау (су)</value>
   </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>GeoTIFF файлын су арқылы жойыңыз</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>GeoTIFF файлын судан жарияламаңыз</value>
+  </data>
 </root>

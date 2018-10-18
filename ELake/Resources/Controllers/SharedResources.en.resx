@@ -699,4 +699,10 @@
   <data name="PublishGeoTIFFWater" xml:space="preserve">
     <value>Publish GeoTIFF file (Water)</value>
   </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>Delete the GeoTIFF file by water</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>Unpublish GeoTIFF file by water</value>
+  </data>
 </root>

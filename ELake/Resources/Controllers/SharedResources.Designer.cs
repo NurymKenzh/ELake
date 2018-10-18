@@ -252,6 +252,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DeleteGeoTIFFFileWater {
+            get {
+                return ResourceManager.GetString("DeleteGeoTIFFFileWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string DeleteShapeFile {
             get {
                 return ResourceManager.GetString("DeleteShapeFile", resourceCulture);
@@ -1632,6 +1641,15 @@ namespace ELake.Resources.Controllers {
         public static string UnpublishGeoTIFF {
             get {
                 return ResourceManager.GetString("UnpublishGeoTIFF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UnpublishGeoTIFFWater {
+            get {
+                return ResourceManager.GetString("UnpublishGeoTIFFWater", resourceCulture);
             }
         }
         

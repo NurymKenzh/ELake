@@ -1298,6 +1298,25 @@ namespace ELake.Controllers
             }
         }
 
+        private void DeleteGeoTIFFFileWater(string WorkspaceName, string Type, string Folder)
+        {
+            try
+            {
+                try
+                {
+                    Directory.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Startup.Configuration["WaterFolder"], Type, Folder), true);
+                }
+                catch
+                {
+
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
         /// <summary>
         /// Возвращает все Shape-файлы (с путем, с расширением) с папки рабочей области GeoServer
         /// </summary>
@@ -2147,26 +2166,34 @@ namespace ELake.Controllers
         [Authorize(Roles = "Administrator, Moderator")]
         public IActionResult DeleteGeoTIFFFileWater()
         {
-            ViewBag.GeoTIFFFiles = new SelectList(GetGeoTIFFFiles(Startup.Configuration["GeoServer:Workspace"]));
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
             return View();
         }
 
         [HttpPost]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> DeleteGeoTIFFFileWater(string GeoTIFFFile)
+        public async Task<IActionResult> DeleteGeoTIFFFileWater(string Type, string Folder)
         {
             ViewData["Message"] = "";
             try
             {
-                DeleteGeoTIFFFile(Startup.Configuration["GeoServer:Workspace"], GeoTIFFFile);
+                DeleteGeoTIFFFileWater(Startup.Configuration["GeoServer:Workspace"], Type, Folder);
                 //ViewData["Message"] = $"File {GeoTIFFFile} was deleted!";
-                ViewData["Message"] = string.Format(_sharedLocalizer["MessageFileWasDeleted"], GeoTIFFFile);
+                ViewData["Message"] = string.Format(_sharedLocalizer["MessageFileWasDeleted"]);
             }
             catch (Exception exception)
             {
                 ViewData["Message"] = $"{exception.ToString()}. {exception.InnerException?.Message}";
             }
-            ViewBag.GeoTIFFFiles = new SelectList(GetGeoTIFFFiles(Startup.Configuration["GeoServer:Workspace"]));
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
             return View();
         }
 
