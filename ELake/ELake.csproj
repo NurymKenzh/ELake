@@ -65,6 +65,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\GeoServer\UnpublishGeoTIFFWater.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\GeoServer\UploadGeoTIFFFilesWater.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

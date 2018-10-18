@@ -745,6 +745,48 @@ namespace ELake.Controllers
             }
         }
 
+        private void UnpublishGeoTIFFWater(string WorkspaceName, string Type, string Folder)
+        {
+            try
+            {
+                //if (!GetWorkspaceLayers(WorkspaceName).Contains(LayerName))
+                //{
+                //    throw new Exception($"Layer {LayerName} isn't exist in {WorkspaceName} workspace!");
+                //}
+
+                string coverageName = Type + Folder;
+
+                Process process1 = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -v -XDELETE" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $"{Startup.Configuration["GeoServer:Port"]}/" +
+                    $"geoserver/rest/layers/{coverageName}");
+                process1.WaitForExit();
+                Process process2 = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -v -XDELETE" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $":{Startup.Configuration["GeoServer:Port"]}/" +
+                    $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{coverageName}/coverages/{coverageName}");
+                process2.WaitForExit();
+                Process process3 = CurlExecute($" -v -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -XDELETE" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $":{Startup.Configuration["GeoServer:Port"]}/" +
+                    $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{coverageName}");
+                process3.WaitForExit();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
         /// <summary>
         /// Возвращает все GeoTIFF-файлы (без пути, с расширением) с папки рабочей области GeoServer
         /// </summary>
@@ -2102,6 +2144,32 @@ namespace ELake.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult DeleteGeoTIFFFileWater()
+        {
+            ViewBag.GeoTIFFFiles = new SelectList(GetGeoTIFFFiles(Startup.Configuration["GeoServer:Workspace"]));
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> DeleteGeoTIFFFileWater(string GeoTIFFFile)
+        {
+            ViewData["Message"] = "";
+            try
+            {
+                DeleteGeoTIFFFile(Startup.Configuration["GeoServer:Workspace"], GeoTIFFFile);
+                //ViewData["Message"] = $"File {GeoTIFFFile} was deleted!";
+                ViewData["Message"] = string.Format(_sharedLocalizer["MessageFileWasDeleted"], GeoTIFFFile);
+            }
+            catch (Exception exception)
+            {
+                ViewData["Message"] = $"{exception.ToString()}. {exception.InnerException?.Message}";
+            }
+            ViewBag.GeoTIFFFiles = new SelectList(GetGeoTIFFFiles(Startup.Configuration["GeoServer:Workspace"]));
+            return View();
+        }
+
         /// <summary>
         /// Загрузка Shape-файлов в папку рабочей области GeoServer (Get)
         /// </summary>
@@ -2287,6 +2355,39 @@ namespace ELake.Controllers
                 ViewData["Message"] = $"{exception.ToString()}. {exception.InnerException?.Message}";
             }
             ViewBag.GeoTIFFLayers = new SelectList(GetWorkspaceGeoTIFFLayers(Startup.Configuration["GeoServer:Workspace"]));
+            return View();
+        }
+
+
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult UnpublishGeoTIFFWater()
+        {
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult UnpublishGeoTIFFWater(string Type, string Folder)
+        {
+            ViewData["Message"] = "";
+            try
+            {
+                UnpublishGeoTIFFWater(Startup.Configuration["GeoServer:Workspace"], Type, Folder);
+            }
+            catch (Exception exception)
+            {
+                ViewData["Message"] = $"{exception.ToString()}. {exception.InnerException?.Message}";
+            }
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
             return View();
         }
 
