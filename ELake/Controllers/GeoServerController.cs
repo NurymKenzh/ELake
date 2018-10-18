@@ -1349,6 +1349,16 @@ namespace ELake.Controllers
             try
             {
                 List<string> shapeFiles = Directory.GetFiles(GetWorkspaceDirectoryPath(WorkspaceName), "*.shp", SearchOption.AllDirectories).OrderBy(l => l).ToList();
+                for (int i = shapeFiles.Count - 1; i >= 0; i--)
+                {
+                    if (shapeFiles[i].Contains(Startup.Configuration["WaterFolder"]) ||
+                        (shapeFiles[i].Contains("Base")) ||
+                        (shapeFiles[i].Contains("_Bufer")) ||
+                        (shapeFiles[i].Contains("Upload")))
+                    {
+                        shapeFiles.RemoveAt(i);
+                    }
+                }
                 shapeFiles = shapeFiles.Select(s => { s = Path.GetFileName(s); return s; }).ToList();
                 return shapeFiles.ToArray();
             }

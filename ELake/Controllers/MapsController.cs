@@ -108,6 +108,11 @@ namespace ELake.Controllers
             };
             ViewBag.DataType = DataTypes.Select(r => new SelectListItem { Text = _sharedLocalizer[r], Value = r });
 
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
 
             return View(map);
         }
@@ -125,7 +130,7 @@ namespace ELake.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NameKK,NameRU,NameEN,LayersId")] Map map)
+        public async Task<IActionResult> Create([Bind("Id,NameKK,NameRU,NameEN,LayersId,IncludeWater")] Map map)
         {
             if (ModelState.IsValid)
             {
@@ -159,7 +164,7 @@ namespace ELake.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,NameKK,NameRU,NameEN,LayersId")] Map map)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,NameKK,NameRU,NameEN,LayersId,IncludeWater")] Map map)
         {
             if (id != map.Id)
             {
