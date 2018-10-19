@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -27,7 +30,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,13 +43,20 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>*@
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     @await Html.PartialAsync("_AdministratorPartial")
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
+        </div>
+    </nav>*@
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" rel="#">ELake</a>
+            @*<a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a>*@
+            @await Html.PartialAsync("_LoginPartial")
         </div>
     </nav>
     <div class="body">
@@ -58,7 +68,7 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item">
+                            @*<li class="list-inline-item">
                                 <a href="#">Home</a>
                             </li>
                             <li class="list-inline-item">&sdot;</li>
@@ -72,7 +82,8 @@
                             <li class="list-inline-item">&sdot;</li>
                             <li class="list-inline-item">
                                 <a href="#">Contact</a>
-                            </li>
+                            </li>*@
+                            @await Html.PartialAsync("_AdministratorPartial")
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; 2018 - ELake</p> @await Html.PartialAsync("_SelectLanguagePartial")
                     </div>
@@ -97,7 +108,7 @@
                     </div>
                 </div>
             </div>
-                    
+        </footer>
     </div>
 
     <environment include="Development">

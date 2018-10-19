@@ -5,24 +5,36 @@
 @inject IStringLocalizer<SharedResources> SharedLocalizer
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@*@if (SignInManager.IsSignedIn(User))
+    {
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">@UserManager.GetUserName(User)</a>
+                </li>
+                <li>
+                    <button type="submit" class="btn btn-link navbar-btn navbar-link">@SharedLocalizer["LogOut"]</button>
+                </li>
+            </ul>
+        </form>
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li><a asp-area="" asp-controller="Account" asp-action="Register">@SharedLocalizer["Register"]</a></li>
+            <li><a asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a></li>
+        </ul>
+    }*@
 
 @if (SignInManager.IsSignedIn(User))
 {
+    <a class="btn btn-primary" asp-area="" asp-controller="Manage" asp-action="Index">@UserManager.GetUserName(User)</a>
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">@UserManager.GetUserName(User)</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">@SharedLocalizer["LogOut"]</button>
-            </li>
-        </ul>
+        <button type="submit" class="btn btn-primary">@SharedLocalizer["LogOut"]</button>
     </form>
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li><a asp-area="" asp-controller="Account" asp-action="Register">@SharedLocalizer["Register"]</a></li>
-        <li><a asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a></li>
-    </ul>
+    <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Register">@SharedLocalizer["Register"]</a>
+    <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a>
 }
