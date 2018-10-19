@@ -8,7 +8,10 @@
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/vendor/simple-line-icons/css/simple-line-icons.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/lib/vendor/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" />
     </environment>
     <environment exclude="Development">
         @*<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -16,7 +19,9 @@
         asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
-        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="~/lib/vendor/jquery/jquery.min.js"></script>
+        <script src="~/lib/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
@@ -44,13 +49,55 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+    <div class="body">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; 2018 - ELake</p>
-            @await Html.PartialAsync("_SelectLanguagePartial")
-        </footer>
+        <!-- Footer -->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item">
+                                <a href="#">Home</a>
+                            </li>
+                            <li class="list-inline-item">&sdot;</li>
+                            <li class="list-inline-item">
+                                <a href="#">About</a>
+                            </li>
+                            <li class="list-inline-item">&sdot;</li>
+                            <li class="list-inline-item">
+                                <a href="#">Information</a>
+                            </li>
+                            <li class="list-inline-item">&sdot;</li>
+                            <li class="list-inline-item">
+                                <a href="#">Contact</a>
+                            </li>
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; 2018 - ELake</p> @await Html.PartialAsync("_SelectLanguagePartial")
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item mr-3">
+                                <a href="#">
+                                    <i class="fa fa-facebook fa-2x fa-fw"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item mr-3">
+                                <a href="#">
+                                    <i class="fa fa-twitter fa-2x fa-fw"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="#">
+                                    <i class="fa fa-instagram fa-2x fa-fw"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                    
     </div>
 
     <environment include="Development">

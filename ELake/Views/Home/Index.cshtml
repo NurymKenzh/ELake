@@ -5,193 +5,155 @@
     ViewData["Title"] = @SharedLocalizer["Home"];
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" rel="#">ELake</a>
+            <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a>
+          
+        </div>
+    </nav>
+
+    <header>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url(../images/sl01.JPG)">
+                    <h1 class="mb55">Internet resource: <br> Lakes of the Republic of Kazakhstan!</h1>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Ulken Shabakty lake </h3>
+                        <p>This is a description for the first slide.</p>
+                    </div>
+                </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url(../images/sl04.JPG)">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Zhasibay lake</h3>
+                        <p>This is a description for the second slide.</p>
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url(../images/sl06.JPG)">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Inder lake</h3>
+                        <p>This is a description for the third slide.</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
+
+
+    <!-- Icons Grid -->
+    <section class="features-icons bg-light text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <i class="icon-magnifier m-auto text-primary"></i>
+                        </div>
+                        <h3>Advanced Lakes Search</h3>
+                        <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <i class="icon-layers m-auto text-primary"></i>
+                        </div>
+                        <h3>Mapping Services</h3>
+                        <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                        <div class="features-icons-icon d-flex">
+                            <i class="icon-settings m-auto text-primary"></i>
+                        </div>
+                        <h3>Analytics</h3>
+                        <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
+    </section>
+    <!-- Call to Action -->
+    <section class="call-to-action text-white text-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h2 class="mb-4">Search by lake name!</h2>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                    <form>
+                        <div class="form-row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <input type="lake" class="form-control form-control-lg" placeholder="Enter lake name...">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonials text-center bg-light">
+        <h2>Welcome to the Water Atlas</h2>
+        <p class="lead mb-0">The Water Atlas Program was designed to help meet the needs of local governments by providing the means through technology to connect multiple stakeholders in water resource management. The Atlas serves as a one-stop data warehouse, which provides unprecedented access to a wealth of water resource information. This information is presented in a variety of ways, including interactive graphs, tables, maps and graphics, so as to be understandable to both water research professionals and those people simply interested in learning more about the water resources within their area.</p>
+    </section>
+
+
+    <!-- Image Showcases -->
+    <section class="showcase">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(../images/sl07.JPG);"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Current Water Atlases</h2>
+                    <p class="lead mb-0">The following is a list of currently accessibly project websites, please click on one of these links to explore the comprehensive and user-friendly Water Atlas.</p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 text-white showcase-img" style="background-image: url(../images/sl08.JPG);"></div>
+                <div class="col-lg-6 my-auto showcase-text">
+                    <h2>Current Water Atlases</h2>
+                    <p class="lead mb-0">The following is a list of currently accessibly project websites, please click on one of these links to explore the comprehensive and user-friendly Water Atlas.</p>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(../images/sl09.JPG);"></div>
+                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                    <h2>Current Water Atlases</h2>
+                    <p class="lead mb-0">The following is a list of currently accessibly project websites, please click on one of these links to explore the comprehensive and user-friendly Water Atlas.</p>
+                </div>
             </div>
         </div>
-        <div class="item">
-            <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+    </section>
 
-<div class="row">
-    <div class="col-md-3">
-        <h2>Find lake</h2>
-        @*<ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>*@
-        @Html.DropDownList("KATO1", (IEnumerable<SelectListItem>)ViewBag.KATO1, htmlAttributes: new { @class = "form-control", @id = "KATO1", @onchange = "ChangeKATO1()" })
-        @Html.DropDownList("KATO2", null, htmlAttributes: new { @class = "form-control", @id = "KATO2", @onchange = "ChangeKATO2()" })
-        @Html.DropDownList("KATO3", null, htmlAttributes: new { @class = "form-control", @id = "KATO3", @onchange = "ChangeKATO3()" })
-        @Html.DropDownList("Lakes", null, htmlAttributes: new { @class = "form-control", @id = "Lakes" })
-    </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
-    </div>
-</div>
 
-<script>
-    function ChangeKATO1() {
-        $.ajax({
-            url: '@Url.Action("GetKATO2")',
-            data: { KATO1Number: $('#KATO1').val() },
-            type: 'POST',
-            success: function (data) {
-                var optionhtml = '';
-                $.each(data, function (i) {
-                    optionhtml += '<option value="' + data[i]['number'] + '"' +
-                        (data[i]['name'] === $('#KATO2').val() ? 'selected' : '') +
-                        '>' + data[i]['name'] +
-                        '</option>';
-                });
-                $("#KATO2").empty();
-                $('#KATO2').append(optionhtml);
-                ChangeKATO2();
-                ChangeKATO3();
-            },
-            error: function () {
-            }
-        });
-    }
 
-    function ChangeKATO2() {
-        $.ajax({
-            url: '@Url.Action("GetKATO3")',
-            data: { KATO2Number: $('#KATO2').val() },
-            type: 'POST',
-            success: function (data) {
-                var optionhtml = '<option value=""></option>';
-                $.each(data, function (i) {
-                    optionhtml += '<option value="' + data[i]['number'] + '"' +
-                        (data[i]['name'] === $('#KATO3').val() ? 'selected' : '') +
-                        '>' + data[i]['name'] +
-                        '</option>';
-                });
-                $("#KATO3").empty();
-                $('#KATO3').append(optionhtml);
-                ChangeKATO3();
-            },
-            error: function () {
-            }
-        });
-    }
 
-    function ChangeKATO3() {
-        var KATONumber = $('#KATO1').val();
-        var KATOLevel = 1;
-        if ($('#KATO2').val() !== null && $('#KATO2').val() !== '') {
-            KATONumber = $('#KATO2').val();
-            KATOLevel = 2;
-        }
-        if ($('#KATO3').val() !== null && $('#KATO3').val() !== '') {
-            KATONumber = $('#KATO3').val();
-            KATOLevel = 3;
-        }
-        $.ajax({
-            url: '@Url.Action("GetLakes")',
-            data: {
-                KATONumber: KATONumber,
-                KATOLevel: KATOLevel
-            },
-            type: 'POST',
-            success: function (data) {
-                var optionhtml = '';
-                $.each(data, function (i) {
-                    optionhtml += '<option value="' + data[i]['id'] + '"' +
-                        '>' + data[i]['name'] +
-                        '</option>';
-                });
-                $("#Lakes").empty();
-                $('#Lakes').append(optionhtml);
-            },
-            error: function () {
-            }
-        });
-    }
 
-    $(document).ready(function () {
-        ChangeKATO1();
-    });
-</script>
+</body>
