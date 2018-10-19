@@ -693,4 +693,22 @@
   <data name="YearlyHistory" xml:space="preserve">
     <value>По годам</value>
   </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Папка</value>
+  </data>
+  <data name="PublishGeoTIFFWater" xml:space="preserve">
+    <value>Опубликовать GeoTIFF-файл (вода)</value>
+  </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>Удалить GeoTIFF-файл по воде</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>Отменить публикацию GeoTIFF-файла по воде</value>
+  </data>
+  <data name="GlobalSurfaceWater" xml:space="preserve">
+    <value>Поверхностная вода</value>
+  </data>
+  <data name="MonthlyRecurrence" xml:space="preserve">
+    <value>Среднемесячные данные</value>
+  </data>
 </root>

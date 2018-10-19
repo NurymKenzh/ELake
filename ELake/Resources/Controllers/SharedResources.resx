@@ -690,4 +690,22 @@
   <data name="YearlyHistory" xml:space="preserve">
     <value />
   </data>
+  <data name="Folder" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PublishGeoTIFFWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GlobalSurfaceWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MonthlyRecurrence" xml:space="preserve">
+    <value />
+  </data>
 </root>

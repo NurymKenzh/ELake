@@ -693,4 +693,22 @@
   <data name="YearlyHistory" xml:space="preserve">
     <value>By years</value>
   </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="PublishGeoTIFFWater" xml:space="preserve">
+    <value>Publish GeoTIFF file (Water)</value>
+  </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>Delete the GeoTIFF file by water</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>Unpublish GeoTIFF file by water</value>
+  </data>
+  <data name="GlobalSurfaceWater" xml:space="preserve">
+    <value>Surface water</value>
+  </data>
+  <data name="MonthlyRecurrence" xml:space="preserve">
+    <value>Average monthly data</value>
+  </data>
 </root>

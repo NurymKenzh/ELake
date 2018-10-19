@@ -252,6 +252,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DeleteGeoTIFFFileWater {
+            get {
+                return ResourceManager.GetString("DeleteGeoTIFFFileWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string DeleteShapeFile {
             get {
                 return ResourceManager.GetString("DeleteShapeFile", resourceCulture);
@@ -396,6 +405,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Folder {
+            get {
+                return ResourceManager.GetString("Folder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string GeoServerName {
             get {
                 return ResourceManager.GetString("GeoServerName", resourceCulture);
@@ -417,6 +435,15 @@ namespace ELake.Resources.Controllers {
         public static string GeoTIFFFile {
             get {
                 return ResourceManager.GetString("GeoTIFFFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string GlobalSurfaceWater {
+            get {
+                return ResourceManager.GetString("GlobalSurfaceWater", resourceCulture);
             }
         }
         
@@ -891,6 +918,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string MonthlyRecurrence {
+            get {
+                return ResourceManager.GetString("MonthlyRecurrence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string NaK {
             get {
                 return ResourceManager.GetString("NaK", resourceCulture);
@@ -1110,6 +1146,15 @@ namespace ELake.Resources.Controllers {
         public static string PublishGeoTIFF {
             get {
                 return ResourceManager.GetString("PublishGeoTIFF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PublishGeoTIFFWater {
+            get {
+                return ResourceManager.GetString("PublishGeoTIFFWater", resourceCulture);
             }
         }
         
@@ -1614,6 +1659,15 @@ namespace ELake.Resources.Controllers {
         public static string UnpublishGeoTIFF {
             get {
                 return ResourceManager.GetString("UnpublishGeoTIFF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UnpublishGeoTIFFWater {
+            get {
+                return ResourceManager.GetString("UnpublishGeoTIFFWater", resourceCulture);
             }
         }
         

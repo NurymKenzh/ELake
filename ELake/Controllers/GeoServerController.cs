@@ -627,6 +627,72 @@ namespace ELake.Controllers
             }
         }
 
+        private void PublishGeoTIFFWater(string WorkspaceName, string Type, string Folder)
+        {
+            try
+            {
+                //string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(FileName);
+
+                //if (GetWorkspaceLayers(WorkspaceName).Contains(fileNameWithoutExtension))
+                //{
+                //    throw new Exception($"Layer {fileNameWithoutExtension} is already exist in {WorkspaceName} workspace!");
+                //}
+
+                //if (Path.GetExtension(FileName).ToLower() != ".tif" || Path.GetExtension(FileName).ToLower() != ".tif")
+                //{
+                //    throw new Exception("File extension must be \"tif\" or \"tiff\"!");
+                //}
+
+                string coverageName = Type + Folder,
+                    coverageUrl = $"/data/{WorkspaceName}/JRC/{Type}/{Folder}";
+
+                //curl - u admin: geoserver - v - XPOST - H "Content-type: text/xml" \ -d "<coverageStore><name>MonthlyHistory201503</name><workspace>ELake</workspace><enabled>true</enabled><type>ImageMosaic</type><url>/data/ELake/JRC/MonthlyHistory/201503</url></coverageStore>" \ http://localhost:8080/geoserver/rest/workspaces/ELake/coveragestores?configure=all
+                //curl - u admin: geoserver - v - XPOST - H "Content-type: text/xml" - d "<coverage><name>MonthlyHistory201503</name><title>MonthlyHistory201503</title><defaultInterpolationMethod><name>nearest neighbor</name></defaultInterpolationMethod></coverage>" \ "http://localhost:8080/geoserver/rest/workspaces/ELake/coveragestores/MonthlyHistory201503/coverages?recalculate=nativebbox"
+                //curl - v - u admin: geoserver - XPUT - H "Content-type: text/xml" - d "<layer><defaultStyle><name>ELake:MonthlyHistory</name></defaultStyle></layer>" http://localhost:8080/geoserver/rest/layers/ELake:MonthlyHistory201503
+
+                Process process1 = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -v -XPOST" +
+                    $" -H \"Content-type: text/xml\"" +
+                    $" \\ -d \"<coverageStore><name>{coverageName}</name>" +
+                    $"<workspace>{WorkspaceName}</workspace>" +
+                    $"<enabled>true</enabled>" +
+                    $"<type>ImageMosaic</type>" +
+                    $"<url>{coverageUrl}</url></coverageStore>\"" +
+                    $" \\ http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/coveragestores?configure=all");
+                process1.WaitForExit();
+                Process process2 = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -v -XPOST" +
+                    $" -H \"Content-type: text/xml\"" +
+                    $" -d \"<coverage><name>{coverageName}</name>" +
+                    $"<title>{coverageName}</title>" +
+                    //$"<nativeCRS>EPSG:3857</nativeCRS>" +
+                    //$"<srs>EPSG:3857</srs>" +
+                    //$"<projectionPolicy>FORCE_DECLARED</projectionPolicy>" +
+                    $"<defaultInterpolationMethod><name>nearest neighbor</name></defaultInterpolationMethod></coverage>\"" +
+                    $" \\ \"http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{coverageName}/coverages?recalculate=nativebbox\"");
+                process2.WaitForExit();
+                Process process3 = CurlExecute($" -v -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -XPUT" +
+                    $" -H \"Content-type: text/xml\"" +
+                    $" -d \"<layer><defaultStyle><name>{WorkspaceName}:{Type}</name></defaultStyle></layer>\"" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers/{WorkspaceName}:{coverageName}");
+                process3.WaitForExit();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
         /// <summary>
         /// Отмена публикации GeoTIFF-файла в GeoServer
         /// </summary>
@@ -671,6 +737,48 @@ namespace ELake.Controllers
                     $" http://{Startup.Configuration["GeoServer:Address"]}" +
                     $":{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{LayerName}");
+                process3.WaitForExit();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+        private void UnpublishGeoTIFFWater(string WorkspaceName, string Type, string Folder)
+        {
+            try
+            {
+                //if (!GetWorkspaceLayers(WorkspaceName).Contains(LayerName))
+                //{
+                //    throw new Exception($"Layer {LayerName} isn't exist in {WorkspaceName} workspace!");
+                //}
+
+                string coverageName = Type + Folder;
+
+                Process process1 = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -v -XDELETE" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $"{Startup.Configuration["GeoServer:Port"]}/" +
+                    $"geoserver/rest/layers/{coverageName}");
+                process1.WaitForExit();
+                Process process2 = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -v -XDELETE" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $":{Startup.Configuration["GeoServer:Port"]}/" +
+                    $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{coverageName}/coverages/{coverageName}");
+                process2.WaitForExit();
+                Process process3 = CurlExecute($" -v -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -XDELETE" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $":{Startup.Configuration["GeoServer:Port"]}/" +
+                    $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{coverageName}");
                 process3.WaitForExit();
             }
             catch (Exception exception)
@@ -895,7 +1003,7 @@ namespace ELake.Controllers
             string subfolder = Year.ToString();
             if (Folder == "MonthlyHistory")
             {
-                subfolder += "_" + monthS;
+                subfolder += monthS;
             }
             string fullfolder = Path.Combine(Folder, subfolder);
 
@@ -1190,6 +1298,25 @@ namespace ELake.Controllers
             }
         }
 
+        private void DeleteGeoTIFFFileWater(string WorkspaceName, string Type, string Folder)
+        {
+            try
+            {
+                try
+                {
+                    Directory.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Startup.Configuration["WaterFolder"], Type, Folder), true);
+                }
+                catch
+                {
+
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
         /// <summary>
         /// Возвращает все Shape-файлы (с путем, с расширением) с папки рабочей области GeoServer
         /// </summary>
@@ -1222,6 +1349,16 @@ namespace ELake.Controllers
             try
             {
                 List<string> shapeFiles = Directory.GetFiles(GetWorkspaceDirectoryPath(WorkspaceName), "*.shp", SearchOption.AllDirectories).OrderBy(l => l).ToList();
+                for (int i = shapeFiles.Count - 1; i >= 0; i--)
+                {
+                    if (shapeFiles[i].Contains(Startup.Configuration["WaterFolder"]) ||
+                        (shapeFiles[i].Contains("Base")) ||
+                        (shapeFiles[i].Contains("_Bufer")) ||
+                        (shapeFiles[i].Contains("Upload")))
+                    {
+                        shapeFiles.RemoveAt(i);
+                    }
+                }
                 shapeFiles = shapeFiles.Select(s => { s = Path.GetFileName(s); return s; }).ToList();
                 return shapeFiles.ToArray();
             }
@@ -2036,6 +2173,40 @@ namespace ELake.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult DeleteGeoTIFFFileWater()
+        {
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> DeleteGeoTIFFFileWater(string Type, string Folder)
+        {
+            ViewData["Message"] = "";
+            try
+            {
+                DeleteGeoTIFFFileWater(Startup.Configuration["GeoServer:Workspace"], Type, Folder);
+                //ViewData["Message"] = $"File {GeoTIFFFile} was deleted!";
+                ViewData["Message"] = string.Format(_sharedLocalizer["MessageFileWasDeleted"]);
+            }
+            catch (Exception exception)
+            {
+                ViewData["Message"] = $"{exception.ToString()}. {exception.InnerException?.Message}";
+            }
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            return View();
+        }
+
         /// <summary>
         /// Загрузка Shape-файлов в папку рабочей области GeoServer (Get)
         /// </summary>
@@ -2140,6 +2311,52 @@ namespace ELake.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult PublishGeoTIFFWater()
+        {
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> PublishGeoTIFFWater(string Type, string Folder)
+        {
+            string message = "";
+            try
+            {
+                PublishGeoTIFFWater(Startup.Configuration["GeoServer:Workspace"], Type, Folder);
+            }
+            catch (Exception exception)
+            {
+                message = $"{exception.ToString()}. {exception.InnerException?.Message}";
+            }
+            ViewBag.Message = message;
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult GetWaterDates(string Type)
+        {
+            string WorkspaceName = Startup.Configuration["GeoServer:Workspace"];
+            var folders = Directory.EnumerateDirectories(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), Startup.Configuration["WaterFolder"], Type)).ToList();
+            for(int i = 0;i<folders.Count();i++)
+            {
+                folders[i] = Path.GetFileName(folders[i]);
+            }
+            JsonResult result = new JsonResult(folders);
+            return result;
+        }
+
         /// <summary>
         /// Отмена публикации GeoTIFF-файла в рабочей области ELake (Get)
         /// </summary>
@@ -2175,6 +2392,39 @@ namespace ELake.Controllers
                 ViewData["Message"] = $"{exception.ToString()}. {exception.InnerException?.Message}";
             }
             ViewBag.GeoTIFFLayers = new SelectList(GetWorkspaceGeoTIFFLayers(Startup.Configuration["GeoServer:Workspace"]));
+            return View();
+        }
+
+
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult UnpublishGeoTIFFWater()
+        {
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult UnpublishGeoTIFFWater(string Type, string Folder)
+        {
+            ViewData["Message"] = "";
+            try
+            {
+                UnpublishGeoTIFFWater(Startup.Configuration["GeoServer:Workspace"], Type, Folder);
+            }
+            catch (Exception exception)
+            {
+                ViewData["Message"] = $"{exception.ToString()}. {exception.InnerException?.Message}";
+            }
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
             return View();
         }
 

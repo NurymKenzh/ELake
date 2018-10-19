@@ -693,4 +693,22 @@
   <data name="YearlyHistory" xml:space="preserve">
     <value>Жылдар бойынша</value>
   </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Қалта</value>
+  </data>
+  <data name="PublishGeoTIFFWater" xml:space="preserve">
+    <value>GeoTIFF файлын жариялау (су)</value>
+  </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>GeoTIFF файлын су арқылы жойыңыз</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>GeoTIFF файлын судан жарияламаңыз</value>
+  </data>
+  <data name="GlobalSurfaceWater" xml:space="preserve">
+    <value>Жер үсті суы</value>
+  </data>
+  <data name="MonthlyRecurrence" xml:space="preserve">
+    <value>Орташа айлық деректер</value>
+  </data>
 </root>
