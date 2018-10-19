@@ -705,4 +705,10 @@
   <data name="UnpublishGeoTIFFWater" xml:space="preserve">
     <value>Отменить публикацию GeoTIFF-файла по воде</value>
   </data>
+  <data name="GlobalSurfaceWater" xml:space="preserve">
+    <value>Поверхностная вода</value>
+  </data>
+  <data name="MonthlyRecurrence" xml:space="preserve">
+    <value>Среднемесячные данные</value>
+  </data>
 </root>

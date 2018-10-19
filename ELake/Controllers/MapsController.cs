@@ -111,7 +111,9 @@ namespace ELake.Controllers
             ViewBag.Type = new List<SelectListItem>()
             {
                 new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
-                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyRecurrence"], Value="MonthlyRecurrence"},
+                new SelectListItem() { Text=_sharedLocalizer["GlobalSurfaceWater"], Value="GlobalSurfaceWater"}
             };
 
             return View(map);

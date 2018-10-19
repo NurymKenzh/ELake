@@ -1007,7 +1007,8 @@
     };
 
     function ChangeType() {
-        if ($("#Type").val() == "MonthlyHistory") {
+        if (($("#Type").val() == "MonthlyHistory") ||
+            (($("#Type").val() == "MonthlyRecurrence")))    {
             $(".Month").show();
         }
         else {
@@ -1028,6 +1029,16 @@
         else if ($("#Type").val() == "YearlyHistory") {
             waterLayer = $('#Type').val() + $('#Year').val();
         }
+        else if ($("#Type").val() == "GlobalSurfaceWater") {
+            waterLayer = $('#Type').val();
+        }
+        else if ($("#Type").val() == "MonthlyRecurrence") {
+            var month = $('#Month').val();
+            if (month.length < 2) {
+                month = "0" + month;
+            }
+            waterLayer = $('#Type').val() + month;
+        }
         alert(waterLayer);
 
         var Source_WaterNew = new ol.source.TileWMS({
@@ -1042,6 +1053,22 @@
         });
         var l = map.getLayers().getArray()[1];
         l.setSource(Source_WaterNew);
+
+        //var params = l.getSource().getParams();
+        //l.getSource().updateParams(params);
+
+        //l.getSource().dispatchChangeEvent();
+
+        l.getSource().changed();
+
+        //map.updateSize();
+        //map.render();
+
+        //l.getSource().updateParams({ "TILED": false });
+        //WFSLayer.clear();
+
+        //l.redraw(true);
+        //l.refresh();
     }
 
     function ChangeYear(year) {

@@ -441,6 +441,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string GlobalSurfaceWater {
+            get {
+                return ResourceManager.GetString("GlobalSurfaceWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string HCO {
             get {
                 return ResourceManager.GetString("HCO", resourceCulture);
@@ -903,6 +912,15 @@ namespace ELake.Resources.Controllers {
         public static string MonthlyHistory {
             get {
                 return ResourceManager.GetString("MonthlyHistory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MonthlyRecurrence {
+            get {
+                return ResourceManager.GetString("MonthlyRecurrence", resourceCulture);
             }
         }
         
