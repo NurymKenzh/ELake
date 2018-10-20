@@ -1,14 +1,19 @@
 import shapefile
 
-##file=r'D:\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
-##field = 'id'
-##value = '403560'
-##fieldShow = 'name'
+file=r'D:\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
+field = 'id'
+value = '500460'
+fieldShow = 'name'
 
-file = raw_input()
-field = raw_input()
-value = raw_input()
-fieldShow = raw_input()
+##file = raw_input()
+##field = raw_input()
+##value = raw_input()
+##fieldShow = raw_input()
+
+##file=r'D:\GeoServer 2.11.1\data_dir\data\ELake\Base\adm1pol.shp'
+##field = 'kato_te'
+##value = '110000000'
+##fieldShow = 'name_adm1'
 
 sf = shapefile.Reader(file)
 fieldIndex = 1
@@ -31,8 +36,5 @@ for sr in sf.shapeRecords():
         r = sr.record[fieldIndexShow-1:fieldIndexShow][0]
         break
 
-##from pprint import pprint
-##pprint (r.decode('utf8'))
-##import pprint
-
-print r
+print (r.decode('utf-8'))
+##print r
