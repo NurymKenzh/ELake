@@ -322,7 +322,7 @@
     <value>Publish</value>
   </data>
   <data name="PublishDescription" xml:space="preserve">
-    <value>The files must have a coordinate system EPSG:3857. The file size should be no more than 1 GB. Files can be in the zip archive.</value>
+    <value>The file size should be no more than 1 GB. Files can be in the zip archive.</value>
   </data>
   <data name="PublishGeoTIFF" xml:space="preserve">
     <value>Publish GeoTIFF file</value>

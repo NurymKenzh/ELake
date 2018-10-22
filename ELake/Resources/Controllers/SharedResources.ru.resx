@@ -322,7 +322,7 @@
     <value>Опубликовать</value>
   </data>
   <data name="PublishDescription" xml:space="preserve">
-    <value>Файлы должны иметь систему координат EPSG:3857. Размер файлов должен быть не более 1 ГБ. Файлы могут быть в zip архиве.</value>
+    <value>Размер файлов должен быть не более 1 ГБ. Файлы могут быть в zip архиве.</value>
   </data>
   <data name="PublishGeoTIFF" xml:space="preserve">
     <value>Опубликовать GeoTIFF-файл</value>

@@ -322,7 +322,7 @@
     <value>Жариялау</value>
   </data>
   <data name="PublishDescription" xml:space="preserve">
-    <value>Файлдарда EPSG координат жүйесі болуы керек: 3857</value>
+    <value>Файл мөлшері 1 Гб-тан аспауы керек. Файлдар zip мұрағатында болуы мүмкін.</value>
   </data>
   <data name="PublishGeoTIFF" xml:space="preserve">
     <value>GeoTIFF файлын жариялау</value>
