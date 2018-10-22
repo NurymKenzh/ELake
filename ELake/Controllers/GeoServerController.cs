@@ -309,10 +309,39 @@ namespace ELake.Controllers
         {
             try
             {
-                List<string> layers = new List<string>();
-                foreach (string store in GetWorkspaceStores(WorkspaceName))
+                //List<string> layers = new List<string>();
+                //foreach (string store in GetWorkspaceStores(WorkspaceName))
+                //{
+                //    layers.AddRange(GetStoreLayers(WorkspaceName, store));
+                //}
+                //return layers.ToArray();
+                if (!GetWorkspaces().Contains(WorkspaceName))
                 {
-                    layers.AddRange(GetStoreLayers(WorkspaceName, store));
+                    throw new Exception($"No workspace {WorkspaceName}!");
+                }
+                if (string.IsNullOrEmpty(WorkspaceName))
+                {
+                    throw new Exception("WorkspaceName must be non-empty!");
+                }
+                Process process = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -XGET" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers");
+                string html = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+
+                HtmlDocument htmlDocument = new HtmlDocument();
+                htmlDocument.LoadHtml(html);
+                HtmlNode root = htmlDocument.DocumentNode;
+                List<string> layers = new List<string>();
+                foreach (HtmlNode node in root.Descendants())
+                {
+                    if (node.Name == "a")
+                    {
+                        layers.Add(node.InnerText);
+                    }
                 }
                 return layers.ToArray();
             }
@@ -2351,6 +2380,17 @@ namespace ELake.Controllers
             ViewBag.ShapeFiles = new SelectList(GetShapeFiles(Startup.Configuration["GeoServer:Workspace"])
                 .Where(l => !publicshedLayers.Contains(Path.GetFileNameWithoutExtension(l))));
 
+            //ViewBag.Styles = new List<SelectListItem>()
+            //{
+            //    new SelectListItem() { Text=_sharedLocalizer["Style1"], Value="Style2"},
+            //    new SelectListItem() { Text=_sharedLocalizer["Style2"], Value="Style2"}
+            //};
+            //ViewBag.ShapeFiles = new List<SelectListItem>()
+            //{
+            //    new SelectListItem() { Text=_sharedLocalizer["ShapeFile1"], Value="ShapeFile1"},
+            //    new SelectListItem() { Text=_sharedLocalizer["ShapeFile2"], Value="ShapeFile2"}
+            //};
+
             Layer layer = new Layer() {
                 LayerIntervalsWaterLevel = new List<LayerInterval>()
                 {
@@ -2600,7 +2640,7 @@ namespace ELake.Controllers
                         Color = "#ffffff"
                     }
                 }
-            };            
+            };
 
             return View(layer);
         }
