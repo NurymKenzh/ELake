@@ -45,7 +45,7 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Layers")]
         public Layer[] Layers { get; set; }
 
-        //[Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "IncludeWater")]
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "IncludeWater")]
         public bool IncludeWater { get; set; }
 
         public Map()

@@ -711,4 +711,7 @@
   <data name="MonthlyRecurrence" xml:space="preserve">
     <value>Орташа айлық деректер</value>
   </data>
+  <data name="IncludeWater" xml:space="preserve">
+    <value>Судың қабаттарын қамтиды</value>
+  </data>
 </root>

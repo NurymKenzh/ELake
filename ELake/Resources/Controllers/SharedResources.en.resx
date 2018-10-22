@@ -711,4 +711,7 @@
   <data name="MonthlyRecurrence" xml:space="preserve">
     <value>Average monthly data</value>
   </data>
+  <data name="IncludeWater" xml:space="preserve">
+    <value>Includes layers of water</value>
+  </data>
 </root>
