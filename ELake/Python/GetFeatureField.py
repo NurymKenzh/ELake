@@ -1,14 +1,14 @@
 import shapefile
 
-file=r'D:\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
-field = 'id'
-value = '500460'
-fieldShow = 'name'
+file = raw_input()
+field = raw_input()
+value = raw_input()
+fieldShow = raw_input()
 
-##file = raw_input()
-##field = raw_input()
-##value = raw_input()
-##fieldShow = raw_input()
+##file=r'C:\Layers\Lakes.shp'
+##field = 'id'
+##value = '500460'
+##fieldShow = 'name'
 
 ##file=r'D:\GeoServer 2.11.1\data_dir\data\ELake\Base\adm1pol.shp'
 ##field = 'kato_te'
