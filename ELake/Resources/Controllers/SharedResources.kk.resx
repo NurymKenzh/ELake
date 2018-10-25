@@ -714,4 +714,19 @@
   <data name="IncludeWater" xml:space="preserve">
     <value>Судың қабаттарын қамтиды</value>
   </data>
+  <data name="AnalizeWater" xml:space="preserve">
+    <value>Көлдерді талдау</value>
+  </data>
+  <data name="RasterValue" xml:space="preserve">
+    <value>Пиксельдік мән</value>
+  </data>
+  <data name="RasterValueStat" xml:space="preserve">
+    <value>Көлде пиксель мәндерінің статистикасы</value>
+  </data>
+  <data name="ZonalStatWater" xml:space="preserve">
+    <value>Зоналық статистика</value>
+  </data>
+  <data name="ZonalStatWaters" xml:space="preserve">
+    <value>Зоналық статистика</value>
+  </data>
 </root>

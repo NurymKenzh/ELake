@@ -711,4 +711,19 @@
   <data name="IncludeWater" xml:space="preserve">
     <value />
   </data>
+  <data name="AnalizeWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RasterValue" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RasterValueStat" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ZonalStatWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ZonalStatWaters" xml:space="preserve">
+    <value />
+  </data>
 </root>

@@ -714,4 +714,19 @@
   <data name="IncludeWater" xml:space="preserve">
     <value>Includes layers of water</value>
   </data>
+  <data name="AnalizeWater" xml:space="preserve">
+    <value>Lakes analysis</value>
+  </data>
+  <data name="RasterValue" xml:space="preserve">
+    <value>Pixel value</value>
+  </data>
+  <data name="RasterValueStat" xml:space="preserve">
+    <value>Statistics of pixel values in the lake</value>
+  </data>
+  <data name="ZonalStatWater" xml:space="preserve">
+    <value>Zone statistics</value>
+  </data>
+  <data name="ZonalStatWaters" xml:space="preserve">
+    <value>Zone statistics</value>
+  </data>
 </root>
