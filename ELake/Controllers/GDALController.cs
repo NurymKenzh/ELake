@@ -58,7 +58,7 @@ namespace ELake.Controllers
             }
         }
 
-        private string PythonExecute(params string[] Arguments)
+        public string PythonExecute(params string[] Arguments)
         {
             Process process = new Process();
             try

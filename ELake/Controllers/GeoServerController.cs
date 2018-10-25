@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
+using Newtonsoft.Json;
 
 namespace ELake.Controllers
 {
@@ -3778,6 +3779,105 @@ namespace ELake.Controllers
         {
             ViewBag.LakeLayers = new SelectList(_context.Layer.Where(l => l.Lake), "Id", "Name", LayerId);
             FindKATO(_context.Layer.FirstOrDefault(l => l.Id == LayerId).FileNameWithPath);
+            return View();
+        }
+
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult AnalizeWater()
+        {
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyRecurrence"], Value="MonthlyRecurrence"},
+                new SelectListItem() { Text=_sharedLocalizer["GlobalSurfaceWater"], Value="GlobalSurfaceWater"},
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
+            return View();
+        }
+
+        public void ZonalStatAsTableYearlyHistory(string ShapeFilePath, string RasterFilePath, string Field)
+        {
+            try
+            {
+                string dataJson = _GDAL.PythonExecute("ZonalStatAsTableYearlyHistory", ShapeFilePath, RasterFilePath, Field);
+                string[] data = new string[1];
+                data = JsonConvert.DeserializeObject<string[]>(dataJson);
+                foreach (string s in data)
+                {
+                    string[] rasterFilePathData = Path.GetFileNameWithoutExtension(RasterFilePath).Split('_');
+                    string KATO = s.Split(':')[0],
+                        year_day = rasterFilePathData[rasterFilePathData.Length - 2].Substring(rasterFilePathData[rasterFilePathData.Length - 2].Length - 7),
+                        DataSet = rasterFilePathData.Last().Split('.').First(),
+                        ModisSource = rasterFilePathData.First(),
+                        ModisProduct = rasterFilePathData[1];
+                    int year = Convert.ToInt32(year_day.Substring(0, 4)),
+                        day = Convert.ToInt32(year_day.Substring(year_day.Length - 3));
+                    decimal value = 0;
+                    try
+                    {
+                        value = Convert.ToDecimal(s.Split(':')[1]);
+                    }
+                    catch
+                    {
+                        value = Convert.ToDecimal(s.Split(':')[1].Replace('.', ','));
+                    }
+                    //ZonalStatKATO zonalStatKATO = new ZonalStatKATO()
+                    //{
+                    //    KATO = KATO,
+                    //    Year = year,
+                    //    DayOfYear = day,
+                    //    ModisSource = ModisSource,
+                    //    ModisProduct = ModisProduct,
+                    //    DataSet = DataSet,
+                    //    Value = value
+                    //};
+                    //_context.ZonalStatKATO.Add(zonalStatKATO);
+                }
+                //_context.SaveChanges();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> AnalizeWater(string Type)
+        {
+            ViewData["Message"] = "";
+            try
+            {
+                string shapeFile = _context.Layer.FirstOrDefault(l => l.Lake).FileNameWithPath;
+                if (Type == "YearlyHistory")
+                {
+                    //var yearFolders = Directory.GetDirectories(Path.Combine(Startup.Configuration["GeoServer:DataDir"], "data", Startup.Configuration["WaterFolder"], "YearlyHistory"), "*", SearchOption.TopDirectoryOnly);
+                    var yearFolders = Directory.GetDirectories(Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), Startup.Configuration["WaterFolder"], "YearlyHistory"), "*", SearchOption.TopDirectoryOnly);
+                    foreach (string folder in yearFolders)
+                    {
+                        // если нет данных в БД
+                        if(true)
+                        {
+                            var files = Directory.GetFiles(folder, "*.tif");
+                            foreach(string file in files)
+                            {
+                                ZonalStatAsTableYearlyHistory(shapeFile, file, Startup.Configuration["Lakes:IdField"]);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                ViewData["Message"] = $"{exception.ToString()}. {exception.InnerException?.Message}";
+            }
+            ViewBag.Type = new List<SelectListItem>()
+            {
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyRecurrence"], Value="MonthlyRecurrence"},
+                new SelectListItem() { Text=_sharedLocalizer["GlobalSurfaceWater"], Value="GlobalSurfaceWater"},
+                new SelectListItem() { Text=_sharedLocalizer["MonthlyHistory"], Value="MonthlyHistory"},
+                new SelectListItem() { Text=_sharedLocalizer["YearlyHistory"], Value="YearlyHistory"}
+            };
             return View();
         }
     }
