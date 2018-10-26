@@ -714,4 +714,22 @@
   <data name="IncludeWater" xml:space="preserve">
     <value>Включает слои по воде</value>
   </data>
+  <data name="AnalizeWater" xml:space="preserve">
+    <value>Анализ озер</value>
+  </data>
+  <data name="RasterValue" xml:space="preserve">
+    <value>Значение пикселя</value>
+  </data>
+  <data name="RasterValueStat" xml:space="preserve">
+    <value>Статистика значения пикселя в озере</value>
+  </data>
+  <data name="ZonalStatWater" xml:space="preserve">
+    <value>Зональная статистика</value>
+  </data>
+  <data name="ZonalStatWaters" xml:space="preserve">
+    <value>Зональная статистика</value>
+  </data>
+  <data name="WaterType" xml:space="preserve">
+    <value>Тип данных по воде</value>
+  </data>
 </root>
