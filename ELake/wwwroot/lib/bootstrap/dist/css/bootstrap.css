@@ -2058,13 +2058,13 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 .was-validated .form-control:valid, .form-control.is-valid, .was-validated
 .custom-select:valid,
 .custom-select.is-valid {
-  border-color: #28a745;
+  border-color: #007bff;
 }
 
 .was-validated .form-control:valid:focus, .form-control.is-valid:focus, .was-validated
 .custom-select:valid:focus,
 .custom-select.is-valid:focus {
-  border-color: #28a745;
+  border-color: #007bff;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
@@ -4840,15 +4840,15 @@ input[type="button"].btn-block {
 }
 
 .jumbotron {
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   margin-bottom: 2rem;
-  background-color: #e9ecef;
+  background-color: #fff2ea;
   border-radius: 0.3rem;
 }
 
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 4rem 2rem;
+    padding: 2rem 2rem;
   }
 }
 

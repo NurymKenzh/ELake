@@ -6,9 +6,39 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@SharedLocalizer["UnpublishShape"]</h2>
-
-<div class="row">
+<body class="bg-light">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["UnpublishShape"]</h2>
+                <p class="lead">There should be a description</p>
+                <h3>@ViewData["Message"]</h3>
+                @Html.ActionLink(SharedLocalizer["Instruction"], "Instruction", new { Type = "PublishGeoTIFF" })
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div>
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-row ">
+            <div class="col-md-4">
+                <form asp-action="UnpublishShape">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label class="control-label">@SharedLocalizer["Layer"]</label>
+                        <select name="LayerName" class="form-control" asp-items="ViewBag.ShapeLayers"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-outline-primary my-2 my-sm-0" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+@*<div class="row">
     <div class="col-md-4">
         <form asp-action="UnpublishShape">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -17,8 +47,8 @@
                 <select name="LayerName" class="form-control" asp-items="ViewBag.ShapeLayers"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-default" />
+                <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-outline-primary my-2 my-sm-0" />
             </div>
         </form>
     </div>
-</div>
+</div>*@

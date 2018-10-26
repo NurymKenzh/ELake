@@ -6,20 +6,39 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@SharedLocalizer["DeleteGeoTIFFFile"]</h2>
-<h3>@ViewData["Message"]</h3>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="DeleteGeoTIFFFile">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">@SharedLocalizer["GeoTIFFFile"]</label>
-                <select name="GeoTIFFFile" class="form-control" asp-items="ViewBag.GeoTIFFFiles"></select>
+<body class="bg-light">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["DeleteGeoTIFFFile"]</h2>
+                <p class="lead">There should be a description</p>
+                <h3>@ViewData["Message"]</h3>
+                @Html.ActionLink(SharedLocalizer["Instruction"], "Instruction", new { Type = "PublishGeoTIFF" })
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div>
+                        @ViewBag.Message
+                    </div>
+                }
             </div>
-            <div class="form-group">
-                <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-default" />
+        </div>
+        <div class="form-row ">
+            <div class="col-md-4">
+                <form asp-action="DeleteGeoTIFFFile">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="mb-3">
+                        <label class="control-label">@SharedLocalizer["GeoTIFFFile"]</label>
+                        <select name="GeoTIFFFile" class="form-control" asp-items="ViewBag.GeoTIFFFiles"><option value="">Choose...</option></select>
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                    </div>
+                    <hr class="mb-4">
+                    <div class="mb-4">
+                        <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-outline-primary my-2 my-sm-0" />
+                    </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</body>

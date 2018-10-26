@@ -63,28 +63,29 @@
     </nav>
     <div class="body">
         @RenderBody()
-        <hr />
+        
         <!-- Footer -->
-        <footer class="footer bg-light">
+        <footer class="footer bg-light fixed-bottom">
+            <hr />
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
                         <ul class="list-inline mb-2">
                             @*<li class="list-inline-item">
-                                <a href="#">Home</a>
-                            </li>
-                            <li class="list-inline-item">&sdot;</li>
-                            <li class="list-inline-item">
-                                <a href="#">About</a>
-                            </li>
-                            <li class="list-inline-item">&sdot;</li>
-                            <li class="list-inline-item">
-                                <a href="#">Information</a>
-                            </li>
-                            <li class="list-inline-item">&sdot;</li>
-                            <li class="list-inline-item">
-                                <a href="#">Contact</a>
-                            </li>*@
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                            <a href="#">About</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                            <a href="#">Information</a>
+                        </li>
+                        <li class="list-inline-item">&sdot;</li>
+                        <li class="list-inline-item">
+                            <a href="#">Contact</a>
+                        </li>*@
                             @await Html.PartialAsync("_AdministratorPartial")
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; 2018 - ELake</p> @await Html.PartialAsync("_SelectLanguagePartial")
