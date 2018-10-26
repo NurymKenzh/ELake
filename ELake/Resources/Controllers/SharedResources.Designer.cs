@@ -1845,6 +1845,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string WaterType {
+            get {
+                return ResourceManager.GetString("WaterType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Year {
             get {
                 return ResourceManager.GetString("Year", resourceCulture);

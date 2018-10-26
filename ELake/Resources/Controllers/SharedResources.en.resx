@@ -729,4 +729,7 @@
   <data name="ZonalStatWaters" xml:space="preserve">
     <value>Zone statistics</value>
   </data>
+  <data name="WaterType" xml:space="preserve">
+    <value>Type of water data</value>
+  </data>
 </root>

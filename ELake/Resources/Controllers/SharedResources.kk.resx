@@ -729,4 +729,7 @@
   <data name="ZonalStatWaters" xml:space="preserve">
     <value>Зоналық статистика</value>
   </data>
+  <data name="WaterType" xml:space="preserve">
+    <value>Су деректерінің түрі</value>
+  </data>
 </root>
