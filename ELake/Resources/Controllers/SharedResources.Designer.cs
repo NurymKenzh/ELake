@@ -702,6 +702,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string IncludeWater {
+            get {
+                return ResourceManager.GetString("IncludeWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Instruction {
             get {
                 return ResourceManager.GetString("Instruction", resourceCulture);

@@ -309,10 +309,39 @@ namespace ELake.Controllers
         {
             try
             {
-                List<string> layers = new List<string>();
-                foreach (string store in GetWorkspaceStores(WorkspaceName))
+                //List<string> layers = new List<string>();
+                //foreach (string store in GetWorkspaceStores(WorkspaceName))
+                //{
+                //    layers.AddRange(GetStoreLayers(WorkspaceName, store));
+                //}
+                //return layers.ToArray();
+                if (!GetWorkspaces().Contains(WorkspaceName))
                 {
-                    layers.AddRange(GetStoreLayers(WorkspaceName, store));
+                    throw new Exception($"No workspace {WorkspaceName}!");
+                }
+                if (string.IsNullOrEmpty(WorkspaceName))
+                {
+                    throw new Exception("WorkspaceName must be non-empty!");
+                }
+                Process process = CurlExecute($" -u " +
+                    $"{Startup.Configuration["GeoServer:User"]}:" +
+                    $"{Startup.Configuration["GeoServer:Password"]}" +
+                    $" -XGET" +
+                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers");
+                string html = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+
+                HtmlDocument htmlDocument = new HtmlDocument();
+                htmlDocument.LoadHtml(html);
+                HtmlNode root = htmlDocument.DocumentNode;
+                List<string> layers = new List<string>();
+                foreach (HtmlNode node in root.Descendants())
+                {
+                    if (node.Name == "a")
+                    {
+                        layers.Add(node.InnerText);
+                    }
                 }
                 return layers.ToArray();
             }
@@ -604,9 +633,9 @@ namespace ELake.Controllers
                     $" -H \"Content-type: text/xml\"" +
                     $" -d \"<coverage><name>{fileNameWithoutExtension}</name>" +
                     $"<title>{fileNameWithoutExtension}</title>" +
-                    $"<nativeCRS>EPSG:3857</nativeCRS>" +
-                    $"<srs>EPSG:3857</srs>" +
-                    $"<projectionPolicy>FORCE_DECLARED</projectionPolicy>" +
+                    //$"<nativeCRS>EPSG:38557</nativeCRS>" +
+                    //$"<srs>EPSG:38557</srs>" +
+                    //$"<projectionPolicy>FORCE_DECLARED</projectionPolicy>" +
                     $"<defaultInterpolationMethod><name>nearest neighbor</name></defaultInterpolationMethod></coverage>\"" +
                     $" \\ \"http://{Startup.Configuration["GeoServer:Address"]}" +
                     $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{fileNameWithoutExtension}/coverages?recalculate=nativebbox\"");
@@ -670,8 +699,8 @@ namespace ELake.Controllers
                     $" -H \"Content-type: text/xml\"" +
                     $" -d \"<coverage><name>{coverageName}</name>" +
                     $"<title>{coverageName}</title>" +
-                    //$"<nativeCRS>EPSG:3857</nativeCRS>" +
-                    //$"<srs>EPSG:3857</srs>" +
+                    //$"<nativeCRS>EPSG:38557</nativeCRS>" +
+                    //$"<srs>EPSG:38557</srs>" +
                     //$"<projectionPolicy>FORCE_DECLARED</projectionPolicy>" +
                     $"<defaultInterpolationMethod><name>nearest neighbor</name></defaultInterpolationMethod></coverage>\"" +
                     $" \\ \"http://{Startup.Configuration["GeoServer:Address"]}" +
@@ -893,18 +922,18 @@ namespace ELake.Controllers
                             {
                                 if(Path.GetExtension(fileName)==".tif")
                                 {
-                                    string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                    if (cs != "EPSG:3857")
-                                    {
+                                    //string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    //if (cs != "EPSG:38557")
+                                    //{
 
-                                        _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
-                                            Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
-                                            "EPSG:3857");
+                                    //    _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                    //        Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
+                                    //        "EPSG:38557");
 
-                                        report.Add($"{fileName}: {_sharedLocalizer["not3857Changed"]}!");
-                                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                    }
-                                    else
+                                    //    report.Add($"{fileName}: {_sharedLocalizer["not38557Changed"]}!");
+                                    //    System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    //}
+                                    //else
                                     {
                                         System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
                                             Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
@@ -952,18 +981,17 @@ namespace ELake.Controllers
                                 if (Path.GetExtension(fileName) == ".tif")
                                 {
                                     //string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                    string cs = "";
-                                    if (cs != "EPSG:3857")
-                                    {
+                                    //if (cs != "EPSG:38557")
+                                    //{
 
-                                        _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
-                                            Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
-                                            "EPSG:3857");
+                                    //    _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                    //        Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
+                                    //        "EPSG:38557");
 
-                                        report.Add($"{fileName}: {_sharedLocalizer["not3857Changed"]}!");
-                                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                    }
-                                    else
+                                    //    report.Add($"{fileName}: {_sharedLocalizer["not38557Changed"]}!");
+                                    //    System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    //}
+                                    //else
                                     {
                                         System.IO.File.Move(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
                                             Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
@@ -1502,16 +1530,16 @@ namespace ELake.Controllers
                             {
                                 if (Path.GetExtension(fileName) == ".shp")
                                 {
-                                    string cs = _GDAL.GetLayerCoordinateSystemNameShp(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                    if (cs != "EPSG:3857")
-                                    {
-                                        _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
-                                            Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
-                                            "EPSG:3857");
-                                        report.Add($"{fileName}: {_sharedLocalizer["not3857Changed"]}!");
-                                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                    }
-                                    else
+                                    //string cs = _GDAL.GetLayerCoordinateSystemNameShp(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    //if (cs != "EPSG:38557")
+                                    //{
+                                    //    _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                    //        Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
+                                    //        "EPSG:38557");
+                                    //    report.Add($"{fileName}: {_sharedLocalizer["not38557Changed"]}!");
+                                    //    System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    //}
+                                    //else
                                     {
                                         System.IO.File.Move(filePath, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
                                         report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
@@ -1561,16 +1589,16 @@ namespace ELake.Controllers
                             {
                                 if (Path.GetExtension(fileName) == ".shp")
                                 {
-                                    string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                    if (cs != "EPSG:3857")
-                                    {
-                                        _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
-                                            Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
-                                            "EPSG:3857");
-                                        report.Add($"{fileName}: {_sharedLocalizer["not3857Changed"]}!");
-                                        System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
-                                    }
-                                    else
+                                    //string cs = _GDAL.GetLayerCoordinateSystemName(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    //if (cs != "EPSG:38557")
+                                    //{
+                                    //    _GDAL.SaveLayerWithNewCoordinateSystem(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName),
+                                    //        Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName),
+                                    //        "EPSG:38557");
+                                    //    report.Add($"{fileName}: {_sharedLocalizer["not38557Changed"]}!");
+                                    //    System.IO.File.Delete(Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), "Upload", fileName));
+                                    //}
+                                    //else
                                     {
                                         System.IO.File.Move(file, Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileName));
                                         report.Add($"{fileName}: {_sharedLocalizer["uploaded"]}!");
@@ -1700,132 +1728,7 @@ namespace ELake.Controllers
                 throw new Exception(exception.ToString(), exception.InnerException);
             }
         }
-
-        ///// <summary>
-        ///// Публикация Shape-файла в GeoServer
-        ///// </summary>
-        ///// <remarks>
-        ///// Будет опубликован слой в GeoServer с именем, совпадающим с именем Shape-файла (без расширения)
-        ///// Будет создано новое хранилище в GeoServer с именем, совпадающим с именем Shape-файла (без расширения)
-        ///// Если существует опубликованный слой с именем, совпадающим с именем файла (без расширения), в рабочей области с именем, совпадающим с именем файла (без расширения), будет выдано исключение
-        ///// </remarks>
-        ///// <param name="WorkspaceName">
-        ///// Рабочая область GeoServer, в которой публикуется слой
-        ///// </param>
-        ///// <param name="FileName">
-        ///// Имя публикуемого Shape-файла с расширением, без пути в папке данных GeoServer
-        ///// </param>
-        ///// <param name="Style">
-        ///// Стиль GeoServer, с которым будет опубликован слой. Должен быть в рабочей области "WorkspaceName"
-        ///// </param>
-        //private void PublishShape(string WorkspaceName, string FileName, string LayerName, string Style)
-        //{
-        //    try
-        //    {
-        //        string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(FileName),
-        //            filesDirectory = Path.Combine(GetWorkspaceDirectoryPath(WorkspaceName), fileNameWithoutExtension),
-        //            fileNameWithPath = Path.Combine(filesDirectory, FileName),
-        //            zipFile = Path.ChangeExtension(fileNameWithPath, ".zip");
-
-        //        System.IO.File.Delete(zipFile);
-
-        //        using (ZipFile zip = new ZipFile())
-        //        {
-        //            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-        //            zip.AddFiles(Directory.GetFiles(filesDirectory), false, "");
-        //            zip.ParallelDeflateThreshold = -1;
-        //            zip.Save(zipFile);
-        //        }
-
-
-        //        if (GetWorkspaceLayers(WorkspaceName).Contains(LayerName))
-        //        {
-        //            throw new Exception($"Layer {LayerName} is already exist in {WorkspaceName} workspace!");
-        //        }
-
-        //        if (Path.GetExtension(FileName).ToLower() != ".shp")
-        //        {
-        //            throw new Exception("File extension must be \"shp\"!");
-        //        }
-
-        //        string s1 = $" -v -u " +
-        //            $"{Startup.Configuration["GeoServer:User"]}:" +
-        //            $"{Startup.Configuration["GeoServer:Password"]}" +
-        //            $" -XPOST" +
-        //            $" -H \"Content-type: text/xml\"" +
-
-        //            $" -d \"<dataStore><name>{LayerName}</name><type>Shapefile</type><enabled>true</enabled><workspace><name>{WorkspaceName}</name><atom:link type=\\\"application/xml\\\" href=\\\"http://localhost:8080/geoserver/rest/workspaces/" +
-        //            $"{WorkspaceName}" +
-        //            $".xml\\\" rel=\\\"alternate\\\" xmlns:atom=\\\"http://www.w3.org/2005/Atom\\\"/></workspace><connectionParameters><entry key=\\\"namespace\\\">http://{WorkspaceName}</entry><entry key=\\\"url\\\">file:/{System.Web.HttpUtility.UrlPathEncode(filesDirectory)}/</entry></connectionParameters><__default>false</__default><featureTypes><atom:link type=\\\"application/xml\\\" href=\\\"http://localhost:8080/geoserver/rest/workspaces/" +
-        //            $"WorkspaceName" +
-        //            $"/datastores/{LayerName}/featuretypes.xml\\\" rel=\\\"alternate\\\" xmlns:atom=\\\"http://www.w3.org/2005/Atom\\\"/></featureTypes></dataStore>\"" +
-
-        //            $" \"http://{Startup.Configuration["GeoServer:Address"]}" +
-        //            $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/datastores\"",
-        //            s2 = $" -u " +
-        //            $"{Startup.Configuration["GeoServer:User"]}:" +
-        //            $"{Startup.Configuration["GeoServer:Password"]}" +
-        //            $" -v -XPOST" +
-        //            $" -H \"Content-type: text/xml\"" +
-        //            $" -d \"<featureType><name>{LayerName}</name>" +
-        //            $"<title>{LayerName}</title>" +
-        //            $"<nativeCRS>EPSG:3857</nativeCRS>" +
-        //            $"<srs>EPSG:3857</srs>" +
-        //            $"<projectionPolicy>FORCE_DECLARED</projectionPolicy>" +
-        //            $"<defaultInterpolationMethod><name>nearest neighbor</name></defaultInterpolationMethod></featureType>\"" +
-        //            $" \\ \"http://{Startup.Configuration["GeoServer:Address"]}" +
-        //            $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/datastores/{LayerName}/featuretypes?recalculate=nativebbox\"",
-        //            s3 = $" -v -u " +
-        //            $"{Startup.Configuration["GeoServer:User"]}:" +
-        //            $"{Startup.Configuration["GeoServer:Password"]}" +
-        //            $" -XPUT" +
-        //            $" -H \"Content-type: text/xml\"" +
-        //            $" -d \"<layer><defaultStyle><name>{WorkspaceName}:{Style}</name></defaultStyle></layer>\"" +
-        //            $" http://{Startup.Configuration["GeoServer:Address"]}" +
-        //            $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers/{WorkspaceName}:{LayerName}";
-
-        //        Process process1 = CurlExecute($" -v -u " +
-        //            $"{Startup.Configuration["GeoServer:User"]}:" +
-        //            $"{Startup.Configuration["GeoServer:Password"]}" +
-        //            $" -XPOST" +
-        //            $" -H \"Content-type: text/xml\"" +
-        //            $" -d <dataStore><name>{LayerName}</name><type>Shapefile</type><enabled>true</enabled><workspace><name>{WorkspaceName}</name><atom:link type=\"application/xml\" href=\"http://localhost:8080/geoserver/rest/workspaces/" +
-        //            $"{WorkspaceName}" +
-        //            $".xml\" rel=\"alternate\" xmlns:atom=\"http://www.w3.org/2005/Atom\"/></workspace><connectionParameters><entry key=\"namespace\">http://{WorkspaceName}</entry><entry key=\"url\">file:/{System.Web.HttpUtility.UrlPathEncode(filesDirectory)}/</entry></connectionParameters><__default>false</__default><featureTypes><atom:link type=\"application/xml\" href=\"http://localhost:8080/geoserver/rest/workspaces/" +
-        //            $"WorkspaceName" +
-        //            $"/datastores/{LayerName}/featuretypes.xml\" rel=\"alternate\" xmlns:atom=\"http://www.w3.org/2005/Atom\"/></featureTypes></dataStore>" +
-        //            $" \"http://{Startup.Configuration["GeoServer:Address"]}" +
-        //            $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/datastores\"");
-        //        process1.WaitForExit();
-        //        Process process2 = CurlExecute($" -u " +
-        //            $"{Startup.Configuration["GeoServer:User"]}:" +
-        //            $"{Startup.Configuration["GeoServer:Password"]}" +
-        //            $" -v -XPOST" +
-        //            $" -H \"Content-type: text/xml\"" +
-        //            $" -d \"<featureType><name>{LayerName}</name>" +
-        //            $"<title>{LayerName}</title>" +
-        //            $"<nativeCRS>EPSG:3857</nativeCRS>" +
-        //            $"<srs>EPSG:3857</srs>" +
-        //            $"<projectionPolicy>FORCE_DECLARED</projectionPolicy>" +
-        //            $"<defaultInterpolationMethod><name>nearest neighbor</name></defaultInterpolationMethod></featureType>\"" +
-        //            $" \\ \"http://{Startup.Configuration["GeoServer:Address"]}" +
-        //            $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/datastores/{LayerName}/featuretypes?recalculate=nativebbox\"");
-        //        process2.WaitForExit();
-        //        Process process3 = CurlExecute($" -v -u " +
-        //            $"{Startup.Configuration["GeoServer:User"]}:" +
-        //            $"{Startup.Configuration["GeoServer:Password"]}" +
-        //            $" -XPUT" +
-        //            $" -H \"Content-type: text/xml\"" +
-        //            $" -d \"<layer><defaultStyle><name>{WorkspaceName}:{Style}</name></defaultStyle></layer>\"" +
-        //            $" http://{Startup.Configuration["GeoServer:Address"]}" +
-        //            $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers/{WorkspaceName}:{LayerName}");
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        throw new Exception(exception.ToString(), exception.InnerException);
-        //    }
-        //}
-
+        
         /// <summary>
         /// Отмена публикации Shape-файла в GeoServer
         /// </summary>
@@ -2477,6 +2380,17 @@ namespace ELake.Controllers
             ViewBag.ShapeFiles = new SelectList(GetShapeFiles(Startup.Configuration["GeoServer:Workspace"])
                 .Where(l => !publicshedLayers.Contains(Path.GetFileNameWithoutExtension(l))));
 
+            //ViewBag.Styles = new List<SelectListItem>()
+            //{
+            //    new SelectListItem() { Text=_sharedLocalizer["Style1"], Value="Style2"},
+            //    new SelectListItem() { Text=_sharedLocalizer["Style2"], Value="Style2"}
+            //};
+            //ViewBag.ShapeFiles = new List<SelectListItem>()
+            //{
+            //    new SelectListItem() { Text=_sharedLocalizer["ShapeFile1"], Value="ShapeFile1"},
+            //    new SelectListItem() { Text=_sharedLocalizer["ShapeFile2"], Value="ShapeFile2"}
+            //};
+
             Layer layer = new Layer() {
                 LayerIntervalsWaterLevel = new List<LayerInterval>()
                 {
@@ -2726,7 +2640,7 @@ namespace ELake.Controllers
                         Color = "#ffffff"
                     }
                 }
-            };            
+            };
 
             return View(layer);
         }
