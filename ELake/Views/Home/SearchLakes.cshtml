@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "SearchLakes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>SearchLakes</h2>
+@*<link rel="stylesheet" href="css/style.css">*@
+@*<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">*@
+<link href="~/css/search.css" rel="stylesheet" />
+@*<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
+
+<body>
+    <h1>РАСШИРЕННЫЙ ПОИСК</h1>
+    <main>
+        <input id="tab1" type="radio" name="tabs" checked>
+        <label for="tab1">По КАТО</label>
+        <input id="tab2" type="radio" name="tabs">
+        <label for="tab2">По ВХБ</label>
+        <input id="tab3" type="radio" name="tabs">
+        <label for="tab3">По Алфавиту</label>
+        <section id="content1">
+            <p>
+                Поиск по административным единицам:
+            </p>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Dropdown Example
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="content2">
+            <p>
+                Поиск по водохозяйственному бассейну:
+            </p>
+        </section>
+
+        <section id="content3">
+            <p>
+                Поиск по Алфавиту:
+            </p>
+        </section>
+
+
+
+    </main>
+
+
+</body>

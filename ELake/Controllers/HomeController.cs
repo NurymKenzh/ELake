@@ -34,6 +34,8 @@ namespace ELake.Controllers
             ViewBag.KATO2 = new SelectList(_context.KATO.Where(k => k.Level == 2).OrderBy(k => k.Name), "Number", "Name");
             ViewBag.KATO3 = new SelectList(_context.KATO.Where(k => k.Level == 3).OrderBy(k => k.Name), "Number", "Name");
             ViewBag.Lakes = new SelectList(new List<Lake>(), "Id", "Name");
+
+
             
             return View();
         }
@@ -178,6 +180,11 @@ namespace ELake.Controllers
             var lakes = _GeoServer.FindLakesInKATO(KATONumber, KATOLevel);
             JsonResult result = new JsonResult(lakes);
             return result;
+        }
+
+        public IActionResult SearchLakes()
+        {
+            return View();
         }
     }
 }

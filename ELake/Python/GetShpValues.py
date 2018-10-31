@@ -1,9 +1,9 @@
 import shapefile
 
-##file=r'D:\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
-##field = 'name'
-file = raw_input()
-field = raw_input()
+file=r'E:\Documents\Google Drive\New\Layers\my\Lakes.shp'
+field = 'name'
+##file = raw_input()
+##field = raw_input()
 
 sf = shapefile.Reader(file)
 fieldIndex = 1
