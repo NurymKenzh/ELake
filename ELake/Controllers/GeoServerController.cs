@@ -1892,18 +1892,18 @@ namespace ELake.Controllers
             return lakesIds;
         }
 
-        public Lake[] FindLakesInKATO(string KATONumber, int KATOLevel)
+        public LakeB[] FindLakesInKATO(string KATONumber, int KATOLevel)
         {
             int[] lakesIds = FindLakeIdsInKATO(KATONumber, KATOLevel);
             string lakesFile = _context.Layer.FirstOrDefault(l => l.Lake).FileNameWithPath;
             if (string.IsNullOrEmpty(lakesFile))
             {
-                return new Lake[0];
+                return new LakeB[0];
             }
-            List<Lake> lakes = new List<Lake>();
+            List<LakeB> lakes = new List<LakeB>();
             foreach(int lakeId in lakesIds)
             {
-                lakes.Add(new Lake() {
+                lakes.Add(new LakeB() {
                     Id = lakeId,
                     Name = _GDAL.GetFeatureValue(lakesFile, Startup.Configuration["Lakes:IdField"], lakeId.ToString(), Startup.Configuration["Lakes:NameField"])
                 });

@@ -35,9 +35,9 @@ namespace ELake.Controllers
             //ViewBag.KATO3 = new SelectList(_context.KATO.Where(k => k.Level == 3).OrderBy(k => k.Name), "Number", "Name");
             //ViewBag.Lakes = new SelectList(new List<Lake>(), "Id", "Name");
 
-            List<string> lakes = _GDAL.GetShpColumnValuesStr(_context.Layer.FirstOrDefault(l => l.Lake)?.FileNameWithPath, Startup.Configuration["Lakes:NameField"]).ToList();
-            lakes = lakes.Where(l => !string.IsNullOrEmpty(l)).ToList();
-            ViewBag.Lakes = lakes;
+            //List<string> lakes = _GDAL.GetShpColumnValuesStr(_context.Layer.FirstOrDefault(l => l.Lake)?.FileNameWithPath, Startup.Configuration["Lakes:NameField"]).ToList();
+            //lakes = lakes.Where(l => !string.IsNullOrEmpty(l)).ToList();
+            //ViewBag.Lakes = lakes;
 
             return View();
         }
