@@ -72,6 +72,7 @@ namespace ELake.Controllers
                     );
                 Arguments[0] = $"\"{Arguments[0]}\"";
 
+                process.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.RedirectStandardInput = true;
