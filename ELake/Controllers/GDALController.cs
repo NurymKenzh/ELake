@@ -149,6 +149,21 @@ namespace ELake.Controllers
             }
         }
 
+        public string[] GetShpColumnValuesStr(string File, string Field)
+        {
+            string[] values = new string[1];
+            try
+            {
+                string jsonArray = PythonExecute("GetShpValues");//, $"{File}", Field);
+                values = Newtonsoft.Json.JsonConvert.DeserializeObject<string[]>(jsonArray);
+                return values;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
         public void DeleteFeatures(string File, string FieldName, string FieldValue)
         {
             try
