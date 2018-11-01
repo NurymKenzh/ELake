@@ -39,6 +39,8 @@ namespace ELake.Controllers
             //lakes = lakes.Where(l => !string.IsNullOrEmpty(l)).ToList();
             //ViewBag.Lakes = lakes;
 
+            ViewBag.Lakes = new SelectList(_context.Lake.Where(l => !string.IsNullOrEmpty(l.NameRU)).OrderBy(l => l.NameRU), "LakeId", "NameRU");
+
             return View();
         }
 

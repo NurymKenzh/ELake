@@ -46,6 +46,25 @@ namespace ELake.Controllers
             return View(lake);
         }
 
+        // GET: Lakes/Details/5
+        //[Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> Map(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var lake = await _context.Lake
+                .SingleOrDefaultAsync(m => m.LakeId == id);
+            if (lake == null)
+            {
+                return NotFound();
+            }
+
+            return View(lake);
+        }
+
         // GET: Lakes/Create
         [Authorize(Roles = "Administrator, Moderator")]
         public IActionResult Create()
