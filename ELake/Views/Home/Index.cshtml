@@ -64,11 +64,14 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <div class="features-icons-icon d-flex">
-                            <i class="icon-magnifier m-auto text-primary"></i>
-                        </div>
-                        <h3>Advanced Lakes Search</h3>
-                        <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
+                        <a asp-action="SearchLakes">
+                            <div class="features-icons-icon d-flex">
+                                <i class="icon-magnifier m-auto text-primary"></i>
+                            </div>
+                            <h3>Advanced Lakes Search</h3>
+                            <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
+                        </a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -101,16 +104,17 @@
                     <h2 class="mb-4">Search by lake name!</h2>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <form>
+                    @*<form>*@
                         <div class="form-row">
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
-                                <input type="lake" class="form-control form-control-lg" placeholder="Enter lake name...">
+                                @*<input type="lake" class="form-control form-control-lg" placeholder="Enter lake name...">*@
+                                <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
                             </div>
                             <div class="col-12 col-md-3">
-                                <button type="submit" class="btn btn-block btn-lg btn-primary">Search</button>
+                                <button type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">Search</button>
                             </div>
                         </div>
-                    </form>
+                    @*</form>*@
                 </div>
             </div>
         </div>
@@ -148,3 +152,9 @@
         </div>
     </section>
 </body>
+
+<script>
+    function GoToLake(){
+        window.location.href = '/Lakes/Map/' + $('#LakeId').val();
+    }
+</script>

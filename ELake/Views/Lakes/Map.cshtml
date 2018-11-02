@@ -1,0 +1,115 @@
+﻿@model ELake.Models.Lake
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Lake"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link href="~/lib/ol/ol.css" rel="stylesheet" />
+<script src="~/lib/ol/ol.js"></script>
+<h2>@SharedLocalizer["Lake"]</h2>
+
+@*<input type="button" name="Text" value="VTest" onclick="Test()" />
+<input type="text" id="TestText"/>*@
+
+<div>
+    <h4>@SharedLocalizer["Map"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["Map"]
+        </dt>
+        <dd>
+            <div id="map" style="width: 100%;"></div>
+        </dd>
+    </dl>
+</div>
+<script type="text/javascript">
+    var layers = [];
+    layers.push(new ol.layer.Tile({
+        source: new ol.source.OSM()
+    }));
+    layers[0].set('name', 'OSM');
+
+    var Source_Lake = new ol.source.Vector({});
+    var Layer_Lake = new ol.layer.Vector({
+        source: Source_Lake,
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: [0, 0, 255, 1]
+            }),
+            stroke: new ol.style.Stroke({
+                color: 'red',
+                width: 2
+            })
+        })
+    });
+    layers.push(Layer_Lake);
+
+    var geoserverPort = '8080',
+        //geoserverAddress = '82.200.146.116';
+        geoserverAddress = 'localhost';
+
+    var map = new ol.Map({
+        target: 'map',
+        layers: layers,
+        view: new ol.View({
+            center: ol.proj.fromLonLat([69, 48]),
+            zoom: 4
+        })
+    });
+
+    var url_Lakes = "http://" + geoserverAddress + ":" + geoserverPort + "/geoserver/ELake/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ELake:Lakes&outputFormat=text/javascript&format_options=callback:getJson";
+    $('#TestText').val(url_Lakes);
+    $.ajax({
+        jsonp: false,
+        jsonpCallback: 'getJson',
+        type: 'GET',
+        url: url_Lakes,
+        async: false,
+        dataType: 'jsonp',
+        success: function (data_Lakes) {
+            var Layer_Lakes = new ol.layer.Vector({
+                source: new ol.source.Vector({
+                    features: (new ol.format.GeoJSON()).readFeatures(data_Lakes, {
+                        featureProjection: 'EPSG:3857'
+                    })
+                })
+            });
+            features = Layer_Lakes.getSource().getFeatures();
+            for (i = 0; i < features.length; i++) {
+                if (features[i].get('id') === @Model.LakeId) {
+                    var polyFeature = new ol.Feature({
+                        geometry: new ol.geom.MultiPolygon(features[i].getGeometry().getCoordinates())
+                    });
+                    Source_Lake.clear();
+                    Source_Lake.addFeature(features[i]);
+                    //// zoom to feature #1
+                    //var ext = polyFeature.getGeometry().getExtent();
+                    //var center = ol.extent.getCenter(ext);
+                    //map.setView(new ol.View({
+                    //    projection: 'EPSG:3857',
+                    //    center: [center[0], center[1]],
+                    //    zoom: 12
+                    //}));
+                    // zoom to feature #2
+                    var extent = polyFeature.getGeometry().getExtent();
+                    map.getView().fit(extent, map.getSize());
+                }
+            }
+        },
+        error: function () {
+            //alert('error');
+        }
+    });
+
+    //function Test() {
+    //    alert("Layers: " + map.getLayers().getLength());
+    //    alert("features: " + Layer_Lake.getSource().getFeatures().length);
+    //    //for (var key in map.getLayers()) {
+    //    //    alert('key: ' + key + '\n' + 'value: ' + map.getLayers()[key]);
+    //    //}
+    //}
+</script>

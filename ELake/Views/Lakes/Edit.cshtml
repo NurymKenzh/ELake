@@ -1,0 +1,50 @@
+﻿@model ELake.Models.Lake
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Lake</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="LakeId" class="control-label"></label>
+                <input asp-for="LakeId" class="form-control" />
+                <span asp-validation-for="LakeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameKK" class="control-label"></label>
+                <input asp-for="NameKK" class="form-control" />
+                <span asp-validation-for="NameKK" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameRU" class="control-label"></label>
+                <input asp-for="NameRU" class="form-control" />
+                <span asp-validation-for="NameRU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NameEN" class="control-label"></label>
+                <input asp-for="NameEN" class="form-control" />
+                <span asp-validation-for="NameEN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

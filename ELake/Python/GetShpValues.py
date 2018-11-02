@@ -1,6 +1,6 @@
 import shapefile
 
-##file=r'D:\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
+##file=r'C:\Program Files (x86)\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
 ##field = 'name'
 file = raw_input()
 field = raw_input()
@@ -22,6 +22,20 @@ values = []
 for sr in sf.shapeRecords():
 ##    print type(sr.record)
     values.append(sr.record[fieldIndex-1:fieldIndex][0])
+##    break
 ##    print '[%s]' % ', '.join(map(str, sr.record))
 
-print '[%s]' % ', '.join(map(str, values))
+##print '[%s]' % ', '.join(map(str, values))
+    
+s = '['
+for v in values:
+    s = s + v.decode('utf-8') + ', '
+##    s = s + v.decode('ascii') + ', '
+s = s[:-2]
+s = s + ']'
+print s
+##text_file = open("Output___.txt", "w")
+##text_file.write(s)
+##text_file.close()
+
+##print values[0]

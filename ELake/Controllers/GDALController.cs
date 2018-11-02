@@ -72,6 +72,7 @@ namespace ELake.Controllers
                     );
                 Arguments[0] = $"\"{Arguments[0]}\"";
 
+                process.StartInfo.StandardOutputEncoding = Encoding.UTF8;
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.RedirectStandardInput = true;
@@ -141,6 +142,21 @@ namespace ELake.Controllers
             {
                 string jsonArray = PythonExecute("GetShpValues", $"{File}", Field);
                 values = Newtonsoft.Json.JsonConvert.DeserializeObject<int[]>(jsonArray);
+                return values;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString(), exception.InnerException);
+            }
+        }
+
+        public string[] GetShpColumnValuesStr(string File, string Field)
+        {
+            string[] values = new string[1];
+            try
+            {
+                string jsonArray = PythonExecute("GetShpValues");//, $"{File}", Field);
+                values = Newtonsoft.Json.JsonConvert.DeserializeObject<string[]>(jsonArray);
                 return values;
             }
             catch (Exception exception)

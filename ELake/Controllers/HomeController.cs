@@ -30,11 +30,17 @@ namespace ELake.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.KATO1 = new SelectList(_context.KATO.Where(k => k.Level == 1).OrderBy(k => k.Name), "Number", "Name");
-            ViewBag.KATO2 = new SelectList(_context.KATO.Where(k => k.Level == 2).OrderBy(k => k.Name), "Number", "Name");
-            ViewBag.KATO3 = new SelectList(_context.KATO.Where(k => k.Level == 3).OrderBy(k => k.Name), "Number", "Name");
-            ViewBag.Lakes = new SelectList(new List<Lake>(), "Id", "Name");
-            
+            //ViewBag.KATO1 = new SelectList(_context.KATO.Where(k => k.Level == 1).OrderBy(k => k.Name), "Number", "Name");
+            //ViewBag.KATO2 = new SelectList(_context.KATO.Where(k => k.Level == 2).OrderBy(k => k.Name), "Number", "Name");
+            //ViewBag.KATO3 = new SelectList(_context.KATO.Where(k => k.Level == 3).OrderBy(k => k.Name), "Number", "Name");
+            //ViewBag.Lakes = new SelectList(new List<Lake>(), "Id", "Name");
+
+            //List<string> lakes = _GDAL.GetShpColumnValuesStr(_context.Layer.FirstOrDefault(l => l.Lake)?.FileNameWithPath, Startup.Configuration["Lakes:NameField"]).ToList();
+            //lakes = lakes.Where(l => !string.IsNullOrEmpty(l)).ToList();
+            //ViewBag.Lakes = lakes;
+
+            ViewBag.Lakes = new SelectList(_context.Lake.Where(l => !string.IsNullOrEmpty(l.NameRU)).OrderBy(l => l.NameRU), "LakeId", "NameRU");
+
             return View();
         }
 
@@ -184,6 +190,11 @@ namespace ELake.Controllers
             var lakes = _GeoServer.FindLakesInKATO(KATONumber, KATOLevel);
             JsonResult result = new JsonResult(lakes);
             return result;
+        }
+
+        public IActionResult SearchLakes()
+        {
+            return View();
         }
     }
 }

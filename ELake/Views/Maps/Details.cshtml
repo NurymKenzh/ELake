@@ -1040,8 +1040,6 @@
             waterLayer = $('#Type').val() + '_' + month;
         }
 
-        alert(waterLayer);
-
         var Source_WaterNew = new ol.source.TileWMS({
             url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
             params: {
