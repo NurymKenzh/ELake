@@ -103,6 +103,9 @@
     <None Update="Python\MergeShpLayers.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Python\ZonalStatAsTableYearlyHistory.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
