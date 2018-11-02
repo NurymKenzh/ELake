@@ -28,13 +28,13 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <a class="btn btn-primary" asp-area="" asp-controller="Manage" asp-action="Index">@UserManager.GetUserName(User)</a>
+    <a class="btn btn-outline-warning btn-sm mr-1" asp-area="" asp-controller="Manage" asp-action="Index">@UserManager.GetUserName(User)</a>
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
-        <button type="submit" class="btn btn-primary">@SharedLocalizer["LogOut"]</button>
+        <button type="submit" class="btn btn-outline-light  btn-sm" title="@SharedLocalizer["LogOut"]"><i class="fa fa-sign-out"></i></button>
     </form>
 }
 else
 {
-    <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Register">@SharedLocalizer["Register"]</a>
-    <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a>
+    @*<a class="btn btn-outline-light btn-sm mr-1" asp-area="" asp-controller="Account" asp-action="Register">@SharedLocalizer["Register"]</a>*@
+    <a class="btn btn-outline-light  btn-sm" asp-area="" asp-controller="Account" asp-action="Login"><i class="fa fa-sign-in"></i></a>
 }

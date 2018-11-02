@@ -20,10 +20,10 @@
     </environment>
     <environment exclude="Development">
         @*<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-        asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-        asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
+            asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />*@
         <!-- Bootstrap core JavaScript -->
         <script src="~/lib/vendor/jquery/jquery.min.js"></script>
         <script src="~/lib/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -32,88 +32,108 @@
     </environment>
 </head>
 <body>
-    @*<nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ELake</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    @await Html.PartialAsync("_AdministratorPartial")
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand active" rel="#">ELake</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample07">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-home"></i>
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-book"></i>
+                            About
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-exclamation-circle"></i>
+                            Information
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i> Functions</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown07">
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header text-light">Raster</h6>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UploadGeoTIFFFiles">@SharedLocalizer["UploadGeoTIFFFiles"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="DeleteGeoTIFFFile">@SharedLocalizer["DeleteGeoTIFFFile"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="PublishGeoTIFF">@SharedLocalizer["PublishGeoTIFF"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UnpublishGeoTIFF">@SharedLocalizer["UnpublishGeoTIFF"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UploadGeoTIFFFilesWater">@SharedLocalizer["UploadGeoTIFFFilesWater"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="DeleteGeoTIFFFileWater">@SharedLocalizer["DeleteGeoTIFFFileWater"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="PublishGeoTIFFWater">@SharedLocalizer["PublishGeoTIFFWater"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UnpublishGeoTIFFWater">@SharedLocalizer["UnpublishGeoTIFFWater"]</a>
+                            <div class="dropdown-divider"></div>
+                            <h6 class="dropdown-header text-light">Shape file</h6>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UploadShapeFiles">@SharedLocalizer["UploadShapeFiles"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="DeleteShapeFile">@SharedLocalizer["DeleteShapeFile"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="PublishShape">@SharedLocalizer["PublishShape"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UpdateLakeLayerStyle">@SharedLocalizer["UpdateLakeLayerStyle"]</a>
+                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UnpublishShape">@SharedLocalizer["UnpublishShape"]</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-alt"></i> Tables</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown07">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="WaterLevels" asp-action="Index">@SharedLocalizer["WaterLevels"]</a>
+                            <a class="dropdown-item" asp-controller="SurfaceFlows" asp-action="Index">@SharedLocalizer["SurfaceFlows"]</a>
+                            <a class="dropdown-item" asp-controller="Precipitations" asp-action="Index">@SharedLocalizer["Precipitations"]</a>
+                            <a class="dropdown-item" asp-controller="UndergroundFlows" asp-action="Index">@SharedLocalizer["UndergroundFlows"]</a>
+                            <a class="dropdown-item" asp-controller="SurfaceOutflows" asp-action="Index">@SharedLocalizer["SurfaceOutflows"]</a>
+                            <a class="dropdown-item" asp-controller="Evaporations" asp-action="Index">@SharedLocalizer["Evaporations"]</a>
+                            <a class="dropdown-item" asp-controller="UndergroundOutflows" asp-action="Index">@SharedLocalizer["UndergroundOutflows"]</a>
+                            <a class="dropdown-item" asp-controller="Hydrochemistries" asp-action="Index">@SharedLocalizer["Hydrochemistries"]</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i> @SharedLocalizer["Administration"]</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown07">
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-controller="Users" asp-action="Index">@SharedLocalizer["Users"]</a>
+                        </div>
+                    </li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
+
         </div>
-    </nav>*@
-    <nav class="navbar navbar-light bg-light static-top">
-        <div class="container">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" rel="#">ELake</a>
-            @*<a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a>*@
-            @await Html.PartialAsync("_LoginPartial")
-        </div>
+
     </nav>
-    <div class="body">
-        @RenderBody()
-        
-        <!-- Footer -->
-        <footer class="footer bg-light fixed-bottom">
-            <hr />
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-                        <ul class="list-inline mb-2">
-                            @*<li class="list-inline-item">
-                            <a href="#">Home</a>
-                        </li>
-                        <li class="list-inline-item">&sdot;</li>
-                        <li class="list-inline-item">
-                            <a href="#">About</a>
-                        </li>
-                        <li class="list-inline-item">&sdot;</li>
-                        <li class="list-inline-item">
-                            <a href="#">Information</a>
-                        </li>
-                        <li class="list-inline-item">&sdot;</li>
-                        <li class="list-inline-item">
-                            <a href="#">Contact</a>
-                        </li>*@
-                            @await Html.PartialAsync("_AdministratorPartial")
-                        </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; 2018 - ELake</p> @await Html.PartialAsync("_SelectLanguagePartial")
-                    </div>
-                    <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-                        <ul class="list-inline mb-0">
-                            <li class="list-inline-item mr-3">
-                                <a href="#">
-                                    <i class="fa fa-facebook fa-2x fa-fw"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item mr-3">
-                                <a href="#">
-                                    <i class="fa fa-twitter fa-2x fa-fw"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">
-                                    <i class="fa fa-instagram fa-2x fa-fw"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+    @RenderBody()
+    <!-- FOOTER -->   
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Place sticky footer content here.</span>
+        </div>
+    </footer>
+    <footer class="footer bg-light border-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <p class="mb-2"><a href="#">Home</a> &middot; <a href="#">Back to top</a></p>
+                    <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+                </div>
+                
+                <div class="col-6 col-md">
+                    <ul class="list-unstyled text-small">
+                        <li><a class="float-right text-muted" href="#">@await Html.PartialAsync("_SelectLanguagePartial")</a></li>
+                    </ul>
                 </div>
             </div>
-        </footer>
-    </div>
-
+        </div>
+    </footer>
     <environment include="Development">
         @*<script src="~/lib/jquery/dist/jquery.js"></script>*@
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -121,18 +141,18 @@
     </environment>
     <environment exclude="Development">
         @*<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>*@
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>*@
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>

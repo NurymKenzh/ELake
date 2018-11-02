@@ -5,51 +5,85 @@
     ViewData["Title"] = SharedLocalizer["UploadGeoTIFFFilesWaterWater"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
 
 <body class="bg-light">
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
+        <div class="jumbotron jumbotron-fluid shadow-sm">
+            <div class="container py-2">
                 <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["UploadGeoTIFFFilesWater"]</h2>
-                <p class="lead">@SharedLocalizer["PublishDescription"]</p>
-                @Html.ActionLink(SharedLocalizer["Instruction"], "Instruction", new { Type = "UploadGeoTIFFFilesWater" })
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">There should be a description</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="icon ion-ios-information-outline"></i></button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">@SharedLocalizer["UploadGeoTIFFFilesWater"]</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <video style="max-width: 100%;" controls>
+                                    <source src="~/Video/UploadGeoTIFFFiles.mp4" type="video/mp4">
+                                    Your browser does not support HTML5 video.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-danger" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
             </div>
         </div>
-        <div class="col-md-5">
-            @using (Html.BeginForm("UploadGeoTIFFFilesWater", "GeoServer", FormMethod.Post, new { enctype = "multipart/form-data", id = "uploadform" }))
-            {
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                <div class="form-group">
-                    <label class="control-label">@SharedLocalizer["Files"]</label>
-                    <input type="file" name="Files" multiple />
+        <div class="form-row ">
+            <span class="border-left ml-1"></span>
+            <div class="col-md-5">
+                @using (Html.BeginForm("UploadGeoTIFFFiles", "GeoServer", FormMethod.Post, new { enctype = "multipart/form-data", id = "uploadform" }))
+                {
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" for="FormControl">@SharedLocalizer["Files"]</label>
+                        <input type="file" class="form-control-file text-info" name="Files" multiple />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label font-weight-bold text-dark">@SharedLocalizer["Type"]</label>
+                        @Html.DropDownList("Folder", (IEnumerable<SelectListItem>)ViewBag.Folder, htmlAttributes: new { @class = "custom-select text-info", @id = "Folder" })
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label font-weight-bold text-dark">@SharedLocalizer["Year"]</label>
+                        <select asp-items="ViewBag.Year" name="Year" class="custom-select text-info" id="Year"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label font-weight-bold text-dark">@SharedLocalizer["Month"]</label>
+                        <select asp-items="ViewBag.Month" name="Month" class="custom-select text-info" id="Month"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@SharedLocalizer["Upload"]" class="btn btn-outline-primary" />
+                    </div>                    
+                }
+                <div class="progress mr-3" style="height: 20px;">
+                    <div class="progress-bar"></div>
+                    <div class="percent">0%</div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label">@SharedLocalizer["Type"]</label>
-                    @Html.DropDownList("Folder", (IEnumerable<SelectListItem>)ViewBag.Folder, htmlAttributes: new { @class = "custom-select", @id = "Folder" })
-                </div>
-                <div class="form-group">
-                    <label class="control-label">@SharedLocalizer["Year"]</label>
-                    <select asp-items="ViewBag.Year" name="Year" class="custom-select " id="Year"></select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">@SharedLocalizer["Month"]</label>
-                    <select asp-items="ViewBag.Month" name="Month" class="custom-select " id="Month"></select>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="@SharedLocalizer["Upload"]" class="btn btn-outline-primary" />
-                </div>
-            }
-        </div>
-        <div class="col-md-pull-5">
-            <div class="progress" style="width:50%">
-                <div class="progress-bar"></div>
-                <div class="percent">0%</div>
+                <div id="status"></div>
             </div>
-
-            <div id="status"></div>
-        </div>
+        </div>        
     </div>
 </body>
 @*<div class="row">

@@ -142,6 +142,12 @@ namespace ELake.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Administrator")]
+        public IActionResult WaterTables()
+        {
+            return View();
+        }
+
         [HttpPost]
         public JsonResult GetKATO2(string KATO1Number)
         {

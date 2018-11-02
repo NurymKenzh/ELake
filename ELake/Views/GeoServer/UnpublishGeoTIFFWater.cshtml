@@ -5,33 +5,66 @@
     ViewData["Title"] = SharedLocalizer["UnpublishGeoTIFFWater"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<body class="bg-light">
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
+<body class="bg-white">
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
+        <div class="jumbotron jumbotron-fluid shadow-sm">
+            <div class="container py-2">
                 <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["UnpublishGeoTIFFWater"]</h2>
-                <p class="lead">There should be a description</p>
-                @Html.ActionLink(SharedLocalizer["Instruction"], "Instruction", new { Type = "PublishGeoTIFF" })
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">There should be a description</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="icon ion-ios-information-outline"></i></button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">@SharedLocalizer["UnpublishGeoTIFFWater"]</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                There should be a description or video
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
                 @if (!string.IsNullOrEmpty(ViewBag.Message))
                 {
-                    <div>
+                    <div class="alert-danger" role="alert">
                         @ViewBag.Message
                     </div>
                 }
             </div>
         </div>
         <div class="form-row ">
-            <div class="col-md-4">
+            <span class="border-left ml-1"></span>
+            <div class="col-md-4 ml-3">
                 <form asp-action="UnpublishGeoTIFFWater">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <label class="control-label">@SharedLocalizer["Type"]</label>
+                        <label class="font-weight-bold text-dark">@SharedLocalizer["Type"]</label>
                         <select id="Type" name="Type" class="form-control" asp-items="ViewBag.Type" onchange="ChangeType()"></select>
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">@SharedLocalizer["Folder"]</label>
+                        <label class="font-weight-bold text-dark">@SharedLocalizer["Folder"]</label>
                         <select id="Folder" name="Folder" class="form-control" asp-items="ViewBag.Folder"></select>
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-outline-primary my-2 my-sm-0" />
@@ -41,24 +74,25 @@
         </div>
     </div>
 </body>
+
 @*<div class="row">
-    <div class="col-md-4">
-        <form asp-action="UnpublishGeoTIFFWater">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label class="control-label">@SharedLocalizer["Type"]</label>
-                <select id="Type" name="Type" class="form-control" asp-items="ViewBag.Type" onchange="ChangeType()"></select>
-            </div>
-            <div class="form-group">
-                <label class="control-label">@SharedLocalizer["Folder"]</label>
-                <select id="Folder" name="Folder" class="form-control" asp-items="ViewBag.Folder"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-default" />
-            </div>
-        </form>
-    </div>
-</div>*@
+        <div class="col-md-4">
+            <form asp-action="UnpublishGeoTIFFWater">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["Type"]</label>
+                    <select id="Type" name="Type" class="form-control" asp-items="ViewBag.Type" onchange="ChangeType()"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">@SharedLocalizer["Folder"]</label>
+                    <select id="Folder" name="Folder" class="form-control" asp-items="ViewBag.Folder"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>*@
 
 <script>
     function ChangeType() {

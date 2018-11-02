@@ -7,36 +7,59 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@SharedLocalizer["Delete"]</h2>
 
-<h3>@SharedLocalizer["Delete"]?</h3>
-<div>
-    <h4>@SharedLocalizer["WaterLevel"]</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.WaterLavelM)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.WaterLavelM)
-        </dd>
-    </dl>
+<body class="bg-white">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid shadow-sm">
+            <div class="container py-2">
+                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["Delete"]</h2>
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["WaterLevel"]</p>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-danger" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-row ">
+            <span class="border-left ml-1"></span>
+            <div class="col-md-4 ml-3">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LakeId)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.LakeId)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Year)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Year)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.WaterLavelM)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.WaterLavelM)
+                    </dd>
+                </dl>
 
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id" />
-        <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-default" /> |
-        <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
-    </form>
-</div>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-link" /> |
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
