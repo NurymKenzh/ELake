@@ -732,4 +732,34 @@
   <data name="WaterType" xml:space="preserve">
     <value>Тип данных по воде</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>О сайте</value>
+  </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Вверх</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Функции</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Озера</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Растр</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Растры</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Shape-файлы</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Таблицы</value>
+  </data>
 </root>

@@ -732,4 +732,34 @@
   <data name="WaterType" xml:space="preserve">
     <value>Type of water data</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Back to top</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Functions</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Lakes</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Raster</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Rasters</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Shape-files</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables</value>
+  </data>
 </root>

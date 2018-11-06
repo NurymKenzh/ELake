@@ -48,70 +48,27 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" asp-controller="Home" asp-action="About">
                             <i class="fa fa-book"></i>
                             @SharedLocalizer["About"]
                             <span class="sr-only"></span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" asp-controller="Home" asp-action="Information">
                             <i class="fa fa-exclamation-circle"></i>
                             @SharedLocalizer["Information"]
                             <span class="sr-only"></span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contact">
                             <i class="fa fa-address-book"></i>
                             @SharedLocalizer["Contact"]
                             <span class="sr-only"></span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cogs"></i> Functions</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown07">
-                            <div class="dropdown-divider"></div>
-                            <h6 class="dropdown-header text-light">Raster</h6>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UploadGeoTIFFFiles">@SharedLocalizer["UploadGeoTIFFFiles"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="DeleteGeoTIFFFile">@SharedLocalizer["DeleteGeoTIFFFile"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="PublishGeoTIFF">@SharedLocalizer["PublishGeoTIFF"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UnpublishGeoTIFF">@SharedLocalizer["UnpublishGeoTIFF"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UploadGeoTIFFFilesWater">@SharedLocalizer["UploadGeoTIFFFilesWater"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="DeleteGeoTIFFFileWater">@SharedLocalizer["DeleteGeoTIFFFileWater"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="PublishGeoTIFFWater">@SharedLocalizer["PublishGeoTIFFWater"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UnpublishGeoTIFFWater">@SharedLocalizer["UnpublishGeoTIFFWater"]</a>
-                            <div class="dropdown-divider"></div>
-                            <h6 class="dropdown-header text-light">Shape file</h6>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UploadShapeFiles">@SharedLocalizer["UploadShapeFiles"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="DeleteShapeFile">@SharedLocalizer["DeleteShapeFile"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="PublishShape">@SharedLocalizer["PublishShape"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UpdateLakeLayerStyle">@SharedLocalizer["UpdateLakeLayerStyle"]</a>
-                            <a class="dropdown-item" asp-controller="GeoServer" asp-action="UnpublishShape">@SharedLocalizer["UnpublishShape"]</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-alt"></i> Tables</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown07">
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="WaterLevels" asp-action="Index">@SharedLocalizer["WaterLevels"]</a>
-                            <a class="dropdown-item" asp-controller="SurfaceFlows" asp-action="Index">@SharedLocalizer["SurfaceFlows"]</a>
-                            <a class="dropdown-item" asp-controller="Precipitations" asp-action="Index">@SharedLocalizer["Precipitations"]</a>
-                            <a class="dropdown-item" asp-controller="UndergroundFlows" asp-action="Index">@SharedLocalizer["UndergroundFlows"]</a>
-                            <a class="dropdown-item" asp-controller="SurfaceOutflows" asp-action="Index">@SharedLocalizer["SurfaceOutflows"]</a>
-                            <a class="dropdown-item" asp-controller="Evaporations" asp-action="Index">@SharedLocalizer["Evaporations"]</a>
-                            <a class="dropdown-item" asp-controller="UndergroundOutflows" asp-action="Index">@SharedLocalizer["UndergroundOutflows"]</a>
-                            <a class="dropdown-item" asp-controller="Hydrochemistries" asp-action="Index">@SharedLocalizer["Hydrochemistries"]</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users"></i> @SharedLocalizer["Administration"]</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown07">
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-controller="Users" asp-action="Index">@SharedLocalizer["Users"]</a>
-                            <a class="dropdown-item" asp-controller="Home" asp-action="Administrator">@SharedLocalizer["Administration"]</a>
-                        </div>
-                    </li>
+                    @await Html.PartialAsync("_AdministratorPartial")
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -130,8 +87,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md">
-                    <p class="mb-2"><a href="#">@SharedLocalizer["Home"]</a> &middot; <a href="#">Back to top</a></p>
-                    <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+                    <p class="mb-2"><a asp-controller="Home" asp-action="Index">@SharedLocalizer["Home"]</a> &middot; <a href="#">@SharedLocalizer["BackToTop"]</a></p>
+                    <small class="d-block mb-3 text-muted">&copy; @DateTime.Today.Year.ToString()</small>
                 </div>
                 
                 <div class="col-6 col-md">

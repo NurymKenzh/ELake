@@ -732,4 +732,34 @@
   <data name="WaterType" xml:space="preserve">
     <value>Су деректерінің түрі</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Сайт туралы</value>
+  </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Жоғары қарай</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Бізбен байланысыңыз</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Функциялар</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Ақпарат</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Көлдер</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Растр</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Шеберлер</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Файлдарды құрастыру</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Кестелер</value>
+  </data>
 </root>
