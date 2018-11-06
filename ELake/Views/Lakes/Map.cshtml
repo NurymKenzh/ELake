@@ -3,95 +3,851 @@
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<SharedResources> SharedLocalizer
 @{
-    ViewData["Title"] = SharedLocalizer["Lake"];
+    ViewData["Title"] = SharedLocalizer["Lakes"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <link href="~/lib/ol/ol.css" rel="stylesheet" />
 <script src="~/lib/ol/ol.js"></script>
-<link href="~/css/search.css" rel="stylesheet" />
+@*<link href="~/css/search.css" rel="stylesheet" />*@
 <h2>@SharedLocalizer["Lake"]</h2>
 
 @*<input type="button" name="Text" value="VTest" onclick="Test()" />
     <input type="text" id="TestText"/>*@
-
-<h1>РАСШИРЕННЫЙ ПОИСК</h1>
-<main>
-    <input id="tab1" type="radio" name="tabs" checked>
-    <label for="tab1">По Алфавиту</label>
-
-    <input id="tab2" type="radio" name="tabs">
-    <label for="tab2">По КАТО</label>
-    <input id="tab3" type="radio" name="tabs">
-    <label for="tab3">По ВХБ</label>
-
-    <section id="content1">
-        <p>
-            Поиск по Алфавиту:
-        </p>
-        <p>
-            <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
-            <button type="button" class="btn btn-block btn-lg btn-primary" onclick="SelectLake()">Search</button>
-        </p>
-    </section>
-    <section id="content2">
-        <p>
-            Поиск по административным единицам:
-        </p>
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                Dropdown Example
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li><a href="#">HTML</a></li>
-                <li><a href="#">CSS</a></li>
-                <li><a href="#">JavaScript</a></li>
-            </ul>
-        </div>
-    </section>
-    <section id="content3">
-        <p>
-            Поиск по водохозяйственному бассейну:
-        </p>
-    </section>
-</main>
+<p>
+    Поиск по Алфавиту:
+</p>
+<p>
+    <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
+    <button type="button" onclick="SelectLake()">Search</button>
+</p>
 
 <div>
     <h4>@SharedLocalizer["Lake"]</h4>
     <hr />
     <dl class="dl-horizontal">
-        @*<dt>
-            @Html.DisplayNameFor(model => model.LakeId)
+        <dt>
+            @SharedLocalizer["LakeId"]
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeId)
+        <dd id="LakeIdInfo">
+
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.NameKK)
+            @SharedLocalizer["NameKK"]
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NameKK)
+        <dd id="NameKK">
+
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.NameRU)
+            @SharedLocalizer["NameRU"]
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NameRU)
+        <dd id="NameRU">
+
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.NameEN)
+            @SharedLocalizer["NameEN"]
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.NameEN)
-        </dd>*@
+        <dd id="NameEN">
+
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <dl>
         <dt>
             @SharedLocalizer["Year"]
         </dt>
         <dd>
             <span id="year">@ViewBag.MinYear</span>
-            <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" /> @*onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);"*@
+            <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" style="display:normal;" /> @*onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);"*@
         </dd>
+        <dt>
+            @SharedLocalizer["DataType"]
+        </dt>
+        <dd>
+            @Html.DropDownList("DataType", (IEnumerable<SelectListItem>)ViewBag.DataType, htmlAttributes: new { @class = "form-control", @id = "DataType", @onchange = "ChangeDataType()" })
+        </dd>
+        <dt>
+            @SharedLocalizer["Legend"]
+        </dt>
+        @*<dd>
+            <table class="table Legend WaterLevel" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsWaterLevel"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesWaterLevel"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesWaterLevel.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsWaterLevel[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesWaterLevel[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend SurfaceFlow" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsSurfaceFlow"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesSurfaceFlow"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesSurfaceFlow.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsSurfaceFlow[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesSurfaceFlow[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend Precipitation" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsPrecipitation"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesPrecipitation"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesPrecipitation.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsPrecipitation[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesPrecipitation[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend UndergroundFlow" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsUndergroundFlow"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesUndergroundFlow"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesUndergroundFlow.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsUndergroundFlow[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesUndergroundFlow[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend SurfaceOutflow" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsSurfaceOutflow"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesSurfaceOutflow"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesSurfaceOutflow.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsSurfaceOutflow[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesSurfaceOutflow[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend Evaporation" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsEvaporation"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesEvaporation"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesEvaporation.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsEvaporation[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesEvaporation[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend UndergroundOutflow" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsUndergroundOutflow"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesUndergroundOutflow"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesUndergroundOutflow.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsUndergroundOutflow[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesUndergroundOutflow[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryMineralization" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryMineralization"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryMineralization"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryMineralization.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMineralization[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryMineralization[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryTotalHardness" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryTotalHardness"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryTotalHardness"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryTotalHardness.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryTotalHardness[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryTotalHardness[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryDissOxygWater" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryDissOxygWater"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryDissOxygWater"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryDissOxygWater.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryDissOxygWater[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryDissOxygWater[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryPercentOxygWater" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryPercentOxygWater"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryPercentOxygWater"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryPercentOxygWater.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPercentOxygWater[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryPercentOxygWater[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistrypH" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistrypH"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistrypH"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistrypH.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistrypH[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistrypH[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryOrganicSubstances" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryOrganicSubstances"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryOrganicSubstances"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryOrganicSubstances.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryOrganicSubstances[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryOrganicSubstances[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryCa" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryCa"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryCa"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryCa.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCa[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryCa[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryMg" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryMg"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryMg"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryMg.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMg[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryMg[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryNaK" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryNaK"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryNaK"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryNaK.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNaK[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryNaK[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryCl" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryCl"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryCl"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryCl.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCl[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryCl[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryHCO" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryHCO"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryHCO"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryHCO.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryHCO[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryHCO[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistrySO" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistrySO"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistrySO"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistrySO.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistrySO[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistrySO[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryNH" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryNH"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryNH"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryNH.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNH[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryNH[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryNO2" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryNO2"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryNO2"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryNO2.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNO2[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryNO2[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryNO3" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryNO3"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryNO3"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryNO3.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNO3[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryNO3[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryPPO" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryPPO"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryPPO"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryPPO.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPPO[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryPPO[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryCu" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryCu"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryCu"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryCu.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCu[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryCu[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryZn" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryZn"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryZn"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryZn.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryZn[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryZn[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryMn" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryMn"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryMn"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryMn.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMn[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryMn[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryPb" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryPb"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryPb"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryPb.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPb[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryPb[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryNi" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryNi"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryNi"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryNi.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNi[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryNi[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryCd" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryCd"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryCd"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryCd.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCd[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryCd[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryCo" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryCo"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryCo"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryCo.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCo[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryCo[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+            <table class="table Legend HydrochemistryCIWP" hidden="hidden">
+                <thead>
+                    <tr>
+                        <th>
+                            <label>@SharedLocalizer["ColorsHydrochemistryCIWP"]</label>
+                        </th>
+                        <th>
+                            <label>@SharedLocalizer["MinValuesHydrochemistryCIWP"]</label>
+                        </th>
+                    </tr>
+                </thead>
+                @for (int i = 0; i < Model.MinValuesHydrochemistryCIWP.Count(); i++)
+                {
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCIWP[i]"></div>
+                            </td>
+                            <td>
+                                @Model.MinValuesHydrochemistryCIWP[i]
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </dd>*@
     </dl>
 </div>
 
@@ -104,7 +860,24 @@
     }));
     layers[0].set('name', 'OSM');
 
+    var geoserverPort = '8080',
+        geoserverAddress = window.location.hostname;
 
+    var Source_Current = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+            'VERSION': '1.1.0',
+            'FORMAT': 'image/png',
+            'TILED': true
+        },
+        serverType: 'geoserver'
+    });
+    var Layer_Current = new ol.layer.Tile({
+        source: Source_Current
+    });
+    Layer_Current.setOpacity(0.80);
+    layers.push(Layer_Current);
 
     var Source_Lake = new ol.source.Vector({});
     var Layer_Lake = new ol.layer.Vector({
@@ -173,6 +946,7 @@
 <script>
     function SelectLake() {
         var lakeId = parseInt($('#LakeId').val());
+        GetLakeInfo(lakeId);
         features = Layer_Lakes_v.getSource().getFeatures();
         for (i = 0; i < features.length; i++) {
             if (features[i].get('id') === lakeId) {
@@ -181,6 +955,7 @@
                 });
                 Source_Lake.clear();
                 Source_Lake.addFeature(features[i]);
+                
 
                 //// zoom to feature #1
                 //var ext = polyFeature.getGeometry().getExtent();
@@ -250,13 +1025,10 @@
             }
         }
 
-
         map.getView().animate({
             center: location,
             duration: duration
         }, callback);
-
-        
 
         map.getView().animate(
             {
@@ -275,8 +1047,26 @@
     }
 
 </script>
+@* Get lake info *@
+<script>
+    function GetLakeInfo(LakeId) {
+        $.ajax({
+            url: '@Url.Action("GetLakeInfo")',
+            data: { LakeId: LakeId },
+            type: 'POST',
+            success: function (data) {
+                $('#LakeIdInfo').html(LakeId);
+                $('#NameEN').text(data.nameEN);
+                $('#NameKK').text(data.nameKK);
+                $('#NameRU').text(data.nameRU);
+            },
+            error: function () {
+            }
+        });
+    }
+</script>
 <script>
     $(document).ready(function () {
-        
+
     });
 </script>

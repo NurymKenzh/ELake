@@ -8,16 +8,20 @@ using Microsoft.EntityFrameworkCore;
 using ELake.Data;
 using ELake.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Localization;
 
 namespace ELake.Controllers
 {
     public class LakesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<SharedResources> _sharedLocalizer;
 
-        public LakesController(ApplicationDbContext context)
+        public LakesController(ApplicationDbContext context,
+            IStringLocalizer<SharedResources> sharedLocalizer)
         {
             _context = context;
+            _sharedLocalizer = sharedLocalizer;
         }
 
         // GET: Lakes
@@ -95,6 +99,42 @@ namespace ELake.Controllers
                 _context.Evaporation.Max(w => w.Year),
                 _context.UndergroundOutflow.Max(w => w.Year),
                 _context.Hydrochemistry.Max(w => w.Year));
+            //ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake).GeoServerName;
+            string[] DataTypes = new string[] {
+                "WaterLevels",
+                "SurfaceFlows",
+                "Precipitations",
+                "UndergroundFlows",
+                "SurfaceOutflows",
+                "Evaporations",
+                "UndergroundOutflows",
+                "HydrochemistryMineralizations",
+                "HydrochemistryTotalHardnesss",
+                "HydrochemistryDissOxygWaters",
+                "HydrochemistryPercentOxygWaters",
+                "HydrochemistrypHs",
+                "HydrochemistryOrganicSubstancess",
+                "HydrochemistryCas",
+                "HydrochemistryMgs",
+                "HydrochemistryNaKs",
+                "HydrochemistryCls",
+                "HydrochemistryHCOs",
+                "HydrochemistrySOs",
+                "HydrochemistryNHs",
+                "HydrochemistryNO2s",
+                "HydrochemistryNO3s",
+                "HydrochemistryPPOs",
+                "HydrochemistryCus",
+                "HydrochemistryZns",
+                "HydrochemistryMns",
+                "HydrochemistryPbs",
+                "HydrochemistryNis",
+                "HydrochemistryCds",
+                "HydrochemistryCos",
+                "HydrochemistryCIWPs"
+            };
+            ViewBag.DataType = DataTypes.Select(r => new SelectListItem { Text = _sharedLocalizer[r], Value = r });
+            ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake);
 
             return View();
         }
@@ -210,6 +250,31 @@ namespace ELake.Controllers
         private bool LakeExists(int id)
         {
             return _context.Lake.Any(e => e.Id == id);
+        }
+
+        //[HttpPost]
+        //public JsonResult GetLakeInfo(int LayerId)
+        //{
+        //    string s1 = "s1",
+        //        s2 = "s2";
+
+        //    JsonResult result = new JsonResult(link);
+        //    return result;
+        //}
+
+        [HttpPost]
+        public ActionResult GetLakeInfo(int LakeId)
+        {
+            Lake lake = _context.Lake.FirstOrDefault(l => l.LakeId == LakeId);
+            string NameKK = lake?.NameKK,
+                NameEN = lake?.NameEN,
+                NameRU = lake?.NameRU;
+            return Json(new
+            {
+                NameKK,
+                NameEN,
+                NameRU
+            });
         }
     }
 }
