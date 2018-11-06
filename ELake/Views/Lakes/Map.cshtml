@@ -1,4 +1,4 @@
-﻿@*@model ELake.Models.Lake*@
+﻿@*@ViewBag.LakesLayer ELake.ViewBag.LakesLayers.Lake*@
 @using ELake.Controllers
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<SharedResources> SharedLocalizer
@@ -60,7 +60,7 @@
         </dt>
         <dd>
             <span id="year">@ViewBag.MinYear</span>
-            <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" style="display:normal;" /> @*onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);"*@
+            <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" style="display:normal;" onchange="ChangeDataType();" oninput="SlideYear(this.value);" />
         </dd>
         <dt>
             @SharedLocalizer["DataType"]
@@ -71,7 +71,7 @@
         <dt>
             @SharedLocalizer["Legend"]
         </dt>
-        @*<dd>
+        <dd>
             <table class="table Legend WaterLevel" hidden="hidden">
                 <thead>
                     <tr>
@@ -83,15 +83,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesWaterLevel.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesWaterLevel).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsWaterLevel[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsWaterLevel[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesWaterLevel[i]
+                                @ViewBag.LakesLayer.MinValuesWaterLevel[i]
                             </td>
                         </tr>
                     </tbody>
@@ -108,15 +108,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesSurfaceFlow.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesSurfaceFlow).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsSurfaceFlow[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsSurfaceFlow[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesSurfaceFlow[i]
+                                @ViewBag.LakesLayer.MinValuesSurfaceFlow[i]
                             </td>
                         </tr>
                     </tbody>
@@ -133,15 +133,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesPrecipitation.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesPrecipitation).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsPrecipitation[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsPrecipitation[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesPrecipitation[i]
+                                @ViewBag.LakesLayer.MinValuesPrecipitation[i]
                             </td>
                         </tr>
                     </tbody>
@@ -158,15 +158,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesUndergroundFlow.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesUndergroundFlow).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsUndergroundFlow[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsUndergroundFlow[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesUndergroundFlow[i]
+                                @ViewBag.LakesLayer.MinValuesUndergroundFlow[i]
                             </td>
                         </tr>
                     </tbody>
@@ -183,15 +183,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesSurfaceOutflow.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesSurfaceOutflow).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsSurfaceOutflow[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsSurfaceOutflow[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesSurfaceOutflow[i]
+                                @ViewBag.LakesLayer.MinValuesSurfaceOutflow[i]
                             </td>
                         </tr>
                     </tbody>
@@ -208,15 +208,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesEvaporation.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesEvaporation).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsEvaporation[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsEvaporation[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesEvaporation[i]
+                                @ViewBag.LakesLayer.MinValuesEvaporation[i]
                             </td>
                         </tr>
                     </tbody>
@@ -233,15 +233,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesUndergroundOutflow.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesUndergroundOutflow).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsUndergroundOutflow[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsUndergroundOutflow[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesUndergroundOutflow[i]
+                                @ViewBag.LakesLayer.MinValuesUndergroundOutflow[i]
                             </td>
                         </tr>
                     </tbody>
@@ -258,15 +258,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryMineralization.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryMineralization).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMineralization[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryMineralization[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryMineralization[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryMineralization[i]
                             </td>
                         </tr>
                     </tbody>
@@ -283,15 +283,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryTotalHardness.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryTotalHardness).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryTotalHardness[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryTotalHardness[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryTotalHardness[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryTotalHardness[i]
                             </td>
                         </tr>
                     </tbody>
@@ -308,15 +308,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryDissOxygWater.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryDissOxygWater).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryDissOxygWater[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryDissOxygWater[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryDissOxygWater[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryDissOxygWater[i]
                             </td>
                         </tr>
                     </tbody>
@@ -333,15 +333,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryPercentOxygWater.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryPercentOxygWater).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPercentOxygWater[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryPercentOxygWater[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryPercentOxygWater[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryPercentOxygWater[i]
                             </td>
                         </tr>
                     </tbody>
@@ -358,15 +358,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistrypH.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistrypH).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistrypH[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistrypH[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistrypH[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistrypH[i]
                             </td>
                         </tr>
                     </tbody>
@@ -383,15 +383,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryOrganicSubstances.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryOrganicSubstances).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryOrganicSubstances[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryOrganicSubstances[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryOrganicSubstances[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryOrganicSubstances[i]
                             </td>
                         </tr>
                     </tbody>
@@ -408,15 +408,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryCa.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCa).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCa[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCa[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryCa[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryCa[i]
                             </td>
                         </tr>
                     </tbody>
@@ -433,15 +433,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryMg.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryMg).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMg[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryMg[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryMg[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryMg[i]
                             </td>
                         </tr>
                     </tbody>
@@ -458,15 +458,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryNaK.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNaK).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNaK[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNaK[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryNaK[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryNaK[i]
                             </td>
                         </tr>
                     </tbody>
@@ -483,15 +483,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryCl.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCl).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCl[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCl[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryCl[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryCl[i]
                             </td>
                         </tr>
                     </tbody>
@@ -508,15 +508,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryHCO.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryHCO).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryHCO[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryHCO[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryHCO[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryHCO[i]
                             </td>
                         </tr>
                     </tbody>
@@ -533,15 +533,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistrySO.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistrySO).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistrySO[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistrySO[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistrySO[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistrySO[i]
                             </td>
                         </tr>
                     </tbody>
@@ -558,15 +558,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryNH.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNH).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNH[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNH[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryNH[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryNH[i]
                             </td>
                         </tr>
                     </tbody>
@@ -583,15 +583,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryNO2.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNO2).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNO2[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNO2[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryNO2[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryNO2[i]
                             </td>
                         </tr>
                     </tbody>
@@ -608,15 +608,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryNO3.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNO3).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNO3[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNO3[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryNO3[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryNO3[i]
                             </td>
                         </tr>
                     </tbody>
@@ -633,15 +633,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryPPO.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryPPO).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPPO[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryPPO[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryPPO[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryPPO[i]
                             </td>
                         </tr>
                     </tbody>
@@ -658,15 +658,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryCu.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCu).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCu[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCu[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryCu[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryCu[i]
                             </td>
                         </tr>
                     </tbody>
@@ -683,15 +683,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryZn.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryZn).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryZn[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryZn[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryZn[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryZn[i]
                             </td>
                         </tr>
                     </tbody>
@@ -708,15 +708,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryMn.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryMn).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMn[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryMn[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryMn[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryMn[i]
                             </td>
                         </tr>
                     </tbody>
@@ -733,15 +733,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryPb.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryPb).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPb[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryPb[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryPb[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryPb[i]
                             </td>
                         </tr>
                     </tbody>
@@ -758,15 +758,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryNi.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNi).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNi[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNi[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryNi[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryNi[i]
                             </td>
                         </tr>
                     </tbody>
@@ -783,15 +783,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryCd.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCd).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCd[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCd[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryCd[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryCd[i]
                             </td>
                         </tr>
                     </tbody>
@@ -808,15 +808,15 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryCo.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCo).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCo[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCo[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryCo[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryCo[i]
                             </td>
                         </tr>
                     </tbody>
@@ -833,23 +833,25 @@
                         </th>
                     </tr>
                 </thead>
-                @for (int i = 0; i < Model.MinValuesHydrochemistryCIWP.Count(); i++)
+                @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCIWP).Length; i++)
                 {
                     <tbody>
                         <tr>
                             <td>
-                                <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCIWP[i]"></div>
+                                <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCIWP[i]"></div>
                             </td>
                             <td>
-                                @Model.MinValuesHydrochemistryCIWP[i]
+                                @ViewBag.LakesLayer.MinValuesHydrochemistryCIWP[i]
                             </td>
                         </tr>
                     </tbody>
                 }
             </table>
-        </dd>*@
+        </dd>
     </dl>
 </div>
+
+
 
 <div id="map"></div>
 
@@ -955,7 +957,7 @@
                 });
                 Source_Lake.clear();
                 Source_Lake.addFeature(features[i]);
-                
+
 
                 //// zoom to feature #1
                 //var ext = polyFeature.getGeometry().getExtent();
@@ -1069,4 +1071,789 @@
     $(document).ready(function () {
 
     });
+</script>
+@* ChangeDataType, SlideYear, ChangeYear *@
+<script>
+    function SlideYear(year) {
+        $('#year').html(year);
+    };
+
+    function ChangeDataType() {
+        var year = $('#Year').val();
+        if ($('#DataType').val() == "WaterLevels") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetWaterLevelsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.WaterLevel').show();
+        }
+        else if ($('#DataType').val() == "SurfaceFlows") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetSurfaceFlowsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.SurfaceFlow').show();
+        }
+        else if ($('#DataType').val() == "Precipitations") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetPrecipitationsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.Precipitation').show();
+        }
+        else if ($('#DataType').val() == "UndergroundFlows") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetUndergroundFlowsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.UndergroundFlow').show();
+        }
+        else if ($('#DataType').val() == "SurfaceOutflows") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetSurfaceOutflowsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.SurfaceOutflow').show();
+        }
+        else if ($('#DataType').val() == "Evaporations") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetEvaporationsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.Evaporation').show();
+        }
+        else if ($('#DataType').val() == "UndergroundOutflows") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetUndergroundOutflowsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.UndergroundOutflow').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryMineralizations") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryMineralizationsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMineralization').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryTotalHardnesss") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryTotalHardnesssStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryTotalHardness').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryDissOxygWaters") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryDissOxygWatersStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryDissOxygWater').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryPercentOxygWaters") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryPercentOxygWatersStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPercentOxygWater').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistrypHs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistrypHsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistrypH').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryOrganicSubstancess") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryOrganicSubstancessStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryOrganicSubstances').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCas") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryCasStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCa').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryMgs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryMgsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMg').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNaKs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryNaKsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNaK').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCls") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryClsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCl').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryHCOs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryHCOsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryHCO').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistrySOs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistrySOsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistrySO').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNHs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryNHsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.WaterLevel').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNO2s") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryNO2sStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNO2').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNO3s") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryNO3sStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNO3').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryPPOs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryPPOsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPPO').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCus") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryCusStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCu').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryZns") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryZnsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryZn').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryMns") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryMnsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMn').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryPbs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryPbsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPb').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNis") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryNisStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNi').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCds") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryCdsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCd').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCos") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryCosStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCo').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCIWPs") {
+            $.ajax({
+                url: '@Url.Action("Layers", "GetHydrochemistryCIWPsStyleLink")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCIWP').show();
+        }
+    };
 </script>
