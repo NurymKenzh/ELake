@@ -41,23 +41,30 @@
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
                             <i class="fa fa-home"></i>
-                            Home
+                            @SharedLocalizer["Home"]
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="fa fa-book"></i>
-                            About
+                            @SharedLocalizer["About"]
                             <span class="sr-only"></span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="fa fa-exclamation-circle"></i>
-                            Information
+                            @SharedLocalizer["Information"]
+                            <span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-address-book"></i>
+                            @SharedLocalizer["Contact"]
                             <span class="sr-only"></span>
                         </a>
                     </li>
@@ -123,7 +130,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md">
-                    <p class="mb-2"><a href="#">Home</a> &middot; <a href="#">Back to top</a></p>
+                    <p class="mb-2"><a href="#">@SharedLocalizer["Home"]</a> &middot; <a href="#">Back to top</a></p>
                     <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
                 </div>
                 

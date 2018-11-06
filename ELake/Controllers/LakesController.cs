@@ -46,23 +46,57 @@ namespace ELake.Controllers
             return View(lake);
         }
 
+        public static int Max(params int[] values)
+        {
+            return Enumerable.Max(values);
+        }
+
+        public static int Min(params int[] values)
+        {
+            return Enumerable.Min(values);
+        }
+
         // GET: Lakes/Details/5
         //[Authorize(Roles = "Administrator, Moderator")]
         public async Task<IActionResult> Map(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var lake = await _context.Lake
-                .SingleOrDefaultAsync(m => m.LakeId == id);
-            if (lake == null)
-            {
-                return NotFound();
-            }
+            //var lake = await _context.Lake
+            //    .SingleOrDefaultAsync(m => m.LakeId == id);
+            //if (lake == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(lake);
+            ViewBag.LakeId = id;
+            ViewBag.Lakes = new SelectList(
+                _context.Lake
+                    .Where(l => !string.IsNullOrEmpty(l.NameRU)).OrderBy(l => l.NameRU),
+                "LakeId",
+                "NameRU",
+                id);
+            ViewBag.MinYear = Min(_context.WaterLevel.Min(w => w.Year),
+                _context.SurfaceFlow.Min(w => w.Year),
+                _context.Precipitation.Min(w => w.Year),
+                _context.UndergroundFlow.Min(w => w.Year),
+                _context.SurfaceOutflow.Min(w => w.Year),
+                _context.Evaporation.Min(w => w.Year),
+                _context.UndergroundOutflow.Min(w => w.Year),
+                _context.Hydrochemistry.Min(w => w.Year));
+            ViewBag.MaxYear = Max(_context.WaterLevel.Max(w => w.Year),
+                _context.SurfaceFlow.Max(w => w.Year),
+                _context.Precipitation.Max(w => w.Year),
+                _context.UndergroundFlow.Max(w => w.Year),
+                _context.SurfaceOutflow.Max(w => w.Year),
+                _context.Evaporation.Max(w => w.Year),
+                _context.UndergroundOutflow.Max(w => w.Year),
+                _context.Hydrochemistry.Max(w => w.Year));
+
+            return View();
         }
 
         // GET: Lakes/Create

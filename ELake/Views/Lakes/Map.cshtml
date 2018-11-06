@@ -1,4 +1,4 @@
-﻿@model ELake.Models.Lake
+﻿@*@model ELake.Models.Lake*@
 @using ELake.Controllers
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<SharedResources> SharedLocalizer
@@ -9,23 +9,94 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <link href="~/lib/ol/ol.css" rel="stylesheet" />
 <script src="~/lib/ol/ol.js"></script>
+<link href="~/css/search.css" rel="stylesheet" />
 <h2>@SharedLocalizer["Lake"]</h2>
 
 @*<input type="button" name="Text" value="VTest" onclick="Test()" />
-<input type="text" id="TestText"/>*@
+    <input type="text" id="TestText"/>*@
+
+<h1>РАСШИРЕННЫЙ ПОИСК</h1>
+<main>
+    <input id="tab1" type="radio" name="tabs" checked>
+    <label for="tab1">По Алфавиту</label>
+
+    <input id="tab2" type="radio" name="tabs">
+    <label for="tab2">По КАТО</label>
+    <input id="tab3" type="radio" name="tabs">
+    <label for="tab3">По ВХБ</label>
+
+    <section id="content1">
+        <p>
+            Поиск по Алфавиту:
+        </p>
+        <p>
+            <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
+            <button type="button" class="btn btn-block btn-lg btn-primary" onclick="SelectLake()">Search</button>
+        </p>
+    </section>
+    <section id="content2">
+        <p>
+            Поиск по административным единицам:
+        </p>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Dropdown Example
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">JavaScript</a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="content3">
+        <p>
+            Поиск по водохозяйственному бассейну:
+        </p>
+    </section>
+</main>
 
 <div>
-    <h4>@SharedLocalizer["Map"]</h4>
+    <h4>@SharedLocalizer["Lake"]</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @SharedLocalizer["Map"]
+        @*<dt>
+            @Html.DisplayNameFor(model => model.LakeId)
         </dt>
         <dd>
-            <div id="map" style="width: 100%;"></div>
+            @Html.DisplayFor(model => model.LakeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameKK)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameKK)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameRU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameRU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameEN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameEN)
+        </dd>*@
+        <dt>
+            @SharedLocalizer["Year"]
+        </dt>
+        <dd>
+            <span id="year">@ViewBag.MinYear</span>
+            <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" /> @*onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);"*@
         </dd>
     </dl>
 </div>
+
+<div id="map"></div>
+
 <script type="text/javascript">
     var layers = [];
     layers.push(new ol.layer.Tile({
@@ -33,12 +104,14 @@
     }));
     layers[0].set('name', 'OSM');
 
+
+
     var Source_Lake = new ol.source.Vector({});
     var Layer_Lake = new ol.layer.Vector({
         source: Source_Lake,
         style: new ol.style.Style({
             fill: new ol.style.Fill({
-                color: [0, 0, 255, 1]
+                color: [0, 0, 255, 0]
             }),
             stroke: new ol.style.Stroke({
                 color: 'red',
@@ -61,6 +134,8 @@
         })
     });
 
+    var Layer_Lakes_v = new ol.layer.Vector({});
+
     var url_Lakes = "http://" + geoserverAddress + ":" + geoserverPort + "/geoserver/ELake/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ELake:Lakes&outputFormat=text/javascript&format_options=callback:getJson";
     $('#TestText').val(url_Lakes);
     $.ajax({
@@ -71,34 +146,14 @@
         async: false,
         dataType: 'jsonp',
         success: function (data_Lakes) {
-            var Layer_Lakes = new ol.layer.Vector({
+            Layer_Lakes_v = new ol.layer.Vector({
                 source: new ol.source.Vector({
                     features: (new ol.format.GeoJSON()).readFeatures(data_Lakes, {
                         featureProjection: 'EPSG:3857'
                     })
                 })
             });
-            features = Layer_Lakes.getSource().getFeatures();
-            for (i = 0; i < features.length; i++) {
-                if (features[i].get('id') === @Model.LakeId) {
-                    var polyFeature = new ol.Feature({
-                        geometry: new ol.geom.MultiPolygon(features[i].getGeometry().getCoordinates())
-                    });
-                    Source_Lake.clear();
-                    Source_Lake.addFeature(features[i]);
-                    //// zoom to feature #1
-                    //var ext = polyFeature.getGeometry().getExtent();
-                    //var center = ol.extent.getCenter(ext);
-                    //map.setView(new ol.View({
-                    //    projection: 'EPSG:3857',
-                    //    center: [center[0], center[1]],
-                    //    zoom: 12
-                    //}));
-                    // zoom to feature #2
-                    var extent = polyFeature.getGeometry().getExtent();
-                    map.getView().fit(extent, map.getSize());
-                }
-            }
+            SelectLake();
         },
         error: function () {
             //alert('error');
@@ -112,4 +167,116 @@
     //    //    alert('key: ' + key + '\n' + 'value: ' + map.getLayers()[key]);
     //    //}
     //}
+
+</script>
+@* Select lake and zoom to *@
+<script>
+    function SelectLake() {
+        var lakeId = parseInt($('#LakeId').val());
+        features = Layer_Lakes_v.getSource().getFeatures();
+        for (i = 0; i < features.length; i++) {
+            if (features[i].get('id') === lakeId) {
+                var polyFeature = new ol.Feature({
+                    geometry: new ol.geom.MultiPolygon(features[i].getGeometry().getCoordinates())
+                });
+                Source_Lake.clear();
+                Source_Lake.addFeature(features[i]);
+
+                //// zoom to feature #1
+                //var ext = polyFeature.getGeometry().getExtent();
+                //var center = ol.extent.getCenter(ext);
+                //map.setView(new ol.View({
+                //    projection: 'EPSG:3857',
+                //    center: [center[0], center[1]],
+                //    zoom: 12
+                //}));
+                //// zoom to feature #2
+                //var extent = polyFeature.getGeometry().getExtent();
+                //map.getView().fit(extent, map.getSize());
+                //// zoom to feature #3
+                //var ext = polyFeature.getGeometry().getExtent();
+                //var center = ol.extent.getCenter(ext);
+                //map.getView().animate({
+                //    center: center,
+                //    duration: 3000
+                //});
+                //// zoom to feature #4
+                //var ext = polyFeature.getGeometry().getExtent();
+                //var center = ol.extent.getCenter(ext);
+                //var extent = polyFeature.getGeometry().getExtent();
+                //flyTo(center, extent, function () { });
+                // zoom to feature #5
+                var extent = polyFeature.getGeometry().getExtent();
+                map.getView().fit(extent, {
+                    duration: 2000
+                });
+            }
+        }
+    }
+
+    //var view = new View({
+    //    center: istanbul,
+    //    zoom: 6
+    //});
+
+    function flyTo(location, extent, done) {
+        //var viewOld = map.getView();
+        var centerOld = map.getView().getCenter();
+        var zoomOld = map.getView().getZoom();
+
+        map.getView().fit(extent, {
+            //duration: 2000
+        });
+        //var viewNew = map.getView();
+        var centerNew = map.getView().getCenter();
+        var zoomNew = map.getView().getZoom();
+        map.getView().setCenter(centerOld);
+        map.getView().setZoom(zoomOld);
+
+        var duration = 2000;
+        var zoomdel = map.getView().getZoom();
+        var zoom = zoomOld;//viewNew.getZoom();
+        //alert('zoomdel: ' + zoomdel + ', zoom:' + zoom);
+        var parts = 2;
+        var called = false;
+        function callback(complete) {
+            --parts;
+            if (called) {
+                return;
+            }
+            if (parts === 0 || !complete) {
+                called = true;
+                done(complete);
+            }
+        }
+
+
+        map.getView().animate({
+            center: location,
+            duration: duration
+        }, callback);
+
+        
+
+        map.getView().animate(
+            {
+                zoom: zoom - 1,
+                duration: duration / 2
+            },
+            {
+                zoom: zoom,
+                duration: duration / 2
+            },
+            callback);
+
+        map.getView().fit(extent, {
+            duration: 2000
+        });
+    }
+
+</script>
+<script>
+    $(document).ready(function () {
+        
+    });
 </script>
