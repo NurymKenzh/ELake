@@ -1,9 +1,9 @@
 import shapefile
 
-##file=r'C:\Program Files (x86)\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
-##field = 'id'
-file = raw_input()
-field = raw_input()
+file=r'C:\Program Files (x86)\GeoServer 2.11.1\data_dir\data\ELake\Lakes\Lakes.shp'
+field = 'id'
+##file = raw_input()
+##field = raw_input()
 
 sf = shapefile.Reader(file)
 fieldIndex = 1
@@ -29,7 +29,7 @@ for sr in sf.shapeRecords():
     
 s = '['
 for v in values:
-    s = s + v.decode('utf-8') + ', '
+    s = s + str(v) + ', '
 ##    s = s + v.decode('ascii') + ', '
 s = s[:-2]
 s = s + ']'
