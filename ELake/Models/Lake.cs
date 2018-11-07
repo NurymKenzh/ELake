@@ -21,6 +21,15 @@ namespace ELake.Models
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NameEN")]
         public string NameEN { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "VHB")]
+        public string VHB { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "VHU")]
+        public string VHU { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Area")]
+        public decimal? Area { get; set; }
     }
 
     public class LakeIndexPageViewModel
