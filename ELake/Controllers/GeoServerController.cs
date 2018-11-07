@@ -546,7 +546,7 @@ namespace ELake.Controllers
                     $" -XPUT" +
                     $" -H \"Content-type: application/vnd.ogc.sld+xml\"" +
                     $" -d @\"{styleFile}\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/styles/{Style}");
                 process1.WaitForExit();
 
@@ -3728,7 +3728,7 @@ namespace ELake.Controllers
                 filesDirectory = Path.Combine(GetWorkspaceDirectoryPath(Startup.Configuration["GeoServer:Workspace"]), fileNameWithoutExtension),
                 fileNameWithPath = Path.Combine(filesDirectory, ShapeFile);
             List<int> shp = new List<int>();
-            shp = _GDAL.GetShpColumnValues(fileNameWithPath, "id").ToList();
+            shp = _GDAL.GetShpColumnValues(fileNameWithPath, "id").OrderBy(s => s).ToList();
             string styleText = CreateStyleForLakes(shp.ToArray());
             ChangeStyle(Startup.Configuration["GeoServer:Workspace"], Path.GetFileNameWithoutExtension(ShapeFile), styleText);
         }
