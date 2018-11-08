@@ -732,4 +732,85 @@
   <data name="WaterType" xml:space="preserve">
     <value>Су деректерінің түрі</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>Сайт туралы</value>
+  </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Жоғары қарай</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Бізбен байланысыңыз</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Функциялар</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Ақпарат</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Көлдер</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Растр</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Шеберлер</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Файлдарды құрастыру</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Кестелер</value>
+  </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value>Мұрағаттық ақпарат көзі</value>
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value>2015 жылға арналған көлдің айна ауданы, км2</value>
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value>Көлдің абсолютті биіктігі, м</value>
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value>Көлдің ұзындығы, км</value>
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value>Көлдің максималды тереңдігі, м</value>
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value>Көлдің айна ауданы, км2</value>
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value>Көл жағасының ұзындығы, км</value>
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value>Көлдің су массасының көлемі, млн.м3</value>
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value>Көлдің ені, км</value>
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value>Жылдық шолу</value>
+  </data>
+  <data name="VHB" xml:space="preserve">
+    <value>Су қоймасының атауы</value>
+  </data>
+  <data name="VHBEN" xml:space="preserve">
+    <value>Су бассейнінің атауы ағылшын тілінде</value>
+  </data>
+  <data name="VHBKK" xml:space="preserve">
+    <value>Қазақша су қоймасының атауы</value>
+  </data>
+  <data name="VHBRU" xml:space="preserve">
+    <value>Орыс тілінде су бассейнінің атауы</value>
+  </data>
+  <data name="VHU" xml:space="preserve">
+    <value>Су объектісінің атауы</value>
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value>Көлдер архивінің деректері</value>
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value>Көлдер архивінің деректері</value>
+  </data>
 </root>

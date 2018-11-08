@@ -8,16 +8,20 @@ using Microsoft.EntityFrameworkCore;
 using ELake.Data;
 using ELake.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Localization;
 
 namespace ELake.Controllers
 {
     public class LakesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<SharedResources> _sharedLocalizer;
 
-        public LakesController(ApplicationDbContext context)
+        public LakesController(ApplicationDbContext context,
+            IStringLocalizer<SharedResources> sharedLocalizer)
         {
             _context = context;
+            _sharedLocalizer = sharedLocalizer;
         }
 
         // GET: Lakes
@@ -46,23 +50,93 @@ namespace ELake.Controllers
             return View(lake);
         }
 
+        public static int Max(params int[] values)
+        {
+            return Enumerable.Max(values);
+        }
+
+        public static int Min(params int[] values)
+        {
+            return Enumerable.Min(values);
+        }
+
         // GET: Lakes/Details/5
         //[Authorize(Roles = "Administrator, Moderator")]
         public async Task<IActionResult> Map(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
 
-            var lake = await _context.Lake
-                .SingleOrDefaultAsync(m => m.LakeId == id);
-            if (lake == null)
-            {
-                return NotFound();
-            }
+            //var lake = await _context.Lake
+            //    .SingleOrDefaultAsync(m => m.LakeId == id);
+            //if (lake == null)
+            //{
+            //    return NotFound();
+            //}
 
-            return View(lake);
+            ViewBag.LakeId = id;
+            ViewBag.Lakes = new SelectList(
+                _context.Lake
+                    .Where(l => !string.IsNullOrEmpty(l.NameRU)).OrderBy(l => l.NameRU),
+                "LakeId",
+                "NameRU",
+                id);
+            ViewBag.MinYear = Min(_context.WaterLevel.Min(w => w.Year),
+                _context.SurfaceFlow.Min(w => w.Year),
+                _context.Precipitation.Min(w => w.Year),
+                _context.UndergroundFlow.Min(w => w.Year),
+                _context.SurfaceOutflow.Min(w => w.Year),
+                _context.Evaporation.Min(w => w.Year),
+                _context.UndergroundOutflow.Min(w => w.Year),
+                _context.Hydrochemistry.Min(w => w.Year));
+            ViewBag.MaxYear = Max(_context.WaterLevel.Max(w => w.Year),
+                _context.SurfaceFlow.Max(w => w.Year),
+                _context.Precipitation.Max(w => w.Year),
+                _context.UndergroundFlow.Max(w => w.Year),
+                _context.SurfaceOutflow.Max(w => w.Year),
+                _context.Evaporation.Max(w => w.Year),
+                _context.UndergroundOutflow.Max(w => w.Year),
+                _context.Hydrochemistry.Max(w => w.Year));
+            //ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake).GeoServerName;
+            string[] DataTypes = new string[] {
+                "WaterLevels",
+                "SurfaceFlows",
+                "Precipitations",
+                "UndergroundFlows",
+                "SurfaceOutflows",
+                "Evaporations",
+                "UndergroundOutflows",
+                "HydrochemistryMineralizations",
+                "HydrochemistryTotalHardnesss",
+                "HydrochemistryDissOxygWaters",
+                "HydrochemistryPercentOxygWaters",
+                "HydrochemistrypHs",
+                "HydrochemistryOrganicSubstancess",
+                "HydrochemistryCas",
+                "HydrochemistryMgs",
+                "HydrochemistryNaKs",
+                "HydrochemistryCls",
+                "HydrochemistryHCOs",
+                "HydrochemistrySOs",
+                "HydrochemistryNHs",
+                "HydrochemistryNO2s",
+                "HydrochemistryNO3s",
+                "HydrochemistryPPOs",
+                "HydrochemistryCus",
+                "HydrochemistryZns",
+                "HydrochemistryMns",
+                "HydrochemistryPbs",
+                "HydrochemistryNis",
+                "HydrochemistryCds",
+                "HydrochemistryCos",
+                "HydrochemistryCIWPs"
+            };
+            ViewBag.DataType = DataTypes.Select(r => new SelectListItem { Text = _sharedLocalizer[r], Value = r });
+            ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake);
+
+            return View();
         }
 
         // GET: Lakes/Create
@@ -176,6 +250,31 @@ namespace ELake.Controllers
         private bool LakeExists(int id)
         {
             return _context.Lake.Any(e => e.Id == id);
+        }
+
+        //[HttpPost]
+        //public JsonResult GetLakeInfo(int LayerId)
+        //{
+        //    string s1 = "s1",
+        //        s2 = "s2";
+
+        //    JsonResult result = new JsonResult(link);
+        //    return result;
+        //}
+
+        [HttpPost]
+        public ActionResult GetLakeInfo(int LakeId)
+        {
+            Lake lake = _context.Lake.FirstOrDefault(l => l.LakeId == LakeId);
+            string NameKK = lake?.NameKK,
+                NameEN = lake?.NameEN,
+                NameRU = lake?.NameRU;
+            return Json(new
+            {
+                NameKK,
+                NameEN,
+                NameRU
+            });
         }
     }
 }

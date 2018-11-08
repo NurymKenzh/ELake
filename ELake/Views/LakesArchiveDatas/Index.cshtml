@@ -1,0 +1,90 @@
+﻿@model IEnumerable<ELake.Models.LakesArchiveData>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SurveyYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeLength)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeShorelineLength)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeMirrorArea)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeAbsoluteHeight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeWidth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeMaxDepth)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeWaterMass)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArchivalInfoSource)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeLength)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeShorelineLength)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeMirrorArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeAbsoluteHeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeWidth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeMaxDepth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeWaterMass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArchivalInfoSource)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

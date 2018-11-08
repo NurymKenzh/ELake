@@ -29,7 +29,7 @@ for sr in sf.shapeRecords():
     
 s = '['
 for v in values:
-    s = s + v.decode('utf-8') + ', '
+    s = s + str(v) + ', '
 ##    s = s + v.decode('ascii') + ', '
 s = s[:-2]
 s = s + ']'

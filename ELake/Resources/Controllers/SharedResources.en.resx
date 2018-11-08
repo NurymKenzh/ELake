@@ -732,4 +732,85 @@
   <data name="WaterType" xml:space="preserve">
     <value>Type of water data</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Back to top</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Functions</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Lakes</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Raster</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Rasters</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Shape-files</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables</value>
+  </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value>Source of archival information</value>
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value>Lake mirror area for 2015, km2</value>
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value>Absolute height of the lake, m</value>
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value>The length of the lake, km</value>
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value>Maximum depth of lake, m</value>
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value>Lake mirror area, km2</value>
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value>The length of the lake shoreline, km</value>
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value>The volume of lake water mass, mln.m3</value>
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value>Lake width, km</value>
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value>Year Survey</value>
+  </data>
+  <data name="VHB" xml:space="preserve">
+    <value>Name of the water basin</value>
+  </data>
+  <data name="VHBEN" xml:space="preserve">
+    <value>Name of the water basin in English</value>
+  </data>
+  <data name="VHBKK" xml:space="preserve">
+    <value>The name of the water basin in Kazakh</value>
+  </data>
+  <data name="VHBRU" xml:space="preserve">
+    <value>The name of the water basin in Russian</value>
+  </data>
+  <data name="VHU" xml:space="preserve">
+    <value>Name of the water site</value>
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value>Lakes archive data</value>
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value>Lakes archive data</value>
+  </data>
 </root>

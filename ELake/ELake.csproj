@@ -70,6 +70,9 @@
     <Content Update="Views\GeoServer\UploadGeoTIFFFilesWater.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Home\Information.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Layers\EditNL.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

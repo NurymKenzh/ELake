@@ -125,6 +125,13 @@ namespace ELake.Controllers
             return View();
         }
 
+        public IActionResult Information()
+        {
+            ViewData["Message"] = "Your Information page.";
+
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
@@ -148,11 +155,11 @@ namespace ELake.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Administrator")]
-        public IActionResult WaterTables()
-        {
-            return View();
-        }
+        //[Authorize(Roles = "Administrator")]
+        //public IActionResult WaterTables()
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public JsonResult GetKATO2(string KATO1Number)

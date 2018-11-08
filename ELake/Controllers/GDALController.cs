@@ -140,7 +140,7 @@ namespace ELake.Controllers
             int[] values = new int[1];
             try
             {
-                string jsonArray = PythonExecute("GetShpValues", $"{File}", Field);
+                string jsonArray = PythonExecute("GetShpValuesInt", $"{File}", Field);
                 values = Newtonsoft.Json.JsonConvert.DeserializeObject<int[]>(jsonArray);
                 return values;
             }

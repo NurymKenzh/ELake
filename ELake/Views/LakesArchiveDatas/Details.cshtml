@@ -1,0 +1,79 @@
+﻿@model ELake.Models.LakesArchiveData
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LakesArchiveData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SurveyYear)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SurveyYear)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeLength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeLength)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeShorelineLength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeShorelineLength)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeMirrorArea)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeMirrorArea)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeAbsoluteHeight)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeAbsoluteHeight)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeWidth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeWidth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeMaxDepth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeMaxDepth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeWaterMass)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeWaterMass)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ArchivalInfoSource)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ArchivalInfoSource)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

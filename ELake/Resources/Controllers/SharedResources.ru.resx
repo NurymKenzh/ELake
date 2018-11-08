@@ -732,4 +732,85 @@
   <data name="WaterType" xml:space="preserve">
     <value>Тип данных по воде</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>О сайте</value>
+  </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Вверх</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Функции</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Озера</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Растр</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Растры</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Shape-файлы</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Таблицы</value>
+  </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value>Источник архивной информации</value>
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value>Площадь зеркала озера за 2015, км2 </value>
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value>Абсолютная высота озера, м</value>
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value>Длина озера, км</value>
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value>Максимальная глубина озеро, м</value>
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value>Площадь зеркала озера, км2</value>
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value>Длина береговой линии озера, км </value>
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value>Объем водной массы озера, млн.м3</value>
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value>Ширина озера, км</value>
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value>Год топографической съемки</value>
+  </data>
+  <data name="VHB" xml:space="preserve">
+    <value>Наименование водохозяйственного бассейна</value>
+  </data>
+  <data name="VHBEN" xml:space="preserve">
+    <value>Наименование водохозяйственного бассейна на английском</value>
+  </data>
+  <data name="VHBKK" xml:space="preserve">
+    <value>Наименование водохозяйственного бассейна на казахском</value>
+  </data>
+  <data name="VHBRU" xml:space="preserve">
+    <value>Наименование водохозяйственного бассейна на русском</value>
+  </data>
+  <data name="VHU" xml:space="preserve">
+    <value>Наименование водохозяйственного участка</value>
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value>Архивные данные озер</value>
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value>Архивные данные озер</value>
+  </data>
 </root>
