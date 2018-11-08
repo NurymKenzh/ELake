@@ -50,6 +50,60 @@
         <dd id="NameEN">
 
         </dd>
+        <dt>
+            @SharedLocalizer["VHB"]
+        </dt>
+        <dd id="VHB">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["VHU"]
+        </dt>
+        <dd id="VHU">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Area2015"]
+        </dt>
+        <dd id="Area">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["LakeShorelineLength2015"]
+        </dt>
+        <dd id="LakeShorelineLength2015">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Longitude"]
+        </dt>
+        <dd id="Longitude">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Latitude"]
+        </dt>
+        <dd id="Latitude">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Adm1"]
+        </dt>
+        <dd id="Adm1">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Adm2"]
+        </dt>
+        <dd id="Adm2">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Adm3"]
+        </dt>
+        <dd id="Adm3">
+
+        </dd>
     </dl>
 </div>
 
@@ -929,7 +983,7 @@
                 })
             });
             @{ 
-                string LakeId = ViewBag.LakeId;
+                string LakeId = ViewBag.LakeId.ToString();
                 if(string.IsNullOrEmpty(LakeId))
                 {
                     LakeId = "0";
@@ -1067,6 +1121,15 @@
                 $('#NameEN').text(data.nameEN);
                 $('#NameKK').text(data.nameKK);
                 $('#NameRU').text(data.nameRU);
+                $('#VHB').text(data.vhb);
+                $('#VHU').text(data.vhu);
+                $('#Area').text(data.area);
+                $('#LakeShorelineLength2015').text(data.lakeshorelinelength2015);
+                $('#Longitude').text(data.longitude);
+                $('#Latitude').text(data.latitude);
+                $('#Adm1').text(data.adm1);
+                $('#Adm2').text(data.adm2);
+                $('#Adm3').text(data.adm3);
             },
             error: function () {
             }
@@ -1885,7 +1948,7 @@
             }).then(function (response) {
                 var result = parser.readFeatures(response);
                 if (result.length > 0) {
-                    alert(result[0].get('id'));
+                    SelectLakeZoom(result[0].get('id'), false);
                 }
             })
         }

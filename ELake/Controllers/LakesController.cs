@@ -9,6 +9,7 @@ using ELake.Data;
 using ELake.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Builder;
 
 namespace ELake.Controllers
 {
@@ -268,12 +269,62 @@ namespace ELake.Controllers
             Lake lake = _context.Lake.FirstOrDefault(l => l.LakeId == LakeId);
             string NameKK = lake?.NameKK,
                 NameEN = lake?.NameEN,
-                NameRU = lake?.NameRU;
+                NameRU = lake?.NameRU,
+                vhb = lake?.VHBKK,
+                vhu = lake?.VHU,
+                longitude = lake?.Longitude,
+                latitude = lake?.Latitude;
+            decimal? area = lake?.Area,
+                lakeshorelinelength2015 = lake?.LakeShorelineLength2015;
+            string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name;
+            if (language == "ru")
+            {
+                vhb = lake?.VHBRU;
+            }
+            if (language == "en")
+            {
+                vhb = lake?.VHBEN;
+            }
+            List<KATO> katoes = new List<KATO>();
+            foreach (var lakeKATO in _context.LakeKATO.Where(l => l.LakeId == LakeId))
+            {
+                katoes.Add(_context.KATO.FirstOrDefault(k => k.Id == lakeKATO.KATOId));
+            }
+            string adm1 = "",
+                adm2 = "",
+                adm3 = "";
+            if (katoes.Count(k => k.Level == 3) > 0)
+            {
+                adm3 = katoes.FirstOrDefault(k => k.Level == 3).Name;
+
+                if (katoes.Count(k => k.Level == 2) > 0)
+                {
+                    adm2 = katoes.FirstOrDefault(k => k.Level == 2).Name;
+                }
+                else
+                {
+                    //adm2 = _context.KATO.FirstOrDefault(k => k.Level == 2 && k.Number.Substring(1, 4) == katoes.FirstOrDefault(kk => kk.Level == 3).Number.Substring(1, 4)).Name;
+                }
+
+                if (katoes.Count(k => k.Level == 1) > 0)
+                {
+                    adm1 = katoes.FirstOrDefault(k => k.Level == 1).Name;
+                }
+            }
             return Json(new
             {
                 NameKK,
                 NameEN,
-                NameRU
+                NameRU,
+                vhb,
+                vhu,
+                area,
+                lakeshorelinelength2015,
+                longitude,
+                latitude,
+                adm1,
+                adm2,
+                adm3
             });
         }
     }
