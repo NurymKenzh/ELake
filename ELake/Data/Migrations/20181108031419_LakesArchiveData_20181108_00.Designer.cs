@@ -11,9 +11,10 @@ using System;
 namespace ELake.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181108031419_LakesArchiveData_20181108_00")]
+    partial class LakesArchiveData_20181108_00
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -208,36 +209,6 @@ namespace ELake.Data.Migrations
                     b.HasIndex("KATOId");
 
                     b.ToTable("LakeKATO");
-                });
-
-            modelBuilder.Entity("ELake.Models.LakesArchiveData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ArchivalInfoSource");
-
-                    b.Property<decimal?>("LakeAbsoluteHeight");
-
-                    b.Property<int>("LakeId");
-
-                    b.Property<decimal?>("LakeLength");
-
-                    b.Property<decimal?>("LakeMaxDepth");
-
-                    b.Property<decimal?>("LakeMirrorArea");
-
-                    b.Property<decimal?>("LakeShorelineLength");
-
-                    b.Property<decimal?>("LakeWaterMass");
-
-                    b.Property<decimal?>("LakeWidth");
-
-                    b.Property<int?>("SurveyYear");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LakesArchiveData");
                 });
 
             modelBuilder.Entity("ELake.Models.Layer", b =>

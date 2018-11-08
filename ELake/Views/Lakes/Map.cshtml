@@ -19,7 +19,7 @@
 </p>
 <p>
     <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
-    <button type="button" onclick="SelectLake()">Search</button>
+    <button type="button" onclick="SelectLakeZoom($('#LakeId').val().toString(), true)">Search</button>
 </p>
 
 <div>
@@ -865,7 +865,7 @@
     var geoserverPort = '8080',
         geoserverAddress = window.location.hostname;
 
-    var Source_Current = new ol.source.TileWMS({
+    var Source_Lakes = new ol.source.TileWMS({
         url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
         params: {
             'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
@@ -875,11 +875,11 @@
         },
         serverType: 'geoserver'
     });
-    var Layer_Current = new ol.layer.Tile({
-        source: Source_Current
+    var Layer_Lakes = new ol.layer.Tile({
+        source: Source_Lakes
     });
-    Layer_Current.setOpacity(0.80);
-    layers.push(Layer_Current);
+    Layer_Lakes.setOpacity(0.80);
+    layers.push(Layer_Lakes);
 
     var Source_Lake = new ol.source.Vector({});
     var Layer_Lake = new ol.layer.Vector({
@@ -912,7 +912,7 @@
     var Layer_Lakes_v = new ol.layer.Vector({});
 
     var url_Lakes = "http://" + geoserverAddress + ":" + geoserverPort + "/geoserver/ELake/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ELake:Lakes&outputFormat=text/javascript&format_options=callback:getJson";
-    $('#TestText').val(url_Lakes);
+    //$('#TestText').val(url_Lakes);
     $.ajax({
         jsonp: false,
         jsonpCallback: 'getJson',
@@ -928,7 +928,14 @@
                     })
                 })
             });
-            SelectLake();
+            @{ 
+                string LakeId = ViewBag.LakeId;
+                if(string.IsNullOrEmpty(LakeId))
+                {
+                    LakeId = "0";
+                }
+            }
+            SelectLakeZoom(@LakeId, true);
         },
         error: function () {
             //alert('error');
@@ -946,8 +953,13 @@
 </script>
 @* Select lake and zoom to *@
 <script>
-    function SelectLake() {
-        var lakeId = parseInt($('#LakeId').val());
+    function SelectLakeZoom(lakeId_, zoom) {
+        //alert('lakeId: ' + typeof (lakeId) + ", $('#LakeId').val(): " + typeof ($('#LakeId').val()));
+        //alert('lakeId: ' + lakeId + ", $('#LakeId').val(): " + $('#LakeId').val());
+
+        //var lakeId = parseInt($('#LakeId').val());
+        var lakeId = parseInt(lakeId_);
+
         GetLakeInfo(lakeId);
         features = Layer_Lakes_v.getSource().getFeatures();
         for (i = 0; i < features.length; i++) {
@@ -957,44 +969,39 @@
                 });
                 Source_Lake.clear();
                 Source_Lake.addFeature(features[i]);
-
-
-                //// zoom to feature #1
-                //var ext = polyFeature.getGeometry().getExtent();
-                //var center = ol.extent.getCenter(ext);
-                //map.setView(new ol.View({
-                //    projection: 'EPSG:3857',
-                //    center: [center[0], center[1]],
-                //    zoom: 12
-                //}));
-                //// zoom to feature #2
-                //var extent = polyFeature.getGeometry().getExtent();
-                //map.getView().fit(extent, map.getSize());
-                //// zoom to feature #3
-                //var ext = polyFeature.getGeometry().getExtent();
-                //var center = ol.extent.getCenter(ext);
-                //map.getView().animate({
-                //    center: center,
-                //    duration: 3000
-                //});
-                //// zoom to feature #4
-                //var ext = polyFeature.getGeometry().getExtent();
-                //var center = ol.extent.getCenter(ext);
-                //var extent = polyFeature.getGeometry().getExtent();
-                //flyTo(center, extent, function () { });
-                // zoom to feature #5
-                var extent = polyFeature.getGeometry().getExtent();
-                map.getView().fit(extent, {
-                    duration: 2000
-                });
+                if (zoom) {
+                    //// zoom to feature #1
+                    //var ext = polyFeature.getGeometry().getExtent();
+                    //var center = ol.extent.getCenter(ext);
+                    //map.setView(new ol.View({
+                    //    projection: 'EPSG:3857',
+                    //    center: [center[0], center[1]],
+                    //    zoom: 12
+                    //}));
+                    //// zoom to feature #2
+                    //var extent = polyFeature.getGeometry().getExtent();
+                    //map.getView().fit(extent, map.getSize());
+                    //// zoom to feature #3
+                    //var ext = polyFeature.getGeometry().getExtent();
+                    //var center = ol.extent.getCenter(ext);
+                    //map.getView().animate({
+                    //    center: center,
+                    //    duration: 3000
+                    //});
+                    //// zoom to feature #4
+                    //var ext = polyFeature.getGeometry().getExtent();
+                    //var center = ol.extent.getCenter(ext);
+                    //var extent = polyFeature.getGeometry().getExtent();
+                    //flyTo(center, extent, function () { });
+                    // zoom to feature #5
+                    var extent = polyFeature.getGeometry().getExtent();
+                    map.getView().fit(extent, {
+                        duration: 2000
+                    });
+                }                
             }
         }
     }
-
-    //var view = new View({
-    //    center: istanbul,
-    //    zoom: 6
-    //});
 
     function flyTo(location, extent, done) {
         //var viewOld = map.getView();
@@ -1047,7 +1054,6 @@
             duration: 2000
         });
     }
-
 </script>
 @* Get lake info *@
 <script>
@@ -1851,6 +1857,39 @@
             $('.HydrochemistryCIWP').show();
         }
     };
+</script>
+@*Map onclick*@
+<script>
+    map.on('singleclick', function (evt) {
+        Source_Lake.clear();
+        var viewResolution = (map.getView().getResolution());
+        var url = Source_Lakes.getGetFeatureInfoUrl(
+            evt.coordinate, viewResolution, 'EPSG:3857',
+            {
+                'INFO_FORMAT': 'text/javascript'
+                //'FEATURE_COUNT': '10000'
+            });
+        if (url) {
+            var parser = new ol.format.GeoJSON();
+            $.ajax({
+                jsonp: false,
+                jsonpCallback: 'getJson',
+                type: 'GET',
+                url: url + "&format_options=callback:getJson",
+                async: false,
+                dataType: 'jsonp',
+                //jsonpCallback: 'parseResponse',
+                error: function (xhr, status, error) {
+
+                }
+            }).then(function (response) {
+                var result = parser.readFeatures(response);
+                if (result.length > 0) {
+                    alert(result[0].get('id'));
+                }
+            })
+        }
+    })
 </script>
 <script>
     $(document).ready(function () {

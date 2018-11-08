@@ -759,4 +759,55 @@
   <data name="Tables" xml:space="preserve">
     <value />
   </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VHB" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VHBEN" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VHBKK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VHBRU" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VHU" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value />
+  </data>
 </root>

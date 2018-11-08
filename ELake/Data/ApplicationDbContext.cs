@@ -50,5 +50,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.LakeKATO> LakeKATO { get; set; }
 
         public DbSet<ELake.Models.Lake> Lake { get; set; }
+
+        public DbSet<ELake.Models.LakesArchiveData> LakesArchiveData { get; set; }
     }
 }

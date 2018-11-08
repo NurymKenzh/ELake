@@ -762,4 +762,55 @@
   <data name="Tables" xml:space="preserve">
     <value>Таблицы</value>
   </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value>Источник архивной информации</value>
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value>Площадь зеркала озера за 2015, км2 </value>
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value>Абсолютная высота озера, м</value>
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value>Длина озера, км</value>
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value>Максимальная глубина озеро, м</value>
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value>Площадь зеркала озера, км2</value>
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value>Длина береговой линии озера, км </value>
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value>Объем водной массы озера, млн.м3</value>
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value>Ширина озера, км</value>
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value>Год топографической съемки</value>
+  </data>
+  <data name="VHB" xml:space="preserve">
+    <value>Наименование водохозяйственного бассейна</value>
+  </data>
+  <data name="VHBEN" xml:space="preserve">
+    <value>Наименование водохозяйственного бассейна на английском</value>
+  </data>
+  <data name="VHBKK" xml:space="preserve">
+    <value>Наименование водохозяйственного бассейна на казахском</value>
+  </data>
+  <data name="VHBRU" xml:space="preserve">
+    <value>Наименование водохозяйственного бассейна на русском</value>
+  </data>
+  <data name="VHU" xml:space="preserve">
+    <value>Наименование водохозяйственного участка</value>
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value>Архивные данные озер</value>
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value>Архивные данные озер</value>
+  </data>
 </root>

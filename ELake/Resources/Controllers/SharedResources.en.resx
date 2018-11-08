@@ -762,4 +762,55 @@
   <data name="Tables" xml:space="preserve">
     <value>Tables</value>
   </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value>Source of archival information</value>
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value>Lake mirror area for 2015, km2</value>
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value>Absolute height of the lake, m</value>
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value>The length of the lake, km</value>
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value>Maximum depth of lake, m</value>
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value>Lake mirror area, km2</value>
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value>The length of the lake shoreline, km</value>
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value>The volume of lake water mass, mln.m3</value>
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value>Lake width, km</value>
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value>Year Survey</value>
+  </data>
+  <data name="VHB" xml:space="preserve">
+    <value>Name of the water basin</value>
+  </data>
+  <data name="VHBEN" xml:space="preserve">
+    <value>Name of the water basin in English</value>
+  </data>
+  <data name="VHBKK" xml:space="preserve">
+    <value>The name of the water basin in Kazakh</value>
+  </data>
+  <data name="VHBRU" xml:space="preserve">
+    <value>The name of the water basin in Russian</value>
+  </data>
+  <data name="VHU" xml:space="preserve">
+    <value>Name of the water site</value>
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value>Lakes archive data</value>
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value>Lakes archive data</value>
+  </data>
 </root>
