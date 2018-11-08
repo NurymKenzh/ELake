@@ -7,12 +7,83 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@SharedLocalizer["Layers"]</h2>
-
 @*<p>
     <a asp-action="Create">Create New</a>
 </p>*@
-<table class="table">
+<body class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="container-fluid mt-3">
+                <div class="alert alert-primary" role="alert"><button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Layers"]</h4> View in fullscreen, since it doesn't work properly in the preview window.</div>
+            </div>
+        </div>
+        <div class="table-responsive-lg">
+            <table class="table table-bordered table table-sm">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="row">
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.GeoServerName)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.FileNameWithPath)
+                        </th>
+                        <th scope="col">
+                            @Html.DisplayNameFor(model => model.GeoServerStyle)
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GeoServerName)
+                            </td>
+                            <td class="text-black-50">
+                                @Html.DisplayFor(modelItem => item.FileNameWithPath)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.GeoServerStyle)
+                            </td>
+                            @if (item.Lake)
+                            {
+                            <td>
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Button group with nested dropdown">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-light"><i class="fa fa-pencil-square-o"> </i></a>
+                                    <a asp-action="AddLakes" asp-controller="GeoServer" asp-route-id="@item.Id" class="btn btn-light"><i class="fa fa-plus"> </i></a>
+                                    <a asp-action="FindKATO" asp-controller="GeoServer" asp-route-id="@item.Id" class="btn btn-light"><i class="fa fa-binoculars"> </i></a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-light"><i class="fa fa-eye"></i></a>
+                                </div>                                
+                            </td>
+                            }
+                            else
+                            {
+                            <td>
+                                <div class="btn-group-vertical btn-primary btn-sm">
+                                    <a asp-action="EditNL" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a>
+                                    @*<a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |*@
+                                    <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a>
+                                    @*<a asp-action="Delete" asp-route-id="@item.Id">@SharedLocalizer["Delete"]</a>*@
+
+                                </div>                                
+                            </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -58,13 +129,10 @@
             else
             {
                 <td>
-                    <a asp-action="EditNL" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |
-                    @*<a asp-action="Edit" asp-route-id="@item.Id">@SharedLocalizer["Edit"]</a> |*@
-                    <a asp-action="Details" asp-route-id="@item.Id">@SharedLocalizer["Details"]</a> @*|
-                    <a asp-action="Delete" asp-route-id="@item.Id">@SharedLocalizer["Delete"]</a>*@
+                    
                 </td>
             }
         </tr>
         }
     </tbody>
-</table>
+</table>*@

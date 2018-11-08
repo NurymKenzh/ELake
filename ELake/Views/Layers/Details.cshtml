@@ -10,848 +10,863 @@
 <link href="~/lib/ol/ol.css" rel="stylesheet" />
 <script src="~/lib/ol/ol.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Details"]</h4> 
+                                                                                    <hr />
+                <table class="table table-light table-sm mt-3">
+                    <thead>
+                        <tr class="table-active">
+                            <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.GeoServerName)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.FileNameWithPath)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.GeoServerStyle)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-dark">
+                            <td scope="row">@Html.DisplayFor(model => model.Name)</td>
+                            <td>@Html.DisplayFor(model => model.GeoServerName)</td>
+                            <td> @Html.DisplayFor(model => model.FileNameWithPath)</td>
+                            <td> @Html.DisplayFor(model => model.GeoServerStyle)</td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">        
+        <div class="col-md-3 offset-md-2">
+            <div class="card border-dark mb-3">
+                <div class="card-body text-dark">
+                    <h5 class="card-title">@SharedLocalizer["Layer"]</h5>
+                    <dl class="table table-responsive">
+                        @if (Model.Lake)
+                        {
+                            <dt>
+                                @SharedLocalizer["Year"]
+                            </dt>
+                            <dd>
+                                <span id="year">@ViewBag.MinYear</span>
+                                <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);" />
+                            </dd>
+                            <dt>
+                                @SharedLocalizer["DataType"]
+                            </dt>
+                            <dd>
+                                @Html.DropDownList("DataType", (IEnumerable<SelectListItem>)ViewBag.DataType, htmlAttributes: new { @class = "form-control", @id = "DataType", @onchange = "ChangeDataType()" })
+                            </dd>
+                            <dt>
+                                @SharedLocalizer["Legend"]
+                            </dt>
+                            <dd>
+                                <table class="table table-sm" id="Legend WaterLevel">
+                                    <thead>
+                                        <tr>
+                                            <th><label asp-for="ColorsWaterLevel"></label></th>
+                                            <th scope="col"><label asp-for="MinValuesWaterLevel"></label></th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesWaterLevel.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div scope="row" class="align-baseline" style="height: 15px; width: 30px; background: @Model.ColorsWaterLevel[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesWaterLevel[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend SurfaceFlow" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsSurfaceFlow"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesSurfaceFlow"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesSurfaceFlow.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsSurfaceFlow[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesSurfaceFlow[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend Precipitation" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsPrecipitation"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesPrecipitation"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesPrecipitation.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsPrecipitation[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesPrecipitation[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend UndergroundFlow" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsUndergroundFlow"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesUndergroundFlow"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesUndergroundFlow.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsUndergroundFlow[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesUndergroundFlow[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend SurfaceOutflow" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsSurfaceOutflow"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesSurfaceOutflow"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesSurfaceOutflow.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsSurfaceOutflow[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesSurfaceOutflow[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend Evaporation" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsEvaporation"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesEvaporation"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesEvaporation.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsEvaporation[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesEvaporation[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend UndergroundOutflow" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsUndergroundOutflow"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesUndergroundOutflow"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesUndergroundOutflow.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsUndergroundOutflow[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesUndergroundOutflow[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryMineralization" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryMineralization"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryMineralization"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryMineralization.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMineralization[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryMineralization[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryTotalHardness" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryTotalHardness"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryTotalHardness"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryTotalHardness.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryTotalHardness[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryTotalHardness[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryDissOxygWater" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryDissOxygWater"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryDissOxygWater"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryDissOxygWater.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryDissOxygWater[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryDissOxygWater[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryPercentOxygWater" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryPercentOxygWater"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryPercentOxygWater"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryPercentOxygWater.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPercentOxygWater[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryPercentOxygWater[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistrypH" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistrypH"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistrypH"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistrypH.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistrypH[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistrypH[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryOrganicSubstances" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryOrganicSubstances"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryOrganicSubstances"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryOrganicSubstances.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryOrganicSubstances[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryOrganicSubstances[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryCa" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryCa"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryCa"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryCa.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCa[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryCa[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryMg" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryMg"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryMg"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryMg.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMg[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryMg[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryNaK" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryNaK"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryNaK"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryNaK.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNaK[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryNaK[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryCl" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryCl"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryCl"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryCl.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCl[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryCl[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryHCO" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryHCO"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryHCO"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryHCO.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryHCO[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryHCO[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistrySO" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistrySO"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistrySO"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistrySO.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistrySO[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistrySO[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryNH" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryNH"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryNH"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryNH.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNH[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryNH[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryNO2" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryNO2"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryNO2"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryNO2.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNO2[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryNO2[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryNO3" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryNO3"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryNO3"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryNO3.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNO3[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryNO3[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryPPO" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryPPO"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryPPO"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryPPO.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPPO[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryPPO[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryCu" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryCu"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryCu"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryCu.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCu[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryCu[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryZn" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryZn"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryZn"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryZn.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryZn[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryZn[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryMn" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryMn"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryMn"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryMn.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMn[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryMn[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryPb" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryPb"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryPb"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryPb.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPb[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryPb[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryNi" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryNi"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryNi"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryNi.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNi[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryNi[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryCd" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryCd"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryCd"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryCd.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCd[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryCd[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryCo" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryCo"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryCo"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryCo.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCo[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryCo[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                                <table class="table Legend HydrochemistryCIWP" hidden="hidden">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <label asp-for="ColorsHydrochemistryCIWP"></label>
+                                            </th>
+                                            <th>
+                                                <label asp-for="MinValuesHydrochemistryCIWP"></label>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    @for (int i = 0; i < Model.MinValuesHydrochemistryCIWP.Count(); i++)
+                                    {
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCIWP[i]"></div>
+                                                </td>
+                                                <td>
+                                                    @Model.MinValuesHydrochemistryCIWP[i]
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    }
+                                </table>
+                            </dd>
+                        }
+                    </dl>
+                </div>
+            </div>
+            <div>
+                @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@               
+                <a asp-action="Index" class="btn btn-outline-primary">
+                    <i class="fa fa-level-up"></i>
+                    @SharedLocalizer["BackToList"]
+                    <span class="sr-only">(current)</span>
+                </a>
+            </div>
+            <div hidden="hidden">
+                <input type="text" id="GeoServerName" value="@Model.GeoServerName" />
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card border-info mb-3">
+                <div class="card-body text-info">
+                    @*<h5 class="card-title">@SharedLocalizer["Map"]</h5>*@
+                    <dl class="dl-horizontal">
+                        <dd>
+                            <div class="embed-responsive-item" id="map" style="height: 400px; width: 100%;"></div>
+                        </dd>
+                    </dl>
+                </div>
+            </div>            
+        </div>
+    </div>
+</div>
 
-<h2>@SharedLocalizer["Details"]</h2>
 
-<div>
-    <h4>@SharedLocalizer["Layer"]</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GeoServerName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.GeoServerName)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.FileNameWithPath)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.FileNameWithPath)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.GeoServerStyle)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.GeoServerStyle)
-        </dd>
-        @if (Model.Lake)
-        {
-            <dt>
-                @SharedLocalizer["Year"]
-            </dt>
-            <dd>
-                <span id="year">@ViewBag.MinYear</span>
-                <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);" />
-            </dd>
-            <dt>
-                @SharedLocalizer["DataType"]
-            </dt>
-            <dd>
-                @Html.DropDownList("DataType", (IEnumerable<SelectListItem>)ViewBag.DataType, htmlAttributes: new { @class = "form-control", @id = "DataType", @onchange = "ChangeDataType()" })
-            </dd>
-            <dt>
-                @SharedLocalizer["Legend"]
-            </dt>
-            <dd>
-                <table class="table Legend WaterLevel" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsWaterLevel"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesWaterLevel"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesWaterLevel.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsWaterLevel[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesWaterLevel[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend SurfaceFlow" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsSurfaceFlow"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesSurfaceFlow"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesSurfaceFlow.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsSurfaceFlow[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesSurfaceFlow[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend Precipitation" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsPrecipitation"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesPrecipitation"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesPrecipitation.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsPrecipitation[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesPrecipitation[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend UndergroundFlow" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsUndergroundFlow"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesUndergroundFlow"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesUndergroundFlow.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsUndergroundFlow[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesUndergroundFlow[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend SurfaceOutflow" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsSurfaceOutflow"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesSurfaceOutflow"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesSurfaceOutflow.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsSurfaceOutflow[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesSurfaceOutflow[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend Evaporation" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsEvaporation"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesEvaporation"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesEvaporation.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsEvaporation[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesEvaporation[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend UndergroundOutflow" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsUndergroundOutflow"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesUndergroundOutflow"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesUndergroundOutflow.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsUndergroundOutflow[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesUndergroundOutflow[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryMineralization" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryMineralization"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryMineralization"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryMineralization.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMineralization[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryMineralization[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryTotalHardness" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryTotalHardness"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryTotalHardness"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryTotalHardness.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryTotalHardness[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryTotalHardness[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryDissOxygWater" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryDissOxygWater"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryDissOxygWater"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryDissOxygWater.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryDissOxygWater[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryDissOxygWater[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryPercentOxygWater" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryPercentOxygWater"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryPercentOxygWater"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryPercentOxygWater.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPercentOxygWater[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryPercentOxygWater[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistrypH" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistrypH"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistrypH"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistrypH.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistrypH[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistrypH[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryOrganicSubstances" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryOrganicSubstances"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryOrganicSubstances"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryOrganicSubstances.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryOrganicSubstances[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryOrganicSubstances[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryCa" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryCa"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryCa"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryCa.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCa[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryCa[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryMg" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryMg"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryMg"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryMg.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMg[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryMg[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryNaK" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryNaK"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryNaK"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryNaK.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNaK[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryNaK[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryCl" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryCl"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryCl"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryCl.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCl[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryCl[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryHCO" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryHCO"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryHCO"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryHCO.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryHCO[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryHCO[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistrySO" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistrySO"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistrySO"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistrySO.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistrySO[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistrySO[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryNH" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryNH"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryNH"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryNH.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNH[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryNH[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryNO2" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryNO2"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryNO2"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryNO2.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNO2[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryNO2[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryNO3" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryNO3"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryNO3"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryNO3.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNO3[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryNO3[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryPPO" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryPPO"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryPPO"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryPPO.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPPO[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryPPO[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryCu" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryCu"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryCu"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryCu.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCu[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryCu[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryZn" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryZn"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryZn"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryZn.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryZn[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryZn[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryMn" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryMn"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryMn"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryMn.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryMn[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryMn[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryPb" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryPb"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryPb"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryPb.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryPb[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryPb[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryNi" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryNi"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryNi"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryNi.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryNi[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryNi[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryCd" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryCd"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryCd"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryCd.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCd[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryCd[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryCo" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryCo"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryCo"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryCo.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCo[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryCo[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-                <table class="table Legend HydrochemistryCIWP" hidden="hidden">
-                    <thead>
-                        <tr>
-                            <th>
-                                <label asp-for="ColorsHydrochemistryCIWP"></label>
-                            </th>
-                            <th>
-                                <label asp-for="MinValuesHydrochemistryCIWP"></label>
-                            </th>
-                        </tr>
-                    </thead>
-                    @for (int i = 0; i < Model.MinValuesHydrochemistryCIWP.Count(); i++)
-                    {
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div style="height: 15px; width: 30px; background: @Model.ColorsHydrochemistryCIWP[i]"></div>
-                                </td>
-                                <td>
-                                    @Model.MinValuesHydrochemistryCIWP[i]
-                                </td>
-                            </tr>
-                        </tbody>
-                    }
-                </table>
-            </dd>
-        }
-        <dt>
-            @SharedLocalizer["Map"]
-        </dt>
-        <dd>
-            <div id="map" style="height: 400px; width: 100%;"></div>
-        </dd>
-    </dl>
-</div>
-<div>
-    @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@
-    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
-</div>
-<div hidden="hidden">
-    <input type="text" id="GeoServerName" value="@Model.GeoServerName"/>
-</div>
+
+
 
 <script type="text/javascript">
     var layers = [];
