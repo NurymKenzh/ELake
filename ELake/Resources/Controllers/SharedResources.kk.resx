@@ -813,4 +813,13 @@
   <data name="LakesArchiveDatas" xml:space="preserve">
     <value>Көлдер архивінің деректері</value>
   </data>
+  <data name="LakeShorelineLength2015" xml:space="preserve">
+    <value>Көл жағасының ұзындығы 2015 жылға, км</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Ұзындығы</value>
+  </data>
 </root>

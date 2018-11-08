@@ -813,4 +813,13 @@
   <data name="LakesArchiveDatas" xml:space="preserve">
     <value>Архивные данные озер</value>
   </data>
+  <data name="LakeShorelineLength2015" xml:space="preserve">
+    <value>Длина береговой линии озера за 2015, км</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Широта</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Долгота</value>
+  </data>
 </root>

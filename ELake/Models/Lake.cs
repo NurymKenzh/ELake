@@ -36,6 +36,15 @@ namespace ELake.Models
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Area2015")]
         public decimal? Area { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "LakeShorelineLength2015")]
+        public decimal? LakeShorelineLength2015 { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Longitude")]
+        public string Longitude { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Latitude")]
+        public string Latitude { get; set; }
     }
 
     public class LakeIndexPageViewModel

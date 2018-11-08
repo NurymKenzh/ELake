@@ -810,4 +810,13 @@
   <data name="LakesArchiveDatas" xml:space="preserve">
     <value />
   </data>
+  <data name="LakeShorelineLength2015" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value />
+  </data>
 </root>
