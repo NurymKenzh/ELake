@@ -100,6 +100,9 @@
     <None Update="Python\GetShpValues.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Python\GetShpValuesInt.py">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Python\GetShpValuesOld.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
