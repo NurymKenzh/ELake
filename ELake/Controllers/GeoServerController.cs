@@ -94,7 +94,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XGET" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces");
                 string html = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
@@ -138,7 +138,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -POST -H \"Content-type: text/xml\"" +
                     $" -d \"<workspace><name>{WorkspaceName}</name></workspace>\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces");
                 string output = process.StandardOutput.ReadToEnd();
                 if (!string.IsNullOrEmpty(output))
@@ -173,7 +173,7 @@ namespace ELake.Controllers
                         $"{Startup.Configuration["GeoServer:User"]}:" +
                         $"{Startup.Configuration["GeoServer:Password"]}" +
                         $" -XGET" +
-                        $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                        $" http://localhost:" +
                         $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}");
                     string html = process.StandardOutput.ReadToEnd();
                     process.WaitForExit();
@@ -218,7 +218,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XGET" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}");
                 string html = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
@@ -277,7 +277,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XGET" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/{storeType}/{StoreName}");
                 string html = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
@@ -328,7 +328,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XGET" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers");
                 string html = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
@@ -418,7 +418,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XGET" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/styles");
                 string html = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
@@ -496,7 +496,7 @@ namespace ELake.Controllers
                     $" -XPOST" +
                     $" -H \"Content-type: text/xml\"" +
                     $" -d \"<style><name>{Style}</name><filename>{Style}.sld</filename></style>\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/styles");
                 process1.WaitForExit();
                 Process process2 = CurlExecute($" -v -u " +
@@ -505,7 +505,7 @@ namespace ELake.Controllers
                     $" -XPUT" +
                     $" -H \"Content-type: application/vnd.ogc.sld+xml\"" +
                     $" --data-binary @\"{styleFile}\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/styles/{Style}");
                 process2.WaitForExit();
 
@@ -571,7 +571,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -u -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/styles/{Style}");
                 process.WaitForExit();
             }
@@ -624,7 +624,7 @@ namespace ELake.Controllers
                     $"<enabled>true</enabled>" +
                     $"<type>GeoTIFF</type>" +
                     $"<url>/data/{WorkspaceName}/{FileName}</url></coverageStore>\"" +
-                    $" \\ http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" \\ http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/coveragestores?configure=all");
                 process1.WaitForExit();
                 Process process2 = CurlExecute($" -u " +
@@ -638,7 +638,7 @@ namespace ELake.Controllers
                     //$"<srs>EPSG:38557</srs>" +
                     //$"<projectionPolicy>FORCE_DECLARED</projectionPolicy>" +
                     $"<defaultInterpolationMethod><name>nearest neighbor</name></defaultInterpolationMethod></coverage>\"" +
-                    $" \\ \"http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" \\ \"http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{fileNameWithoutExtension}/coverages?recalculate=nativebbox\"");
                 process2.WaitForExit();
                 Process process3 = CurlExecute($" -v -u " +
@@ -647,7 +647,7 @@ namespace ELake.Controllers
                     $" -XPUT" +
                     $" -H \"Content-type: text/xml\"" +
                     $" -d \"<layer><defaultStyle><name>{WorkspaceName}:{Style}</name></defaultStyle></layer>\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers/{WorkspaceName}:{fileNameWithoutExtension}");
                 process3.WaitForExit();
             }
@@ -690,7 +690,7 @@ namespace ELake.Controllers
                     $"<enabled>true</enabled>" +
                     $"<type>ImageMosaic</type>" +
                     $"<url>{coverageUrl}</url></coverageStore>\"" +
-                    $" \\ http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" \\ http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/coveragestores?configure=all");
                 process1.WaitForExit();
                 Process process2 = CurlExecute($" -u " +
@@ -704,7 +704,7 @@ namespace ELake.Controllers
                     //$"<srs>EPSG:38557</srs>" +
                     //$"<projectionPolicy>FORCE_DECLARED</projectionPolicy>" +
                     $"<defaultInterpolationMethod><name>nearest neighbor</name></defaultInterpolationMethod></coverage>\"" +
-                    $" \\ \"http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" \\ \"http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{coverageName}/coverages?recalculate=nativebbox\"");
                 process2.WaitForExit();
                 Process process3 = CurlExecute($" -v -u " +
@@ -713,7 +713,7 @@ namespace ELake.Controllers
                     $" -XPUT" +
                     $" -H \"Content-type: text/xml\"" +
                     $" -d \"<layer><defaultStyle><name>{WorkspaceName}:{Type}</name></defaultStyle></layer>\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers/{WorkspaceName}:{coverageName}");
                 process3.WaitForExit();
             }
@@ -748,7 +748,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -v -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/layers/{LayerName}");
                 process1.WaitForExit();
@@ -756,7 +756,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -v -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{LayerName}/coverages/{LayerName}");
                 process2.WaitForExit();
@@ -764,7 +764,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{LayerName}");
                 process3.WaitForExit();
@@ -790,7 +790,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -v -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/layers/{coverageName}");
                 process1.WaitForExit();
@@ -798,7 +798,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -v -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{coverageName}/coverages/{coverageName}");
                 process2.WaitForExit();
@@ -806,7 +806,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{coverageName}");
                 process3.WaitForExit();
@@ -1172,7 +1172,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XGET" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/coveragestores/{StoreName}.xml");
                 string html = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
@@ -1211,7 +1211,7 @@ namespace ELake.Controllers
                 $"{Startup.Configuration["GeoServer:User"]}:" +
                 $"{Startup.Configuration["GeoServer:Password"]}" +
                 $" -XGET" +
-                $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                $" http://localhost:" +
                 $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}");
                 string html = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
@@ -1256,7 +1256,7 @@ namespace ELake.Controllers
                 $"{Startup.Configuration["GeoServer:User"]}:" +
                 $"{Startup.Configuration["GeoServer:Password"]}" +
                 $" -XGET" +
-                $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                $" http://localhost:" +
                 $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}");
                 string html = process.StandardOutput.ReadToEnd();
                 process.WaitForExit();
@@ -1711,7 +1711,7 @@ namespace ELake.Controllers
                     $" -v -XPUT" +
                     $" -H \"Content-type: application/zip\"" +
                     $" --data-binary @\"{zipFile}\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/workspaces/{WorkspaceName}/datastores/{fileNameWithoutExtension}/file.shp");
                 process1.WaitForExit();
                 Process process2 = CurlExecute($" -v -u " +
@@ -1720,7 +1720,7 @@ namespace ELake.Controllers
                     $" -XPUT" +
                     $" -H \"Content-type: text/xml\"" +
                     $" -d \"<layer><defaultStyle><name>{WorkspaceName}:{Style}</name></defaultStyle></layer>\"" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/geoserver/rest/layers/{WorkspaceName}:{fileNameWithoutExtension}");
                 process2.WaitForExit();
             }
@@ -1756,7 +1756,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -v -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}:" +
+                    $" http://localhost:" +
                     $"{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/layers/{LayerName}");
                 process1.WaitForExit();
@@ -1764,7 +1764,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -v -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/workspaces/{WorkspaceName}/datastores/{LayerName}/featuretypes/{LayerName}");
                 process2.WaitForExit();
@@ -1772,7 +1772,7 @@ namespace ELake.Controllers
                     $"{Startup.Configuration["GeoServer:User"]}:" +
                     $"{Startup.Configuration["GeoServer:Password"]}" +
                     $" -XDELETE" +
-                    $" http://{Startup.Configuration["GeoServer:Address"]}" +
+                    $" http://localhost" +
                     $":{Startup.Configuration["GeoServer:Port"]}/" +
                     $"geoserver/rest/workspaces/{WorkspaceName}/datastores/{LayerName}");
                 process3.WaitForExit();
