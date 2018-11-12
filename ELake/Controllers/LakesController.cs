@@ -310,6 +310,9 @@ namespace ELake.Controllers
                 lakewatermass = lakesArchiveData?.LakeWaterMass;
             string archivalinfosource = lakesArchiveData?.ArchivalInfoSource;
 
+            // Глобальные данные озер
+
+
             return Json(new
             {
                 NameKK,

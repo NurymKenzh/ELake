@@ -1,0 +1,144 @@
+﻿@model ELake.Models.LakesGlobalData
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>LakesGlobalData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LakeId" class="control-label"></label>
+                <input asp-for="LakeId" class="form-control" />
+                <span asp-validation-for="LakeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hylak_id" class="control-label"></label>
+                <input asp-for="Hylak_id" class="form-control" />
+                <span asp-validation-for="Hylak_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lake_name_ENG" class="control-label"></label>
+                <input asp-for="Lake_name_ENG" class="form-control" />
+                <span asp-validation-for="Lake_name_ENG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lake_name_RU" class="control-label"></label>
+                <input asp-for="Lake_name_RU" class="form-control" />
+                <span asp-validation-for="Lake_name_RU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lake_name_KZ" class="control-label"></label>
+                <input asp-for="Lake_name_KZ" class="form-control" />
+                <span asp-validation-for="Lake_name_KZ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country_ENG" class="control-label"></label>
+                <input asp-for="Country_ENG" class="form-control" />
+                <span asp-validation-for="Country_ENG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country_RU" class="control-label"></label>
+                <input asp-for="Country_RU" class="form-control" />
+                <span asp-validation-for="Country_RU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country_KZ" class="control-label"></label>
+                <input asp-for="Country_KZ" class="form-control" />
+                <span asp-validation-for="Country_KZ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Continent_ENG" class="control-label"></label>
+                <input asp-for="Continent_ENG" class="form-control" />
+                <span asp-validation-for="Continent_ENG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Continent_RU" class="control-label"></label>
+                <input asp-for="Continent_RU" class="form-control" />
+                <span asp-validation-for="Continent_RU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Continent_KZ" class="control-label"></label>
+                <input asp-for="Continent_KZ" class="form-control" />
+                <span asp-validation-for="Continent_KZ" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lake_area" class="control-label"></label>
+                <input asp-for="Lake_area" class="form-control" />
+                <span asp-validation-for="Lake_area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shore_len" class="control-label"></label>
+                <input asp-for="Shore_len" class="form-control" />
+                <span asp-validation-for="Shore_len" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shore_dev" class="control-label"></label>
+                <input asp-for="Shore_dev" class="form-control" />
+                <span asp-validation-for="Shore_dev" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vol_total" class="control-label"></label>
+                <input asp-for="Vol_total" class="form-control" />
+                <span asp-validation-for="Vol_total" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Depth_avg" class="control-label"></label>
+                <input asp-for="Depth_avg" class="form-control" />
+                <span asp-validation-for="Depth_avg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dis_avg" class="control-label"></label>
+                <input asp-for="Dis_avg" class="form-control" />
+                <span asp-validation-for="Dis_avg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Res_time" class="control-label"></label>
+                <input asp-for="Res_time" class="form-control" />
+                <span asp-validation-for="Res_time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Elevation" class="control-label"></label>
+                <input asp-for="Elevation" class="form-control" />
+                <span asp-validation-for="Elevation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Slope_100" class="control-label"></label>
+                <input asp-for="Slope_100" class="form-control" />
+                <span asp-validation-for="Slope_100" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wshd_area" class="control-label"></label>
+                <input asp-for="Wshd_area" class="form-control" />
+                <span asp-validation-for="Wshd_area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pour_long" class="control-label"></label>
+                <input asp-for="Pour_long" class="form-control" />
+                <span asp-validation-for="Pour_long" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pour_lat" class="control-label"></label>
+                <input asp-for="Pour_lat" class="form-control" />
+                <span asp-validation-for="Pour_lat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

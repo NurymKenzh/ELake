@@ -1,0 +1,157 @@
+﻿@model ELake.Models.LakesGlobalData
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LakesGlobalData</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LakeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LakeId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hylak_id)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hylak_id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lake_name_ENG)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lake_name_ENG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lake_name_RU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lake_name_RU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lake_name_KZ)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lake_name_KZ)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Country_ENG)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country_ENG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Country_RU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country_RU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Country_KZ)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Country_KZ)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Continent_ENG)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Continent_ENG)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Continent_RU)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Continent_RU)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Continent_KZ)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Continent_KZ)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lake_area)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lake_area)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shore_len)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shore_len)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Shore_dev)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Shore_dev)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vol_total)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vol_total)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Depth_avg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Depth_avg)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dis_avg)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dis_avg)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Res_time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Res_time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Elevation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Elevation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Slope_100)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Slope_100)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Wshd_area)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Wshd_area)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pour_long)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pour_long)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pour_lat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pour_lat)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,168 @@
+﻿@model IEnumerable<ELake.Models.LakesGlobalData>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.LakeId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hylak_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lake_name_ENG)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lake_name_RU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lake_name_KZ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country_ENG)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country_RU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Country_KZ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Continent_ENG)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Continent_RU)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Continent_KZ)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lake_area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Shore_len)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Shore_dev)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vol_total)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Depth_avg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dis_avg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Res_time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Elevation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Slope_100)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Wshd_area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pour_long)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pour_lat)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LakeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hylak_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lake_name_ENG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lake_name_RU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lake_name_KZ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country_ENG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country_RU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country_KZ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Continent_ENG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Continent_RU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Continent_KZ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lake_area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shore_len)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shore_dev)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vol_total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depth_avg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dis_avg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Res_time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Elevation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slope_100)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wshd_area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pour_long)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pour_lat)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
