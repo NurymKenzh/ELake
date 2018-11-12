@@ -168,6 +168,145 @@
         </dd>
     </dl>
 </div>
+@* Глобальные данные об озере *@
+<div>
+    <h4>@SharedLocalizer["LakeGlobalData"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["Hylak_id"]
+        </dt>
+        <dd id="Hylak_id">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Lake_name_ENG"]
+        </dt>
+        <dd id="Lake_name_ENG">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Lake_name_RU"]
+        </dt>
+        <dd id="Lake_name_RU">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Lake_name_KZ"]
+        </dt>
+        <dd id="Lake_name_KZ">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Country_ENG"]
+        </dt>
+        <dd id="Country_ENG">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Country_RU"]
+        </dt>
+        <dd id="Country_RU">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Country_KZ"]
+        </dt>
+        <dd id="Country_KZ">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Continent_ENG"]
+        </dt>
+        <dd id="Continent_ENG">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Continent_RU"]
+        </dt>
+        <dd id="Continent_RU">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Continent_KZ"]
+        </dt>
+        <dd id="Continent_KZ">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Lake_area"]
+        </dt>
+        <dd id="Lake_area">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Shore_len"]
+        </dt>
+        <dd id="Shore_len">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Shore_dev"]
+        </dt>
+        <dd id="Shore_dev">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Vol_total"]
+        </dt>
+        <dd id="Vol_total">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Depth_avg"]
+        </dt>
+        <dd id="Depth_avg">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Dis_avg"]
+        </dt>
+        <dd id="Dis_avg">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Res_time"]
+        </dt>
+        <dd id="Res_time">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Elevation"]
+        </dt>
+        <dd id="Elevation">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Slope_100"]
+        </dt>
+        <dd id="Slope_100">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Wshd_area"]
+        </dt>
+        <dd id="Wshd_area">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Pour_long"]
+        </dt>
+        <dd id="Pour_long">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["Pour_lat"]
+        </dt>
+        <dd id="Pour_lat">
+
+        </dd>
+    </dl>
+</div>
 @* Легенда слоя озер *@
 <div>
     <dl>
@@ -1198,6 +1337,28 @@
                 $('#LakeMaxDepth').text(data.lakemaxdepth);
                 $('#LakeWaterMass').text(data.lakewatermass);
                 $('#ArchivalInfoSource').text(data.archivalinfosource);
+                $('#Hylak_id').text(data.hylak_id);
+                $('#Lake_name_ENG').text(data.lake_name_eng);
+                $('#Lake_name_RU').text(data.lake_name_ru);
+                $('#Lake_name_KZ').text(data.lake_name_kz);
+                $('#Country_ENG').text(data.country_eng);
+                $('#Country_RU').text(data.country_ru);
+                $('#Country_KZ').text(data.country_kz);
+                $('#Continent_ENG').text(data.continent_eng);
+                $('#Continent_RU').text(data.continent_ru);
+                $('#Continent_KZ').text(data.continent_kz);
+                $('#Lake_area').text(data.lake_area);
+                $('#Shore_len').text(data.shore_len);
+                $('#Shore_dev').text(data.shore_dev);
+                $('#Vol_total').text(data.vol_total);
+                $('#Depth_avg').text(data.depth_avg);
+                $('#Dis_avg').text(data.dis_avg);
+                $('#Res_time').text(data.res_time);
+                $('#Elevation').text(data.elevation);
+                $('#Slope_100').text(data.slope_100);
+                $('#Wshd_area').text(data.wshd_area);
+                $('#Pour_long').text(data.pour_long);
+                $('#Pour_lat').text(data.pour_lat);
             },
             error: function () {
             }

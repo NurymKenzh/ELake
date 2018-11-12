@@ -16,13 +16,13 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Hylak_id")]
         public int Hylak_id { get; set; }
 
-        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NameEN")]
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Lake_name_ENG")]
         public string Lake_name_ENG { get; set; }
 
-        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NameRU")]
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Lake_name_RU")]
         public string Lake_name_RU { get; set; }
 
-        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NameKK")]
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Lake_name_KZ")]
         public string Lake_name_KZ { get; set; }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Country_ENG")]

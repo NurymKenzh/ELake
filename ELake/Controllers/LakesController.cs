@@ -311,7 +311,31 @@ namespace ELake.Controllers
             string archivalinfosource = lakesArchiveData?.ArchivalInfoSource;
 
             // Глобальные данные озер
-
+            LakesGlobalData lakesGlobalData = _context
+                .LakesGlobalData
+                .FirstOrDefault(l => l.LakeId == LakeId);
+            int? hylak_id = lakesGlobalData?.Hylak_id;
+            string lake_name_eng = lakesGlobalData?.Lake_name_ENG,
+                lake_name_ru = lakesGlobalData?.Lake_name_RU,
+                lake_name_kz = lakesGlobalData?.Lake_name_KZ,
+                country_eng = lakesGlobalData?.Country_ENG,
+                country_ru = lakesGlobalData?.Country_RU,
+                country_kz = lakesGlobalData?.Country_KZ,
+                continent_eng = lakesGlobalData?.Continent_ENG,
+                continent_ru = lakesGlobalData?.Continent_RU,
+                continent_kz = lakesGlobalData?.Continent_KZ;
+            decimal? lake_area = lakesGlobalData?.Lake_area,
+                shore_len = lakesGlobalData?.Shore_len,
+                shore_dev = lakesGlobalData?.Shore_dev,
+                vol_total = lakesGlobalData?.Vol_total,
+                depth_avg = lakesGlobalData?.Depth_avg,
+                dis_avg = lakesGlobalData?.Dis_avg,
+                res_time = lakesGlobalData?.Res_time,
+                elevation = lakesGlobalData?.Elevation,
+                slope_100 = lakesGlobalData?.Slope_100,
+                wshd_area = lakesGlobalData?.Wshd_area,
+                pour_long = lakesGlobalData?.Pour_long,
+                pour_lat = lakesGlobalData?.Pour_lat;
 
             return Json(new
             {
@@ -335,7 +359,29 @@ namespace ELake.Controllers
                 lakewidth,
                 lakemaxdepth,
                 lakewatermass,
-                archivalinfosource
+                archivalinfosource,
+                hylak_id,
+                lake_name_eng,
+                lake_name_ru,
+                lake_name_kz,
+                country_eng,
+                country_ru,
+                country_kz,
+                continent_eng,
+                continent_ru,
+                continent_kz,
+                lake_area,
+                shore_len,
+                shore_dev,
+                vol_total,
+                depth_avg,
+                dis_avg,
+                res_time,
+                elevation,
+                slope_100,
+                wshd_area,
+                pour_long,
+                pour_lat
             });
         }
     }
