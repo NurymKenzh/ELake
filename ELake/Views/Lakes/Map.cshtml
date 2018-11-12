@@ -22,8 +22,9 @@
     <button type="button" onclick="SelectLakeZoom($('#LakeId').val().toString(), true)">Search</button>
 </p>
 
+@* Основная информация об озере *@
 <div>
-    <h4>@SharedLocalizer["Lake"]</h4>
+    <h4>@SharedLocalizer["BasicInfoLake"]</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -106,7 +107,68 @@
         </dd>
     </dl>
 </div>
+@* Архивные данные об озере *@
+<div>
+    <h4>@SharedLocalizer["LakeArchiveData"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["SurveyYear"]
+        </dt>
+        <dd id="SurveyYear">
 
+        </dd>
+        <dt>
+            @SharedLocalizer["LakeLength"]
+        </dt>
+        <dd id="LakeLength">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["LakeShorelineLength"]
+        </dt>
+        <dd id="LakeShorelineLength">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["LakeMirrorArea"]
+        </dt>
+        <dd id="LakeMirrorArea">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["LakeAbsoluteHeight"]
+        </dt>
+        <dd id="LakeAbsoluteHeight">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["LakeWidth"]
+        </dt>
+        <dd id="LakeWidth">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["LakeMaxDepth"]
+        </dt>
+        <dd id="LakeMaxDepth">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["LakeWaterMass"]
+        </dt>
+        <dd id="LakeWaterMass">
+
+        </dd>
+        <dt>
+            @SharedLocalizer["ArchivalInfoSource"]
+        </dt>
+        <dd id="ArchivalInfoSource">
+
+        </dd>
+    </dl>
+</div>
+@* Легенда слоя озер *@
 <div>
     <dl>
         <dt>
@@ -904,11 +966,8 @@
         </dd>
     </dl>
 </div>
-
-
-
 <div id="map"></div>
-
+@* map and layers *@
 <script type="text/javascript">
     var layers = [];
     layers.push(new ol.layer.Tile({
@@ -982,8 +1041,8 @@
                     })
                 })
             });
-            @{ 
-                string LakeId = ViewBag.LakeId.ToString();
+            @{
+                string LakeId = ViewBag.LakeId?.ToString();
                 if(string.IsNullOrEmpty(LakeId))
                 {
                     LakeId = "0";
@@ -1052,7 +1111,7 @@
                     map.getView().fit(extent, {
                         duration: 2000
                     });
-                }                
+                }
             }
         }
     }
@@ -1130,6 +1189,15 @@
                 $('#Adm1').text(data.adm1);
                 $('#Adm2').text(data.adm2);
                 $('#Adm3').text(data.adm3);
+                $('#SurveyYear').text(data.surveyyear);
+                $('#LakeLength').text(data.lakelength);
+                $('#LakeShorelineLength').text(data.lakeshorelinelength);
+                $('#LakeMirrorArea').text(data.lakemirrorarea);
+                $('#LakeAbsoluteHeight').text(data.lakeabsoluteheight);
+                $('#LakeWidth').text(data.lakewidth);
+                $('#LakeMaxDepth').text(data.lakemaxdepth);
+                $('#LakeWaterMass').text(data.lakewatermass);
+                $('#ArchivalInfoSource').text(data.archivalinfosource);
             },
             error: function () {
             }
@@ -1954,6 +2022,7 @@
         }
     })
 </script>
+@* $(document).ready(function () {}) *@
 <script>
     $(document).ready(function () {
         ChangeDataType();

@@ -285,6 +285,8 @@ namespace ELake.Controllers
             {
                 vhb = lake?.VHBEN;
             }
+
+            // КАТО
             List<KATO> katoes = new List<KATO>();
             foreach (var lakeKATO in _context.LakeKATO.Where(l => l.LakeId == LakeId))
             {
@@ -293,24 +295,21 @@ namespace ELake.Controllers
             string adm1 = string.Join(", ", katoes.Where(k => k.Level == 1).Select(k => k.Name)),
                 adm2 = string.Join(", ", katoes.Where(k => k.Level == 2).Select(k => k.Name)),
                 adm3 = string.Join(", ", katoes.Where(k => k.Level == 3).Select(k => k.Name));
-            //if (katoes.Count(k => k.Level == 3) > 0)
-            //{
-            //    adm3 = katoes.FirstOrDefault(k => k.Level == 3).Name;
 
-            //    if (katoes.Count(k => k.Level == 2) > 0)
-            //    {
-            //        adm2 = katoes.FirstOrDefault(k => k.Level == 2).Name;
-            //    }
-            //    else
-            //    {
-            //        //adm2 = _context.KATO.FirstOrDefault(k => k.Level == 2 && k.Number.Substring(1, 4) == katoes.FirstOrDefault(kk => kk.Level == 3).Number.Substring(1, 4)).Name;
-            //    }
+            // Архивные данные озера
+            LakesArchiveData lakesArchiveData = _context
+                .LakesArchiveData
+                .FirstOrDefault(l => l.LakeId == LakeId);
+            int? surveyyear = lakesArchiveData?.SurveyYear;
+            decimal? lakelength = lakesArchiveData?.LakeLength,
+                lakeshorelinelength = lakesArchiveData?.LakeShorelineLength,
+                lakemirrorarea = lakesArchiveData?.LakeMirrorArea,
+                lakeabsoluteheight = lakesArchiveData?.LakeAbsoluteHeight,
+                lakewidth = lakesArchiveData?.LakeWidth,
+                lakemaxdepth = lakesArchiveData?.LakeMaxDepth,
+                lakewatermass = lakesArchiveData?.LakeWaterMass;
+            string archivalinfosource = lakesArchiveData?.ArchivalInfoSource;
 
-            //    if (katoes.Count(k => k.Level == 1) > 0)
-            //    {
-            //        adm1 = katoes.FirstOrDefault(k => k.Level == 1).Name;
-            //    }
-            //}
             return Json(new
             {
                 NameKK,
@@ -324,7 +323,16 @@ namespace ELake.Controllers
                 latitude,
                 adm1,
                 adm2,
-                adm3
+                adm3,
+                surveyyear,
+                lakelength,
+                lakeshorelinelength,
+                lakemirrorarea,
+                lakeabsoluteheight,
+                lakewidth,
+                lakemaxdepth,
+                lakewatermass,
+                archivalinfosource
             });
         }
     }
