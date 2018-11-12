@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Builder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,6 +22,25 @@ namespace ELake.Models
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NameEN")]
         public string NameEN { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Name")]
+        public string Name
+        {
+            get
+            {
+                string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name,
+                    name = NameRU;
+                if (language == "kk")
+                {
+                    name = NameKK;
+                }
+                if (language == "ru")
+                {
+                    name = NameRU;
+                }
+                return name;
+            }
+        }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "VHBKK")]
         public string VHBKK { get; set; }

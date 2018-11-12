@@ -80,9 +80,9 @@ namespace ELake.Controllers
             ViewBag.LakeId = id;
             ViewBag.Lakes = new SelectList(
                 _context.Lake
-                    .Where(l => !string.IsNullOrEmpty(l.NameRU)).OrderBy(l => l.NameRU),
+                    .Where(l => !string.IsNullOrEmpty(l.Name)).OrderBy(l => l.Name),
                 "LakeId",
-                "NameRU",
+                "Name",
                 id);
             ViewBag.MinYear = Min(_context.WaterLevel.Min(w => w.Year),
                 _context.SurfaceFlow.Min(w => w.Year),
@@ -290,27 +290,27 @@ namespace ELake.Controllers
             {
                 katoes.Add(_context.KATO.FirstOrDefault(k => k.Id == lakeKATO.KATOId));
             }
-            string adm1 = "",
-                adm2 = "",
-                adm3 = "";
-            if (katoes.Count(k => k.Level == 3) > 0)
-            {
-                adm3 = katoes.FirstOrDefault(k => k.Level == 3).Name;
+            string adm1 = string.Join(", ", katoes.Where(k => k.Level == 1).Select(k => k.Name)),
+                adm2 = string.Join(", ", katoes.Where(k => k.Level == 2).Select(k => k.Name)),
+                adm3 = string.Join(", ", katoes.Where(k => k.Level == 3).Select(k => k.Name));
+            //if (katoes.Count(k => k.Level == 3) > 0)
+            //{
+            //    adm3 = katoes.FirstOrDefault(k => k.Level == 3).Name;
 
-                if (katoes.Count(k => k.Level == 2) > 0)
-                {
-                    adm2 = katoes.FirstOrDefault(k => k.Level == 2).Name;
-                }
-                else
-                {
-                    //adm2 = _context.KATO.FirstOrDefault(k => k.Level == 2 && k.Number.Substring(1, 4) == katoes.FirstOrDefault(kk => kk.Level == 3).Number.Substring(1, 4)).Name;
-                }
+            //    if (katoes.Count(k => k.Level == 2) > 0)
+            //    {
+            //        adm2 = katoes.FirstOrDefault(k => k.Level == 2).Name;
+            //    }
+            //    else
+            //    {
+            //        //adm2 = _context.KATO.FirstOrDefault(k => k.Level == 2 && k.Number.Substring(1, 4) == katoes.FirstOrDefault(kk => kk.Level == 3).Number.Substring(1, 4)).Name;
+            //    }
 
-                if (katoes.Count(k => k.Level == 1) > 0)
-                {
-                    adm1 = katoes.FirstOrDefault(k => k.Level == 1).Name;
-                }
-            }
+            //    if (katoes.Count(k => k.Level == 1) > 0)
+            //    {
+            //        adm1 = katoes.FirstOrDefault(k => k.Level == 1).Name;
+            //    }
+            //}
             return Json(new
             {
                 NameKK,
