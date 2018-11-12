@@ -822,4 +822,94 @@
   <data name="Longitude" xml:space="preserve">
     <value>Долгота</value>
   </data>
+  <data name="Adm1" xml:space="preserve">
+    <value>Область</value>
+  </data>
+  <data name="Adm2" xml:space="preserve">
+    <value>Район</value>
+  </data>
+  <data name="Adm3" xml:space="preserve">
+    <value>Сельский округ</value>
+  </data>
+  <data name="BasicInfoLake" xml:space="preserve">
+    <value>Основная информация об озере</value>
+  </data>
+  <data name="Continent_ENG" xml:space="preserve">
+    <value>Континент на английском</value>
+  </data>
+  <data name="Continent_KZ" xml:space="preserve">
+    <value>Континент на казахском</value>
+  </data>
+  <data name="Continent_RU" xml:space="preserve">
+    <value>Континент на русском</value>
+  </data>
+  <data name="Country_ENG" xml:space="preserve">
+    <value>Страна на английском</value>
+  </data>
+  <data name="Country_KZ" xml:space="preserve">
+    <value>Страна на казахском</value>
+  </data>
+  <data name="Country_RU" xml:space="preserve">
+    <value>Страна на русском</value>
+  </data>
+  <data name="Depth_avg" xml:space="preserve">
+    <value>Средняя глубина озера,м</value>
+  </data>
+  <data name="Dis_avg" xml:space="preserve">
+    <value>Средний долгосрочный сток, протекающий через озеро, м3/сек.</value>
+  </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Высота поверхности озера над уровнем моря, м</value>
+  </data>
+  <data name="Hylak_id" xml:space="preserve">
+    <value>Уникальный идентификатор озера</value>
+  </data>
+  <data name="LakeArchiveData" xml:space="preserve">
+    <value>Архивная информация об озере</value>
+  </data>
+  <data name="LakesGlobalData" xml:space="preserve">
+    <value>Глобальная база озер</value>
+  </data>
+  <data name="LakesGlobalDatas" xml:space="preserve">
+    <value>Глобальная база озер</value>
+  </data>
+  <data name="Lake_area" xml:space="preserve">
+    <value>Площадь поверхности озер, км2</value>
+  </data>
+  <data name="Lake_name_ENG" xml:space="preserve">
+    <value>Название озера на английском</value>
+  </data>
+  <data name="Lake_name_KZ" xml:space="preserve">
+    <value>Название озера на казахском</value>
+  </data>
+  <data name="Lake_name_RU" xml:space="preserve">
+    <value>Название озера на русском</value>
+  </data>
+  <data name="Pour_lat" xml:space="preserve">
+    <value>Широта</value>
+  </data>
+  <data name="Pour_long" xml:space="preserve">
+    <value>Долгота</value>
+  </data>
+  <data name="Res_time" xml:space="preserve">
+    <value>Среднее время пребывания воды в озере, в днях.</value>
+  </data>
+  <data name="Shore_dev" xml:space="preserve">
+    <value>Изрезанность  береговой линии</value>
+  </data>
+  <data name="Shore_len" xml:space="preserve">
+    <value>Длина береговой линии, км</value>
+  </data>
+  <data name="Slope_100" xml:space="preserve">
+    <value>Средний уклон в пределах 100-метрового буфера вокруг полигона озера, в градусах</value>
+  </data>
+  <data name="Vol_total" xml:space="preserve">
+    <value>Общий объем озера, млн. м3</value>
+  </data>
+  <data name="Wshd_area" xml:space="preserve">
+    <value>Площадь водосбора, км2</value>
+  </data>
+  <data name="LakeGlobalData" xml:space="preserve">
+    <value>Информация об озере из глобальной базы</value>
+  </data>
 </root>

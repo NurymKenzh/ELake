@@ -822,4 +822,94 @@
   <data name="Longitude" xml:space="preserve">
     <value>Ұзындығы</value>
   </data>
+  <data name="Adm1" xml:space="preserve">
+    <value>Ауданы</value>
+  </data>
+  <data name="Adm2" xml:space="preserve">
+    <value>Аудан</value>
+  </data>
+  <data name="Adm3" xml:space="preserve">
+    <value>Ауыл ауданы</value>
+  </data>
+  <data name="BasicInfoLake" xml:space="preserve">
+    <value>Көл туралы негізгі ақпарат</value>
+  </data>
+  <data name="Continent_ENG" xml:space="preserve">
+    <value>Континент ағылшын тілінде</value>
+  </data>
+  <data name="Continent_KZ" xml:space="preserve">
+    <value>Қазақ тіліндегі континент</value>
+  </data>
+  <data name="Continent_RU" xml:space="preserve">
+    <value>Континент орыс тілінде</value>
+  </data>
+  <data name="Country_ENG" xml:space="preserve">
+    <value>Елдегі ағылшын тілінде</value>
+  </data>
+  <data name="Country_KZ" xml:space="preserve">
+    <value>Қазақ тілі</value>
+  </data>
+  <data name="Country_RU" xml:space="preserve">
+    <value>Елдегі орыс тілінде</value>
+  </data>
+  <data name="Depth_avg" xml:space="preserve">
+    <value>Көлдің орташа тереңдігі, м</value>
+  </data>
+  <data name="Dis_avg" xml:space="preserve">
+    <value>Көлден ағып өтетін орташа көпжылдық ағынды, м3/сек</value>
+  </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Көл бетінің теңіз деңгейінен алғандағы биіктігі, м</value>
+  </data>
+  <data name="Hylak_id" xml:space="preserve">
+    <value>Көлдің бірегей идентификаторы</value>
+  </data>
+  <data name="LakeArchiveData" xml:space="preserve">
+    <value>Мұрағат көлі туралы ақпарат</value>
+  </data>
+  <data name="LakesGlobalData" xml:space="preserve">
+    <value>Ғаламдық көлдер базасы</value>
+  </data>
+  <data name="LakesGlobalDatas" xml:space="preserve">
+    <value>Ғаламдық көлдер базасы</value>
+  </data>
+  <data name="Lake_area" xml:space="preserve">
+    <value>Көл айдынының ауданы, км2</value>
+  </data>
+  <data name="Lake_name_ENG" xml:space="preserve">
+    <value>Ағылшын тіліндегі көлдің атауы</value>
+  </data>
+  <data name="Lake_name_KZ" xml:space="preserve">
+    <value>Қазақ тіліндегі көлдің атауы</value>
+  </data>
+  <data name="Lake_name_RU" xml:space="preserve">
+    <value>Көлдің орыс тіліндегі атауы</value>
+  </data>
+  <data name="Pour_lat" xml:space="preserve">
+    <value>Ендік</value>
+  </data>
+  <data name="Pour_long" xml:space="preserve">
+    <value>Бойлық</value>
+  </data>
+  <data name="Res_time" xml:space="preserve">
+    <value>Көлде су болуының орташа уақыты, күндер</value>
+  </data>
+  <data name="Shore_dev" xml:space="preserve">
+    <value>Жағалау сызығының тілімденуі</value>
+  </data>
+  <data name="Shore_len" xml:space="preserve">
+    <value>Жағалау сызығының ұзындығы, км</value>
+  </data>
+  <data name="Slope_100" xml:space="preserve">
+    <value>Көл айналасының 100-метрлік буфері шегіндегі орташа еңістік, градус</value>
+  </data>
+  <data name="Vol_total" xml:space="preserve">
+    <value>Көлдің жалпы көлемі, млн.м3</value>
+  </data>
+  <data name="Wshd_area" xml:space="preserve">
+    <value>Сужинау ауданы, км2</value>
+  </data>
+  <data name="LakeGlobalData" xml:space="preserve">
+    <value>Әлемдік базадан көл туралы ақпарат</value>
+  </data>
 </root>

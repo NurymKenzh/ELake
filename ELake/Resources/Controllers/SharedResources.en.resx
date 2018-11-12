@@ -822,4 +822,94 @@
   <data name="Longitude" xml:space="preserve">
     <value>Longitude</value>
   </data>
+  <data name="Adm1" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Adm2" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="Adm3" xml:space="preserve">
+    <value>Rural District</value>
+  </data>
+  <data name="BasicInfoLake" xml:space="preserve">
+    <value>Basic information about the lake</value>
+  </data>
+  <data name="Continent_ENG" xml:space="preserve">
+    <value>Continent in English</value>
+  </data>
+  <data name="Continent_KZ" xml:space="preserve">
+    <value>Continent in Kazakh</value>
+  </data>
+  <data name="Continent_RU" xml:space="preserve">
+    <value>Continent in Russian</value>
+  </data>
+  <data name="Country_ENG" xml:space="preserve">
+    <value>Country in English</value>
+  </data>
+  <data name="Country_KZ" xml:space="preserve">
+    <value>Country in Kazakh</value>
+  </data>
+  <data name="Country_RU" xml:space="preserve">
+    <value>Country in Russian</value>
+  </data>
+  <data name="Depth_avg" xml:space="preserve">
+    <value>Average lake depth, m</value>
+  </data>
+  <data name="Dis_avg" xml:space="preserve">
+    <value>Average long-term discharge flowing through the lake, m3/sec</value>
+  </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Elevation of lake surface, in meters above sea level</value>
+  </data>
+  <data name="Hylak_id" xml:space="preserve">
+    <value>Unique lake identifier</value>
+  </data>
+  <data name="LakeArchiveData" xml:space="preserve">
+    <value>Archival Lake Information</value>
+  </data>
+  <data name="LakesGlobalData" xml:space="preserve">
+    <value>Global Lakes Base</value>
+  </data>
+  <data name="LakesGlobalDatas" xml:space="preserve">
+    <value>Global Lakes Base</value>
+  </data>
+  <data name="Lake_area" xml:space="preserve">
+    <value>Lake surface area, km2</value>
+  </data>
+  <data name="Lake_name_ENG" xml:space="preserve">
+    <value>Lake name in English</value>
+  </data>
+  <data name="Lake_name_KZ" xml:space="preserve">
+    <value>The name of the lake in Kazakh</value>
+  </data>
+  <data name="Lake_name_RU" xml:space="preserve">
+    <value>Name of the lake in Russian</value>
+  </data>
+  <data name="Pour_lat" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="Pour_long" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="Res_time" xml:space="preserve">
+    <value>Average residence time of the lake water, in days</value>
+  </data>
+  <data name="Shore_dev" xml:space="preserve">
+    <value>Shoreline development</value>
+  </data>
+  <data name="Shore_len" xml:space="preserve">
+    <value>Length of shoreline, km</value>
+  </data>
+  <data name="Slope_100" xml:space="preserve">
+    <value>Average slope within a 100 meter buffer around the lake polygon, in degrees</value>
+  </data>
+  <data name="Vol_total" xml:space="preserve">
+    <value>Total lake volume, bln.m3</value>
+  </data>
+  <data name="Wshd_area" xml:space="preserve">
+    <value>Area of the watershed associated with the lake, km2</value>
+  </data>
+  <data name="LakeGlobalData" xml:space="preserve">
+    <value>Information about the lake from the global base</value>
+  </data>
 </root>
