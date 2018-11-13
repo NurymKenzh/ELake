@@ -342,6 +342,11 @@ namespace ELake.Controllers
             int[] waterlevelsyears = waterlevels.Select(w => w.Year).ToArray();
             decimal[] waterlevelsm = waterlevels.Select(w => w.WaterLavelM).ToArray();
 
+            // SurfaceFlow
+            SurfaceFlow[] surfaceflows = _context.SurfaceFlow.Where(s => s.LakeId == LakeId).ToArray();
+            int[] surfaceflowsyears = surfaceflows.Select(s => s.Year).ToArray();
+            decimal[] surfaceflowsvalues = surfaceflows.Select(s => s.Value).ToArray();
+
             return Json(new
             {
                 NameKK,
@@ -388,7 +393,9 @@ namespace ELake.Controllers
                 pour_long,
                 pour_lat,
                 waterlevelsyears,
-                waterlevelsm
+                waterlevelsm,
+                surfaceflowsyears,
+                surfaceflowsvalues
             });
         }
     }

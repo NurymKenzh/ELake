@@ -25,6 +25,7 @@
 <div hidden="hidden">
     <input id="Year" type="hidden" value='@SharedLocalizer["Year"]' />
     <input id="WaterLevelWaterLavelM" type="hidden" value='@SharedLocalizer["WaterLavelM"]' />
+    <input id="Value" type="hidden" value='@SharedLocalizer["Value"]' />
 
 </div>
 @* Основная информация об озере *@
@@ -314,23 +315,42 @@
 </div>
 @* Уровни воды озер *@
 <div>
-    <h4>@SharedLocalizer["WaterLevel"]</h4>
+    <h4>@SharedLocalizer["WaterLevels"]</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @SharedLocalizer["WaterLevel"]
+            @SharedLocalizer["WaterLevels"]
         </dt>
         <dd id="ddChartWaterLevel" style="height: 200px; width: 400px;">
             <canvas id="ChartWaterLevel" width="400" height="200"></canvas>
         </dd>
         <dt>
-            @SharedLocalizer["WaterLevel"]
+            @SharedLocalizer["WaterLevels"]
         </dt>
         <dd id="ddTableWaterLevel">
             <table id="tableWaterLevel" class="table-responsive-lg">
-                <tbody id="tablebodyWaterLevel">
-
-                </tbody>
+                <tbody id="tablebodyWaterLevel"></tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+@* Поверхностные притоки *@
+<div>
+    <h4>@SharedLocalizer["SurfaceFlows"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["SurfaceFlows"]
+        </dt>
+        <dd id="ddChartSurfaceFlow" style="height: 200px; width: 400px;">
+            <canvas id="ChartSurfaceFlow" width="400" height="200"></canvas>
+        </dd>
+        <dt>
+            @SharedLocalizer["SurfaceFlow"]
+        </dt>
+        <dd id="ddTableSurfaceFlow">
+            <table id="tableSurfaceFlow" class="table-responsive-lg">
+                <tbody id="tablebodySurfaceFlow"></tbody>
             </table>
         </dd>
     </dl>
@@ -1389,6 +1409,8 @@
                 $('#Pour_lat').text(data.pour_lat);
                 ChartWaterLevels(data.waterlevelsyears, data.waterlevelsm);
                 TableWaterLevels(data.waterlevelsyears, data.waterlevelsm);
+                ChartSurfaceFlows(data.surfaceflowsyears, data.surfaceflowsvalues);
+                TableSurfaceFlows(data.surfaceflowsyears, data.surfaceflowsvalues);
             },
             error: function () {
             }
@@ -1418,11 +1440,41 @@
         var tablebody = $('#tablebodyWaterLevel');
         var th = $('<th/>').appendTo(tablebody);
         th.append('<td>' + $('#Year').val() + '</td>');
-        th.append('<td>' + $('#WaterLevelWaterLavelM').val() + '</td>');        
+        th.append('<td>' + $('#WaterLevelWaterLavelM').val() + '</td>');
         for (var i = 0; i < waterlevelsyears.length; i++) {
             var tr = $('<tr/>').appendTo(tablebody);
             tr.append('<td>' + waterlevelsyears[i] + '</td>');
             tr.append('<td>' + waterlevelsm[i] + '</td>');
+        }
+    }
+    var ChartSurfaceFlow = null;
+    function ChartSurfaceFlows(surfaceflowsyears, surfaceflowsvalues) {
+        var ctx = document.getElementById("ChartSurfaceFlow").getContext('2d');
+        ChartSurfaceFlow = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: surfaceflowsyears,//[1, 17, 33, 49, 65, 81],
+                datasets: [{
+                    label: $('#SurfaceFlowWaterLavelM').val(),
+                    data: surfaceflowsvalues,//[12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255,99,132,1)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                    fill: false
+                }
+                ]
+            }
+        });
+    }
+    function TableSurfaceFlows(surfaceflowsyears, surfaceflowsvalues) {
+        var tablebody = $('#tablebodySurfaceFlow');
+        var th = $('<th/>').appendTo(tablebody);
+        th.append('<td>' + $('#Year').val() + '</td>');
+        th.append('<td>' + $('#Value').val() + '</td>');
+        for (var i = 0; i < surfaceflowsyears.length; i++) {
+            var tr = $('<tr/>').appendTo(tablebody);
+            tr.append('<td>' + surfaceflowsyears[i] + '</td>');
+            tr.append('<td>' + surfaceflowsvalues[i] + '</td>');
         }
     }
 </script>
