@@ -337,6 +337,11 @@ namespace ELake.Controllers
                 pour_long = lakesGlobalData?.Pour_long,
                 pour_lat = lakesGlobalData?.Pour_lat;
 
+            // WaterLevels
+            WaterLevel[] waterlevels = _context.WaterLevel.Where(w => w.LakeId == LakeId).ToArray();
+            int[] waterlevelsyears = waterlevels.Select(w => w.Year).ToArray();
+            decimal[] waterlevelsm = waterlevels.Select(w => w.WaterLavelM).ToArray();
+
             return Json(new
             {
                 NameKK,
@@ -381,7 +386,9 @@ namespace ELake.Controllers
                 slope_100,
                 wshd_area,
                 pour_long,
-                pour_lat
+                pour_lat,
+                waterlevelsyears,
+                waterlevelsm
             });
         }
     }

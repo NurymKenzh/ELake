@@ -10,6 +10,7 @@
 <link href="~/lib/ol/ol.css" rel="stylesheet" />
 <script src="~/lib/ol/ol.js"></script>
 @*<link href="~/css/search.css" rel="stylesheet" />*@
+<script src="~/lib/chart.js/Chart.js"></script>
 <h2>@SharedLocalizer["Lake"]</h2>
 
 @*<input type="button" name="Text" value="VTest" onclick="Test()" />
@@ -21,7 +22,11 @@
     <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
     <button type="button" onclick="SelectLakeZoom($('#LakeId').val().toString(), true)">Search</button>
 </p>
+<div hidden="hidden">
+    <input id="Year" type="hidden" value='@SharedLocalizer["Year"]' />
+    <input id="WaterLevelWaterLavelM" type="hidden" value='@SharedLocalizer["WaterLavelM"]' />
 
+</div>
 @* Основная информация об озере *@
 <div>
     <h4>@SharedLocalizer["BasicInfoLake"]</h4>
@@ -304,6 +309,29 @@
         </dt>
         <dd id="Pour_lat">
 
+        </dd>
+    </dl>
+</div>
+@* Уровни воды озер *@
+<div>
+    <h4>@SharedLocalizer["WaterLevel"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["WaterLevel"]
+        </dt>
+        <dd id="ddChartWaterLevel" style="height: 200px; width: 400px;">
+            <canvas id="ChartWaterLevel" width="400" height="200"></canvas>
+        </dd>
+        <dt>
+            @SharedLocalizer["WaterLevel"]
+        </dt>
+        <dd id="ddTableWaterLevel">
+            <table id="tableWaterLevel" class="table-responsive-lg">
+                <tbody id="tablebodyWaterLevel">
+
+                </tbody>
+            </table>
         </dd>
     </dl>
 </div>
@@ -1359,10 +1387,43 @@
                 $('#Wshd_area').text(data.wshd_area);
                 $('#Pour_long').text(data.pour_long);
                 $('#Pour_lat').text(data.pour_lat);
+                ChartWaterLevels(data.waterlevelsyears, data.waterlevelsm);
+                TableWaterLevels(data.waterlevelsyears, data.waterlevelsm);
             },
             error: function () {
             }
         });
+    }
+
+    var ChartWaterLevel = null;
+    function ChartWaterLevels(waterlevelsyears, waterlevelsm) {
+        var ctx = document.getElementById("ChartWaterLevel").getContext('2d');
+        ChartWaterLevel = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: waterlevelsyears,//[1, 17, 33, 49, 65, 81],
+                datasets: [{
+                    label: $('#WaterLevelWaterLavelM').val(),
+                    data: waterlevelsm,//[12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255,99,132,1)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                    fill: false
+                }
+                ]
+            }
+        });
+    }
+    function TableWaterLevels(waterlevelsyears, waterlevelsm) {
+        var tablebody = $('#tablebodyWaterLevel');
+        var th = $('<th/>').appendTo(tablebody);
+        th.append('<td>' + $('#Year').val() + '</td>');
+        th.append('<td>' + $('#WaterLevelWaterLavelM').val() + '</td>');        
+        for (var i = 0; i < waterlevelsyears.length; i++) {
+            var tr = $('<tr/>').appendTo(tablebody);
+            tr.append('<td>' + waterlevelsyears[i] + '</td>');
+            tr.append('<td>' + waterlevelsm[i] + '</td>');
+        }
     }
 </script>
 @* ChangeDataType, SlideYear, ChangeYear *@
