@@ -5,22 +5,21 @@
     ViewData["Title"] = SharedLocalizer["PublishGeoTIFFWater"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css'>
-<body class="bg-white">
-    <div class="container">
-        <div class="jumbotron jumbotron-fluid shadow-sm">
-            <div class="container py-2">
-                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["PublishGeoTIFFWater"]</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">Загрузка и публикация растровых данных по воде</h4>
+                <hr />
                 <div class="d-flex bd-highlight">
                     <div class="p-2 flex-grow-1 bd-highlight">
                         <p class="lead text-info">There should be a description</p>
                     </div>
                     <!-- Button trigger modal -->
                     <div class="bd-highlight">
-                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="icon ion-ios-information-outline"></i></button>
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-play-circle-o fa-2x"></i></button>
                     </div>
                 </div>
-                <!-- Modal -->
                 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
@@ -31,7 +30,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                There should be a description or video
+                                test
                             </div>
                         </div>
                     </div>
@@ -41,39 +40,67 @@
                 </div>
                 @if (!string.IsNullOrEmpty(ViewBag.Message))
                 {
-                    <div class="alert-danger" role="alert">
+                    <div class="alert-warning" role="alert">
                         @ViewBag.Message
                     </div>
                 }
             </div>
         </div>
-        <div class="form-row ">
-            <span class="border-left ml-1"></span>
-            <div class="col-md-4 ml-3">
-                <form asp-action="PublishGeoTIFFWater">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label class="font-weight-bold text-dark">@SharedLocalizer["Type"]</label>
-                        <select id="Type" name="Type" class="form-control" asp-items="ViewBag.Type" onchange="ChangeType()"></select>
-                        <small id="HelpBlock" class="form-text text-muted">
-                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <label class="font-weight-bold text-dark">@SharedLocalizer["Folder"]</label>
-                        <select id="Folder" name="Folder" class="form-control" asp-items="ViewBag.Folder"></select>
-                        <small id="HelpBlock" class="form-text text-muted">
-                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="@SharedLocalizer["Publish"]" class="btn btn-outline-primary my-2 my-sm-0" />
-                    </div>
-                </form>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="my-3 p-3 bg-white rounded shadow-sm">
+                <div class="timstep">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="btn btn-outline-success  btn-circle" asp-area="" asp-controller="GeoServer" asp-action="UploadGeoTIFFFilesWater"><i class="fa fa-upload fa-2x mt-2"></i></a>
+                            <p class="text-secondary"><small>@SharedLocalizer["UploadGeoTIFFFilesWater"]</small></p>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-success active btn-circle" asp-area="" asp-controller="GeoServer" asp-action="PublishGeoTIFFWater"><i class="fa fa-share-square-o fa-2x mt-3"></i></a>
+                            <p class="text-success"><small>@SharedLocalizer["PublishGeoTIFFWater"]</small></p>
+                        </li>
+                    </ul>
+                </div>
+                <h5 class="border-bottom border-gray pb-2 mt-3">@SharedLocalizer["PublishGeoTIFFWater"]</h5>
+                <div class="media pt-3">
+                    <p class="media-body pb-3 mb-0 lh-125">
+                        <strong class="d-block text-gray-dark">Шаг - 2</strong>
+                        Функция предназначена для публикации растровых данных, назначения стиля, регистрации общих данных о растре и импорта готовых метаданных растра.
+                    </p>
+                </div>  
+                <div class="col m-1">
+                    <form asp-action="PublishGeoTIFFWater">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label class="font-weight-bold text-dark">@SharedLocalizer["Type"]</label>
+                            <select id="Type" name="Type" class="form-control text-info" asp-items="ViewBag.Type" onchange="ChangeType()"></select>
+                            <small id="HelpBlock" class="form-text text-muted">
+                                There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold text-dark">@SharedLocalizer["Folder"]</label>
+                            <select id="Folder" name="Folder" class="form-control" asp-items="ViewBag.Folder"></select>
+                            <small id="HelpBlock" class="form-text text-muted">
+                                There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="@SharedLocalizer["Publish"]" class="btn btn-outline-success my-2 my-sm-0" />
+                        </div>
+                    </form>
+                </div>
+                <small class="d-block text-right mt-3">
+                    <a asp-area="" asp-controller="GeoServer" asp-action="UnpublishGeoTIFFWater">@SharedLocalizer["UnpublishGeoTIFFWater"]</a>
+                </small>
             </div>
         </div>
+
     </div>
-</body>
+</div>
+
+
 
 @*<div class="row">
         <div class="col-md-4">

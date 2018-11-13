@@ -7,40 +7,67 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@SharedLocalizer["Edit"]</h2>
 
-<h4>@SharedLocalizer["WaterLevel"]</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="LakeId" class="control-label"></label>
-                <input asp-for="LakeId" class="form-control" />
-                <span asp-validation-for="LakeId" class="text-danger"></span>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Edit"]</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["WaterLevel"]</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-exclamation-triangle"></i></button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-warning" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
             </div>
-            <div class="form-group">
-                <label asp-for="Year" class="control-label"></label>
-                <input asp-for="Year" class="form-control" />
-                <span asp-validation-for="Year" class="text-danger"></span>
+            <div>
+                <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
             </div>
-            <div class="form-group">
-                <label asp-for="WaterLavelM" class="control-label"></label>
-                <input asp-for="WaterLavelM" class="form-control" />
-                <span asp-validation-for="WaterLavelM" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="LakeId" class="control-label"></label>
+                        <input asp-for="LakeId" class="form-control" />
+                        <span asp-validation-for="LakeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Year" class="control-label"></label>
+                        <input asp-for="Year" class="form-control" />
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="WaterLavelM" class="control-label"></label>
+                        <input asp-for="WaterLavelM" class="form-control" />
+                        <span asp-validation-for="WaterLavelM" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
+
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
-</div>
+
+
 
 @*@section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

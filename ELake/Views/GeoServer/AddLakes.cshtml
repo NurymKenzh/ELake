@@ -49,11 +49,11 @@
                             <select id="ShapeFile" name="ShapeFile" class="form-control" asp-items="ViewBag.ShapeFiles"></select>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">@SharedLocalizer["Compare"]</label>
-                            <input type="button" value="@SharedLocalizer["Compare"]" class="btn btn-default" onclick="Compare()" />
-                            <table id="Compared" class="table">
+                            <label class="text-uppercase" style="width: 8rem;">@SharedLocalizer["Compare"]</label>
+                            <input type="button" value="@SharedLocalizer["Compare"]" class="btn btn-outline-info float-right" onclick="Compare()" />
+                            <table id="Compared" class="table mt-4">
                                 <thead>
-                                    <tr>
+                                    <tr class="table-info">
                                         <td>
                                             @SharedLocalizer["LakeId"]
                                         </td>
@@ -85,7 +85,7 @@
                             </table>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="@SharedLocalizer["Add"]" class="btn btn-default" />
+                            <input type="submit" value="@SharedLocalizer["Add"]" class="btn btn-primary" />
                         </div>
                     </form> 
                 </div>

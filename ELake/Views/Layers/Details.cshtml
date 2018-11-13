@@ -49,7 +49,7 @@
                             </dt>
                             <dd>
                                 <span id="year">@ViewBag.MinYear</span>
-                                <input id="Year" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);" />
+                                <input id="Year" type="range" class="custom-range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" onchange="ChangeYear(this.value);" oninput="SlideYear(this.value);" />
                             </dd>
                             <dt>
                                 @SharedLocalizer["DataType"]

@@ -9,11 +9,11 @@
 
     <!-- Navigation -->
     @*<nav class="navbar navbar-light bg-light static-top">
-        <div class="container">
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" rel="#">ELake</a>
-            <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a>
-        </div>
-    </nav>*@
+            <div class="container">
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" rel="#">ELake</a>
+                <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a>
+            </div>
+        </nav>*@
 
     <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -71,7 +71,7 @@
                             <h3>Advanced Lakes Search</h3>
                             <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
                         </a>
-                        
+
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -105,15 +105,15 @@
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     @*<form>*@
-                        <div class="form-row">
-                            <div class="col-12 col-md-9 mb-2 mb-md-0">
-                                @*<input type="lake" class="form-control form-control-lg" placeholder="Enter lake name...">*@
-                                <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
-                            </div>
-                            <div class="col-12 col-md-3">
-                                <button type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">Search</button>
-                            </div>
+                    <div class="form-row">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0">
+                            @*<input type="lake" class="form-control form-control-lg" placeholder="Enter lake name...">*@
+                            <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
                         </div>
+                        <div class="col-12 col-md-3">
+                            <button type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">Search</button>
+                        </div>
+                    </div>
                     @*</form>*@
                 </div>
             </div>
@@ -121,11 +121,12 @@
     </section>
     <!-- Testimonials -->
     <section class="testimonials text-center bg-light">
+        <img class="mb-2" src="~/images/ELake v02.svg" alt="" height="150">
         <h2>Welcome to the Water Atlas</h2>
         <p class="lead mb-0">The Water Atlas Program was designed to help meet the needs of local governments by providing the means through technology to connect multiple stakeholders in water resource management. The Atlas serves as a one-stop data warehouse, which provides unprecedented access to a wealth of water resource information. This information is presented in a variety of ways, including interactive graphs, tables, maps and graphics, so as to be understandable to both water research professionals and those people simply interested in learning more about the water resources within their area.</p>
     </section>
     <!-- Image Showcases -->
-    <section class="showcase">
+    <section class="showcase pb-5">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
 

@@ -5,39 +5,94 @@
     ViewData["Title"] = SharedLocalizer["UnpublishShape"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<body class="bg-light">
-    <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["UnpublishShape"]</h2>
-                <p class="lead">There should be a description</p>
-                <h3>@ViewData["Message"]</h3>
-                @Html.ActionLink(SharedLocalizer["Instruction"], "Instruction", new { Type = "PublishGeoTIFF" })
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-success" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">Удаление и отмена публикации векторных данных</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">There should be a description</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-play-circle-o fa-2x"></i></button>
+                    </div>
+                </div>
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">@SharedLocalizer["UnpublishShape"]</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <video style="max-width: 100%;" controls>
+                                    <source src="~/Video/UploadGeoTIFFFiles.mp4" type="video/mp4">
+                                    Your browser does not support HTML5 video.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
                 @if (!string.IsNullOrEmpty(ViewBag.Message))
                 {
-                    <div>
+                    <div class="alert-warning" role="alert">
                         @ViewBag.Message
                     </div>
                 }
             </div>
         </div>
-        <div class="form-row ">
-            <div class="col-md-4">
-                <form asp-action="UnpublishShape">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label class="control-label">@SharedLocalizer["Layer"]</label>
-                        <select name="LayerName" class="form-control" asp-items="ViewBag.ShapeLayers"></select>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-outline-primary my-2 my-sm-0" />
-                    </div>
-                </form>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="my-3 p-3 bg-white rounded shadow-sm">
+                <div class="timstep">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="btn btn-success active btn-circle" asp-area="" asp-controller="GeoServer" asp-action="UnpublishShape"><i class="fa fa-pencil-square-o fa-2x mt-3"></i></a>
+                            <p class="text-success"><small>@SharedLocalizer["UnpublishShape"]</small></p>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-success btn-circle" asp-area="" asp-controller="GeoServer" asp-action="DeleteShapeFile"><i class="fa fa-trash-o fa-2x mt-3"></i></a>
+                            <p class="text-secondary"><small>@SharedLocalizer["DeleteShapeFile"]</small></p>
+                        </li>                        
+                    </ul>
+                </div>
+                <h5 class="border-bottom border-gray pb-2 mt-3">@SharedLocalizer["UnpublishShape"]</h5>
+                <div class="media pt-3">
+                    <p class="media-body pb-3 mb-0 lh-125">
+                        <strong class="d-block text-gray-dark">Шаг - 1</strong>
+                        Функция предназначена для отмены публикации векторных данных.
+                    </p>
+                </div>
+                <div class="col m-1">
+                    <form asp-action="UnpublishShape">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label class="control-label">@SharedLocalizer["Layer"]</label>
+                            <select name="LayerName" class="form-control" asp-items="ViewBag.ShapeLayers"></select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="@SharedLocalizer["Unpublish"]" class="btn btn-outline-warning my-2 my-sm-0" />
+                        </div>
+                    </form>
+                </div>
+                <small class="d-block text-right mt-3">
+                    <a asp-area="" asp-controller="GeoServer" asp-action="PublishShape">@SharedLocalizer["PublishShape"]</a>
+                </small>
             </div>
         </div>
+
     </div>
-</body>
+</div>
+
 @*<div class="row">
     <div class="col-md-4">
         <form asp-action="UnpublishShape">
