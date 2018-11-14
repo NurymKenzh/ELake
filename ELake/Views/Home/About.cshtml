@@ -1,8 +1,131 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+@*<h2>@ViewData["Title"]</h2>
+    <h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+    <p>Use this area to provide additional information.</p>*@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9 mt-2">
+            <div class="d-block border-bottom border-primary p-2" style="background-color: #e3f2fd;">
+                <div class="col-md-4 ">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-primary my-2 my-sm-0 btn-sm" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body bg-light">
+                            <h5>Search by lake name!</h5>
+                            <form>
+                                <div class="form-group row">
+                                    <label for="text" class="col-12 col-form-label">Name</label>
+                                    <div class="col-12">
+                                        <input id="text" name="text" class="form-control here" type="text">
+                                        <small>Функция предназначена для выбора и загрузки растровых данных. </small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="parent-category" class="col-12 col-form-label">Parent Category</label>
+                                    <div class="col-12">
+                                        <select id="parent-category" name="parent-category" class="custom-select">
+                                            <option value="">None</option>
+                                            <option value="uncategorized">Uncategorized</option>
+                                            <option value="new category">New Category</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <select id="parent-category" name="parent-category" class="custom-select">
+                                            <option value="">None</option>
+                                            <option value="uncategorized">Uncategorized</option>
+                                            <option value="new category">New Category</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <button name="submit" type="submit" class="btn btn-primary btn-sm">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            This is some text within a card body.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='mtabs mt-1'>
+                <input id="tab1" type="radio" name="tabs" checked>
+                <label for="tab1">По КАТО</label>
+                <input id="tab2" type="radio" name="tabs">
+                <label for="tab2">По ВХБ</label>
+                <input id="tab3" type="radio" name="tabs">
+                <label for="tab3">По Алфавиту</label>
+                <section id="content1">
+                    <p>
+                        Поиск по административным единицам:
+                    </p>
+                    <div class='about'>
+                        <label id='dlg-content' for="dialog_state"><i class="icon ion-ios-information"></i></label>
+                    </div>
+                    <div id='console'></div>
+                </section>
+
+                <section id="content2">
+                    <p>
+                        Поиск по водохозяйственному бассейну:
+                    </p>
+
+                </section>
+                <section id="content3">
+                    <p>
+                        Поиск по Алфавиту:
+                    </p>
+                </section>
+
+            </div>
+        </div>
+        <div class="col-md-3 mt-2">
+            <div class="card-header-pills">
+                <header class="d-block p-2" style="background-color: #fff3cd;">
+                    <a href="#" data-toggle="collapse" data-target="#collapse11" aria-expanded="true" class="">
+                        <i class="icon-action fa fa-chevron-down"></i>
+                        <span class="title">Heading of card </span>
+                    </a>
+                </header>
+                <div class="collapse show" id="collapse11" style="">
+                    <article class="card-body">
+                        1.	Определение длительности комфортного периода для экологического туризма, которое вычисляется путем наложения объектов слоя «Озера РК» с объектами слоя «Длительности комфортного периода для экологического туризма». По результатам операции вычисляется число комфортных дней для экологического туризма на озерах.
+                        2.	Определение длительности комфортного периода для экскурсионного туризма, которое вычисляется путем наложения объектов слоя «Озера РК» с объектами слоя «Длительности комфортного периода для экскурсионного туризма». По результатам операции вычисляется число комфортных дней для экскурсионного туризма на озерах.
+                        3.	Определение длительности комфортного периода для экскурсионного туризма, которое вычисляется путем наложения объектов слоя «Озера РК» с объектами слоя «Длительности комфортного периода для купально-пляжного туризма». По результатам операции вычисляется число комфортных дней для экскурсионного туризма на озерах
+
+                    </article> <!-- card-body.// -->
+                </div> <!-- collapse .// -->
+            </div> <!-- card.// -->
+            <div class="card-header-pills">
+                <header class="d-block p-2" style="background-color: #fff3cd;">
+                    <a href="#" data-toggle="collapse" data-target="#collapse22" aria-expanded="true" class="">
+                        <i class="icon-action fa fa-chevron-down"></i>
+                        <span class="title">Heading of card </span>
+                    </a>
+                </header>
+                <div class="collapse" id="collapse22" style="">
+                    <article class="card-body">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt deserunt mollit anim id est laborum.
+                    </article> <!-- card-body.// -->
+                </div> <!-- collapse .// -->
+            </div> <!-- card.// -->
+        </div>
+    </div>
+</div>

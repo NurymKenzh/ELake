@@ -40,7 +40,7 @@ body {
 }
 footer.footer {
     padding-top: 1rem;
-    padding-bottom: 4rem;
+    padding-bottom: 40px;
 }
 .footer {
     position: absolute;
@@ -256,5 +256,86 @@ header.masthead {
     text-align: center;
     border-radius: 50%;
     background: #fff;
+}
+
+
+
+.mtabs section {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #ddd;
+}
+
+.mtabs input {
+    display: none;
+}
+
+.mtabs label {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: #bbb;
+    border: 1px solid transparent;
+}
+
+.mtabs label:before {
+    font-family: fontawesome;
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+.mtabs label[for*='1']:before {
+    content: '\f002';
+}
+
+.mtabs label[for*='2']:before {
+    content: '\f278';
+}
+
+.mtabs label[for*='3']:before {
+    content: '\f15d';
+}
+
+.mtabs label[for*='4']:before {
+    content: '\f059';
+}
+
+.mtabs label:hover {
+    color: #ffc107;
+    cursor: pointer;
+}
+
+input:checked + label {
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-top: 2px solid orange;
+    border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+    display: block;
+}
+
+@media screen and (max-width: 650px) {
+    label {
+        font-size: 0;
+    }
+
+        label:before {
+            margin: 0;
+            font-size: 18px;
+        }
+}
+
+@media screen and (max-width: 400px) {
+    label {
+        padding: 15px;
+    }
 }
 
