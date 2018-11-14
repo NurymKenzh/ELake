@@ -351,6 +351,31 @@ namespace ELake.Controllers
             int[] surfaceflowsyears = surfaceflows.Select(s => s.Year).ToArray();
             decimal[] surfaceflowsvalues = surfaceflows.Select(s => s.Value).ToArray();
 
+            // Precipitation
+            Precipitation[] precipitations = _context.Precipitation.Where(s => s.LakeId == LakeId).ToArray();
+            int[] precipitationsyears = precipitations.Select(s => s.Year).ToArray();
+            decimal[] precipitationsvalues = precipitations.Select(s => s.Value).ToArray();
+
+            // UndergroundFlow
+            UndergroundFlow[] undergroundflows = _context.UndergroundFlow.Where(s => s.LakeId == LakeId).ToArray();
+            int[] undergroundflowsyears = undergroundflows.Select(s => s.Year).ToArray();
+            decimal[] undergroundflowsvalues = undergroundflows.Select(s => s.Value).ToArray();
+
+            // SurfaceOutflow
+            SurfaceOutflow[] surfaceoutflows = _context.SurfaceOutflow.Where(s => s.LakeId == LakeId).ToArray();
+            int[] surfaceoutflowsyears = surfaceoutflows.Select(s => s.Year).ToArray();
+            decimal[] surfaceoutflowsvalues = surfaceoutflows.Select(s => s.Value).ToArray();
+
+            // Evaporation
+            Evaporation[] evaporations = _context.Evaporation.Where(s => s.LakeId == LakeId).ToArray();
+            int[] evaporationsyears = evaporations.Select(s => s.Year).ToArray();
+            decimal[] evaporationsvalues = evaporations.Select(s => s.Value).ToArray();
+
+            // UndergroundOutflow
+            UndergroundOutflow[] undergroundoutflows = _context.UndergroundOutflow.Where(s => s.LakeId == LakeId).ToArray();
+            int[] undergroundoutflowsyears = undergroundoutflows.Select(s => s.Year).ToArray();
+            decimal[] undergroundoutflowsvalues = undergroundoutflows.Select(s => s.Value).ToArray();
+
             return Json(new
             {
                 NameKK,
@@ -403,7 +428,17 @@ namespace ELake.Controllers
                 waterlevelsyears,
                 waterlevelsm,
                 surfaceflowsyears,
-                surfaceflowsvalues
+                surfaceflowsvalues,
+                precipitationsyears,
+                precipitationsvalues,
+                undergroundflowsyears,
+                undergroundflowsvalues,
+                surfaceoutflowsyears,
+                surfaceoutflowsvalues,
+                evaporationsyears,
+                evaporationsvalues,
+                undergroundoutflowsyears,
+                undergroundoutflowsvalues,
             });
         }
     }

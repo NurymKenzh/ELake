@@ -301,11 +301,116 @@
             <canvas id="ChartSurfaceFlow" width="400" height="200"></canvas>
         </dd>
         <dt>
-            @SharedLocalizer["SurfaceFlow"]
+            @SharedLocalizer["SurfaceFlows"]
         </dt>
         <dd id="ddTableSurfaceFlow">
             <table id="tableSurfaceFlow" class="table-responsive-lg">
                 <tbody id="tablebodySurfaceFlow"></tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+@* Осадки *@
+<div>
+    <h4>@SharedLocalizer["Precipitations"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["Precipitations"]
+        </dt>
+        <dd id="ddChartPrecipitation" style="height: 200px; width: 400px;">
+            <canvas id="ChartPrecipitation" width="400" height="200"></canvas>
+        </dd>
+        <dt>
+            @SharedLocalizer["Precipitations"]
+        </dt>
+        <dd id="ddTablePrecipitation">
+            <table id="tablePrecipitation" class="table-responsive-lg">
+                <tbody id="tablebodyPrecipitation"></tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+@* Подземные притоки *@
+<div>
+    <h4>@SharedLocalizer["UndergroundFlows"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["UndergroundFlows"]
+        </dt>
+        <dd id="ddChartUndergroundFlow" style="height: 200px; width: 400px;">
+            <canvas id="ChartUndergroundFlow" width="400" height="200"></canvas>
+        </dd>
+        <dt>
+            @SharedLocalizer["UndergroundFlows"]
+        </dt>
+        <dd id="ddTableUndergroundFlow">
+            <table id="tableUndergroundFlow" class="table-responsive-lg">
+                <tbody id="tablebodyUndergroundFlow"></tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+@* Поверхностные оттоки *@
+<div>
+    <h4>@SharedLocalizer["SurfaceOutflows"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["SurfaceOutflows"]
+        </dt>
+        <dd id="ddChartSurfaceOutflow" style="height: 200px; width: 400px;">
+            <canvas id="ChartSurfaceOutflow" width="400" height="200"></canvas>
+        </dd>
+        <dt>
+            @SharedLocalizer["SurfaceOutflows"]
+        </dt>
+        <dd id="ddTableSurfaceOutflow">
+            <table id="tableSurfaceOutflow" class="table-responsive-lg">
+                <tbody id="tablebodySurfaceOutflow"></tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+@* Испарения *@
+<div>
+    <h4>@SharedLocalizer["Evaporations"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["Evaporations"]
+        </dt>
+        <dd id="ddChartEvaporation" style="height: 200px; width: 400px;">
+            <canvas id="ChartEvaporation" width="400" height="200"></canvas>
+        </dd>
+        <dt>
+            @SharedLocalizer["Evaporations"]
+        </dt>
+        <dd id="ddTableEvaporation">
+            <table id="tableEvaporation" class="table-responsive-lg">
+                <tbody id="tablebodyEvaporation"></tbody>
+            </table>
+        </dd>
+    </dl>
+</div>
+@* Подземные оттоки *@
+<div>
+    <h4>@SharedLocalizer["UndergroundOutflows"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["UndergroundOutflows"]
+        </dt>
+        <dd id="ddChartUndergroundOutflow" style="height: 200px; width: 400px;">
+            <canvas id="ChartUndergroundOutflow" width="400" height="200"></canvas>
+        </dd>
+        <dt>
+            @SharedLocalizer["UndergroundOutflows"]
+        </dt>
+        <dd id="ddTableUndergroundOutflow">
+            <table id="tableUndergroundOutflow" class="table-responsive-lg">
+                <tbody id="tablebodyUndergroundOutflow"></tbody>
             </table>
         </dd>
     </dl>
@@ -1358,6 +1463,16 @@
                 TableWaterLevels(data.waterlevelsyears, data.waterlevelsm);
                 ChartSurfaceFlows(data.surfaceflowsyears, data.surfaceflowsvalues);
                 TableSurfaceFlows(data.surfaceflowsyears, data.surfaceflowsvalues);
+                ChartPrecipitations(data.precipitationsyears, data.precipitationsvalues);
+                TablePrecipitations(data.precipitationsyears, data.precipitationsvalues);
+                ChartUndergroundFlows(data.undergroundflowsyears, data.undergroundflowsvalues);
+                TableUndergroundFlows(data.undergroundflowsyears, data.undergroundflowsvalues);
+                ChartSurfaceOutflows(data.surfaceoutflowsyears, data.surfaceoutflowsvalues);
+                TableSurfaceOutflows(data.surfaceoutflowsyears, data.surfaceoutflowsvalues);
+                ChartEvaporations(data.evaporationsyears, data.evaporationsvalues);
+                TableEvaporations(data.evaporationsyears, data.evaporationsvalues);
+                ChartUndergroundOutflows(data.undergroundoutflowsyears, data.undergroundoutflowsvalues);
+                TableUndergroundOutflows(data.undergroundoutflowsyears, data.undergroundoutflowsvalues);
             },
             error: function () {
             }
@@ -1422,6 +1537,156 @@
             var tr = $('<tr/>').appendTo(tablebody);
             tr.append('<td>' + surfaceflowsyears[i] + '</td>');
             tr.append('<td>' + surfaceflowsvalues[i] + '</td>');
+        }
+    }
+    var ChartPrecipitation = null;
+    function ChartPrecipitations(precipitationsyears, precipitationsvalues) {
+        var ctx = document.getElementById("ChartPrecipitation").getContext('2d');
+        ChartPrecipitation = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: precipitationsyears,//[1, 17, 33, 49, 65, 81],
+                datasets: [{
+                    label: $('#Value').val(),
+                    data: precipitationsvalues,//[12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255,99,132,1)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                    fill: false
+                }
+                ]
+            }
+        });
+    }
+    function TablePrecipitations(precipitationsyears, precipitationsvalues) {
+        var tablebody = $('#tablebodyPrecipitation');
+        var th = $('<th/>').appendTo(tablebody);
+        th.append('<td>' + $('#Year').val() + '</td>');
+        th.append('<td>' + $('#Value').val() + '</td>');
+        for (var i = 0; i < precipitationsyears.length; i++) {
+            var tr = $('<tr/>').appendTo(tablebody);
+            tr.append('<td>' + precipitationsyears[i] + '</td>');
+            tr.append('<td>' + precipitationsvalues[i] + '</td>');
+        }
+    }
+    var ChartUndergroundFlow = null;
+    function ChartUndergroundFlows(undergroundflowsyears, undergroundflowsvalues) {
+        var ctx = document.getElementById("ChartUndergroundFlow").getContext('2d');
+        ChartUndergroundFlow = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: undergroundflowsyears,//[1, 17, 33, 49, 65, 81],
+                datasets: [{
+                    label: $('#Value').val(),
+                    data: undergroundflowsvalues,//[12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255,99,132,1)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                    fill: false
+                }
+                ]
+            }
+        });
+    }
+    function TableUndergroundFlows(undergroundflowsyears, undergroundflowsvalues) {
+        var tablebody = $('#tablebodyUndergroundFlow');
+        var th = $('<th/>').appendTo(tablebody);
+        th.append('<td>' + $('#Year').val() + '</td>');
+        th.append('<td>' + $('#Value').val() + '</td>');
+        for (var i = 0; i < undergroundflowsyears.length; i++) {
+            var tr = $('<tr/>').appendTo(tablebody);
+            tr.append('<td>' + undergroundflowsyears[i] + '</td>');
+            tr.append('<td>' + undergroundflowsvalues[i] + '</td>');
+        }
+    }
+    var ChartSurfaceOutflow = null;
+    function ChartSurfaceOutflows(surfaceoutflowsyears, surfaceoutflowsvalues) {
+        var ctx = document.getElementById("ChartSurfaceOutflow").getContext('2d');
+        ChartSurfaceOutflow = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: surfaceoutflowsyears,//[1, 17, 33, 49, 65, 81],
+                datasets: [{
+                    label: $('#Value').val(),
+                    data: surfaceoutflowsvalues,//[12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255,99,132,1)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                    fill: false
+                }
+                ]
+            }
+        });
+    }
+    function TableSurfaceOutflows(surfaceoutflowsyears, surfaceoutflowsvalues) {
+        var tablebody = $('#tablebodySurfaceOutflow');
+        var th = $('<th/>').appendTo(tablebody);
+        th.append('<td>' + $('#Year').val() + '</td>');
+        th.append('<td>' + $('#Value').val() + '</td>');
+        for (var i = 0; i < surfaceoutflowsyears.length; i++) {
+            var tr = $('<tr/>').appendTo(tablebody);
+            tr.append('<td>' + surfaceoutflowsyears[i] + '</td>');
+            tr.append('<td>' + surfaceoutflowsvalues[i] + '</td>');
+        }
+    }
+    var ChartEvaporation = null;
+    function ChartEvaporations(evaporationsyears, evaporationsvalues) {
+        var ctx = document.getElementById("ChartEvaporation").getContext('2d');
+        ChartEvaporation = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: evaporationsyears,//[1, 17, 33, 49, 65, 81],
+                datasets: [{
+                    label: $('#Value').val(),
+                    data: evaporationsvalues,//[12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255,99,132,1)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                    fill: false
+                }
+                ]
+            }
+        });
+    }
+    function TableEvaporations(evaporationsyears, evaporationsvalues) {
+        var tablebody = $('#tablebodyEvaporation');
+        var th = $('<th/>').appendTo(tablebody);
+        th.append('<td>' + $('#Year').val() + '</td>');
+        th.append('<td>' + $('#Value').val() + '</td>');
+        for (var i = 0; i < evaporationsyears.length; i++) {
+            var tr = $('<tr/>').appendTo(tablebody);
+            tr.append('<td>' + evaporationsyears[i] + '</td>');
+            tr.append('<td>' + evaporationsvalues[i] + '</td>');
+        }
+    }
+    var ChartUndergroundOutflow = null;
+    function ChartUndergroundOutflows(undergroundoutflowsyears, undergroundoutflowsvalues) {
+        var ctx = document.getElementById("ChartUndergroundOutflow").getContext('2d');
+        ChartUndergroundOutflow = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: undergroundoutflowsyears,//[1, 17, 33, 49, 65, 81],
+                datasets: [{
+                    label: $('#Value').val(),
+                    data: undergroundoutflowsvalues,//[12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255,99,132,1)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    borderWidth: 1,
+                    fill: false
+                }
+                ]
+            }
+        });
+    }
+    function TableUndergroundOutflows(undergroundoutflowsyears, undergroundoutflowsvalues) {
+        var tablebody = $('#tablebodyUndergroundOutflow');
+        var th = $('<th/>').appendTo(tablebody);
+        th.append('<td>' + $('#Year').val() + '</td>');
+        th.append('<td>' + $('#Value').val() + '</td>');
+        for (var i = 0; i < undergroundoutflowsyears.length; i++) {
+            var tr = $('<tr/>').appendTo(tablebody);
+            tr.append('<td>' + undergroundoutflowsyears[i] + '</td>');
+            tr.append('<td>' + undergroundoutflowsvalues[i] + '</td>');
         }
     }
 </script>
