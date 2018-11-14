@@ -12,13 +12,14 @@ namespace ELake.Models
         public string Number { get; set; }
         public string NameKK { get; set; }
         public string NameRU { get; set; }
+        public string NameEN { get; set; }
         public int Level { get; set; }
         public string Name
         {
             get
             {
                 string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name,
-                    name = NameRU;
+                    name = NameEN;
                 if (language == "kk")
                 {
                     name = NameKK;
