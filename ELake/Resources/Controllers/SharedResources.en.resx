@@ -912,4 +912,13 @@
   <data name="LakeGlobalData" xml:space="preserve">
     <value>Information about the lake from the global base</value>
   </data>
+  <data name="Continent" xml:space="preserve">
+    <value>Continent</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Lake_name" xml:space="preserve">
+    <value>Lake name</value>
+  </data>
 </root>

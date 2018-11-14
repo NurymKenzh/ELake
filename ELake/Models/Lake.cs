@@ -29,7 +29,7 @@ namespace ELake.Models
             get
             {
                 string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name,
-                    name = NameRU;
+                    name = NameEN;
                 if (language == "kk")
                 {
                     name = NameKK;
@@ -50,6 +50,25 @@ namespace ELake.Models
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "VHBEN")]
         public string VHBEN { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "VHB")]
+        public string VHB
+        {
+            get
+            {
+                string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name,
+                    vhb = VHBEN;
+                if (language == "kk")
+                {
+                    vhb = VHBKK;
+                }
+                if (language == "ru")
+                {
+                    vhb = VHBRU;
+                }
+                return vhb;
+            }
+        }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "VHU")]
         public string VHU { get; set; }

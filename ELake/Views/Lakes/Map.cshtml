@@ -40,21 +40,9 @@
 
         </dd>
         <dt>
-            @SharedLocalizer["NameKK"]
+            @SharedLocalizer["Name"]
         </dt>
-        <dd id="NameKK">
-
-        </dd>
-        <dt>
-            @SharedLocalizer["NameRU"]
-        </dt>
-        <dd id="NameRU">
-
-        </dd>
-        <dt>
-            @SharedLocalizer["NameEN"]
-        </dt>
-        <dd id="NameEN">
+        <dd id="Name">
 
         </dd>
         <dt>
@@ -186,56 +174,23 @@
 
         </dd>
         <dt>
-            @SharedLocalizer["Lake_name_ENG"]
+            @SharedLocalizer["Lake_name"]
         </dt>
-        <dd id="Lake_name_ENG">
+        <dd id="Lake_name">
 
         </dd>
         <dt>
-            @SharedLocalizer["Lake_name_RU"]
+            @SharedLocalizer["Country"]
         </dt>
-        <dd id="Lake_name_RU">
+        <dd id="Country">
 
         </dd>
         <dt>
-            @SharedLocalizer["Lake_name_KZ"]
+            @SharedLocalizer["Continent"]
         </dt>
-        <dd id="Lake_name_KZ">
+        <dd id="Continent">
 
         </dd>
-        <dt>
-            @SharedLocalizer["Country_ENG"]
-        </dt>
-        <dd id="Country_ENG">
-
-        </dd>
-        <dt>
-            @SharedLocalizer["Country_RU"]
-        </dt>
-        <dd id="Country_RU">
-
-        </dd>
-        <dt>
-            @SharedLocalizer["Country_KZ"]
-        </dt>
-        <dd id="Country_KZ">
-
-        </dd>
-        <dt>
-            @SharedLocalizer["Continent_ENG"]
-        </dt>
-        <dd id="Continent_ENG">
-
-        </dd>
-        <dt>
-            @SharedLocalizer["Continent_RU"]
-        </dt>
-        <dd id="Continent_RU">
-
-        </dd>
-        <dt>
-            @SharedLocalizer["Continent_KZ"]
-        </dt>
         <dd id="Continent_KZ">
 
         </dd>
@@ -1364,9 +1319,7 @@
             type: 'POST',
             success: function (data) {
                 $('#LakeIdInfo').html(LakeId);
-                $('#NameEN').text(data.nameEN);
-                $('#NameKK').text(data.nameKK);
-                $('#NameRU').text(data.nameRU);
+                $('#Name').text(data.name);
                 $('#VHB').text(data.vhb);
                 $('#VHU').text(data.vhu);
                 $('#Area').text(data.area);
@@ -1386,15 +1339,9 @@
                 $('#LakeWaterMass').text(data.lakewatermass);
                 $('#ArchivalInfoSource').text(data.archivalinfosource);
                 $('#Hylak_id').text(data.hylak_id);
-                $('#Lake_name_ENG').text(data.lake_name_eng);
-                $('#Lake_name_RU').text(data.lake_name_ru);
-                $('#Lake_name_KZ').text(data.lake_name_kz);
-                $('#Country_ENG').text(data.country_eng);
-                $('#Country_RU').text(data.country_ru);
-                $('#Country_KZ').text(data.country_kz);
-                $('#Continent_ENG').text(data.continent_eng);
-                $('#Continent_RU').text(data.continent_ru);
-                $('#Continent_KZ').text(data.continent_kz);
+                $('#Lake_name').text(data.lake_name);
+                $('#Country').text(data.country);
+                $('#Continent').text(data.continent);
                 $('#Lake_area').text(data.lake_area);
                 $('#Shore_len').text(data.shore_len);
                 $('#Shore_dev').text(data.shore_dev);
@@ -1455,7 +1402,7 @@
             data: {
                 labels: surfaceflowsyears,//[1, 17, 33, 49, 65, 81],
                 datasets: [{
-                    label: $('#SurfaceFlowWaterLavelM').val(),
+                    label: $('#Value').val(),
                     data: surfaceflowsvalues,//[12, 19, 3, 5, 2, 3],
                     backgroundColor: 'rgba(255,99,132,1)',
                     borderColor: 'rgba(255,99,132,1)',

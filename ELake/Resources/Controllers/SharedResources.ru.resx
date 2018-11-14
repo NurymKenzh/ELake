@@ -912,4 +912,13 @@
   <data name="LakeGlobalData" xml:space="preserve">
     <value>Информация об озере из глобальной базы</value>
   </data>
+  <data name="Continent" xml:space="preserve">
+    <value>Континент</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="Lake_name" xml:space="preserve">
+    <value>Название озера</value>
+  </data>
 </root>

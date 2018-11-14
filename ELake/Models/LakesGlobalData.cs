@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Builder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -25,6 +26,25 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Lake_name_KZ")]
         public string Lake_name_KZ { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Lake_name")]
+        public string Lake_name
+        {
+            get
+            {
+                string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name,
+                    Lake_name = Lake_name_ENG;
+                if (language == "kk")
+                {
+                    Lake_name = Lake_name_KZ;
+                }
+                if (language == "ru")
+                {
+                    Lake_name = Lake_name_RU;
+                }
+                return Lake_name;
+            }
+        }
+
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Country_ENG")]
         public string Country_ENG { get; set; }
 
@@ -34,6 +54,25 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Country_KZ")]
         public string Country_KZ { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Country")]
+        public string Country
+        {
+            get
+            {
+                string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name,
+                    Country = Country_ENG;
+                if (language == "kk")
+                {
+                    Country = Country_KZ;
+                }
+                if (language == "ru")
+                {
+                    Country = Country_RU;
+                }
+                return Country;
+            }
+        }
+
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Continent_ENG")]
         public string Continent_ENG { get; set; }
 
@@ -42,6 +81,25 @@ namespace ELake.Models
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Continent_KZ")]
         public string Continent_KZ { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Continent")]
+        public string Continent
+        {
+            get
+            {
+                string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name,
+                    Continent = Continent_ENG;
+                if (language == "kk")
+                {
+                    Continent = Continent_KZ;
+                }
+                if (language == "ru")
+                {
+                    Continent = Continent_RU;
+                }
+                return Continent;
+            }
+        }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Lake_area")]
         public decimal? Lake_area { get; set; }

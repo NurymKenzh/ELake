@@ -288,6 +288,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Continent {
+            get {
+                return ResourceManager.GetString("Continent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Continent_ENG {
             get {
                 return ResourceManager.GetString("Continent_ENG", resourceCulture);
@@ -309,6 +318,15 @@ namespace ELake.Resources.Controllers {
         public static string Continent_RU {
             get {
                 return ResourceManager.GetString("Continent_RU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
             }
         }
         
@@ -930,6 +948,15 @@ namespace ELake.Resources.Controllers {
         public static string Lake_area {
             get {
                 return ResourceManager.GetString("Lake_area", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Lake_name {
+            get {
+                return ResourceManager.GetString("Lake_name", resourceCulture);
             }
         }
         

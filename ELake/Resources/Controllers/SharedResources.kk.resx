@@ -912,4 +912,13 @@
   <data name="LakeGlobalData" xml:space="preserve">
     <value>Әлемдік базадан көл туралы ақпарат</value>
   </data>
+  <data name="Continent" xml:space="preserve">
+    <value>Континент</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Ел</value>
+  </data>
+  <data name="Lake_name" xml:space="preserve">
+    <value>Көлдің аты</value>
+  </data>
 </root>
