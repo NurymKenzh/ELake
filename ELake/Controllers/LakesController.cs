@@ -270,7 +270,7 @@ namespace ELake.Controllers
             string NameKK = lake?.NameKK,
                 NameEN = lake?.NameEN,
                 NameRU = lake?.NameRU,
-                Name = lake.Name,
+                Name = lake?.Name,
                 vhb = lake?.VHB,
                 vhu = lake?.VHU,
                 longitude = lake?.Longitude,
