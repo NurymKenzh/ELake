@@ -184,7 +184,7 @@
     <value>Эл. адрес</value>
   </data>
   <data name="Evaporation" xml:space="preserve">
-    <value>Испарение</value>
+    <value>Испарение, млн.м³</value>
   </data>
   <data name="Evaporations" xml:space="preserve">
     <value>Испарения</value>
@@ -313,7 +313,7 @@
     <value>PPO</value>
   </data>
   <data name="Precipitation" xml:space="preserve">
-    <value>Осадки</value>
+    <value>Осадки, млн.м³</value>
   </data>
   <data name="Precipitations" xml:space="preserve">
     <value>Осадки</value>
@@ -364,13 +364,13 @@
     <value>Стиль уровней вод озер</value>
   </data>
   <data name="SurfaceFlow" xml:space="preserve">
-    <value>Поверхностный приток</value>
+    <value>Поверхностный приток, млн.м³</value>
   </data>
   <data name="SurfaceFlows" xml:space="preserve">
     <value>Поверхностные притоки</value>
   </data>
   <data name="SurfaceOutflow" xml:space="preserve">
-    <value>Поверхностный отток</value>
+    <value>Поверхностный отток, млн.м³</value>
   </data>
   <data name="SurfaceOutflows" xml:space="preserve">
     <value>Поверхностные оттоки</value>
@@ -379,13 +379,13 @@
     <value>Общая жесткость воды, мг-экв/дм3</value>
   </data>
   <data name="UndergroundFlow" xml:space="preserve">
-    <value>Подземный приток</value>
+    <value>Подземный приток, млн.м³</value>
   </data>
   <data name="UndergroundFlows" xml:space="preserve">
     <value>Подземные притоки</value>
   </data>
   <data name="UndergroundOutflow" xml:space="preserve">
-    <value>Подземный отток</value>
+    <value>Подземный отток, млн.м³</value>
   </data>
   <data name="UndergroundOutflows" xml:space="preserve">
     <value>Подземные оттоки</value>
@@ -920,5 +920,35 @@
   </data>
   <data name="Lake_name" xml:space="preserve">
     <value>Название озера</value>
+  </data>
+  <data name="Discrepancy" xml:space="preserve">
+    <value>Невязка</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="FirstRowHeader" xml:space="preserve">
+    <value>Первый столбец - заголовок</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>Строка</value>
+  </data>
+  <data name="UploadedCount" xml:space="preserve">
+    <value>Итого загружено</value>
+  </data>
+  <data name="WaterBalance" xml:space="preserve">
+    <value>Водный баланс</value>
+  </data>
+  <data name="WaterBalanceExpenditure" xml:space="preserve">
+    <value>Расходная часть водного баланса</value>
+  </data>
+  <data name="WaterBalanceReceipt" xml:space="preserve">
+    <value>Приходная часть водного баланса</value>
+  </data>
+  <data name="WaterBalances" xml:space="preserve">
+    <value>Водный баланс</value>
+  </data>
+  <data name="WaterBalanceUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, поверхностный приток, поверхностный отток, подземный приток, подземный отток, осадки, испарение</value>
   </data>
 </root>

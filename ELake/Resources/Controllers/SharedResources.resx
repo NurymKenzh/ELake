@@ -918,4 +918,34 @@
   <data name="Lake_name" xml:space="preserve">
     <value />
   </data>
+  <data name="Discrepancy" xml:space="preserve">
+    <value />
+  </data>
+  <data name="File" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FirstRowHeader" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UploadedCount" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterBalance" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterBalanceExpenditure" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterBalanceReceipt" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterBalances" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterBalanceUploadDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

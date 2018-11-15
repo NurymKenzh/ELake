@@ -1,0 +1,200 @@
+﻿@model ELake.Models.WaterBalance
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Create"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@SharedLocalizer["Create"]</h2>
+
+<h4>@SharedLocalizer["WaterBalance"]</h4>
+<hr />
+<body class="bg-white">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid shadow-sm">
+            <div class="container py-2">
+                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["Create"]</h2>
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["WaterBalance"]</p>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-danger" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-row ">
+            <span class="border-left ml-1"></span>
+            <div class="col-md-4 ml-3">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" asp-for="LakeId" class="control-label"></label>
+                        <input asp-for="LakeId" class="form-control" />
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                        <span asp-validation-for="LakeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" asp-for="Year" class="control-label"></label>
+                        <input asp-for="Year" class="form-control" />
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                        <span asp-validation-for="Year" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" asp-for="SurfaceFlow" class="control-label"></label>
+                        <input asp-for="SurfaceFlow" class="form-control" />
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                        <span asp-validation-for="SurfaceFlow" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" asp-for="SurfaceOutflow" class="control-label"></label>
+                        <input asp-for="SurfaceOutflow" class="form-control" />
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                        <span asp-validation-for="SurfaceOutflow" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" asp-for="UndergroundFlow" class="control-label"></label>
+                        <input asp-for="UndergroundFlow" class="form-control" />
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                        <span asp-validation-for="UndergroundFlow" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" asp-for="UndergroundOutflow" class="control-label"></label>
+                        <input asp-for="UndergroundOutflow" class="form-control" />
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                        <span asp-validation-for="UndergroundOutflow" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" asp-for="Precipitation" class="control-label"></label>
+                        <input asp-for="Precipitation" class="form-control" />
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                        <span asp-validation-for="Precipitation" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold text-dark" asp-for="Evaporation" class="control-label"></label>
+                        <input asp-for="Evaporation" class="form-control" />
+                        <small id="HelpBlock" class="form-text text-muted">
+                            There should be a hint or warning!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        </small>
+                        <span asp-validation-for="Evaporation" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@SharedLocalizer["Create"]" class="btn btn-outline-success ml-1" />
+                    </div>
+                </form>
+                <small class="d-block text-right mt-3">
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+@*@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
+
+<script>
+    $.validator.methods.range = function (value, element, param) {
+        var globalizedValue = value.replace(",", ".");
+        return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+    }
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+    }
+</script>
+@*@model ELake.Models.WaterBalance
+
+    @{
+        ViewData["Title"] = "Create";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Create</h2>
+
+    <h4>WaterBalance</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="LakeId" class="control-label"></label>
+                    <input asp-for="LakeId" class="form-control" />
+                    <span asp-validation-for="LakeId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Year" class="control-label"></label>
+                    <input asp-for="Year" class="form-control" />
+                    <span asp-validation-for="Year" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SurfaceFlow" class="control-label"></label>
+                    <input asp-for="SurfaceFlow" class="form-control" />
+                    <span asp-validation-for="SurfaceFlow" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SurfaceOutflow" class="control-label"></label>
+                    <input asp-for="SurfaceOutflow" class="form-control" />
+                    <span asp-validation-for="SurfaceOutflow" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UndergroundFlow" class="control-label"></label>
+                    <input asp-for="UndergroundFlow" class="form-control" />
+                    <span asp-validation-for="UndergroundFlow" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UndergroundOutflow" class="control-label"></label>
+                    <input asp-for="UndergroundOutflow" class="form-control" />
+                    <span asp-validation-for="UndergroundOutflow" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Precipitation" class="control-label"></label>
+                    <input asp-for="Precipitation" class="form-control" />
+                    <span asp-validation-for="Precipitation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Evaporation" class="control-label"></label>
+                    <input asp-for="Evaporation" class="form-control" />
+                    <span asp-validation-for="Evaporation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
