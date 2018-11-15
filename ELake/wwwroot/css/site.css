@@ -288,19 +288,19 @@ header.masthead {
 }
 
 .mtabs label[for*='1']:before {
-    content: '\f002';
+    content: '\f080';
 }
 
 .mtabs label[for*='2']:before {
-    content: '\f278';
+    content: '\f080';
 }
 
 .mtabs label[for*='3']:before {
-    content: '\f15d';
+    content: '\f080';
 }
 
 .mtabs label[for*='4']:before {
-    content: '\f059';
+    content: '\f080';
 }
 
 .mtabs label:hover {
