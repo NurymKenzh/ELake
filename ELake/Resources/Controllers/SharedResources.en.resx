@@ -951,4 +951,10 @@
   <data name="WaterBalanceUploadDescription" xml:space="preserve">
     <value>Column order in the file: Lake Id, year, surface inflow, surface outflow, underground inflow, underground outflow, precipitation, evaporation</value>
   </data>
+  <data name="ShoreIrregularityRatio" xml:space="preserve">
+    <value>Shore irregularity ratio</value>
+  </data>
+  <data name="LakeUploadDescription" xml:space="preserve">
+    <value>The order of the columns in the file: Lake Id, name of the lake in Kazakh, name of the lake in Russian, name of the lake in English, length of the lake shoreline in 2015, lake mirror area in 2015, longitude, latitude</value>
+  </data>
 </root>

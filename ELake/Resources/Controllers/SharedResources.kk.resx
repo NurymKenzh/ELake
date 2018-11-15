@@ -951,4 +951,10 @@
   <data name="WaterBalanceUploadDescription" xml:space="preserve">
     <value>Файлдағы бағандар тәртібі: Id Id, жыл, бетінің ағуы, беткі шығысы, жер асты ағыны, жер асты ағыны, жауын-шашын, булану</value>
   </data>
+  <data name="ShoreIrregularityRatio" xml:space="preserve">
+    <value>Жағалаудың қателігі коэффициенті</value>
+  </data>
+  <data name="LakeUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың тәртібі: Көлдің Id атауы, көлдің атауы қазақ тілінде, орыс тіліндегі көлдің атауы, ағылшын тіліндегі көлдің атауы, 2015 жылы көл жағасының ұзындығы, көлдің айнасы ауданы, бойлық, ендік</value>
+  </data>
 </root>

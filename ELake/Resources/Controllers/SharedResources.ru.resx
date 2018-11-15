@@ -951,4 +951,10 @@
   <data name="WaterBalanceUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год, поверхностный приток, поверхностный отток, подземный приток, подземный отток, осадки, испарение</value>
   </data>
+  <data name="ShoreIrregularityRatio" xml:space="preserve">
+    <value>Коэффициент изрезанности берега</value>
+  </data>
+  <data name="LakeUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, наименование озера на казахском, наименование озера на русском, наименование озера на английском, длина береговой линии озера за 2015, площадь зеркала озера за 2015, долгота, широта</value>
+  </data>
 </root>

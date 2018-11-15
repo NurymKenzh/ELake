@@ -10,26 +10,147 @@ using ELake.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using OfficeOpenXml;
 
 namespace ELake.Controllers
 {
     public class LakesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IStringLocalizer<SharedResources> _sharedLocalizer;
 
         public LakesController(ApplicationDbContext context,
+            IHostingEnvironment hostingEnvironment,
             IStringLocalizer<SharedResources> sharedLocalizer)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
             _sharedLocalizer = sharedLocalizer;
         }
 
         // GET: Lakes
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SortOrder,
+            int? LakeId,
+            string NameKK,
+            string NameRU,
+            string NameEN,
+            string VHBKK,
+            string VHBRU,
+            string VHBEN,
+            int? Page)
         {
-            return View(await _context.Lake.ToListAsync());
+            var lakes = _context.Lake
+                .Where(w => true);
+
+            ViewBag.LakeIdFilter = LakeId;
+            ViewBag.NameKKFilter = NameKK;
+            ViewBag.NameRUFilter = NameRU;
+            ViewBag.NameENFilter = NameEN;
+            ViewBag.VHBKKFilter = VHBKK;
+            ViewBag.VHBRUFilter = VHBRU;
+            ViewBag.VHBENFilter = VHBEN;
+
+            ViewBag.LakeIdSort = SortOrder == "LakeId" ? "LakeIdDesc" : "LakeId";
+            ViewBag.NameKKSort = SortOrder == "NameKK" ? "NameKKDesc" : "NameKK";
+            ViewBag.NameRUSort = SortOrder == "NameRU" ? "NameRUDesc" : "NameRU";
+            ViewBag.NameENSort = SortOrder == "NameEN" ? "NameENDesc" : "NameEN";
+            ViewBag.VHBKKSort = SortOrder == "VHBKK" ? "VHBKKDesc" : "VHBKK";
+            ViewBag.VHBRUSort = SortOrder == "VHBRU" ? "VHBRUDesc" : "VHBRU";
+            ViewBag.VHBENSort = SortOrder == "VHBEN" ? "VHBENDesc" : "VHBEN";
+
+            if (LakeId != null)
+            {
+                lakes = lakes.Where(w => w.LakeId == LakeId);
+            }
+            if (!string.IsNullOrEmpty(NameKK))
+            {
+                lakes = lakes.Where(w => w.NameKK.ToLower().Contains(NameKK.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(NameRU))
+            {
+                lakes = lakes.Where(w => w.NameRU.ToLower().Contains(NameRU.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(NameEN))
+            {
+                lakes = lakes.Where(w => w.NameEN.ToLower().Contains(NameEN.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(VHBKK))
+            {
+                lakes = lakes.Where(w => w.VHBKK.ToLower().Contains(VHBKK.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(VHBRU))
+            {
+                lakes = lakes.Where(w => w.VHBRU.ToLower().Contains(VHBRU.ToLower()));
+            }
+            if (!string.IsNullOrEmpty(VHBEN))
+            {
+                lakes = lakes.Where(w => w.VHBEN.ToLower().Contains(VHBEN.ToLower()));
+            }
+
+            switch (SortOrder)
+            {
+                case "LakeId":
+                    lakes = lakes.OrderBy(w => w.LakeId);
+                    break;
+                case "LakeIdDesc":
+                    lakes = lakes.OrderByDescending(w => w.LakeId);
+                    break;
+                case "NameKK":
+                    lakes = lakes.OrderBy(w => w.NameKK);
+                    break;
+                case "NameKKDesc":
+                    lakes = lakes.OrderByDescending(w => w.NameKK);
+                    break;
+                case "NameRU":
+                    lakes = lakes.OrderBy(w => w.NameRU);
+                    break;
+                case "NameRUDesc":
+                    lakes = lakes.OrderByDescending(w => w.NameRU);
+                    break;
+                case "NameEN":
+                    lakes = lakes.OrderBy(w => w.NameEN);
+                    break;
+                case "NameENDesc":
+                    lakes = lakes.OrderByDescending(w => w.NameEN);
+                    break;
+                case "VHBKK":
+                    lakes = lakes.OrderBy(w => w.VHBKK);
+                    break;
+                case "VHBKKDesc":
+                    lakes = lakes.OrderByDescending(w => w.VHBKK);
+                    break;
+                case "VHBRU":
+                    lakes = lakes.OrderBy(w => w.VHBRU);
+                    break;
+                case "VHBRUDesc":
+                    lakes = lakes.OrderByDescending(w => w.VHBRU);
+                    break;
+                case "VHBEN":
+                    lakes = lakes.OrderBy(w => w.VHBEN);
+                    break;
+                case "VHBENDesc":
+                    lakes = lakes.OrderByDescending(w => w.VHBEN);
+                    break;
+                default:
+                    lakes = lakes.OrderBy(w => w.Id);
+                    break;
+            }
+            ViewBag.SortOrder = SortOrder;
+
+            var pager = new Pager(lakes.Count(), Page);
+
+            var viewModel = new LakeIndexPageViewModel
+            {
+                Items = lakes.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize),
+                Pager = pager
+            };
+
+            return View(viewModel);
         }
 
         // GET: Lakes/Details/5
@@ -49,6 +170,95 @@ namespace ELake.Controllers
             }
 
             return View(lake);
+        }
+
+        // GET: Lakes/Edit/5
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var lake = await _context.Lake.SingleOrDefaultAsync(m => m.Id == id);
+            if (lake == null)
+            {
+                return NotFound();
+            }
+            return View(lake);
+        }
+
+        // POST: Lakes/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,NameKK,NameRU,NameEN,VHBKK,VHBRU,VHBEN,VHU,Area2015,LakeShorelineLength2015,Longitude,Latitude")] Lake lake)
+        {
+            if (id != lake.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(lake);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!LakeExists(lake.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(lake);
+        }
+
+        // GET: Lakes/Delete/5
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var lake = await _context.Lake
+                .SingleOrDefaultAsync(m => m.Id == id);
+            if (lake == null)
+            {
+                return NotFound();
+            }
+
+            return View(lake);
+        }
+
+        // POST: Lakes/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var lake = await _context.Lake.SingleOrDefaultAsync(m => m.Id == id);
+            _context.Lake.Remove(lake);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool LakeExists(int id)
+        {
+            return _context.Lake.Any(e => e.Id == id);
         }
 
         public static int Max(params int[] values)
@@ -153,7 +363,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Create([Bind("Id,LakeId,NameKK,NameRU,NameEN")] Lake lake)
+        public async Task<IActionResult> Create([Bind("Id,LakeId,NameKK,NameRU,NameEN,VHBKK,VHBRU,VHBEN,VHU,Area2015,LakeShorelineLength2015,Longitude,Latitude")] Lake lake)
         {
             if (ModelState.IsValid)
             {
@@ -163,105 +373,6 @@ namespace ELake.Controllers
             }
             return View(lake);
         }
-
-        // GET: Lakes/Edit/5
-        [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var lake = await _context.Lake.SingleOrDefaultAsync(m => m.Id == id);
-            if (lake == null)
-            {
-                return NotFound();
-            }
-            return View(lake);
-        }
-
-        // POST: Lakes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,NameKK,NameRU,NameEN")] Lake lake)
-        {
-            if (id != lake.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(lake);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!LakeExists(lake.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(lake);
-        }
-
-        // GET: Lakes/Delete/5
-        [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var lake = await _context.Lake
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (lake == null)
-            {
-                return NotFound();
-            }
-
-            return View(lake);
-        }
-
-        // POST: Lakes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var lake = await _context.Lake.SingleOrDefaultAsync(m => m.Id == id);
-            _context.Lake.Remove(lake);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool LakeExists(int id)
-        {
-            return _context.Lake.Any(e => e.Id == id);
-        }
-
-        //[HttpPost]
-        //public JsonResult GetLakeInfo(int LayerId)
-        //{
-        //    string s1 = "s1",
-        //        s2 = "s2";
-
-        //    JsonResult result = new JsonResult(link);
-        //    return result;
-        //}
 
         [HttpPost]
         public ActionResult GetLakeInfo(int LakeId)
@@ -275,7 +386,7 @@ namespace ELake.Controllers
                 vhu = lake?.VHU,
                 longitude = lake?.Longitude,
                 latitude = lake?.Latitude;
-            decimal? area = lake?.Area,
+            decimal? area2015 = lake?.Area2015,
                 lakeshorelinelength2015 = lake?.LakeShorelineLength2015;
             string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name;
             if (language == "ru")
@@ -384,7 +495,7 @@ namespace ELake.Controllers
                 Name,
                 vhb,
                 vhu,
-                area,
+                area2015,
                 lakeshorelinelength2015,
                 longitude,
                 latitude,
@@ -442,14 +553,114 @@ namespace ELake.Controllers
             });
         }
 
-        [HttpPost]
-        public ActionResult something(string userGuid)
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult Upload()
         {
-            var p = _context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).Take(4).ToArray();
-            return Json(new
-            {
-                p
-            });
+            return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> Upload(bool FirstRowHeader, IFormFile File)
+        {
+            try
+            {
+                string sContentRootPath = _hostingEnvironment.WebRootPath;
+                sContentRootPath = Path.Combine(sContentRootPath, "Uploads");
+                DirectoryInfo di = new DirectoryInfo(sContentRootPath);
+                foreach (FileInfo filed in di.GetFiles())
+                {
+                    try
+                    {
+                        filed.Delete();
+                    }
+                    catch
+                    {
+                    }
+                }
+                string path_filename = Path.Combine(sContentRootPath, Path.GetFileName(File.FileName));
+                using (var stream = new FileStream(Path.GetFullPath(path_filename), FileMode.Create))
+                {
+                    await File.CopyToAsync(stream);
+                }
+                FileInfo fileinfo = new FileInfo(Path.Combine(sContentRootPath, Path.GetFileName(path_filename)));
+                using (ExcelPackage package = new ExcelPackage(fileinfo))
+                {
+                    int start_row = 1;
+                    if (FirstRowHeader)
+                    {
+                        start_row++;
+                    }
+                    List<Lake> lakes = new List<Lake>();
+                    for (int i = start_row; ; i++)
+                    {
+                        if (package.Workbook.Worksheets.FirstOrDefault().Cells[i, 1].Value == null)
+                        {
+                            break;
+                        }
+                        Lake lake = new Lake();
+
+                        try
+                        {
+                            lake.LakeId = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 1].Value);
+                            lake.NameKK = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 2].Value?.ToString();
+                            lake.NameRU = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value?.ToString();
+                            lake.NameEN = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value?.ToString();
+                            lake.VHBKK = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value?.ToString();
+                            lake.VHBRU = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value?.ToString();
+                            lake.VHBEN = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value?.ToString();
+                            lake.VHU = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value?.ToString();
+
+                            lake.Area2015 = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 9].Value);
+                            lake.LakeShorelineLength2015 = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 10].Value);
+                            lake.Longitude = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 11].Value?.ToString();
+                            lake.Latitude = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 12].Value?.ToString();
+                        }
+                        catch (Exception e)
+                        {
+                            ViewBag.Error = $"{_sharedLocalizer["Row"]} {i.ToString()}: " + e.Message + (e.InnerException == null ? "" : ": " + e.InnerException.Message);
+                            break;
+                        }
+
+                        lakes.Add(lake);
+                        _context.Add(lakes.LastOrDefault());
+                    }
+                    if (string.IsNullOrEmpty(ViewBag.Error))
+                    {
+                        _context.SaveChanges();
+                        ViewBag.Report = $"{_sharedLocalizer["UploadedCount"]}: {lakes.Count()}";
+                    }
+                }
+                foreach (FileInfo filed in di.GetFiles())
+                {
+                    try
+                    {
+                        filed.Delete();
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                if (File != null)
+                {
+                    ViewBag.Error = e.Message + (e.InnerException == null ? "" : ": " + e.InnerException.Message);
+                }
+            }
+            return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult something(string userGuid)
+        //{
+        //    var p = _context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).Take(4).ToArray();
+        //    return Json(new
+        //    {
+        //        p
+        //    });
+        //}
     }
 }

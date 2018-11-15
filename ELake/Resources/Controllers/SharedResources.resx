@@ -948,4 +948,10 @@
   <data name="WaterBalanceUploadDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="ShoreIrregularityRatio" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeUploadDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

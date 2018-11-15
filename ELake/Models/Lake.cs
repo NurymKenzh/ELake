@@ -74,16 +74,25 @@ namespace ELake.Models
         public string VHU { get; set; }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Area2015")]
-        public decimal? Area { get; set; }
+        public decimal Area2015 { get; set; }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "LakeShorelineLength2015")]
-        public decimal? LakeShorelineLength2015 { get; set; }
+        public decimal LakeShorelineLength2015 { get; set; }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Longitude")]
         public string Longitude { get; set; }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Latitude")]
         public string Latitude { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "ShoreIrregularityRatio")]
+        public decimal ShoreIrregularityRatio
+        {
+            get
+            {
+                return LakeShorelineLength2015 / (decimal)(2 * Math.PI) / (decimal) Math.Sqrt((double)(Area2015 / (decimal) Math.PI));
+            }
+        }
     }
 
     public class LakeIndexPageViewModel

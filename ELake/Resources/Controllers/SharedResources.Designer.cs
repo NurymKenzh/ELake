@@ -1143,6 +1143,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LakeUploadDescription {
+            get {
+                return ResourceManager.GetString("LakeUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LakeWaterMass {
             get {
                 return ResourceManager.GetString("LakeWaterMass", resourceCulture);
@@ -1794,6 +1803,15 @@ namespace ELake.Resources.Controllers {
         public static string Shore_len {
             get {
                 return ResourceManager.GetString("Shore_len", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string ShoreIrregularityRatio {
+            get {
+                return ResourceManager.GetString("ShoreIrregularityRatio", resourceCulture);
             }
         }
         

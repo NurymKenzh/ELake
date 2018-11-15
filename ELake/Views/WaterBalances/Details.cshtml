@@ -1,5 +1,4 @@
 ﻿@model ELake.Models.WaterBalance
-
 @using ELake.Controllers
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<SharedResources> SharedLocalizer
@@ -7,7 +6,6 @@
     ViewData["Title"] = SharedLocalizer["Details"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 offset-md-2 mt-3">
@@ -37,7 +35,6 @@
             <div class="form-row ">
                 <span class="border-left ml-1"></span>
                 <div class="col-md-4 ml-3">
-
                     <div>
                         <dl class="dl-horizontal">
                             <dt>
@@ -118,62 +115,3 @@
 
     </div>
 </div>
-
-@*<div>
-    <h4>WaterBalance</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SurfaceFlow)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SurfaceFlow)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SurfaceOutflow)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SurfaceOutflow)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.UndergroundFlow)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.UndergroundFlow)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.UndergroundOutflow)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.UndergroundOutflow)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Precipitation)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Precipitation)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Evaporation)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Evaporation)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>*@

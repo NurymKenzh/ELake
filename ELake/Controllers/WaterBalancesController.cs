@@ -33,10 +33,6 @@ namespace ELake.Controllers
 
         // GET: WaterBalances
         [Authorize(Roles = "Administrator, Moderator")]
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.WaterBalance.ToListAsync());
-        //}
         public async Task<IActionResult> Index(string SortOrder,
             int? LakeId,
             int? Year,

@@ -11,9 +11,10 @@ using System;
 namespace ELake.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181115145130_Lake_20181115_00")]
+    partial class Lake_20181115_00
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,7 +174,7 @@ namespace ELake.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<decimal>("Area2015");
+                    b.Property<decimal>("Area");
 
                     b.Property<int>("LakeId");
 

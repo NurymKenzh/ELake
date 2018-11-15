@@ -6,9 +6,7 @@
     ViewData["Title"] = SharedLocalizer["Create"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>@SharedLocalizer["Create"]</h2>
-
 <h4>@SharedLocalizer["WaterBalance"]</h4>
 <hr />
 <body class="bg-white">
@@ -112,14 +110,6 @@
         </div>
     </div>
 </body>
-
-
-
-
-@*@section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }*@
-
 <script>
     $.validator.methods.range = function (value, element, param) {
         var globalizedValue = value.replace(",", ".");
@@ -129,72 +119,3 @@
         return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
     }
 </script>
-@*@model ELake.Models.WaterBalance
-
-    @{
-        ViewData["Title"] = "Create";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
-
-    <h2>Create</h2>
-
-    <h4>WaterBalance</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form asp-action="Create">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="LakeId" class="control-label"></label>
-                    <input asp-for="LakeId" class="form-control" />
-                    <span asp-validation-for="LakeId" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Year" class="control-label"></label>
-                    <input asp-for="Year" class="form-control" />
-                    <span asp-validation-for="Year" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="SurfaceFlow" class="control-label"></label>
-                    <input asp-for="SurfaceFlow" class="form-control" />
-                    <span asp-validation-for="SurfaceFlow" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="SurfaceOutflow" class="control-label"></label>
-                    <input asp-for="SurfaceOutflow" class="form-control" />
-                    <span asp-validation-for="SurfaceOutflow" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="UndergroundFlow" class="control-label"></label>
-                    <input asp-for="UndergroundFlow" class="form-control" />
-                    <span asp-validation-for="UndergroundFlow" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="UndergroundOutflow" class="control-label"></label>
-                    <input asp-for="UndergroundOutflow" class="form-control" />
-                    <span asp-validation-for="UndergroundOutflow" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Precipitation" class="control-label"></label>
-                    <input asp-for="Precipitation" class="form-control" />
-                    <span asp-validation-for="Precipitation" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Evaporation" class="control-label"></label>
-                    <input asp-for="Evaporation" class="form-control" />
-                    <span asp-validation-for="Evaporation" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
-
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }*@
