@@ -1833,8 +1833,8 @@ namespace ELake.Controllers
                     {
                         string geometry = _GDAL.GetGeometry(LayerFile, Startup.Configuration["Lakes:IdField"], lakeId.ToString());
                         string[] katoes1 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm1File"], Startup.Configuration["KATO:KATOField"], geometry),
-                            katoes2 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm2File"], Startup.Configuration["KATO:KATOField"], geometry),
-                            katoes3 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm3File"], Startup.Configuration["KATO:KATOField"], geometry);
+                            katoes2 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm2File"], Startup.Configuration["KATO:KATOField"], geometry);
+                            //katoes3 = _GDAL.GetFeatureCrossFeatures(Startup.Configuration["KATO:Adm3File"], Startup.Configuration["KATO:KATOField"], geometry);
 
                         foreach (string kato in katoes1)
                         {
@@ -1852,14 +1852,14 @@ namespace ELake.Controllers
                                 KATOId = _taskContext.KATO.FirstOrDefault(k => k.Number == kato).Id
                             });
                         }
-                        foreach (string kato in katoes3)
-                        {
-                            _taskContext.LakeKATO.Add(new LakeKATO()
-                            {
-                                LakeId = lakeId,
-                                KATOId = _taskContext.KATO.FirstOrDefault(k => k.Number == kato).Id
-                            });
-                        }
+                        //foreach (string kato in katoes3)
+                        //{
+                        //    _taskContext.LakeKATO.Add(new LakeKATO()
+                        //    {
+                        //        LakeId = lakeId,
+                        //        KATOId = _taskContext.KATO.FirstOrDefault(k => k.Number == kato).Id
+                        //    });
+                        //}
                         _taskContext.SaveChanges();
                     }
                 });

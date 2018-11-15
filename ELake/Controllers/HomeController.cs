@@ -39,6 +39,14 @@ namespace ELake.Controllers
             //lakes = lakes.Where(l => !string.IsNullOrEmpty(l)).ToList();
             //ViewBag.Lakes = lakes;
 
+            //foreach(var lake in _context.Lake)
+            //{
+            //    lake.Latitude = lake.Latitude.Replace("@", "\"");
+            //    lake.Longitude = lake.Longitude.Replace("@", "\"");
+            //    _context.Update(lake);
+            //}
+            //_context.SaveChanges();
+
             ViewBag.Lakes = new SelectList(_context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).OrderBy(l => l.Name), "LakeId", "Name");
 
             return View();
