@@ -270,7 +270,7 @@ namespace ELake.Controllers
             string NameKK = lake?.NameKK,
                 NameEN = lake?.NameEN,
                 NameRU = lake?.NameRU,
-                Name = lake.Name,
+                Name = lake?.Name,
                 vhb = lake?.VHB,
                 vhu = lake?.VHU,
                 longitude = lake?.Longitude,
@@ -439,6 +439,16 @@ namespace ELake.Controllers
                 evaporationsvalues,
                 undergroundoutflowsyears,
                 undergroundoutflowsvalues,
+            });
+        }
+
+        [HttpPost]
+        public ActionResult something(string userGuid)
+        {
+            var p = _context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).Take(4).ToArray();
+            return Json(new
+            {
+                p
             });
         }
     }

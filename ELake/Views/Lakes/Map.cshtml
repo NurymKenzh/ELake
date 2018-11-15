@@ -7,6 +7,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link href="~/lib/ol/ol.css" rel="stylesheet" />
 <script src="~/lib/ol/ol.js"></script>
 @*<link href="~/css/search.css" rel="stylesheet" />*@
@@ -15,6 +17,115 @@
 
 @*<input type="button" name="Text" value="VTest" onclick="Test()" />
     <input type="text" id="TestText"/>*@
+
+@*<div class="ui-widget">
+        <label for="tags">Tags: </label>
+        <input id="tags">
+    </div>
+    <script>
+        $(function () {
+            var availableTags = [
+                "ActionScript",
+                "AppleScript",
+                "Asp",
+                "BASIC",
+                "C",
+                "C++",
+                "Clojure",
+                "COBOL",
+                "ColdFusion",
+                "Erlang",
+                "Fortran",
+                "Groovy",
+                "Haskell",
+                "Java",
+                "JavaScript",
+                "Lisp",
+                "Perl",
+                "PHP",
+                "Python",
+                "Ruby",
+                "Scala",
+                "Scheme"
+            ];
+            $("#tags").autocomplete({
+                source: availableTags
+            });
+        });
+    </script>*@
+Topic: <input type="text" id="topics" /><input type="hidden" id="topicID" />
+
+<br /><br /><br /><br />
+Topic 2: <input type="text" id="topics2" /><input type="hidden" id="topicID2" />
+
+<br /><br /><br /><br />
+
+<p>You selected <span id="results"></span></p>
+<script>
+    var topics = [
+        {
+            value: "cooking",
+            label: "Cooking",
+            id: "1"
+        },
+        {
+            value: "C++",
+            label: "C++",
+            id: "2"
+        },
+        {
+            value: "craftsmanship",
+            label: "Software Craftsmanship",
+            id: "3"
+        }
+    ];
+    
+
+    //alert(typeof(topics));
+
+    $.ajax({
+        url: '@Url.Action("something")',
+        data: { userGuid: "_" },
+        type: 'POST',
+        success: function (data) {
+            $("#topics").autocomplete({
+                minLength: 0,
+                source: topics,
+                focus: function (event, ui) {
+                    $("#topics").val(ui.item.label);
+                    return false;
+                },
+                select: function (event, ui) {
+                    $("#topics").val(ui.item.label);
+                    $("#topicID").val(ui.item.id);
+                    $("#results").text($("#topicID").val());
+                    return false;
+                }
+            });
+
+            $("#topics2").autocomplete({
+                minLength: 0,
+                source: data.p,
+                focus: function (event, ui) {
+                    $("#topics2").val(ui.item.nameRU);
+                    return false;
+                },
+                select: function (event, ui) {
+                    $("#topics2").val(ui.item.nameRU);
+                    $("#topicID2").val(ui.item.id);
+                    $("#results2").text($("#topicID2").val());
+                    return false;
+                }
+            });
+            //alert(data.p[0].nameRU);
+            //alert(data.p[0].id);
+            //alert(data.p[0].Id);--
+            //alert(topics[0].value);
+            //alert(topics[0].id);
+        }
+    });
+</script>
+
 <p>
     Поиск по Алфавиту:
 </p>
