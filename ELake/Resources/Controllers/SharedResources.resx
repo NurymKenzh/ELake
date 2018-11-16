@@ -954,4 +954,85 @@
   <data name="LakeUploadDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="Brackish" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Brine" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Fresh" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MarineSalinity" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MineralizationType" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AcidityOfWaterDegree" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AlkalineWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HighPollution" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ModeratelyTough" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ModeratePollution" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NeutralWaters" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Regulatory" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Soft" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SourWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StronglyAcidicWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StronglyAlkalineWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SubacidWaters" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tough" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VerySoft" xml:space="preserve">
+    <value />
+  </data>
+  <data name="VeryTough" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterHardness" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WeakAlkalineWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

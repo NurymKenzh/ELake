@@ -56,5 +56,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.LakesGlobalData> LakesGlobalData { get; set; }
 
         public DbSet<ELake.Models.WaterBalance> WaterBalance { get; set; }
+
+        public DbSet<ELake.Models.GeneralHydrochemicalIndicator> GeneralHydrochemicalIndicator { get; set; }
     }
 }

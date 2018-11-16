@@ -1,0 +1,123 @@
+﻿@model ELake.Models.GeneralHydrochemicalIndicator
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Details"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Details"]</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["GeneralHydrochemicalIndicator"]</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-exclamation-triangle"></i></button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-warning" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="form-row ">
+                <span class="border-left ml-1"></span>
+                <div class="col-md-4 ml-3">
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeId)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeId)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Year)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Year)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Mineralization)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Mineralization)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.TotalHardness)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.TotalHardness)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DissOxygWater)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.DissOxygWater)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.PercentOxygWater)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.PercentOxygWater)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.pH)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.pH)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.OrganicSubstances)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.OrganicSubstances)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MineralizationType)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MineralizationType)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.WaterHardness)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.WaterHardness)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DissolvedOxygenInWaterDegree)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.DissolvedOxygenInWaterDegree)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.AcidityOfWaterDegree)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.AcidityOfWaterDegree)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.Id">@SharedLocalizer["Edit"]</a> |
+                        <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

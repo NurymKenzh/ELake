@@ -130,7 +130,7 @@
     <value>Обратно к списку</value>
   </data>
   <data name="Ca" xml:space="preserve">
-    <value>Катионы кальция,мг/дм3</value>
+    <value>Катионы кальция,мг/дм³</value>
   </data>
   <data name="Cd" xml:space="preserve">
     <value>Cd</value>
@@ -139,7 +139,7 @@
     <value>КИЗВ с учетом Ко</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>Хлоридные анионы, мг/дм3</value>
+    <value>Хлоридные анионы, мг/дм³</value>
   </data>
   <data name="Co" xml:space="preserve">
     <value>Co</value>
@@ -175,7 +175,7 @@
     <value>Детали</value>
   </data>
   <data name="DissOxygWater" xml:space="preserve">
-    <value>Растворенный в воде кислород, мг-экв/дм3</value>
+    <value>Растворенный в воде кислород, мг/дм³</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
@@ -211,7 +211,7 @@
     <value>GeoTIFF-файл</value>
   </data>
   <data name="HCO" xml:space="preserve">
-    <value>Гидрокорбонатные анионы, мг/дм3</value>
+    <value>Гидрокорбонатные анионы, мг/дм³</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
@@ -253,10 +253,10 @@
     <value>Карты</value>
   </data>
   <data name="Mg" xml:space="preserve">
-    <value>Катионы магния, мг/дм3</value>
+    <value>Катионы магния, мг/дм³</value>
   </data>
   <data name="Mineralization" xml:space="preserve">
-    <value>Значение минерализации, мг/дм3</value>
+    <value>Значение минерализации, мг/дм³</value>
   </data>
   <data name="MinValues" xml:space="preserve">
     <value>Минимальные значения</value>
@@ -265,7 +265,7 @@
     <value>Mn</value>
   </data>
   <data name="NaK" xml:space="preserve">
-    <value>Катионы натрий калия, мг/дм3</value>
+    <value>Катионы натрий калия, мг/дм³</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Название</value>
@@ -295,7 +295,7 @@
     <value>Непрозрачность</value>
   </data>
   <data name="OrganicSubstances" xml:space="preserve">
-    <value>Органические вещества,мгО/дм3</value>
+    <value>Органические вещества,мгО/дм³</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Пароль</value>
@@ -304,7 +304,7 @@
     <value>Pb</value>
   </data>
   <data name="PercentOxygWater" xml:space="preserve">
-    <value>Процент насыщенности, %</value>
+    <value>Процент насыщенности воды растворенным кислородом, %</value>
   </data>
   <data name="pH" xml:space="preserve">
     <value>Значение рН</value>
@@ -358,7 +358,7 @@
     <value>Показать</value>
   </data>
   <data name="SO" xml:space="preserve">
-    <value>Сульфатные анионы, мг/дм3</value>
+    <value>Сульфатные анионы, мг/дм³</value>
   </data>
   <data name="StyleWaterLevel" xml:space="preserve">
     <value>Стиль уровней вод озер</value>
@@ -376,7 +376,7 @@
     <value>Поверхностные оттоки</value>
   </data>
   <data name="TotalHardness" xml:space="preserve">
-    <value>Общая жесткость воды, мг-экв/дм3</value>
+    <value>Общая жесткость воды, мг-экв/дм³</value>
   </data>
   <data name="UndergroundFlow" xml:space="preserve">
     <value>Подземный приток, млн.м³</value>
@@ -457,7 +457,7 @@
     <value>Стиль подземных оттоков</value>
   </data>
   <data name="HydrochemistryCas" xml:space="preserve">
-    <value>Катионы кальция,мг/дм3</value>
+    <value>Катионы кальция,мг/дм³</value>
   </data>
   <data name="HydrochemistryCds" xml:space="preserve">
     <value>Cd</value>
@@ -466,7 +466,7 @@
     <value>КИЗВ с учетом Ко</value>
   </data>
   <data name="HydrochemistryCls" xml:space="preserve">
-    <value>Хлоридные анионы, мг/дм3</value>
+    <value>Хлоридные анионы, мг/дм³</value>
   </data>
   <data name="HydrochemistryCos" xml:space="preserve">
     <value>Co</value>
@@ -475,22 +475,22 @@
     <value>Cu</value>
   </data>
   <data name="HydrochemistryDissOxygWaters" xml:space="preserve">
-    <value>Растворенный в воде кислород, мг-экв/дм3</value>
+    <value>Растворенный в воде кислород, мг-экв/дм³</value>
   </data>
   <data name="HydrochemistryHCOs" xml:space="preserve">
-    <value>Гидрокорбонатные анионы, мг/дм3</value>
+    <value>Гидрокорбонатные анионы, мг/дм³</value>
   </data>
   <data name="HydrochemistryMgs" xml:space="preserve">
-    <value>Катионы магния, мг/дм3</value>
+    <value>Катионы магния, мг/дм³</value>
   </data>
   <data name="HydrochemistryMineralizations" xml:space="preserve">
-    <value>Значение минерализации, мг/дм3</value>
+    <value>Значение минерализации, мг/дм³</value>
   </data>
   <data name="HydrochemistryMns" xml:space="preserve">
     <value>Mn</value>
   </data>
   <data name="HydrochemistryNaKs" xml:space="preserve">
-    <value>Катионы натрий калия, мг/дм3</value>
+    <value>Катионы натрий калия, мг/дм³</value>
   </data>
   <data name="HydrochemistryNHs" xml:space="preserve">
     <value>NH</value>
@@ -505,7 +505,7 @@
     <value>NO3</value>
   </data>
   <data name="HydrochemistryOrganicSubstancess" xml:space="preserve">
-    <value>Органические вещества,мгО/дм3</value>
+    <value>Органические вещества,мгО/дм³</value>
   </data>
   <data name="HydrochemistryPbs" xml:space="preserve">
     <value>Pb</value>
@@ -520,10 +520,10 @@
     <value>PPO</value>
   </data>
   <data name="HydrochemistrySOs" xml:space="preserve">
-    <value>Сульфатные анионы, мг/дм3</value>
+    <value>Сульфатные анионы, мг/дм³</value>
   </data>
   <data name="HydrochemistryTotalHardnesss" xml:space="preserve">
-    <value>Общая жесткость воды, мг-экв/дм3</value>
+    <value>Общая жесткость воды, мг-экв/дм³</value>
   </data>
   <data name="HydrochemistryZns" xml:space="preserve">
     <value>Zn</value>
@@ -766,7 +766,7 @@
     <value>Источник архивной информации</value>
   </data>
   <data name="Area2015" xml:space="preserve">
-    <value>Площадь зеркала озера за 2015, км2 </value>
+    <value>Площадь зеркала озера за 2015, км²</value>
   </data>
   <data name="LakeAbsoluteHeight" xml:space="preserve">
     <value>Абсолютная высота озера, м</value>
@@ -778,13 +778,13 @@
     <value>Максимальная глубина озеро, м</value>
   </data>
   <data name="LakeMirrorArea" xml:space="preserve">
-    <value>Площадь зеркала озера, км2</value>
+    <value>Площадь зеркала озера, км²</value>
   </data>
   <data name="LakeShorelineLength" xml:space="preserve">
     <value>Длина береговой линии озера, км </value>
   </data>
   <data name="LakeWaterMass" xml:space="preserve">
-    <value>Объем водной массы озера, млн.м3</value>
+    <value>Объем водной массы озера, млн.м³</value>
   </data>
   <data name="LakeWidth" xml:space="preserve">
     <value>Ширина озера, км</value>
@@ -874,7 +874,7 @@
     <value>Глобальная база озер</value>
   </data>
   <data name="Lake_area" xml:space="preserve">
-    <value>Площадь поверхности озер, км2</value>
+    <value>Площадь поверхности озер, км²</value>
   </data>
   <data name="Lake_name_ENG" xml:space="preserve">
     <value>Название озера на английском</value>
@@ -904,10 +904,10 @@
     <value>Средний уклон в пределах 100-метрового буфера вокруг полигона озера, в градусах</value>
   </data>
   <data name="Vol_total" xml:space="preserve">
-    <value>Общий объем озера, млн. м3</value>
+    <value>Общий объем озера, млн. м³</value>
   </data>
   <data name="Wshd_area" xml:space="preserve">
-    <value>Площадь водосбора, км2</value>
+    <value>Площадь водосбора, км²</value>
   </data>
   <data name="LakeGlobalData" xml:space="preserve">
     <value>Информация об озере из глобальной базы</value>
@@ -956,5 +956,86 @@
   </data>
   <data name="LakeUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, наименование озера на казахском, наименование озера на русском, наименование озера на английском, длина береговой линии озера за 2015, площадь зеркала озера за 2015, долгота, широта</value>
+  </data>
+  <data name="Brackish" xml:space="preserve">
+    <value>Солоноватое</value>
+  </data>
+  <data name="Brine" xml:space="preserve">
+    <value>Рассол</value>
+  </data>
+  <data name="Fresh" xml:space="preserve">
+    <value>Пресное</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
+    <value>Общие гидрохимические показатели</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
+    <value>Общие гидрохимические показатели</value>
+  </data>
+  <data name="MarineSalinity" xml:space="preserve">
+    <value>Морская соленость</value>
+  </data>
+  <data name="MineralizationType" xml:space="preserve">
+    <value>Тип минерализации</value>
+  </data>
+  <data name="AcidityOfWaterDegree" xml:space="preserve">
+    <value>Степень кислотности воды</value>
+  </data>
+  <data name="AlkalineWater" xml:space="preserve">
+    <value>Щелочные воды</value>
+  </data>
+  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
+    <value>Степень по растворенному кислороду в воде</value>
+  </data>
+  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
+    <value>Чрезвычайно высокий уровень загрязнения</value>
+  </data>
+  <data name="HighPollution" xml:space="preserve">
+    <value>Высокий уровень загрязнения</value>
+  </data>
+  <data name="ModeratelyTough" xml:space="preserve">
+    <value>Умеренно жесткая</value>
+  </data>
+  <data name="ModeratePollution" xml:space="preserve">
+    <value>Умеренный уровень загрязнения</value>
+  </data>
+  <data name="NeutralWaters" xml:space="preserve">
+    <value>Нейтральные воды</value>
+  </data>
+  <data name="Regulatory" xml:space="preserve">
+    <value>Нормативно-чистая</value>
+  </data>
+  <data name="Soft" xml:space="preserve">
+    <value>Мягкая</value>
+  </data>
+  <data name="SourWater" xml:space="preserve">
+    <value>Кислые воды</value>
+  </data>
+  <data name="StronglyAcidicWater" xml:space="preserve">
+    <value>Сильнокислые воды</value>
+  </data>
+  <data name="StronglyAlkalineWater" xml:space="preserve">
+    <value>Сильнощелочные воды</value>
+  </data>
+  <data name="SubacidWaters" xml:space="preserve">
+    <value>Слабокислые воды</value>
+  </data>
+  <data name="Tough" xml:space="preserve">
+    <value>Жесткая</value>
+  </data>
+  <data name="VerySoft" xml:space="preserve">
+    <value>Очень мягкая</value>
+  </data>
+  <data name="VeryTough" xml:space="preserve">
+    <value>Очень жесткая</value>
+  </data>
+  <data name="WaterHardness" xml:space="preserve">
+    <value>Степень жесткости воды</value>
+  </data>
+  <data name="WeakAlkalineWater" xml:space="preserve">
+    <value>Слабощелочные воды</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, значение минерализации, общая жесткость воды, растворенный в воде кислород, процент насыщенности воды растворенным кислородом, значение рН, органические вещества</value>
   </data>
 </root>

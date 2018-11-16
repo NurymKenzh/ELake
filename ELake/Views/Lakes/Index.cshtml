@@ -24,6 +24,12 @@
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
+            <div class="col-12 col-sm-2 col-md-8">
+                <p>
+                    <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
+                    <a class="btn btn-outline-success ml-1" asp-action="Upload"><i class="fa fa-pencil"></i> @SharedLocalizer["Upload"]</a>
+                </p>
+            </div>
             <div class="table-responsive-lg">
                 @using (Html.BeginForm("Index", "Lakes", new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter, VHBKK = ViewBag.VHBKKFilter, VHBRU = ViewBag.VHBRUFilter, VHBEN = ViewBag.VHBENFilter }, FormMethod.Get))
                 {
@@ -31,12 +37,6 @@
                     @if (Model.Pager.EndPage > 1)
                     {
                         <div class="row no-gutters">
-                            <div class="col-12 col-sm-2 col-md-8">
-                                <p>
-                                    <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
-                                    <a class="btn btn-outline-success ml-1" asp-action="Upload"><i class="fa fa-pencil"></i> @SharedLocalizer["Upload"]</a>
-                                </p>
-                            </div>
                             <div class="col-6 col-md-4">
                                 <ul class="pagination justify-content-end">
                                     @if (Model.Pager.CurrentPage > 1)
@@ -164,20 +164,20 @@
                         </thead>
                         @foreach (var item in Model.Items)
                         {
-                        <tr>
-                            <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
-                            <td>@Html.DisplayFor(modelItem => item.NameKK)</td>
-                            <td>@Html.DisplayFor(modelItem => item.NameRU)</td>
-                            <td>@Html.DisplayFor(modelItem => item.NameEN)</td>
-                            <td>@Html.DisplayFor(modelItem => item.VHBKK)</td>
-                            <td>@Html.DisplayFor(modelItem => item.VHBRU)</td>
-                            <td>@Html.DisplayFor(modelItem => item.VHBEN)</td>
-                            <td>
-                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
+                                <td>@Html.DisplayFor(modelItem => item.NameKK)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NameRU)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NameEN)</td>
+                                <td>@Html.DisplayFor(modelItem => item.VHBKK)</td>
+                                <td>@Html.DisplayFor(modelItem => item.VHBRU)</td>
+                                <td>@Html.DisplayFor(modelItem => item.VHBEN)</td>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
                         }
                     </table>
                     @if (Model.Pager.EndPage > 1)

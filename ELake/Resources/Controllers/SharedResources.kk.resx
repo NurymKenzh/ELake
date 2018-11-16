@@ -957,4 +957,85 @@
   <data name="LakeUploadDescription" xml:space="preserve">
     <value>Файлдағы бағандардың тәртібі: Көлдің Id атауы, көлдің атауы қазақ тілінде, орыс тіліндегі көлдің атауы, ағылшын тіліндегі көлдің атауы, 2015 жылы көл жағасының ұзындығы, көлдің айнасы ауданы, бойлық, ендік</value>
   </data>
+  <data name="Brackish" xml:space="preserve">
+    <value>Тығыздық</value>
+  </data>
+  <data name="Brine" xml:space="preserve">
+    <value>Пицца</value>
+  </data>
+  <data name="Fresh" xml:space="preserve">
+    <value>Таза</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
+    <value>Жалпы гидрохимиялық көрсеткіштер</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
+    <value>Жалпы гидрохимиялық көрсеткіштер</value>
+  </data>
+  <data name="MarineSalinity" xml:space="preserve">
+    <value>Теңіз тұздығы</value>
+  </data>
+  <data name="MineralizationType" xml:space="preserve">
+    <value>Минерализация түрі</value>
+  </data>
+  <data name="AcidityOfWaterDegree" xml:space="preserve">
+    <value>Судың қышқылдық дәрежесі</value>
+  </data>
+  <data name="AlkalineWater" xml:space="preserve">
+    <value>Алкалин суы</value>
+  </data>
+  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
+    <value>Судағы ерітілген оттегі деңгейі</value>
+  </data>
+  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
+    <value>Ластанудың өте жоғары деңгейі</value>
+  </data>
+  <data name="HighPollution" xml:space="preserve">
+    <value>Жоғары ластану</value>
+  </data>
+  <data name="ModeratelyTough" xml:space="preserve">
+    <value>Орташа қатаң</value>
+  </data>
+  <data name="ModeratePollution" xml:space="preserve">
+    <value>Орташа ластану</value>
+  </data>
+  <data name="NeutralWaters" xml:space="preserve">
+    <value>Бейтарап сулар</value>
+  </data>
+  <data name="Regulatory" xml:space="preserve">
+    <value>Заңнамалық</value>
+  </data>
+  <data name="Soft" xml:space="preserve">
+    <value>Жұмсақ</value>
+  </data>
+  <data name="SourWater" xml:space="preserve">
+    <value>Қышқыл су</value>
+  </data>
+  <data name="StronglyAcidicWater" xml:space="preserve">
+    <value>Қатты қышқыл су</value>
+  </data>
+  <data name="StronglyAlkalineWater" xml:space="preserve">
+    <value>Қатты сілтілі су</value>
+  </data>
+  <data name="SubacidWaters" xml:space="preserve">
+    <value>Суасты сулар</value>
+  </data>
+  <data name="Tough" xml:space="preserve">
+    <value>Күшті</value>
+  </data>
+  <data name="VerySoft" xml:space="preserve">
+    <value>Өте жұмсақ</value>
+  </data>
+  <data name="VeryTough" xml:space="preserve">
+    <value>Өте қатал</value>
+  </data>
+  <data name="WaterHardness" xml:space="preserve">
+    <value>Судың кермектігі</value>
+  </data>
+  <data name="WeakAlkalineWater" xml:space="preserve">
+    <value>Әлсіз сілтілік су</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: Id Id, жыл, тұздылығы, жалпы судың қаттылығы, суда ерітілген оттегі, ерітілген оттегінің су толу пайызы, рН мағынасы, органикалық заттар</value>
+  </data>
 </root>
