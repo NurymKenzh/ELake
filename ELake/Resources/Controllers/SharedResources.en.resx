@@ -1098,6 +1098,12 @@
   <data name="Cu" xml:space="preserve">
     <value>Cu</value>
   </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>Document type</value>
+  </data>
+  <data name="DocumentTypes" xml:space="preserve">
+    <value>Types of documents</value>
+  </data>
   <data name="Group" xml:space="preserve">
     <value>Group</value>
   </data>

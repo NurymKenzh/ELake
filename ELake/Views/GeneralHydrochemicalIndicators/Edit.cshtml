@@ -76,6 +76,9 @@
                         <input asp-for="OrganicSubstances" class="form-control" />
                         <span asp-validation-for="OrganicSubstances" class="text-danger"></span>
                     </div>
+                    <div class="form-group">
+                        <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
+                    </div>
                 </form>
                 <small class="d-block text-right mt-3">
                     <a asp-action="Index">@SharedLocalizer["BackToList"]</a>

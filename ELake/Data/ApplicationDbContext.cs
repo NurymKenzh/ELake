@@ -60,5 +60,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.GeneralHydrochemicalIndicator> GeneralHydrochemicalIndicator { get; set; }
 
         public DbSet<ELake.Models.IonsaltWaterComposition> IonsaltWaterComposition { get; set; }
+
+        public DbSet<ELake.Models.DocumentType> DocumentType { get; set; }
     }
 }
