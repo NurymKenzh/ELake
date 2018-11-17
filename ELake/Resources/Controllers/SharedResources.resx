@@ -132,16 +132,10 @@
   <data name="Ca" xml:space="preserve">
     <value />
   </data>
-  <data name="Cd" xml:space="preserve">
-    <value />
-  </data>
   <data name="CIWP" xml:space="preserve">
     <value />
   </data>
   <data name="Cl" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Co" xml:space="preserve">
     <value />
   </data>
   <data name="ColorPicker" xml:space="preserve">
@@ -157,9 +151,6 @@
     <value />
   </data>
   <data name="CreateANewAccount" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Cu" xml:space="preserve">
     <value />
   </data>
   <data name="Delete" xml:space="preserve">
@@ -261,9 +252,6 @@
   <data name="MinValues" xml:space="preserve">
     <value />
   </data>
-  <data name="Mn" xml:space="preserve">
-    <value />
-  </data>
   <data name="NaK" xml:space="preserve">
     <value />
   </data>
@@ -282,15 +270,6 @@
   <data name="NH" xml:space="preserve">
     <value />
   </data>
-  <data name="Ni" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NO2" xml:space="preserve">
-    <value />
-  </data>
-  <data name="NO3" xml:space="preserve">
-    <value />
-  </data>
   <data name="Opacity" xml:space="preserve">
     <value />
   </data>
@@ -298,9 +277,6 @@
     <value />
   </data>
   <data name="Password" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Pb" xml:space="preserve">
     <value />
   </data>
   <data name="PercentOxygWater" xml:space="preserve">
@@ -430,9 +406,6 @@
     <value />
   </data>
   <data name="Year" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Zn" xml:space="preserve">
     <value />
   </data>
   <data name="DataType" xml:space="preserve">
@@ -1110,7 +1083,16 @@
   <data name="CalciumGroup" xml:space="preserve">
     <value />
   </data>
+  <data name="Cd" xml:space="preserve">
+    <value />
+  </data>
   <data name="ChlorideClass" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Co" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cu" xml:space="preserve">
     <value />
   </data>
   <data name="Group" xml:space="preserve">
@@ -1122,16 +1104,115 @@
   <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="IZVCd" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVCo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVCu" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Izvmn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVNH4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVNi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVNO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVNO3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVPb" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVPPO4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IZVZn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZV" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoCd" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoCo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoCu" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoMn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoNH4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoNi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoNO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoNO3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoPb" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoPPO4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="KIZVkoZn" xml:space="preserve">
+    <value />
+  </data>
   <data name="KurlovFormula" xml:space="preserve">
     <value />
   </data>
   <data name="MagnesiumGroup" xml:space="preserve">
     <value />
   </data>
+  <data name="Mn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NH4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Ni" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NO3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="noMetaData" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Pb" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PPO4" xml:space="preserve">
+    <value />
+  </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value />
   </data>
   <data name="SulphateClass" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ToxicologicalIndicator" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ToxicologicalIndicators" xml:space="preserve">
     <value />
   </data>
   <data name="Type1" xml:space="preserve">
@@ -1150,6 +1231,9 @@
     <value />
   </data>
   <data name="WatersType" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Zn" xml:space="preserve">
     <value />
   </data>
 </root>

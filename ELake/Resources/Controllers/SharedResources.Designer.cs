@@ -1242,6 +1242,213 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string IZVCd {
+            get {
+                return ResourceManager.GetString("IZVCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVCo {
+            get {
+                return ResourceManager.GetString("IZVCo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVCu {
+            get {
+                return ResourceManager.GetString("IZVCu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Izvmn {
+            get {
+                return ResourceManager.GetString("Izvmn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVNH4 {
+            get {
+                return ResourceManager.GetString("IZVNH4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVNi {
+            get {
+                return ResourceManager.GetString("IZVNi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVNO2 {
+            get {
+                return ResourceManager.GetString("IZVNO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVNO3 {
+            get {
+                return ResourceManager.GetString("IZVNO3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVPb {
+            get {
+                return ResourceManager.GetString("IZVPb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVPPO4 {
+            get {
+                return ResourceManager.GetString("IZVPPO4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IZVZn {
+            get {
+                return ResourceManager.GetString("IZVZn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZV {
+            get {
+                return ResourceManager.GetString("KIZV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoCd {
+            get {
+                return ResourceManager.GetString("KIZVkoCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoCo {
+            get {
+                return ResourceManager.GetString("KIZVkoCo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoCu {
+            get {
+                return ResourceManager.GetString("KIZVkoCu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoMn {
+            get {
+                return ResourceManager.GetString("KIZVkoMn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoNH4 {
+            get {
+                return ResourceManager.GetString("KIZVkoNH4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoNi {
+            get {
+                return ResourceManager.GetString("KIZVkoNi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoNO2 {
+            get {
+                return ResourceManager.GetString("KIZVkoNO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoNO3 {
+            get {
+                return ResourceManager.GetString("KIZVkoNO3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoPb {
+            get {
+                return ResourceManager.GetString("KIZVkoPb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoPPO4 {
+            get {
+                return ResourceManager.GetString("KIZVkoPPO4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVkoZn {
+            get {
+                return ResourceManager.GetString("KIZVkoZn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string KurlovFormula {
             get {
                 return ResourceManager.GetString("KurlovFormula", resourceCulture);
@@ -1836,6 +2043,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string NH4 {
+            get {
+                return ResourceManager.GetString("NH4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Ni {
             get {
                 return ResourceManager.GetString("Ni", resourceCulture);
@@ -1857,6 +2073,15 @@ namespace ELake.Resources.Controllers {
         public static string NO3 {
             get {
                 return ResourceManager.GetString("NO3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string noMetaData {
+            get {
+                return ResourceManager.GetString("noMetaData", resourceCulture);
             }
         }
         
@@ -1974,6 +2199,15 @@ namespace ELake.Resources.Controllers {
         public static string PPO {
             get {
                 return ResourceManager.GetString("PPO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PPO4 {
+            get {
+                return ResourceManager.GetString("PPO4", resourceCulture);
             }
         }
         
@@ -2694,6 +2928,24 @@ namespace ELake.Resources.Controllers {
         public static string Tough {
             get {
                 return ResourceManager.GetString("Tough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string ToxicologicalIndicator {
+            get {
+                return ResourceManager.GetString("ToxicologicalIndicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string ToxicologicalIndicators {
+            get {
+                return ResourceManager.GetString("ToxicologicalIndicators", resourceCulture);
             }
         }
         

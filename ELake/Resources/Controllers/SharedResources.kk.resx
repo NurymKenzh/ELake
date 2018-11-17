@@ -132,17 +132,11 @@
   <data name="Ca" xml:space="preserve">
     <value>Кальций катиондары, мг / дм3</value>
   </data>
-  <data name="Cd" xml:space="preserve">
-    <value>Cd</value>
-  </data>
   <data name="CIWP" xml:space="preserve">
     <value>KIZV, оның ішінде Co</value>
   </data>
   <data name="Cl" xml:space="preserve">
     <value>Хлоридті аниондар, мг / дм3</value>
-  </data>
-  <data name="Co" xml:space="preserve">
-    <value>Co</value>
   </data>
   <data name="ColorPicker" xml:space="preserve">
     <value>Тақырыптық түстер, Стандартты түстер, Түстер, Тақырып түсі, Бояғышқа оралу, Тарих, Тарих әлі жоқ.</value>
@@ -158,9 +152,6 @@
   </data>
   <data name="CreateANewAccount" xml:space="preserve">
     <value>Жаңа есептік жазба жасаңыз.</value>
-  </data>
-  <data name="Cu" xml:space="preserve">
-    <value>Cu</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Жою</value>
@@ -261,9 +252,6 @@
   <data name="MinValues" xml:space="preserve">
     <value>Ең аз мәндер</value>
   </data>
-  <data name="Mn" xml:space="preserve">
-    <value>Mn</value>
-  </data>
   <data name="NaK" xml:space="preserve">
     <value>Натрий калий катиондары, мг / дм3</value>
   </data>
@@ -282,15 +270,6 @@
   <data name="NH" xml:space="preserve">
     <value>NH</value>
   </data>
-  <data name="Ni" xml:space="preserve">
-    <value>Ni</value>
-  </data>
-  <data name="NO2" xml:space="preserve">
-    <value>NO2</value>
-  </data>
-  <data name="NO3" xml:space="preserve">
-    <value>NO3</value>
-  </data>
   <data name="Opacity" xml:space="preserve">
     <value>Ашықтық</value>
   </data>
@@ -299,9 +278,6 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>Құпия сөз</value>
-  </data>
-  <data name="Pb" xml:space="preserve">
-    <value>Pb</value>
   </data>
   <data name="PercentOxygWater" xml:space="preserve">
     <value>Қанықтылық пайызы,%</value>
@@ -431,9 +407,6 @@
   </data>
   <data name="Year" xml:space="preserve">
     <value>Жыл</value>
-  </data>
-  <data name="Zn" xml:space="preserve">
-    <value>Zn</value>
   </data>
   <data name="DataType" xml:space="preserve">
     <value>Деректер түрі</value>
@@ -1113,8 +1086,17 @@
   <data name="CalciumGroup" xml:space="preserve">
     <value>Кальций тобы</value>
   </data>
+  <data name="Cd" xml:space="preserve">
+    <value>Cd</value>
+  </data>
   <data name="ChlorideClass" xml:space="preserve">
     <value>Хлоридтік класс</value>
+  </data>
+  <data name="Co" xml:space="preserve">
+    <value>Co</value>
+  </data>
+  <data name="Cu" xml:space="preserve">
+    <value>Cu</value>
   </data>
   <data name="Group" xml:space="preserve">
     <value>Топ</value>
@@ -1125,17 +1107,113 @@
   <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
     <value>Файлдағы бағанның тәртібі: Id Id, жыл, кальций катиондары, магний катиондары, натрий калий катиондары, хлорлы аниондар, көмірсутегі аниондары, сульфатты аниондар</value>
   </data>
+  <data name="IZVCd" xml:space="preserve">
+    <value>IZV Cd</value>
+  </data>
+  <data name="IZVCo" xml:space="preserve">
+    <value>IZV Co</value>
+  </data>
+  <data name="IZVCu" xml:space="preserve">
+    <value>IZV Cu</value>
+  </data>
+  <data name="Izvmn" xml:space="preserve">
+    <value>СМИ</value>
+  </data>
+  <data name="IZVNH4" xml:space="preserve">
+    <value>IZV NH₄</value>
+  </data>
+  <data name="IZVNi" xml:space="preserve">
+    <value>IZV Ni</value>
+  </data>
+  <data name="IZVNO2" xml:space="preserve">
+    <value>IZV NO2</value>
+  </data>
+  <data name="IZVNO3" xml:space="preserve">
+    <value>IZV NO₃</value>
+  </data>
+  <data name="IZVPb" xml:space="preserve">
+    <value>IZV Pb</value>
+  </data>
+  <data name="IZVPPO4" xml:space="preserve">
+    <value>IZV PPO₄</value>
+  </data>
+  <data name="IZVZn" xml:space="preserve">
+    <value>IZV Zn</value>
+  </data>
+  <data name="KIZV" xml:space="preserve">
+    <value>KIZV</value>
+  </data>
+  <data name="KIZVkoCd" xml:space="preserve">
+    <value>KIZVko Cd</value>
+  </data>
+  <data name="KIZVkoCo" xml:space="preserve">
+    <value>KIZVko Co.</value>
+  </data>
+  <data name="KIZVkoCu" xml:space="preserve">
+    <value>KIZVko Cu</value>
+  </data>
+  <data name="KIZVkoMn" xml:space="preserve">
+    <value>KIZVko Mn</value>
+  </data>
+  <data name="KIZVkoNH4" xml:space="preserve">
+    <value>KIZVko NH₄</value>
+  </data>
+  <data name="KIZVkoNi" xml:space="preserve">
+    <value>KIZVko Ni</value>
+  </data>
+  <data name="KIZVkoNO2" xml:space="preserve">
+    <value>KIZVko NO2</value>
+  </data>
+  <data name="KIZVkoNO3" xml:space="preserve">
+    <value>КОЗВКО NO₃</value>
+  </data>
+  <data name="KIZVkoPb" xml:space="preserve">
+    <value>KIZVko Pb</value>
+  </data>
+  <data name="KIZVkoPPO4" xml:space="preserve">
+    <value>KIZVko PPO₄</value>
+  </data>
+  <data name="KIZVkoZn" xml:space="preserve">
+    <value>KIZVko Zn</value>
+  </data>
   <data name="KurlovFormula" xml:space="preserve">
     <value>М Курловтың химиялық құрамының формуласы</value>
   </data>
   <data name="MagnesiumGroup" xml:space="preserve">
     <value>Магний тобы</value>
   </data>
+  <data name="Mn" xml:space="preserve">
+    <value>Mn</value>
+  </data>
+  <data name="NH4" xml:space="preserve">
+    <value>NH₄</value>
+  </data>
+  <data name="Ni" xml:space="preserve">
+    <value>Ni</value>
+  </data>
+  <data name="NO2" xml:space="preserve">
+    <value>NO2</value>
+  </data>
+  <data name="NO3" xml:space="preserve">
+    <value>NO₃</value>
+  </data>
+  <data name="Pb" xml:space="preserve">
+    <value>Pb</value>
+  </data>
+  <data name="PPO4" xml:space="preserve">
+    <value>PPO₄</value>
+  </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value>Натрий тобы</value>
   </data>
   <data name="SulphateClass" xml:space="preserve">
     <value>Сульфат класы</value>
+  </data>
+  <data name="ToxicologicalIndicator" xml:space="preserve">
+    <value>Токсикологиялық көрсеткіштер</value>
+  </data>
+  <data name="ToxicologicalIndicators" xml:space="preserve">
+    <value>Токсикологиялық көрсеткіштер</value>
   </data>
   <data name="Type1" xml:space="preserve">
     <value>I түрі</value>
@@ -1154,5 +1232,8 @@
   </data>
   <data name="WatersType" xml:space="preserve">
     <value>Судың түрі</value>
+  </data>
+  <data name="Zn" xml:space="preserve">
+    <value>Zn</value>
   </data>
 </root>
