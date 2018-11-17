@@ -1035,7 +1035,124 @@
   <data name="WeakAlkalineWater" xml:space="preserve">
     <value>Weak alkaline water</value>
   </data>
+  <data name="AnionsSumMgEq" xml:space="preserve">
+    <value>The amount of anions in mEq / dm³</value>
+  </data>
+  <data name="CaMg" xml:space="preserve">
+    <value>Ca²⁺, calcium cations, mg / dm³</value>
+  </data>
+  <data name="CaMgEq" xml:space="preserve">
+    <value>Ca²⁺, calcium cations, mEq / dm³</value>
+  </data>
+  <data name="CaPerEq" xml:space="preserve">
+    <value>Ca²⁺, calcium cations,% eq</value>
+  </data>
+  <data name="CationsSumMgEq" xml:space="preserve">
+    <value>Cation Sums in mEq / dm³</value>
+  </data>
+  <data name="ClMg" xml:space="preserve">
+    <value>Cl⁻, chloride anions, mg / dm³</value>
+  </data>
+  <data name="ClMgEq" xml:space="preserve">
+    <value>Cl⁻, chloride anions, mEq / dm³</value>
+  </data>
+  <data name="ClPerEq" xml:space="preserve">
+    <value>Cl⁻, chloride anions,% eq</value>
+  </data>
   <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
     <value>Column order in the file: Lake Id, year, salinity value, total water hardness, oxygen dissolved in water, percentage of water saturation with dissolved oxygen, pH value, organic matter</value>
+  </data>
+  <data name="HCOMg" xml:space="preserve">
+    <value>HCO₃⁻, hydrocarbonate anions, mg / dm³</value>
+  </data>
+  <data name="HCOMgEq" xml:space="preserve">
+    <value>HCO₃⁻, hydrocarbonate anions, mEq / dm³</value>
+  </data>
+  <data name="HCOPerEq" xml:space="preserve">
+    <value>HCO₃⁻, hydrocarbonate anions,% eq</value>
+  </data>
+  <data name="IonsaltWaterComposition" xml:space="preserve">
+    <value>Ion-salt composition of water</value>
+  </data>
+  <data name="IonsaltWaterCompositions" xml:space="preserve">
+    <value>Ion-salt composition of water</value>
+  </data>
+  <data name="IonsSumMgEq" xml:space="preserve">
+    <value>The amount of ions in mEq / dm³</value>
+  </data>
+  <data name="IonsSumPerEq" xml:space="preserve">
+    <value>Amount of ions in% eq</value>
+  </data>
+  <data name="MgMg" xml:space="preserve">
+    <value>MG²⁺, magnesium cations, mg / dm³</value>
+  </data>
+  <data name="MgMgEq" xml:space="preserve">
+    <value>MG²⁺, magnesium cations, mEq / dm³</value>
+  </data>
+  <data name="MgPerEq" xml:space="preserve">
+    <value>MG²⁺, magnesium cations,% eq</value>
+  </data>
+  <data name="NaKMg" xml:space="preserve">
+    <value>Na⁺ + K⁺, sodium potassium cations, mg / dm³</value>
+  </data>
+  <data name="NaKMgEq" xml:space="preserve">
+    <value>Na⁺ + K⁺, sodium potassium cations, mEq / dm³</value>
+  </data>
+  <data name="NaKPerEq" xml:space="preserve">
+    <value>Na⁺ + K⁺, sodium potassium cations,% eq</value>
+  </data>
+  <data name="SOMg" xml:space="preserve">
+    <value>SO₄²⁻, sulfate anions, mg / dm³</value>
+  </data>
+  <data name="SOMgEq" xml:space="preserve">
+    <value>SO₄²⁻, sulfate anions, mEq / dm³</value>
+  </data>
+  <data name="SOPerEq" xml:space="preserve">
+    <value>SO₄²⁻, sulphate anions,% eq</value>
+  </data>
+  <data name="CalciumGroup" xml:space="preserve">
+    <value>Calcium group</value>
+  </data>
+  <data name="ChlorideClass" xml:space="preserve">
+    <value>Chloride class</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
+    <value>Hydrocarbonate and carbonate class</value>
+  </data>
+  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, year, calcium cations, magnesium cations, sodium potassium cations, chloride anions, hydrocarbonate anions, sulphate anions</value>
+  </data>
+  <data name="KurlovFormula" xml:space="preserve">
+    <value>The formula of chemical composition of water according to MG Kurlov</value>
+  </data>
+  <data name="MagnesiumGroup" xml:space="preserve">
+    <value>Magnesium group</value>
+  </data>
+  <data name="SodiumGroup" xml:space="preserve">
+    <value>Sodium group</value>
+  </data>
+  <data name="SulphateClass" xml:space="preserve">
+    <value>Sulphate class</value>
+  </data>
+  <data name="Type1" xml:space="preserve">
+    <value>Type I</value>
+  </data>
+  <data name="Type2" xml:space="preserve">
+    <value>Type II</value>
+  </data>
+  <data name="Type3" xml:space="preserve">
+    <value>Type III</value>
+  </data>
+  <data name="Type4" xml:space="preserve">
+    <value>Type IV</value>
+  </data>
+  <data name="WaterClass" xml:space="preserve">
+    <value>Water class</value>
+  </data>
+  <data name="WatersType" xml:space="preserve">
+    <value>Water type</value>
   </data>
 </root>

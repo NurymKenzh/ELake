@@ -130,7 +130,7 @@
     <value>Обратно к списку</value>
   </data>
   <data name="Ca" xml:space="preserve">
-    <value>Катионы кальция,мг/дм³</value>
+    <value>Ca²⁺, катионы кальция, мг-экв/дм³</value>
   </data>
   <data name="Cd" xml:space="preserve">
     <value>Cd</value>
@@ -139,7 +139,7 @@
     <value>КИЗВ с учетом Ко</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>Хлоридные анионы, мг/дм³</value>
+    <value>CL⁻, хлоридные анионы, мг-экв/дм³</value>
   </data>
   <data name="Co" xml:space="preserve">
     <value>Co</value>
@@ -211,7 +211,7 @@
     <value>GeoTIFF-файл</value>
   </data>
   <data name="HCO" xml:space="preserve">
-    <value>Гидрокорбонатные анионы, мг/дм³</value>
+    <value>HCO₃⁻, гидрокорбонатные анионы, мг-экв/дм³</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
@@ -253,7 +253,7 @@
     <value>Карты</value>
   </data>
   <data name="Mg" xml:space="preserve">
-    <value>Катионы магния, мг/дм³</value>
+    <value>MG²⁺, катионы магния, мг-экв/дм³</value>
   </data>
   <data name="Mineralization" xml:space="preserve">
     <value>Значение минерализации, мг/дм³</value>
@@ -265,7 +265,7 @@
     <value>Mn</value>
   </data>
   <data name="NaK" xml:space="preserve">
-    <value>Катионы натрий калия, мг/дм³</value>
+    <value>Na⁺+K⁺, катионы натрий калия, мг-экв/дм³</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Название</value>
@@ -358,7 +358,7 @@
     <value>Показать</value>
   </data>
   <data name="SO" xml:space="preserve">
-    <value>Сульфатные анионы, мг/дм³</value>
+    <value>SO₄²⁻, сульфатные анионы, мг-экв/дм³</value>
   </data>
   <data name="StyleWaterLevel" xml:space="preserve">
     <value>Стиль уровней вод озер</value>
@@ -1035,7 +1035,124 @@
   <data name="WeakAlkalineWater" xml:space="preserve">
     <value>Слабощелочные воды</value>
   </data>
+  <data name="AnionsSumMgEq" xml:space="preserve">
+    <value>Суммы анионов в мг-экв/дм³</value>
+  </data>
+  <data name="CaMg" xml:space="preserve">
+    <value>Ca²⁺, катионы кальция, мг/дм³</value>
+  </data>
+  <data name="CaMgEq" xml:space="preserve">
+    <value>Ca²⁺, катионы кальция, мг-экв/дм³</value>
+  </data>
+  <data name="CaPerEq" xml:space="preserve">
+    <value>Ca²⁺, катионы кальция, %-экв</value>
+  </data>
+  <data name="CationsSumMgEq" xml:space="preserve">
+    <value>Суммы катионов в мг-экв/дм³</value>
+  </data>
+  <data name="ClMg" xml:space="preserve">
+    <value>Cl⁻, хлоридные анионы, мг/дм³</value>
+  </data>
+  <data name="ClMgEq" xml:space="preserve">
+    <value>Cl⁻, хлоридные анионы, мг-экв/дм³</value>
+  </data>
+  <data name="ClPerEq" xml:space="preserve">
+    <value>Cl⁻, хлоридные анионы, %-экв</value>
+  </data>
   <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год, значение минерализации, общая жесткость воды, растворенный в воде кислород, процент насыщенности воды растворенным кислородом, значение рН, органические вещества</value>
+  </data>
+  <data name="HCOMg" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонатные анионы, мг/дм³</value>
+  </data>
+  <data name="HCOMgEq" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонатные анионы, мг-экв/дм³</value>
+  </data>
+  <data name="HCOPerEq" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонатные анионы, %-экв</value>
+  </data>
+  <data name="IonsaltWaterComposition" xml:space="preserve">
+    <value>Ионно-солевой состав воды</value>
+  </data>
+  <data name="IonsaltWaterCompositions" xml:space="preserve">
+    <value>Ионно-солевой состав воды</value>
+  </data>
+  <data name="IonsSumMgEq" xml:space="preserve">
+    <value>Суммы ионов в мг-экв/дм³</value>
+  </data>
+  <data name="IonsSumPerEq" xml:space="preserve">
+    <value>Сумма ионов в %-экв</value>
+  </data>
+  <data name="MgMg" xml:space="preserve">
+    <value>MG²⁺, катионы магния, мг/дм³</value>
+  </data>
+  <data name="MgMgEq" xml:space="preserve">
+    <value>MG²⁺, катионы магния, мг-экв/дм³</value>
+  </data>
+  <data name="MgPerEq" xml:space="preserve">
+    <value>MG²⁺, катионы магния, %-экв</value>
+  </data>
+  <data name="NaKMg" xml:space="preserve">
+    <value>Na⁺+K⁺, катионы натрий калия, мг/дм³</value>
+  </data>
+  <data name="NaKMgEq" xml:space="preserve">
+    <value>Na⁺+K⁺, катионы натрий калия, мг-экв/дм³</value>
+  </data>
+  <data name="NaKPerEq" xml:space="preserve">
+    <value>Na⁺+K⁺, катионы натрий калия, %-экв</value>
+  </data>
+  <data name="SOMg" xml:space="preserve">
+    <value>SO₄²⁻, сульфатные анионы, мг/дм³</value>
+  </data>
+  <data name="SOMgEq" xml:space="preserve">
+    <value>SO₄²⁻, сульфатные анионы, мг-экв/дм³</value>
+  </data>
+  <data name="SOPerEq" xml:space="preserve">
+    <value>SO₄²⁻, сульфатные анионы, %-экв</value>
+  </data>
+  <data name="CalciumGroup" xml:space="preserve">
+    <value>Кальциевая группа</value>
+  </data>
+  <data name="ChlorideClass" xml:space="preserve">
+    <value>Хлоридный класс</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Группа</value>
+  </data>
+  <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
+    <value>Гидрокарбонатный и карбонатный класс</value>
+  </data>
+  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, катионы кальция, катионы магния, катионы натрий калия, хлоридные анионы, гидрокорбонатные анионы, сульфатные анионы</value>
+  </data>
+  <data name="KurlovFormula" xml:space="preserve">
+    <value>Формула химсостава воды по М.Г.Курлову</value>
+  </data>
+  <data name="MagnesiumGroup" xml:space="preserve">
+    <value>Магниевая группа</value>
+  </data>
+  <data name="SodiumGroup" xml:space="preserve">
+    <value>Натриевая группа</value>
+  </data>
+  <data name="SulphateClass" xml:space="preserve">
+    <value>Сульфатный класс</value>
+  </data>
+  <data name="Type1" xml:space="preserve">
+    <value>I тип</value>
+  </data>
+  <data name="Type2" xml:space="preserve">
+    <value>II тип</value>
+  </data>
+  <data name="Type3" xml:space="preserve">
+    <value>III тип</value>
+  </data>
+  <data name="Type4" xml:space="preserve">
+    <value>IV тип</value>
+  </data>
+  <data name="WaterClass" xml:space="preserve">
+    <value>Класс воды</value>
+  </data>
+  <data name="WatersType" xml:space="preserve">
+    <value>Тип воды</value>
   </data>
 </root>

@@ -1,0 +1,219 @@
+﻿@model ELake.Models.IonsaltWaterComposition
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Details"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Details"]</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["IonsaltWaterComposition"]</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-exclamation-triangle"></i></button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-warning" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="form-row ">
+                <span class="border-left ml-1"></span>
+                <div class="col-md-4 ml-3">
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeId)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeId)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Year)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Year)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CaMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CaMgEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MgMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MgMgEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NaKMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.NaKMgEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ClMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.ClMgEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.HCOMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HCOMgEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SOMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.SOMgEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CaMg)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CaMg)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MgMg)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MgMg)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NaKMg)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.NaKMg)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ClMg)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.ClMg)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.HCOMg)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HCOMg)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SOMg)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.SOMg)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CationsSumMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CationsSumMgEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.AnionsSumMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.AnionsSumMgEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.IonsSumMgEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.IonsSumMgEq)
+                            </dd>
+                            @*<dt>
+                                @Html.DisplayNameFor(model => model.IonsSumPer)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.IonsSumPer)
+                            </dd>*@
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CaPerEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.CaPerEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MgPerEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.MgPerEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NaKPerEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.NaKPerEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ClPerEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.ClPerEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.HCOPerEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.HCOPerEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SOPerEq)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.SOPerEq)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.WaterClass)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.WaterClass)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Group)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Group)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.WaterType)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.WaterType)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.KurlovFormula)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.KurlovFormula)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.Id">@SharedLocalizer["Edit"]</a> |
+                        <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
