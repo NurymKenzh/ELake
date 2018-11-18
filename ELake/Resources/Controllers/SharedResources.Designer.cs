@@ -1503,9 +1503,9 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        public static string Izvmn {
+        public static string IZVMn {
             get {
-                return ResourceManager.GetString("Izvmn", resourceCulture);
+                return ResourceManager.GetString("IZVMn", resourceCulture);
             }
         }
         
@@ -1677,6 +1677,15 @@ namespace ELake.Resources.Controllers {
         public static string KIZVkoZn {
             get {
                 return ResourceManager.GetString("KIZVkoZn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVs {
+            get {
+                return ResourceManager.GetString("KIZVs", resourceCulture);
             }
         }
         
@@ -3369,6 +3378,15 @@ namespace ELake.Resources.Controllers {
         public static string ToxicologicalIndicators {
             get {
                 return ResourceManager.GetString("ToxicologicalIndicators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string ToxicologicalIndicatorUploadDescription {
+            get {
+                return ResourceManager.GetString("ToxicologicalIndicatorUploadDescription", resourceCulture);
             }
         }
         

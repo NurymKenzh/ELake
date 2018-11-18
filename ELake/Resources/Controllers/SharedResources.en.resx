@@ -1122,7 +1122,7 @@
   <data name="IZVCu" xml:space="preserve">
     <value>IZV Cu</value>
   </data>
-  <data name="Izvmn" xml:space="preserve">
+  <data name="IZVMn" xml:space="preserve">
     <value>Izv mn</value>
   </data>
   <data name="IZVNH4" xml:space="preserve">
@@ -1379,5 +1379,11 @@
   </data>
   <data name="UpperLimit" xml:space="preserve">
     <value>Upper limit</value>
+  </data>
+  <data name="KIZVs" xml:space="preserve">
+    <value>KIZV</value>
+  </data>
+  <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Id lakes, year, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
 </root>

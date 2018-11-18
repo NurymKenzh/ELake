@@ -1,0 +1,259 @@
+﻿@model ELake.Models.ToxicologicalIndicator
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Delete"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body class="bg-white">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid shadow-sm">
+            <div class="container py-2">
+                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["Delete"]</h2>
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["ToxicologicalIndicator"]</p>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-danger" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-row ">
+            <span class="border-left ml-1"></span>
+            <div class="col-md-4 ml-3">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LakeId)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.LakeId)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Year)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Year)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NH4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NH4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NO2)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NO2)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NO3)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NO3)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.PPO4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.PPO4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cu)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Cu)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Zn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Zn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Mn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Mn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Pb)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Pb)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Ni)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Ni)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Cd)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Cd)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Co)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Co)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVNH4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVNH4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVNO2)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVNO2)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVNO3)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVNO3)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVPPO4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVPPO4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVCu)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVCu)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVZn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVZn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVMn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVMn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVPb)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVPb)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVNi)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVNi)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVCd)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVCd)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IZVCo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.IZVCo)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoNH4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoNH4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoNO2)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoNO2)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoNO3)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoNO3)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoPPO4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoPPO4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoCu)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoCu)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoZn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoZn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoMn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoMn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoPb)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoPb)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoNi)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoNi)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoCd)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoCd)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVkoCo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVkoCo)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KIZVs)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.KIZVs)
+                    </dd>
+                </dl>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-link" /> |
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
