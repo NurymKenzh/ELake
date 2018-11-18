@@ -1284,13 +1284,28 @@
   <data name="Directories" xml:space="preserve">
     <value>Directories</value>
   </data>
+  <data name="GeneralHydrochemicalIndicatorStandard" xml:space="preserve">
+    <value>Standard of general hydrochemical indicators</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
+    <value>Standards of general hydrochemical indicators</value>
+  </data>
   <data name="Hydrology" xml:space="preserve">
     <value>Hydrology</value>
+  </data>
+  <data name="Indicator" xml:space="preserve">
+    <value>Indicator</value>
+  </data>
+  <data name="LowerLimit" xml:space="preserve">
+    <value>lower limit</value>
   </data>
   <data name="MeasurementUnit" xml:space="preserve">
     <value>Unit of measurement</value>
   </data>
   <data name="MeasurementUnits" xml:space="preserve">
     <value>Units of measurement</value>
+  </data>
+  <data name="UpperLimit" xml:space="preserve">
+    <value>Upper limit</value>
   </data>
 </root>

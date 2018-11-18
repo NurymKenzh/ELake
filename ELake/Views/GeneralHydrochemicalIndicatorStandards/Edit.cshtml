@@ -1,0 +1,91 @@
+﻿@model ELake.Models.GeneralHydrochemicalIndicatorStandard
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Edit"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Edit"]</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["GeneralHydrochemicalIndicatorStandard"]</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-exclamation-triangle"></i></button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-warning" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Indicator" class="control-label"></label>
+                        <input asp-for="Indicator" class="form-control" />
+                        <span asp-validation-for="Indicator" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Value" class="control-label"></label>
+                        <input asp-for="Value" class="form-control" />
+                        <span asp-validation-for="Value" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LowerLimit" class="control-label"></label>
+                        <input asp-for="LowerLimit" class="form-control" />
+                        <span asp-validation-for="LowerLimit" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UpperLimit" class="control-label"></label>
+                        <input asp-for="UpperLimit" class="form-control" />
+                        <span asp-validation-for="UpperLimit" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="MeasurementUnitId" class="control-label"></label>
+                        @*<input asp-for="UpperLimit" class="form-control" />*@
+                        <select asp-for="MeasurementUnitId" class="form-control" asp-items="ViewBag.MeasurementUnitId"></select>
+                        <span asp-validation-for="MeasurementUnitId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegulatoryDocumentId" class="control-label"></label>
+                        @*<input asp-for="Name" class="form-control" />*@
+                        <select asp-for="RegulatoryDocumentId" class="form-control" asp-items="ViewBag.RegulatoryDocumentId"></select>
+                        <span asp-validation-for="RegulatoryDocumentId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
+                    </div>
+                </form>
+                <small class="d-block text-right mt-3">
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </small>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $.validator.methods.range = function (value, element, param) {
+        var globalizedValue = value.replace(",", ".");
+        return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+    }
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+    }
+</script>

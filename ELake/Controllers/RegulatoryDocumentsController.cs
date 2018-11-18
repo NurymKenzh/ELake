@@ -54,7 +54,7 @@ namespace ELake.Controllers
 
             switch (SortOrder)
             {
-                case "NameId":
+                case "Name":
                     regulatoryDocuments = regulatoryDocuments.OrderBy(w => w.Name);
                     break;
                 case "NameDesc":

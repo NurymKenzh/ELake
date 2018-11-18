@@ -909,6 +909,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string GeneralHydrochemicalIndicatorStandard {
+            get {
+                return ResourceManager.GetString("GeneralHydrochemicalIndicatorStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string GeneralHydrochemicalIndicatorStandards {
+            get {
+                return ResourceManager.GetString("GeneralHydrochemicalIndicatorStandards", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string GeneralHydrochemicalIndicatorUploadDescription {
             get {
                 return ResourceManager.GetString("GeneralHydrochemicalIndicatorUploadDescription", resourceCulture);
@@ -1281,6 +1299,15 @@ namespace ELake.Resources.Controllers {
         public static string IncludeWater {
             get {
                 return ResourceManager.GetString("IncludeWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Indicator {
+            get {
+                return ResourceManager.GetString("Indicator", resourceCulture);
             }
         }
         
@@ -1848,6 +1875,15 @@ namespace ELake.Resources.Controllers {
         public static string Longitude {
             get {
                 return ResourceManager.GetString("Longitude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LowerLimit {
+            get {
+                return ResourceManager.GetString("LowerLimit", resourceCulture);
             }
         }
         
@@ -3306,6 +3342,15 @@ namespace ELake.Resources.Controllers {
         public static string UploadShapeFiles {
             get {
                 return ResourceManager.GetString("UploadShapeFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UpperLimit {
+            get {
+                return ResourceManager.GetString("UpperLimit", resourceCulture);
             }
         }
         

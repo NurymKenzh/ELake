@@ -1284,13 +1284,28 @@
   <data name="Directories" xml:space="preserve">
     <value>Анықтамалар</value>
   </data>
+  <data name="GeneralHydrochemicalIndicatorStandard" xml:space="preserve">
+    <value>Жалпы гидрохимиялық көрсеткіштердің стандарттары</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
+    <value>Жалпы гидрохимиялық көрсеткіштердің стандарттары</value>
+  </data>
   <data name="Hydrology" xml:space="preserve">
     <value>Гидрология</value>
+  </data>
+  <data name="Indicator" xml:space="preserve">
+    <value>Көрсеткіш</value>
+  </data>
+  <data name="LowerLimit" xml:space="preserve">
+    <value>Төменгі шек</value>
   </data>
   <data name="MeasurementUnit" xml:space="preserve">
     <value>Өлшем бірлігі</value>
   </data>
   <data name="MeasurementUnits" xml:space="preserve">
     <value>Өлшем бірлік</value>
+  </data>
+  <data name="UpperLimit" xml:space="preserve">
+    <value>Жоғарғы шегі</value>
   </data>
 </root>
