@@ -64,5 +64,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.DocumentType> DocumentType { get; set; }
 
         public DbSet<ELake.Models.RegulatoryDocument> RegulatoryDocument { get; set; }
+
+        public DbSet<ELake.Models.MeasurementUnit> MeasurementUnit { get; set; }
     }
 }

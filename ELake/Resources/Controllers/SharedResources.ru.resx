@@ -1281,4 +1281,16 @@
   <data name="RegulatoryDocuments" xml:space="preserve">
     <value>Нормативные документы</value>
   </data>
+  <data name="Directories" xml:space="preserve">
+    <value>Справочники</value>
+  </data>
+  <data name="Hydrology" xml:space="preserve">
+    <value>Гидрология</value>
+  </data>
+  <data name="MeasurementUnit" xml:space="preserve">
+    <value>Единица измерения</value>
+  </data>
+  <data name="MeasurementUnits" xml:space="preserve">
+    <value>Единицы измерения</value>
+  </data>
 </root>

@@ -1,10 +1,10 @@
-﻿@model ELake.Models.DocumentTypeIndexPageViewModel
+﻿@model ELake.Models.MeasurementUnitIndexPageViewModel
 @using ELake.Controllers
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<SharedResources> SharedLocalizer
 @using System.Net
 @{
-    ViewData["Title"] = SharedLocalizer["DocumentTypes"];
+    ViewData["Title"] = SharedLocalizer["MeasurementUnits"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container-fluid">
@@ -14,14 +14,14 @@
                 <div class="alert alert-primary" role="alert">
                     <h5 class="alert-heading">@SharedLocalizer["Directories"]</h5>
                 </div>
-                <a class="list-group-item list-group-item-action active" asp-controller="DocumentTypes" asp-action="Index">@SharedLocalizer["DocumentTypes"]</a>
+                <a class="list-group-item list-group-item-action" asp-controller="DocumentTypes" asp-action="Index">@SharedLocalizer["DocumentTypes"]</a>
                 <a class="list-group-item list-group-item-action" asp-controller="RegulatoryDocuments" asp-action="Index">@SharedLocalizer["RegulatoryDocuments"]</a>
-                <a class="list-group-item list-group-item-action" asp-controller="MeasurementUnits" asp-action="Index">@SharedLocalizer["MeasurementUnits"]</a>
+                <a class="list-group-item list-group-item-action active" asp-controller="MeasurementUnits" asp-action="Index">@SharedLocalizer["MeasurementUnits"]</a>
             </div>
         </div>
         <div class="col-md-8 mt-3">
             <div class="alert alert-primary" role="alert">
-                <h4 class="alert-heading">@SharedLocalizer["DocumentTypes"]</h4>
+                <h4 class="alert-heading">@SharedLocalizer["MeasurementUnits"]</h4>
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
@@ -31,7 +31,7 @@
                 </p>
             </div>
             <div class="table-responsive-lg">
-                @using (Html.BeginForm("Index", "DocumentTypes", new {  }, FormMethod.Get))
+                @using (Html.BeginForm("Index", "MeasurementUnits", new { }, FormMethod.Get))
                 {
                     @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
                     @if (Model.Pager.EndPage > 1)

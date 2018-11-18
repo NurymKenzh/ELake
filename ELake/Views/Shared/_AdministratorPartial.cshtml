@@ -24,14 +24,22 @@
             </div>
         </li>
         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-alt"></i> @SharedLocalizer["Directories"]</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown07">   
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" asp-controller="Lakes" asp-action="Index">@SharedLocalizer["Lakes"]</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" asp-controller="DocumentTypes" asp-action="Index">@SharedLocalizer["DocumentTypes"]</a>
+                <a class="dropdown-item" asp-controller="RegulatoryDocuments" asp-action="Index">@SharedLocalizer["RegulatoryDocuments"]</a>
+                <a class="dropdown-item" asp-controller="MeasurementUnits" asp-action="Index">@SharedLocalizer["MeasurementUnits"]</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list-alt"></i> @SharedLocalizer["Tables"]</a>
             <div class="dropdown-menu" aria-labelledby="dropdown07">
                 <div class="dropdown-divider"></div>
-                <h6 class="dropdown-header text-light">@SharedLocalizer["Lakes"]</h6>
-                <a class="dropdown-item" asp-controller="Lakes" asp-action="Index">@SharedLocalizer["Lakes"]</a>
+                <h6 class="dropdown-header text-light">@SharedLocalizer["Hydrology"]</h6>
                 <a class="dropdown-item" asp-controller="WaterBalances" asp-action="Index">@SharedLocalizer["WaterBalances"]</a>
-                <a class="dropdown-item" asp-controller="DocumentTypes" asp-action="Index">@SharedLocalizer["DocumentTypes"]</a>
-                <a class="dropdown-item" asp-controller="RegulatoryDocuments" asp-action="Index">@SharedLocalizer["RegulatoryDocuments"]</a>
                 <div class="dropdown-divider"></div>
                 <h6 class="dropdown-header text-light">@SharedLocalizer["Hydrochemistries"]</h6>
                 <a class="dropdown-item" asp-controller="GeneralHydrochemicalIndicators" asp-action="Index">@SharedLocalizer["GeneralHydrochemicalIndicators"]</a>
@@ -84,6 +92,7 @@
                 <a class="dropdown-item" asp-controller="WaterBalances" asp-action="Index">@SharedLocalizer["WaterBalances"]</a>
                 <a class="dropdown-item" asp-controller="DocumentTypes" asp-action="Index">@SharedLocalizer["DocumentTypes"]</a>
                 <a class="dropdown-item" asp-controller="RegulatoryDocuments" asp-action="Index">@SharedLocalizer["RegulatoryDocuments"]</a>
+                <a class="dropdown-item" asp-controller="MeasurementUnits" asp-action="Index">@SharedLocalizer["MeasurementUnits"]</a>
                 <div class="dropdown-divider"></div>
                 <h6 class="dropdown-header text-light">@SharedLocalizer["Hydrochemistries"]</h6>
                 <a class="dropdown-item" asp-controller="GeneralHydrochemicalIndicators" asp-action="Index">@SharedLocalizer["GeneralHydrochemicalIndicators"]</a>

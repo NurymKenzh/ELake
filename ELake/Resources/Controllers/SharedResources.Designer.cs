@@ -630,6 +630,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Directories {
+            get {
+                return ResourceManager.GetString("Directories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Dis_avg {
             get {
                 return ResourceManager.GetString("Dis_avg", resourceCulture);
@@ -1251,6 +1260,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Hydrology {
+            get {
+                return ResourceManager.GetString("Hydrology", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Hylak_id {
             get {
                 return ResourceManager.GetString("Hylak_id", resourceCulture);
@@ -1866,6 +1884,24 @@ namespace ELake.Resources.Controllers {
         public static string MarineSalinity {
             get {
                 return ResourceManager.GetString("MarineSalinity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasurementUnit {
+            get {
+                return ResourceManager.GetString("MeasurementUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasurementUnits {
+            get {
+                return ResourceManager.GetString("MeasurementUnits", resourceCulture);
             }
         }
         

@@ -1281,4 +1281,16 @@
   <data name="RegulatoryDocuments" xml:space="preserve">
     <value>Нормативтік құжаттар</value>
   </data>
+  <data name="Directories" xml:space="preserve">
+    <value>Анықтамалар</value>
+  </data>
+  <data name="Hydrology" xml:space="preserve">
+    <value>Гидрология</value>
+  </data>
+  <data name="MeasurementUnit" xml:space="preserve">
+    <value>Өлшем бірлігі</value>
+  </data>
+  <data name="MeasurementUnits" xml:space="preserve">
+    <value>Өлшем бірлік</value>
+  </data>
 </root>

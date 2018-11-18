@@ -35,7 +35,7 @@ namespace ELake.Controllers
         {
             var regulatoryDocuments = _context.RegulatoryDocument
                 .Include(r => r.DocumentType)
-                .Where(w => true);
+                .Where(r => !r.Archival);
 
             ViewBag.NameFilter = Name;
             ViewBag.NumberFilter = Number;
