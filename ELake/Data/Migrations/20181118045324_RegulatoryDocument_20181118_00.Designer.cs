@@ -11,9 +11,10 @@ using System;
 namespace ELake.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181118045324_RegulatoryDocument_20181118_00")]
+    partial class RegulatoryDocument_20181118_00
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -579,11 +580,13 @@ namespace ELake.Data.Migrations
 
                     b.Property<int>("DocumentTypeId");
 
+                    b.Property<string>("File");
+
                     b.Property<int?>("ForceEntryDay");
 
                     b.Property<int?>("ForceEntryMonth");
 
-                    b.Property<int>("ForceEntryYear");
+                    b.Property<int?>("ForceEntryYear");
 
                     b.Property<string>("Name");
 

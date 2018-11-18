@@ -1,0 +1,182 @@
+﻿@model ELake.Models.RegulatoryDocument
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Details"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Details"]</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["RegulatoryDocument"]</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-exclamation-triangle"></i></button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-warning" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="form-row ">
+                <span class="border-left ml-1"></span>
+                <div class="col-md-4 ml-3">
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DocumentType)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.DocumentType.Name)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Name)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Number)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Number)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ForceEntryDayDateYear)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.ForceEntryDayDateYear)
+                            </dd>
+                            <dt>
+                                @Html.DisplayName(SharedLocalizer["File"])
+                            </dt>
+                            <dd>
+                                <a asp-action="DownloadFile" asp-route-id="@Model.Id">@SharedLocalizer["Download"]</a>
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.PreviousDocumentId)
+                            </dt>
+                            <dd>
+                                @if (Model.PreviousDocumentId != null)
+                                {
+                                    <a asp-action="Details" asp-route-id="@Model.PreviousDocumentId">@SharedLocalizer["Details"]</a>
+                                }
+                            </dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.Id">@SharedLocalizer["Edit"]</a> |
+                        <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*@model ELake.Models.RegulatoryDocument
+
+    @{
+        ViewData["Title"] = "Details";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>RegulatoryDocument</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Number)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Number)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ForceEntryYear)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ForceEntryYear)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ForceEntryMonth)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ForceEntryMonth)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ForceEntryDay)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ForceEntryDay)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.File)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.File)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PreviousDocumentId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PreviousDocumentId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Archival)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Archival)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DeletingJustification)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DeletingJustification)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NewDocumentId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NewDocumentId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DocumentType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DocumentType.Id)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

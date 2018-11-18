@@ -1242,4 +1242,43 @@
   <data name="Zn" xml:space="preserve">
     <value>Zn</value>
   </data>
+  <data name="Archival" xml:space="preserve">
+    <value>Мұрағат</value>
+  </data>
+  <data name="DeletingJustification" xml:space="preserve">
+    <value>Құжатты жою үшін негіздеме</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Сипаттама</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Жүктеу</value>
+  </data>
+  <data name="ForceEntryDay" xml:space="preserve">
+    <value>Күшіне ену күні</value>
+  </data>
+  <data name="ForceEntryDayDateYear" xml:space="preserve">
+    <value>Күшіне ену күні (жылы)</value>
+  </data>
+  <data name="ForceEntryMonth" xml:space="preserve">
+    <value>Күшіне ену айлығы</value>
+  </data>
+  <data name="ForceEntryYear" xml:space="preserve">
+    <value>Күшіне енген жылы</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>Жаңа құжат</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Нөмірі</value>
+  </data>
+  <data name="PreviousDocument" xml:space="preserve">
+    <value>Алдыңғы құжат</value>
+  </data>
+  <data name="RegulatoryDocument" xml:space="preserve">
+    <value>Нормативтік құжат</value>
+  </data>
+  <data name="RegulatoryDocuments" xml:space="preserve">
+    <value>Нормативтік құжаттар</value>
+  </data>
 </root>

@@ -1,0 +1,194 @@
+﻿@model ELake.Models.RegulatoryDocument
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Edit"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Edit"]</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["RegulatoryDocument"]</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-exclamation-triangle"></i></button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-warning" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="col-md-4">
+                @using (Html.BeginForm("Edit", "RegulatoryDocuments", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="DocumentTypeId" class="control-label"></label>
+                        @*<input asp-for="DocumentTypeId" class="form-control" />*@
+                        <select asp-for="DocumentTypeId" class="form-control" asp-items="ViewBag.DocumentTypeId"></select>
+                        <span asp-validation-for="DocumentTypeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Number" class="control-label"></label>
+                        <input asp-for="Number" class="form-control" />
+                        <span asp-validation-for="Number" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ForceEntryYear" class="control-label"></label>
+                        <input asp-for="ForceEntryYear" class="form-control" />
+                        <span asp-validation-for="ForceEntryYear" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ForceEntryMonth" class="control-label"></label>
+                        <input asp-for="ForceEntryMonth" class="form-control" />
+                        <span asp-validation-for="ForceEntryMonth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ForceEntryDay" class="control-label"></label>
+                        <input asp-for="ForceEntryDay" class="form-control" />
+                        <span asp-validation-for="ForceEntryDay" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">@SharedLocalizer["File"]</label>
+                        <input type="file" name="DocFile" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PreviousDocumentId" class="control-label"></label>
+                        @Html.DropDownListFor(m => m.PreviousDocumentId, (SelectList)ViewBag.PreviousDocumentId, "", new { @class = "form-control" })
+                        <span asp-validation-for="PreviousDocumentId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
+                    </div>
+                }
+                <small class="d-block text-right mt-3">
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </small>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $.validator.methods.range = function (value, element, param) {
+        var globalizedValue = value.replace(",", ".");
+        return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+    }
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+    }
+</script>
+
+
+@*@model ELake.Models.RegulatoryDocument
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>RegulatoryDocument</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="DocumentTypeId" class="control-label"></label>
+                <select asp-for="DocumentTypeId" class="form-control" asp-items="ViewBag.DocumentTypeId"></select>
+                <span asp-validation-for="DocumentTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForceEntryYear" class="control-label"></label>
+                <input asp-for="ForceEntryYear" class="form-control" />
+                <span asp-validation-for="ForceEntryYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForceEntryMonth" class="control-label"></label>
+                <input asp-for="ForceEntryMonth" class="form-control" />
+                <span asp-validation-for="ForceEntryMonth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ForceEntryDay" class="control-label"></label>
+                <input asp-for="ForceEntryDay" class="form-control" />
+                <span asp-validation-for="ForceEntryDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="File" class="control-label"></label>
+                <input asp-for="File" class="form-control" />
+                <span asp-validation-for="File" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PreviousDocumentId" class="control-label"></label>
+                <input asp-for="PreviousDocumentId" class="form-control" />
+                <span asp-validation-for="PreviousDocumentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Archival" /> @Html.DisplayNameFor(model => model.Archival)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeletingJustification" class="control-label"></label>
+                <input asp-for="DeletingJustification" class="form-control" />
+                <span asp-validation-for="DeletingJustification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewDocumentId" class="control-label"></label>
+                <input asp-for="NewDocumentId" class="form-control" />
+                <span asp-validation-for="NewDocumentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

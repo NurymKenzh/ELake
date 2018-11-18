@@ -1242,4 +1242,43 @@
   <data name="Zn" xml:space="preserve">
     <value>Zn</value>
   </data>
+  <data name="Archival" xml:space="preserve">
+    <value>Архивный</value>
+  </data>
+  <data name="DeletingJustification" xml:space="preserve">
+    <value>Обоснование для удаления  документа</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Скачать</value>
+  </data>
+  <data name="ForceEntryDay" xml:space="preserve">
+    <value>День вступления в силу</value>
+  </data>
+  <data name="ForceEntryDayDateYear" xml:space="preserve">
+    <value>Дата (год) вступления в силу</value>
+  </data>
+  <data name="ForceEntryMonth" xml:space="preserve">
+    <value>Месяц вступления в силу</value>
+  </data>
+  <data name="ForceEntryYear" xml:space="preserve">
+    <value>Год вступления в силу</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>Новый документ</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="PreviousDocument" xml:space="preserve">
+    <value>Предыдущий документ</value>
+  </data>
+  <data name="RegulatoryDocument" xml:space="preserve">
+    <value>Нормативный документ</value>
+  </data>
+  <data name="RegulatoryDocuments" xml:space="preserve">
+    <value>Нормативные документы</value>
+  </data>
 </root>

@@ -62,5 +62,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.IonsaltWaterComposition> IonsaltWaterComposition { get; set; }
 
         public DbSet<ELake.Models.DocumentType> DocumentType { get; set; }
+
+        public DbSet<ELake.Models.RegulatoryDocument> RegulatoryDocument { get; set; }
     }
 }

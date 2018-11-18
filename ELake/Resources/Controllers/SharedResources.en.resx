@@ -1242,4 +1242,43 @@
   <data name="Zn" xml:space="preserve">
     <value>Zn</value>
   </data>
+  <data name="Archival" xml:space="preserve">
+    <value>Archival</value>
+  </data>
+  <data name="DeletingJustification" xml:space="preserve">
+    <value>Justification for deleting the document</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="ForceEntryDay" xml:space="preserve">
+    <value>Day of entry into force</value>
+  </data>
+  <data name="ForceEntryDayDateYear" xml:space="preserve">
+    <value>Date (year) of entry into force</value>
+  </data>
+  <data name="ForceEntryMonth" xml:space="preserve">
+    <value>Month of entry into force</value>
+  </data>
+  <data name="ForceEntryYear" xml:space="preserve">
+    <value>Year of entry into force</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>New document</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="PreviousDocument" xml:space="preserve">
+    <value>Previous document</value>
+  </data>
+  <data name="RegulatoryDocument" xml:space="preserve">
+    <value>Regulatory Document</value>
+  </data>
+  <data name="RegulatoryDocuments" xml:space="preserve">
+    <value>Regulations</value>
+  </data>
 </root>
