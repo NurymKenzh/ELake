@@ -91,11 +91,18 @@
                                 <th scope="col">
                                     <div class="form-row align-items-center">
                                         <div class="col-sm-5 my-1">
-                                            @Html.Editor("Year", null, new { htmlAttributes = new { @class = "form-control is-valid" }, value = "", placeholder = SharedLocalizer["Year"] })
+                                            @Html.Editor("Year", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["Year"] }, value = "" })
                                         </div>
                                         <div class="col-sm-auto my-1">
                                             @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().Year).ToString(), "Index",
                                            new { SortOrder = ViewBag.YearSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                        </div>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-auto my-2">
+                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakePart)
                                         </div>
                                     </div>
                                 </th>
@@ -152,21 +159,22 @@
                         </thead>
                         @foreach (var item in Model.Items)
                         {
-                            <tr>
-                                <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
-                                <td>@Html.DisplayFor(modelItem => item.Year)</td>
-                                <td>@Html.DisplayFor(modelItem => item.CaMgEq)</td>
-                                <td>@Html.DisplayFor(modelItem => item.MgMgEq)</td>
-                                <td>@Html.DisplayFor(modelItem => item.NaKMgEq)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ClMgEq)</td>
-                                <td>@Html.DisplayFor(modelItem => item.HCOMgEq)</td>
-                                <td>@Html.DisplayFor(modelItem => item.SOMgEq)</td>
-                                <td>
-                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
-                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
+                            <td>@Html.DisplayFor(modelItem => item.Year)</td>
+                            <td>@SharedLocalizer[item.LakePart.ToString()]</td>
+                            <td>@Html.DisplayFor(modelItem => item.CaMgEq)</td>
+                            <td>@Html.DisplayFor(modelItem => item.MgMgEq)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NaKMgEq)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ClMgEq)</td>
+                            <td>@Html.DisplayFor(modelItem => item.HCOMgEq)</td>
+                            <td>@Html.DisplayFor(modelItem => item.SOMgEq)</td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
+                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
                         }
                     </table>
                     @if (Model.Pager.EndPage > 1)

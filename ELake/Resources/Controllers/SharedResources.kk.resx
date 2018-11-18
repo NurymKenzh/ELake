@@ -1032,9 +1032,6 @@
   <data name="ClPerEq" xml:space="preserve">
     <value>Cl⁻, хлорлы аниондар,% экв</value>
   </data>
-  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандар тәртібі: Id Id, жыл, тұздылығы, жалпы судың қаттылығы, суда ерітілген оттегі, ерітілген оттегінің су толу пайызы, рН мағынасы, органикалық заттар</value>
-  </data>
   <data name="HCOMg" xml:space="preserve">
     <value>HCO₃⁻, көмірсутекті аниондар, мг / дм³</value>
   </data>
@@ -1109,9 +1106,6 @@
   </data>
   <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
     <value>Гидрокарбонат және карбонат класы</value>
-  </data>
-  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағанның тәртібі: Id Id, жыл, кальций катиондары, магний катиондары, натрий калий катиондары, хлорлы аниондар, көмірсутегі аниондары, сульфатты аниондар</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>IZV Cd</value>
@@ -1383,7 +1377,25 @@
   <data name="KIZVs" xml:space="preserve">
     <value>KIZV</value>
   </data>
+  <data name="FreshPart" xml:space="preserve">
+    <value>Таза</value>
+  </data>
+  <data name="FullyPart" xml:space="preserve">
+    <value>Толығымен</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: көлдің Id, жыл, көлдің бір бөлігі, тұздылығы, жалпы судың қаттылығы, суда ерітілген оттегі, ерітілген оттегі, қаныққан рН мәні, органикалық заттар</value>
+  </data>
+  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың тәртібі: көлдің Id, жыл, көлдің бір бөлігі, кальций катиондары, магний катиондары, натрий калий катиондары, хлориді аниондары, көмірсутегі аниондары, сульфатты аниондар</value>
+  </data>
+  <data name="LakePart" xml:space="preserve">
+    <value>Көлдің бір бөлігі</value>
+  </data>
+  <data name="SaltyPart" xml:space="preserve">
+    <value>Тұзды</value>
+  </data>
   <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағаналық тапсырыс: Id lakes, year, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
+    <value>Файлдағы бағандар тәртібі: Id көлдер, жыл, көлдің бөлігі, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
 </root>

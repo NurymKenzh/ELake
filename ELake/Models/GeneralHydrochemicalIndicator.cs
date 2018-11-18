@@ -17,6 +17,9 @@ namespace ELake.Models
         [Range(1900, 2015)]
         public int Year { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "LakePart")]
+        public LakePart LakePart { get; set; }
+
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Mineralization")]
         public decimal? Mineralization { get; set; }
 
@@ -180,5 +183,12 @@ namespace ELake.Models
     {
         public IEnumerable<GeneralHydrochemicalIndicator> Items { get; set; }
         public Pager Pager { get; set; }
+    }
+
+    public enum LakePart
+    {
+        FullyPart = 0,
+        FreshPart = 1,
+        SaltyPart = 2
     }
 }

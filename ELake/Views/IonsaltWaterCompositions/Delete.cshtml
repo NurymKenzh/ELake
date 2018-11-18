@@ -44,6 +44,12 @@
                         @Html.DisplayFor(model => model.Year)
                     </dd>
                     <dt>
+                        @Html.DisplayNameFor(model => model.LakePart)
+                    </dt>
+                    <dd>
+                        @SharedLocalizer[Model.LakePart.ToString()]
+                    </dd>
+                    <dt>
                         @Html.DisplayNameFor(model => model.CaMgEq)
                     </dt>
                     <dd>
@@ -134,11 +140,11 @@
                         @Html.DisplayFor(model => model.IonsSumMgEq)
                     </dd>
                     @*<dt>
-                        @Html.DisplayNameFor(model => model.IonsSumPer)
-                    </dt>
-                    <dd>
-                        @Html.DisplayFor(model => model.IonsSumPer)
-                    </dd>*@
+            @Html.DisplayNameFor(model => model.IonsSumPer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IonsSumPer)
+        </dd>*@
                     <dt>
                         @Html.DisplayNameFor(model => model.CaPerEq)
                     </dt>

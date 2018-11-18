@@ -119,7 +119,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Create([Bind("Id,LakeId,Year,CaMgEq,MgMgEq,NaKMgEq,ClMgEq,HCOMgEq,SOMgEq")] IonsaltWaterComposition ionsaltWaterComposition)
+        public async Task<IActionResult> Create([Bind("Id,LakeId,Year,LakePart,CaMgEq,MgMgEq,NaKMgEq,ClMgEq,HCOMgEq,SOMgEq")] IonsaltWaterComposition ionsaltWaterComposition)
         {
             if (ModelState.IsValid)
             {
@@ -153,7 +153,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,Year,CaMgEq,MgMgEq,NaKMgEq,ClMgEq,HCOMgEq,SOMgEq")] IonsaltWaterComposition ionsaltWaterComposition)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,Year,LakePart,CaMgEq,MgMgEq,NaKMgEq,ClMgEq,HCOMgEq,SOMgEq")] IonsaltWaterComposition ionsaltWaterComposition)
         {
             if (id != ionsaltWaterComposition.Id)
             {
@@ -271,24 +271,25 @@ namespace ELake.Controllers
                         {
                             ionsaltWaterComposition.LakeId = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 1].Value);
                             ionsaltWaterComposition.Year = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 2].Value);
-                            ionsaltWaterComposition.CaMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value == null ?
-                                (decimal?)null :
-                                Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
-                            ionsaltWaterComposition.MgMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value == null ?
+                            ionsaltWaterComposition.LakePart = (LakePart)Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
+                            ionsaltWaterComposition.CaMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value);
-                            ionsaltWaterComposition.NaKMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value == null ?
+                            ionsaltWaterComposition.MgMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value);
-                            ionsaltWaterComposition.ClMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value == null ?
+                            ionsaltWaterComposition.NaKMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value);
-                            ionsaltWaterComposition.HCOMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value == null ?
+                            ionsaltWaterComposition.ClMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value);
-                            ionsaltWaterComposition.SOMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value == null ?
+                            ionsaltWaterComposition.HCOMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value);
+                            ionsaltWaterComposition.SOMgEq = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 9].Value == null ?
+                                (decimal?)null :
+                                Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 9].Value);
                         }
                         catch (Exception e)
                         {

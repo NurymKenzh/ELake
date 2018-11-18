@@ -12,9 +12,10 @@ using System;
 namespace ELake.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181118170412_GeneralHydrochemicalIndicator_20181118_00")]
+    partial class GeneralHydrochemicalIndicator_20181118_00
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,8 +228,6 @@ namespace ELake.Data.Migrations
                     b.Property<decimal?>("HCOMgEq");
 
                     b.Property<int>("LakeId");
-
-                    b.Property<int>("LakePart");
 
                     b.Property<decimal?>("MgMgEq");
 
@@ -745,8 +744,6 @@ namespace ELake.Data.Migrations
                     b.Property<decimal?>("Cu");
 
                     b.Property<int>("LakeId");
-
-                    b.Property<int>("LakePart");
 
                     b.Property<decimal?>("Mn");
 

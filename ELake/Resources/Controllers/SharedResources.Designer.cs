@@ -882,6 +882,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string FreshPart {
+            get {
+                return ResourceManager.GetString("FreshPart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FullyPart {
+            get {
+                return ResourceManager.GetString("FullyPart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Functions {
             get {
                 return ResourceManager.GetString("Functions", resourceCulture);
@@ -1812,6 +1830,15 @@ namespace ELake.Resources.Controllers {
         public static string LakeMirrorArea {
             get {
                 return ResourceManager.GetString("LakeMirrorArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LakePart {
+            get {
+                return ResourceManager.GetString("LakePart", resourceCulture);
             }
         }
         
@@ -2829,6 +2856,15 @@ namespace ELake.Resources.Controllers {
         public static string Row {
             get {
                 return ResourceManager.GetString("Row", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SaltyPart {
+            get {
+                return ResourceManager.GetString("SaltyPart", resourceCulture);
             }
         }
         

@@ -50,6 +50,12 @@
                                 @Html.DisplayFor(model => model.Year)
                             </dd>
                             <dt>
+                                @Html.DisplayNameFor(model => model.LakePart)
+                            </dt>
+                            <dd>
+                                @SharedLocalizer[Model.LakePart.ToString()]
+                            </dd>
+                            <dt>
                                 @Html.DisplayNameFor(model => model.Mineralization)
                             </dt>
                             <dd>

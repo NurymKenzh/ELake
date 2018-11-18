@@ -17,6 +17,9 @@ namespace ELake.Models
         [Range(1900, 2015)]
         public int Year { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "LakePart")]
+        public LakePart LakePart { get; set; }
+
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "CaMgEq")]
         public decimal? CaMgEq { get; set; }
 

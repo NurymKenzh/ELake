@@ -1032,9 +1032,6 @@
   <data name="ClPerEq" xml:space="preserve">
     <value>Cl⁻, хлоридные анионы, %-экв</value>
   </data>
-  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, год, значение минерализации, общая жесткость воды, растворенный в воде кислород, процент насыщенности воды растворенным кислородом, значение рН, органические вещества</value>
-  </data>
   <data name="HCOMg" xml:space="preserve">
     <value>HCO₃⁻, гидрокорбонатные анионы, мг/дм³</value>
   </data>
@@ -1109,9 +1106,6 @@
   </data>
   <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
     <value>Гидрокарбонатный и карбонатный класс</value>
-  </data>
-  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, год, катионы кальция, катионы магния, катионы натрий калия, хлоридные анионы, гидрокорбонатные анионы, сульфатные анионы</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>ИЗВ Cd</value>
@@ -1383,7 +1377,25 @@
   <data name="KIZVs" xml:space="preserve">
     <value>КИЗВ</value>
   </data>
+  <data name="FreshPart" xml:space="preserve">
+    <value>Пресная часть</value>
+  </data>
+  <data name="FullyPart" xml:space="preserve">
+    <value>Полностью</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, часть озера, значение минерализации, общая жесткость воды, растворенный в воде кислород, процент насыщенности воды растворенным кислородом, значение рН, органические вещества</value>
+  </data>
+  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, часть озера, катионы кальция, катионы магния, катионы натрий калия, хлоридные анионы, гидрокорбонатные анионы, сульфатные анионы</value>
+  </data>
+  <data name="LakePart" xml:space="preserve">
+    <value>Часть озера</value>
+  </data>
+  <data name="SaltyPart" xml:space="preserve">
+    <value>Соленая часть</value>
+  </data>
   <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, год, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
+    <value>Порядок столбцов в файле: Id озера, год, часть озера, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
 </root>

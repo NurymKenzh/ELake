@@ -119,7 +119,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Create([Bind("Id,LakeId,Year,NH4,NO2,NO3,PPO4,Cu,Zn,Mn,Pb,Ni,Cd,Co")] ToxicologicalIndicator toxicologicalIndicator)
+        public async Task<IActionResult> Create([Bind("Id,LakeId,Year,LakePart,NH4,NO2,NO3,PPO4,Cu,Zn,Mn,Pb,Ni,Cd,Co")] ToxicologicalIndicator toxicologicalIndicator)
         {
             if (ModelState.IsValid)
             {
@@ -153,7 +153,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,Year,NH4,NO2,NO3,PPO4,Cu,Zn,Mn,Pb,Ni,Cd,Co")] ToxicologicalIndicator toxicologicalIndicator)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,Year,LakePart,NH4,NO2,NO3,PPO4,Cu,Zn,Mn,Pb,Ni,Cd,Co")] ToxicologicalIndicator toxicologicalIndicator)
         {
             if (id != toxicologicalIndicator.Id)
             {
@@ -271,39 +271,40 @@ namespace ELake.Controllers
                         {
                             toxicologicalIndicator.LakeId = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 1].Value);
                             toxicologicalIndicator.Year = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 2].Value);
-                            toxicologicalIndicator.NH4 = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value == null ?
-                                (decimal?)null :
-                                Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
-                            toxicologicalIndicator.NO2 = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value == null ?
+                            toxicologicalIndicator.LakePart = (LakePart)Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
+                            toxicologicalIndicator.NH4 = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value);
-                            toxicologicalIndicator.NO3 = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value == null ?
+                            toxicologicalIndicator.NO2 = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value);
-                            toxicologicalIndicator.PPO4 = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value == null ?
+                            toxicologicalIndicator.NO3 = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value);
-                            toxicologicalIndicator.Cu = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value == null ?
+                            toxicologicalIndicator.PPO4 = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value);
-                            toxicologicalIndicator.Zn = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value == null ?
+                            toxicologicalIndicator.Cu = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value);
-                            toxicologicalIndicator.Mn = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 9].Value == null ?
+                            toxicologicalIndicator.Zn = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 9].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 9].Value);
-                            toxicologicalIndicator.Pb = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 10].Value == null ?
+                            toxicologicalIndicator.Mn = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 10].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 10].Value);
-                            toxicologicalIndicator.Ni = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 11].Value == null ?
+                            toxicologicalIndicator.Pb = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 11].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 11].Value);
-                            toxicologicalIndicator.Cd = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 12].Value == null ?
+                            toxicologicalIndicator.Ni = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 12].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 12].Value);
-                            toxicologicalIndicator.Co = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 13].Value == null ?
+                            toxicologicalIndicator.Cd = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 13].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 13].Value);
+                            toxicologicalIndicator.Co = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 14].Value == null ?
+                                (decimal?)null :
+                                Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 14].Value);
                         }
                         catch (Exception e)
                         {

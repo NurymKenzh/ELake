@@ -119,7 +119,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Create([Bind("Id,LakeId,Year,Mineralization,TotalHardness,DissOxygWater,PercentOxygWater,pH,OrganicSubstances")] GeneralHydrochemicalIndicator generalHydrochemicalIndicator)
+        public async Task<IActionResult> Create([Bind("Id,LakeId,Year,LakePart,Mineralization,TotalHardness,DissOxygWater,PercentOxygWater,pH,OrganicSubstances")] GeneralHydrochemicalIndicator generalHydrochemicalIndicator)
         {
             if (ModelState.IsValid)
             {
@@ -153,7 +153,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,Year,Mineralization,TotalHardness,DissOxygWater,PercentOxygWater,pH,OrganicSubstances")] GeneralHydrochemicalIndicator generalHydrochemicalIndicator)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,Year,LakePart,Mineralization,TotalHardness,DissOxygWater,PercentOxygWater,pH,OrganicSubstances")] GeneralHydrochemicalIndicator generalHydrochemicalIndicator)
         {
             if (id != generalHydrochemicalIndicator.Id)
             {
@@ -271,24 +271,25 @@ namespace ELake.Controllers
                         {
                             generalHydrochemicalIndicator.LakeId = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 1].Value);
                             generalHydrochemicalIndicator.Year = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 2].Value);
-                            generalHydrochemicalIndicator.Mineralization = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value == null ?
-                                (decimal?)null :
-                                Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
-                            generalHydrochemicalIndicator.TotalHardness = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value == null ?
+                            generalHydrochemicalIndicator.LakePart = (LakePart)Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
+                            generalHydrochemicalIndicator.Mineralization = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value);
-                            generalHydrochemicalIndicator.DissOxygWater = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value == null ?
+                            generalHydrochemicalIndicator.TotalHardness = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value);
-                            generalHydrochemicalIndicator.PercentOxygWater = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value == null ?
+                            generalHydrochemicalIndicator.DissOxygWater = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value);
-                            generalHydrochemicalIndicator.pH = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value == null ?
+                            generalHydrochemicalIndicator.PercentOxygWater = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 7].Value);
-                            generalHydrochemicalIndicator.OrganicSubstances = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value == null ?
+                            generalHydrochemicalIndicator.pH = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value == null ?
                                 (decimal?)null :
                                 Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 8].Value);
+                            generalHydrochemicalIndicator.OrganicSubstances = package.Workbook.Worksheets.FirstOrDefault().Cells[i, 9].Value == null ?
+                                (decimal?)null :
+                                Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 9].Value);
                         }
                         catch (Exception e)
                         {

@@ -1032,9 +1032,6 @@
   <data name="ClPerEq" xml:space="preserve">
     <value>Cl⁻, chloride anions,% eq</value>
   </data>
-  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake Id, year, salinity value, total water hardness, oxygen dissolved in water, percentage of water saturation with dissolved oxygen, pH value, organic matter</value>
-  </data>
   <data name="HCOMg" xml:space="preserve">
     <value>HCO₃⁻, hydrocarbonate anions, mg / dm³</value>
   </data>
@@ -1109,9 +1106,6 @@
   </data>
   <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
     <value>Hydrocarbonate and carbonate class</value>
-  </data>
-  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake Id, year, calcium cations, magnesium cations, sodium potassium cations, chloride anions, hydrocarbonate anions, sulphate anions</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>IZV Cd</value>
@@ -1383,7 +1377,25 @@
   <data name="KIZVs" xml:space="preserve">
     <value>KIZV</value>
   </data>
+  <data name="FreshPart" xml:space="preserve">
+    <value>Fresh</value>
+  </data>
+  <data name="FullyPart" xml:space="preserve">
+    <value>Fully</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, year, part of the lake, salinity value, total water hardness, oxygen dissolved in water, percentage of water saturation with dissolved oxygen, pH value, organic matter</value>
+  </data>
+  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
+    <value>The order of the columns in the file: Lake Id, year, part of the lake, calcium cations, magnesium cations, sodium potassium cations, chloride anions, hydrocarbonate anions, sulfate anions</value>
+  </data>
+  <data name="LakePart" xml:space="preserve">
+    <value>Part of the lake</value>
+  </data>
+  <data name="SaltyPart" xml:space="preserve">
+    <value>Salty</value>
+  </data>
   <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Id lakes, year, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
+    <value>Column order in the file: Id lakes, year, part of the lake, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
 </root>

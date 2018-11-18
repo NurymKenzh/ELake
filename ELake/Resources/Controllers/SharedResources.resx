@@ -1386,4 +1386,16 @@
   <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="FreshPart" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FullyPart" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakePart" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaltyPart" xml:space="preserve">
+    <value />
+  </data>
 </root>
