@@ -68,5 +68,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.MeasurementUnit> MeasurementUnit { get; set; }
 
         public DbSet<ELake.Models.GeneralHydrochemicalIndicatorStandard> GeneralHydrochemicalIndicatorStandard { get; set; }
+
+        public DbSet<ELake.Models.NutrientsHeavyMetalsStandard> NutrientsHeavyMetalsStandard { get; set; }
     }
 }

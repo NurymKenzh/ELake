@@ -1,0 +1,181 @@
+﻿@model ELake.Models.NutrientsHeavyMetalsStandard
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Delete"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body class="bg-white">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid shadow-sm">
+            <div class="container py-2">
+                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["Delete"]</h2>
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["NutrientsHeavyMetalsStandard"]</p>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-danger" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-row ">
+            <span class="border-left ml-1"></span>
+            <div class="col-md-4 ml-3">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.RegulatoryDocument)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.RegulatoryDocument.Name)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCNH4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCNH4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCNO2)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCNO2)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCNO3)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCNO3)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCPPO4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCPPO4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCCu)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCCu)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCZn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCZn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCMn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCMn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCPb)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCPb)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCNi)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCNi)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCCd)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCCd)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MPCCo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MPCCo)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassNH4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassNH4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassNO2)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassNO2)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassNO3)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassNO3)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassPPO4)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassPPO4)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassCu)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassCu)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassZn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassZn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassMn)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassMn)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassPb)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassPb)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassNi)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassNi)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassCd)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassCd)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.HazardClassCo)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.HazardClassCo)
+                    </dd>
+                </dl>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-link" /> |
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

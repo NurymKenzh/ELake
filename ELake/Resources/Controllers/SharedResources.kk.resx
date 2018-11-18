@@ -1290,6 +1290,39 @@
   <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
     <value>Жалпы гидрохимиялық көрсеткіштердің стандарттары</value>
   </data>
+  <data name="HazardClassCd" xml:space="preserve">
+    <value>Қауіптілік класы Cd</value>
+  </data>
+  <data name="HazardClassCo" xml:space="preserve">
+    <value>Hazard Class Co.</value>
+  </data>
+  <data name="HazardClassCu" xml:space="preserve">
+    <value>Cu қауіп классы</value>
+  </data>
+  <data name="HazardClassMn" xml:space="preserve">
+    <value>Қауіптілік класы Mn</value>
+  </data>
+  <data name="HazardClassNH4" xml:space="preserve">
+    <value>NHS қауіптілік класы</value>
+  </data>
+  <data name="HazardClassNi" xml:space="preserve">
+    <value>Ni қауіптілік класы</value>
+  </data>
+  <data name="HazardClassNO2" xml:space="preserve">
+    <value>NO2 қауіп классы</value>
+  </data>
+  <data name="HazardClassNO3" xml:space="preserve">
+    <value>Қауіпті класс NO₃</value>
+  </data>
+  <data name="HazardClassPb" xml:space="preserve">
+    <value>Қауіптілік класы Pb</value>
+  </data>
+  <data name="HazardClassPPO4" xml:space="preserve">
+    <value>Қауіптілік класы PPO PP</value>
+  </data>
+  <data name="HazardClassZn" xml:space="preserve">
+    <value>Қауіптілік класы Zn</value>
+  </data>
   <data name="Hydrology" xml:space="preserve">
     <value>Гидрология</value>
   </data>
@@ -1304,6 +1337,45 @@
   </data>
   <data name="MeasurementUnits" xml:space="preserve">
     <value>Өлшем бірлік</value>
+  </data>
+  <data name="MPCCd" xml:space="preserve">
+    <value>MPC Cd мәні</value>
+  </data>
+  <data name="MPCCo" xml:space="preserve">
+    <value>MPC Co мәні</value>
+  </data>
+  <data name="MPCCu" xml:space="preserve">
+    <value>MPC мәні Cu</value>
+  </data>
+  <data name="MPCMn" xml:space="preserve">
+    <value>MPN мәні Mn</value>
+  </data>
+  <data name="MPCNH4" xml:space="preserve">
+    <value>MPC мәні NH₄</value>
+  </data>
+  <data name="MPCNi" xml:space="preserve">
+    <value>MPC мәні Ni</value>
+  </data>
+  <data name="MPCNO2" xml:space="preserve">
+    <value>MPC мәні NO2</value>
+  </data>
+  <data name="MPCNO3" xml:space="preserve">
+    <value>MPC мәні NO₃</value>
+  </data>
+  <data name="MPCPb" xml:space="preserve">
+    <value>MPC мәні Pb</value>
+  </data>
+  <data name="MPCPPO4" xml:space="preserve">
+    <value>MPC мәні PPO₄</value>
+  </data>
+  <data name="MPCZn" xml:space="preserve">
+    <value>MPC мәні Zn</value>
+  </data>
+  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
+    <value>Қоректік заттар мен ауыр металдардың стандарты</value>
+  </data>
+  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
+    <value>Қоректік заттар мен ауыр металдардың стандарттары</value>
   </data>
   <data name="UpperLimit" xml:space="preserve">
     <value>Жоғарғы шегі</value>

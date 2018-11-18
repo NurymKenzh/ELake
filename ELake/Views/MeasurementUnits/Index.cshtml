@@ -18,6 +18,7 @@
                 <a class="list-group-item list-group-item-action" asp-controller="RegulatoryDocuments" asp-action="Index">@SharedLocalizer["RegulatoryDocuments"]</a>
                 <a class="list-group-item list-group-item-action active" asp-controller="MeasurementUnits" asp-action="Index">@SharedLocalizer["MeasurementUnits"]</a>
                 <a class="list-group-item list-group-item-action" asp-controller="GeneralHydrochemicalIndicatorStandards" asp-action="Index">@SharedLocalizer["GeneralHydrochemicalIndicatorStandards"]</a>
+                <a class="list-group-item list-group-item-action" asp-controller="NutrientsHeavyMetalsStandards" asp-action="Index">@SharedLocalizer["NutrientsHeavyMetalsStandards"]</a>
             </div>
         </div>
         <div class="col-md-8 mt-3">
@@ -48,7 +49,7 @@
                                         </li>
                                         <li class="page-item page-link">
                                             @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
-                                                new { Page = Model.Pager.CurrentPage - 1,  })
+                                                new { Page = Model.Pager.CurrentPage - 1})
                                         </li>
                                     }
                                     @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
@@ -63,7 +64,7 @@
                                     {
                                         <li class="page-item page-link">
                                             @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
-                                                new { Page = Model.Pager.CurrentPage + 1,  })
+                                                new { Page = Model.Pager.CurrentPage + 1})
                                         </li>
                                         <li class="page-item page-link">
                                             @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
@@ -116,7 +117,7 @@
                                 </li>
                                 <li class="page-item page-link">
                                     @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
-                                        new { Page = Model.Pager.CurrentPage - 1,  })
+                                        new { Page = Model.Pager.CurrentPage - 1})
                                 </li>
                             }
                             @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
@@ -131,7 +132,7 @@
                             {
                                 <li class="page-item page-link">
                                     @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
-                                        new { Page = Model.Pager.CurrentPage + 1,  })
+                                        new { Page = Model.Pager.CurrentPage + 1})
                                 </li>
                                 <li class="page-item page-link">
                                     @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",

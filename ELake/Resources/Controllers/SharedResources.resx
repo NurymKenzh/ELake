@@ -1290,6 +1290,39 @@
   <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
     <value />
   </data>
+  <data name="HazardClassCd" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassCo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassCu" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassMn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassNH4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassNi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassNO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassNO3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassPb" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassPPO4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="HazardClassZn" xml:space="preserve">
+    <value />
+  </data>
   <data name="Hydrology" xml:space="preserve">
     <value />
   </data>
@@ -1303,6 +1336,45 @@
     <value />
   </data>
   <data name="MeasurementUnits" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCCd" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCCo" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCCu" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCMn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCNH4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCNi" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCNO2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCNO3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCPb" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCPPO4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MPCZn" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
     <value />
   </data>
   <data name="UpperLimit" xml:space="preserve">

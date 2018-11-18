@@ -1290,6 +1290,39 @@
   <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
     <value>Нормативы общих гидрохимических показателей</value>
   </data>
+  <data name="HazardClassCd" xml:space="preserve">
+    <value>Класс опасности Cd</value>
+  </data>
+  <data name="HazardClassCo" xml:space="preserve">
+    <value>Класс опасности Co</value>
+  </data>
+  <data name="HazardClassCu" xml:space="preserve">
+    <value>Класс опасности Cu</value>
+  </data>
+  <data name="HazardClassMn" xml:space="preserve">
+    <value>Класс опасности Mn</value>
+  </data>
+  <data name="HazardClassNH4" xml:space="preserve">
+    <value>Класс опасности NH₄</value>
+  </data>
+  <data name="HazardClassNi" xml:space="preserve">
+    <value>Класс опасности Ni</value>
+  </data>
+  <data name="HazardClassNO2" xml:space="preserve">
+    <value>Класс опасности NO2</value>
+  </data>
+  <data name="HazardClassNO3" xml:space="preserve">
+    <value>Класс опасности NO₃</value>
+  </data>
+  <data name="HazardClassPb" xml:space="preserve">
+    <value>Класс опасности Pb</value>
+  </data>
+  <data name="HazardClassPPO4" xml:space="preserve">
+    <value>Класс опасности PPO₄</value>
+  </data>
+  <data name="HazardClassZn" xml:space="preserve">
+    <value>Класс опасности Zn</value>
+  </data>
   <data name="Hydrology" xml:space="preserve">
     <value>Гидрология</value>
   </data>
@@ -1304,6 +1337,45 @@
   </data>
   <data name="MeasurementUnits" xml:space="preserve">
     <value>Единицы измерения</value>
+  </data>
+  <data name="MPCCd" xml:space="preserve">
+    <value>Значение ПДК Cd</value>
+  </data>
+  <data name="MPCCo" xml:space="preserve">
+    <value>Значение ПДК Co</value>
+  </data>
+  <data name="MPCCu" xml:space="preserve">
+    <value>Значение ПДК Cu</value>
+  </data>
+  <data name="MPCMn" xml:space="preserve">
+    <value>Значение ПДК Mn</value>
+  </data>
+  <data name="MPCNH4" xml:space="preserve">
+    <value>Значение ПДК NH₄</value>
+  </data>
+  <data name="MPCNi" xml:space="preserve">
+    <value>Значение ПДК Ni</value>
+  </data>
+  <data name="MPCNO2" xml:space="preserve">
+    <value>Значение ПДК NO2</value>
+  </data>
+  <data name="MPCNO3" xml:space="preserve">
+    <value>Значение ПДК NO₃</value>
+  </data>
+  <data name="MPCPb" xml:space="preserve">
+    <value>Значение ПДК Pb</value>
+  </data>
+  <data name="MPCPPO4" xml:space="preserve">
+    <value>Значение ПДК PPO₄</value>
+  </data>
+  <data name="MPCZn" xml:space="preserve">
+    <value>Значение ПДК Zn</value>
+  </data>
+  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
+    <value>Норматив биогенных веществ и тяжелых металлов</value>
+  </data>
+  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
+    <value>Нормативы биогенных веществ и тяжелых металлов</value>
   </data>
   <data name="UpperLimit" xml:space="preserve">
     <value>Верхний предел</value>

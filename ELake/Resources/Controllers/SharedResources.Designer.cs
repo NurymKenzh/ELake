@@ -981,6 +981,105 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string HazardClassCd {
+            get {
+                return ResourceManager.GetString("HazardClassCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassCo {
+            get {
+                return ResourceManager.GetString("HazardClassCo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassCu {
+            get {
+                return ResourceManager.GetString("HazardClassCu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassMn {
+            get {
+                return ResourceManager.GetString("HazardClassMn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassNH4 {
+            get {
+                return ResourceManager.GetString("HazardClassNH4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassNi {
+            get {
+                return ResourceManager.GetString("HazardClassNi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassNO2 {
+            get {
+                return ResourceManager.GetString("HazardClassNO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassNO3 {
+            get {
+                return ResourceManager.GetString("HazardClassNO3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassPb {
+            get {
+                return ResourceManager.GetString("HazardClassPb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassPPO4 {
+            get {
+                return ResourceManager.GetString("HazardClassPPO4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string HazardClassZn {
+            get {
+                return ResourceManager.GetString("HazardClassZn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string HCO {
             get {
                 return ResourceManager.GetString("HCO", resourceCulture);
@@ -2115,6 +2214,105 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string MPCCd {
+            get {
+                return ResourceManager.GetString("MPCCd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCCo {
+            get {
+                return ResourceManager.GetString("MPCCo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCCu {
+            get {
+                return ResourceManager.GetString("MPCCu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCMn {
+            get {
+                return ResourceManager.GetString("MPCMn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCNH4 {
+            get {
+                return ResourceManager.GetString("MPCNH4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCNi {
+            get {
+                return ResourceManager.GetString("MPCNi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCNO2 {
+            get {
+                return ResourceManager.GetString("MPCNO2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCNO3 {
+            get {
+                return ResourceManager.GetString("MPCNO3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCPb {
+            get {
+                return ResourceManager.GetString("MPCPb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCPPO4 {
+            get {
+                return ResourceManager.GetString("MPCPPO4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MPCZn {
+            get {
+                return ResourceManager.GetString("MPCZn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string NaK {
             get {
                 return ResourceManager.GetString("NaK", resourceCulture);
@@ -2298,6 +2496,24 @@ namespace ELake.Resources.Controllers {
         public static string Number {
             get {
                 return ResourceManager.GetString("Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string NutrientsHeavyMetalsStandard {
+            get {
+                return ResourceManager.GetString("NutrientsHeavyMetalsStandard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string NutrientsHeavyMetalsStandards {
+            get {
+                return ResourceManager.GetString("NutrientsHeavyMetalsStandards", resourceCulture);
             }
         }
         
