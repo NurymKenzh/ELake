@@ -1536,7 +1536,55 @@
   <data name="TransitionUploadDescription" xml:space="preserve">
     <value>Файлдағы бағандар тәртібі: көлде Id, өзгеріссіз, тұрақты, тұрақты, тұрақты, маусымдық, маусымдық, маусымдық, маусымдық, маусымдық, маусымдық, тұрақты, эфемерлі</value>
   </data>
+  <data name="April" xml:space="preserve">
+    <value>Сәуір</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Тамыз</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Желтоқсан</value>
+  </data>
   <data name="DynamicsLakeAreas" xml:space="preserve">
     <value>Көл аймағының динамикасы</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Ақпан</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Қаңтар</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Шілде</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Маусым</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Наурыз</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Мамыр</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Деректер жоқ</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Қараша</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Қазан</value>
+  </data>
+  <data name="Seasonalit" xml:space="preserve">
+    <value>Мезгілдік</value>
+  </data>
+  <data name="Seasonalits" xml:space="preserve">
+    <value>Мерзімділік</value>
+  </data>
+  <data name="SeasonalitUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың тәртібі: Көлеңке Id, деректер жоқ, қаңтар, ақпан, наурыз, сәуір, мамыр, маусым, шілде, тамыз, қыркүйек, қазан, қараша, желтоқсан</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Қыркүйек</value>
   </data>
 </root>

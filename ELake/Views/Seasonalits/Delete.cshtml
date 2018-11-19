@@ -1,0 +1,127 @@
+﻿@model ELake.Models.Seasonalit
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Delete"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body class="bg-white">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid shadow-sm">
+            <div class="container py-2">
+                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["Delete"]</h2>
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["Seasonalit"]</p>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-danger" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-row ">
+            <span class="border-left ml-1"></span>
+            <div class="col-md-4 ml-3">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LakeId)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.LakeId)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NoData)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NoData)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.January)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.January)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.February)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.February)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.March)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.March)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.April)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.April)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.May)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.May)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.June)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.June)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.July)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.July)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.August)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.August)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.September)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.September)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.October)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.October)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.November)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.November)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.December)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.December)
+                    </dd>
+                </dl>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-link" /> |
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
