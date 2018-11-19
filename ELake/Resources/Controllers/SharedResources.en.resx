@@ -1491,7 +1491,52 @@
   <data name="ZooplanktonBiomass" xml:space="preserve">
     <value>Zooplankton biomass, g / m³</value>
   </data>
+  <data name="EphemeralPermanent" xml:space="preserve">
+    <value>Ephemeral permanent</value>
+  </data>
+  <data name="EphemeralSeasonal" xml:space="preserve">
+    <value>Ephemeral seasonal</value>
+  </data>
   <data name="Hydrobiology" xml:space="preserve">
     <value>Hydrobiology</value>
+  </data>
+  <data name="LostPermanent" xml:space="preserve">
+    <value>Lost permanent</value>
+  </data>
+  <data name="LostSeasonal" xml:space="preserve">
+    <value>Lost seasonal</value>
+  </data>
+  <data name="NewPermanent" xml:space="preserve">
+    <value>New permanent</value>
+  </data>
+  <data name="NewSeasonal" xml:space="preserve">
+    <value>New seasonal</value>
+  </data>
+  <data name="NoСhange" xml:space="preserve">
+    <value>No change</value>
+  </data>
+  <data name="Permanent" xml:space="preserve">
+    <value>Permanent</value>
+  </data>
+  <data name="PermanentToDeasonal" xml:space="preserve">
+    <value>Permanent to seasonal</value>
+  </data>
+  <data name="Seasonal" xml:space="preserve">
+    <value>Seasonal</value>
+  </data>
+  <data name="SeasonalToPermanent" xml:space="preserve">
+    <value>Seasonal to permanent</value>
+  </data>
+  <data name="Transition" xml:space="preserve">
+    <value>Transition</value>
+  </data>
+  <data name="Transitions" xml:space="preserve">
+    <value>Transitions</value>
+  </data>
+  <data name="TransitionUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, no change, permanent, new permanent, lost permanent, seasonal, new seasonal, lost seasonal, seasonal to permanent, permanent to seasonal, ephemeral permanent, ephemeral seasonal</value>
+  </data>
+  <data name="DynamicsLakeAreas" xml:space="preserve">
+    <value>Dynamics of lake areas</value>
   </data>
 </root>

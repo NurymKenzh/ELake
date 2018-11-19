@@ -1491,7 +1491,52 @@
   <data name="ZooplanktonBiomass" xml:space="preserve">
     <value />
   </data>
+  <data name="EphemeralPermanent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="EphemeralSeasonal" xml:space="preserve">
+    <value />
+  </data>
   <data name="Hydrobiology" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LostPermanent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LostSeasonal" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NewPermanent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NewSeasonal" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NoСhange" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Permanent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PermanentToDeasonal" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Seasonal" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SeasonalToPermanent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Transition" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Transitions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TransitionUploadDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DynamicsLakeAreas" xml:space="preserve">
     <value />
   </data>
 </root>

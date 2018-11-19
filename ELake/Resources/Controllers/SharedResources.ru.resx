@@ -1491,7 +1491,52 @@
   <data name="ZooplanktonBiomass" xml:space="preserve">
     <value>Биомасса зоопланктона, г/м³</value>
   </data>
+  <data name="EphemeralPermanent" xml:space="preserve">
+    <value>Эфемерный постоянный</value>
+  </data>
+  <data name="EphemeralSeasonal" xml:space="preserve">
+    <value>Эфемерные сезонные</value>
+  </data>
   <data name="Hydrobiology" xml:space="preserve">
     <value>Гидробиология</value>
+  </data>
+  <data name="LostPermanent" xml:space="preserve">
+    <value>Потерянный</value>
+  </data>
+  <data name="LostSeasonal" xml:space="preserve">
+    <value>Потерянные сезонные</value>
+  </data>
+  <data name="NewPermanent" xml:space="preserve">
+    <value>Новый постоянный</value>
+  </data>
+  <data name="NewSeasonal" xml:space="preserve">
+    <value>Новые сезонные</value>
+  </data>
+  <data name="NoСhange" xml:space="preserve">
+    <value>Без изменений</value>
+  </data>
+  <data name="Permanent" xml:space="preserve">
+    <value>Перманентный</value>
+  </data>
+  <data name="PermanentToDeasonal" xml:space="preserve">
+    <value>Постоянный к сезонным</value>
+  </data>
+  <data name="Seasonal" xml:space="preserve">
+    <value>Сезонное</value>
+  </data>
+  <data name="SeasonalToPermanent" xml:space="preserve">
+    <value>Сезонные постоянные</value>
+  </data>
+  <data name="Transition" xml:space="preserve">
+    <value>Переход</value>
+  </data>
+  <data name="Transitions" xml:space="preserve">
+    <value>Переходы</value>
+  </data>
+  <data name="TransitionUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Озеро Id, без изменений, постоянное, новое постоянное, потерянное постоянное, сезонное, новое сезонное, потерянное сезонное, от сезонного до постоянного, постоянное до сезонного, эфемерное постоянное, эфемерное сезонное</value>
+  </data>
+  <data name="DynamicsLakeAreas" xml:space="preserve">
+    <value>Динамика площадей озер</value>
   </data>
 </root>

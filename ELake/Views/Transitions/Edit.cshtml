@@ -1,0 +1,119 @@
+﻿@model ELake.Models.Transition
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Edit"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Edit"]</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["Transition"]</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-exclamation-triangle"></i></button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-warning" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="col-md-4">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="LakeId" class="control-label"></label>
+                        <input asp-for="LakeId" class="form-control" />
+                        <span asp-validation-for="LakeId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NoСhange" class="control-label"></label>
+                        <input asp-for="NoСhange" class="form-control" />
+                        <span asp-validation-for="NoСhange" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Permanent" class="control-label"></label>
+                        <input asp-for="Permanent" class="form-control" />
+                        <span asp-validation-for="Permanent" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NewPermanent" class="control-label"></label>
+                        <input asp-for="NewPermanent" class="form-control" />
+                        <span asp-validation-for="NewPermanent" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LostPermanent" class="control-label"></label>
+                        <input asp-for="LostPermanent" class="form-control" />
+                        <span asp-validation-for="LostPermanent" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Seasonal" class="control-label"></label>
+                        <input asp-for="Seasonal" class="form-control" />
+                        <span asp-validation-for="Seasonal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="NewSeasonal" class="control-label"></label>
+                        <input asp-for="NewSeasonal" class="form-control" />
+                        <span asp-validation-for="NewSeasonal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LostSeasonal" class="control-label"></label>
+                        <input asp-for="LostSeasonal" class="form-control" />
+                        <span asp-validation-for="LostSeasonal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SeasonalToPermanent" class="control-label"></label>
+                        <input asp-for="SeasonalToPermanent" class="form-control" />
+                        <span asp-validation-for="SeasonalToPermanent" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PermanentToDeasonal" class="control-label"></label>
+                        <input asp-for="PermanentToDeasonal" class="form-control" />
+                        <span asp-validation-for="PermanentToDeasonal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EphemeralPermanent" class="control-label"></label>
+                        <input asp-for="EphemeralPermanent" class="form-control" />
+                        <span asp-validation-for="EphemeralPermanent" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EphemeralSeasonal" class="control-label"></label>
+                        <input asp-for="EphemeralSeasonal" class="form-control" />
+                        <span asp-validation-for="EphemeralSeasonal" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />
+                    </div>
+                </form>
+                <small class="d-block text-right mt-3">
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </small>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $.validator.methods.range = function (value, element, param) {
+        var globalizedValue = value.replace(",", ".");
+        return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+    }
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+    }
+</script>

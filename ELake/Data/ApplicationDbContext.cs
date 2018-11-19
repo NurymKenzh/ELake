@@ -78,5 +78,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.FishKind> FishKind { get; set; }
 
         public DbSet<ELake.Models.GeneralHydrobiologicalIndicator> GeneralHydrobiologicalIndicator { get; set; }
+
+        public DbSet<ELake.Models.Transition> Transition { get; set; }
     }
 }

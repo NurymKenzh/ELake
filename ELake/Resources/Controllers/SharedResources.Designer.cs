@@ -756,6 +756,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DynamicsLakeAreas {
+            get {
+                return ResourceManager.GetString("DynamicsLakeAreas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
@@ -777,6 +786,24 @@ namespace ELake.Resources.Controllers {
         public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string EphemeralPermanent {
+            get {
+                return ResourceManager.GetString("EphemeralPermanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string EphemeralSeasonal {
+            get {
+                return ResourceManager.GetString("EphemeralSeasonal", resourceCulture);
             }
         }
         
@@ -2241,6 +2268,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LostPermanent {
+            get {
+                return ResourceManager.GetString("LostPermanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LostSeasonal {
+            get {
+                return ResourceManager.GetString("LostSeasonal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LowerLimit {
             get {
                 return ResourceManager.GetString("LowerLimit", resourceCulture);
@@ -2664,6 +2709,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string NewPermanent {
+            get {
+                return ResourceManager.GetString("NewPermanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string NewSeasonal {
+            get {
+                return ResourceManager.GetString("NewSeasonal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string NH {
             get {
                 return ResourceManager.GetString("NH", resourceCulture);
@@ -2754,6 +2817,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string NoСhange {
+            get {
+                return ResourceManager.GetString("NoСhange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Number {
             get {
                 return ResourceManager.GetString("Number", resourceCulture);
@@ -2820,6 +2892,24 @@ namespace ELake.Resources.Controllers {
         public static string PercentOxygWater {
             get {
                 return ResourceManager.GetString("PercentOxygWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Permanent {
+            get {
+                return ResourceManager.GetString("Permanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PermanentToDeasonal {
+            get {
+                return ResourceManager.GetString("PermanentToDeasonal", resourceCulture);
             }
         }
         
@@ -3126,6 +3216,24 @@ namespace ELake.Resources.Controllers {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Seasonal {
+            get {
+                return ResourceManager.GetString("Seasonal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SeasonalToPermanent {
+            get {
+                return ResourceManager.GetString("SeasonalToPermanent", resourceCulture);
             }
         }
         
@@ -3684,6 +3792,33 @@ namespace ELake.Resources.Controllers {
         public static string ToxicologicalIndicatorUploadDescription {
             get {
                 return ResourceManager.GetString("ToxicologicalIndicatorUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Transition {
+            get {
+                return ResourceManager.GetString("Transition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Transitions {
+            get {
+                return ResourceManager.GetString("Transitions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string TransitionUploadDescription {
+            get {
+                return ResourceManager.GetString("TransitionUploadDescription", resourceCulture);
             }
         }
         

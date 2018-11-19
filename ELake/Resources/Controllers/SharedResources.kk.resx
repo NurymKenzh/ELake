@@ -1491,7 +1491,52 @@
   <data name="ZooplanktonBiomass" xml:space="preserve">
     <value>Зоопланктон биомасса, г / м³</value>
   </data>
+  <data name="EphemeralPermanent" xml:space="preserve">
+    <value>Эфемерлі тұрақты</value>
+  </data>
+  <data name="EphemeralSeasonal" xml:space="preserve">
+    <value>Емдік маусымдық</value>
+  </data>
   <data name="Hydrobiology" xml:space="preserve">
     <value>Гидробиология</value>
+  </data>
+  <data name="LostPermanent" xml:space="preserve">
+    <value>Тұрақты жоғалтты</value>
+  </data>
+  <data name="LostSeasonal" xml:space="preserve">
+    <value>Маусымдық жоғалтты</value>
+  </data>
+  <data name="NewPermanent" xml:space="preserve">
+    <value>Жаңа тұрақты</value>
+  </data>
+  <data name="NewSeasonal" xml:space="preserve">
+    <value>Жаңа маусымдық</value>
+  </data>
+  <data name="NoСhange" xml:space="preserve">
+    <value>Өзгерістер жоқ</value>
+  </data>
+  <data name="Permanent" xml:space="preserve">
+    <value>Тұрақты</value>
+  </data>
+  <data name="PermanentToDeasonal" xml:space="preserve">
+    <value>Маусымдық тұрақты</value>
+  </data>
+  <data name="Seasonal" xml:space="preserve">
+    <value>Маусымдық</value>
+  </data>
+  <data name="SeasonalToPermanent" xml:space="preserve">
+    <value>Маусымдық тұрақты</value>
+  </data>
+  <data name="Transition" xml:space="preserve">
+    <value>Өтпелі кезең</value>
+  </data>
+  <data name="Transitions" xml:space="preserve">
+    <value>Өтпелулер</value>
+  </data>
+  <data name="TransitionUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: көлде Id, өзгеріссіз, тұрақты, тұрақты, тұрақты, маусымдық, маусымдық, маусымдық, маусымдық, маусымдық, маусымдық, тұрақты, эфемерлі</value>
+  </data>
+  <data name="DynamicsLakeAreas" xml:space="preserve">
+    <value>Көл аймағының динамикасы</value>
   </data>
 </root>
