@@ -1,0 +1,67 @@
+﻿@model ELake.Models.LakeSystem
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Delete"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body class="bg-white">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid shadow-sm">
+            <div class="container py-2">
+                <h2 class="pb-3 mb-1 font-italic border-bottom">@SharedLocalizer["Delete"]</h2>
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["LakeSystem"]</p>
+                    </div>
+                </div>
+                <div class="alert-success" role="alert">
+                    @ViewData["Message"]
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-danger" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="form-row ">
+            <span class="border-left ml-1"></span>
+            <div class="col-md-4 ml-3">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.LakeSystemId)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.LakeSystemId)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NameKK)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NameKK)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NameRU)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NameRU)
+                    </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NameEN)
+                    </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NameEN)
+                    </dd>
+                </dl>
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="@SharedLocalizer["Delete"]" class="btn btn-link" /> |
+                    <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

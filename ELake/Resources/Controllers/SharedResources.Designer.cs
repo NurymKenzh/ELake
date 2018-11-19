@@ -2223,6 +2223,42 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LakeSystem {
+            get {
+                return ResourceManager.GetString("LakeSystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LakeSystemId {
+            get {
+                return ResourceManager.GetString("LakeSystemId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LakeSystems {
+            get {
+                return ResourceManager.GetString("LakeSystems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LakeSystemUploadDescription {
+            get {
+                return ResourceManager.GetString("LakeSystemUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LakeUploadDescription {
             get {
                 return ResourceManager.GetString("LakeUploadDescription", resourceCulture);

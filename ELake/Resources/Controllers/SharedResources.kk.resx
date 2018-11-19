@@ -1587,4 +1587,16 @@
   <data name="September" xml:space="preserve">
     <value>Қыркүйек</value>
   </data>
+  <data name="LakeSystem" xml:space="preserve">
+    <value>Көл жүйесі</value>
+  </data>
+  <data name="LakeSystemId" xml:space="preserve">
+    <value>Көл жүйесі</value>
+  </data>
+  <data name="LakeSystems" xml:space="preserve">
+    <value>Көл жүйелер</value>
+  </data>
+  <data name="LakeSystemUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағаналық тапсырыс: Id жүйесі, атауы (орыс), атауы (қазақ), атағы (ағылшын)</value>
+  </data>
 </root>

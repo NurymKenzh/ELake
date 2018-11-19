@@ -82,5 +82,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.Transition> Transition { get; set; }
 
         public DbSet<ELake.Models.Seasonalit> Seasonalit { get; set; }
+
+        public DbSet<ELake.Models.LakeSystem> LakeSystem { get; set; }
     }
 }

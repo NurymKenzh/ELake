@@ -1,10 +1,10 @@
-﻿@model ELake.Models.LakesGlobalDataIndexPageViewModel
+﻿@model ELake.Models.LakeSystemIndexPageViewModel
 @using ELake.Controllers
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<SharedResources> SharedLocalizer
 @using System.Net
 @{
-    ViewData["Title"] = SharedLocalizer["LakesGlobalDatas"];
+    ViewData["Title"] = SharedLocalizer["LakeSystems"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container-fluid">
@@ -12,28 +12,27 @@
         <div class="col-md-2 offset-md-1 mt-3">
             <div class="list-group">
                 <div class="alert alert-primary" role="alert">
-                    <h5 class="alert-heading">@SharedLocalizer["Tables"]</h5>
+                    <h5 class="alert-heading">@SharedLocalizer["Directories"]</h5>
                 </div>
                 <a class="list-group-item list-group-item-action" asp-controller="Lakes" asp-action="Index">@SharedLocalizer["Lakes"]</a>
                 <a class="list-group-item list-group-item-action" asp-controller="LakesArchiveDatas" asp-action="Index">@SharedLocalizer["LakesArchiveDatas"]</a>
-                <a class="list-group-item list-group-item-action active" asp-controller="LakesGlobalDatas" asp-action="Index">@SharedLocalizer["LakesGlobalDatas"]</a>
-                <a class="list-group-item list-group-item-action" asp-controller="LakeSystems" asp-action="Index">@SharedLocalizer["LakeSystems"]</a>
+                <a class="list-group-item list-group-item-action" asp-controller="LakesGlobalDatas" asp-action="Index">@SharedLocalizer["LakesGlobalDatas"]</a>
+                <a class="list-group-item list-group-item-action active" asp-controller="LakeSystems" asp-action="Index">@SharedLocalizer["LakeSystems"]</a>
             </div>
         </div>
         <div class="col-md-8 mt-3">
             <div class="alert alert-primary" role="alert">
-                <h4 class="alert-heading">@SharedLocalizer["LakesGlobalDatas"]</h4>
+                <h4 class="alert-heading">@SharedLocalizer["LakeSystems"]</h4>
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
             <div class="col-12 col-sm-2 col-md-8">
                 <p>
                     <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
-                    <a class="btn btn-outline-success ml-1" asp-action="Upload"><i class="fa fa-pencil"></i> @SharedLocalizer["Upload"]</a>
                 </p>
             </div>
             <div class="table-responsive-lg">
-                @using (Html.BeginForm("Index", "LakesGlobalDatas", new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter }, FormMethod.Get))
+                @using (Html.BeginForm("Index", "LakeSystems", new { SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter }, FormMethod.Get))
                 {
                     @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
                     @if (Model.Pager.EndPage > 1)
@@ -45,11 +44,11 @@
                                     {
                                         <li class="page-item page-link">
                                             @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
-                                                new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                                new { SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                         </li>
                                         <li class="page-item page-link">
                                             @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
-                                                new { Page = Model.Pager.CurrentPage - 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                                new { Page = Model.Pager.CurrentPage - 1, SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                         </li>
                                     }
                                     @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
@@ -57,18 +56,18 @@
 
                                         <li class="page-item page-link @(page == Model.Pager.CurrentPage ? "active" : "")" @(page == Model.Pager.CurrentPage ? "style=background-color:#b8daff;" : "")>
                                             @Html.ActionLink(page.ToString(), "Index",
-                                                new { Page = page, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                                new { Page = page, SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                         </li>
                                     }
                                     @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
                                     {
                                         <li class="page-item page-link">
                                             @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
-                                                new { Page = Model.Pager.CurrentPage + 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                                new { Page = Model.Pager.CurrentPage + 1, SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                         </li>
                                         <li class="page-item page-link">
                                             @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
-                                                new { Page = Model.Pager.TotalPages, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                                new { Page = Model.Pager.TotalPages, SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                         </li>
                                     }
                                 </ul>
@@ -81,32 +80,44 @@
                                 <th scope="col">
                                     <div class="form-row align-items-center">
                                         <div class="col-sm-4 my-1">
-                                            @Html.Editor("LakeId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["LakeId"] }, value = "" })
+                                            @Html.Editor("LakeSystemId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["LakeSystemId"] }, value = "" })
                                         </div>
                                         <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
-                                           new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter })
+                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeSystemId).ToString(), "Index",
+                                           new { SortOrder = ViewBag.LakeSystemIdSort, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter, VHBKK = ViewBag.VHBKKFilter, VHBRU = ViewBag.VHBRUFilter, VHBEN = ViewBag.VHBENFilter })
                                         </div>
                                     </div>
                                 </th>
                                 <th scope="col">
                                     <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Lake_name_ENG)
+                                        <div class="col-sm-4 my-1">
+                                            @Html.Editor("NameKK", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["NameKK"] }, value = "" })
+                                        </div>
+                                        <div class="col-sm-auto my-1">
+                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().NameKK).ToString(), "Index",
+                                           new { SortOrder = ViewBag.NameKKSort, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter, VHBKK = ViewBag.VHBKKFilter, VHBRU = ViewBag.VHBRUFilter, VHBEN = ViewBag.VHBENFilter })
                                         </div>
                                     </div>
                                 </th>
                                 <th scope="col">
                                     <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Lake_name_RU)
+                                        <div class="col-sm-4 my-1">
+                                            @Html.Editor("NameRU", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["NameRU"] }, value = "" })
+                                        </div>
+                                        <div class="col-sm-auto my-1">
+                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().NameRU).ToString(), "Index",
+                                           new { SortOrder = ViewBag.NameRUSort, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter, VHBKK = ViewBag.VHBKKFilter, VHBRU = ViewBag.VHBRUFilter, VHBEN = ViewBag.VHBENFilter })
                                         </div>
                                     </div>
                                 </th>
                                 <th scope="col">
                                     <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Lake_name_KZ)
+                                        <div class="col-sm-4 my-1">
+                                            @Html.Editor("NameEN", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["NameEN"] }, value = "" })
+                                        </div>
+                                        <div class="col-sm-auto my-1">
+                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().NameEN).ToString(), "Index",
+                                           new { SortOrder = ViewBag.NameENSort, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter, VHBKK = ViewBag.VHBKKFilter, VHBRU = ViewBag.VHBRUFilter, VHBEN = ViewBag.VHBENFilter })
                                         </div>
                                     </div>
                                 </th>
@@ -122,10 +133,10 @@
                         @foreach (var item in Model.Items)
                         {
                             <tr>
-                                <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
-                                <td>@Html.DisplayFor(modelItem => item.Lake_name_ENG)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Lake_name_RU)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Lake_name_KZ)</td>
+                                <th scope="row">@Html.DisplayFor(modelItem => item.LakeSystemId)</th>
+                                <td>@Html.DisplayFor(modelItem => item.NameKK)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NameRU)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NameEN)</td>
                                 <td>
                                     <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
                                     <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
@@ -141,29 +152,30 @@
                             {
                                 <li class="page-item page-link">
                                     @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
-                                        new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                        new { SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                 </li>
                                 <li class="page-item page-link">
                                     @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
-                                        new { Page = Model.Pager.CurrentPage - 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                        new { Page = Model.Pager.CurrentPage - 1, SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                 </li>
                             }
                             @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
                             {
+
                                 <li class="page-item page-link @(page == Model.Pager.CurrentPage ? "active" : "")" @(page == Model.Pager.CurrentPage ? "style=background-color:#b8daff;" : "")>
                                     @Html.ActionLink(page.ToString(), "Index",
-                                        new { Page = page, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                        new { Page = page, SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                 </li>
                             }
                             @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
                             {
                                 <li class="page-item page-link">
                                     @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
-                                        new { Page = Model.Pager.CurrentPage + 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                        new { Page = Model.Pager.CurrentPage + 1, SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                 </li>
                                 <li class="page-item page-link">
                                     @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
-                                        new { Page = Model.Pager.TotalPages, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter })
+                                        new { Page = Model.Pager.TotalPages, SortOrder = ViewBag.SortOrder, LakeSystemId = ViewBag.LakeSystemIdFilter, NameKK = ViewBag.NameKKFilter, NameRU = ViewBag.NameRUFilter, NameEN = ViewBag.NameENFilter })
                                 </li>
                             }
                         </ul>

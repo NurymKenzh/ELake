@@ -1,4 +1,4 @@
-﻿@model ELake.Models.Lake
+﻿@model ELake.Models.LakeSystem
 @using ELake.Controllers
 @using Microsoft.Extensions.Localization
 @inject IStringLocalizer<SharedResources> SharedLocalizer
@@ -14,7 +14,7 @@
                 <hr />
                 <div class="d-flex bd-highlight">
                     <div class="p-2 flex-grow-1 bd-highlight">
-                        <p class="lead text-info">@SharedLocalizer["Lake"]</p>
+                        <p class="lead text-info">@SharedLocalizer["LakeSystem"]</p>
                     </div>
                     <!-- Button trigger modal -->
                     <div class="bd-highlight">
@@ -37,9 +37,9 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
-                        <label asp-for="LakeId" class="control-label"></label>
-                        <input asp-for="LakeId" class="form-control" />
-                        <span asp-validation-for="LakeId" class="text-danger"></span>
+                        <label asp-for="LakeSystemId" class="control-label"></label>
+                        <input asp-for="LakeSystemId" class="form-control" />
+                        <span asp-validation-for="LakeSystemId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="NameKK" class="control-label"></label>
@@ -55,46 +55,6 @@
                         <label asp-for="NameEN" class="control-label"></label>
                         <input asp-for="NameEN" class="form-control" />
                         <span asp-validation-for="NameEN" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="VHBKK" class="control-label"></label>
-                        <input asp-for="VHBKK" class="form-control" />
-                        <span asp-validation-for="VHBKK" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="VHBRU" class="control-label"></label>
-                        <input asp-for="VHBRU" class="form-control" />
-                        <span asp-validation-for="VHBRU" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="VHBEN" class="control-label"></label>
-                        <input asp-for="VHBEN" class="form-control" />
-                        <span asp-validation-for="VHBEN" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="VHB" class="control-label"></label>
-                        <input asp-for="VHB" class="form-control" />
-                        <span asp-validation-for="VHB" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Area2015" class="control-label"></label>
-                        <input asp-for="Area2015" class="form-control" />
-                        <span asp-validation-for="Area2015" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="LakeShorelineLength2015" class="control-label"></label>
-                        <input asp-for="LakeShorelineLength2015" class="form-control" />
-                        <span asp-validation-for="LakeShorelineLength2015" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Longitude" class="control-label"></label>
-                        <input asp-for="Longitude" class="form-control" />
-                        <span asp-validation-for="Longitude" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Latitude" class="control-label"></label>
-                        <input asp-for="Latitude" class="form-control" />
-                        <span asp-validation-for="Latitude" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="@SharedLocalizer["Save"]" class="btn btn-default" />

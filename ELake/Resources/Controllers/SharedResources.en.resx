@@ -1587,4 +1587,16 @@
   <data name="September" xml:space="preserve">
     <value>September</value>
   </data>
+  <data name="LakeSystem" xml:space="preserve">
+    <value>Lake system</value>
+  </data>
+  <data name="LakeSystemId" xml:space="preserve">
+    <value>Lake system id</value>
+  </data>
+  <data name="LakeSystems" xml:space="preserve">
+    <value>Lake systems</value>
+  </data>
+  <data name="LakeSystemUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake system Id, title (Russian), title (Kazakh), title (English)</value>
+  </data>
 </root>

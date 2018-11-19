@@ -1587,4 +1587,16 @@
   <data name="September" xml:space="preserve">
     <value>Сентябрь</value>
   </data>
+  <data name="LakeSystem" xml:space="preserve">
+    <value>Озерная система</value>
+  </data>
+  <data name="LakeSystemId" xml:space="preserve">
+    <value>Id озерной системы</value>
+  </data>
+  <data name="LakeSystems" xml:space="preserve">
+    <value>Озерные системы</value>
+  </data>
+  <data name="LakeSystemUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озерной системы, название (русский), название (казахский), название (английский)</value>
+  </data>
 </root>
