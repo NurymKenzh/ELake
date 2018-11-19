@@ -1422,6 +1422,15 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value>Volume of water mass, million m³</value>
   </data>
+  <data name="BenthosBiomass" xml:space="preserve">
+    <value>Biomass of benthos, g / m²</value>
+  </data>
+  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
+    <value>Current commercial fish productivity, kg / ha</value>
+  </data>
+  <data name="CurrentUsage" xml:space="preserve">
+    <value>Current usage</value>
+  </data>
   <data name="FamilyId" xml:space="preserve">
     <value>Id family</value>
   </data>
@@ -1433,6 +1442,9 @@
   </data>
   <data name="FamilyNameRU" xml:space="preserve">
     <value>The name of the family of fish in Russian</value>
+  </data>
+  <data name="FishCatchLimit" xml:space="preserve">
+    <value>Fish catch limit, tons</value>
   </data>
   <data name="FishId" xml:space="preserve">
     <value>Id fish</value>
@@ -1454,5 +1466,32 @@
   </data>
   <data name="FishNameRU" xml:space="preserve">
     <value>Name of fish in Russian</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
+    <value>General hydrobiological indicator of the lake</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
+    <value>General hydrobiological indicators of lakes</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, fish Id, year of study, zooplankton biomass, benthos biomass, species richness index, fish catch limit, current commercial fish productivity, potential fish production, potential rearing, current use, recommended use</value>
+  </data>
+  <data name="PotentialFishProducts" xml:space="preserve">
+    <value>Potential fish products, kg / ha</value>
+  </data>
+  <data name="PotentialGrowingVolume" xml:space="preserve">
+    <value>Potential growing volume, kg / ha</value>
+  </data>
+  <data name="RecommendedUse" xml:space="preserve">
+    <value>Recommended use</value>
+  </data>
+  <data name="SpeciesWealthIndex" xml:space="preserve">
+    <value>Species wealth index, units</value>
+  </data>
+  <data name="ZooplanktonBiomass" xml:space="preserve">
+    <value>Zooplankton biomass, g / m³</value>
+  </data>
+  <data name="Hydrobiology" xml:space="preserve">
+    <value>Hydrobiology</value>
   </data>
 </root>

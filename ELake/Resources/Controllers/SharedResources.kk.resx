@@ -1422,6 +1422,15 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value>Су массасының көлемі, млн. М3</value>
   </data>
+  <data name="BenthosBiomass" xml:space="preserve">
+    <value>Бентос биомасса, г / м2</value>
+  </data>
+  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
+    <value>Ағымдағы коммерциялық балық өнімділігі, кг / га</value>
+  </data>
+  <data name="CurrentUsage" xml:space="preserve">
+    <value>Қолданыстағы пайдалану</value>
+  </data>
   <data name="FamilyId" xml:space="preserve">
     <value>Id отбасы</value>
   </data>
@@ -1433,6 +1442,9 @@
   </data>
   <data name="FamilyNameRU" xml:space="preserve">
     <value>Орыс тіліндегі балықтың отбасы</value>
+  </data>
+  <data name="FishCatchLimit" xml:space="preserve">
+    <value>Балық аулау лимиті, тонна</value>
   </data>
   <data name="FishId" xml:space="preserve">
     <value>Id balıq</value>
@@ -1454,5 +1466,32 @@
   </data>
   <data name="FishNameRU" xml:space="preserve">
     <value>Орыс тіліндегі балықтың атауы</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
+    <value>Көлдің жалпы гидробиологиялық көрсеткіші</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
+    <value>Көлдердің жалпы гидробиологиялық көрсеткіштері</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағанның тәртібі: Id Id Id, балық идентификаторы, зерттеу жылы, zooplankton биомассасы, бентос биомасса, өсімдік түрінің индексі, балық аулау лимиті, қазіргі коммерциялық балық өнімділігі, потенциалды балық өндірісі, әлеуетті өсіру, қолданыстағы пайдалану, ұсынылған пайдалану</value>
+  </data>
+  <data name="PotentialFishProducts" xml:space="preserve">
+    <value>Әлеуетті балық өнімдері, кг / га</value>
+  </data>
+  <data name="PotentialGrowingVolume" xml:space="preserve">
+    <value>Әлеуетті өсім көлемі, кг / га</value>
+  </data>
+  <data name="RecommendedUse" xml:space="preserve">
+    <value>Ұсынылған қолдану</value>
+  </data>
+  <data name="SpeciesWealthIndex" xml:space="preserve">
+    <value>Түрлердің байлық индексі, бірлік</value>
+  </data>
+  <data name="ZooplanktonBiomass" xml:space="preserve">
+    <value>Зоопланктон биомасса, г / м³</value>
+  </data>
+  <data name="Hydrobiology" xml:space="preserve">
+    <value>Гидробиология</value>
   </data>
 </root>

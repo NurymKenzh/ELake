@@ -261,6 +261,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string BenthosBiomass {
+            get {
+                return ResourceManager.GetString("BenthosBiomass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Brackish {
             get {
                 return ResourceManager.GetString("Brackish", resourceCulture);
@@ -543,6 +552,24 @@ namespace ELake.Resources.Controllers {
         public static string Cu {
             get {
                 return ResourceManager.GetString("Cu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string CurrentCommercialFishProductivity {
+            get {
+                return ResourceManager.GetString("CurrentCommercialFishProductivity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string CurrentUsage {
+            get {
+                return ResourceManager.GetString("CurrentUsage", resourceCulture);
             }
         }
         
@@ -891,6 +918,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string FishCatchLimit {
+            get {
+                return ResourceManager.GetString("FishCatchLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string FishId {
             get {
                 return ResourceManager.GetString("FishId", resourceCulture);
@@ -1029,6 +1065,33 @@ namespace ELake.Resources.Controllers {
         public static string Functions {
             get {
                 return ResourceManager.GetString("Functions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string GeneralHydrobiologicalIndicator {
+            get {
+                return ResourceManager.GetString("GeneralHydrobiologicalIndicator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string GeneralHydrobiologicalIndicators {
+            get {
+                return ResourceManager.GetString("GeneralHydrobiologicalIndicators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string GeneralHydrobiologicalIndicatorUploadDescription {
+            get {
+                return ResourceManager.GetString("GeneralHydrobiologicalIndicatorUploadDescription", resourceCulture);
             }
         }
         
@@ -1272,6 +1335,15 @@ namespace ELake.Resources.Controllers {
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Hydrobiology {
+            get {
+                return ResourceManager.GetString("Hydrobiology", resourceCulture);
             }
         }
         
@@ -2763,6 +2835,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string PotentialFishProducts {
+            get {
+                return ResourceManager.GetString("PotentialFishProducts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PotentialGrowingVolume {
+            get {
+                return ResourceManager.GetString("PotentialGrowingVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Pour_lat {
             get {
                 return ResourceManager.GetString("Pour_lat", resourceCulture);
@@ -2910,6 +3000,15 @@ namespace ELake.Resources.Controllers {
         public static string RasterValueStat {
             get {
                 return ResourceManager.GetString("RasterValueStat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string RecommendedUse {
+            get {
+                return ResourceManager.GetString("RecommendedUse", resourceCulture);
             }
         }
         
@@ -3153,6 +3252,15 @@ namespace ELake.Resources.Controllers {
         public static string SourWater {
             get {
                 return ResourceManager.GetString("SourWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SpeciesWealthIndex {
+            get {
+                return ResourceManager.GetString("SpeciesWealthIndex", resourceCulture);
             }
         }
         
@@ -4071,6 +4179,15 @@ namespace ELake.Resources.Controllers {
         public static string ZonalStatWaters {
             get {
                 return ResourceManager.GetString("ZonalStatWaters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string ZooplanktonBiomass {
+            get {
+                return ResourceManager.GetString("ZooplanktonBiomass", resourceCulture);
             }
         }
     }

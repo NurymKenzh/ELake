@@ -1422,6 +1422,15 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value>Объем водной массы, млн.м³</value>
   </data>
+  <data name="BenthosBiomass" xml:space="preserve">
+    <value>Биомасса бентоса, г/м²</value>
+  </data>
+  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
+    <value>Текущая промысловая рыбопродуктивность, кг/га</value>
+  </data>
+  <data name="CurrentUsage" xml:space="preserve">
+    <value>Текущее использование</value>
+  </data>
   <data name="FamilyId" xml:space="preserve">
     <value>Id семейства</value>
   </data>
@@ -1433,6 +1442,9 @@
   </data>
   <data name="FamilyNameRU" xml:space="preserve">
     <value>Название семейства рыб на русском</value>
+  </data>
+  <data name="FishCatchLimit" xml:space="preserve">
+    <value>Лимит улова рыбы, тонн</value>
   </data>
   <data name="FishId" xml:space="preserve">
     <value>Id рыбы</value>
@@ -1454,5 +1466,32 @@
   </data>
   <data name="FishNameRU" xml:space="preserve">
     <value>Название рыб на русском</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
+    <value>Общий гидробиологический показатель озера</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
+    <value>Общие гидробиологические показатели озер</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, Id рыбы, год исследования, биомасса зоопланктона, биомасса бентоса, индекс видового богатства, лимит улова рыбы, текущая промысловая рыбопродуктивность, потенциальная рыбопродуктинвость, потенциальный объём выращивания, текущее использование, рекомендованное использование</value>
+  </data>
+  <data name="PotentialFishProducts" xml:space="preserve">
+    <value>Потенциальная рыбопродуктинвость, кг/га</value>
+  </data>
+  <data name="PotentialGrowingVolume" xml:space="preserve">
+    <value>Потенциальный объём выращивания, кг/га</value>
+  </data>
+  <data name="RecommendedUse" xml:space="preserve">
+    <value>Рекомендованное использование</value>
+  </data>
+  <data name="SpeciesWealthIndex" xml:space="preserve">
+    <value>Индекс видового богатства, ед.</value>
+  </data>
+  <data name="ZooplanktonBiomass" xml:space="preserve">
+    <value>Биомасса зоопланктона, г/м³</value>
+  </data>
+  <data name="Hydrobiology" xml:space="preserve">
+    <value>Гидробиология</value>
   </data>
 </root>

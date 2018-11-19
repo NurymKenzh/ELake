@@ -1422,6 +1422,15 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value />
   </data>
+  <data name="BenthosBiomass" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CurrentUsage" xml:space="preserve">
+    <value />
+  </data>
   <data name="FamilyId" xml:space="preserve">
     <value />
   </data>
@@ -1432,6 +1441,9 @@
     <value />
   </data>
   <data name="FamilyNameRU" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FishCatchLimit" xml:space="preserve">
     <value />
   </data>
   <data name="FishId" xml:space="preserve">
@@ -1453,6 +1465,33 @@
     <value />
   </data>
   <data name="FishNameRU" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PotentialFishProducts" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PotentialGrowingVolume" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RecommendedUse" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpeciesWealthIndex" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ZooplanktonBiomass" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Hydrobiology" xml:space="preserve">
     <value />
   </data>
 </root>
