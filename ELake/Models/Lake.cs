@@ -45,6 +45,9 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "VHBKK")]
         public string VHBKK { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "LakeSystemId")]
+        public int? LakeSystemId { get; set; }
+
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "VHBRU")]
         public string VHBRU { get; set; }
 

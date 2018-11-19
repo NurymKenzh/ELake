@@ -928,7 +928,7 @@
     <value>Shore irregularity ratio</value>
   </data>
   <data name="LakeUploadDescription" xml:space="preserve">
-    <value>The order of the columns in the file: Lake Id, name of the lake in Kazakh, name of the lake in Russian, name of the lake in English, length of the lake shoreline in 2015, lake mirror area in 2015, longitude, latitude</value>
+    <value>The order of the columns in the file is: Lake Id, lake name in Kazakh, lake name in Russian, lake name in English, name of the water basin in Kazakh, name of the water basin in Russian, name of the water basin in English, name of the water site, Id lake system, length lake shoreline for 2015, lake mirror area for 2015, longitude, latitude</value>
   </data>
   <data name="Brackish" xml:space="preserve">
     <value>Brackish</value>
