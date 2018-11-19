@@ -74,5 +74,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.ToxicologicalIndicator> ToxicologicalIndicator { get; set; }
 
         public DbSet<ELake.Models.BathigraphicAndVolumetricCurveData> BathigraphicAndVolumetricCurveData { get; set; }
+
+        public DbSet<ELake.Models.FishKind> FishKind { get; set; }
     }
 }

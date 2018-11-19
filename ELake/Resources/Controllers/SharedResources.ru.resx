@@ -1422,4 +1422,37 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value>Объем водной массы, млн.м³</value>
   </data>
+  <data name="FamilyId" xml:space="preserve">
+    <value>Id семейства</value>
+  </data>
+  <data name="FamilyNameKK" xml:space="preserve">
+    <value>Название семейства рыб на казахском</value>
+  </data>
+  <data name="FamilyNameLA" xml:space="preserve">
+    <value>Название семейства рыб на латинице</value>
+  </data>
+  <data name="FamilyNameRU" xml:space="preserve">
+    <value>Название семейства рыб на русском</value>
+  </data>
+  <data name="FishId" xml:space="preserve">
+    <value>Id рыбы</value>
+  </data>
+  <data name="FishKind" xml:space="preserve">
+    <value>Вид рыб</value>
+  </data>
+  <data name="FishKinds" xml:space="preserve">
+    <value>Виды рыб</value>
+  </data>
+  <data name="FishKindUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id рыбы, Id семейства, название рыб на казахском, название рыб на русском, название рыб на латинице, название семейства рыб на казахском, название семейства рыб на русском, название семейства рыб на латинице</value>
+  </data>
+  <data name="FishNameKK" xml:space="preserve">
+    <value>Название рыб на казахском</value>
+  </data>
+  <data name="FishNameLA" xml:space="preserve">
+    <value>Название рыб на латинице</value>
+  </data>
+  <data name="FishNameRU" xml:space="preserve">
+    <value>Название рыб на русском</value>
+  </data>
 </root>

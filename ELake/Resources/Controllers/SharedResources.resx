@@ -1422,4 +1422,37 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value />
   </data>
+  <data name="FamilyId" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FamilyNameKK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FamilyNameLA" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FamilyNameRU" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FishId" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FishKind" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FishKinds" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FishKindUploadDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FishNameKK" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FishNameLA" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FishNameRU" xml:space="preserve">
+    <value />
+  </data>
 </root>

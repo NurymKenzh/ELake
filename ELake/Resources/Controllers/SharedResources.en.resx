@@ -1422,4 +1422,37 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value>Volume of water mass, million m³</value>
   </data>
+  <data name="FamilyId" xml:space="preserve">
+    <value>Id family</value>
+  </data>
+  <data name="FamilyNameKK" xml:space="preserve">
+    <value>The name of the family of fish in Kazakh</value>
+  </data>
+  <data name="FamilyNameLA" xml:space="preserve">
+    <value>The name of the family of fish in Latin</value>
+  </data>
+  <data name="FamilyNameRU" xml:space="preserve">
+    <value>The name of the family of fish in Russian</value>
+  </data>
+  <data name="FishId" xml:space="preserve">
+    <value>Id fish</value>
+  </data>
+  <data name="FishKind" xml:space="preserve">
+    <value>Kind of fish</value>
+  </data>
+  <data name="FishKinds" xml:space="preserve">
+    <value>Types of fish</value>
+  </data>
+  <data name="FishKindUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Id of fish, Id of family, name of fish in Kazakh, name of fish in Russian, name of fish in Latin, name of family of fish in Kazakh, name of family of fish in Russian, name of family of fish in Latin</value>
+  </data>
+  <data name="FishNameKK" xml:space="preserve">
+    <value>Name of fish in Kazakh</value>
+  </data>
+  <data name="FishNameLA" xml:space="preserve">
+    <value>Name of fish in Latin</value>
+  </data>
+  <data name="FishNameRU" xml:space="preserve">
+    <value>Name of fish in Russian</value>
+  </data>
 </root>

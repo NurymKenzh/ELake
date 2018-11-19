@@ -1422,4 +1422,37 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value>Су массасының көлемі, млн. М3</value>
   </data>
+  <data name="FamilyId" xml:space="preserve">
+    <value>Id отбасы</value>
+  </data>
+  <data name="FamilyNameKK" xml:space="preserve">
+    <value>Қазақ тіліндегі балықтың отбасы</value>
+  </data>
+  <data name="FamilyNameLA" xml:space="preserve">
+    <value>Латын тіліндегі балықтың отбасы</value>
+  </data>
+  <data name="FamilyNameRU" xml:space="preserve">
+    <value>Орыс тіліндегі балықтың отбасы</value>
+  </data>
+  <data name="FishId" xml:space="preserve">
+    <value>Id balıq</value>
+  </data>
+  <data name="FishKind" xml:space="preserve">
+    <value>Балықтың түрі</value>
+  </data>
+  <data name="FishKinds" xml:space="preserve">
+    <value>Балық түрлері</value>
+  </data>
+  <data name="FishKindUploadDescription" xml:space="preserve">
+    <value>Файлдағы баған тәртібі: балықтың иесі, отбасының аты, қазақ тіліндегі балықтың атауы, орыс тіліндегі балықтың атауы, латын тіліндегі балықтың атауы, қазақ тіліндегі балықтың отбасының аты, орыс тіліндегі балықтың отбасы, латын</value>
+  </data>
+  <data name="FishNameKK" xml:space="preserve">
+    <value>Қазақ тіліндегі балықтардың атауы</value>
+  </data>
+  <data name="FishNameLA" xml:space="preserve">
+    <value>Латын тіліндегі балық атауы</value>
+  </data>
+  <data name="FishNameRU" xml:space="preserve">
+    <value>Орыс тіліндегі балықтың атауы</value>
+  </data>
 </root>

@@ -792,6 +792,42 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string FamilyId {
+            get {
+                return ResourceManager.GetString("FamilyId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FamilyNameKK {
+            get {
+                return ResourceManager.GetString("FamilyNameKK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FamilyNameLA {
+            get {
+                return ResourceManager.GetString("FamilyNameLA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FamilyNameRU {
+            get {
+                return ResourceManager.GetString("FamilyNameRU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string File {
             get {
                 return ResourceManager.GetString("File", resourceCulture);
@@ -849,6 +885,69 @@ namespace ELake.Resources.Controllers {
         public static string FirstRowHeader {
             get {
                 return ResourceManager.GetString("FirstRowHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FishId {
+            get {
+                return ResourceManager.GetString("FishId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FishKind {
+            get {
+                return ResourceManager.GetString("FishKind", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FishKinds {
+            get {
+                return ResourceManager.GetString("FishKinds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FishKindUploadDescription {
+            get {
+                return ResourceManager.GetString("FishKindUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FishNameKK {
+            get {
+                return ResourceManager.GetString("FishNameKK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FishNameLA {
+            get {
+                return ResourceManager.GetString("FishNameLA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FishNameRU {
+            get {
+                return ResourceManager.GetString("FishNameRU", resourceCulture);
             }
         }
         
