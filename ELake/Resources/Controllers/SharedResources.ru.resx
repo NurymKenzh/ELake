@@ -1398,4 +1398,7 @@
   <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год, часть озера, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
+  <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год топографической съемки, дглина озера, глина береговой линии озера, площадь зеркала озера, фбсолютная высота озера, ширина озера, максимальная глубина озеро, объем водной массы озера, источник архивной информации</value>
+  </data>
 </root>

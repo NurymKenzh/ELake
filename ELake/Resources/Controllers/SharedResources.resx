@@ -1398,4 +1398,7 @@
   <data name="SaltyPart" xml:space="preserve">
     <value />
   </data>
+  <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

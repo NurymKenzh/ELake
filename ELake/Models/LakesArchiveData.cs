@@ -40,4 +40,10 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "ArchivalInfoSource")]
         public string ArchivalInfoSource { get; set; }
     }
+
+    public class LakesArchiveDataIndexPageViewModel
+    {
+        public IEnumerable<LakesArchiveData> Items { get; set; }
+        public Pager Pager { get; set; }
+    }
 }

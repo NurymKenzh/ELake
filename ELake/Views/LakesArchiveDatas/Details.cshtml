@@ -1,79 +1,110 @@
 ﻿@model ELake.Models.LakesArchiveData
-
+@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = SharedLocalizer["Details"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>LakesArchiveData</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeId)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeId)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.SurveyYear)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.SurveyYear)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeLength)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeLength)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeShorelineLength)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeShorelineLength)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeMirrorArea)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeMirrorArea)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeAbsoluteHeight)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeAbsoluteHeight)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeWidth)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeWidth)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeMaxDepth)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeMaxDepth)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.LakeWaterMass)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.LakeWaterMass)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.ArchivalInfoSource)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.ArchivalInfoSource)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="alert alert-primary" role="alert">
+                <button type="button" class="close" data-dismiss="alert">x</button> <h4 class="alert-heading">@SharedLocalizer["Details"]</h4>
+                <hr />
+                <div class="d-flex bd-highlight">
+                    <div class="p-2 flex-grow-1 bd-highlight">
+                        <p class="lead text-info">@SharedLocalizer["LakesArchiveData"]</p>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <div class="bd-highlight">
+                        <button type="button" class="btn btn-link" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-exclamation-triangle"></i></button>
+                    </div>
+                </div>
+                @if (!string.IsNullOrEmpty(ViewBag.Message))
+                {
+                    <div class="alert-warning" role="alert">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-3">
+            <div class="form-row ">
+                <span class="border-left ml-1"></span>
+                <div class="col-md-4 ml-3">
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeId)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeId)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.SurveyYear)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.SurveyYear)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeLength)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeLength)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeShorelineLength)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeShorelineLength)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeMirrorArea)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeMirrorArea)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeAbsoluteHeight)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeAbsoluteHeight)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeWidth)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeWidth)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeMaxDepth)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeMaxDepth)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LakeWaterMass)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LakeWaterMass)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.ArchivalInfoSource)
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.ArchivalInfoSource)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.Id">@SharedLocalizer["Edit"]</a> |
+                        <a asp-action="Index">@SharedLocalizer["BackToList"]</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
