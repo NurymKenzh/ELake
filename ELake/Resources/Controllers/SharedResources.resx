@@ -1401,4 +1401,7 @@
   <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

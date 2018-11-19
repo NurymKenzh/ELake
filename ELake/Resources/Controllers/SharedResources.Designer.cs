@@ -1899,6 +1899,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string LakesGlobalDataUploadDescription {
+            get {
+                return ResourceManager.GetString("LakesGlobalDataUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string LakeShorelineLength {
             get {
                 return ResourceManager.GetString("LakeShorelineLength", resourceCulture);

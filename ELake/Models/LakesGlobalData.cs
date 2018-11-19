@@ -137,4 +137,10 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Pour_lat")]
         public decimal? Pour_lat { get; set; }
     }
+
+    public class LakesGlobalDataIndexPageViewModel
+    {
+        public IEnumerable<LakesGlobalData> Items { get; set; }
+        public Pager Pager { get; set; }
+    }
 }
