@@ -1398,6 +1398,18 @@
   <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год, часть озера, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
+  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
+    <value>Данных по батиграфической и объемной кривой</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
+    <value>Данных по батиграфической и объемной кривой</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, уровень воды, площадь озера, объем водной массы</value>
+  </data>
+  <data name="LakeArea" xml:space="preserve">
+    <value>Площадь озера, км²</value>
+  </data>
   <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год топографической съемки, дглина озера, глина береговой линии озера, площадь зеркала озера, фбсолютная высота озера, ширина озера, максимальная глубина озеро, объем водной массы озера, источник архивной информации</value>
   </data>
@@ -1406,5 +1418,8 @@
   </data>
   <data name="WaterLevelUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год, среднегодовой уровень озера</value>
+  </data>
+  <data name="WaterMassVolume" xml:space="preserve">
+    <value>Объем водной массы, млн.м³</value>
   </data>
 </root>

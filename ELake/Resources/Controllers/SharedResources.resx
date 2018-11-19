@@ -1398,6 +1398,18 @@
   <data name="SaltyPart" xml:space="preserve">
     <value />
   </data>
+  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="LakeArea" xml:space="preserve">
+    <value />
+  </data>
   <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
     <value />
   </data>
@@ -1405,6 +1417,9 @@
     <value />
   </data>
   <data name="WaterLevelUploadDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterMassVolume" xml:space="preserve">
     <value />
   </data>
 </root>

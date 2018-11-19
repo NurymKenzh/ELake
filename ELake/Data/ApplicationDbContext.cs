@@ -72,5 +72,7 @@ namespace ELake.Data
         public DbSet<ELake.Models.NutrientsHeavyMetalsStandard> NutrientsHeavyMetalsStandard { get; set; }
 
         public DbSet<ELake.Models.ToxicologicalIndicator> ToxicologicalIndicator { get; set; }
+
+        public DbSet<ELake.Models.BathigraphicAndVolumetricCurveData> BathigraphicAndVolumetricCurveData { get; set; }
     }
 }

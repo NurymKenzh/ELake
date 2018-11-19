@@ -234,6 +234,33 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string BathigraphicAndVolumetricCurveData {
+            get {
+                return ResourceManager.GetString("BathigraphicAndVolumetricCurveData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string BathigraphicAndVolumetricCurveDatas {
+            get {
+                return ResourceManager.GetString("BathigraphicAndVolumetricCurveDatas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string BathigraphicAndVolumetricCurveDataUploadDescription {
+            get {
+                return ResourceManager.GetString("BathigraphicAndVolumetricCurveDataUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Brackish {
             get {
                 return ResourceManager.GetString("Brackish", resourceCulture);
@@ -1785,6 +1812,15 @@ namespace ELake.Resources.Controllers {
         public static string LakeArchiveData {
             get {
                 return ResourceManager.GetString("LakeArchiveData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string LakeArea {
+            get {
+                return ResourceManager.GetString("LakeArea", resourceCulture);
             }
         }
         
@@ -3846,6 +3882,15 @@ namespace ELake.Resources.Controllers {
         public static string WaterLevelUploadDescription {
             get {
                 return ResourceManager.GetString("WaterLevelUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string WaterMassVolume {
+            get {
+                return ResourceManager.GetString("WaterMassVolume", resourceCulture);
             }
         }
         

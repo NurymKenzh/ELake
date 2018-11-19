@@ -1398,6 +1398,18 @@
   <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
     <value>Файлдағы бағандар тәртібі: Id көлдер, жыл, көлдің бөлігі, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
+  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
+    <value>Ваннографиялық және көлемдік қисық туралы мәліметтер</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
+    <value>Ваннографиялық және көлемдік қисық туралы мәліметтер</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: Id Id, су деңгейі, көл аймағы, су массасы</value>
+  </data>
+  <data name="LakeArea" xml:space="preserve">
+    <value>Көлдің ауданы, км²</value>
+  </data>
   <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
     <value>Файлдағы бағандар тәртібі: көлдің идентификациясы, топографиялық зерттеу жылы, көлдік длин, көлдің жағалаулық сазы, көлдің айна ауданы, көлдің биіктігі, көлдің ені, көлдің тереңдігі, көлдің су массасының көлемі, мұрағаттық ақпарат көзі</value>
   </data>
@@ -1406,5 +1418,8 @@
   </data>
   <data name="WaterLevelUploadDescription" xml:space="preserve">
     <value>Файлдағы бағандардың тәртібі: Id Id, жыл, көлдің орташа жылдық деңгейі</value>
+  </data>
+  <data name="WaterMassVolume" xml:space="preserve">
+    <value>Су массасының көлемі, млн. М3</value>
   </data>
 </root>

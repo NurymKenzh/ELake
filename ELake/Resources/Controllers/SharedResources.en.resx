@@ -1398,6 +1398,18 @@
   <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
     <value>Column order in the file: Id lakes, year, part of the lake, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
+  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
+    <value>Data on the bathigraphic and volumetric curve</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
+    <value>Data on the bathigraphic and volumetric curve</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
+    <value>The order of the columns in the file: Lake Id, water level, lake area, water mass</value>
+  </data>
+  <data name="LakeArea" xml:space="preserve">
+    <value>Lake area, km²</value>
+  </data>
   <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
     <value>Column order in the file: Lake Id, year of topographic survey, lake dlin, lake shoreline clay, lake mirror area, total lake height, lake width, maximum lake depth, volume of lake water mass, source of archival information</value>
   </data>
@@ -1406,5 +1418,8 @@
   </data>
   <data name="WaterLevelUploadDescription" xml:space="preserve">
     <value>The order of the columns in the file: Lake Id, year, average annual lake level</value>
+  </data>
+  <data name="WaterMassVolume" xml:space="preserve">
+    <value>Volume of water mass, million m³</value>
   </data>
 </root>
