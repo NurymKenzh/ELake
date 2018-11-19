@@ -1404,4 +1404,7 @@
   <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="WaterLevelUploadDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

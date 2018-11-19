@@ -1404,4 +1404,7 @@
   <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
     <value>Column order in the file: Lake Id, Lake Unique Identifier, Lake Name (English), Lake Name (Russian), Lake Name (Kazakh), Country (English), Country (Russian), Country (Kazakh), Continent (English), continent (Russian), continent (Kazakh), data sources (English), data sources, data sources (Kazakh), lake type indicator, unique identifier of the reservoir in the grand database, surface area of ​​lakes, coastline length, jagged coastline, total lake volume, reservoir volume , source of volume data, average lake depth, average long-term runoff flowing through the lake, average water residence time in the lake, height of the lake surface above sea level, average slope within a 100-meter buffer around the lake landfill, catchment area, longitude, latitude</value>
   </data>
+  <data name="WaterLevelUploadDescription" xml:space="preserve">
+    <value>The order of the columns in the file: Lake Id, year, average annual lake level</value>
+  </data>
 </root>

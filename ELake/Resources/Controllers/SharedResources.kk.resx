@@ -1404,4 +1404,7 @@
   <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
     <value>Файлдағы бағанның тәртібі: Id Id, Lake Unique Identifier, Lake Name (Ағылшын тілі), Lake Name (Орыс), Lake Name (Kazakh), Country (English), Country (Russian), Country (Kazakh), Continent (English) деректер базасы (қазақ), көлдің түрі индикаторы, деректер базасында резервуардың бірегей идентификаторы, көлдер бетінің ауданы, жағалау сызығының ұзындығы, жағалаулық жағалау сызығы, барлығы Көлдің көлемі, су қоймасының көлемі , көлдің тереңдігі, көл арқылы өтетін орташа ұзақ мерзімді су ағымы, көлде орташа судың болуы, теңіз деңгейінен жоғары көлдің биіктігі, көлдің қоқыс полигонындағы 100 метрлік аралықтағы орташа көлбеу, қону алаңы, бойлық, ендік</value>
   </data>
+  <data name="WaterLevelUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың тәртібі: Id Id, жыл, көлдің орташа жылдық деңгейі</value>
+  </data>
 </root>

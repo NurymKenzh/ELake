@@ -8,16 +8,27 @@ using Microsoft.EntityFrameworkCore;
 using ELake.Data;
 using ELake.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Localization;
+using System.IO;
+using OfficeOpenXml;
 
 namespace ELake.Controllers
 {
     public class WaterLevelsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IStringLocalizer<SharedResources> _sharedLocalizer;
 
-        public WaterLevelsController(ApplicationDbContext context)
+        public WaterLevelsController(ApplicationDbContext context,
+            IHostingEnvironment hostingEnvironment,
+            IStringLocalizer<SharedResources> sharedLocalizer)
         {
             _context = context;
+            _hostingEnvironment = hostingEnvironment;
+            _sharedLocalizer = sharedLocalizer;
         }
 
         // GET: WaterLevels
@@ -213,6 +224,96 @@ namespace ELake.Controllers
         private bool WaterLevelExists(int id)
         {
             return _context.WaterLevel.Any(e => e.Id == id);
+        }
+
+        [Authorize(Roles = "Administrator, Moderator")]
+        public IActionResult Upload()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> Upload(bool FirstRowHeader, IFormFile File)
+        {
+            try
+            {
+                string sContentRootPath = _hostingEnvironment.WebRootPath;
+                sContentRootPath = Path.Combine(sContentRootPath, "Uploads");
+                DirectoryInfo di = new DirectoryInfo(sContentRootPath);
+                foreach (FileInfo filed in di.GetFiles())
+                {
+                    try
+                    {
+                        filed.Delete();
+                    }
+                    catch
+                    {
+                    }
+                }
+                string path_filename = Path.Combine(sContentRootPath, Path.GetFileName(File.FileName));
+                using (var stream = new FileStream(Path.GetFullPath(path_filename), FileMode.Create))
+                {
+                    await File.CopyToAsync(stream);
+                }
+                FileInfo fileinfo = new FileInfo(Path.Combine(sContentRootPath, Path.GetFileName(path_filename)));
+                using (ExcelPackage package = new ExcelPackage(fileinfo))
+                {
+                    int start_row = 1;
+                    if (FirstRowHeader)
+                    {
+                        start_row++;
+                    }
+                    List<WaterLevel> waterLevels = new List<WaterLevel>();
+                    for (int i = start_row; ; i++)
+                    {
+                        if (package.Workbook.Worksheets.FirstOrDefault().Cells[i, 1].Value == null)
+                        {
+                            break;
+                        }
+                        WaterLevel waterLevel = new WaterLevel();
+
+                        try
+                        {
+                            waterLevel.LakeId = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 1].Value);
+                            waterLevel.Year = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 2].Value);
+                            waterLevel.WaterLavelM = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
+                        }
+                        catch (Exception e)
+                        {
+                            ViewBag.Error = $"{_sharedLocalizer["Row"]} {i.ToString()}: " + e.Message + (e.InnerException == null ? "" : ": " + e.InnerException.Message);
+                            break;
+                        }
+
+                        waterLevels.Add(waterLevel);
+                        _context.Add(waterLevels.LastOrDefault());
+                    }
+                    if (string.IsNullOrEmpty(ViewBag.Error))
+                    {
+                        _context.SaveChanges();
+                        ViewBag.Report = $"{_sharedLocalizer["UploadedCount"]}: {waterLevels.Count()}";
+                    }
+                }
+                foreach (FileInfo filed in di.GetFiles())
+                {
+                    try
+                    {
+                        filed.Delete();
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                if (File != null)
+                {
+                    ViewBag.Error = e.Message + (e.InnerException == null ? "" : ": " + e.InnerException.Message);
+                }
+            }
+            return View();
         }
     }
 }

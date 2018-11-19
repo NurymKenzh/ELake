@@ -3843,6 +3843,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string WaterLevelUploadDescription {
+            get {
+                return ResourceManager.GetString("WaterLevelUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string WatersType {
             get {
                 return ResourceManager.GetString("WatersType", resourceCulture);
