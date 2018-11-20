@@ -47,7 +47,7 @@ namespace ELake.Controllers
             //}
             //_context.SaveChanges();
 
-            ViewBag.Lakes = new SelectList(_context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).OrderBy(l => l.Name), "LakeId", "Name");
+            //ViewBag.Lakes = new SelectList(_context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).OrderBy(l => l.Name), "LakeId", "Name");
 
             return View();
         }
@@ -207,9 +207,29 @@ namespace ELake.Controllers
             return result;
         }
 
-        public IActionResult SearchLakes()
+        [HttpPost]
+        public ActionResult SearchLakes()
         {
-            return View();
+            var lakes = _context.Lake
+                .Select(l => l.Name)
+                .Distinct()
+                .OrderBy(l => l)
+                .ToArray();
+            return Json(new
+            {
+                lakes
+            });
+        }
+
+        [HttpPost]
+        public ActionResult GetLakeId(string LakeName)
+        {
+            int? lakeId = _context.Lake
+                .FirstOrDefault(l => l.Name == LakeName)?.LakeId;
+            return Json(new
+            {
+                lakeId
+            });
         }
     }
 }

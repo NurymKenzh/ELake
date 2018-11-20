@@ -5,6 +5,25 @@
     ViewData["Title"] = @SharedLocalizer["Home"];
 }
 
+<link href="~/lib/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ui/jquery-ui.js"></script>
+
+<style>
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+    * we use height instead, but this forces the menu to always be this tall
+    */
+    * html .ui-autocomplete {
+        height: 100px;
+    }
+</style>
+
 <body>
 
     <!-- Navigation -->
@@ -104,17 +123,18 @@
                     <h2 class="mb-4">Search by lake name!</h2>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    @*<form>*@
                     <div class="form-row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0">
-                            @*<input type="lake" class="form-control form-control-lg" placeholder="Enter lake name...">*@
-                            <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
+                        @*<div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
+                            </div>*@
+                        <div class="ui-widget">
+                            @*<label for="LakeId">Tags: </label>*@
+                            <input id="LakeId" class="form-control">
                         </div>
                         <div class="col-12 col-md-3">
                             <button type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">Search</button>
                         </div>
                     </div>
-                    @*</form>*@
                 </div>
             </div>
         </div>
@@ -155,7 +175,33 @@
 </body>
 
 <script>
-    function GoToLake(){
-        window.location.href = '/Lakes/Map/' + $('#LakeId').val();
+    function GoToLake() {
+        $.ajax({
+            url: '@Url.Action("GetLakeId")',
+            data: {
+                LakeName: $('#LakeId').val()
+            },
+            type: 'POST',
+            success: function (data) {
+                if (data.lakeId != null) {
+                    window.location.href = '/Lakes/Map/' + data.lakeId.toString();
+                }
+            },
+            error: function () {
+            }
+        });
     }
+</script>
+<script>
+    $.ajax({
+        url: '@Url.Action("SearchLakes")',
+        type: 'POST',
+        success: function (data) {
+            $("#LakeId").autocomplete({
+                source: data.lakes
+            });
+        },
+        error: function () {
+        }
+    });
 </script>
