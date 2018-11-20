@@ -275,18 +275,6 @@ namespace ELake.Controllers
         //[Authorize(Roles = "Administrator, Moderator")]
         public async Task<IActionResult> Map(int? id)
         {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //var lake = await _context.Lake
-            //    .SingleOrDefaultAsync(m => m.LakeId == id);
-            //if (lake == null)
-            //{
-            //    return NotFound();
-            //}
-
             ViewBag.LakeId = id;
             ViewBag.Lakes = new SelectList(
                 _context.Lake
@@ -310,7 +298,6 @@ namespace ELake.Controllers
                 _context.Evaporation.Max(w => w.Year),
                 _context.UndergroundOutflow.Max(w => w.Year),
                 _context.Hydrochemistry.Max(w => w.Year));
-            //ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake).GeoServerName;
             string[] DataTypes = new string[] {
                 "WaterLevels",
                 "SurfaceFlows",
@@ -347,6 +334,8 @@ namespace ELake.Controllers
             ViewBag.DataType = DataTypes.Select(r => new SelectListItem { Text = _sharedLocalizer[r], Value = r });
             ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake);
             ViewBag.LakeName = _context.Lake.FirstOrDefault(l => l.LakeId == id)?.Name;
+            ViewBag.Adm1 = new SelectList(_context.KATO.Where(k => k.Level == 1).OrderBy(k => k.Name), "Id", "Name");
+            //ViewBag.Adm2 = new SelectList(_context.KATO.Where(k => k.Level == 2).OrderBy(k => k.Name), "Id", "Name");
 
             return View();
         }
@@ -667,7 +656,7 @@ namespace ELake.Controllers
         //}
 
         [HttpPost]
-        public ActionResult GetLakes(string Search)
+        public ActionResult GetLakes(string Search, int? Adm1KATOId, int? Adm2KATOId)
         {
             if (Search == null)
             {
@@ -677,9 +666,32 @@ namespace ELake.Controllers
                 .Where(l => l.Name.ToLower().Contains(Search.ToLower()))
                 .OrderBy(l => l.Name)
                 .ToArray();
+            if(Adm1KATOId != null)
+            {
+                lakes = lakes.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm1KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
+            }
+            if (Adm2KATOId != null)
+            {
+                lakes = lakes.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm2KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
+            }
             return Json(new
             {
                 lakes
+            });
+        }
+
+        [HttpPost]
+        public ActionResult GetAdm2(int? Adm1KATOId)
+        {
+            KATO adm1 = _context.KATO.FirstOrDefault(k => k.Id == Adm1KATOId);
+            string adm1Number = adm1 == null ? null : adm1?.Number.Substring(0, 2);
+            var adm2 = _context.KATO
+                .Where(k => k.Level == 2 && k.Number.Substring(0, 2) == adm1Number)
+                .OrderBy(k => k.Name)
+                .ToArray();
+            return Json(new
+            {
+                adm2
             });
         }
     }
