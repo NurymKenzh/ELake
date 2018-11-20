@@ -664,5 +664,22 @@ namespace ELake.Controllers
         //        p
         //    });
         //}
+
+        [HttpPost]
+        public ActionResult GetLakes(string Search)
+        {
+            if (Search == null)
+            {
+                Search = "";
+            }
+            var lakes = _context.Lake
+                .Where(l => l.Name.ToLower().Contains(Search.ToLower()))
+                .OrderBy(l => l.Name)
+                .ToArray();
+            return Json(new
+            {
+                lakes
+            });
+        }
     }
 }

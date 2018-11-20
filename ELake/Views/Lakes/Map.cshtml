@@ -12,17 +12,18 @@
 @*<link href="~/css/search.css" rel="stylesheet" />*@
 <script src="~/lib/chart.js/Chart.js"></script>
 @*<h2>@SharedLocalizer["Lake"]</h2>*@
+<script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
 
 @*<input type="button" name="Text" value="VTest" onclick="Test()" />
     <input type="text" id="TestText"/>*@
-<div class="container-fluid">
+<div class="container-fluid" id="maindiv">
     <div class="row">
         <div class="col-md-9">
             <div class="d-block border-bottom border-primary p-2" style="background-color: #e3f2fd;">
                 <div class="col-md-4 ">
                     <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-primary my-2 my-sm-0 btn-sm" type="submit">Search</button>
+                        <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search" oninput="SearchChange();">@*onkeyup="this.onchange();"onchange="SearchChange(); alert(1);"*@
+                        @*<button class="btn btn-outline-primary my-2 my-sm-0 btn-sm" type="submit">Search</button>*@
                     </form>
                 </div>
             </div>
@@ -32,811 +33,15 @@
                         <div class="card-body bg-light">
                             <h6>Search by lake name!</h6>
                             <div class="input-group">
-                                <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary my-2 my-sm-0 btn-sm" type="submit" onclick="SelectLakeZoom($('#LakeId').val().toString(), true)"><i class="fa fa-filter"></i></button>
-                                </div>
-                            </div>
-                            <div>
-                                <dl>
-                                    <dt class="mt-2">
-                                        @SharedLocalizer["Year"]
-                                    </dt>
-                                    <dd>
-                                        <span id="year">@ViewBag.MinYear</span>
-                                        <input id="Year" class="custom-range" type="range" min="@ViewBag.MinYear" max="@ViewBag.MaxYear" value="@ViewBag.MinYear" style="display:normal;" onchange="ChangeDataType();" oninput="SlideYear(this.value);" />
-                                    </dd>
-                                    <dt>
-                                        @SharedLocalizer["DataType"]
-                                    </dt>
-                                    <dd>
-                                        @Html.DropDownList("DataType", (IEnumerable<SelectListItem>)ViewBag.DataType, htmlAttributes: new { @class = "form-control form-control-sm", @id = "DataType", @onchange = "ChangeDataType()" })
-                                    </dd>
-                                    <dt>
-                                        @SharedLocalizer["Legend"]
-                                    </dt>
-                                    <dd>
-                                        <table class="table table-sm Legend WaterLevel" hidden="hidden">
-                                            <thead class="table-warning">
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesWaterLevel).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsWaterLevel[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesWaterLevel[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table table-sm Legend SurfaceFlow" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesSurfaceFlow).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsSurfaceFlow[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesSurfaceFlow[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table table-sm Legend Precipitation" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesPrecipitation).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsPrecipitation[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesPrecipitation[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend UndergroundFlow" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesUndergroundFlow).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsUndergroundFlow[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesUndergroundFlow[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend SurfaceOutflow" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesSurfaceOutflow).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsSurfaceOutflow[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesSurfaceOutflow[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend Evaporation" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesEvaporation).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsEvaporation[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesEvaporation[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend UndergroundOutflow" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesUndergroundOutflow).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsUndergroundOutflow[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesUndergroundOutflow[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryMineralization" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryMineralization).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryMineralization[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryMineralization[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryTotalHardness" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryTotalHardness).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryTotalHardness[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryTotalHardness[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryDissOxygWater" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryDissOxygWater).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryDissOxygWater[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryDissOxygWater[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryPercentOxygWater" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryPercentOxygWater).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryPercentOxygWater[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryPercentOxygWater[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistrypH" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistrypH).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistrypH[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistrypH[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryOrganicSubstances" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryOrganicSubstances).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryOrganicSubstances[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryOrganicSubstances[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryCa" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCa).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCa[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryCa[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryMg" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryMg).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryMg[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryMg[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryNaK" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNaK).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNaK[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryNaK[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryCl" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCl).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCl[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryCl[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryHCO" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryHCO).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryHCO[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryHCO[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistrySO" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistrySO).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistrySO[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistrySO[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryNH" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNH).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNH[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryNH[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryNO2" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNO2).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNO2[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryNO2[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryNO3" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNO3).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNO3[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryNO3[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryPPO" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryPPO).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryPPO[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryPPO[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryCu" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCu).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCu[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryCu[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryZn" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryZn).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryZn[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryZn[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryMn" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryMn).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryMn[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryMn[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryPb" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryPb).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryPb[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryPb[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryNi" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryNi).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryNi[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryNi[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryCd" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCd).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCd[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryCd[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryCo" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCo).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCo[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryCo[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                        <table class="table Legend HydrochemistryCIWP" hidden="hidden">
-                                            <thead>
-                                                <tr>
-                                                    <th>
-                                                        <label>@SharedLocalizer["Colors"]</label>
-                                                    </th>
-                                                    <th>
-                                                        <label>@SharedLocalizer["MinValues"]</label>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            @for (int i = 0; i < ((decimal[])ViewBag.LakesLayer.MinValuesHydrochemistryCIWP).Length; i++)
-                                            {
-                                                <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <div style="height: 15px; width: 30px; background: @ViewBag.LakesLayer.ColorsHydrochemistryCIWP[i]"></div>
-                                                        </td>
-                                                        <td>
-                                                            @ViewBag.LakesLayer.MinValuesHydrochemistryCIWP[i]
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            }
-                                        </table>
-                                    </dd>
-                                </dl>
+                                <select id="LakeId" size="5" style="width: 100px;" onchange="SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
+
+                                @*<select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>*@
+                                @*<div class="input-group-append">
+                                        <button class="btn btn-outline-secondary my-2 my-sm-0 btn-sm" type="submit" onclick="SelectLakeZoom($('#LakeId').val().toString(), true)"><i class="fa fa-filter"></i></button>
+                                    </div>*@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-md-8">
                     <div class="card">
@@ -2535,6 +1740,8 @@
         })
     });
 
+    $("#maindiv").LoadingOverlay("show");
+
     var Layer_Lakes_v = new ol.layer.Vector({});
 
     var url_Lakes = "http://" + geoserverAddress + ":" + geoserverPort + "/geoserver/ELake/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=ELake:Lakes&outputFormat=text/javascript&format_options=callback:getJson";
@@ -2561,9 +1768,11 @@
                     LakeId = "0";
                 }
             }
+            $("#maindiv").LoadingOverlay("hide");
             SelectLakeZoom(@LakeId, true);
         },
         error: function () {
+            $("#maindiv").LoadingOverlay("hide");
             //alert('error');
         }
     });
@@ -2580,12 +1789,7 @@
 @* Select lake and zoom to *@
 <script>
     function SelectLakeZoom(lakeId_, zoom) {
-        //alert('lakeId: ' + typeof (lakeId) + ", $('#LakeId').val(): " + typeof ($('#LakeId').val()));
-        //alert('lakeId: ' + lakeId + ", $('#LakeId').val(): " + $('#LakeId').val());
-
-        //var lakeId = parseInt($('#LakeId').val());
         var lakeId = parseInt(lakeId_);
-
         GetLakeInfo(lakeId);
         features = Layer_Lakes_v.getSource().getFeatures();
         for (i = 0; i < features.length; i++) {
@@ -2596,88 +1800,17 @@
                 Source_Lake.clear();
                 Source_Lake.addFeature(features[i]);
                 if (zoom) {
-                    //// zoom to feature #1
-                    //var ext = polyFeature.getGeometry().getExtent();
-                    //var center = ol.extent.getCenter(ext);
-                    //map.setView(new ol.View({
-                    //    projection: 'EPSG:3857',
-                    //    center: [center[0], center[1]],
-                    //    zoom: 12
-                    //}));
-                    //// zoom to feature #2
-                    //var extent = polyFeature.getGeometry().getExtent();
-                    //map.getView().fit(extent, map.getSize());
-                    //// zoom to feature #3
-                    //var ext = polyFeature.getGeometry().getExtent();
-                    //var center = ol.extent.getCenter(ext);
-                    //map.getView().animate({
-                    //    center: center,
-                    //    duration: 3000
-                    //});
-                    //// zoom to feature #4
-                    //var ext = polyFeature.getGeometry().getExtent();
-                    //var center = ol.extent.getCenter(ext);
-                    //var extent = polyFeature.getGeometry().getExtent();
-                    //flyTo(center, extent, function () { });
-                    // zoom to feature #5
-                    var extent = polyFeature.getGeometry().getExtent();
-                    map.getView().fit(extent, {
-                        duration: 2000
-                    });
+                    map.getView().fit(Layer_Lakes_v.getSource().getExtent(), { duration: 1500 });
+                    setTimeout(ZoomToFeature, 1500, polyFeature);
                 }
             }
         }
     }
 
-    function flyTo(location, extent, done) {
-        //var viewOld = map.getView();
-        var centerOld = map.getView().getCenter();
-        var zoomOld = map.getView().getZoom();
-
+    function ZoomToFeature(polyFeature) {
+        var extent = polyFeature.getGeometry().getExtent();
         map.getView().fit(extent, {
-            //duration: 2000
-        });
-        //var viewNew = map.getView();
-        var centerNew = map.getView().getCenter();
-        var zoomNew = map.getView().getZoom();
-        map.getView().setCenter(centerOld);
-        map.getView().setZoom(zoomOld);
-
-        var duration = 2000;
-        var zoomdel = map.getView().getZoom();
-        var zoom = zoomOld;//viewNew.getZoom();
-        //alert('zoomdel: ' + zoomdel + ', zoom:' + zoom);
-        var parts = 2;
-        var called = false;
-        function callback(complete) {
-            --parts;
-            if (called) {
-                return;
-            }
-            if (parts === 0 || !complete) {
-                called = true;
-                done(complete);
-            }
-        }
-
-        map.getView().animate({
-            center: location,
-            duration: duration
-        }, callback);
-
-        map.getView().animate(
-            {
-                zoom: zoom - 1,
-                duration: duration / 2
-            },
-            {
-                zoom: zoom,
-                duration: duration / 2
-            },
-            callback);
-
-        map.getView().fit(extent, {
-            duration: 2000
+            duration: 1500
         });
     }
 </script>
@@ -3774,9 +2907,31 @@
         }
     })
 </script>
+@* SearchChange *@
+<script>
+    function SearchChange(){
+        $.ajax({
+            url: '@Url.Action("GetLakes")',
+            data: { Search: $('#search').val() },
+            type: 'POST',
+            success: function (data) {
+                var $dropdown = $("#LakeId");
+                $dropdown.find('option')
+                    .remove();
+                $.each(data.lakes, function () {
+                    $dropdown.append($("<option />").val(this.lakeId).text(this.name));
+                });
+                $("#LakeId").val($("#LakeId option:first").val());
+            },
+            error: function () {
+            }
+        });
+    }
+</script>
 @* $(document).ready(function () {}) *@
 <script>
     $(document).ready(function () {
         ChangeDataType();
+        SearchChange();
     });
 </script>
