@@ -14,15 +14,14 @@
 @*<h2>@SharedLocalizer["Lake"]</h2>*@
 <script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
 
-@*<input type="button" name="Text" value="VTest" onclick="Test()" />
-    <input type="text" id="TestText"/>*@
+@*<input type="button" name="Text" value="VTest" onclick="Test()" />*@
 <div class="container-fluid" id="maindiv">
     <div class="row">
         <div class="col-md-9">
             <div class="d-block border-bottom border-primary p-2" style="background-color: #e3f2fd;">
                 <div class="col-md-4 ">
                     <form class="form-inline my-2 my-lg-0">
-                        <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search" oninput="SearchChange();">@*onkeyup="this.onchange();"onchange="SearchChange(); alert(1);"*@
+                        <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search" oninput="SearchChange(0);">@*onkeyup="this.onchange();"onchange="SearchChange(); alert(1);"*@
                         @*<button class="btn btn-outline-primary my-2 my-sm-0 btn-sm" type="submit">Search</button>*@
                     </form>
                 </div>
@@ -31,7 +30,7 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body bg-light">
-                            <h6>Search by lake name!</h6>
+                            @*<h6>Search by lake name!</h6>*@
                             <div class="input-group">
                                 <select id="LakeId" size="5" style="width: 100px;" onchange="SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
 
@@ -498,6 +497,8 @@
     <input id="Year" type="hidden" value='@SharedLocalizer["Year"]' />
     <input id="WaterLevelWaterLavelM" type="hidden" value='@SharedLocalizer["WaterLavelM"]' />
     <input id="Value" type="hidden" value='@SharedLocalizer["Value"]' />
+    <input id="LakeName" type="hidden" value='@ViewBag.LakeName' />
+    <input id="ViewBagLakeId" type="hidden" value='@ViewBag.LakeId' />
 </div>
 @* Основная информация об озере *@
 <div>
@@ -1777,13 +1778,7 @@
         }
     });
 
-    //function Test() {
-    //    alert("Layers: " + map.getLayers().getLength());
-    //    alert("features: " + Layer_Lake.getSource().getFeatures().length);
-    //    //for (var key in map.getLayers()) {
-    //    //    alert('key: ' + key + '\n' + 'value: ' + map.getLayers()[key]);
-    //    //}
-    //}
+    
 
 </script>
 @* Select lake and zoom to *@
@@ -2909,7 +2904,7 @@
 </script>
 @* SearchChange *@
 <script>
-    function SearchChange(){
+    function SearchChange(select){
         $.ajax({
             url: '@Url.Action("GetLakes")',
             data: { Search: $('#search').val() },
@@ -2922,6 +2917,9 @@
                     $dropdown.append($("<option />").val(this.lakeId).text(this.name));
                 });
                 $("#LakeId").val($("#LakeId option:first").val());
+                if (select > 0) {
+                    $("#LakeId").val(select);
+                }
             },
             error: function () {
             }
@@ -2930,8 +2928,19 @@
 </script>
 @* $(document).ready(function () {}) *@
 <script>
+    //function Test() {
+    //    //alert($("#ViewBagLakeId").val());
+    //    $("#LakeId").val("403810");
+    //}
+
     $(document).ready(function () {
         ChangeDataType();
-        SearchChange();
+        $('#search').val($('#LakeName').val());
+        if ($('#ViewBagLakeId').val() != '') {
+            SearchChange($('#ViewBagLakeId').val());
+        }
+        else {
+            SearchChange(0);
+        }
     });
 </script>

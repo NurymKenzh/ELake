@@ -346,6 +346,7 @@ namespace ELake.Controllers
             };
             ViewBag.DataType = DataTypes.Select(r => new SelectListItem { Text = _sharedLocalizer[r], Value = r });
             ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake);
+            ViewBag.LakeName = _context.Lake.FirstOrDefault(l => l.LakeId == id)?.Name;
 
             return View();
         }
