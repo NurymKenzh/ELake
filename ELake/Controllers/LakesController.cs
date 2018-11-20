@@ -335,7 +335,7 @@ namespace ELake.Controllers
             ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake);
             ViewBag.LakeName = _context.Lake.FirstOrDefault(l => l.LakeId == id)?.Name;
             ViewBag.Adm1 = new SelectList(_context.KATO.Where(k => k.Level == 1).OrderBy(k => k.Name), "Id", "Name");
-            //ViewBag.Adm2 = new SelectList(_context.KATO.Where(k => k.Level == 2).OrderBy(k => k.Name), "Id", "Name");
+            ViewBag.VHB = new SelectList(_context.Lake.Select(l => l.VHB).Distinct().OrderBy(v => v).ToArray());
 
             return View();
         }
@@ -656,7 +656,7 @@ namespace ELake.Controllers
         //}
 
         [HttpPost]
-        public ActionResult GetLakes(string Search, int? Adm1KATOId, int? Adm2KATOId)
+        public ActionResult GetLakes(string Search, int? Adm1KATOId, int? Adm2KATOId, string VHB, string VHU)
         {
             if (Search == null)
             {
@@ -673,6 +673,14 @@ namespace ELake.Controllers
             if (Adm2KATOId != null)
             {
                 lakes = lakes.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm2KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
+            }
+            if (!string.IsNullOrEmpty(VHB))
+            {
+                lakes = lakes.Where(l => l.VHB == VHB).ToArray();
+            }
+            if (!string.IsNullOrEmpty(VHU))
+            {
+                lakes = lakes.Where(l => l.VHU == VHU).ToArray();
             }
             return Json(new
             {
@@ -692,6 +700,21 @@ namespace ELake.Controllers
             return Json(new
             {
                 adm2
+            });
+        }
+
+        [HttpPost]
+        public ActionResult GetVHU(string VHB)
+        {
+            var vhu = _context.Lake
+                .Where(l => l.VHB == VHB && !string.IsNullOrEmpty(l.VHU))
+                .Select(l => l.VHU)
+                .Distinct()
+                .OrderBy(v => v)
+                .ToArray();
+            return Json(new
+            {
+                vhu
             });
         }
     }

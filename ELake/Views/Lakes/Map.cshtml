@@ -31,12 +31,22 @@
                                 <select id="LakeId" class="form-control" size="5" onchange="SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
                             </div>
                             <div class="input-group">
-                                <select id="adm1" class="form-control" asp-items="ViewBag.Adm1" onchange="SearchChange(0); GetAmd2();">
+                                <select id="adm1" class="form-control" asp-items="ViewBag.Adm1" onchange="GetAmd2(); SearchChange(0);">
                                     <option selected></option>
                                 </select>
                             </div>
                             <div class="input-group">
                                 <select id="adm2" class="form-control" onchange="SearchChange(0);">
+                                    <option selected></option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <select id="svhb" class="form-control" asp-items="ViewBag.VHB" onchange="GetVHU(); SearchChange(0);">
+                                    <option selected></option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <select id="svhu" class="form-control" onchange="SearchChange(0);">
                                     <option selected></option>
                                 </select>
                             </div>
@@ -2907,7 +2917,9 @@
             data: {
                 Search: $('#search').val(),
                 Adm1KATOId: $('#adm1').val(),
-                Adm2KATOId: $('#adm2').val()
+                Adm2KATOId: $('#adm2').val(),
+                VHB: $('#svhb').val(),
+                VHU: $('#svhu').val()
             },
             type: 'POST',
             success: function (data) {
@@ -2929,6 +2941,9 @@
     }
 
     function GetAmd2() {
+        var $dropdown = $("#adm2");
+        $dropdown.find('option')
+            .remove();
         $.ajax({
             url: '@Url.Action("GetAdm2")',
             data: {
@@ -2936,12 +2951,32 @@
             },
             type: 'POST',
             success: function (data) {
-                var $dropdown = $("#adm2");
-                $dropdown.find('option')
-                    .remove();
+                
                 $dropdown.append($("<option />"));
                 $.each(data.adm2, function () {
                     $dropdown.append($("<option />").val(this.id).text(this.name));
+                });
+            },
+            error: function () {
+            }
+        });
+    }
+
+    function GetVHU() {
+        var $dropdown = $("#svhu");
+        $dropdown.find('option')
+            .remove();
+        $.ajax({
+            url: '@Url.Action("GetVHU")',
+            data: {
+                VHB: $('#svhb').val()
+            },
+            type: 'POST',
+            success: function (data) {
+                
+                $dropdown.append($("<option />"));
+                $.each(data.vhu, function () {
+                    $dropdown.append($("<option />").val(this).text(this));
                 });
             },
             error: function () {
