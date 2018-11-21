@@ -1599,4 +1599,10 @@
   <data name="LakeSystemUploadDescription" xml:space="preserve">
     <value>Column order in the file: Lake system Id, title (Russian), title (Kazakh), title (English)</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchByLakeName" xml:space="preserve">
+    <value>Search by lake name</value>
+  </data>
 </root>

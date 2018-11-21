@@ -1599,4 +1599,10 @@
   <data name="LakeSystemUploadDescription" xml:space="preserve">
     <value>Файлдағы бағаналық тапсырыс: Id жүйесі, атауы (орыс), атауы (қазақ), атағы (ағылшын)</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Іздеу</value>
+  </data>
+  <data name="SearchByLakeName" xml:space="preserve">
+    <value>Көлдің аты бойынша іздеу</value>
+  </data>
 </root>

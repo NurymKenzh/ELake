@@ -367,179 +367,26 @@ namespace ELake.Controllers
         [HttpPost]
         public ActionResult GetLakeInfo(int LakeId)
         {
+            // Основная информация об озере
             Lake lake = _context.Lake.FirstOrDefault(l => l.LakeId == LakeId);
-            string NameKK = lake?.NameKK,
-                NameEN = lake?.NameEN,
-                NameRU = lake?.NameRU,
-                Name = lake?.Name,
-                vhb = lake?.VHB,
-                vhu = lake?.VHU,
+            string Name = lake?.Name,
                 longitude = lake?.Longitude,
                 latitude = lake?.Latitude;
-            decimal? area2015 = lake?.Area2015,
-                lakeshorelinelength2015 = lake?.LakeShorelineLength2015;
-            string language = new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name;
-            if (language == "ru")
-            {
-                vhb = lake?.VHBRU;
-            }
-            if (language == "en")
-            {
-                vhb = lake?.VHBEN;
-            }
-
-            // КАТО
             List<KATO> katoes = new List<KATO>();
             foreach (var lakeKATO in _context.LakeKATO.Where(l => l.LakeId == LakeId))
             {
                 katoes.Add(_context.KATO.FirstOrDefault(k => k.Id == lakeKATO.KATOId));
             }
             string adm1 = string.Join(", ", katoes.Where(k => k.Level == 1).Select(k => k.Name)),
-                adm2 = string.Join(", ", katoes.Where(k => k.Level == 2).Select(k => k.Name)),
-                adm3 = string.Join(", ", katoes.Where(k => k.Level == 3).Select(k => k.Name));
-
-            // Архивные данные озера
-            LakesArchiveData lakesArchiveData = _context
-                .LakesArchiveData
-                .FirstOrDefault(l => l.LakeId == LakeId);
-            int? surveyyear = lakesArchiveData?.SurveyYear;
-            decimal? lakelength = lakesArchiveData?.LakeLength,
-                lakeshorelinelength = lakesArchiveData?.LakeShorelineLength,
-                lakemirrorarea = lakesArchiveData?.LakeMirrorArea,
-                lakeabsoluteheight = lakesArchiveData?.LakeAbsoluteHeight,
-                lakewidth = lakesArchiveData?.LakeWidth,
-                lakemaxdepth = lakesArchiveData?.LakeMaxDepth,
-                lakewatermass = lakesArchiveData?.LakeWaterMass;
-            string archivalinfosource = lakesArchiveData?.ArchivalInfoSource;
-
-            // Глобальные данные озер
-            LakesGlobalData lakesGlobalData = _context
-                .LakesGlobalData
-                .FirstOrDefault(l => l.LakeId == LakeId);
-            int? hylak_id = lakesGlobalData?.Hylak_id;
-            string lake_name_eng = lakesGlobalData?.Lake_name_ENG,
-                lake_name_ru = lakesGlobalData?.Lake_name_RU,
-                lake_name_kz = lakesGlobalData?.Lake_name_KZ,
-                lake_name = lakesGlobalData?.Lake_name,
-                country_eng = lakesGlobalData?.Country_ENG,
-                country_ru = lakesGlobalData?.Country_RU,
-                country_kz = lakesGlobalData?.Country_KZ,
-                country = lakesGlobalData?.Country,
-                continent_eng = lakesGlobalData?.Continent_ENG,
-                continent_ru = lakesGlobalData?.Continent_RU,
-                continent_kz = lakesGlobalData?.Continent_KZ,
-                continent = lakesGlobalData?.Continent;
-            decimal? lake_area = lakesGlobalData?.Lake_area,
-                shore_len = lakesGlobalData?.Shore_len,
-                shore_dev = lakesGlobalData?.Shore_dev,
-                vol_total = lakesGlobalData?.Vol_total,
-                depth_avg = lakesGlobalData?.Depth_avg,
-                dis_avg = lakesGlobalData?.Dis_avg,
-                res_time = lakesGlobalData?.Res_time,
-                elevation = lakesGlobalData?.Elevation,
-                slope_100 = lakesGlobalData?.Slope_100,
-                wshd_area = lakesGlobalData?.Wshd_area,
-                pour_long = lakesGlobalData?.Pour_long,
-                pour_lat = lakesGlobalData?.Pour_lat;
-
-            // WaterLevels
-            WaterLevel[] waterlevels = _context.WaterLevel.Where(w => w.LakeId == LakeId).ToArray();
-            int[] waterlevelsyears = waterlevels.Select(w => w.Year).ToArray();
-            decimal[] waterlevelsm = waterlevels.Select(w => w.WaterLavelM).ToArray();
-
-            // SurfaceFlow
-            SurfaceFlow[] surfaceflows = _context.SurfaceFlow.Where(s => s.LakeId == LakeId).ToArray();
-            int[] surfaceflowsyears = surfaceflows.Select(s => s.Year).ToArray();
-            decimal[] surfaceflowsvalues = surfaceflows.Select(s => s.Value).ToArray();
-
-            // Precipitation
-            Precipitation[] precipitations = _context.Precipitation.Where(s => s.LakeId == LakeId).ToArray();
-            int[] precipitationsyears = precipitations.Select(s => s.Year).ToArray();
-            decimal[] precipitationsvalues = precipitations.Select(s => s.Value).ToArray();
-
-            // UndergroundFlow
-            UndergroundFlow[] undergroundflows = _context.UndergroundFlow.Where(s => s.LakeId == LakeId).ToArray();
-            int[] undergroundflowsyears = undergroundflows.Select(s => s.Year).ToArray();
-            decimal[] undergroundflowsvalues = undergroundflows.Select(s => s.Value).ToArray();
-
-            // SurfaceOutflow
-            SurfaceOutflow[] surfaceoutflows = _context.SurfaceOutflow.Where(s => s.LakeId == LakeId).ToArray();
-            int[] surfaceoutflowsyears = surfaceoutflows.Select(s => s.Year).ToArray();
-            decimal[] surfaceoutflowsvalues = surfaceoutflows.Select(s => s.Value).ToArray();
-
-            // Evaporation
-            Evaporation[] evaporations = _context.Evaporation.Where(s => s.LakeId == LakeId).ToArray();
-            int[] evaporationsyears = evaporations.Select(s => s.Year).ToArray();
-            decimal[] evaporationsvalues = evaporations.Select(s => s.Value).ToArray();
-
-            // UndergroundOutflow
-            UndergroundOutflow[] undergroundoutflows = _context.UndergroundOutflow.Where(s => s.LakeId == LakeId).ToArray();
-            int[] undergroundoutflowsyears = undergroundoutflows.Select(s => s.Year).ToArray();
-            decimal[] undergroundoutflowsvalues = undergroundoutflows.Select(s => s.Value).ToArray();
+                adm2 = string.Join(", ", katoes.Where(k => k.Level == 2).Select(k => k.Name));
 
             return Json(new
             {
-                NameKK,
-                NameEN,
-                NameRU,
                 Name,
-                vhb,
-                vhu,
-                area2015,
-                lakeshorelinelength2015,
                 longitude,
                 latitude,
                 adm1,
-                adm2,
-                adm3,
-                surveyyear,
-                lakelength,
-                lakeshorelinelength,
-                lakemirrorarea,
-                lakeabsoluteheight,
-                lakewidth,
-                lakemaxdepth,
-                lakewatermass,
-                archivalinfosource,
-                hylak_id,
-                lake_name_eng,
-                lake_name_ru,
-                lake_name_kz,
-                lake_name,
-                country_eng,
-                country_ru,
-                country_kz,
-                country,
-                continent_eng,
-                continent_ru,
-                continent_kz,
-                continent,
-                lake_area,
-                shore_len,
-                shore_dev,
-                vol_total,
-                depth_avg,
-                dis_avg,
-                res_time,
-                elevation,
-                slope_100,
-                wshd_area,
-                pour_long,
-                pour_lat,
-                waterlevelsyears,
-                waterlevelsm,
-                surfaceflowsyears,
-                surfaceflowsvalues,
-                precipitationsyears,
-                precipitationsvalues,
-                undergroundflowsyears,
-                undergroundflowsvalues,
-                surfaceoutflowsyears,
-                surfaceoutflowsvalues,
-                evaporationsyears,
-                evaporationsvalues,
-                undergroundoutflowsyears,
-                undergroundoutflowsvalues,
+                adm2
             });
         }
 

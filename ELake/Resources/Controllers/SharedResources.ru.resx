@@ -1599,4 +1599,10 @@
   <data name="LakeSystemUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озерной системы, название (русский), название (казахский), название (английский)</value>
   </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="SearchByLakeName" xml:space="preserve">
+    <value>Поиск по названию озера</value>
+  </data>
 </root>

@@ -1599,4 +1599,10 @@
   <data name="LakeSystemUploadDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="Search" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SearchByLakeName" xml:space="preserve">
+    <value />
+  </data>
 </root>
