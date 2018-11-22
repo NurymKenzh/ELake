@@ -28,6 +28,9 @@
                     <div class="card">
                         <div class="card-body bg-light">
                             <div class="input-group">
+                                <label id="foundLakes">@SharedLocalizer["Found"]:</label>
+                            </div>
+                            <div class="input-group">
                                 <select id="LakeId" class="form-control" size="5" onchange="SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
                             </div>
                             <div class='mtabs mt-1'>
@@ -136,6 +139,7 @@
     <input id="Value" type="hidden" value='@SharedLocalizer["Value"]' />
     <input id="LakeName" type="hidden" value='@ViewBag.LakeName' />
     <input id="ViewBagLakeId" type="hidden" value='@ViewBag.LakeId' />
+    <input id="Found" type="hidden" value='@SharedLocalizer["Found"]' />
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -1370,6 +1374,7 @@
                 if (select > 0) {
                     $("#LakeId").val(select);
                 }
+                $('#foundLakes').text($('#Found').val() + ': ' + data.lakes.length.toString());
                 $("#LakeId").LoadingOverlay("hide");
             },
             error: function () {
@@ -1476,6 +1481,7 @@
         ChangeDataType();
         $('#search').val($('#LakeName').val());
         if ($('#ViewBagLakeId').val() != '') {
+            GetAdm1(); GetAdm2(); GetVHB(); GetVHU(); 
             SearchChange($('#ViewBagLakeId').val());
         }
         else {

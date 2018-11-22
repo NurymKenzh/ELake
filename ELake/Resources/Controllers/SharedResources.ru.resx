@@ -1611,4 +1611,7 @@
   <data name="FilterVHBVHU" xml:space="preserve">
     <value>ВХБ, ВХУ</value>
   </data>
+  <data name="Found" xml:space="preserve">
+    <value>Найдено</value>
+  </data>
 </root>
