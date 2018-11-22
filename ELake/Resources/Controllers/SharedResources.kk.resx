@@ -1617,4 +1617,16 @@
   <data name="Reset" xml:space="preserve">
     <value>Қалпына келтіру</value>
   </data>
+  <data name="Chart" xml:space="preserve">
+    <value>Диаграмма</value>
+  </data>
+  <data name="Dynamics" xml:space="preserve">
+    <value>Динамика</value>
+  </data>
+  <data name="QualitativeAssessment" xml:space="preserve">
+    <value>Сапалы бағалау</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Кесте</value>
+  </data>
 </root>

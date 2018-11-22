@@ -95,49 +95,172 @@
                 <input id="tab4" type="radio" name="tabs">
                 <label for="tab4">@SharedLocalizer["Hydrobiology"]</label>
                 <section id="content1">
-                    <article class="card-body">
-                        <dl class="row">
-                            <dt class="col-sm-5">
-                                @SharedLocalizer["Name"]
-                            </dt>
-                            <dd class="col-sm-7 text-right" id="Name">
-
-                            </dd>
-                            <dt class="col-sm-5">
-                                @SharedLocalizer["LakeId"]
-                            </dt>
-                            <dd class="col-sm-7 text-right" id="LakeIdInfo">
-
-                            </dd>
-                            <dt class="col-sm-5">
-                                @SharedLocalizer["Adm1"]
-                            </dt>
-                            <dd class="col-sm-7 text-right" id="Adm1">
-
-                            </dd>
-                            <dt class="col-sm-5">
-                                @SharedLocalizer["Adm2"]
-                            </dt>
-                            <dd class="col-sm-7 text-right" id="Adm2">
-
-                            </dd>
-                            <dt class="col-sm-5">
-                                @SharedLocalizer["Longitude"]
-                            </dt>
-                            <dd class="col-sm-7 text-right" id="Longitude">
-
-                            </dd>
-                            <dt class="col-sm-5">
-                                @SharedLocalizer["Latitude"]
-                            </dt>
-                            <dd class="col-sm-7 text-right" id="Latitude">
-
-                            </dd>
-                        </dl>
-                    </article>
+                    <dl class="row">
+                        <dt class="col-sm-5">
+                            @SharedLocalizer["Name"]
+                        </dt>
+                        <dd class="col-sm-7 text-right" id="Name"></dd>
+                        <dt class="col-sm-5">
+                            @SharedLocalizer["LakeId"]
+                        </dt>
+                        <dd class="col-sm-7 text-right" id="LakeIdInfo"></dd>
+                        <dt class="col-sm-5">
+                            @SharedLocalizer["Adm1"]
+                        </dt>
+                        <dd class="col-sm-7 text-right" id="Adm1"></dd>
+                        <dt class="col-sm-5">
+                            @SharedLocalizer["Adm2"]
+                        </dt>
+                        <dd class="col-sm-7 text-right" id="Adm2"></dd>
+                        <dt class="col-sm-5">
+                            @SharedLocalizer["Longitude"]
+                        </dt>
+                        <dd class="col-sm-7 text-right" id="Longitude"></dd>
+                        <dt class="col-sm-5">
+                            @SharedLocalizer["Latitude"]
+                        </dt>
+                        <dd class="col-sm-7 text-right" id="Latitude"></dd>
+                    </dl>
                 </section>
                 <section id="content2"></section>
-                <section id="content3"></section>
+                <section id="content3">
+                    <input id="tabghi1" type="radio" name="ghi" checked>
+                    <label for="tabghi1">@SharedLocalizer["GeneralHydrochemicalIndicators"]</label>
+                    <input id="tabghi2" type="radio" name="ghi">
+                    <label for="tabghi2">@SharedLocalizer["IonsaltWaterCompositions"]</label>
+                    <input id="tabghi3" type="radio" name="ghi">
+                    <label for="tabghi3">@SharedLocalizer["ToxicologicalIndicators"]</label>
+                    <section id="contentghi1">
+                        <h3>@SharedLocalizer["GeneralHydrochemicalIndicators"]</h3>
+                        <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Indicator"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Value"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["QualitativeAssessment"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["QualitativeAssessment"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Mineralization"]
+                                    </td>
+                                    <td id="GHIYear1"></td>
+                                    <td id="Mineralization1"></td>
+                                    <td id="MineralizationType1"></td>
+                                    <td>
+                                        <p onclick="ShowTableMineralization1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartMineralization1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                        <table class="LakePart table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Indicator"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Value"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["QualitativeAssessment"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["QualitativeAssessment"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Mineralization"]
+                                    </td>
+                                    <td id="GHIYear2"></td>
+                                    <td id="Mineralization2"></td>
+                                    <td id="MineralizationType2"></td>
+                                    <td>
+                                        <p onclick="ShowTableMineralization2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartMineralization2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @* Tables, charts *@
+                        <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                        <table id="tableMineralization1" class="GHI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Mineralization"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MineralizationType"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyMineralization1"></tbody>
+                        </table>
+                        <canvas id="chartMineralization1" class="GHI" width="400" height="200"></canvas>
+                        <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                        <table id="tableMineralization2" class="GHI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Mineralization"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MineralizationType"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyMineralization2"></tbody>
+                        </table>
+                        <canvas id="chartMineralization2" class="GHI" width="400" height="200"></canvas>
+                    </section>
+                    <section id="contentghi2"></section>
+                    <section id="contentghi3"></section>
+                </section>
                 <section id="content4"></section>
             </div>
         </div>
@@ -151,6 +274,8 @@
     <input id="LakeName" type="hidden" value='@ViewBag.LakeName' />
     <input id="ViewBagLakeId" type="hidden" value='@ViewBag.LakeId' />
     <input id="Found" type="hidden" value='@SharedLocalizer["Found"]' />
+    <input id="Mineralization" type="hidden" value='@SharedLocalizer["Mineralization"]' />
+    <input id="MineralizationType" type="hidden" value='@SharedLocalizer["MineralizationType"]' />
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -330,236 +455,152 @@
                 $('#Longitude').text(data.longitude);
                 $('#Latitude').text(data.latitude);
                 $('#Adm3').text(data.adm3);
-
-                //ChartWaterLevels(data.waterlevelsyears, data.waterlevelsm);
-                //TableWaterLevels(data.waterlevelsyears, data.waterlevelsm);
-                //ChartSurfaceFlows(data.surfaceflowsyears, data.surfaceflowsvalues);
-                //TableSurfaceFlows(data.surfaceflowsyears, data.surfaceflowsvalues);
-                //ChartPrecipitations(data.precipitationsyears, data.precipitationsvalues);
-                //TablePrecipitations(data.precipitationsyears, data.precipitationsvalues);
-                //ChartUndergroundFlows(data.undergroundflowsyears, data.undergroundflowsvalues);
-                //TableUndergroundFlows(data.undergroundflowsyears, data.undergroundflowsvalues);
-                //ChartSurfaceOutflows(data.surfaceoutflowsyears, data.surfaceoutflowsvalues);
-                //TableSurfaceOutflows(data.surfaceoutflowsyears, data.surfaceoutflowsvalues);
-                //ChartEvaporations(data.evaporationsyears, data.evaporationsvalues);
-                //TableEvaporations(data.evaporationsyears, data.evaporationsvalues);
-                //ChartUndergroundOutflows(data.undergroundoutflowsyears, data.undergroundoutflowsvalues);
-                //TableUndergroundOutflows(data.undergroundoutflowsyears, data.undergroundoutflowsvalues);
+                // Общие гидрохимические показатели
+                if (data.ghi1) {
+                    $('#GHIYear1').text(data.ghi1.year);
+                    $('#Mineralization1').text(data.ghi1.mineralization);
+                    $('#MineralizationType1').text(data.ghi1.mineralizationType);
+                }
+                if (data.ghi2) {
+                    $('#GHIYear2').text(data.ghi2.year);
+                    $('#Mineralization2').text(data.ghi2.mineralization);
+                    $('#MineralizationType2').text(data.ghi1.mineralizationType);
+                }
+                TableMineralization(data);
+                ChartMineralization(data);
+                if (data.twoparts) {
+                    $('.LakePart').show();
+                }
+                else {
+                    $('.LakePart').hide();
+                }
             },
             error: function () {
             }
         });
     }
 
-    var ChartWaterLevel = null;
-    function ChartWaterLevels(waterlevelsyears, waterlevelsm) {
-        var ctx = document.getElementById("ChartWaterLevel").getContext('2d');
-        ChartWaterLevel = new Chart(ctx, {
+    function TableMineralization(data) {
+        var tablebody1 = $('#tablebodyMineralization1'),
+            tablebody2 = $('#tablebodyMineralization2');
+        tablebody1.html('');
+        if (data.mineralizationtable1 != null) {
+            for (var i = 0; i < data.mineralizationtable1.length; i++) {
+                var tr = $('<tr/>').appendTo(tablebody1);
+                tr.append('<td>' + data.mineralizationtable1[i].year + '</td>');
+                tr.append('<td>' + data.mineralizationtable1[i].mineralization + '</td>');
+                tr.append('<td>' + data.mineralizationtable1[i].mineralizationType + '</td>');
+            }
+        }
+        tablebody2.html('');
+        if (data.mineralizationtable2 != null) {
+            for (var i = 0; i < data.mineralizationtable2.length; i++) {
+                var tr = $('<tr/>').appendTo(tablebody2);
+                tr.append('<td>' + data.mineralizationtable2[i].year + '</td>');
+                tr.append('<td>' + data.mineralizationtable2[i].mineralization + '</td>');
+                tr.append('<td>' + data.mineralizationtable2[i].mineralizationType + '</td>');
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartMineralization1 = null,
+        ChartMineralization2 = null;
+    function ChartMineralization(data) {
+        if (ChartMineralization1 != null) {
+            ChartMineralization1.destroy();
+        }
+        var ctx1 = document.getElementById("chartMineralization1").getContext('2d');
+        var labels1 = [],
+            data1 = [];
+        if (data.mineralizationtable1 != null) {
+            for (var i = 0; i < data.mineralizationtable1.length; i++) {
+                labels1.push(data.mineralizationtable1[i].year);
+                data1.push(data.mineralizationtable1[i].mineralization);
+            }
+        }
+        ChartMineralization1 = new Chart(ctx1, {
             type: 'line',
             data: {
-                labels: waterlevelsyears,//[1, 17, 33, 49, 65, 81],
+                labels: labels1,
                 datasets: [{
-                    label: $('#WaterLevelWaterLavelM').val(),
-                    data: waterlevelsm,//[12, 19, 3, 5, 2, 3],
+                    label: $('#Mineralization').val(),
+                    data: data1,
                     backgroundColor: 'rgba(255,99,132,1)',
                     borderColor: 'rgba(255,99,132,1)',
                     borderWidth: 1,
                     fill: false
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mineralization').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
                 }
-                ]
             }
         });
-    }
-    function TableWaterLevels(waterlevelsyears, waterlevelsm) {
-        var tablebody = $('#tablebodyWaterLevel');
-        var th = $('<th/>').appendTo(tablebody);
-        th.append('<td>' + $('#Year').val() + '</td>');
-        th.append('<td>' + $('#WaterLevelWaterLavelM').val() + '</td>');
-        for (var i = 0; i < waterlevelsyears.length; i++) {
-            var tr = $('<tr/>').appendTo(tablebody);
-            tr.append('<td>' + waterlevelsyears[i] + '</td>');
-            tr.append('<td>' + waterlevelsm[i] + '</td>');
+        if (ChartMineralization2 != null) {
+            ChartMineralization2.destroy();
         }
-    }
-    var ChartSurfaceFlow = null;
-    function ChartSurfaceFlows(surfaceflowsyears, surfaceflowsvalues) {
-        var ctx = document.getElementById("ChartSurfaceFlow").getContext('2d');
-        ChartSurfaceFlow = new Chart(ctx, {
+        var ctx2 = document.getElementById("chartMineralization2").getContext('2d');
+        var labels2 = [],
+            data2 = [];
+        if (data.mineralizationtable1 != null) {
+            for (var i = 0; i < data.mineralizationtable2.length; i++) {
+                labels2.push(data.mineralizationtable2[i].year);
+                data2.push(data.mineralizationtable2[i].mineralization);
+            }
+        }
+        ChartMineralization2 = new Chart(ctx2, {
             type: 'line',
             data: {
-                labels: surfaceflowsyears,//[1, 17, 33, 49, 65, 81],
+                labels: labels2,
                 datasets: [{
-                    label: $('#Value').val(),
-                    data: surfaceflowsvalues,//[12, 19, 3, 5, 2, 3],
+                    label: $('#Mineralization').val(),
+                    data: data2,
                     backgroundColor: 'rgba(255,99,132,1)',
                     borderColor: 'rgba(255,99,132,1)',
                     borderWidth: 1,
                     fill: false
-                }
-                ]
+                }]
             }
         });
     }
-    function TableSurfaceFlows(surfaceflowsyears, surfaceflowsvalues) {
-        var tablebody = $('#tablebodySurfaceFlow');
-        var th = $('<th/>').appendTo(tablebody);
-        th.append('<td>' + $('#Year').val() + '</td>');
-        th.append('<td>' + $('#Value').val() + '</td>');
-        for (var i = 0; i < surfaceflowsyears.length; i++) {
-            var tr = $('<tr/>').appendTo(tablebody);
-            tr.append('<td>' + surfaceflowsyears[i] + '</td>');
-            tr.append('<td>' + surfaceflowsvalues[i] + '</td>');
-        }
+
+    function ShowTableMineralization1() {
+        $('.GHI').hide();
+        $('#tableMineralization1').show();
     }
-    var ChartPrecipitation = null;
-    function ChartPrecipitations(precipitationsyears, precipitationsvalues) {
-        var ctx = document.getElementById("ChartPrecipitation").getContext('2d');
-        ChartPrecipitation = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: precipitationsyears,//[1, 17, 33, 49, 65, 81],
-                datasets: [{
-                    label: $('#Value').val(),
-                    data: precipitationsvalues,//[12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255,99,132,1)',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 1,
-                    fill: false
-                }
-                ]
-            }
-        });
+
+    function ShowTableMineralization2() {
+        $('.GHI').hide();
+        $('#tableMineralization2').show();
     }
-    function TablePrecipitations(precipitationsyears, precipitationsvalues) {
-        var tablebody = $('#tablebodyPrecipitation');
-        var th = $('<th/>').appendTo(tablebody);
-        th.append('<td>' + $('#Year').val() + '</td>');
-        th.append('<td>' + $('#Value').val() + '</td>');
-        for (var i = 0; i < precipitationsyears.length; i++) {
-            var tr = $('<tr/>').appendTo(tablebody);
-            tr.append('<td>' + precipitationsyears[i] + '</td>');
-            tr.append('<td>' + precipitationsvalues[i] + '</td>');
-        }
+
+    function ShowChartMineralization1() {
+        $('.GHI').hide();
+        $('#chartMineralization1').show();
     }
-    var ChartUndergroundFlow = null;
-    function ChartUndergroundFlows(undergroundflowsyears, undergroundflowsvalues) {
-        var ctx = document.getElementById("ChartUndergroundFlow").getContext('2d');
-        ChartUndergroundFlow = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: undergroundflowsyears,//[1, 17, 33, 49, 65, 81],
-                datasets: [{
-                    label: $('#Value').val(),
-                    data: undergroundflowsvalues,//[12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255,99,132,1)',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 1,
-                    fill: false
-                }
-                ]
-            }
-        });
-    }
-    function TableUndergroundFlows(undergroundflowsyears, undergroundflowsvalues) {
-        var tablebody = $('#tablebodyUndergroundFlow');
-        var th = $('<th/>').appendTo(tablebody);
-        th.append('<td>' + $('#Year').val() + '</td>');
-        th.append('<td>' + $('#Value').val() + '</td>');
-        for (var i = 0; i < undergroundflowsyears.length; i++) {
-            var tr = $('<tr/>').appendTo(tablebody);
-            tr.append('<td>' + undergroundflowsyears[i] + '</td>');
-            tr.append('<td>' + undergroundflowsvalues[i] + '</td>');
-        }
-    }
-    var ChartSurfaceOutflow = null;
-    function ChartSurfaceOutflows(surfaceoutflowsyears, surfaceoutflowsvalues) {
-        var ctx = document.getElementById("ChartSurfaceOutflow").getContext('2d');
-        ChartSurfaceOutflow = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: surfaceoutflowsyears,//[1, 17, 33, 49, 65, 81],
-                datasets: [{
-                    label: $('#Value').val(),
-                    data: surfaceoutflowsvalues,//[12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255,99,132,1)',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 1,
-                    fill: false
-                }
-                ]
-            }
-        });
-    }
-    function TableSurfaceOutflows(surfaceoutflowsyears, surfaceoutflowsvalues) {
-        var tablebody = $('#tablebodySurfaceOutflow');
-        var th = $('<th/>').appendTo(tablebody);
-        th.append('<td>' + $('#Year').val() + '</td>');
-        th.append('<td>' + $('#Value').val() + '</td>');
-        for (var i = 0; i < surfaceoutflowsyears.length; i++) {
-            var tr = $('<tr/>').appendTo(tablebody);
-            tr.append('<td>' + surfaceoutflowsyears[i] + '</td>');
-            tr.append('<td>' + surfaceoutflowsvalues[i] + '</td>');
-        }
-    }
-    var ChartEvaporation = null;
-    function ChartEvaporations(evaporationsyears, evaporationsvalues) {
-        var ctx = document.getElementById("ChartEvaporation").getContext('2d');
-        ChartEvaporation = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: evaporationsyears,//[1, 17, 33, 49, 65, 81],
-                datasets: [{
-                    label: $('#Value').val(),
-                    data: evaporationsvalues,//[12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255,99,132,1)',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 1,
-                    fill: false
-                }
-                ]
-            }
-        });
-    }
-    function TableEvaporations(evaporationsyears, evaporationsvalues) {
-        var tablebody = $('#tablebodyEvaporation');
-        var th = $('<th/>').appendTo(tablebody);
-        th.append('<td>' + $('#Year').val() + '</td>');
-        th.append('<td>' + $('#Value').val() + '</td>');
-        for (var i = 0; i < evaporationsyears.length; i++) {
-            var tr = $('<tr/>').appendTo(tablebody);
-            tr.append('<td>' + evaporationsyears[i] + '</td>');
-            tr.append('<td>' + evaporationsvalues[i] + '</td>');
-        }
-    }
-    var ChartUndergroundOutflow = null;
-    function ChartUndergroundOutflows(undergroundoutflowsyears, undergroundoutflowsvalues) {
-        var ctx = document.getElementById("ChartUndergroundOutflow").getContext('2d');
-        ChartUndergroundOutflow = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: undergroundoutflowsyears,//[1, 17, 33, 49, 65, 81],
-                datasets: [{
-                    label: $('#Value').val(),
-                    data: undergroundoutflowsvalues,//[12, 19, 3, 5, 2, 3],
-                    backgroundColor: 'rgba(255,99,132,1)',
-                    borderColor: 'rgba(255,99,132,1)',
-                    borderWidth: 1,
-                    fill: false
-                }
-                ]
-            }
-        });
-    }
-    function TableUndergroundOutflows(undergroundoutflowsyears, undergroundoutflowsvalues) {
-        var tablebody = $('#tablebodyUndergroundOutflow');
-        var th = $('<th/>').appendTo(tablebody);
-        th.append('<td>' + $('#Year').val() + '</td>');
-        th.append('<td>' + $('#Value').val() + '</td>');
-        for (var i = 0; i < undergroundoutflowsyears.length; i++) {
-            var tr = $('<tr/>').appendTo(tablebody);
-            tr.append('<td>' + undergroundoutflowsyears[i] + '</td>');
-            tr.append('<td>' + undergroundoutflowsvalues[i] + '</td>');
-        }
+
+    function ShowChartMineralization2() {
+        $('.GHI').hide();
+        $('#chartMineralization2').show();
     }
 </script>
 @* ChangeDataType, SlideYear, ChangeYear *@

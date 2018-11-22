@@ -369,6 +369,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Chart {
+            get {
+                return ResourceManager.GetString("Chart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string ChlorideClass {
             get {
                 return ResourceManager.GetString("ChlorideClass", resourceCulture);
@@ -777,6 +786,15 @@ namespace ELake.Resources.Controllers {
         public static string Download {
             get {
                 return ResourceManager.GetString("Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Dynamics {
+            get {
+                return ResourceManager.GetString("Dynamics", resourceCulture);
             }
         }
         
@@ -3231,6 +3249,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string QualitativeAssessment {
+            get {
+                return ResourceManager.GetString("QualitativeAssessment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Raster {
             get {
                 return ResourceManager.GetString("Raster", resourceCulture);
@@ -3963,6 +3990,15 @@ namespace ELake.Resources.Controllers {
         public static string SurveyYear {
             get {
                 return ResourceManager.GetString("SurveyYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Table {
+            get {
+                return ResourceManager.GetString("Table", resourceCulture);
             }
         }
         

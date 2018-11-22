@@ -346,3 +346,16 @@ input:checked + label {
 #filtertab3:checked ~ #filtercontent3 {
     display: block;
 }
+
+.link {
+    cursor: pointer;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+
+#tabghi1:checked ~ #contentghi1,
+#tabghi2:checked ~ #contentghi2,
+#tabghi3:checked ~ #contentghi3 {
+    display: block;
+}
