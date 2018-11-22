@@ -1605,4 +1605,10 @@
   <data name="SearchByLakeName" xml:space="preserve">
     <value>Поиск по названию озера</value>
   </data>
+  <data name="FilterKATO" xml:space="preserve">
+    <value>Область, район</value>
+  </data>
+  <data name="FilterVHBVHU" xml:space="preserve">
+    <value>ВХБ, ВХУ</value>
+  </data>
 </root>

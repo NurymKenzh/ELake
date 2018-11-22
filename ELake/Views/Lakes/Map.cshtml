@@ -19,7 +19,7 @@
             <div class="d-block border-bottom border-primary p-2" style="background-color: #e3f2fd;">
                 <div class="col-md-4 ">
                     <form class="form-inline my-2 my-lg-0">
-                        <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="@SharedLocalizer["Search"]" aria-label="Search" oninput="SearchChange(0);">
+                        <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="@SharedLocalizer["Search"]" aria-label="Search" oninput="GetAdm1(); GetAdm2(); SearchChange(0);">
                     </form>
                 </div>
             </div>
@@ -30,25 +30,35 @@
                             <div class="input-group">
                                 <select id="LakeId" class="form-control" size="5" onchange="SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
                             </div>
-                            <div class="input-group">
-                                <select id="adm1" class="form-control" asp-items="ViewBag.Adm1" onchange="GetAmd2(); SearchChange(0);">
-                                    <option selected></option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <select id="adm2" class="form-control" onchange="SearchChange(0);">
-                                    <option selected></option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <select id="svhb" class="form-control" asp-items="ViewBag.VHB" onchange="GetVHU(); SearchChange(0);">
-                                    <option selected></option>
-                                </select>
-                            </div>
-                            <div class="input-group">
-                                <select id="svhu" class="form-control" onchange="SearchChange(0);">
-                                    <option selected></option>
-                                </select>
+                            <div class='mtabs mt-1'>
+                                <input id="filtertab1" type="radio" name="filtertabs" value="filterKATO" onchange="SearchChange(0);" checked>
+                                <label for="filtertab1">@SharedLocalizer["FilterKATO"]</label>
+                                <input id="filtertab2" type="radio" name="filtertabs" value="filterVHBVHU" onchange="SearchChange(0);">
+                                <label for="filtertab2">@SharedLocalizer["FilterVHBVHU"]</label>
+                                <section id="filtercontent1">
+                                    <div class="input-group">
+                                        <select id="adm1" class="form-control" asp-items="ViewBag.Adm1" onchange="GetAdm2(); SearchChange(0);">
+                                            <option selected></option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <select id="adm2" class="form-control" onchange="SearchChange(0);">
+                                            <option selected></option>
+                                        </select>
+                                    </div>
+                                </section>
+                                <section id="filtercontent2">
+                                    <div class="input-group">
+                                        <select id="svhb" class="form-control" asp-items="ViewBag.VHB" onchange="GetVHU(); SearchChange(0);">
+                                            <option selected></option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group">
+                                        <select id="svhu" class="form-control" onchange="SearchChange(0);">
+                                            <option selected></option>
+                                        </select>
+                                    </div>
+                                </section>
                             </div>
                         </div>
                     </div>
@@ -1323,15 +1333,31 @@
 <script>
     // select - выбранный на главной странице
     function SearchChange(select) {
+        // фильтрация КАТО и ВХБ (ВХУ)
+        //GetAdm1();
+        //GetAdm2();
+        //
+        var Adm1KATOId = null,
+            Adm2KATOId = null,
+            VHB = null,
+            VHU = null;
+        if ($("input[name='filtertabs']:checked").val() == 'filterKATO') {
+            Adm1KATOId = $('#adm1').val();
+            Adm2KATOId = $('#adm2').val();
+        }
+        else if ($("input[name='filtertabs']:checked").val() == 'filterVHBVHU') {
+            VHB = $('#svhb').val();
+            VHU = $('#svhu').val();
+        }
         $("#LakeId").LoadingOverlay("show");
         $.ajax({
             url: '@Url.Action("GetLakes")',
             data: {
                 Search: $('#search').val(),
-                Adm1KATOId: $('#adm1').val(),
-                Adm2KATOId: $('#adm2').val(),
-                VHB: $('#svhb').val(),
-                VHU: $('#svhu').val()
+                Adm1KATOId: Adm1KATOId,
+                Adm2KATOId: Adm2KATOId,
+                VHB: VHB,
+                VHU: VHU
             },
             type: 'POST',
             success: function (data) {
@@ -1352,18 +1378,39 @@
         });
     }
 
-    function GetAmd2() {
+    function GetAdm1() {
+        var $dropdown = $("#adm1");
+        $dropdown.find('option')
+            .remove();
+        $.ajax({
+            url: '@Url.Action("GetAdm1")',
+            data: {
+                Search: $('#search').val()
+            },
+            type: 'POST',
+            success: function (data) {
+                $dropdown.append($("<option />"));
+                $.each(data.adm1, function () {
+                    $dropdown.append($("<option />").val(this.id).text(this.name));
+                });
+            },
+            error: function () {
+            }
+        });
+    }
+
+    function GetAdm2() {
         var $dropdown = $("#adm2");
         $dropdown.find('option')
             .remove();
         $.ajax({
             url: '@Url.Action("GetAdm2")',
             data: {
+                Search: $('#search').val(),
                 Adm1KATOId: $('#adm1').val()
             },
             type: 'POST',
             success: function (data) {
-                
                 $dropdown.append($("<option />"));
                 $.each(data.adm2, function () {
                     $dropdown.append($("<option />").val(this.id).text(this.name));

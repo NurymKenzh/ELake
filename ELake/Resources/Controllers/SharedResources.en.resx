@@ -1605,4 +1605,10 @@
   <data name="SearchByLakeName" xml:space="preserve">
     <value>Search by lake name</value>
   </data>
+  <data name="FilterKATO" xml:space="preserve">
+    <value>Region, district</value>
+  </data>
+  <data name="FilterVHBVHU" xml:space="preserve">
+    <value>VHB, VCU</value>
+  </data>
 </root>

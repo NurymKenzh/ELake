@@ -334,6 +334,9 @@ namespace ELake.Controllers
             ViewBag.DataType = DataTypes.Select(r => new SelectListItem { Text = _sharedLocalizer[r], Value = r });
             ViewBag.LakesLayer = _context.Layer.FirstOrDefault(l => l.Lake);
             ViewBag.LakeName = _context.Lake.FirstOrDefault(l => l.LakeId == id)?.Name;
+
+            /////////////////////
+
             ViewBag.Adm1 = new SelectList(_context.KATO.Where(k => k.Level == 1).OrderBy(k => k.Name), "Id", "Name");
             ViewBag.VHB = new SelectList(_context.Lake.Select(l => l.VHB).Distinct().OrderBy(v => v).ToArray());
 
@@ -536,18 +539,83 @@ namespace ELake.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetAdm2(int? Adm1KATOId)
+        public ActionResult GetAdm1(string Search)
         {
-            KATO adm1 = _context.KATO.FirstOrDefault(k => k.Id == Adm1KATOId);
-            string adm1Number = adm1 == null ? null : adm1?.Number.Substring(0, 2);
-            var adm2 = _context.KATO
-                .Where(k => k.Level == 2 && k.Number.Substring(0, 2) == adm1Number)
-                .OrderBy(k => k.Name)
-                .ToArray();
-            return Json(new
+            if(!string.IsNullOrEmpty(Search))
             {
-                adm2
-            });
+                List<int> lakeIds = _context.Lake
+                    .Where(l => l.Name.ToLower().Contains(Search.ToLower()))
+                    .Select(l => l.LakeId)
+                    .Distinct()
+                    .ToList();
+                List<int> katoIds = _context.LakeKATO
+                    .Where(lk => lakeIds.Contains(lk.LakeId))
+                    .Select(lk => lk.KATOId)
+                    .Distinct()
+                    .ToList();
+                var adm1 = _context.KATO
+                    .Where(k => k.Level == 1)
+                    .Where(k => katoIds.Contains(k.Id))
+                    .OrderBy(k => k.Name)
+                    .ToArray();
+                return Json(new
+                {
+                    adm1
+                });
+            }
+            else
+            {
+                var adm1 = _context.KATO
+                    .Where(k => k.Level == 1)
+                    .OrderBy(k => k.Name)
+                    .ToArray();
+                return Json(new
+                {
+                    adm1
+                });
+            }            
+        }
+
+        [HttpPost]
+        public ActionResult GetAdm2(string Search, int? Adm1KATOId)
+        {
+            if (!string.IsNullOrEmpty(Search))
+            {
+                List<int> lakeIds = _context.Lake
+                    .Where(l => l.Name.ToLower().Contains(Search.ToLower()))
+                    .Select(l => l.LakeId)
+                    .Distinct()
+                    .ToList();
+                List<int> katoIds = _context.LakeKATO
+                    .Where(lk => lakeIds.Contains(lk.LakeId))
+                    .Select(lk => lk.KATOId)
+                    .Distinct()
+                    .ToList();
+                KATO adm1 = _context.KATO.FirstOrDefault(k => k.Id == Adm1KATOId);
+                string adm1Number = adm1 == null ? null : adm1?.Number.Substring(0, 2);
+                var adm2 = _context.KATO
+                    .Where(k => katoIds.Contains(k.Id))
+                    .Where(k => k.Level == 2 && k.Number.Substring(0, 2) == adm1Number)
+                    .OrderBy(k => k.Name)
+                    .ToArray();
+                return Json(new
+                {
+                    adm2
+                });
+            }
+            else
+            {
+                KATO adm1 = _context.KATO.FirstOrDefault(k => k.Id == Adm1KATOId);
+                string adm1Number = adm1 == null ? null : adm1?.Number.Substring(0, 2);
+                var adm2 = _context.KATO
+                    .Where(k => k.Level == 2 && k.Number.Substring(0, 2) == adm1Number)
+                    .OrderBy(k => k.Name)
+                    .ToArray();
+                return Json(new
+                {
+                    adm2
+                });
+            }
         }
 
         [HttpPost]

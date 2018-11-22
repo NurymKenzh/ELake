@@ -339,3 +339,9 @@ input:checked + label {
     }
 }
 
+
+
+#filtertab1:checked ~ #filtercontent1,
+#filtertab2:checked ~ #filtercontent2 {
+    display: block;
+}

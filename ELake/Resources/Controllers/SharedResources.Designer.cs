@@ -954,6 +954,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string FilterKATO {
+            get {
+                return ResourceManager.GetString("FilterKATO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FilterVHBVHU {
+            get {
+                return ResourceManager.GetString("FilterVHBVHU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Find {
             get {
                 return ResourceManager.GetString("Find", resourceCulture);
