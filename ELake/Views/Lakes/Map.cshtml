@@ -20,6 +20,7 @@
                 <div class="col-md-4 ">
                     <form class="form-inline my-2 my-lg-0">
                         <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="@SharedLocalizer["Search"]" aria-label="Search" oninput="GetAdm1(); GetAdm2(); GetVHB(); GetVHU(); GetSystem(); SearchChange(0);">
+                        <input type="button" class="form-control form-control-sm mr-sm-2" value="@SharedLocalizer["Reset"]" onclick="ResetSearch()"/>
                     </form>
                 </div>
             </div>
@@ -1503,6 +1504,16 @@
             error: function () {
             }
         });
+    }
+
+    function ResetSearch() {
+        $('#search').val('');
+        GetAdm1();
+        GetAdm2();
+        GetVHB();
+        GetVHU();
+        GetSystem();
+        SearchChange(0);
     }
 </script>
 @* $(document).ready(function () {}) *@

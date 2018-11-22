@@ -1614,4 +1614,7 @@
   <data name="Found" xml:space="preserve">
     <value>Табылды</value>
   </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Қалпына келтіру</value>
+  </data>
 </root>
