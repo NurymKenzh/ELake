@@ -19,7 +19,7 @@
             <div class="d-block border-bottom border-primary p-2" style="background-color: #e3f2fd;">
                 <div class="col-md-4 ">
                     <form class="form-inline my-2 my-lg-0">
-                        <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="@SharedLocalizer["Search"]" aria-label="Search" oninput="GetAdm1(); GetAdm2(); SearchChange(0);">
+                        <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="@SharedLocalizer["Search"]" aria-label="Search" oninput="GetAdm1(); GetAdm2(); GetVHB(); GetVHU(); SearchChange(0);">
                     </form>
                 </div>
             </div>
@@ -1421,6 +1421,27 @@
         });
     }
 
+    function GetVHB() {
+        var $dropdown = $("#svhb");
+        $dropdown.find('option')
+            .remove();
+        $.ajax({
+            url: '@Url.Action("GetVHB")',
+            data: {
+                Search: $('#search').val()
+            },
+            type: 'POST',
+            success: function (data) {
+                $dropdown.append($("<option />"));
+                $.each(data.vhb, function () {
+                    $dropdown.append($("<option />").val(this).text(this));
+                });
+            },
+            error: function () {
+            }
+        });
+    }
+
     function GetVHU() {
         var $dropdown = $("#svhu");
         $dropdown.find('option')
@@ -1428,6 +1449,7 @@
         $.ajax({
             url: '@Url.Action("GetVHU")',
             data: {
+                Search: $('#search').val(),
                 VHB: $('#svhb').val()
             },
             type: 'POST',

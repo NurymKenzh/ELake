@@ -619,18 +619,65 @@ namespace ELake.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetVHU(string VHB)
+        public ActionResult GetVHB(string Search)
         {
-            var vhu = _context.Lake
+            if (!string.IsNullOrEmpty(Search))
+            {
+                var vhb = _context.Lake
+                    .Where(l => l.Name.ToLower().Contains(Search.ToLower()))
+                    .Select(l => l.VHB)
+                    .Distinct()
+                    .OrderBy(v => v)
+                    .ToArray();
+                return Json(new
+                {
+                    vhb
+                });
+            }
+            else
+            {
+                var vhb = _context.Lake
+                    .Select(l => l.VHB)
+                    .Distinct()
+                    .OrderBy(v => v)
+                    .ToArray();
+                return Json(new
+                {
+                    vhb
+                });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult GetVHU(string Search, string VHB)
+        {
+            if(!string.IsNullOrEmpty(Search))
+            {
+                var vhu = _context.Lake
+                .Where(l => l.Name.ToLower().Contains(Search.ToLower()))
                 .Where(l => l.VHB == VHB && !string.IsNullOrEmpty(l.VHU))
                 .Select(l => l.VHU)
                 .Distinct()
                 .OrderBy(v => v)
                 .ToArray();
-            return Json(new
+                return Json(new
+                {
+                    vhu
+                });
+            }
+            else
             {
-                vhu
-            });
+                var vhu = _context.Lake
+                    .Where(l => l.VHB == VHB && !string.IsNullOrEmpty(l.VHU))
+                    .Select(l => l.VHU)
+                    .Distinct()
+                    .OrderBy(v => v)
+                    .ToArray();
+                return Json(new
+                {
+                    vhu
+                });
+            }   
         }
     }
 }
