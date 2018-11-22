@@ -339,6 +339,7 @@ namespace ELake.Controllers
 
             ViewBag.Adm1 = new SelectList(_context.KATO.Where(k => k.Level == 1).OrderBy(k => k.Name), "Id", "Name");
             ViewBag.VHB = new SelectList(_context.Lake.Select(l => l.VHB).Distinct().OrderBy(v => v).ToArray());
+            ViewBag.System = new SelectList(_context.LakeSystem.OrderBy(s => s.Name), "LakeSystemId", "Name");
 
             return View();
         }
@@ -506,7 +507,7 @@ namespace ELake.Controllers
         //}
 
         [HttpPost]
-        public ActionResult GetLakes(string Search, int? Adm1KATOId, int? Adm2KATOId, string VHB, string VHU)
+        public ActionResult GetLakes(string Search, int? Adm1KATOId, int? Adm2KATOId, string VHB, string VHU, int? LakeSystem)
         {
             if (Search == null)
             {
@@ -531,6 +532,10 @@ namespace ELake.Controllers
             if (!string.IsNullOrEmpty(VHU))
             {
                 lakes = lakes.Where(l => l.VHU == VHU).ToArray();
+            }
+            if (LakeSystem != null)
+            {
+                lakes = lakes.Where(l => l.LakeSystemId == LakeSystem).ToArray();
             }
             return Json(new
             {
@@ -677,7 +682,39 @@ namespace ELake.Controllers
                 {
                     vhu
                 });
-            }   
+            }
+        }
+
+        [HttpPost]
+        public ActionResult GetSystem(string Search)
+        {
+            if (!string.IsNullOrEmpty(Search))
+            {
+                List<int?> lakeSystemIds = _context.Lake
+                    .Where(l => l.LakeSystemId != null)
+                    .Where(l => l.Name.ToLower().Contains(Search.ToLower()))
+                    .Select(l => l.LakeSystemId)
+                    .Distinct()
+                    .ToList();
+                var system = _context.LakeSystem
+                    .Where(s => lakeSystemIds.Contains(s.LakeSystemId))
+                    .OrderBy(s => s.Name)
+                    .ToArray();
+                return Json(new
+                {
+                    system
+                });
+            }
+            else
+            {
+                var system = _context.LakeSystem
+                    .OrderBy(k => k.Name)
+                    .ToArray();
+                return Json(new
+                {
+                    system
+                });
+            }
         }
     }
 }

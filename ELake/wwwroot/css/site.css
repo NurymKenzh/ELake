@@ -342,6 +342,7 @@ input:checked + label {
 
 
 #filtertab1:checked ~ #filtercontent1,
-#filtertab2:checked ~ #filtercontent2 {
+#filtertab2:checked ~ #filtercontent2,
+#filtertab3:checked ~ #filtercontent3 {
     display: block;
 }
