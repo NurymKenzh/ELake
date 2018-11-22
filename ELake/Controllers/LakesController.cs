@@ -542,6 +542,20 @@ namespace ELake.Controllers
                 lakes
             });
         }
+        
+        public ActionResult GetLakeGroup(int LakeId)
+        {
+            int max = Convert.ToInt32(LakeId.ToString().Substring(0, LakeId.ToString().Length - 1) + "9"),
+                min = Convert.ToInt32(LakeId.ToString().Substring(0, LakeId.ToString().Length - 1) + "1");
+            var lakes = _context.Lake
+                .Where(l => l.LakeId >= min && l.LakeId <= max)
+                .OrderBy(l => l.Name)
+                .ToArray();
+            return Json(new
+            {
+                lakes
+            });
+        }
 
         [HttpPost]
         public ActionResult GetAdm1(string Search)

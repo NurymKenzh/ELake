@@ -32,7 +32,8 @@
                                 <label id="foundLakes">@SharedLocalizer["Found"]:</label>
                             </div>
                             <div class="input-group">
-                                <select id="LakeId" class="form-control" size="5" onchange="SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
+                                <select id="LakeId" class="form-control" size="5" onchange="GetLakeGroup(); SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
+                                <select id="LakeGroup" class="form-control" size="5" onchange="SelectLakeZoom($('#LakeGroup').val().toString(), true)" ></select>
                             </div>
                             <div class='mtabs mt-1'>
                                 <input id="filtertab1" type="radio" name="filtertabs" value="filterKATO" onchange="SearchChange(0);" checked>
@@ -277,6 +278,38 @@
         map.getView().fit(extent, {
             duration: 1500
         });
+    }
+
+    function GetLakeGroup() {
+        var lakeId_ = $('#LakeId').val();
+        if ((lakeId_ != null) && (lakeId_ != '') && (lakeId_[lakeId_.length - 1] != '0')) {
+            $.ajax({
+                url: '@Url.Action("GetLakeGroup")',
+                data: {
+                    LakeId: lakeId_
+                },
+                type: 'POST',
+                success: function (data) {
+                    var $dropdown = $("#LakeGroup");
+                    if (data.lakes.length > 0) {
+                        $dropdown.show();
+                    }
+                    else {
+                        $dropdown.hide();
+                    }
+                    $dropdown.find('option')
+                        .remove();
+                    $.each(data.lakes, function () {
+                        $dropdown.append($("<option />").val(this.lakeId).text(this.name));
+                    });
+                },
+                error: function () {
+                }
+            });
+        }
+        else {
+            $("#LakeGroup").hide();
+        }
     }
 </script>
 @* Get lake info *@
@@ -1519,11 +1552,12 @@
 @* $(document).ready(function () {}) *@
 <script>
     //function Test() {
-    //    //alert($("#ViewBagLakeId").val());
-    //    $("#LakeId").val("403810");
+    //    $("#LakeGroup").hide();
+    //    alert(1);
     //}
 
     $(document).ready(function () {
+        $("#LakeGroup").hide();
         ChangeDataType();
         $('#search').val($('#LakeName').val());
         if ($('#ViewBagLakeId').val() != '') {
