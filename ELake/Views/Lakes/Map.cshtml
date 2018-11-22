@@ -193,7 +193,11 @@
         layers: layers,
         view: new ol.View({
             center: ol.proj.fromLonLat([69, 48]),
-            zoom: 4
+            zoom: 4,
+            minZoom: 4,
+            extent: [6000000, 4856683, 9000000, 7540509]
+            //extent: [5917358, 5150581, 9579862, 7210174]
+            //extent: [5061645, 4856683, 9834201, 7540509]
         })
     });
 
