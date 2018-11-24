@@ -385,10 +385,8 @@ namespace ELake.Controllers
                 adm2 = string.Join(", ", katoes.Where(k => k.Level == 2).Select(k => k.Name));
             // Общие гидрохимические показатели
             bool twoparts = false;
-            GeneralHydrochemicalIndicator ghi1 = null,
-                ghi2 = null;
-            GeneralHydrochemicalIndicator[] mineralizationtable1 = null,
-                mineralizationtable2 = null;
+            GeneralHydrochemicalIndicator[] ghitable1 = null,
+                ghitable2 = null;
             if (LakeId > 0 && _context.GeneralHydrochemicalIndicator.Count(g => g.LakeId == LakeId)>0)
             {
                 int? ghiyear = _context.GeneralHydrochemicalIndicator
@@ -402,19 +400,12 @@ namespace ELake.Controllers
                 {
                     twoparts = true;
                 }
-                ghi1 = ghis
-                    .FirstOrDefault(g => g.LakePart == LakePart.FullyPart || g.LakePart == LakePart.FreshPart);
-                if (ghis.Count() > 1)
-                {
-                    ghi2 = ghis
-                        .FirstOrDefault(g => g.LakePart == LakePart.SaltyPart);
-                }
-                mineralizationtable1 = _context.GeneralHydrochemicalIndicator
+                ghitable1 = _context.GeneralHydrochemicalIndicator
                     .Where(g => g.LakeId == LakeId)
                     .Where(g => g.LakePart == LakePart.FullyPart || g.LakePart == LakePart.FreshPart)
                     .OrderBy(g => g.Year)
                     .ToArray();
-                mineralizationtable2 = _context.GeneralHydrochemicalIndicator
+                ghitable2 = _context.GeneralHydrochemicalIndicator
                     .Where(g => g.LakeId == LakeId)
                     .Where(g => g.LakePart == LakePart.SaltyPart)
                     .OrderBy(g => g.Year)
@@ -430,10 +421,8 @@ namespace ELake.Controllers
                 adm2,
                 // Общие гидрохимические показатели
                 twoparts,
-                ghi1,
-                ghi2,
-                mineralizationtable1,
-                mineralizationtable2
+                ghitable1,
+                ghitable2
             });
         }
 

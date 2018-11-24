@@ -158,7 +158,7 @@
                                     <td>
                                         @SharedLocalizer["Mineralization"]
                                     </td>
-                                    <td id="GHIYear1"></td>
+                                    <td id="YearMineralization1"></td>
                                     <td id="Mineralization1"></td>
                                     <td id="MineralizationType1"></td>
                                     <td>
@@ -168,6 +168,26 @@
                                             </font>
                                         </p>
                                         <p onclick="ShowChartMineralization1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["TotalHardness"]
+                                    </td>
+                                    <td id="YearTotalHardness1"></td>
+                                    <td id="TotalHardness1"></td>
+                                    <td id="WaterHardness1"></td>
+                                    <td>
+                                        <p onclick="ShowTableTotalHardness1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartTotalHardness1()" class="link">
                                             <font size="2" color="blue">
                                                 @SharedLocalizer["Chart"]
                                             </font>
@@ -202,7 +222,7 @@
                                     <td>
                                         @SharedLocalizer["Mineralization"]
                                     </td>
-                                    <td id="GHIYear2"></td>
+                                    <td id="YearMineralization2"></td>
                                     <td id="Mineralization2"></td>
                                     <td id="MineralizationType2"></td>
                                     <td>
@@ -218,10 +238,30 @@
                                         </p>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["TotalHardness"]
+                                    </td>
+                                    <td id="YearTotalHardness2"></td>
+                                    <td id="TotalHardness2"></td>
+                                    <td id="WaterHardness2"></td>
+                                    <td>
+                                        <p onclick="ShowTableTotalHardness2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartTotalHardness2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         @* Tables, charts *@
-                        <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                        <h4 class="FreshPart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
                         <table id="tableMineralization1" class="GHI table">
                             <thead>
                                 <tr>
@@ -239,7 +279,24 @@
                             <tbody id="tablebodyMineralization1"></tbody>
                         </table>
                         <canvas id="chartMineralization1" class="GHI" width="400" height="200"></canvas>
-                        <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                        <table id="tableTotalHardness1" class="GHI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["TotalHardness"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["WaterHardness"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyTotalHardness1"></tbody>
+                        </table>
+                        <canvas id="chartTotalHardness1" class="GHI" width="400" height="200"></canvas>
+                        <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
                         <table id="tableMineralization2" class="GHI table">
                             <thead>
                                 <tr>
@@ -257,6 +314,23 @@
                             <tbody id="tablebodyMineralization2"></tbody>
                         </table>
                         <canvas id="chartMineralization2" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableTotalHardness2" class="GHI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["TotalHardness"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["WaterHardness"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyTotalHardness2"></tbody>
+                        </table>
+                        <canvas id="chartTotalHardness2" class="GHI" width="400" height="200"></canvas>
                     </section>
                     <section id="contentghi2"></section>
                     <section id="contentghi3"></section>
@@ -276,6 +350,8 @@
     <input id="Found" type="hidden" value='@SharedLocalizer["Found"]' />
     <input id="Mineralization" type="hidden" value='@SharedLocalizer["Mineralization"]' />
     <input id="MineralizationType" type="hidden" value='@SharedLocalizer["MineralizationType"]' />
+    <input id="TotalHardness" type="hidden" value='@SharedLocalizer["TotalHardness"]' />
+    <input id="WaterHardness" type="hidden" value='@SharedLocalizer["WaterHardness"]' />
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -322,7 +398,8 @@
 
     var geoserverPort = '8080',
         //geoserverAddress = '82.200.146.116';
-        geoserverAddress = 'localhost';
+        //geoserverAddress = 'localhost';
+        geoserverAddress = window.location.hostname;
 
     var map = new ol.Map({
         target: 'map',
@@ -331,8 +408,8 @@
             center: ol.proj.fromLonLat([69, 48]),
             zoom: 4,
             minZoom: 4,
-            extent: [6000000, 4856683, 9000000, 7540509]
-            //extent: [5917358, 5150581, 9579862, 7210174]
+            //extent: [6000000, 4856683, 9000000, 7540509]
+            extent: [5917358, 5150581, 9579862, 7210174]
             //extent: [5061645, 4856683, 9834201, 7540509]
         })
     });
@@ -373,9 +450,6 @@
             //alert('error');
         }
     });
-
-    
-
 </script>
 @* Select lake and zoom to *@
 <script>
@@ -439,6 +513,10 @@
 </script>
 @* Get lake info *@
 <script>
+    var chartColorGHIMineralization = 'rgba(255,99,132,1)',
+        chartColorGHITotalHardness = 'rgba(99,255,132,1)';
+    var twoparts = false;
+
     function GetLakeInfo(LakeId) {
         $.ajax({
             url: '@Url.Action("GetLakeInfo")',
@@ -456,24 +534,48 @@
                 $('#Latitude').text(data.latitude);
                 $('#Adm3').text(data.adm3);
                 // Общие гидрохимические показатели
-                if (data.ghi1) {
-                    $('#GHIYear1').text(data.ghi1.year);
-                    $('#Mineralization1').text(data.ghi1.mineralization);
-                    $('#MineralizationType1').text(data.ghi1.mineralizationType);
+                if (data.ghitable1 != null) {
+                    for (i = 0; i < data.ghitable1.length; i++) {
+                        if (data.ghitable1[i].mineralization != null) {
+                            $('#YearMineralization1').text(data.ghitable1[i].year);
+                            $('#Mineralization1').text(data.ghitable1[i].mineralization);
+                            $('#MineralizationType1').text(data.ghitable1[i].mineralizationType);
+                        }
+                        if (data.ghitable1[i].totalHardness != null) {
+                            $('#YearTotalHardness1').text(data.ghitable1[i].year);
+                            $('#TotalHardness1').text(data.ghitable1[i].totalHardness);
+                            $('#WaterHardness1').text(data.ghitable1[i].waterHardness);
+                        }
+                    }
                 }
-                if (data.ghi2) {
-                    $('#GHIYear2').text(data.ghi2.year);
-                    $('#Mineralization2').text(data.ghi2.mineralization);
-                    $('#MineralizationType2').text(data.ghi1.mineralizationType);
+                if (data.ghitable2 != null) {
+                    for (i = 0; i < data.ghitable2.length; i++) {
+                        if (data.ghitable2[i].mineralization != null) {
+                            $('#YearMineralization2').text(data.ghitable2[i].year);
+                            $('#Mineralization2').text(data.ghitable2[i].mineralization);
+                            $('#MineralizationType2').text(data.ghitable2[i].mineralizationType);
+                        }
+                        if (data.ghitable2[i].totalHardness != null) {
+                            $('#YearTotalHardness2').text(data.ghitable2[i].year);
+                            $('#TotalHardness2').text(data.ghitable2[i].totalHardness);
+                            $('#WaterHardness2').text(data.ghitable2[i].waterHardness);
+                        }
+                    }
                 }
                 TableMineralization(data);
                 ChartMineralization(data);
+                TableTotalHardness(data);
+                ChartTotalHardness(data);
                 if (data.twoparts) {
                     $('.LakePart').show();
+                    twoparts = true;
                 }
                 else {
                     $('.LakePart').hide();
+                    twoparts = false;
                 }
+                $('.FreshPart').hide();
+                $('.SaltyPart').hide();
             },
             error: function () {
             }
@@ -484,21 +586,25 @@
         var tablebody1 = $('#tablebodyMineralization1'),
             tablebody2 = $('#tablebodyMineralization2');
         tablebody1.html('');
-        if (data.mineralizationtable1 != null) {
-            for (var i = 0; i < data.mineralizationtable1.length; i++) {
-                var tr = $('<tr/>').appendTo(tablebody1);
-                tr.append('<td>' + data.mineralizationtable1[i].year + '</td>');
-                tr.append('<td>' + data.mineralizationtable1[i].mineralization + '</td>');
-                tr.append('<td>' + data.mineralizationtable1[i].mineralizationType + '</td>');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].mineralization != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].mineralization + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].mineralizationType + '</td>');
+                }
             }
         }
         tablebody2.html('');
-        if (data.mineralizationtable2 != null) {
-            for (var i = 0; i < data.mineralizationtable2.length; i++) {
-                var tr = $('<tr/>').appendTo(tablebody2);
-                tr.append('<td>' + data.mineralizationtable2[i].year + '</td>');
-                tr.append('<td>' + data.mineralizationtable2[i].mineralization + '</td>');
-                tr.append('<td>' + data.mineralizationtable2[i].mineralizationType + '</td>');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].mineralization != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].mineralization + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].mineralizationType + '</td>');
+                }
             }
         }
         $('.GHI').hide();
@@ -511,28 +617,33 @@
             ChartMineralization1.destroy();
         }
         var ctx1 = document.getElementById("chartMineralization1").getContext('2d');
-        var labels1 = [],
-            data1 = [];
-        if (data.mineralizationtable1 != null) {
-            for (var i = 0; i < data.mineralizationtable1.length; i++) {
-                labels1.push(data.mineralizationtable1[i].year);
-                data1.push(data.mineralizationtable1[i].mineralization);
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].mineralization != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].mineralization
+                    });
+                }
             }
         }
         ChartMineralization1 = new Chart(ctx1, {
-            type: 'line',
+            type: 'scatter',
             data: {
-                labels: labels1,
                 datasets: [{
                     label: $('#Mineralization').val(),
                     data: data1,
-                    backgroundColor: 'rgba(255,99,132,1)',
-                    borderColor: 'rgba(255,99,132,1)',
+                    backgroundColor: chartColorGHIMineralization,
+                    borderColor: chartColorGHIMineralization,
                     borderWidth: 1,
-                    fill: false
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
                 }]
             },
             options: {
+                spanGaps: true,
                 title: {
                     display: true,
                     text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mineralization').val()
@@ -559,48 +670,270 @@
             ChartMineralization2.destroy();
         }
         var ctx2 = document.getElementById("chartMineralization2").getContext('2d');
-        var labels2 = [],
-            data2 = [];
-        if (data.mineralizationtable1 != null) {
-            for (var i = 0; i < data.mineralizationtable2.length; i++) {
-                labels2.push(data.mineralizationtable2[i].year);
-                data2.push(data.mineralizationtable2[i].mineralization);
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].mineralization != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].mineralization
+                    });
+                }
             }
         }
         ChartMineralization2 = new Chart(ctx2, {
-            type: 'line',
+            type: 'scatter',
             data: {
-                labels: labels2,
                 datasets: [{
                     label: $('#Mineralization').val(),
                     data: data2,
-                    backgroundColor: 'rgba(255,99,132,1)',
-                    borderColor: 'rgba(255,99,132,1)',
+                    backgroundColor: chartColorGHIMineralization,
+                    borderColor: chartColorGHIMineralization,
                     borderWidth: 1,
-                    fill: false
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
                 }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mineralization').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
             }
         });
     }
 
+    function TableTotalHardness(data) {
+        var tablebody1 = $('#tablebodyTotalHardness1'),
+            tablebody2 = $('#tablebodyTotalHardness2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].totalHardness != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].totalHardness + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].waterHardness + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].totalHardness != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].totalHardness + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].waterHardness + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartTotalHardness1 = null,
+        ChartTotalHardness2 = null;
+    function ChartTotalHardness(data) {
+        if (ChartTotalHardness1 != null) {
+            ChartTotalHardness1.destroy();
+        }
+        var ctx1 = document.getElementById("chartTotalHardness1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].totalHardness != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].totalHardness
+                    });
+                }
+            }
+        }
+        ChartTotalHardness1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#TotalHardness').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHITotalHardness,
+                    borderColor: chartColorGHITotalHardness,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#TotalHardness').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartTotalHardness2 != null) {
+            ChartTotalHardness2.destroy();
+        }
+        var ctx2 = document.getElementById("chartTotalHardness2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].totalHardness != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].totalHardness
+                    });
+                }
+            }
+        }
+        ChartTotalHardness2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#TotalHardness').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHITotalHardness,
+                    borderColor: chartColorGHITotalHardness,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#TotalHardness').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    ///////////////////////////
+
     function ShowTableMineralization1() {
         $('.GHI').hide();
         $('#tableMineralization1').show();
+        $('.FreshPart').hide(); 
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
     }
 
     function ShowTableMineralization2() {
         $('.GHI').hide();
         $('#tableMineralization2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
     }
 
     function ShowChartMineralization1() {
         $('.GHI').hide();
         $('#chartMineralization1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
     }
 
     function ShowChartMineralization2() {
         $('.GHI').hide();
         $('#chartMineralization2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableTotalHardness1() {
+        $('.GHI').hide();
+        $('#tableTotalHardness1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableTotalHardness2() {
+        $('.GHI').hide();
+        $('#tableTotalHardness2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartTotalHardness1() {
+        $('.GHI').hide();
+        $('#chartTotalHardness1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartTotalHardness2() {
+        $('.GHI').hide();
+        $('#chartTotalHardness2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').show();
     }
 </script>
 @* ChangeDataType, SlideYear, ChangeYear *@
