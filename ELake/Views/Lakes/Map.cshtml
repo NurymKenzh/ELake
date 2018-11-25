@@ -194,6 +194,26 @@
                                         </p>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["DissOxygWater"]
+                                    </td>
+                                    <td id="YearDissOxygWater1"></td>
+                                    <td id="DissOxygWater1"></td>
+                                    <td id="DissolvedOxygenInWaterDegree1"></td>
+                                    <td>
+                                        <p onclick="ShowTableDissOxygWater1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartDissOxygWater1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
@@ -258,6 +278,26 @@
                                         </p>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["DissOxygWater"]
+                                    </td>
+                                    <td id="YearDissOxygWater2"></td>
+                                    <td id="DissOxygWater2"></td>
+                                    <td id="DissolvedOxygenInWaterDegree2"></td>
+                                    <td>
+                                        <p onclick="ShowTableDissOxygWater2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartDissOxygWater2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         @* Tables, charts *@
@@ -296,6 +336,23 @@
                             <tbody id="tablebodyTotalHardness1"></tbody>
                         </table>
                         <canvas id="chartTotalHardness1" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableDissOxygWater1" class="GHI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["DissOxygWater"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["DissolvedOxygenInWaterDegree"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyDissOxygWater1"></tbody>
+                        </table>
+                        <canvas id="chartDissOxygWater1" class="GHI" width="400" height="200"></canvas>
                         <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
                         <table id="tableMineralization2" class="GHI table">
                             <thead>
@@ -331,6 +388,23 @@
                             <tbody id="tablebodyTotalHardness2"></tbody>
                         </table>
                         <canvas id="chartTotalHardness2" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableDissOxygWater2" class="GHI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["DissOxygWater"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["DissolvedOxygenInWaterDegree"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyDissOxygWater2"></tbody>
+                        </table>
+                        <canvas id="chartDissOxygWater2" class="GHI" width="400" height="200"></canvas>
                     </section>
                     <section id="contentghi2"></section>
                     <section id="contentghi3"></section>
@@ -352,6 +426,8 @@
     <input id="MineralizationType" type="hidden" value='@SharedLocalizer["MineralizationType"]' />
     <input id="TotalHardness" type="hidden" value='@SharedLocalizer["TotalHardness"]' />
     <input id="WaterHardness" type="hidden" value='@SharedLocalizer["WaterHardness"]' />
+    <input id="DissOxygWater" type="hidden" value='@SharedLocalizer["DissOxygWater"]' />
+    <input id="DissolvedOxygenInWaterDegree" type="hidden" value='@SharedLocalizer["DissolvedOxygenInWaterDegree"]' />
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -514,7 +590,8 @@
 @* Get lake info *@
 <script>
     var chartColorGHIMineralization = 'rgba(255,99,132,1)',
-        chartColorGHITotalHardness = 'rgba(99,255,132,1)';
+        chartColorGHITotalHardness = 'rgba(99,255,132,1)',
+        chartColorGHIDissOxygWater = 'rgba(36,85,200,1)';
     var twoparts = false;
 
     function GetLakeInfo(LakeId) {
@@ -546,6 +623,11 @@
                             $('#TotalHardness1').text(data.ghitable1[i].totalHardness);
                             $('#WaterHardness1').text(data.ghitable1[i].waterHardness);
                         }
+                        if (data.ghitable1[i].dissOxygWater != null) {
+                            $('#YearDissOxygWater1').text(data.ghitable1[i].year);
+                            $('#DissOxygWater1').text(data.ghitable1[i].dissOxygWater);
+                            $('#DissolvedOxygenInWaterDegree1').text(data.ghitable1[i].dissolvedOxygenInWaterDegree);
+                        }
                     }
                 }
                 if (data.ghitable2 != null) {
@@ -560,12 +642,19 @@
                             $('#TotalHardness2').text(data.ghitable2[i].totalHardness);
                             $('#WaterHardness2').text(data.ghitable2[i].waterHardness);
                         }
+                        if (data.ghitable2[i].dissOxygWater != null) {
+                            $('#YearDissOxygWater2').text(data.ghitable2[i].year);
+                            $('#DissOxygWater2').text(data.ghitable2[i].dissOxygWater);
+                            $('#DissolvedOxygenInWaterDegree2').text(data.ghitable2[i].dissolvedOxygenInWaterDegree);
+                        }
                     }
                 }
                 TableMineralization(data);
                 ChartMineralization(data);
                 TableTotalHardness(data);
                 ChartTotalHardness(data);
+                TableDissOxygWater(data);
+                ChartDissOxygWater(data);
                 if (data.twoparts) {
                     $('.LakePart').show();
                     twoparts = true;
@@ -857,6 +946,143 @@
         });
     }
 
+    function TableDissOxygWater(data) {
+        var tablebody1 = $('#tablebodyDissOxygWater1'),
+            tablebody2 = $('#tablebodyDissOxygWater2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].dissOxygWater != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].dissOxygWater + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].dissolvedOxygenInWaterDegree + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].dissOxygWater != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].dissOxygWater + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].dissolvedOxygenInWaterDegree + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartDissOxygWater1 = null,
+        ChartDissOxygWater2 = null;
+    function ChartDissOxygWater(data) {
+        if (ChartDissOxygWater1 != null) {
+            ChartDissOxygWater1.destroy();
+        }
+        var ctx1 = document.getElementById("chartDissOxygWater1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].dissOxygWater != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].dissOxygWater
+                    });
+                }
+            }
+        }
+        ChartDissOxygWater1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#DissOxygWater').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHIDissOxygWater,
+                    borderColor: chartColorGHIDissOxygWater,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#DissOxygWater').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartDissOxygWater2 != null) {
+            ChartDissOxygWater2.destroy();
+        }
+        var ctx2 = document.getElementById("chartDissOxygWater2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].dissOxygWater != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].dissOxygWater
+                    });
+                }
+            }
+        }
+        ChartDissOxygWater2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#DissOxygWater').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHIDissOxygWater,
+                    borderColor: chartColorGHIDissOxygWater,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#DissOxygWater').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
     ///////////////////////////
 
     function ShowTableMineralization1() {
@@ -932,6 +1158,43 @@
     function ShowChartTotalHardness2() {
         $('.GHI').hide();
         $('#chartTotalHardness2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').show();
+    }
+
+    function ShowTableDissOxygWater1() {
+        $('.GHI').hide();
+        $('#tableDissOxygWater1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableDissOxygWater2() {
+        $('.GHI').hide();
+        $('#tableDissOxygWater2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartDissOxygWater1() {
+        $('.GHI').hide();
+        $('#chartDissOxygWater1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartDissOxygWater2() {
+        $('.GHI').hide();
+        $('#chartDissOxygWater2').show();
         $('.FreshPart').hide();
         $('.SaltyPart').show();
     }
