@@ -234,6 +234,26 @@
                                         </p>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["pH"]
+                                    </td>
+                                    <td id="YearpH1"></td>
+                                    <td id="pH1"></td>
+                                    <td id="AcidityOfWaterDegree1"></td>
+                                    <td>
+                                        <p onclick="ShowTablepH1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartpH1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
@@ -338,6 +358,26 @@
                                         </p>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["pH"]
+                                    </td>
+                                    <td id="YearpH2"></td>
+                                    <td id="pH2"></td>
+                                    <td id="AcidityOfWaterDegree2"></td>
+                                    <td>
+                                        <p onclick="ShowTablepH2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartpH2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         @* Tables, charts *@
@@ -359,6 +399,7 @@
                             <tbody id="tablebodyMineralization1"></tbody>
                         </table>
                         <canvas id="chartMineralization1" class="GHI" width="400" height="200"></canvas>
+
                         <table id="tableTotalHardness1" class="GHI table">
                             <thead>
                                 <tr>
@@ -376,6 +417,7 @@
                             <tbody id="tablebodyTotalHardness1"></tbody>
                         </table>
                         <canvas id="chartTotalHardness1" class="GHI" width="400" height="200"></canvas>
+
                         <table id="tableDissOxygWater1" class="GHI table">
                             <thead>
                                 <tr>
@@ -393,6 +435,7 @@
                             <tbody id="tablebodyDissOxygWater1"></tbody>
                         </table>
                         <canvas id="chartDissOxygWater1" class="GHI" width="400" height="200"></canvas>
+
                         <table id="tablePercentOxygWater1" class="GHI table">
                             <thead>
                                 <tr>
@@ -410,7 +453,27 @@
                             <tbody id="tablebodyPercentOxygWater1"></tbody>
                         </table>
                         <canvas id="chartPercentOxygWater1" class="GHI" width="400" height="200"></canvas>
+
+                        <table id="tablepH1" class="GHI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["pH"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["AcidityOfWaterDegree"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodypH1"></tbody>
+                        </table>
+                        <canvas id="chartpH1" class="GHI" width="400" height="200"></canvas>
+
                         <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+
                         <table id="tableMineralization2" class="GHI table">
                             <thead>
                                 <tr>
@@ -428,6 +491,7 @@
                             <tbody id="tablebodyMineralization2"></tbody>
                         </table>
                         <canvas id="chartMineralization2" class="GHI" width="400" height="200"></canvas>
+
                         <table id="tableTotalHardness2" class="GHI table">
                             <thead>
                                 <tr>
@@ -445,6 +509,7 @@
                             <tbody id="tablebodyTotalHardness2"></tbody>
                         </table>
                         <canvas id="chartTotalHardness2" class="GHI" width="400" height="200"></canvas>
+
                         <table id="tableDissOxygWater2" class="GHI table">
                             <thead>
                                 <tr>
@@ -462,6 +527,7 @@
                             <tbody id="tablebodyDissOxygWater2"></tbody>
                         </table>
                         <canvas id="chartDissOxygWater2" class="GHI" width="400" height="200"></canvas>
+
                         <table id="tablePercentOxygWater2" class="GHI table">
                             <thead>
                                 <tr>
@@ -472,13 +538,31 @@
                                         @SharedLocalizer["PercentOxygWater"]
                                     </th>
                                     <th>
-                                        
+
                                     </th>
                                 </tr>
                             </thead>
                             <tbody id="tablebodyPercentOxygWater2"></tbody>
                         </table>
                         <canvas id="chartPercentOxygWater2" class="GHI" width="400" height="200"></canvas>
+
+                        <table id="tablepH2" class="GHI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["pH"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["AcidityOfWaterDegree"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodypH2"></tbody>
+                        </table>
+                        <canvas id="chartpH2" class="GHI" width="400" height="200"></canvas>
                     </section>
                     <section id="contentghi2"></section>
                     <section id="contentghi3"></section>
@@ -503,6 +587,8 @@
     <input id="DissOxygWater" type="hidden" value='@SharedLocalizer["DissOxygWater"]' />
     <input id="DissolvedOxygenInWaterDegree" type="hidden" value='@SharedLocalizer["DissolvedOxygenInWaterDegree"]' />
     <input id="PercentOxygWater" type="hidden" value='@SharedLocalizer["PercentOxygWater"]' />
+    <input id="pH" type="hidden" value='@SharedLocalizer["pH"]' />
+    <input id="AcidityOfWaterDegree" type="hidden" value='@SharedLocalizer["AcidityOfWaterDegree"]' />
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -667,7 +753,8 @@
     var chartColorGHIMineralization = 'rgba(255,99,132,1)',
         chartColorGHITotalHardness = 'rgba(99,255,132,1)',
         chartColorGHIDissOxygWater = 'rgba(36,85,200,1)',
-        chartColorGHIPercentOxygWater = 'rgba(243,99,73,1)';
+        chartColorGHIPercentOxygWater = 'rgba(243,99,73,1)',
+        chartColorGHIpH = 'rgba(67,149,250,1)';
     var twoparts = false;
 
     function GetLakeInfo(LakeId) {
@@ -708,6 +795,11 @@
                             $('#YearPercentOxygWater1').text(data.ghitable1[i].year);
                             $('#PercentOxygWater1').text(data.ghitable1[i].percentOxygWater);
                         }
+                        if (data.ghitable1[i].pH != null) {
+                            $('#YearpH1').text(data.ghitable1[i].year);
+                            $('#pH1').text(data.ghitable1[i].pH);
+                            $('#AcidityOfWaterDegree1').text(data.ghitable1[i].acidityOfWaterDegree);
+                        }
                     }
                 }
                 if (data.ghitable2 != null) {
@@ -732,6 +824,11 @@
                             $('#PercentOxygWater2').text(data.ghitable2[i].percentOxygWater);
                             $('#WaterHardness2').text(data.ghitable2[i].waterHardness);
                         }
+                        if (data.ghitable2[i].pH != null) {
+                            $('#YearpH2').text(data.ghitable2[i].year);
+                            $('#pH2').text(data.ghitable2[i].pH);
+                            $('#AcidityOfWaterDegree2').text(data.ghitable2[i].acidityOfWaterDegree);
+                        }
                     }
                 }
                 TableMineralization(data);
@@ -742,6 +839,8 @@
                 ChartDissOxygWater(data);
                 TablePercentOxygWater(data);
                 ChartPercentOxygWater(data);
+                TablepH(data);
+                ChartpH(data);
                 if (data.twoparts) {
                     $('.LakePart').show();
                     twoparts = true;
@@ -1305,6 +1404,143 @@
         });
     }
 
+    function TablepH(data) {
+        var tablebody1 = $('#tablebodypH1'),
+            tablebody2 = $('#tablebodypH2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].pH != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].pH + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].acidityOfWaterDegree + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].pH != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].pH + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].acidityOfWaterDegree + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartpH1 = null,
+        ChartpH2 = null;
+    function ChartpH(data) {
+        if (ChartpH1 != null) {
+            ChartpH1.destroy();
+        }
+        var ctx1 = document.getElementById("chartpH1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].pH != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].pH
+                    });
+                }
+            }
+        }
+        ChartpH1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#pH').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHIpH,
+                    borderColor: chartColorGHIpH,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#pH').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartpH2 != null) {
+            ChartpH2.destroy();
+        }
+        var ctx2 = document.getElementById("chartpH2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].pH != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].pH
+                    });
+                }
+            }
+        }
+        ChartpH2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#pH').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHIpH,
+                    borderColor: chartColorGHIpH,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#pH').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
     ///////////////////////////
 
     function ShowTableMineralization1() {
@@ -1454,6 +1690,43 @@
     function ShowChartPercentOxygWater2() {
         $('.GHI').hide();
         $('#chartPercentOxygWater2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').show();
+    }
+
+    function ShowTablepH1() {
+        $('.GHI').hide();
+        $('#tablepH1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTablepH2() {
+        $('.GHI').hide();
+        $('#tablepH2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartpH1() {
+        $('.GHI').hide();
+        $('#chartpH1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartpH2() {
+        $('.GHI').hide();
+        $('#chartpH2').show();
         $('.FreshPart').hide();
         $('.SaltyPart').show();
     }
