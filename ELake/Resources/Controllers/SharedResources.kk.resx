@@ -1081,13 +1081,13 @@
     <value>SO₄²⁻, сульфатты аниондар,% экв</value>
   </data>
   <data name="CalciumGroup" xml:space="preserve">
-    <value>Кальций тобы</value>
+    <value>Cа</value>
   </data>
   <data name="Cd" xml:space="preserve">
     <value>Cd</value>
   </data>
   <data name="ChlorideClass" xml:space="preserve">
-    <value>Хлоридтік класс</value>
+    <value>Cl</value>
   </data>
   <data name="Co" xml:space="preserve">
     <value>Co</value>
@@ -1105,7 +1105,7 @@
     <value>Топ</value>
   </data>
   <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
-    <value>Гидрокарбонат және карбонат класы</value>
+    <value>C</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>IZV Cd</value>
@@ -1180,7 +1180,7 @@
     <value>М Курловтың химиялық құрамының формуласы</value>
   </data>
   <data name="MagnesiumGroup" xml:space="preserve">
-    <value>Магний тобы</value>
+    <value>Mg</value>
   </data>
   <data name="Mn" xml:space="preserve">
     <value>Mn</value>
@@ -1204,10 +1204,10 @@
     <value>PPO₄</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
-    <value>Натрий тобы</value>
+    <value>Na</value>
   </data>
   <data name="SulphateClass" xml:space="preserve">
-    <value>Сульфат класы</value>
+    <value>S</value>
   </data>
   <data name="ToxicologicalIndicator" xml:space="preserve">
     <value>Токсикологиялық көрсеткіштер</value>
@@ -1216,16 +1216,16 @@
     <value>Токсикологиялық көрсеткіштер</value>
   </data>
   <data name="Type1" xml:space="preserve">
-    <value>I түрі</value>
+    <value>I</value>
   </data>
   <data name="Type2" xml:space="preserve">
-    <value>II типті</value>
+    <value>II</value>
   </data>
   <data name="Type3" xml:space="preserve">
-    <value>III типті</value>
+    <value>III</value>
   </data>
   <data name="Type4" xml:space="preserve">
-    <value>IV типті</value>
+    <value>IV</value>
   </data>
   <data name="WaterClass" xml:space="preserve">
     <value>Су классы</value>
@@ -1628,5 +1628,14 @@
   </data>
   <data name="Table" xml:space="preserve">
     <value>Кесте</value>
+  </data>
+  <data name="AlekinWaterCompositionClass" xml:space="preserve">
+    <value>Су құрамының класы (О.А. Алекин бойынша)</value>
+  </data>
+  <data name="IonName" xml:space="preserve">
+    <value>Ион атауы</value>
+  </data>
+  <data name="IonUnit" xml:space="preserve">
+    <value>мг / дм³ /% эг / дм³</value>
   </data>
 </root>

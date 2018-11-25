@@ -383,17 +383,14 @@ namespace ELake.Controllers
             }
             string adm1 = string.Join(", ", katoes.Where(k => k.Level == 1).Select(k => k.Name)),
                 adm2 = string.Join(", ", katoes.Where(k => k.Level == 2).Select(k => k.Name));
-            // Общие гидрохимические показатели
             bool twoparts = false;
+            // Общие гидрохимические показатели
             GeneralHydrochemicalIndicator[] ghitable1 = null,
                 ghitable2 = null;
             if (LakeId > 0 && _context.GeneralHydrochemicalIndicator.Count(g => g.LakeId == LakeId)>0)
             {
-                int? ghiyear = _context.GeneralHydrochemicalIndicator
-                   .Where(g => g.LakeId == LakeId)?
-                   .Max(g => g.Year);
                 List<GeneralHydrochemicalIndicator> ghis = _context.GeneralHydrochemicalIndicator
-                    .Where(g => g.LakeId == LakeId && g.Year == ghiyear)
+                    .Where(g => g.LakeId == LakeId)
                     .ToList();
                 if(ghis.Count(g => g.LakePart == LakePart.FreshPart) > 0 &&
                     ghis.Count(g => g.LakePart == LakePart.SaltyPart) > 0)
@@ -411,6 +408,30 @@ namespace ELake.Controllers
                     .OrderBy(g => g.Year)
                     .ToArray();
             }
+            // Ионно-солевой состав воды
+            IonsaltWaterComposition[] iwctable1 = null,
+                iwctable2 = null;
+            if (LakeId > 0 && _context.IonsaltWaterComposition.Count(i => i.LakeId == LakeId) > 0)
+            {
+                List<IonsaltWaterComposition> ghis = _context.IonsaltWaterComposition
+                    .Where(i => i.LakeId == LakeId)
+                    .ToList();
+                if (ghis.Count(i => i.LakePart == LakePart.FreshPart) > 0 &&
+                    ghis.Count(i => i.LakePart == LakePart.SaltyPart) > 0)
+                {
+                    twoparts = true;
+                }
+                iwctable1 = _context.IonsaltWaterComposition
+                    .Where(i => i.LakeId == LakeId)
+                    .Where(i => i.LakePart == LakePart.FullyPart || i.LakePart == LakePart.FreshPart)
+                    .OrderBy(i => i.Year)
+                    .ToArray();
+                iwctable2 = _context.IonsaltWaterComposition
+                    .Where(i => i.LakeId == LakeId)
+                    .Where(i => i.LakePart == LakePart.SaltyPart)
+                    .OrderBy(i => i.Year)
+                    .ToArray();
+            }
             return Json(new
             {
                 // Основная информация об озере
@@ -422,7 +443,10 @@ namespace ELake.Controllers
                 // Общие гидрохимические показатели
                 twoparts,
                 ghitable1,
-                ghitable2
+                ghitable2,
+                // Ионно-солевой состав воды
+                iwctable1,
+                iwctable2
             });
         }
 

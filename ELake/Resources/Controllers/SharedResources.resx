@@ -1629,4 +1629,13 @@
   <data name="Table" xml:space="preserve">
     <value />
   </data>
+  <data name="AlekinWaterCompositionClass" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IonName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IonUnit" xml:space="preserve">
+    <value />
+  </data>
 </root>

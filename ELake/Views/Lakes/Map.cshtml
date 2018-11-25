@@ -149,7 +149,7 @@
                                         @SharedLocalizer["QualitativeAssessment"]
                                     </th>
                                     <th>
-                                        @SharedLocalizer["QualitativeAssessment"]
+                                        
                                     </th>
                                 </tr>
                             </thead>
@@ -293,7 +293,7 @@
                                         @SharedLocalizer["QualitativeAssessment"]
                                     </th>
                                     <th>
-                                        @SharedLocalizer["QualitativeAssessment"]
+                                        
                                     </th>
                                 </tr>
                             </thead>
@@ -640,7 +640,343 @@
                         </table>
                         <canvas id="chartOrganicSubstances2" class="GHI" width="400" height="200"></canvas>
                     </section>
-                    <section id="contentghi2"></section>
+                    <section id="contentghi2">
+                        <h3>@SharedLocalizer["IonsaltWaterCompositions"]</h3>
+                        <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["IonName"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Value"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MeasurementUnit"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["AlekinWaterCompositionClass"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["KurlovFormula"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Ca
+                                    </td>
+                                    <td id="YearCa1"></td>
+                                    <td id="Ca1"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                    <td rowspan="2">
+                                        <p id="AlekinWaterCompositionClass1"></p>
+                                        <p onclick="ShowTableAlekinWaterCompositionClass1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                    <td rowspan="2">
+                                        <p id="KurlovFormula1"></p>
+                                        <p onclick="ShowTableKurlovFormula1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Mg
+                                    </td>
+                                    <td id="YearMg1"></td>
+                                    <td id="Mg1"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        NaK
+                                    </td>
+                                    <td id="YearNaK1"></td>
+                                    <td id="NaK1"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Cl
+                                    </td>
+                                    <td id="YearCl1"></td>
+                                    <td id="Cl1"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        HCO
+                                    </td>
+                                    <td id="YearHCO1"></td>
+                                    <td id="HCO1"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        SO
+                                    </td>
+                                    <td id="YearSO1"></td>
+                                    <td id="SO1"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                        <table class="table LakePart">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["IonName"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Value"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MeasurementUnit"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["AlekinWaterCompositionClass"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["KurlovFormula"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Ca
+                                    </td>
+                                    <td id="YearCa2"></td>
+                                    <td id="Ca2"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                    <td rowspan="2">
+                                        <p id="AlekinWaterCompositionClass2"></p>
+                                        <p onclick="ShowTableAlekinWaterCompositionClass2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                    <td rowspan="2">
+                                        <p id="KurlovFormula2"></p>
+                                        <p onclick="ShowTableKurlovFormula2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Mg
+                                    </td>
+                                    <td id="YearMg2"></td>
+                                    <td id="Mg2"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        NaK
+                                    </td>
+                                    <td id="YearNaK2"></td>
+                                    <td id="NaK2"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Cl
+                                    </td>
+                                    <td id="YearCl2"></td>
+                                    <td id="Cl2"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        HCO
+                                    </td>
+                                    <td id="YearHCO2"></td>
+                                    <td id="HCO2"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        SO
+                                    </td>
+                                    <td id="YearSO2"></td>
+                                    <td id="SO2"></td>
+                                    <td id="IonUnit">
+                                        @SharedLocalizer["IonUnit"]
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @* Tables *@
+                        <h4 class="FreshPart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                        <table id="tableAlekinWaterCompositionClass1" class="IWC table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["CaMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MgMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NaKMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["ClMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["HCOMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["SOMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["AlekinWaterCompositionClass"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyAlekinWaterCompositionClass1"></tbody>
+                        </table>
+                        <table id="tableKurlovFormula1" class="IWC table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["CaMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MgMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NaKMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["ClMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["HCOMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["SOMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["KurlovFormula"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyKurlovFormula1"></tbody>
+                        </table>
+
+                        <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                        <table id="tableAlekinWaterCompositionClass2" class="IWC table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["CaMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MgMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NaKMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["ClMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["HCOMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["SOMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["AlekinWaterCompositionClass"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyAlekinWaterCompositionClass2"></tbody>
+                        </table>
+                        <table id="tableKurlovFormula2" class="IWC table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["CaMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MgMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NaKMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["ClMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["HCOMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["SOMg"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["KurlovFormula"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyKurlovFormula2"></tbody>
+                        </table>
+                    </section>
                     <section id="contentghi3"></section>
                 </section>
                 <section id="content4"></section>
@@ -851,6 +1187,16 @@
                 $('#Longitude').text(data.longitude);
                 $('#Latitude').text(data.latitude);
                 $('#Adm3').text(data.adm3);
+                if (data.twoparts) {
+                    $('.LakePart').show();
+                    twoparts = true;
+                }
+                else {
+                    $('.LakePart').hide();
+                    twoparts = false;
+                }
+                $('.FreshPart').hide();
+                $('.SaltyPart').hide();
                 // Общие гидрохимические показатели
                 if (data.ghitable1 != null) {
                     for (i = 0; i < data.ghitable1.length; i++) {
@@ -929,16 +1275,69 @@
                 ChartOrganicSubstances(data);
                 TablepH(data);
                 ChartpH(data);
-                if (data.twoparts) {
-                    $('.LakePart').show();
-                    twoparts = true;
+                // Ионно-солевой состав воды
+                if (data.iwctable1 != null) {
+                    for (i = 0; i < data.iwctable1.length; i++) {
+                        if (data.iwctable1[i].caMg != null) {
+                            $('#YearCa1').text(data.iwctable1[i].year);
+                            $('#Ca1').text(data.iwctable1[i].caMg.toFixed(1) + ' / ' + data.iwctable1[i].caPerEq.toFixed(1));
+                            $('#AlekinWaterCompositionClass1').text(data.iwctable1[i].alekinWaterCompositionClass);
+                            $('#KurlovFormula1').text(data.iwctable1[i].kurlovFormula);
+                        }
+                        if (data.iwctable1[i].mgMg != null) {
+                            $('#YearMg1').text(data.iwctable1[i].year);
+                            $('#Mg1').text(data.iwctable1[i].mgMg.toFixed(1) + ' / ' + data.iwctable1[i].mgPerEq.toFixed(1));
+                        }
+                        if (data.iwctable1[i].naKMg != null) {
+                            $('#YearNaK1').text(data.iwctable1[i].year);
+                            $('#NaK1').text(data.iwctable1[i].naKMg.toFixed(1) + ' / ' + data.iwctable1[i].naKPerEq.toFixed(1));
+                        }
+                        if (data.iwctable1[i].clMg != null) {
+                            $('#YearCl1').text(data.iwctable1[i].year);
+                            $('#Cl1').text(data.iwctable1[i].clMg.toFixed(1) + ' / ' + data.iwctable1[i].clPerEq.toFixed(1));
+                        }
+                        if (data.iwctable1[i].hcoMg != null) {
+                            $('#YearHCO1').text(data.iwctable1[i].year);
+                            $('#HCO1').text(data.iwctable1[i].hcoMg.toFixed(1) + ' / ' + data.iwctable1[i].hcoPerEq.toFixed(1));
+                        }
+                        if (data.iwctable1[i].soMg != null) {
+                            $('#YearSO1').text(data.iwctable1[i].year);
+                            $('#SO1').text(data.iwctable1[i].soMg.toFixed(1) + ' / ' + data.iwctable1[i].soPerEq.toFixed(1));
+                        }
+                    }
                 }
-                else {
-                    $('.LakePart').hide();
-                    twoparts = false;
+                if (data.iwctable2 != null) {
+                    for (i = 0; i < data.iwctable2.length; i++) {
+                        if (data.iwctable2[i].caMg != null) {
+                            $('#YearCa2').text(data.iwctable2[i].year);
+                            $('#Ca2').text(data.iwctable2[i].caMg.toFixed(2) + ' / ' + data.iwctable2[i].caPerEq.toFixed(2));
+                            $('#AlekinWaterCompositionClass2').text(data.iwctable2[i].alekinWaterCompositionClass);
+                            $('#KurlovFormula2').text(data.iwctable2[i].kurlovFormula);
+                        }
+                        if (data.iwctable2[i].mgMg != null) {
+                            $('#YearMg2').text(data.iwctable2[i].year);
+                            $('#Mg2').text(data.iwctable2[i].mgMg.toFixed(2) + ' / ' + data.iwctable2[i].mgPerEq.toFixed(2));
+                        }
+                        if (data.iwctable2[i].naKMg != null) {
+                            $('#YearNaK2').text(data.iwctable2[i].year);
+                            $('#NaK2').text(data.iwctable2[i].naKMg.toFixed(2) + ' / ' + data.iwctable2[i].naKPerEq.toFixed(2));
+                        }
+                        if (data.iwctable2[i].clMg != null) {
+                            $('#YearCl2').text(data.iwctable2[i].year);
+                            $('#Cl2').text(data.iwctable2[i].clMg.toFixed(2) + ' / ' + data.iwctable2[i].clPerEq.toFixed(2));
+                        }
+                        if (data.iwctable2[i].hcoMg != null) {
+                            $('#YearHCO2').text(data.iwctable2[i].year);
+                            $('#HCO2').text(data.iwctable2[i].hcoMg.toFixed(2) + ' / ' + data.iwctable2[i].hcoPerEq.toFixed(2));
+                        }
+                        if (data.iwctable2[i].soMg != null) {
+                            $('#YearSO2').text(data.iwctable2[i].year);
+                            $('#SO2').text(data.iwctable2[i].soMg.toFixed(2) + ' / ' + data.iwctable2[i].soPerEq.toFixed(2));
+                        }
+                    }
                 }
-                $('.FreshPart').hide();
-                $('.SaltyPart').hide();
+                TableKurlovFormula(data);
+                TableAlekinWaterCompositionClass(data);
             },
             error: function () {
             }
@@ -1764,6 +2163,82 @@
         });
     }
 
+    function TableAlekinWaterCompositionClass(data) {
+        var tablebody1 = $('#tablebodyAlekinWaterCompositionClass1'),
+            tablebody2 = $('#tablebodyAlekinWaterCompositionClass2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].caMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].mgMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].naKMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].clMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].hcoMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].soMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].alekinWaterCompositionClass + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].caMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].mgMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].naKMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].clMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].hcoMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].soMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable2[i].alekinWaterCompositionClass + '</td>');
+                }
+            }
+        }
+        $('.IWC').hide();
+    }
+
+    function TableKurlovFormula(data) {
+        var tablebody1 = $('#tablebodyKurlovFormula1'),
+            tablebody2 = $('#tablebodyKurlovFormula2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].caMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].mgMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].naKMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].clMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].hcoMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].soMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].kurlovFormula + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].caMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].mgMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].naKMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].clMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].hcoMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].soMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + data.iwctable2[i].kurlovFormula + '</td>');
+                }
+            }
+        }
+        $('.IWC').hide();
+    }
+
     ///////////////////////////
 
     function ShowTableMineralization1() {
@@ -1989,6 +2464,46 @@
         $('#chartOrganicSubstances2').show();
         $('.FreshPart').hide();
         $('.SaltyPart').show();
+    }
+
+    function ShowTableAlekinWaterCompositionClass1() {
+        $('.IWC').hide();
+        $('#tableAlekinWaterCompositionClass1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableAlekinWaterCompositionClass2() {
+        $('.IWC').hide();
+        $('#tableAlekinWaterCompositionClass2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableKurlovFormula1() {
+        $('.IWC').hide();
+        $('#tableKurlovFormula1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableKurlovFormula2() {
+        $('.IWC').hide();
+        $('#tableKurlovFormula2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
     }
 </script>
 @* ChangeDataType, SlideYear, ChangeYear *@
