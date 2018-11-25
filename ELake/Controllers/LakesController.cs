@@ -383,41 +383,77 @@ namespace ELake.Controllers
             }
             string adm1 = string.Join(", ", katoes.Where(k => k.Level == 1).Select(k => k.Name)),
                 adm2 = string.Join(", ", katoes.Where(k => k.Level == 2).Select(k => k.Name));
-            // Общие гидрохимические показатели
             bool twoparts = false;
-            GeneralHydrochemicalIndicator ghi1 = null,
-                ghi2 = null;
-            GeneralHydrochemicalIndicator[] mineralizationtable1 = null,
-                mineralizationtable2 = null;
+            // Общие гидрохимические показатели
+            GeneralHydrochemicalIndicator[] ghitable1 = null,
+                ghitable2 = null;
             if (LakeId > 0 && _context.GeneralHydrochemicalIndicator.Count(g => g.LakeId == LakeId)>0)
             {
-                int? ghiyear = _context.GeneralHydrochemicalIndicator
-                   .Where(g => g.LakeId == LakeId)?
-                   .Max(g => g.Year);
                 List<GeneralHydrochemicalIndicator> ghis = _context.GeneralHydrochemicalIndicator
-                    .Where(g => g.LakeId == LakeId && g.Year == ghiyear)
+                    .Where(g => g.LakeId == LakeId)
                     .ToList();
                 if(ghis.Count(g => g.LakePart == LakePart.FreshPart) > 0 &&
                     ghis.Count(g => g.LakePart == LakePart.SaltyPart) > 0)
                 {
                     twoparts = true;
                 }
-                ghi1 = ghis
-                    .FirstOrDefault(g => g.LakePart == LakePart.FullyPart || g.LakePart == LakePart.FreshPart);
-                if (ghis.Count() > 1)
-                {
-                    ghi2 = ghis
-                        .FirstOrDefault(g => g.LakePart == LakePart.SaltyPart);
-                }
-                mineralizationtable1 = _context.GeneralHydrochemicalIndicator
+                ghitable1 = _context.GeneralHydrochemicalIndicator
                     .Where(g => g.LakeId == LakeId)
                     .Where(g => g.LakePart == LakePart.FullyPart || g.LakePart == LakePart.FreshPart)
                     .OrderBy(g => g.Year)
                     .ToArray();
-                mineralizationtable2 = _context.GeneralHydrochemicalIndicator
+                ghitable2 = _context.GeneralHydrochemicalIndicator
                     .Where(g => g.LakeId == LakeId)
                     .Where(g => g.LakePart == LakePart.SaltyPart)
                     .OrderBy(g => g.Year)
+                    .ToArray();
+            }
+            // Ионно-солевой состав воды
+            IonsaltWaterComposition[] iwctable1 = null,
+                iwctable2 = null;
+            if (LakeId > 0 && _context.IonsaltWaterComposition.Count(i => i.LakeId == LakeId) > 0)
+            {
+                List<IonsaltWaterComposition> iwcs = _context.IonsaltWaterComposition
+                    .Where(i => i.LakeId == LakeId)
+                    .ToList();
+                if (iwcs.Count(i => i.LakePart == LakePart.FreshPart) > 0 &&
+                    iwcs.Count(i => i.LakePart == LakePart.SaltyPart) > 0)
+                {
+                    twoparts = true;
+                }
+                iwctable1 = _context.IonsaltWaterComposition
+                    .Where(i => i.LakeId == LakeId)
+                    .Where(i => i.LakePart == LakePart.FullyPart || i.LakePart == LakePart.FreshPart)
+                    .OrderBy(i => i.Year)
+                    .ToArray();
+                iwctable2 = _context.IonsaltWaterComposition
+                    .Where(i => i.LakeId == LakeId)
+                    .Where(i => i.LakePart == LakePart.SaltyPart)
+                    .OrderBy(i => i.Year)
+                    .ToArray();
+            }
+            // Токсикологические показатели
+            ToxicologicalIndicator[] titable1 = null,
+                titable2 = null;
+            if (LakeId > 0 && _context.ToxicologicalIndicator.Count(i => i.LakeId == LakeId) > 0)
+            {
+                List<ToxicologicalIndicator> tis = _context.ToxicologicalIndicator
+                    .Where(i => i.LakeId == LakeId)
+                    .ToList();
+                if (tis.Count(i => i.LakePart == LakePart.FreshPart) > 0 &&
+                    tis.Count(i => i.LakePart == LakePart.SaltyPart) > 0)
+                {
+                    twoparts = true;
+                }
+                titable1 = _context.ToxicologicalIndicator
+                    .Where(i => i.LakeId == LakeId)
+                    .Where(i => i.LakePart == LakePart.FullyPart || i.LakePart == LakePart.FreshPart)
+                    .OrderBy(i => i.Year)
+                    .ToArray();
+                titable2 = _context.ToxicologicalIndicator
+                    .Where(i => i.LakeId == LakeId)
+                    .Where(i => i.LakePart == LakePart.SaltyPart)
+                    .OrderBy(i => i.Year)
                     .ToArray();
             }
             return Json(new
@@ -430,10 +466,14 @@ namespace ELake.Controllers
                 adm2,
                 // Общие гидрохимические показатели
                 twoparts,
-                ghi1,
-                ghi2,
-                mineralizationtable1,
-                mineralizationtable2
+                ghitable1,
+                ghitable2,
+                // Ионно-солевой состав воды
+                iwctable1,
+                iwctable2,
+                // Токсикологические показатели
+                titable1,
+                titable2
             });
         }
 

@@ -1081,13 +1081,13 @@
     <value>SO₄²⁻, сульфатные анионы, %-экв</value>
   </data>
   <data name="CalciumGroup" xml:space="preserve">
-    <value>Кальциевая группа</value>
+    <value>Cа</value>
   </data>
   <data name="Cd" xml:space="preserve">
     <value>Cd</value>
   </data>
   <data name="ChlorideClass" xml:space="preserve">
-    <value>Хлоридный класс</value>
+    <value>Cl</value>
   </data>
   <data name="Co" xml:space="preserve">
     <value>Co</value>
@@ -1105,7 +1105,7 @@
     <value>Группа</value>
   </data>
   <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
-    <value>Гидрокарбонатный и карбонатный класс</value>
+    <value>C</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>ИЗВ Cd</value>
@@ -1126,7 +1126,7 @@
     <value>ИЗВ Ni</value>
   </data>
   <data name="IZVNO2" xml:space="preserve">
-    <value>ИЗВ NO2</value>
+    <value>ИЗВ NO₂</value>
   </data>
   <data name="IZVNO3" xml:space="preserve">
     <value>ИЗВ NO₃</value>
@@ -1180,7 +1180,7 @@
     <value>Формула химсостава воды по М.Г.Курлову</value>
   </data>
   <data name="MagnesiumGroup" xml:space="preserve">
-    <value>Магниевая группа</value>
+    <value>Mg</value>
   </data>
   <data name="Mn" xml:space="preserve">
     <value>Mn</value>
@@ -1192,7 +1192,7 @@
     <value>Ni</value>
   </data>
   <data name="NO2" xml:space="preserve">
-    <value>NO2</value>
+    <value>NO₂</value>
   </data>
   <data name="NO3" xml:space="preserve">
     <value>NO₃</value>
@@ -1204,10 +1204,10 @@
     <value>PPO₄</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
-    <value>Натриевая группа</value>
+    <value>Na</value>
   </data>
   <data name="SulphateClass" xml:space="preserve">
-    <value>Сульфатный класс</value>
+    <value>S</value>
   </data>
   <data name="ToxicologicalIndicator" xml:space="preserve">
     <value>Токсикологический показатель</value>
@@ -1216,16 +1216,16 @@
     <value>Токсикологические показатели</value>
   </data>
   <data name="Type1" xml:space="preserve">
-    <value>I тип</value>
+    <value>I</value>
   </data>
   <data name="Type2" xml:space="preserve">
-    <value>II тип</value>
+    <value>II</value>
   </data>
   <data name="Type3" xml:space="preserve">
-    <value>III тип</value>
+    <value>III</value>
   </data>
   <data name="Type4" xml:space="preserve">
-    <value>IV тип</value>
+    <value>IV</value>
   </data>
   <data name="WaterClass" xml:space="preserve">
     <value>Класс воды</value>
@@ -1628,5 +1628,17 @@
   </data>
   <data name="Table" xml:space="preserve">
     <value>Таблица</value>
+  </data>
+  <data name="AlekinWaterCompositionClass" xml:space="preserve">
+    <value>Класс состава воды (по О. А. Алекину)</value>
+  </data>
+  <data name="IonName" xml:space="preserve">
+    <value>Название ионов</value>
+  </data>
+  <data name="IonUnit" xml:space="preserve">
+    <value>мг/дм³ / %-экв/дм³</value>
+  </data>
+  <data name="MPCExceeding" xml:space="preserve">
+    <value>Кратность превышения ПДК</value>
   </data>
 </root>
