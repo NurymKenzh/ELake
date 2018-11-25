@@ -1638,4 +1638,7 @@
   <data name="IonUnit" xml:space="preserve">
     <value>мг / дм³ /% эг / дм³</value>
   </data>
+  <data name="MPCExceeding" xml:space="preserve">
+    <value>Шекті рұқсат етілген шоғырланудан асып кету коэффициенті</value>
+  </data>
 </root>

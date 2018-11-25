@@ -413,11 +413,11 @@ namespace ELake.Controllers
                 iwctable2 = null;
             if (LakeId > 0 && _context.IonsaltWaterComposition.Count(i => i.LakeId == LakeId) > 0)
             {
-                List<IonsaltWaterComposition> ghis = _context.IonsaltWaterComposition
+                List<IonsaltWaterComposition> iwcs = _context.IonsaltWaterComposition
                     .Where(i => i.LakeId == LakeId)
                     .ToList();
-                if (ghis.Count(i => i.LakePart == LakePart.FreshPart) > 0 &&
-                    ghis.Count(i => i.LakePart == LakePart.SaltyPart) > 0)
+                if (iwcs.Count(i => i.LakePart == LakePart.FreshPart) > 0 &&
+                    iwcs.Count(i => i.LakePart == LakePart.SaltyPart) > 0)
                 {
                     twoparts = true;
                 }
@@ -427,6 +427,30 @@ namespace ELake.Controllers
                     .OrderBy(i => i.Year)
                     .ToArray();
                 iwctable2 = _context.IonsaltWaterComposition
+                    .Where(i => i.LakeId == LakeId)
+                    .Where(i => i.LakePart == LakePart.SaltyPart)
+                    .OrderBy(i => i.Year)
+                    .ToArray();
+            }
+            // Токсикологические показатели
+            ToxicologicalIndicator[] titable1 = null,
+                titable2 = null;
+            if (LakeId > 0 && _context.ToxicologicalIndicator.Count(i => i.LakeId == LakeId) > 0)
+            {
+                List<ToxicologicalIndicator> tis = _context.ToxicologicalIndicator
+                    .Where(i => i.LakeId == LakeId)
+                    .ToList();
+                if (tis.Count(i => i.LakePart == LakePart.FreshPart) > 0 &&
+                    tis.Count(i => i.LakePart == LakePart.SaltyPart) > 0)
+                {
+                    twoparts = true;
+                }
+                titable1 = _context.ToxicologicalIndicator
+                    .Where(i => i.LakeId == LakeId)
+                    .Where(i => i.LakePart == LakePart.FullyPart || i.LakePart == LakePart.FreshPart)
+                    .OrderBy(i => i.Year)
+                    .ToArray();
+                titable2 = _context.ToxicologicalIndicator
                     .Where(i => i.LakeId == LakeId)
                     .Where(i => i.LakePart == LakePart.SaltyPart)
                     .OrderBy(i => i.Year)
@@ -446,7 +470,10 @@ namespace ELake.Controllers
                 ghitable2,
                 // Ионно-солевой состав воды
                 iwctable1,
-                iwctable2
+                iwctable2,
+                // Токсикологические показатели
+                titable1,
+                titable2
             });
         }
 

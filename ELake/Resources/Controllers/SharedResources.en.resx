@@ -1638,4 +1638,7 @@
   <data name="IonUnit" xml:space="preserve">
     <value>mg / dm³ /% eq / dm³</value>
   </data>
+  <data name="MPCExceeding" xml:space="preserve">
+    <value>The ratio of exceeding the maximum permissible concentration</value>
+  </data>
 </root>

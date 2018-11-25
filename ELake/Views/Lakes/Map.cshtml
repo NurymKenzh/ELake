@@ -149,7 +149,7 @@
                                         @SharedLocalizer["QualitativeAssessment"]
                                     </th>
                                     <th>
-                                        
+
                                     </th>
                                 </tr>
                             </thead>
@@ -293,7 +293,7 @@
                                         @SharedLocalizer["QualitativeAssessment"]
                                     </th>
                                     <th>
-                                        
+
                                     </th>
                                 </tr>
                             </thead>
@@ -632,7 +632,7 @@
                                         @SharedLocalizer["OrganicSubstances"]
                                     </th>
                                     <th>
-                                        
+
                                     </th>
                                 </tr>
                             </thead>
@@ -977,7 +977,897 @@
                             <tbody id="tablebodyKurlovFormula2"></tbody>
                         </table>
                     </section>
-                    <section id="contentghi3"></section>
+                    <section id="contentghi3">
+                        <h3>@SharedLocalizer["ToxicologicalIndicators"]</h3>
+                        <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Indicator"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Value"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MPCExceeding"]
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["NH4"]
+                                    </td>
+                                    <td id="YearNH41"></td>
+                                    <td id="NH41"></td>
+                                    <td id="IZVNH41"></td>
+                                    <td>
+                                        <p onclick="ShowTableNH41()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartNH41()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["NO2"]
+                                    </td>
+                                    <td id="YearNO21"></td>
+                                    <td id="NO21"></td>
+                                    <td id="IZVNO21"></td>
+                                    <td>
+                                        <p onclick="ShowTableNO21()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartNO21()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["NO3"]
+                                    </td>
+                                    <td id="YearNO31"></td>
+                                    <td id="NO31"></td>
+                                    <td id="IZVNO31"></td>
+                                    <td>
+                                        <p onclick="ShowTableNO31()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartNO31()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["PPO4"]
+                                    </td>
+                                    <td id="YearPPO41"></td>
+                                    <td id="PPO41"></td>
+                                    <td id="IZVPPO41"></td>
+                                    <td>
+                                        <p onclick="ShowTablePPO41()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartPPO41()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Cu"]
+                                    </td>
+                                    <td id="YearCu1"></td>
+                                    <td id="Cu1"></td>
+                                    <td id="IZVCu1"></td>
+                                    <td>
+                                        <p onclick="ShowTableCu1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartCu1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Zn"]
+                                    </td>
+                                    <td id="YearZn1"></td>
+                                    <td id="Zn1"></td>
+                                    <td id="IZVZn1"></td>
+                                    <td>
+                                        <p onclick="ShowTableZn1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartZn1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Mn"]
+                                    </td>
+                                    <td id="YearMn1"></td>
+                                    <td id="Mn1"></td>
+                                    <td id="IZVMn1"></td>
+                                    <td>
+                                        <p onclick="ShowTableMn1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartMn1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Pb"]
+                                    </td>
+                                    <td id="YearPb1"></td>
+                                    <td id="Pb1"></td>
+                                    <td id="IZVPb1"></td>
+                                    <td>
+                                        <p onclick="ShowTablePb1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartPb1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Ni"]
+                                    </td>
+                                    <td id="YearNi1"></td>
+                                    <td id="Ni1"></td>
+                                    <td id="IZVNi1"></td>
+                                    <td>
+                                        <p onclick="ShowTableNi1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartNi1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Cd"]
+                                    </td>
+                                    <td id="YearCd1"></td>
+                                    <td id="Cd1"></td>
+                                    <td id="IZVCd1"></td>
+                                    <td>
+                                        <p onclick="ShowTableCd1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartCd1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Co"]
+                                    </td>
+                                    <td id="YearCo1"></td>
+                                    <td id="Co1"></td>
+                                    <td id="IZVCo1"></td>
+                                    <td>
+                                        <p onclick="ShowTableCo1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartCo1()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                        <table class="LakePart table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Indicator"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Value"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["MPCExceeding"]
+                                    </th>
+                                    <th>
+
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["NH4"]
+                                    </td>
+                                    <td id="YearNH42"></td>
+                                    <td id="NH42"></td>
+                                    <td id="IZVNH42"></td>
+                                    <td>
+                                        <p onclick="ShowTableNH42()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartNH42()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["NO2"]
+                                    </td>
+                                    <td id="YearNO22"></td>
+                                    <td id="NO22"></td>
+                                    <td id="IZVNO22"></td>
+                                    <td>
+                                        <p onclick="ShowTableNO22()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartNO22()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["NO3"]
+                                    </td>
+                                    <td id="YearNO32"></td>
+                                    <td id="NO32"></td>
+                                    <td id="IZVNO32"></td>
+                                    <td>
+                                        <p onclick="ShowTableNO32()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartNO32()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["PPO4"]
+                                    </td>
+                                    <td id="YearPPO42"></td>
+                                    <td id="PPO42"></td>
+                                    <td id="IZVPPO42"></td>
+                                    <td>
+                                        <p onclick="ShowTablePPO42()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartPPO42()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Cu"]
+                                    </td>
+                                    <td id="YearCu2"></td>
+                                    <td id="Cu2"></td>
+                                    <td id="IZVCu2"></td>
+                                    <td>
+                                        <p onclick="ShowTableCu2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartCu2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Zn"]
+                                    </td>
+                                    <td id="YearZn2"></td>
+                                    <td id="Zn2"></td>
+                                    <td id="IZVZn2"></td>
+                                    <td>
+                                        <p onclick="ShowTableZn2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartZn2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Mn"]
+                                    </td>
+                                    <td id="YearMn2"></td>
+                                    <td id="Mn2"></td>
+                                    <td id="IZVMn2"></td>
+                                    <td>
+                                        <p onclick="ShowTableMn2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartMn2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Pb"]
+                                    </td>
+                                    <td id="YearPb2"></td>
+                                    <td id="Pb2"></td>
+                                    <td id="IZVPb2"></td>
+                                    <td>
+                                        <p onclick="ShowTablePb2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartPb2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Ni"]
+                                    </td>
+                                    <td id="YearNi2"></td>
+                                    <td id="Ni2"></td>
+                                    <td id="IZVNi2"></td>
+                                    <td>
+                                        <p onclick="ShowTableNi2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartNi2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Cd"]
+                                    </td>
+                                    <td id="YearCd2"></td>
+                                    <td id="Cd2"></td>
+                                    <td id="IZVCd2"></td>
+                                    <td>
+                                        <p onclick="ShowTableCd2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartCd2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @SharedLocalizer["Co"]
+                                    </td>
+                                    <td id="YearCo2"></td>
+                                    <td id="Co2"></td>
+                                    <td id="IZVCo2"></td>
+                                    <td>
+                                        <p onclick="ShowTableCo2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Table"]
+                                            </font>
+                                        </p>
+                                        <p onclick="ShowChartCo2()" class="link">
+                                            <font size="2" color="blue">
+                                                @SharedLocalizer["Chart"]
+                                            </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        @* Tables, charts *@
+                        <h4 class="FreshPart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+
+                        <table id="tableNH41" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NH4"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVNH4"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyNH41"></tbody>
+                        </table>
+                        <canvas id="chartNH41" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableNO21" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NO2"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVNO2"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyNO21"></tbody>
+                        </table>
+                        <canvas id="chartNO21" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableNO31" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NO3"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVNO3"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyNO31"></tbody>
+                        </table>
+                        <canvas id="chartNO31" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tablePPO41" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["PPO4"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVPPO4"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyPPO41"></tbody>
+                        </table>
+                        <canvas id="chartPPO41" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableCu1" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Cu"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVCu"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyCu1"></tbody>
+                        </table>
+                        <canvas id="chartCu1" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableZn1" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Zn"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVZn"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyZn1"></tbody>
+                        </table>
+                        <canvas id="chartZn1" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableMn1" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Mn"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVMn"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyMn1"></tbody>
+                        </table>
+                        <canvas id="chartMn1" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tablePb1" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Pb"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVPb"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyPb1"></tbody>
+                        </table>
+                        <canvas id="chartPb1" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableNi1" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Ni"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVNi"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyNi1"></tbody>
+                        </table>
+                        <canvas id="chartNi1" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableCd1" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Cd"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVCd"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyCd1"></tbody>
+                        </table>
+                        <canvas id="chartCd1" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableCo1" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Co"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVCo"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyCo1"></tbody>
+                        </table>
+                        <canvas id="chartCo1" class="TI" width="400" height="200"></canvas>
+
+                        <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                        
+                        <table id="tableNH42" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NH4"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVNH4"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyNH42"></tbody>
+                        </table>
+                        <canvas id="chartNH42" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableNO22" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NO2"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVNO2"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyNO22"></tbody>
+                        </table>
+                        <canvas id="chartNO22" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableNO32" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["NO3"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVNO3"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyNO32"></tbody>
+                        </table>
+                        <canvas id="chartNO32" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tablePPO42" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["PPO4"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVPPO4"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyPPO42"></tbody>
+                        </table>
+                        <canvas id="chartPPO42" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableCu2" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Cu"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVCu"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyCu2"></tbody>
+                        </table>
+                        <canvas id="chartCu2" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableZn2" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Zn"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVZn"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyZn2"></tbody>
+                        </table>
+                        <canvas id="chartZn2" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableMn2" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Mn"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVMn"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyMn2"></tbody>
+                        </table>
+                        <canvas id="chartMn2" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tablePb2" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Pb"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVPb"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyPb2"></tbody>
+                        </table>
+                        <canvas id="chartPb2" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableNi2" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Ni"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVNi"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyNi2"></tbody>
+                        </table>
+                        <canvas id="chartNi2" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableCd2" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Cd"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVCd"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyCd2"></tbody>
+                        </table>
+                        <canvas id="chartCd2" class="TI" width="400" height="200"></canvas>
+
+                        <table id="tableCo2" class="TI table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @SharedLocalizer["Year"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["Co"]
+                                    </th>
+                                    <th>
+                                        @SharedLocalizer["IZVCo"]
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyCo2"></tbody>
+                        </table>
+                        <canvas id="chartCo2" class="TI" width="400" height="200"></canvas>
+                    </section>
                 </section>
                 <section id="content4"></section>
             </div>
@@ -1002,6 +1892,17 @@
     <input id="pH" type="hidden" value='@SharedLocalizer["pH"]' />
     <input id="AcidityOfWaterDegree" type="hidden" value='@SharedLocalizer["AcidityOfWaterDegree"]' />
     <input id="OrganicSubstances" type="hidden" value='@SharedLocalizer["OrganicSubstances"]' />
+    <input id="NH4" type="hidden" value='@SharedLocalizer["NH4"]' />
+    <input id="NO2" type="hidden" value='@SharedLocalizer["NO2"]' />
+    <input id="NO3" type="hidden" value='@SharedLocalizer["NO3"]' />
+    <input id="PPO4" type="hidden" value='@SharedLocalizer["PPO4"]' />
+    <input id="Cu" type="hidden" value='@SharedLocalizer["Cu"]' />
+    <input id="Zn" type="hidden" value='@SharedLocalizer["Zn"]' />
+    <input id="Mn" type="hidden" value='@SharedLocalizer["Mn"]' />
+    <input id="Pb" type="hidden" value='@SharedLocalizer["Pb"]' />
+    <input id="Ni" type="hidden" value='@SharedLocalizer["Ni"]' />
+    <input id="Cd" type="hidden" value='@SharedLocalizer["Cd"]' />
+    <input id="Co" type="hidden" value='@SharedLocalizer["Co"]' />
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -1168,7 +2069,18 @@
         chartColorGHIDissOxygWater = 'rgba(36,85,200,1)',
         chartColorGHIPercentOxygWater = 'rgba(243,99,73,1)',
         chartColorGHIpH = 'rgba(67,149,250,1)',
-        chartColorGHIOrganicSubstances = 'rgba(255,128,255,1)';
+        chartColorGHIOrganicSubstances = 'rgba(255,128,255,1)',
+        chartColorTINH4 = 'rgba(255,99,132,1)',
+        chartColorTINO2 = 'rgba(255,99,132,1)',
+        chartColorTINO3 = 'rgba(255,99,132,1)',
+        chartColorTIPPO4 = 'rgba(255,99,132,1)',
+        chartColorTICu = 'rgba(255,99,132,1)',
+        chartColorTIZn = 'rgba(255,99,132,1)',
+        chartColorTIMn = 'rgba(255,99,132,1)',
+        chartColorTIPb = 'rgba(255,99,132,1)',
+        chartColorTINi = 'rgba(255,99,132,1)',
+        chartColorTICd = 'rgba(255,99,132,1)',
+        chartColorTICo = 'rgba(255,99,132,1)';
     var twoparts = false;
 
     function GetLakeInfo(LakeId) {
@@ -1270,7 +2182,6 @@
                 TableDissOxygWater(data);
                 ChartDissOxygWater(data);
                 TablePercentOxygWater(data);
-                ChartPercentOxygWater(data);
                 TableOrganicSubstances(data);
                 ChartOrganicSubstances(data);
                 TablepH(data);
@@ -1280,29 +2191,29 @@
                     for (i = 0; i < data.iwctable1.length; i++) {
                         if (data.iwctable1[i].caMg != null) {
                             $('#YearCa1').text(data.iwctable1[i].year);
-                            $('#Ca1').text(data.iwctable1[i].caMg.toFixed(1) + ' / ' + data.iwctable1[i].caPerEq.toFixed(1));
+                            $('#Ca1').text((data.iwctable1[i].caMg ? data.iwctable1[i].caMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].caPerEq ? data.iwctable1[i].caPerEq.toFixed(2) : null));
                             $('#AlekinWaterCompositionClass1').text(data.iwctable1[i].alekinWaterCompositionClass);
                             $('#KurlovFormula1').text(data.iwctable1[i].kurlovFormula);
                         }
                         if (data.iwctable1[i].mgMg != null) {
                             $('#YearMg1').text(data.iwctable1[i].year);
-                            $('#Mg1').text(data.iwctable1[i].mgMg.toFixed(1) + ' / ' + data.iwctable1[i].mgPerEq.toFixed(1));
+                            $('#Mg1').text((data.iwctable1[i].mgMg ? data.iwctable1[i].mgMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].mgPerEq ? data.iwctable1[i].mgPerEq.toFixed(2) : null));
                         }
                         if (data.iwctable1[i].naKMg != null) {
                             $('#YearNaK1').text(data.iwctable1[i].year);
-                            $('#NaK1').text(data.iwctable1[i].naKMg.toFixed(1) + ' / ' + data.iwctable1[i].naKPerEq.toFixed(1));
+                            $('#NaK1').text((data.iwctable1[i].naKMg ? data.iwctable1[i].naKMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].naKPerEq ? data.iwctable1[i].naKPerEq.toFixed(2) : null));
                         }
                         if (data.iwctable1[i].clMg != null) {
                             $('#YearCl1').text(data.iwctable1[i].year);
-                            $('#Cl1').text(data.iwctable1[i].clMg.toFixed(1) + ' / ' + data.iwctable1[i].clPerEq.toFixed(1));
+                            $('#Cl1').text((data.iwctable1[i].clMg ? data.iwctable1[i].clMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].clPerEq ? data.iwctable1[i].clPerEq.toFixed(2) : null));
                         }
                         if (data.iwctable1[i].hcoMg != null) {
                             $('#YearHCO1').text(data.iwctable1[i].year);
-                            $('#HCO1').text(data.iwctable1[i].hcoMg.toFixed(1) + ' / ' + data.iwctable1[i].hcoPerEq.toFixed(1));
+                            $('#HCO1').text((data.iwctable1[i].hcoMg ? data.iwctable1[i].hcoMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].hcoPerEq ? data.iwctable1[i].hcoPerEq.toFixed(2) : null));
                         }
                         if (data.iwctable1[i].soMg != null) {
                             $('#YearSO1').text(data.iwctable1[i].year);
-                            $('#SO1').text(data.iwctable1[i].soMg.toFixed(1) + ' / ' + data.iwctable1[i].soPerEq.toFixed(1));
+                            $('#SO1').text((data.iwctable1[i].soMg ? data.iwctable1[i].soMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].soPerEq ? data.iwctable1[i].soPerEq.toFixed(2) : null));
                         }
                     }
                 }
@@ -1310,34 +2221,175 @@
                     for (i = 0; i < data.iwctable2.length; i++) {
                         if (data.iwctable2[i].caMg != null) {
                             $('#YearCa2').text(data.iwctable2[i].year);
-                            $('#Ca2').text(data.iwctable2[i].caMg.toFixed(2) + ' / ' + data.iwctable2[i].caPerEq.toFixed(2));
+                            $('#Ca2').text((data.iwctable2[i].caMg ? data.iwctable2[i].caMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].caPerEq ? data.iwctable2[i].caPerEq.toFixed(2) : null));
                             $('#AlekinWaterCompositionClass2').text(data.iwctable2[i].alekinWaterCompositionClass);
                             $('#KurlovFormula2').text(data.iwctable2[i].kurlovFormula);
                         }
                         if (data.iwctable2[i].mgMg != null) {
                             $('#YearMg2').text(data.iwctable2[i].year);
-                            $('#Mg2').text(data.iwctable2[i].mgMg.toFixed(2) + ' / ' + data.iwctable2[i].mgPerEq.toFixed(2));
+                            $('#Mg2').text((data.iwctable2[i].mgMg ? data.iwctable2[i].mgMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].mgPerEq ? data.iwctable2[i].mgPerEq.toFixed(2) : null));
                         }
                         if (data.iwctable2[i].naKMg != null) {
                             $('#YearNaK2').text(data.iwctable2[i].year);
-                            $('#NaK2').text(data.iwctable2[i].naKMg.toFixed(2) + ' / ' + data.iwctable2[i].naKPerEq.toFixed(2));
+                            $('#NaK2').text((data.iwctable2[i].naKMg ? data.iwctable2[i].naKMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].naKPerEq ? data.iwctable2[i].naKPerEq.toFixed(2) : null));
                         }
                         if (data.iwctable2[i].clMg != null) {
                             $('#YearCl2').text(data.iwctable2[i].year);
-                            $('#Cl2').text(data.iwctable2[i].clMg.toFixed(2) + ' / ' + data.iwctable2[i].clPerEq.toFixed(2));
+                            $('#Cl2').text((data.iwctable2[i].clMg ? data.iwctable2[i].clMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].clPerEq ? data.iwctable2[i].clPerEq.toFixed(2) : null));
                         }
                         if (data.iwctable2[i].hcoMg != null) {
                             $('#YearHCO2').text(data.iwctable2[i].year);
-                            $('#HCO2').text(data.iwctable2[i].hcoMg.toFixed(2) + ' / ' + data.iwctable2[i].hcoPerEq.toFixed(2));
+                            $('#HCO2').text((data.iwctable2[i].hcoMg ? data.iwctable2[i].hcoMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].hcoPerEq ? data.iwctable2[i].hcoPerEq.toFixed(2) : null));
                         }
                         if (data.iwctable2[i].soMg != null) {
                             $('#YearSO2').text(data.iwctable2[i].year);
-                            $('#SO2').text(data.iwctable2[i].soMg.toFixed(2) + ' / ' + data.iwctable2[i].soPerEq.toFixed(2));
+                            $('#SO2').text((data.iwctable2[i].soMg ? data.iwctable2[i].soMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].soPerEq ? data.iwctable2[i].soPerEq.toFixed(2) : null));
                         }
                     }
                 }
                 TableKurlovFormula(data);
                 TableAlekinWaterCompositionClass(data);
+                // Токсикологические показатели
+                if (data.titable1 != null) {
+                    for (i = 0; i < data.titable1.length; i++) {
+                        if (data.titable1[i].nH4 != null) {
+                            $('#YearNH41').text(data.titable1[i].year);
+                            $('#NH41').text(data.titable1[i].nH4);
+                            $('#IZVNH41').text((data.titable1[i].izvnH4 ? data.titable1[i].izvnH4.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].nO2 != null) {
+                            $('#YearNO21').text(data.titable1[i].year);
+                            $('#NO21').text(data.titable1[i].nO2);
+                            $('#IZVNO21').text((data.titable1[i].izvnO2 ? data.titable1[i].izvnO2.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].nO3 != null) {
+                            $('#YearNO31').text(data.titable1[i].year);
+                            $('#NO31').text(data.titable1[i].nO3);
+                            $('#IZVNO31').text((data.titable1[i].izvnO3 ? data.titable1[i].izvnO3.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].ppO4 != null) {
+                            $('#YearPPO41').text(data.titable1[i].year);
+                            $('#PPO41').text(data.titable1[i].ppO4);
+                            $('#IZVPPO41').text((data.titable1[i].izvppO4 ? data.titable1[i].izvppO4.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].cu != null) {
+                            $('#YearCu1').text(data.titable1[i].year);
+                            $('#Cu1').text(data.titable1[i].cu);
+                            $('#IZVCu1').text((data.titable1[i].izvCu ? data.titable1[i].izvCu.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].zn != null) {
+                            $('#YearZn1').text(data.titable1[i].year);
+                            $('#Zn1').text(data.titable1[i].zn);
+                            $('#IZVZn1').text((data.titable1[i].izvZn ? data.titable1[i].izvZn.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].mn != null) {
+                            $('#YearMn1').text(data.titable1[i].year);
+                            $('#Mn1').text(data.titable1[i].mn);
+                            $('#IZVMn1').text((data.titable1[i].izvMn ? data.titable1[i].izvMn.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].pb != null) {
+                            $('#YearPb1').text(data.titable1[i].year);
+                            $('#Pb1').text(data.titable1[i].pb);
+                            $('#IZVPb1').text((data.titable1[i].izvPb ? data.titable1[i].izvPb.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].ni != null) {
+                            $('#YearNi1').text(data.titable1[i].year);
+                            $('#Ni1').text(data.titable1[i].ni);
+                            $('#IZVNi1').text((data.titable1[i].izvNi ? data.titable1[i].izvNi.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].cd != null) {
+                            $('#YearCd1').text(data.titable1[i].year);
+                            $('#Cd1').text(data.titable1[i].cd);
+                            $('#IZVCd1').text((data.titable1[i].izvCd ? data.titable1[i].izvCd.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].co != null) {
+                            $('#YearCo1').text(data.titable1[i].year);
+                            $('#Co1').text(data.titable1[i].co);
+                            $('#IZVCo1').text((data.titable1[i].izvCo ? data.titable1[i].izvCo.toFixed(2) : null));
+                        }
+                    }
+                }
+                if (data.titable2 != null) {
+                    for (i = 0; i < data.titable2.length; i++) {
+                        if (data.titable2[i].nH4 != null) {
+                            $('#YearNH42').text(data.titable2[i].year);
+                            $('#NH42').text(data.titable2[i].nH4);
+                            $('#IZVNH42').text((data.titable2[i].izvnH4 ? data.titable2[i].izvnH4.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].nO2 != null) {
+                            $('#YearNO22').text(data.titable2[i].year);
+                            $('#NO22').text(data.titable2[i].nO2);
+                            $('#IZVNO22').text((data.titable2[i].izvnO2 ? data.titable2[i].izvnO2.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].nO3 != null) {
+                            $('#YearNO32').text(data.titable2[i].year);
+                            $('#NO32').text(data.titable2[i].nO3);
+                            $('#IZVNO32').text((data.titable2[i].izvnO3 ? data.titable2[i].izvnO3.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].ppO4 != null) {
+                            $('#YearPPO42').text(data.titable2[i].year);
+                            $('#PPO42').text(data.titable2[i].ppO4);
+                            $('#IZVPPO42').text((data.titable2[i].izvppO4 ? data.titable2[i].izvppO4.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].cu != null) {
+                            $('#YearCu2').text(data.titable2[i].year);
+                            $('#Cu2').text(data.titable2[i].cu);
+                            $('#IZVCu2').text((data.titable2[i].izvCu ? data.titable2[i].izvCu.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].zn != null) {
+                            $('#YearZn2').text(data.titable2[i].year);
+                            $('#Zn2').text(data.titable2[i].zn);
+                            $('#IZVZn2').text((data.titable2[i].izvZn ? data.titable2[i].izvZn.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].mn != null) {
+                            $('#YearMn2').text(data.titable2[i].year);
+                            $('#Mn2').text(data.titable2[i].mn);
+                            $('#IZVMn2').text((data.titable2[i].izvMn ? data.titable2[i].izvMn.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].pb != null) {
+                            $('#YearPb2').text(data.titable2[i].year);
+                            $('#Pb2').text(data.titable2[i].pb);
+                            $('#IZVPb2').text((data.titable2[i].izvPb ? data.titable2[i].izvPb.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].ni != null) {
+                            $('#YearNi2').text(data.titable2[i].year);
+                            $('#Ni2').text(data.titable2[i].ni);
+                            $('#IZVNi2').text((data.titable2[i].izvNi ? data.titable2[i].izvNi.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].cd != null) {
+                            $('#YearCd2').text(data.titable2[i].year);
+                            $('#Cd2').text(data.titable2[i].cd);
+                            $('#IZVCd2').text((data.titable2[i].izvCd ? data.titable2[i].izvCd.toFixed(2) : null));
+                        }
+                        if (data.titable2[i].co != null) {
+                            $('#YearCo2').text(data.titable2[i].year);
+                            $('#Co2').text(data.titable2[i].co);
+                            $('#IZVCo2').text((data.titable2[i].izvCo ? data.titable2[i].izvCo.toFixed(2) : null));
+                        }
+                    }
+                }
+                TableNH4(data);
+                ChartNH4(data);
+                TableNO2(data);
+                ChartNO2(data);
+                TableNO3(data);
+                ChartNO3(data);
+                TablePPO4(data);
+                ChartPPO4(data);
+                TableCu(data);
+                ChartCu(data);
+                TableZn(data);
+                ChartZn(data);
+                TableMn(data);
+                ChartMn(data);
+                TablePb(data);
+                ChartPb(data);
+                TableNi(data);
+                ChartNi(data);
+                TableCd(data);
+                ChartCd(data);
+                TableCo(data);
+                ChartCo(data);
             },
             error: function () {
             }
@@ -2172,12 +3224,12 @@
                 if (data.iwctable1[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody1);
                     tr.append('<td>' + data.iwctable1[i].year + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].caMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].mgMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].naKMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].clMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].hcoMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].soMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].caMg ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].mgMg ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].naKMg ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].clMg ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].hcoMg ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].soMg ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + data.iwctable1[i].alekinWaterCompositionClass + '</td>');
                 }
             }
@@ -2188,12 +3240,12 @@
                 if (data.iwctable2[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
                     tr.append('<td>' + data.iwctable2[i].year + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].caMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].mgMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].naKMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].clMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].hcoMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].soMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].caMg ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].mgMg ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].naKMg ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].clMg ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].hcoMg ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].soMg ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + data.iwctable2[i].alekinWaterCompositionClass + '</td>');
                 }
             }
@@ -2210,12 +3262,12 @@
                 if (data.iwctable1[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody1);
                     tr.append('<td>' + data.iwctable1[i].year + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].caMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].mgMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].naKMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].clMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].hcoMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].soMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].caMg ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].mgMg ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].naKMg ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].clMg ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].hcoMg ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].soMg ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + data.iwctable1[i].kurlovFormula + '</td>');
                 }
             }
@@ -2226,12 +3278,12 @@
                 if (data.iwctable2[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
                     tr.append('<td>' + data.iwctable2[i].year + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].caMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].mgMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].naKMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].clMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].hcoMg.toFixed(2) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].soMg.toFixed(2) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].caMg ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].mgMg ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].naKMg ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].clMg ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].hcoMg ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].soMg ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + data.iwctable2[i].kurlovFormula + '</td>');
                 }
             }
@@ -2239,12 +3291,1530 @@
         $('.IWC').hide();
     }
 
+    function TableNH4(data) {
+        var tablebody1 = $('#tablebodyNH41'),
+            tablebody2 = $('#tablebodyNH42');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nH4 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].nH4 + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvnH4 ? data.titable1[i].izvnH4.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nH4 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].nH4 + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvnH4 ? data.titable2[i].izvnH4.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartNH41 = null,
+        ChartNH42 = null;
+    function ChartNH4(data) {
+        if (ChartNH41 != null) {
+            ChartNH41.destroy();
+        }
+        var ctx1 = document.getElementById("chartNH41").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nH4 != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].nH4
+                    });
+                }
+            }
+        }
+        ChartNH41 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NH4').val(),
+                    data: data1,
+                    backgroundColor: chartColorTINH4,
+                    borderColor: chartColorTINH4,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NH4').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartNH42 != null) {
+            ChartNH42.destroy();
+        }
+        var ctx2 = document.getElementById("chartNH42").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nH4 != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].nH4
+                    });
+                }
+            }
+        }
+        ChartNH42 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NH4').val(),
+                    data: data2,
+                    backgroundColor: chartColorTINH4,
+                    borderColor: chartColorTINH4,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NH4').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableNO2(data) {
+        var tablebody1 = $('#tablebodyNO21'),
+            tablebody2 = $('#tablebodyNO22');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nO2 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].nO2 + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvnO2 ? data.titable1[i].izvnO2.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nO2 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].nO2 + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvnO2? data.titable2[i].izvnO2.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartNO21 = null,
+        ChartNO22 = null;
+    function ChartNO2(data) {
+        if (ChartNO21 != null) {
+            ChartNO21.destroy();
+        }
+        var ctx1 = document.getElementById("chartNO21").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nO2 != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].nO2
+                    });
+                }
+            }
+        }
+        ChartNO21 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NO2').val(),
+                    data: data1,
+                    backgroundColor: chartColorTINO2,
+                    borderColor: chartColorTINO2,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NO2').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartNO22 != null) {
+            ChartNO22.destroy();
+        }
+        var ctx2 = document.getElementById("chartNO22").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nO2 != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].nO2
+                    });
+                }
+            }
+        }
+        ChartNO22 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NO2').val(),
+                    data: data2,
+                    backgroundColor: chartColorTINO2,
+                    borderColor: chartColorTINO2,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NO2').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableNO3(data) {
+        var tablebody1 = $('#tablebodyNO31'),
+            tablebody2 = $('#tablebodyNO32');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nO3 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].nO3 + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvnO3 ? data.titable1[i].izvnO3.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nO3 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].nO3 + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvnO3 ? data.titable2[i].izvnO3.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartNO31 = null,
+        ChartNO32 = null;
+    function ChartNO3(data) {
+        if (ChartNO31 != null) {
+            ChartNO31.destroy();
+        }
+        var ctx1 = document.getElementById("chartNO31").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nO3 != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].nO3
+                    });
+                }
+            }
+        }
+        ChartNO31 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NO3').val(),
+                    data: data1,
+                    backgroundColor: chartColorTINO3,
+                    borderColor: chartColorTINO3,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NO3').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartNO32 != null) {
+            ChartNO32.destroy();
+        }
+        var ctx2 = document.getElementById("chartNO32").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nO3 != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].nO3
+                    });
+                }
+            }
+        }
+        ChartNO32 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NO3').val(),
+                    data: data2,
+                    backgroundColor: chartColorTINO3,
+                    borderColor: chartColorTINO3,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NO3').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TablePPO4(data) {
+        var tablebody1 = $('#tablebodyPPO41'),
+            tablebody2 = $('#tablebodyPPO42');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].ppO4 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].ppO4 + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvppO4? data.titable1[i].izvppO4.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].ppO4 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].ppO4 + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvppO4 ? data.titable2[i].izvppO4.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartPPO41 = null,
+        ChartPPO42 = null;
+    function ChartPPO4(data) {
+        if (ChartPPO41 != null) {
+            ChartPPO41.destroy();
+        }
+        var ctx1 = document.getElementById("chartPPO41").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].ppO4 != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].ppO4
+                    });
+                }
+            }
+        }
+        ChartPPO41 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#PPO4').val(),
+                    data: data1,
+                    backgroundColor: chartColorTIPPO4,
+                    borderColor: chartColorTIPPO4,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PPO4').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartPPO42 != null) {
+            ChartPPO42.destroy();
+        }
+        var ctx2 = document.getElementById("chartPPO42").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].ppO4 != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].ppO4
+                    });
+                }
+            }
+        }
+        ChartPPO42 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#PPO4').val(),
+                    data: data2,
+                    backgroundColor: chartColorTIPPO4,
+                    borderColor: chartColorTIPPO4,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PPO4').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableCu(data) {
+        var tablebody1 = $('#tablebodyCu1'),
+            tablebody2 = $('#tablebodyCu2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].cu != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].cu + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvCu ? data.titable1[i].izvCu.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].cu != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].cu + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvCu ? data.titable2[i].izvCu.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartCu1 = null,
+        ChartCu2 = null;
+    function ChartCu(data) {
+        if (ChartCu1 != null) {
+            ChartCu1.destroy();
+        }
+        var ctx1 = document.getElementById("chartCu1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].cu != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].cu
+                    });
+                }
+            }
+        }
+        ChartCu1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Cu').val(),
+                    data: data1,
+                    backgroundColor: chartColorTICu,
+                    borderColor: chartColorTICu,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Cu').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartCu2 != null) {
+            ChartCu2.destroy();
+        }
+        var ctx2 = document.getElementById("chartCu2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].cu != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].cu
+                    });
+                }
+            }
+        }
+        ChartCu2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Cu').val(),
+                    data: data2,
+                    backgroundColor: chartColorTICu,
+                    borderColor: chartColorTICu,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Cu').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableZn(data) {
+        var tablebody1 = $('#tablebodyZn1'),
+            tablebody2 = $('#tablebodyZn2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].zn != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].zn + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvZn? data.titable1[i].izvZn.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].zn != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].zn + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvZn? data.titable2[i].izvZn.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartZn1 = null,
+        ChartZn2 = null;
+    function ChartZn(data) {
+        if (ChartZn1 != null) {
+            ChartZn1.destroy();
+        }
+        var ctx1 = document.getElementById("chartZn1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].zn != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].zn
+                    });
+                }
+            }
+        }
+        ChartZn1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Zn').val(),
+                    data: data1,
+                    backgroundColor: chartColorTIZn,
+                    borderColor: chartColorTIZn,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Zn').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartZn2 != null) {
+            ChartZn2.destroy();
+        }
+        var ctx2 = document.getElementById("chartZn2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].zn != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].zn
+                    });
+                }
+            }
+        }
+        ChartZn2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Zn').val(),
+                    data: data2,
+                    backgroundColor: chartColorTIZn,
+                    borderColor: chartColorTIZn,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Zn').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableMn(data) {
+        var tablebody1 = $('#tablebodyMn1'),
+            tablebody2 = $('#tablebodyMn2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].mn != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].mn + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvMn ? data.titable1[i].izvMn.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].mn != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].mn + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvMn ? data.titable2[i].izvMn.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartMn1 = null,
+        ChartMn2 = null;
+    function ChartMn(data) {
+        if (ChartMn1 != null) {
+            ChartMn1.destroy();
+        }
+        var ctx1 = document.getElementById("chartMn1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].mn != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].mn
+                    });
+                }
+            }
+        }
+        ChartMn1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Mn').val(),
+                    data: data1,
+                    backgroundColor: chartColorTIMn,
+                    borderColor: chartColorTIMn,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mn').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartMn2 != null) {
+            ChartMn2.destroy();
+        }
+        var ctx2 = document.getElementById("chartMn2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].mn != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].mn
+                    });
+                }
+            }
+        }
+        ChartMn2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Mn').val(),
+                    data: data2,
+                    backgroundColor: chartColorTIMn,
+                    borderColor: chartColorTIMn,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mn').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TablePb(data) {
+        var tablebody1 = $('#tablebodyPb1'),
+            tablebody2 = $('#tablebodyPb2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].pb != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].pb + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvPb ? data.titable1[i].izvPb.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].pb != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].pb + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvPb ? data.titable2[i].izvPb.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartPb1 = null,
+        ChartPb2 = null;
+    function ChartPb(data) {
+        if (ChartPb1 != null) {
+            ChartPb1.destroy();
+        }
+        var ctx1 = document.getElementById("chartPb1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].pb != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].pb
+                    });
+                }
+            }
+        }
+        ChartPb1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Pb').val(),
+                    data: data1,
+                    backgroundColor: chartColorTIPb,
+                    borderColor: chartColorTIPb,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Pb').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartPb2 != null) {
+            ChartPb2.destroy();
+        }
+        var ctx2 = document.getElementById("chartPb2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].pb != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].pb
+                    });
+                }
+            }
+        }
+        ChartPb2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Pb').val(),
+                    data: data2,
+                    backgroundColor: chartColorTIPb,
+                    borderColor: chartColorTIPb,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Pb').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableNi(data) {
+        var tablebody1 = $('#tablebodyNi1'),
+            tablebody2 = $('#tablebodyNi2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].ni != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].ni + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvNi ? data.titable1[i].izvNi.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].ni != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].ni + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvNi ? data.titable2[i].izvNi.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartNi1 = null,
+        ChartNi2 = null;
+    function ChartNi(data) {
+        if (ChartNi1 != null) {
+            ChartNi1.destroy();
+        }
+        var ctx1 = document.getElementById("chartNi1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].ni != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].ni
+                    });
+                }
+            }
+        }
+        ChartNi1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Ni').val(),
+                    data: data1,
+                    backgroundColor: chartColorTINi,
+                    borderColor: chartColorTINi,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Ni').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartNi2 != null) {
+            ChartNi2.destroy();
+        }
+        var ctx2 = document.getElementById("chartNi2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].ni != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].ni
+                    });
+                }
+            }
+        }
+        ChartNi2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Ni').val(),
+                    data: data2,
+                    backgroundColor: chartColorTINi,
+                    borderColor: chartColorTINi,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Ni').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableCd(data) {
+        var tablebody1 = $('#tablebodyCd1'),
+            tablebody2 = $('#tablebodyCd2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].cd != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].cd + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvCd ? data.titable1[i].izvCd.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].cd != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].cd + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvCd ? data.titable2[i].izvCd.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartCd1 = null,
+        ChartCd2 = null;
+    function ChartCd(data) {
+        if (ChartCd1 != null) {
+            ChartCd1.destroy();
+        }
+        var ctx1 = document.getElementById("chartCd1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].cd != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].cd
+                    });
+                }
+            }
+        }
+        ChartCd1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Cd').val(),
+                    data: data1,
+                    backgroundColor: chartColorTICd,
+                    borderColor: chartColorTICd,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Cd').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartCd2 != null) {
+            ChartCd2.destroy();
+        }
+        var ctx2 = document.getElementById("chartCd2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].cd != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].cd
+                    });
+                }
+            }
+        }
+        ChartCd2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Cd').val(),
+                    data: data2,
+                    backgroundColor: chartColorTICd,
+                    borderColor: chartColorTICd,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Cd').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableCo(data) {
+        var tablebody1 = $('#tablebodyCo1'),
+            tablebody2 = $('#tablebodyCo2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].co != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].co + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvCo ? data.titable1[i].izvCo.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].co != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].co + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvCo ? data.titable2[i].izvCo.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartCo1 = null,
+        ChartCo2 = null;
+    function ChartCo(data) {
+        if (ChartCo1 != null) {
+            ChartCo1.destroy();
+        }
+        var ctx1 = document.getElementById("chartCo1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].co != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].co
+                    });
+                }
+            }
+        }
+        ChartCo1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Co').val(),
+                    data: data1,
+                    backgroundColor: chartColorTICo,
+                    borderColor: chartColorTICo,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Co').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartCo2 != null) {
+            ChartCo2.destroy();
+        }
+        var ctx2 = document.getElementById("chartCo2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].co != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].co
+                    });
+                }
+            }
+        }
+        ChartCo2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Co').val(),
+                    data: data2,
+                    backgroundColor: chartColorTICo,
+                    borderColor: chartColorTICo,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Co').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
     ///////////////////////////
 
     function ShowTableMineralization1() {
         $('.GHI').hide();
         $('#tableMineralization1').show();
-        $('.FreshPart').hide(); 
+        $('.FreshPart').hide();
         $('.SaltyPart').hide();
         if (twoparts) {
             $('.FreshPart').show();
@@ -2503,6 +5073,446 @@
         $('.SaltyPart').hide();
         if (twoparts) {
             $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNH41() {
+        $('.TI').hide();
+        $('#tableNH41').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNH42() {
+        $('.TI').hide();
+        $('#tableNH42').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartNH41() {
+        $('.TI').hide();
+        $('#chartNH41').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartNH42() {
+        $('.TI').hide();
+        $('#chartNH42').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableNO21() {
+        $('.TI').hide();
+        $('#tableNO21').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNO22() {
+        $('.TI').hide();
+        $('#tableNO22').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartNO21() {
+        $('.TI').hide();
+        $('#chartNO21').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartNO22() {
+        $('.TI').hide();
+        $('#chartNO22').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableNO31() {
+        $('.TI').hide();
+        $('#tableNO31').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNO32() {
+        $('.TI').hide();
+        $('#tableNO32').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartNO31() {
+        $('.TI').hide();
+        $('#chartNO31').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartNO32() {
+        $('.TI').hide();
+        $('#chartNO32').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTablePPO41() {
+        $('.TI').hide();
+        $('#tablePPO41').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTablePPO42() {
+        $('.TI').hide();
+        $('#tablePPO42').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartPPO41() {
+        $('.TI').hide();
+        $('#chartPPO41').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartPPO42() {
+        $('.TI').hide();
+        $('#chartPPO42').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableCu1() {
+        $('.TI').hide();
+        $('#tableCu1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableCu2() {
+        $('.TI').hide();
+        $('#tableCu2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartCu1() {
+        $('.TI').hide();
+        $('#chartCu1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartCu2() {
+        $('.TI').hide();
+        $('#chartCu2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableZn1() {
+        $('.TI').hide();
+        $('#tableZn1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableZn2() {
+        $('.TI').hide();
+        $('#tableZn2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartZn1() {
+        $('.TI').hide();
+        $('#chartZn1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartZn2() {
+        $('.TI').hide();
+        $('#chartZn2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableMn1() {
+        $('.TI').hide();
+        $('#tableMn1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableMn2() {
+        $('.TI').hide();
+        $('#tableMn2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartMn1() {
+        $('.TI').hide();
+        $('#chartMn1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartMn2() {
+        $('.TI').hide();
+        $('#chartMn2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTablePb1() {
+        $('.TI').hide();
+        $('#tablePb1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTablePb2() {
+        $('.TI').hide();
+        $('#tablePb2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartPb1() {
+        $('.TI').hide();
+        $('#chartPb1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartPb2() {
+        $('.TI').hide();
+        $('#chartPb2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableNi1() {
+        $('.TI').hide();
+        $('#tableNi1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNi2() {
+        $('.TI').hide();
+        $('#tableNi2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartNi1() {
+        $('.TI').hide();
+        $('#chartNi1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartNi2() {
+        $('.TI').hide();
+        $('#chartNi2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableCd1() {
+        $('.TI').hide();
+        $('#tableCd1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableCd2() {
+        $('.TI').hide();
+        $('#tableCd2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartCd1() {
+        $('.TI').hide();
+        $('#chartCd1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartCd2() {
+        $('.TI').hide();
+        $('#chartCd2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableCo1() {
+        $('.TI').hide();
+        $('#tableCo1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableCo2() {
+        $('.TI').hide();
+        $('#tableCo2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartCo1() {
+        $('.TI').hide();
+        $('#chartCo1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartCo2() {
+        $('.TI').hide();
+        $('#chartCo2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
         }
     }
 </script>

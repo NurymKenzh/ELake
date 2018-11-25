@@ -2736,6 +2736,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string MPCExceeding {
+            get {
+                return ResourceManager.GetString("MPCExceeding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string MPCMn {
             get {
                 return ResourceManager.GetString("MPCMn", resourceCulture);

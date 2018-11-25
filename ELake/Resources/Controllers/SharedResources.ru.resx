@@ -1638,4 +1638,7 @@
   <data name="IonUnit" xml:space="preserve">
     <value>мг/дм³ / %-экв/дм³</value>
   </data>
+  <data name="MPCExceeding" xml:space="preserve">
+    <value>Кратность превышения ПДК</value>
+  </data>
 </root>
