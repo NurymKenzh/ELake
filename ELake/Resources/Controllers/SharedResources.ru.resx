@@ -1126,7 +1126,7 @@
     <value>ИЗВ Ni</value>
   </data>
   <data name="IZVNO2" xml:space="preserve">
-    <value>ИЗВ NO2</value>
+    <value>ИЗВ NO₂</value>
   </data>
   <data name="IZVNO3" xml:space="preserve">
     <value>ИЗВ NO₃</value>
@@ -1192,7 +1192,7 @@
     <value>Ni</value>
   </data>
   <data name="NO2" xml:space="preserve">
-    <value>NO2</value>
+    <value>NO₂</value>
   </data>
   <data name="NO3" xml:space="preserve">
     <value>NO₃</value>
