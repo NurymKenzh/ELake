@@ -83,14 +83,13 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <a asp-controller="Lakes" asp-action="Map">
+                        <a class="btn-default" asp-controller="Lakes" asp-action="Map">
                             <div class="features-icons-icon d-flex">
                                 <i class="icon-magnifier m-auto text-primary"></i>
                             </div>
-                            <h3>Advanced Lakes Search</h3>
-                            <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
                         </a>
-
+                        <h3>Advanced Lakes Search</h3>
+                        <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -123,18 +122,16 @@
                     <h2 class="mb-4">@SharedLocalizer["SearchByLakeName"]</h2>
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <div class="form-row">
-                        @*<div class="col-12 col-md-9 mb-2 mb-md-0">
-                                <select id="LakeId" name="Lakes" class="custom-select custom-select-sm" asp-items="ViewBag.Lakes"><option value="">Choose...</option></select>
-                            </div>*@
-                        <div class="ui-widget">
-                            @*<label for="LakeId">Tags: </label>*@
-                            <input id="LakeId" class="form-control">
+                    <form>
+                        <div class="form-row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                <input id="LakeId" class="form-control form-control-lg" placeholder="Enter lake name...">
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <button type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">@SharedLocalizer["Search"]</button>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-3">
-                            <button type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">@SharedLocalizer["Search"]</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
