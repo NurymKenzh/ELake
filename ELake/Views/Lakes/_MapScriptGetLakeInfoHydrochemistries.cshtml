@@ -1,0 +1,3121 @@
+﻿<script>
+    function TableMineralization(data) {
+        var tablebody1 = $('#tablebodyMineralization1'),
+            tablebody2 = $('#tablebodyMineralization2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].mineralization != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].mineralization + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].mineralizationType + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].mineralization != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].mineralization + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].mineralizationType + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartMineralization1 = null,
+        ChartMineralization2 = null;
+    function ChartMineralization(data) {
+        if (ChartMineralization1 != null) {
+            ChartMineralization1.destroy();
+        }
+        var ctx1 = document.getElementById("chartMineralization1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].mineralization != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].mineralization
+                    });
+                }
+            }
+        }
+        ChartMineralization1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Mineralization').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHIMineralization,
+                    borderColor: chartColorGHIMineralization,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mineralization').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartMineralization2 != null) {
+            ChartMineralization2.destroy();
+        }
+        var ctx2 = document.getElementById("chartMineralization2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].mineralization != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].mineralization
+                    });
+                }
+            }
+        }
+        ChartMineralization2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Mineralization').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHIMineralization,
+                    borderColor: chartColorGHIMineralization,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mineralization').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableTotalHardness(data) {
+        var tablebody1 = $('#tablebodyTotalHardness1'),
+            tablebody2 = $('#tablebodyTotalHardness2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].totalHardness != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].totalHardness + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].waterHardness + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].totalHardness != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].totalHardness + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].waterHardness + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartTotalHardness1 = null,
+        ChartTotalHardness2 = null;
+    function ChartTotalHardness(data) {
+        if (ChartTotalHardness1 != null) {
+            ChartTotalHardness1.destroy();
+        }
+        var ctx1 = document.getElementById("chartTotalHardness1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].totalHardness != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].totalHardness
+                    });
+                }
+            }
+        }
+        ChartTotalHardness1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#TotalHardness').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHITotalHardness,
+                    borderColor: chartColorGHITotalHardness,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#TotalHardness').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartTotalHardness2 != null) {
+            ChartTotalHardness2.destroy();
+        }
+        var ctx2 = document.getElementById("chartTotalHardness2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].totalHardness != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].totalHardness
+                    });
+                }
+            }
+        }
+        ChartTotalHardness2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#TotalHardness').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHITotalHardness,
+                    borderColor: chartColorGHITotalHardness,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#TotalHardness').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableDissOxygWater(data) {
+        var tablebody1 = $('#tablebodyDissOxygWater1'),
+            tablebody2 = $('#tablebodyDissOxygWater2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].dissOxygWater != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].dissOxygWater + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].dissolvedOxygenInWaterDegree + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].dissOxygWater != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].dissOxygWater + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].dissolvedOxygenInWaterDegree + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartDissOxygWater1 = null,
+        ChartDissOxygWater2 = null;
+    function ChartDissOxygWater(data) {
+        if (ChartDissOxygWater1 != null) {
+            ChartDissOxygWater1.destroy();
+        }
+        var ctx1 = document.getElementById("chartDissOxygWater1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].dissOxygWater != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].dissOxygWater
+                    });
+                }
+            }
+        }
+        ChartDissOxygWater1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#DissOxygWater').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHIDissOxygWater,
+                    borderColor: chartColorGHIDissOxygWater,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#DissOxygWater').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartDissOxygWater2 != null) {
+            ChartDissOxygWater2.destroy();
+        }
+        var ctx2 = document.getElementById("chartDissOxygWater2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].dissOxygWater != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].dissOxygWater
+                    });
+                }
+            }
+        }
+        ChartDissOxygWater2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#DissOxygWater').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHIDissOxygWater,
+                    borderColor: chartColorGHIDissOxygWater,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#DissOxygWater').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TablePercentOxygWater(data) {
+        var tablebody1 = $('#tablebodyPercentOxygWater1'),
+            tablebody2 = $('#tablebodyPercentOxygWater2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].percentOxygWater != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].percentOxygWater + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].percentOxygWater != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].percentOxygWater + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartPercentOxygWater1 = null,
+        ChartPercentOxygWater2 = null;
+    function ChartPercentOxygWater(data) {
+        if (ChartPercentOxygWater1 != null) {
+            ChartPercentOxygWater1.destroy();
+        }
+        var ctx1 = document.getElementById("chartPercentOxygWater1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].percentOxygWater != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].percentOxygWater
+                    });
+                }
+            }
+        }
+        ChartPercentOxygWater1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#PercentOxygWater').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHIPercentOxygWater,
+                    borderColor: chartColorGHIPercentOxygWater,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PercentOxygWater').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartPercentOxygWater2 != null) {
+            ChartPercentOxygWater2.destroy();
+        }
+        var ctx2 = document.getElementById("chartPercentOxygWater2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].percentOxygWater != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].percentOxygWater
+                    });
+                }
+            }
+        }
+        ChartPercentOxygWater2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#PercentOxygWater').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHIPercentOxygWater,
+                    borderColor: chartColorGHIPercentOxygWater,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PercentOxygWater').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TablepH(data) {
+        var tablebody1 = $('#tablebodypH1'),
+            tablebody2 = $('#tablebodypH2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].pH != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].pH + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].acidityOfWaterDegree + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].pH != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].pH + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].acidityOfWaterDegree + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartpH1 = null,
+        ChartpH2 = null;
+    function ChartpH(data) {
+        if (ChartpH1 != null) {
+            ChartpH1.destroy();
+        }
+        var ctx1 = document.getElementById("chartpH1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].pH != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].pH
+                    });
+                }
+            }
+        }
+        ChartpH1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#pH').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHIpH,
+                    borderColor: chartColorGHIpH,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#pH').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartpH2 != null) {
+            ChartpH2.destroy();
+        }
+        var ctx2 = document.getElementById("chartpH2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].pH != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].pH
+                    });
+                }
+            }
+        }
+        ChartpH2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#pH').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHIpH,
+                    borderColor: chartColorGHIpH,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#pH').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableOrganicSubstances(data) {
+        var tablebody1 = $('#tablebodyOrganicSubstances1'),
+            tablebody2 = $('#tablebodyOrganicSubstances2');
+        tablebody1.html('');
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].organicSubstances != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.ghitable1[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].organicSubstances + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.ghitable2 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].organicSubstances != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.ghitable2[i].year + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].organicSubstances + '</td>');
+                }
+            }
+        }
+        $('.GHI').hide();
+    }
+
+    var ChartOrganicSubstances1 = null,
+        ChartOrganicSubstances2 = null;
+    function ChartOrganicSubstances(data) {
+        if (ChartOrganicSubstances1 != null) {
+            ChartOrganicSubstances1.destroy();
+        }
+        var ctx1 = document.getElementById("chartOrganicSubstances1").getContext('2d');
+        var data1 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable1.length; i++) {
+                if (data.ghitable1[i].organicSubstances != null) {
+                    data1.push({
+                        'x': data.ghitable1[i].year,
+                        'y': data.ghitable1[i].organicSubstances
+                    });
+                }
+            }
+        }
+        ChartOrganicSubstances1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#OrganicSubstances').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHIOrganicSubstances,
+                    borderColor: chartColorGHIOrganicSubstances,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#OrganicSubstances').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartOrganicSubstances2 != null) {
+            ChartOrganicSubstances2.destroy();
+        }
+        var ctx2 = document.getElementById("chartOrganicSubstances2").getContext('2d');
+        var data2 = [];
+        if (data.ghitable1 != null) {
+            for (var i = 0; i < data.ghitable2.length; i++) {
+                if (data.ghitable2[i].organicSubstances != null) {
+                    data2.push({
+                        'x': data.ghitable2[i].year,
+                        'y': data.ghitable2[i].organicSubstances
+                    });
+                }
+            }
+        }
+        ChartOrganicSubstances2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#OrganicSubstances').val(),
+                    data: data2,
+                    backgroundColor: chartColorGHIOrganicSubstances,
+                    borderColor: chartColorGHIOrganicSubstances,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#OrganicSubstances').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableAlekinWaterCompositionClass(data) {
+        var tablebody1 = $('#tablebodyAlekinWaterCompositionClass1'),
+            tablebody2 = $('#tablebodyAlekinWaterCompositionClass2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].alekinWaterCompositionClass + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + data.iwctable2[i].alekinWaterCompositionClass + '</td>');
+                }
+            }
+        }
+        $('.IWC').hide();
+    }
+
+    function TableKurlovFormula(data) {
+        var tablebody1 = $('#tablebodyKurlovFormula1'),
+            tablebody2 = $('#tablebodyKurlovFormula2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + data.iwctable1[i].kurlovFormula + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + data.iwctable2[i].kurlovFormula + '</td>');
+                }
+            }
+        }
+        $('.IWC').hide();
+    }
+
+    function TableNH4(data) {
+        var tablebody1 = $('#tablebodyNH41'),
+            tablebody2 = $('#tablebodyNH42');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nH4 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].nH4 + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvnH4 != null ? data.titable1[i].izvnH4.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nH4 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].nH4 + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvnH4 != null ? data.titable2[i].izvnH4.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartNH41 = null,
+        ChartNH42 = null;
+    function ChartNH4(data) {
+        if (ChartNH41 != null) {
+            ChartNH41.destroy();
+        }
+        var ctx1 = document.getElementById("chartNH41").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nH4 != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].nH4
+                    });
+                }
+            }
+        }
+        ChartNH41 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NH4').val(),
+                    data: data1,
+                    backgroundColor: chartColorTINH4,
+                    borderColor: chartColorTINH4,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NH4').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartNH42 != null) {
+            ChartNH42.destroy();
+        }
+        var ctx2 = document.getElementById("chartNH42").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nH4 != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].nH4
+                    });
+                }
+            }
+        }
+        ChartNH42 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NH4').val(),
+                    data: data2,
+                    backgroundColor: chartColorTINH4,
+                    borderColor: chartColorTINH4,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NH4').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableNO2(data) {
+        var tablebody1 = $('#tablebodyNO21'),
+            tablebody2 = $('#tablebodyNO22');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nO2 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].nO2 + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvnO2 != null ? data.titable1[i].izvnO2.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nO2 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].nO2 + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvnO2 != null ? data.titable2[i].izvnO2.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartNO21 = null,
+        ChartNO22 = null;
+    function ChartNO2(data) {
+        if (ChartNO21 != null) {
+            ChartNO21.destroy();
+        }
+        var ctx1 = document.getElementById("chartNO21").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nO2 != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].nO2
+                    });
+                }
+            }
+        }
+        ChartNO21 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NO2').val(),
+                    data: data1,
+                    backgroundColor: chartColorTINO2,
+                    borderColor: chartColorTINO2,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NO2').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartNO22 != null) {
+            ChartNO22.destroy();
+        }
+        var ctx2 = document.getElementById("chartNO22").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nO2 != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].nO2
+                    });
+                }
+            }
+        }
+        ChartNO22 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NO2').val(),
+                    data: data2,
+                    backgroundColor: chartColorTINO2,
+                    borderColor: chartColorTINO2,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NO2').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableNO3(data) {
+        var tablebody1 = $('#tablebodyNO31'),
+            tablebody2 = $('#tablebodyNO32');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nO3 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].nO3 + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvnO3 != null ? data.titable1[i].izvnO3.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nO3 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].nO3 + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvnO3 != null ? data.titable2[i].izvnO3.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartNO31 = null,
+        ChartNO32 = null;
+    function ChartNO3(data) {
+        if (ChartNO31 != null) {
+            ChartNO31.destroy();
+        }
+        var ctx1 = document.getElementById("chartNO31").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].nO3 != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].nO3
+                    });
+                }
+            }
+        }
+        ChartNO31 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NO3').val(),
+                    data: data1,
+                    backgroundColor: chartColorTINO3,
+                    borderColor: chartColorTINO3,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NO3').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartNO32 != null) {
+            ChartNO32.destroy();
+        }
+        var ctx2 = document.getElementById("chartNO32").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].nO3 != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].nO3
+                    });
+                }
+            }
+        }
+        ChartNO32 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#NO3').val(),
+                    data: data2,
+                    backgroundColor: chartColorTINO3,
+                    borderColor: chartColorTINO3,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#NO3').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TablePPO4(data) {
+        var tablebody1 = $('#tablebodyPPO41'),
+            tablebody2 = $('#tablebodyPPO42');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].ppO4 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].ppO4 + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvppO4 ? data.titable1[i].izvppO4.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].ppO4 != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].ppO4 + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvppO4 != null ? data.titable2[i].izvppO4.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartPPO41 = null,
+        ChartPPO42 = null;
+    function ChartPPO4(data) {
+        if (ChartPPO41 != null) {
+            ChartPPO41.destroy();
+        }
+        var ctx1 = document.getElementById("chartPPO41").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].ppO4 != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].ppO4
+                    });
+                }
+            }
+        }
+        ChartPPO41 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#PPO4').val(),
+                    data: data1,
+                    backgroundColor: chartColorTIPPO4,
+                    borderColor: chartColorTIPPO4,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PPO4').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartPPO42 != null) {
+            ChartPPO42.destroy();
+        }
+        var ctx2 = document.getElementById("chartPPO42").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].ppO4 != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].ppO4
+                    });
+                }
+            }
+        }
+        ChartPPO42 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#PPO4').val(),
+                    data: data2,
+                    backgroundColor: chartColorTIPPO4,
+                    borderColor: chartColorTIPPO4,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PPO4').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableCu(data) {
+        var tablebody1 = $('#tablebodyCu1'),
+            tablebody2 = $('#tablebodyCu2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].cu != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].cu + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvCu != null ? data.titable1[i].izvCu.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].cu != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].cu + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvCu != null ? data.titable2[i].izvCu.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartCu1 = null,
+        ChartCu2 = null;
+    function ChartCu(data) {
+        if (ChartCu1 != null) {
+            ChartCu1.destroy();
+        }
+        var ctx1 = document.getElementById("chartCu1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].cu != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].cu
+                    });
+                }
+            }
+        }
+        ChartCu1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Cu').val(),
+                    data: data1,
+                    backgroundColor: chartColorTICu,
+                    borderColor: chartColorTICu,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Cu').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartCu2 != null) {
+            ChartCu2.destroy();
+        }
+        var ctx2 = document.getElementById("chartCu2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].cu != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].cu
+                    });
+                }
+            }
+        }
+        ChartCu2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Cu').val(),
+                    data: data2,
+                    backgroundColor: chartColorTICu,
+                    borderColor: chartColorTICu,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Cu').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableZn(data) {
+        var tablebody1 = $('#tablebodyZn1'),
+            tablebody2 = $('#tablebodyZn2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].zn != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].zn + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvZn ? data.titable1[i].izvZn.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].zn != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].zn + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvZn ? data.titable2[i].izvZn.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartZn1 = null,
+        ChartZn2 = null;
+    function ChartZn(data) {
+        if (ChartZn1 != null) {
+            ChartZn1.destroy();
+        }
+        var ctx1 = document.getElementById("chartZn1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].zn != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].zn
+                    });
+                }
+            }
+        }
+        ChartZn1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Zn').val(),
+                    data: data1,
+                    backgroundColor: chartColorTIZn,
+                    borderColor: chartColorTIZn,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Zn').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartZn2 != null) {
+            ChartZn2.destroy();
+        }
+        var ctx2 = document.getElementById("chartZn2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].zn != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].zn
+                    });
+                }
+            }
+        }
+        ChartZn2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Zn').val(),
+                    data: data2,
+                    backgroundColor: chartColorTIZn,
+                    borderColor: chartColorTIZn,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Zn').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableMn(data) {
+        var tablebody1 = $('#tablebodyMn1'),
+            tablebody2 = $('#tablebodyMn2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].mn != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].mn + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvMn != null ? data.titable1[i].izvMn.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].mn != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].mn + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvMn != null ? data.titable2[i].izvMn.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartMn1 = null,
+        ChartMn2 = null;
+    function ChartMn(data) {
+        if (ChartMn1 != null) {
+            ChartMn1.destroy();
+        }
+        var ctx1 = document.getElementById("chartMn1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].mn != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].mn
+                    });
+                }
+            }
+        }
+        ChartMn1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Mn').val(),
+                    data: data1,
+                    backgroundColor: chartColorTIMn,
+                    borderColor: chartColorTIMn,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mn').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartMn2 != null) {
+            ChartMn2.destroy();
+        }
+        var ctx2 = document.getElementById("chartMn2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].mn != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].mn
+                    });
+                }
+            }
+        }
+        ChartMn2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Mn').val(),
+                    data: data2,
+                    backgroundColor: chartColorTIMn,
+                    borderColor: chartColorTIMn,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Mn').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TablePb(data) {
+        var tablebody1 = $('#tablebodyPb1'),
+            tablebody2 = $('#tablebodyPb2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].pb != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].pb + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvPb != null ? data.titable1[i].izvPb.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].pb != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].pb + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvPb != null ? data.titable2[i].izvPb.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartPb1 = null,
+        ChartPb2 = null;
+    function ChartPb(data) {
+        if (ChartPb1 != null) {
+            ChartPb1.destroy();
+        }
+        var ctx1 = document.getElementById("chartPb1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].pb != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].pb
+                    });
+                }
+            }
+        }
+        ChartPb1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Pb').val(),
+                    data: data1,
+                    backgroundColor: chartColorTIPb,
+                    borderColor: chartColorTIPb,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Pb').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartPb2 != null) {
+            ChartPb2.destroy();
+        }
+        var ctx2 = document.getElementById("chartPb2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].pb != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].pb
+                    });
+                }
+            }
+        }
+        ChartPb2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Pb').val(),
+                    data: data2,
+                    backgroundColor: chartColorTIPb,
+                    borderColor: chartColorTIPb,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Pb').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableNi(data) {
+        var tablebody1 = $('#tablebodyNi1'),
+            tablebody2 = $('#tablebodyNi2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].ni != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].ni + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvNi != null ? data.titable1[i].izvNi.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].ni != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].ni + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvNi != null ? data.titable2[i].izvNi.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartNi1 = null,
+        ChartNi2 = null;
+    function ChartNi(data) {
+        if (ChartNi1 != null) {
+            ChartNi1.destroy();
+        }
+        var ctx1 = document.getElementById("chartNi1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].ni != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].ni
+                    });
+                }
+            }
+        }
+        ChartNi1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Ni').val(),
+                    data: data1,
+                    backgroundColor: chartColorTINi,
+                    borderColor: chartColorTINi,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Ni').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartNi2 != null) {
+            ChartNi2.destroy();
+        }
+        var ctx2 = document.getElementById("chartNi2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].ni != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].ni
+                    });
+                }
+            }
+        }
+        ChartNi2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Ni').val(),
+                    data: data2,
+                    backgroundColor: chartColorTINi,
+                    borderColor: chartColorTINi,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Ni').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableCd(data) {
+        var tablebody1 = $('#tablebodyCd1'),
+            tablebody2 = $('#tablebodyCd2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].cd != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].cd + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvCd != null ? data.titable1[i].izvCd.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].cd != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].cd + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvCd != null ? data.titable2[i].izvCd.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartCd1 = null,
+        ChartCd2 = null;
+    function ChartCd(data) {
+        if (ChartCd1 != null) {
+            ChartCd1.destroy();
+        }
+        var ctx1 = document.getElementById("chartCd1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].cd != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].cd
+                    });
+                }
+            }
+        }
+        ChartCd1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Cd').val(),
+                    data: data1,
+                    backgroundColor: chartColorTICd,
+                    borderColor: chartColorTICd,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Cd').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartCd2 != null) {
+            ChartCd2.destroy();
+        }
+        var ctx2 = document.getElementById("chartCd2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].cd != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].cd
+                    });
+                }
+            }
+        }
+        ChartCd2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Cd').val(),
+                    data: data2,
+                    backgroundColor: chartColorTICd,
+                    borderColor: chartColorTICd,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Cd').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    function TableCo(data) {
+        var tablebody1 = $('#tablebodyCo1'),
+            tablebody2 = $('#tablebodyCo2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].co != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + data.titable1[i].co + '</td>');
+                    tr.append('<td>' + (data.titable1[i].izvCo != null ? data.titable1[i].izvCo.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].co != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + data.titable2[i].co + '</td>');
+                    tr.append('<td>' + (data.titable2[i].izvCo != null ? data.titable2[i].izvCo.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartCo1 = null,
+        ChartCo2 = null;
+    function ChartCo(data) {
+        if (ChartCo1 != null) {
+            ChartCo1.destroy();
+        }
+        var ctx1 = document.getElementById("chartCo1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].co != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].co
+                    });
+                }
+            }
+        }
+        ChartCo1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Co').val(),
+                    data: data1,
+                    backgroundColor: chartColorTICo,
+                    borderColor: chartColorTICo,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Co').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartCo2 != null) {
+            ChartCo2.destroy();
+        }
+        var ctx2 = document.getElementById("chartCo2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].co != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].co
+                    });
+                }
+            }
+        }
+        ChartCo2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#Co').val(),
+                    data: data2,
+                    backgroundColor: chartColorTICo,
+                    borderColor: chartColorTICo,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#Co').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
+    ///////////////////////////
+
+    function ShowTableMineralization1() {
+        $('.GHI').hide();
+        $('#tableMineralization1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableMineralization2() {
+        $('.GHI').hide();
+        $('#tableMineralization2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartMineralization1() {
+        $('.GHI').hide();
+        $('#chartMineralization1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartMineralization2() {
+        $('.GHI').hide();
+        $('#chartMineralization2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableTotalHardness1() {
+        $('.GHI').hide();
+        $('#tableTotalHardness1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableTotalHardness2() {
+        $('.GHI').hide();
+        $('#tableTotalHardness2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartTotalHardness1() {
+        $('.GHI').hide();
+        $('#chartTotalHardness1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartTotalHardness2() {
+        $('.GHI').hide();
+        $('#chartTotalHardness2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').show();
+    }
+
+    function ShowTableDissOxygWater1() {
+        $('.GHI').hide();
+        $('#tableDissOxygWater1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableDissOxygWater2() {
+        $('.GHI').hide();
+        $('#tableDissOxygWater2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartDissOxygWater1() {
+        $('.GHI').hide();
+        $('#chartDissOxygWater1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartDissOxygWater2() {
+        $('.GHI').hide();
+        $('#chartDissOxygWater2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').show();
+    }
+
+    function ShowTablePercentOxygWater1() {
+        $('.GHI').hide();
+        $('#tablePercentOxygWater1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTablePercentOxygWater2() {
+        $('.GHI').hide();
+        $('#tablePercentOxygWater2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartPercentOxygWater1() {
+        $('.GHI').hide();
+        $('#chartPercentOxygWater1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartPercentOxygWater2() {
+        $('.GHI').hide();
+        $('#chartPercentOxygWater2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').show();
+    }
+
+    function ShowTablepH1() {
+        $('.GHI').hide();
+        $('#tablepH1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTablepH2() {
+        $('.GHI').hide();
+        $('#tablepH2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartpH1() {
+        $('.GHI').hide();
+        $('#chartpH1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartpH2() {
+        $('.GHI').hide();
+        $('#chartpH2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').show();
+    }
+
+    function ShowTableOrganicSubstances1() {
+        $('.GHI').hide();
+        $('#tableOrganicSubstances1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableOrganicSubstances2() {
+        $('.GHI').hide();
+        $('#tableOrganicSubstances2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartOrganicSubstances1() {
+        $('.GHI').hide();
+        $('#chartOrganicSubstances1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartOrganicSubstances2() {
+        $('.GHI').hide();
+        $('#chartOrganicSubstances2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').show();
+    }
+
+    function ShowTableAlekinWaterCompositionClass1() {
+        $('.IWC').hide();
+        $('#tableAlekinWaterCompositionClass1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableAlekinWaterCompositionClass2() {
+        $('.IWC').hide();
+        $('#tableAlekinWaterCompositionClass2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableKurlovFormula1() {
+        $('.IWC').hide();
+        $('#tableKurlovFormula1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableKurlovFormula2() {
+        $('.IWC').hide();
+        $('#tableKurlovFormula2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNH41() {
+        $('.TI').hide();
+        $('#tableNH41').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNH42() {
+        $('.TI').hide();
+        $('#tableNH42').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartNH41() {
+        $('.TI').hide();
+        $('#chartNH41').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartNH42() {
+        $('.TI').hide();
+        $('#chartNH42').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableNO21() {
+        $('.TI').hide();
+        $('#tableNO21').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNO22() {
+        $('.TI').hide();
+        $('#tableNO22').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartNO21() {
+        $('.TI').hide();
+        $('#chartNO21').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartNO22() {
+        $('.TI').hide();
+        $('#chartNO22').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableNO31() {
+        $('.TI').hide();
+        $('#tableNO31').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNO32() {
+        $('.TI').hide();
+        $('#tableNO32').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartNO31() {
+        $('.TI').hide();
+        $('#chartNO31').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartNO32() {
+        $('.TI').hide();
+        $('#chartNO32').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTablePPO41() {
+        $('.TI').hide();
+        $('#tablePPO41').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTablePPO42() {
+        $('.TI').hide();
+        $('#tablePPO42').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartPPO41() {
+        $('.TI').hide();
+        $('#chartPPO41').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartPPO42() {
+        $('.TI').hide();
+        $('#chartPPO42').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableCu1() {
+        $('.TI').hide();
+        $('#tableCu1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableCu2() {
+        $('.TI').hide();
+        $('#tableCu2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartCu1() {
+        $('.TI').hide();
+        $('#chartCu1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartCu2() {
+        $('.TI').hide();
+        $('#chartCu2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableZn1() {
+        $('.TI').hide();
+        $('#tableZn1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableZn2() {
+        $('.TI').hide();
+        $('#tableZn2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartZn1() {
+        $('.TI').hide();
+        $('#chartZn1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartZn2() {
+        $('.TI').hide();
+        $('#chartZn2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableMn1() {
+        $('.TI').hide();
+        $('#tableMn1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableMn2() {
+        $('.TI').hide();
+        $('#tableMn2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartMn1() {
+        $('.TI').hide();
+        $('#chartMn1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartMn2() {
+        $('.TI').hide();
+        $('#chartMn2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTablePb1() {
+        $('.TI').hide();
+        $('#tablePb1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTablePb2() {
+        $('.TI').hide();
+        $('#tablePb2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartPb1() {
+        $('.TI').hide();
+        $('#chartPb1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartPb2() {
+        $('.TI').hide();
+        $('#chartPb2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableNi1() {
+        $('.TI').hide();
+        $('#tableNi1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNi2() {
+        $('.TI').hide();
+        $('#tableNi2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartNi1() {
+        $('.TI').hide();
+        $('#chartNi1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartNi2() {
+        $('.TI').hide();
+        $('#chartNi2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableCd1() {
+        $('.TI').hide();
+        $('#tableCd1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableCd2() {
+        $('.TI').hide();
+        $('#tableCd2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartCd1() {
+        $('.TI').hide();
+        $('#chartCd1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartCd2() {
+        $('.TI').hide();
+        $('#chartCd2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableCo1() {
+        $('.TI').hide();
+        $('#tableCo1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableCo2() {
+        $('.TI').hide();
+        $('#tableCo2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartCo1() {
+        $('.TI').hide();
+        $('#chartCo1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartCo2() {
+        $('.TI').hide();
+        $('#chartCo2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+</script>

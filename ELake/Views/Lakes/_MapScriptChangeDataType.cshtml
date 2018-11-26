@@ -1,0 +1,784 @@
+﻿<script>
+    function SlideYear(year) {
+        $('#year').html(year);
+    };
+
+    function ChangeDataType() {
+        var year = $('#Year').val();
+        if ($('#DataType').val() == "WaterLevels") {
+            $.ajax({
+                url: '@Url.Action("GetWaterLevelsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.WaterLevel').show();
+        }
+        else if ($('#DataType').val() == "SurfaceFlows") {
+            $.ajax({
+                url: '@Url.Action("GetSurfaceFlowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.SurfaceFlow').show();
+        }
+        else if ($('#DataType').val() == "Precipitations") {
+            $.ajax({
+                url: '@Url.Action("GetPrecipitationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.Precipitation').show();
+        }
+        else if ($('#DataType').val() == "UndergroundFlows") {
+            $.ajax({
+                url: '@Url.Action("GetUndergroundFlowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.UndergroundFlow').show();
+        }
+        else if ($('#DataType').val() == "SurfaceOutflows") {
+            $.ajax({
+                url: '@Url.Action("GetSurfaceOutflowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.SurfaceOutflow').show();
+        }
+        else if ($('#DataType').val() == "Evaporations") {
+            $.ajax({
+                url: '@Url.Action("GetEvaporationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.Evaporation').show();
+        }
+        else if ($('#DataType').val() == "UndergroundOutflows") {
+            $.ajax({
+                url: '@Url.Action("GetUndergroundOutflowsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.UndergroundOutflow').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryMineralizations") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMineralizationsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMineralization').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryTotalHardnesss") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryTotalHardnesssStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryTotalHardness').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryDissOxygWaters") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryDissOxygWatersStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryDissOxygWater').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryPercentOxygWaters") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPercentOxygWatersStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPercentOxygWater').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistrypHs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistrypHsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistrypH').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryOrganicSubstancess") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryOrganicSubstancessStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryOrganicSubstances').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCas") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCasStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCa').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryMgs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMgsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMg').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNaKs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNaKsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNaK').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCls") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryClsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCl').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryHCOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryHCOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryHCO').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistrySOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistrySOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistrySO').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNHs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNHsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.WaterLevel').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNO2s") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNO2sStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNO2').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNO3s") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNO3sStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNO3').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryPPOs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPPOsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPPO').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCus") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCusStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCu').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryZns") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryZnsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryZn').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryMns") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryMnsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryMn').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryPbs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryPbsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryPb').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryNis") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryNisStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryNi').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCds") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCdsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCd').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCos") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCosStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCo').show();
+        }
+        else if ($('#DataType').val() == "HydrochemistryCIWPs") {
+            $.ajax({
+                url: '@Url.Action("GetHydrochemistryCIWPsStyleLink", "Layers")',
+                data: { Year: year, LayerId: @ViewBag.LakesLayer.Id },
+                type: 'POST',
+                success: function (data) {
+                    var Source_New = new ol.source.TileWMS({
+                        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?' + data,
+                        params: {
+                            'LAYERS': 'ELake:@ViewBag.LakesLayer.GeoServerName',
+                            'VERSION': '1.1.0',
+                            'FORMAT': 'image/png',
+                            'TILED': true
+                        },
+                        serverType: 'geoserver'
+                    });
+                    var l = map.getLayers().getArray()[1];
+                    l.setSource(Source_New);
+                },
+                error: function () {
+                }
+            });
+            $('.Legend').hide();
+            $('.HydrochemistryCIWP').show();
+        }
+    };
+</script>
