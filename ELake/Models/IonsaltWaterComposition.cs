@@ -236,11 +236,11 @@ namespace ELake.Models
                 }
                 else if (max2 - max3 > 5)
                 {
-                    return wclass1 + ", " + wclass2;
+                    return wclass1 + wclass2;
                 }
                 else
                 {
-                    return wclass1 + ", " + wclass2 + ", " + wclass3;
+                    return wclass1 + wclass2 + wclass3;
                 }
             }
         }
@@ -295,15 +295,15 @@ namespace ELake.Models
 
                 if (max1 - max2 > 5)
                 {
-                    return wgroup1;
+                    return "(" + wgroup1 + ")";
                 }
                 else if (max2 - max3 > 5)
                 {
-                    return wgroup1 + ", " + wgroup2;
+                    return "(" + wgroup1 + wgroup2 + ")";
                 }
                 else
                 {
-                    return wgroup1 + ", " + wgroup2 + ", " + wgroup3;
+                    return "(" + wgroup1 + wgroup2 + wgroup3 + ")";
                 }
             }
         }
@@ -333,6 +333,15 @@ namespace ELake.Models
                 {
                     return null;
                 }
+            }
+        }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "AlekinWaterCompositionClass")]
+        public string AlekinWaterCompositionClass
+        {
+            get
+            {
+                return $"{WaterClass}{Group}{WaterType}";
             }
         }
 

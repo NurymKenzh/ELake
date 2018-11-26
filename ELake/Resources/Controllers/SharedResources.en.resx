@@ -1081,13 +1081,13 @@
     <value>SO₄²⁻, sulphate anions,% eq</value>
   </data>
   <data name="CalciumGroup" xml:space="preserve">
-    <value>Calcium group</value>
+    <value>Cа</value>
   </data>
   <data name="Cd" xml:space="preserve">
     <value>Cd</value>
   </data>
   <data name="ChlorideClass" xml:space="preserve">
-    <value>Chloride class</value>
+    <value>Cl</value>
   </data>
   <data name="Co" xml:space="preserve">
     <value>Co</value>
@@ -1105,7 +1105,7 @@
     <value>Group</value>
   </data>
   <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
-    <value>Hydrocarbonate and carbonate class</value>
+    <value>C</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>IZV Cd</value>
@@ -1180,7 +1180,7 @@
     <value>The formula of chemical composition of water according to MG Kurlov</value>
   </data>
   <data name="MagnesiumGroup" xml:space="preserve">
-    <value>Magnesium group</value>
+    <value>Mg</value>
   </data>
   <data name="Mn" xml:space="preserve">
     <value>Mn</value>
@@ -1204,10 +1204,10 @@
     <value>PPO₄</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
-    <value>Sodium group</value>
+    <value>Na</value>
   </data>
   <data name="SulphateClass" xml:space="preserve">
-    <value>Sulphate class</value>
+    <value>S</value>
   </data>
   <data name="ToxicologicalIndicator" xml:space="preserve">
     <value>Toxicological indicator</value>
@@ -1216,16 +1216,16 @@
     <value>Toxicological indicators</value>
   </data>
   <data name="Type1" xml:space="preserve">
-    <value>Type I</value>
+    <value>I</value>
   </data>
   <data name="Type2" xml:space="preserve">
-    <value>Type II</value>
+    <value>II</value>
   </data>
   <data name="Type3" xml:space="preserve">
-    <value>Type III</value>
+    <value>III</value>
   </data>
   <data name="Type4" xml:space="preserve">
-    <value>Type IV</value>
+    <value>IV</value>
   </data>
   <data name="WaterClass" xml:space="preserve">
     <value>Water class</value>
@@ -1628,5 +1628,17 @@
   </data>
   <data name="Table" xml:space="preserve">
     <value>Table</value>
+  </data>
+  <data name="AlekinWaterCompositionClass" xml:space="preserve">
+    <value>Water composition class (according to O. A. Alekin)</value>
+  </data>
+  <data name="IonName" xml:space="preserve">
+    <value>Ion name</value>
+  </data>
+  <data name="IonUnit" xml:space="preserve">
+    <value>mg / dm³ /% eq / dm³</value>
+  </data>
+  <data name="MPCExceeding" xml:space="preserve">
+    <value>The ratio of exceeding the maximum permissible concentration</value>
   </data>
 </root>
