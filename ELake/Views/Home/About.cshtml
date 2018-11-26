@@ -5,102 +5,278 @@
     <h3>@ViewData["Message"]</h3>
 
     <p>Use this area to provide additional information.</p>*@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-9 mt-2">
-            <div class="d-block border-bottom border-primary p-2" style="background-color: #e3f2fd;">
-                <div class="col-md-4 ">
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-primary my-2 my-sm-0 btn-sm" type="submit">Search</button>
-                    </form>
+<head>
+    <!-- theme stylesheet-->
+    <link href="~/lib/distribution/css/style.green.css" rel="stylesheet" id="theme-stylesheet" />
+    <!-- Custom stylesheet - for your changes-->
+    <link href="~/lib/distribution/css/custom.css" rel="stylesheet" />
+</head>
+<div class="page">
+    <!-- Main Navbar-->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container-fluid">
+                <div class="navbar-holder d-flex align-items-center justify-content-between">
+                    <!-- Navbar Header-->
+                    <div class="navbar-header">
+                        <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
+                            <div class="brand-text d-none d-lg-inline-block"><span>Menu </span></div>
+                        </a><!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
+                    </div>
+                    <div class="col-md-auto ">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-primary my-2 my-sm-0 btn-sm" type="submit">Search</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4 bg-light" style="height: 400px;">
-                    <ul class="nav nav-pills nav-fill" id="pills-tab" role="tablist">
-                        <li class="nav-fill badge-light">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Menu 1</a>
+        </nav>
+    </header>
+    <div class="page-content d-flex align-items-stretch">
+        <!-- Side Navbar -->
+        <nav class="side-navbar">
+            <!-- Statistics -->
+            <div class="col-sm-auto">
+                <div class="statistic sidebar-header d-flex align-items-center bg-white has-shadow">
+
+                    <div class="icon bg-orange"><i class="fa fa-paper-plane-o"></i></div>
+                    <div class="title">
+                        <h1 class="h4">190</h1>
+                        <p>Результат</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
+            <div class="col-sm-auto">
+                <select multiple="" class="form-control">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                </select>
+            </div>
+            <ul class="list-unstyled">
+                <li class="active">
+                    <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-grid"></i>по КАТО </a>
+                    <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                        <li>
+                            <form>
+                                <div class="form-group mb-0 ml-2 mr-2">
+                                    <label class="form-control-label m-0">Область</label>
+                                    <select name="account" class="form-control form-control-sm">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group ml-2 mr-2">
+                                    <label class="form-control-label m-0">Район</label>
+                                    <select name="account" class="form-control form-control-sm">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                    </select>
+                                </div>
+                            </form>
                         </li>
-                        <li class="nav-fill badge-light">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Menu 2</a>
-                        </li>                        
                     </ul>
-                    <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-body">
-                            This is some text within a card body.
+                </li>
+                <li>
+                    <a href="#exampledropdownDropdown1" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-tasks"></i>по ВХБ</a>
+                    <ul id="exampledropdownDropdown1" class="collapse list-unstyled ">
+                        <li>
+                            <form>
+                                <div class="form-group m-2">
+                                    <label class="form-control-label">ВХБ</label>
+                                    <select name="account" class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                    </select>
+                                </div>
+                                <div class="form-group m-2">
+                                    <label class="form-control-label">ВХУ</label>
+                                    <select name="account" class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                        <option>option 3</option>
+                                        <option>option 4</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="charts.html"> <i class="fa fa-bar-chart"></i>Charts </a></li>
+                <li>
+                    <a href="#exampledropdownDropdown2" aria-expanded="false" data-toggle="collapse"> <i class="icon-grid"></i>Tables </a>
+                    <ul id="exampledropdownDropdown2" class="collapse list-unstyled ">
+                        <li><a href="#">Page</a></li>
+                        <li><a href="#">Page</a></li>
+                        <li><a href="#">Page</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <span class="heading">Extras</span>
+            <ul class="list-unstyled">
+                <li> <a href="#"> <i class="fa fa-tasks"></i>Demo </a></li>
+                <li> <a href="#"> <i class="fa fa-paper-plane-o"></i>Demo </a></li>
+                <li> <a href="#"> <i class="fa fa-paper-plane-o"></i>Demo </a></li>
+                <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+            </ul>
+        </nav>
+        <div class="content-inner">
+            <!-- Page Header-->
+            <!-- Charts Section-->
+            <section class="charts p-3">
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <!-- Line Charts-->
+                        <div class="col-lg-8">
+                            <div class="line-chart-example card">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">Map Example</h3>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="lineChartExample"></canvas>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-lg-4">
+                            <div class="line-chart-example card no-margin-bottom">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">Line Chart Example</h3>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="lineChartExample1"></canvas>
+                                </div>
+                            </div>
+                            <div class="line-chart-example card">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="lineChartExample2"></canvas>
+                                </div>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
-            </div>
-            <div class='mtabs mt-1'>
-                <input id="tab1" type="radio" name="tabs" checked>
-                <label for="tab1">По КАТО</label>
-                <input id="tab2" type="radio" name="tabs">
-                <label for="tab2">По ВХБ</label>
-                <input id="tab3" type="radio" name="tabs">
-                <label for="tab3">По Алфавиту</label>
-                <section id="content1">
-                    <p>
-                        Поиск по административным единицам:
-                    </p>
-                    <div class='about'>
-                        <label id='dlg-content' for="dialog_state"><i class="icon ion-ios-information"></i></label>
+            </section>            
+            <!-- Feeds Section-->
+            <section class="feeds no-padding-top p-3">
+                <div class="container-fluid p-0">
+                    <div class="row">
+                        <!-- Compact Table-->
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">Compact Table</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Username</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>1mdo</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>2fat</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>Larry</td>
+                                                    <td>the Bird</td>
+                                                    <td>3twitter      </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>4mdo</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>5fat</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>Larry</td>
+                                                    <td>the Bird</td>
+                                                    <td>6twitter      </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pie Chart -->
+                        <div class="col-lg-6">
+                            <div class="pie-chart-example card">
+                                <div class="card-close">
+                                    <div class="dropdown">
+                                        <button type="button" id="closeCard8" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                        <div aria-labelledby="closeCard8" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                                    </div>
+                                </div>
+                                <div class="card-header d-flex align-items-center">
+                                    <h3 class="h4">Pie  Chart Example</h3>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="pieChartExample"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div id='console'></div>
-                </section>
-
-                <section id="content2">
-                    <p>
-                        Поиск по водохозяйственному бассейну:
-                    </p>
-
-                </section>
-                <section id="content3">
-                    <p>
-                        Поиск по Алфавиту:
-                    </p>
-                </section>
-
-            </div>
-        </div>
-        <div class="col-md-3 mt-2">
-            <div class="card-header-pills">
-                <header class="d-block p-2" style="background-color: #fff3cd;">
-                    <a href="#" data-toggle="collapse" data-target="#collapse11" aria-expanded="true" class="">
-                        <i class="icon-action fa fa-chevron-down"></i>
-                        <span class="title">Heading of card </span>
-                    </a>
-                </header>
-                <div class="collapse show" id="collapse11" style="">
-                    <article class="card-body">
-                        1.	Определение длительности комфортного периода для экологического туризма, которое вычисляется путем наложения объектов слоя «Озера РК» с объектами слоя «Длительности комфортного периода для экологического туризма». По результатам операции вычисляется число комфортных дней для экологического туризма на озерах.
-                        2.	Определение длительности комфортного периода для экскурсионного туризма, которое вычисляется путем наложения объектов слоя «Озера РК» с объектами слоя «Длительности комфортного периода для экскурсионного туризма». По результатам операции вычисляется число комфортных дней для экскурсионного туризма на озерах.
-                        3.	Определение длительности комфортного периода для экскурсионного туризма, которое вычисляется путем наложения объектов слоя «Озера РК» с объектами слоя «Длительности комфортного периода для купально-пляжного туризма». По результатам операции вычисляется число комфортных дней для экскурсионного туризма на озерах
-
-                    </article> <!-- card-body.// -->
-                </div> <!-- collapse .// -->
-            </div> <!-- card.// -->
-            <div class="card-header-pills">
-                <header class="d-block p-2" style="background-color: #fff3cd;">
-                    <a href="#" data-toggle="collapse" data-target="#collapse22" aria-expanded="true" class="">
-                        <i class="icon-action fa fa-chevron-down"></i>
-                        <span class="title">Heading of card </span>
-                    </a>
-                </header>
-                <div class="collapse" id="collapse22" style="">
-                    <article class="card-body">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt deserunt mollit anim id est laborum.
-                    </article> <!-- card-body.// -->
-                </div> <!-- collapse .// -->
-            </div> <!-- card.// -->
+                </div>
+            </section>            
         </div>
     </div>
 </div>
+<!--/.container-->
+
+<!-- Main File-->
+<script src="~/js/front.js"></script>
