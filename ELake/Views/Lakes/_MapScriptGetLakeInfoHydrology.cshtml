@@ -1,0 +1,113 @@
+﻿<script>
+    function TableWB(data) {
+        var tablebody = $('#tablebodyWB');
+        tablebody.html('');
+        if (data.wbtable != null) {
+            for (var i = 0; i < data.wbtable.length; i++) {
+                var tr = $('<tr/>').appendTo(tablebody);
+                tr.append('<td>' + (data.wbtable[i].year != null ? data.wbtable[i].year : 0));
+                tr.append('<td>' + (data.wbtable[i].surfaceFlow != null ? data.wbtable[i].surfaceFlow : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+                tr.append('<td>' + (data.wbtable[i].precipitation != null ? data.wbtable[i].precipitation : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+                tr.append('<td>' + (data.wbtable[i].undergroundFlow != null ? data.wbtable[i].undergroundFlow : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+                tr.append('<td>' + (data.wbtable[i].waterBalanceReceipt != null ? data.wbtable[i].waterBalanceReceipt : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+                tr.append('<td>' + (data.wbtable[i].surfaceOutflow != null ? data.wbtable[i].surfaceOutflow : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+                tr.append('<td>' + (data.wbtable[i].evaporation != null ? data.wbtable[i].evaporation : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+                tr.append('<td>' + (data.wbtable[i].undergroundOutflow != null ? data.wbtable[i].undergroundOutflow : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+                tr.append('<td>' + (data.wbtable[i].waterBalanceExpenditure != null ? data.wbtable[i].waterBalanceExpenditure : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+                tr.append('<td>' + (data.wbtable[i].discrepancy != null ? data.wbtable[i].discrepancy : 0).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</td>');
+            }
+        }
+        $('.WB').hide();
+    }
+
+    var ChartWB = null,
+        dataWB;
+
+    function ChartWBX(data) {
+        var year = $('#chartWBYear').val();
+        var ctx1 = document.getElementById("chartWB").getContext('2d');
+        var dataSurfaceFlow = 0,
+            dataPrecipitation = 0,
+            dataUndergroundFlow = 0,
+            dataSurfaceOutflow = 0,
+            dataEvaporation = 0,
+            dataUndergroundOutflow = 0;
+        if (data.wbtable != null) {
+            for (var i = 0; i < data.wbtable.length; i++) {
+                if (data.wbtable[i].year == year) {
+                    dataSurfaceFlow = data.wbtable[i].surfaceFlow;
+                    dataPrecipitation = data.wbtable[i].precipitation;
+                    dataUndergroundFlow = data.wbtable[i].undergroundFlow;
+                    dataSurfaceOutflow = data.wbtable[i].surfaceOutflow;
+                    dataEvaporation = data.wbtable[i].evaporation;
+                    dataUndergroundOutflow = data.wbtable[i].undergroundOutflow;
+                }
+            }
+        }
+        if (ChartWB == null) {
+            ChartWB = new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            dataSurfaceFlow,
+                            dataPrecipitation,
+                            dataUndergroundFlow,
+                            dataSurfaceOutflow,
+                            dataEvaporation,
+                            dataUndergroundOutflow
+                        ],
+                        backgroundColor: [
+                            chartColorWBSurfaceFlow,
+                            chartColorWBPrecipitation,
+                            chartColorWBUndergroundFlow,
+                            chartColorWBSurfaceOutflow,
+                            chartColorWBEvaporation,
+                            chartColorWBUndergroundOutflow
+                        ]
+                    }],
+                    labels: [
+                        $('#HiddenSurfaceFlow').val(),
+                        $('#HiddenPrecipitation').val(),
+                        $('#HiddenUndergroundFlow').val(),
+                        $('#HiddenSurfaceOutflow').val(),
+                        $('#HiddenEvaporation').val(),
+                        $('#HiddenUndergroundOutflow').val()
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). '
+                    },
+                }
+            });
+        }
+        else {
+            ChartWB.config.data.datasets[0].data[0] = [dataSurfaceFlow];
+            ChartWB.config.data.datasets[0].data[1] = [dataPrecipitation];
+            ChartWB.config.data.datasets[0].data[2] = [dataUndergroundFlow];
+            ChartWB.config.data.datasets[0].data[3] = [dataSurfaceOutflow];
+            ChartWB.config.data.datasets[0].data[4] = [dataEvaporation];
+            ChartWB.config.data.datasets[0].data[5] = [dataUndergroundOutflow];
+            ChartWB.config.options.title.text = $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). ';
+            ChartWB.update();
+        }
+    }
+
+    function ShowTableWB() {
+        $('.WB').hide();
+        $('#tableWB').show();
+    }
+
+    function ShowChartWB() {
+        $('.WB').hide();
+        $('#chartWB').show();
+        $('#chartWBYear').show();
+    }
+
+    $('#chartWBYear').on('input', function () {
+        ChartWBX(dataWB, $('#chartWBYear').val());        
+    });
+</script>

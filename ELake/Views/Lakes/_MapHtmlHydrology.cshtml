@@ -1,0 +1,178 @@
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link href="~/lib/ol/ol.css" rel="stylesheet" />
+<script src="~/lib/ol/ol.js"></script>
+<script src="~/lib/chart.js/Chart.js"></script>
+<script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
+
+
+<section id="content2">
+    <input id="tabghi1" type="radio" name="wb" checked>
+    <label for="tabghi1">@SharedLocalizer["WaterBalances"]</label>
+    <input id="tabghi2" type="radio" name="wb">
+    <label for="tabghi2">@SharedLocalizer["WaterLevels"]</label>
+    <input id="tabghi3" type="radio" name="wb">
+    <label for="tabghi3">@SharedLocalizer["BathigraphicAndVolumetricCurveDatas"]</label>
+    <section id="contentghi1">
+        <h3>@SharedLocalizer["WaterBalances"]</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @SharedLocalizer["Indicator"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["Value"]
+                    </th>
+                    <th>
+                        %
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        @SharedLocalizer["WaterBalanceReceipt"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["SurfaceFlow"]
+                    </td>
+                    <td id="SurfaceFlow"></td>
+                    <td id="SurfaceFlowPer"></td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["UndergroundFlow"]
+                    </td>
+                    <td id="UndergroundFlow"></td>
+                    <td id="UndergroundFlowPer"></td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["Precipitation"]
+                    </td>
+                    <td id="Precipitation"></td>
+                    <td id="PrecipitationPer"></td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["Total"]
+                    </td>
+                    <td id="WaterBalanceReceipt"></td>
+                    <td id="WaterBalanceReceiptPer"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @SharedLocalizer["WaterBalanceExpenditure"]
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["SurfaceOutflow"]
+                    </td>
+                    <td id="SurfaceOutflow"></td>
+                    <td id="SurfaceOutflowPer"></td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["UndergroundOutflow"]
+                    </td>
+                    <td id="UndergroundOutflow"></td>
+                    <td id="UndergroundOutflowPer"></td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["Evaporation"]
+                    </td>
+                    <td id="Evaporation"></td>
+                    <td id="EvaporationPer"></td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["Total"]
+                    </td>
+                    <td id="WaterBalanceExpenditure"></td>
+                    <td id="WaterBalanceExpenditurePer"></td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["Discrepancy"]
+                    </td>
+                    <td id="Discrepancy"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p onclick="ShowTableWB()" class="link">
+                            <font size="2" color="blue">
+                                @SharedLocalizer["Table"]
+                            </font>
+                        </p>
+                        <p onclick="ShowChartWB()" class="link">
+                            <font size="2" color="blue">
+                                @SharedLocalizer["Chart"]
+                            </font>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        @* Tables, charts *@
+        <table id="tableWB" class="WB table">
+            <thead>
+                <tr>
+                    <th rowspan="2">
+                        @SharedLocalizer["Year"]
+                    </th>
+                    <th colspan="4">
+                        @SharedLocalizer["WaterBalanceReceipt"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["WaterBalanceExpenditure"]
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th rowspan="2">
+                        @SharedLocalizer["Discrepancy"]
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        @SharedLocalizer["SurfaceFlow"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["Precipitation"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["UndergroundFlow"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["Total"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["SurfaceOutflow"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["Evaporation"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["UndergroundOutflow"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["Total"]
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tablebodyWB"></tbody>
+        </table>
+        <canvas id="chartWB" class="WB" width="400" height="200"></canvas>
+        <input id="chartWBYear" class="WB" type="range" style="width: 100%;" value="0" />
+    </section>
+</section>

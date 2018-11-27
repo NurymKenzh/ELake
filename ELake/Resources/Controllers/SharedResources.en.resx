@@ -1641,4 +1641,7 @@
   <data name="MPCExceeding" xml:space="preserve">
     <value>The ratio of exceeding the maximum permissible concentration</value>
   </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
 </root>

@@ -39,7 +39,7 @@ namespace ELake.Models
         {
             get
             {
-                return SurfaceFlow ?? 0 + UndergroundFlow ?? 0 + Precipitation;
+                return (SurfaceFlow ?? 0) + (UndergroundFlow ?? 0) + Precipitation;
             }
         }
 
@@ -48,7 +48,7 @@ namespace ELake.Models
         {
             get
             {
-                return SurfaceOutflow ?? 0  + UndergroundOutflow ?? 0 + Evaporation;
+                return (SurfaceOutflow ?? 0)  + (UndergroundOutflow ?? 0) + Evaporation;
             }
         }
 
@@ -58,6 +58,134 @@ namespace ELake.Models
             get
             {
                 return WaterBalanceReceipt - WaterBalanceExpenditure;
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal SurfaceFlowPer
+        {
+            get
+            {
+                if(WaterBalanceReceipt!=0)
+                {
+                    return (SurfaceFlow ?? 0) / WaterBalanceReceipt * 100;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal UndergroundFlowPer
+        {
+            get
+            {
+                if(WaterBalanceReceipt!=0)
+                {
+                    return (UndergroundFlow ?? 0) / WaterBalanceReceipt * 100;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal PrecipitationPer
+        {
+            get
+            {
+                if (WaterBalanceReceipt != 0)
+                {
+                    return Precipitation / WaterBalanceReceipt * 100;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal SurfaceOutflowPer
+        {
+            get
+            {
+                if (WaterBalanceExpenditure != 0)
+                {
+                    return (SurfaceOutflow ?? 0) / WaterBalanceExpenditure * 100;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal UndergroundOutflowPer
+        {
+            get
+            {
+                if (WaterBalanceExpenditure != 0)
+                {
+                    return (UndergroundOutflow ?? 0) / WaterBalanceExpenditure * 100;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal EvaporationPer
+        {
+            get
+            {
+                if (WaterBalanceExpenditure != 0)
+                {
+                    return Evaporation / WaterBalanceExpenditure * 100;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal WaterBalanceReceiptPer
+        {
+            get
+            {
+                if (WaterBalanceReceipt != 0)
+                {
+                    return WaterBalanceReceipt / WaterBalanceReceipt * 100;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal WaterBalanceExpenditurePer
+        {
+            get
+            {
+                if (WaterBalanceExpenditure != 0)
+                {
+                    return WaterBalanceExpenditure / WaterBalanceExpenditure * 100;
+                }
+                else
+                {
+                    return 0;
+                }
             }
         }
     }

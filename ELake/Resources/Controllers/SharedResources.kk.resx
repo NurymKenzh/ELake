@@ -1641,4 +1641,7 @@
   <data name="MPCExceeding" xml:space="preserve">
     <value>Шекті рұқсат етілген шоғырланудан асып кету коэффициенті</value>
   </data>
+  <data name="Total" xml:space="preserve">
+    <value>Барлығы</value>
+  </data>
 </root>

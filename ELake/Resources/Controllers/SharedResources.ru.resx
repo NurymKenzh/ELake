@@ -1641,4 +1641,7 @@
   <data name="MPCExceeding" xml:space="preserve">
     <value>Кратность превышения ПДК</value>
   </data>
+  <data name="Total" xml:space="preserve">
+    <value>Всего</value>
+  </data>
 </root>

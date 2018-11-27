@@ -13,6 +13,7 @@
 <script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
 
 @*<input type="button" name="Text" value="VTest" onclick="Test()" />*@
+@*<input type="text" id="Test" />*@
 <div class="container-fluid" id="maindiv">
     <div class="row">
         <div class="col-md-9">
@@ -122,7 +123,7 @@
                         <dd class="col-sm-7 text-right" id="Latitude"></dd>
                     </dl>
                 </section>
-                <section id="content2"></section>
+                @await Html.PartialAsync("_MapHtmlHydrology")
                 @await Html.PartialAsync("_MapHtmlHydrochemistries")
                 <section id="content4"></section>
             </div>
@@ -137,6 +138,13 @@
     <input id="LakeName" type="hidden" value='@ViewBag.LakeName' />
     <input id="ViewBagLakeId" type="hidden" value='@ViewBag.LakeId' />
     <input id="Found" type="hidden" value='@SharedLocalizer["Found"]' />
+    <input id="WaterBalance" type="hidden" value='@SharedLocalizer["WaterBalance"]' />
+    <input id="HiddenSurfaceFlow" type="hidden" value='@SharedLocalizer["SurfaceFlow"]' />
+    <input id="HiddenPrecipitation" type="hidden" value='@SharedLocalizer["Precipitation"]' />
+    <input id="HiddenUndergroundFlow" type="hidden" value='@SharedLocalizer["UndergroundFlow"]' />
+    <input id="HiddenSurfaceOutflow" type="hidden" value='@SharedLocalizer["SurfaceOutflow"]' />
+    <input id="HiddenEvaporation" type="hidden" value='@SharedLocalizer["Evaporation"]' />
+    <input id="HiddenUndergroundOutflow" type="hidden" value='@SharedLocalizer["UndergroundOutflow"]' />
     <input id="Mineralization" type="hidden" value='@SharedLocalizer["Mineralization"]' />
     <input id="MineralizationType" type="hidden" value='@SharedLocalizer["MineralizationType"]' />
     <input id="TotalHardness" type="hidden" value='@SharedLocalizer["TotalHardness"]' />
@@ -319,7 +327,13 @@
 </script>
 @* Get lake info *@
 <script>
-    var chartColorGHIMineralization = 'rgba(255,99,132,1)',
+    var chartColorWBSurfaceFlow = 'rgba(85,255,0,1)',
+        chartColorWBPrecipitation = 'rgba(0,197,255,1)',
+        chartColorWBUndergroundFlow = 'rgba(255,127,127,1)',
+        chartColorWBSurfaceOutflow = 'rgba(255,255,0,1)',
+        chartColorWBEvaporation = 'rgba(223,115,255,1)',
+        chartColorWBUndergroundOutflow = 'rgba(0,255,197,1)',
+        chartColorGHIMineralization = 'rgba(255,99,132,1)',
         chartColorGHITotalHardness = 'rgba(99,255,132,1)',
         chartColorGHIDissOxygWater = 'rgba(36,85,200,1)',
         chartColorGHIPercentOxygWater = 'rgba(243,99,73,1)',
@@ -364,6 +378,203 @@
                 }
                 $('.FreshPart').hide();
                 $('.SaltyPart').hide();
+                // Водный баланс
+                $('#SurfaceFlow').text('');
+                $('#SurfaceFlowPer').text('');
+                $('#UndergroundFlow').text('');
+                $('#UndergroundFlowPer').text('');
+                $('#Precipitation').text('');
+                $('#PrecipitationPer').text('');
+                $('#WaterBalanceExpenditure').text('');
+                $('#WaterBalanceExpenditurePer').text('');
+                $('#SurfaceOutflow').text('');
+                $('#SurfaceOutflowPer').text('');
+                $('#UndergroundOutflow').text('');
+                $('#UndergroundOutflowPer').text('');
+                $('#Evaporation').text('');
+                $('#EvaporationPer').text('');
+                $('#Discrepancy').text('');
+                if (data.wbtable != null) {
+                    var SurfaceFlow = 0,
+                        SurfaceFlowPer = 0,
+                        UndergroundFlow = 0,
+                        UndergroundFlowPer = 0,
+                        Precipitation = 0,
+                        PrecipitationPer = 0,
+                        WaterBalanceReceipt = 0,
+                        WaterBalanceReceiptPer = 0,
+                        WaterBalanceExpenditure = 0,
+                        WaterBalanceExpenditurePer = 0,
+                        SurfaceOutflow = 0,
+                        SurfaceOutflowPer = 0,
+                        UndergroundOutflow = 0,
+                        UndergroundOutflowPer = 0,
+                        Evaporation = 0,
+                        EvaporationPer = 0,
+                        Discrepancy = 0,
+
+                        SurfaceFlowCount = 0,
+                        SurfaceFlowPerCount = 0,
+                        UndergroundFlowCount = 0,
+                        UndergroundFlowPerCount = 0,
+                        PrecipitationCount = 0,
+                        PrecipitationPerCount = 0,
+                        WaterBalanceReceiptCount = 0,
+                        WaterBalanceReceiptPerCount = 0,
+                        WaterBalanceExpenditureCount = 0,
+                        WaterBalanceExpenditurePerCount = 0,
+                        SurfaceOutflowCount = 0,
+                        SurfaceOutflowPerCount = 0,
+                        UndergroundOutflowCount = 0,
+                        UndergroundOutflowPerCount = 0,
+                        EvaporationCount = 0,
+                        EvaporationPerCount = 0,
+                        DiscrepancyCount = 0;
+                    for (i = 0; i < data.wbtable.length; i++) {
+                        if (data.wbtable[i].surfaceFlow != null) {
+                            SurfaceFlow += data.wbtable[i].surfaceFlow;
+                            SurfaceFlowCount++;
+                        }
+                        if (data.wbtable[i].surfaceFlowPer != null) {
+                            SurfaceFlowPer += data.wbtable[i].surfaceFlowPer;
+                            SurfaceFlowPerCount++;
+                        }
+                        if (data.wbtable[i].undergroundFlow != null) {
+                            UndergroundFlow += data.wbtable[i].undergroundFlow;
+                            UndergroundFlowCount++;
+                        }
+                        if (data.wbtable[i].undergroundFlowPer != null) {
+                            UndergroundFlowPer += data.wbtable[i].undergroundFlowPer;
+                            UndergroundFlowPerCount++;
+                        }
+                        if (data.wbtable[i].precipitation != null) {
+                            Precipitation += data.wbtable[i].precipitation;
+                            PrecipitationCount++;
+                        }
+                        if (data.wbtable[i].precipitationPer != null) {
+                            PrecipitationPer += data.wbtable[i].precipitationPer;
+                            PrecipitationPerCount++;
+                        }
+                        if (data.wbtable[i].waterBalanceReceipt != null) {
+                            WaterBalanceReceipt += data.wbtable[i].waterBalanceReceipt;
+                            WaterBalanceReceiptCount++;
+                        }
+                        if (data.wbtable[i].waterBalanceReceiptPer != null) {
+                            WaterBalanceReceiptPer += data.wbtable[i].waterBalanceReceiptPer;
+                            WaterBalanceReceiptPerCount++;
+                        }
+                        if (data.wbtable[i].waterBalanceExpenditure != null) {
+                            WaterBalanceExpenditure += data.wbtable[i].waterBalanceExpenditure;
+                            WaterBalanceExpenditureCount++;
+                        }
+                        if (data.wbtable[i].waterBalanceExpenditurePer != null) {
+                            WaterBalanceExpenditurePer += data.wbtable[i].waterBalanceExpenditurePer;
+                            WaterBalanceExpenditurePerCount++;
+                        }
+                        if (data.wbtable[i].surfaceOutflow != null) {
+                            SurfaceOutflow += data.wbtable[i].surfaceOutflow;
+                            SurfaceOutflowCount++;
+                        }
+                        if (data.wbtable[i].surfaceOutflowPer != null) {
+                            SurfaceOutflowPer += data.wbtable[i].surfaceOutflowPer;
+                            SurfaceOutflowPerCount++;
+                        }
+                        if (data.wbtable[i].undergroundOutflow != null) {
+                            UndergroundOutflow += data.wbtable[i].undergroundOutflow;
+                            UndergroundOutflowCount++;
+                        }
+                        if (data.wbtable[i].undergroundOutflowPer != null) {
+                            UndergroundOutflowPer += data.wbtable[i].undergroundOutflowPer;
+                            UndergroundOutflowPerCount++;
+                        }
+                        if (data.wbtable[i].evaporation != null) {
+                            Evaporation += data.wbtable[i].evaporation;
+                            EvaporationCount++;
+                        }
+                        if (data.wbtable[i].evaporationPer != null) {
+                            EvaporationPer += data.wbtable[i].evaporationPer;
+                            EvaporationPerCount++;
+                        }
+                        if (data.wbtable[i].discrepancy != null) {
+                            Discrepancy += data.wbtable[i].discrepancy;
+                            DiscrepancyCount++;
+                        }
+                    }
+                    if (SurfaceFlowCount > 0) {
+                        SurfaceFlow /= SurfaceFlowCount;
+                    }
+                    if (SurfaceFlowPerCount > 0) {
+                        SurfaceFlowPer /= SurfaceFlowPerCount;
+                    }
+                    if (UndergroundFlowCount > 0) {
+                        UndergroundFlow /= UndergroundFlowCount;
+                    }
+                    if (UndergroundFlowPerCount > 0) {
+                        UndergroundFlowPer /= UndergroundFlowPerCount;
+                    }
+                    if (PrecipitationCount > 0) {
+                        Precipitation /= PrecipitationCount;
+                    }
+                    if (PrecipitationPerCount > 0) {
+                        PrecipitationPer /= PrecipitationPerCount;
+                    }
+                    if (WaterBalanceReceiptCount > 0) {
+                        WaterBalanceReceipt /= WaterBalanceReceiptCount;
+                    }
+                    if (WaterBalanceReceiptPerCount > 0) {
+                        WaterBalanceReceiptPer /= WaterBalanceReceiptPerCount;
+                    }
+                    if (WaterBalanceExpenditureCount > 0) {
+                        WaterBalanceExpenditure /= WaterBalanceExpenditureCount;
+                    }
+                    if (WaterBalanceExpenditurePerCount > 0) {
+                        WaterBalanceExpenditurePer /= WaterBalanceExpenditurePerCount;
+                    }
+                    if (SurfaceOutflowCount > 0) {
+                        SurfaceOutflow /= SurfaceOutflowCount;
+                    }
+                    if (SurfaceOutflowPerCount > 0) {
+                        SurfaceOutflowPer /= SurfaceOutflowPerCount;
+                    }
+                    if (UndergroundOutflowCount > 0) {
+                        UndergroundOutflow /= UndergroundOutflowCount;
+                    }
+                    if (UndergroundOutflowPerCount > 0) {
+                        UndergroundOutflowPer /= UndergroundOutflowPerCount;
+                    }
+                    if (EvaporationCount > 0) {
+                        Evaporation /= EvaporationCount;
+                    }
+                    if (EvaporationPerCount > 0) {
+                        EvaporationPer /= EvaporationPerCount;
+                    }
+                    if (DiscrepancyCount > 0) {
+                        Discrepancy /= DiscrepancyCount;
+                    }
+                    $('#SurfaceFlow').text(SurfaceFlow.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#SurfaceFlowPer').text(SurfaceFlowPer.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#UndergroundFlow').text(UndergroundFlow.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#UndergroundFlowPer').text(UndergroundFlowPer.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#Precipitation').text(Precipitation.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#PrecipitationPer').text(PrecipitationPer.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#WaterBalanceReceipt').text(WaterBalanceReceipt.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#WaterBalanceReceiptPer').text(WaterBalanceReceiptPer.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#WaterBalanceExpenditure').text(WaterBalanceExpenditure.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#WaterBalanceExpenditurePer').text(WaterBalanceExpenditurePer.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#SurfaceOutflow').text(SurfaceOutflow.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#SurfaceOutflowPer').text(SurfaceOutflowPer.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#UndergroundOutflow').text(UndergroundOutflow.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#UndergroundOutflowPer').text(UndergroundOutflowPer.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#Evaporation').text(Evaporation.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#EvaporationPer').text(EvaporationPer.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                    $('#Discrepancy').text(Discrepancy.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+                }
+                TableWB(data);
+                $('#chartWBYear').attr('min', data.wbtable[0].year);
+                $('#chartWBYear').attr('max', data.wbtable[data.wbtable.length - 1].year);
+                $('#chartWBYear').val(data.wbtable.length > 0 ? data.wbtable[0].year : 0);
+                ChartWBX(data);
+                dataWB = data;
                 // Общие гидрохимические показатели
                 $('#YearMineralization1').text('');
                 $('#Mineralization1').text('');
@@ -777,9 +988,10 @@
         });
     }
 </script>
-@await Html.PartialAsync("_MapScriptChangeDataType")
-@* ChangeDataType, SlideYear, ChangeYear *@
 @await Html.PartialAsync("_MapScriptGetLakeInfoHydrochemistries")
+@await Html.PartialAsync("_MapScriptGetLakeInfoHydrology")
+@* ChangeDataType, SlideYear, ChangeYear *@
+@await Html.PartialAsync("_MapScriptChangeDataType")
 @*Map onclick*@
 <script>
     map.on('singleclick', function (evt) {

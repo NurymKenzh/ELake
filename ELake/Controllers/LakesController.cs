@@ -456,6 +456,18 @@ namespace ELake.Controllers
                     .OrderBy(i => i.Year)
                     .ToArray();
             }
+            // Водный баланс
+            WaterBalance[] wbtable = null;
+            if (LakeId > 0 && _context.WaterBalance.Count(w => w.LakeId == LakeId) > 0)
+            {
+                List<WaterBalance> wbs = _context.WaterBalance
+                    .Where(w => w.LakeId == LakeId)
+                    .ToList();
+                wbtable = _context.WaterBalance
+                    .Where(w => w.LakeId == LakeId)
+                    .OrderBy(w => w.Year)
+                    .ToArray();
+            }
             return Json(new
             {
                 // Основная информация об озере
@@ -473,7 +485,9 @@ namespace ELake.Controllers
                 iwctable2,
                 // Токсикологические показатели
                 titable1,
-                titable2
+                titable2,
+                // Водный баланс
+                wbtable
             });
         }
 
