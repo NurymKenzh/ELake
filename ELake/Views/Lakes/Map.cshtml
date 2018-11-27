@@ -139,6 +139,8 @@
     <input id="ViewBagLakeId" type="hidden" value='@ViewBag.LakeId' />
     <input id="Found" type="hidden" value='@SharedLocalizer["Found"]' />
     <input id="WaterBalance" type="hidden" value='@SharedLocalizer["WaterBalance"]' />
+    <input id="WaterLevel" type="hidden" value='@SharedLocalizer["WaterLevel"]' />
+    <input id="WaterLavelM" type="hidden" value='@SharedLocalizer["WaterLavelM"]' />
     <input id="HiddenSurfaceFlow" type="hidden" value='@SharedLocalizer["SurfaceFlow"]' />
     <input id="HiddenPrecipitation" type="hidden" value='@SharedLocalizer["Precipitation"]' />
     <input id="HiddenUndergroundFlow" type="hidden" value='@SharedLocalizer["UndergroundFlow"]' />
@@ -333,6 +335,7 @@
         chartColorWBSurfaceOutflow = 'rgba(255,255,0,1)',
         chartColorWBEvaporation = 'rgba(223,115,255,1)',
         chartColorWBUndergroundOutflow = 'rgba(0,255,197,1)',
+        chartColorGHIwaterLavelM = 'rgba(0,128,192,1)',
         chartColorGHIMineralization = 'rgba(255,99,132,1)',
         chartColorGHITotalHardness = 'rgba(99,255,132,1)',
         chartColorGHIDissOxygWater = 'rgba(36,85,200,1)',
@@ -570,11 +573,15 @@
                     $('#Discrepancy').text(Discrepancy.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                 }
                 TableWB(data);
-                $('#chartWBYear').attr('min', data.wbtable[0].year);
-                $('#chartWBYear').attr('max', data.wbtable[data.wbtable.length - 1].year);
-                $('#chartWBYear').val(data.wbtable.length > 0 ? data.wbtable[0].year : 0);
-                ChartWBX(data);
-                dataWB = data;
+                if (data.wbtable != null) {
+                    $('#chartWBYear').attr('min', data.wbtable.length > 0 ? data.wbtable[0].year : 0);
+                    $('#chartWBYear').attr('max', data.wbtable.length > 0 ? data.wbtable[data.wbtable.length - 1].year : 0);
+                    $('#chartWBYear').val(data.wbtable.length > 0 ? data.wbtable[0].year : 0);
+                    ChartWBX(data);
+                    dataWB = data;
+                }
+                // Уровни воды озер
+                ChartWLX(data);
                 // Общие гидрохимические показатели
                 $('#YearMineralization1').text('');
                 $('#Mineralization1').text('');

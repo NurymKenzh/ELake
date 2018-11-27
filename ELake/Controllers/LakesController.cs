@@ -468,6 +468,18 @@ namespace ELake.Controllers
                     .OrderBy(w => w.Year)
                     .ToArray();
             }
+            // Уровни воды озер
+            WaterLevel[] wltable = null;
+            if (LakeId > 0 && _context.WaterLevel.Count(w => w.LakeId == LakeId) > 0)
+            {
+                List<WaterLevel> wbs = _context.WaterLevel
+                    .Where(w => w.LakeId == LakeId)
+                    .ToList();
+                wltable = _context.WaterLevel
+                    .Where(w => w.LakeId == LakeId)
+                    .OrderBy(w => w.Year)
+                    .ToArray();
+            }
             return Json(new
             {
                 // Основная информация об озере
@@ -487,7 +499,9 @@ namespace ELake.Controllers
                 titable1,
                 titable2,
                 // Водный баланс
-                wbtable
+                wbtable,
+                // Уровни воды озер
+                wltable
             });
         }
 

@@ -21,7 +21,8 @@
     }
 
     var ChartWB = null,
-        dataWB;
+        dataWB,
+        ChartWL = null;
 
     function ChartWBX(data) {
         var year = $('#chartWBYear').val();
@@ -94,6 +95,62 @@
             ChartWB.config.options.title.text = $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). ';
             ChartWB.update();
         }
+    }
+
+    function ChartWLX(data) {
+        if (ChartWL != null) {
+            ChartWL.destroy();
+        }
+        var ctx1 = document.getElementById("chartWL").getContext('2d');
+        var data1 = [];
+        if (data.wltable != null) {
+            for (var i = 0; i < data.wltable.length; i++) {
+                if (data.wltable[i].waterLavelM != null) {
+                    data1.push({
+                        'x': data.wltable[i].year,
+                        'y': data.wltable[i].waterLavelM
+                    });
+                }
+            }
+        }
+        ChartWL = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#WaterLavelM').val(),
+                    data: data1,
+                    backgroundColor: chartColorGHIwaterLavelM,
+                    borderColor: chartColorGHIwaterLavelM,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterLevel').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#WaterLavelM').val()
+                        }
+                    }]
+                }
+            }
+        });
     }
 
     function ShowTableWB() {
