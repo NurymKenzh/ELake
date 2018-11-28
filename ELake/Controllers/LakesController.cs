@@ -480,6 +480,18 @@ namespace ELake.Controllers
                     .OrderBy(w => w.Year)
                     .ToArray();
             }
+            // Данные по батиграфической и объемной кривой
+            BathigraphicAndVolumetricCurveData[] bavcdtable = null;
+            if (LakeId > 0 && _context.BathigraphicAndVolumetricCurveData.Count(w => w.LakeId == LakeId) > 0)
+            {
+                List<BathigraphicAndVolumetricCurveData> bavcds = _context.BathigraphicAndVolumetricCurveData
+                    .Where(w => w.LakeId == LakeId)
+                    .ToList();
+                bavcdtable = _context.BathigraphicAndVolumetricCurveData
+                    .Where(w => w.LakeId == LakeId)
+                    .OrderBy(w => w.WaterLevel)
+                    .ToArray();
+            }
             return Json(new
             {
                 // Основная информация об озере
@@ -501,7 +513,9 @@ namespace ELake.Controllers
                 // Водный баланс
                 wbtable,
                 // Уровни воды озер
-                wltable
+                wltable,
+                // Данные по батиграфической и объемной кривой
+                bavcdtable
             });
         }
 

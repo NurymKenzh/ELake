@@ -22,7 +22,8 @@
 
     var ChartWB = null,
         dataWB,
-        ChartWL = null;
+        ChartWL = null,
+        ChartBAVCD = null;
 
     function ChartWBX(data) {
         var year = $('#chartWBYear').val();
@@ -148,6 +149,97 @@
                             labelString: $('#WaterLavelM').val()
                         }
                     }]
+                }
+            }
+        });
+    }
+
+    function ChartBAVCDX(data) {
+        if (ChartBAVCD != null) {
+            ChartBAVCD.destroy();
+        }
+        var ctx = document.getElementById('chartBAVCD').getContext('2d');
+        var data1 = [],
+            data2 = [];
+        if (data.bavcdtable != null) {
+            for (var i = 0; i < data.bavcdtable.length; i++) {
+                if (data.bavcdtable[i].lakeArea != null) {
+                    data1.push({
+                        x: data.bavcdtable[i].lakeArea,
+                        y: data.bavcdtable[i].waterLevel
+                    });
+                    data2.push({
+                        x: data.bavcdtable[i].waterMassVolume,
+                        y: data.bavcdtable[i].waterLevel
+                    });
+                }
+            }
+        }
+        ChartBAVCD = Chart.Scatter(ctx, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#LakeArea').val(),
+                    xAxisID: 'x-axis-1',
+                    yAxisID: 'y-axis-1',
+                    borderColor: chartColorBAVCDLakeArea,
+                    backgroundColor: chartColorBAVCDLakeArea,
+                    borderWidth: 1,
+                    showLine: true,
+                    fill: false,
+                    data: data1,
+                    lineTension: 0
+                }, {
+                    label: $('#WaterMassVolume').val(),
+                    xAxisID: 'x-axis-2',
+                    yAxisID: 'y-axis-1',
+                    borderColor: chartColorBAVCDWaterMassVolume,
+                    backgroundColor: chartColorBAVCDWaterMassVolume,
+                    borderWidth: 1,
+                    showLine: true,
+                    fill: false,
+                    data: data2,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#BathigraphicAndVolumetricCurveData').val()
+                },
+                scales: {
+                    xAxes: [{
+                        position: 'top',
+                        id: 'x-axis-1',
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#LakeArea').val()
+                        }
+                    }, {
+                        id: 'x-axis-2',
+                        type: 'linear',
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#WaterMassVolume').val()
+                        }
+                    }],
+                    yAxes: [{
+                        type: 'linear',
+                        position: 'left',
+                        id: 'y-axis-1',
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#WaterLevel').val()
+                        }
+                    }],
                 }
             }
         });
