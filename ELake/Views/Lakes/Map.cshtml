@@ -184,6 +184,9 @@
     <input id="LostPermanent" type="hidden" value='@SharedLocalizer["LostPermanent"]' />
     <input id="LostSeasonal" type="hidden" value='@SharedLocalizer["LostSeasonal"]' />
     <input id="EphemeralSeasonal" type="hidden" value='@SharedLocalizer["EphemeralSeasonal"]' />
+    <input id="WaterMonthsPresence" type="hidden" value='@SharedLocalizer["WaterMonthsPresence"]' />
+    <input id="Seasonalit" type="hidden" value='@SharedLocalizer["Seasonalit"]' />
+    <input id="Month" type="hidden" value='@SharedLocalizer["Month"]' />
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -379,7 +382,8 @@
         chartColorTrPermanentToDeasonal = 'rgba(0,255,197,1)',
         chartColorTrLostPermanent = 'rgba(255,167,127,1)',
         chartColorTrLostSeasonal = 'rgba(115,178,255,1)',
-        chartColorTrEphemeralSeasonal = 'rgba(255,190,232,1)';
+        chartColorTrEphemeralSeasonal = 'rgba(255,190,232,1)',
+        chartColorWaterMonthsPresence = 'rgba(0,0,255,1)';
     var twoparts = false;
 
     function GetLakeInfo(LakeId) {
@@ -1029,6 +1033,8 @@
                 //}
                 // Изменение состояние воды
                 ChartTransitionX(data);
+                // Присутствие воды в месяцах
+                ChartSeasonalitX(data);
             },
             error: function () {
             }
@@ -1039,6 +1045,7 @@
 @await Html.PartialAsync("_MapScriptGetLakeInfoHydrology")
 @await Html.PartialAsync("_MapScriptGetLakeInfoDynamicsLakeAreas")
 @await Html.PartialAsync("_MapScriptGetLakeInfoTransition")
+@await Html.PartialAsync("_MapScriptGetLakeInfoSeasonalit")
 @* ChangeDataType, SlideYear, ChangeYear *@
 @await Html.PartialAsync("_MapScriptChangeDataType")
 @*Map onclick*@

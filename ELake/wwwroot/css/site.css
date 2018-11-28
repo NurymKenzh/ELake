@@ -359,9 +359,9 @@ input:checked + label {
 }
 
 
-#tabghy1:checked ~ #contentghy1,
-#tabghy2:checked ~ #contentghy2,
-#tabghy3:checked ~ #contentghy3 {
+#tabghi1:checked ~ #contentghi1,
+#tabghi2:checked ~ #contentghi2,
+#tabghi3:checked ~ #contentghi3 {
     display: block;
 }
 #tabhy1:checked ~ #contenthy1,

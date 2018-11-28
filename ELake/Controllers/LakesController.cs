@@ -502,6 +502,13 @@ namespace ELake.Controllers
                 transition = _context.Transition
                     .FirstOrDefault(w => w.LakeId == LakeId);
             }
+            // Присутствие воды в месяцах
+            Seasonalit seasonalit = null;
+            if (LakeId > 0 && _context.Seasonalit.Count(w => w.LakeId == LakeId) > 0)
+            {
+                seasonalit = _context.Seasonalit
+                    .FirstOrDefault(w => w.LakeId == LakeId);
+            }
             return Json(new
             {
                 // Основная информация об озере
@@ -527,8 +534,10 @@ namespace ELake.Controllers
                 // Данные по батиграфической и объемной кривой
                 bavcdtable,
                 // Изменение состояние воды
-                transition
-            });
+                transition,
+                // Присутствие воды в месяцах
+                seasonalit
+        });
         }
 
         [Authorize(Roles = "Administrator, Moderator")]

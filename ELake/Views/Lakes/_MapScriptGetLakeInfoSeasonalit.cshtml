@@ -1,0 +1,99 @@
+﻿<script>
+    var ChartSeasonalit = null;
+
+    function ChartSeasonalitX(data) {
+        if (ChartSeasonalit != null) {
+            ChartSeasonalit.destroy();
+        }
+        var ctx1 = document.getElementById("chartSeasonalit").getContext('2d');
+        var data1 = [];
+        if (data.seasonalit != null) {
+            data1.push({
+                'x': 1,
+                'y': data.seasonalit.january
+            });
+            data1.push({
+                'x': 2,
+                'y': data.seasonalit.february
+            });
+            data1.push({
+                'x': 3,
+                'y': data.seasonalit.march
+            });
+            data1.push({
+                'x': 4,
+                'y': data.seasonalit.april
+            });
+            data1.push({
+                'x': 5,
+                'y': data.seasonalit.may
+            });
+            data1.push({
+                'x': 6,
+                'y': data.seasonalit.june
+            });
+            data1.push({
+                'x': 7,
+                'y': data.seasonalit.july
+            });
+            data1.push({
+                'x': 8,
+                'y': data.seasonalit.august
+            });
+            data1.push({
+                'x': 9,
+                'y': data.seasonalit.september
+            });
+            data1.push({
+                'x': 10,
+                'y': data.seasonalit.october
+            });
+            data1.push({
+                'x': 11,
+                'y': data.seasonalit.november
+            });
+            data1.push({
+                'x': 12,
+                'y': data.seasonalit.december
+            });
+        }
+        ChartSeasonalit = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#WaterMonthsPresence').val(),
+                    data: data1,
+                    backgroundColor: chartColorWaterMonthsPresence,
+                    borderColor: chartColorWaterMonthsPresence,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterMonthsPresence').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Month').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Seasonalit').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+</script>
