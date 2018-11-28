@@ -1,0 +1,59 @@
+﻿<script>
+    var ChartTransition = null;
+
+    function ChartTransitionX(data) {
+        if (ChartTransition != null) {
+            ChartTransition.destroy();
+        }
+        var ctx1 = document.getElementById("chartTransition").getContext('2d');
+        if (data.transition != null) {
+            ChartWB = new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            data.transition.permanent,
+                            data.transition.newPermanent,
+                            data.transition.seasonalToPermanent,
+                            data.transition.seasonal,
+                            data.transition.newSeasonal,
+                            data.transition.permanentToDeasonal,
+                            data.transition.lostPermanent,
+                            data.transition.lostSeasonal,
+                            data.transition.ephemeralSeasonal
+                        ],
+                        backgroundColor: [
+                            chartColorTrPermanent,
+                            chartColorTrNewPermanent,
+                            chartColorTrSeasonalToPermanent,
+                            chartColorTrSeasonal,
+                            chartColorTrNewSeasonal,
+                            chartColorTrPermanentToDeasonal,
+                            chartColorTrLostPermanent,
+                            chartColorTrLostSeasonal,
+                            chartColorTrEphemeralSeasonal
+                        ]
+                    }],
+                    labels: [
+                        $('#Permanent').val(),
+                        $('#NewPermanent').val(),
+                        $('#SeasonalToPermanent').val(),
+                        $('#Seasonal').val(),
+                        $('#NewSeasonal').val(),
+                        $('#PermanentToDeasonal').val(),
+                        $('#LostPermanent').val(),
+                        $('#LostSeasonal').val(),
+                        $('#EphemeralSeasonal').val()
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#ChangeWaterCondition').val()
+                    },
+                }
+            });
+        }
+    }
+</script>

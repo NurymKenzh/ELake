@@ -1644,4 +1644,19 @@
   <data name="Total" xml:space="preserve">
     <value>Всего</value>
   </data>
+  <data name="ChangeWaterCondition" xml:space="preserve">
+    <value>Изменение состояние воды</value>
+  </data>
+  <data name="MaximumWater" xml:space="preserve">
+    <value>Максимальная вода</value>
+  </data>
+  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
+    <value>Динамика площадей постоянной и сезонной воды</value>
+  </data>
+  <data name="WaterFrequency" xml:space="preserve">
+    <value>Повторяемость воды</value>
+  </data>
+  <data name="WaterMonthsPresence" xml:space="preserve">
+    <value>Присутствие воды в месяцах</value>
+  </data>
 </root>

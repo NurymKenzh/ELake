@@ -95,6 +95,8 @@
                 <label for="tab3">@SharedLocalizer["Hydrochemistries"]</label>
                 <input id="tab4" type="radio" name="tabs">
                 <label for="tab4">@SharedLocalizer["Hydrobiology"]</label>
+                <input id="tab5" type="radio" name="tabs">
+                <label for="tab5">@SharedLocalizer["DynamicsLakeAreas"]</label>
                 <section id="content1">
                     <dl class="row">
                         <dt class="col-sm-5">
@@ -126,6 +128,7 @@
                 @await Html.PartialAsync("_MapHtmlHydrology")
                 @await Html.PartialAsync("_MapHtmlHydrochemistries")
                 <section id="content4"></section>
+                @await Html.PartialAsync("_MapHtmlDynamicsLakeAreas")
             </div>
         </div>
     </div>
@@ -171,6 +174,16 @@
     <input id="Ni" type="hidden" value='@SharedLocalizer["Ni"]' />
     <input id="Cd" type="hidden" value='@SharedLocalizer["Cd"]' />
     <input id="Co" type="hidden" value='@SharedLocalizer["Co"]' />
+    <input id="ChangeWaterCondition" type="hidden" value='@SharedLocalizer["ChangeWaterCondition"]' />
+    <input id="Permanent" type="hidden" value='@SharedLocalizer["Permanent"]' />
+    <input id="NewPermanent" type="hidden" value='@SharedLocalizer["NewPermanent"]' />
+    <input id="SeasonalToPermanent" type="hidden" value='@SharedLocalizer["SeasonalToPermanent"]' />
+    <input id="Seasonal" type="hidden" value='@SharedLocalizer["Seasonal"]' />
+    <input id="NewSeasonal" type="hidden" value='@SharedLocalizer["NewSeasonal"]' />
+    <input id="PermanentToDeasonal" type="hidden" value='@SharedLocalizer["PermanentToDeasonal"]' />
+    <input id="LostPermanent" type="hidden" value='@SharedLocalizer["LostPermanent"]' />
+    <input id="LostSeasonal" type="hidden" value='@SharedLocalizer["LostSeasonal"]' />
+    <input id="EphemeralSeasonal" type="hidden" value='@SharedLocalizer["EphemeralSeasonal"]' />
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -357,7 +370,16 @@
         chartColorTIPb = 'rgba(255,99,132,1)',
         chartColorTINi = 'rgba(255,99,132,1)',
         chartColorTICd = 'rgba(255,99,132,1)',
-        chartColorTICo = 'rgba(255,99,132,1)';
+        chartColorTICo = 'rgba(255,99,132,1)',
+        chartColorTrPermanent = 'rgba(85,255,0,1)',
+        chartColorTrNewPermanent = 'rgba(0,197,255,1)',
+        chartColorTrSeasonalToPermanent = 'rgba(255,127,127,1)',
+        chartColorTrSeasonal = 'rgba(255,255,0,1)',
+        chartColorTrNewSeasonal = 'rgba(223,115,255,1)',
+        chartColorTrPermanentToDeasonal = 'rgba(0,255,197,1)',
+        chartColorTrLostPermanent = 'rgba(255,167,127,1)',
+        chartColorTrLostSeasonal = 'rgba(115,178,255,1)',
+        chartColorTrEphemeralSeasonal = 'rgba(255,190,232,1)';
     var twoparts = false;
 
     function GetLakeInfo(LakeId) {
@@ -996,6 +1018,17 @@
                 ChartCd(data);
                 TableCo(data);
                 ChartCo(data);
+                // Переходы
+                //ChartPASD1X(data);
+                //if (data.wbtable != null) {
+                //    //$('#chartWBYear').attr('min', data.wbtable.length > 0 ? data.wbtable[0].year : 0);
+                //    //$('#chartWBYear').attr('max', data.wbtable.length > 0 ? data.wbtable[data.wbtable.length - 1].year : 0);
+                //    //$('#chartWBYear').val(data.wbtable.length > 0 ? data.wbtable[0].year : 0);
+                //    ChartPASD1X(data);
+                //    dataWB = data;
+                //}
+                // Изменение состояние воды
+                ChartTransitionX(data);
             },
             error: function () {
             }
@@ -1004,6 +1037,8 @@
 </script>
 @await Html.PartialAsync("_MapScriptGetLakeInfoHydrochemistries")
 @await Html.PartialAsync("_MapScriptGetLakeInfoHydrology")
+@await Html.PartialAsync("_MapScriptGetLakeInfoDynamicsLakeAreas")
+@await Html.PartialAsync("_MapScriptGetLakeInfoTransition")
 @* ChangeDataType, SlideYear, ChangeYear *@
 @await Html.PartialAsync("_MapScriptChangeDataType")
 @*Map onclick*@

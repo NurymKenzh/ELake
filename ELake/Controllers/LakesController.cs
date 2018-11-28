@@ -460,9 +460,6 @@ namespace ELake.Controllers
             WaterBalance[] wbtable = null;
             if (LakeId > 0 && _context.WaterBalance.Count(w => w.LakeId == LakeId) > 0)
             {
-                List<WaterBalance> wbs = _context.WaterBalance
-                    .Where(w => w.LakeId == LakeId)
-                    .ToList();
                 wbtable = _context.WaterBalance
                     .Where(w => w.LakeId == LakeId)
                     .OrderBy(w => w.Year)
@@ -472,9 +469,6 @@ namespace ELake.Controllers
             WaterLevel[] wltable = null;
             if (LakeId > 0 && _context.WaterLevel.Count(w => w.LakeId == LakeId) > 0)
             {
-                List<WaterLevel> wbs = _context.WaterLevel
-                    .Where(w => w.LakeId == LakeId)
-                    .ToList();
                 wltable = _context.WaterLevel
                     .Where(w => w.LakeId == LakeId)
                     .OrderBy(w => w.Year)
@@ -484,13 +478,29 @@ namespace ELake.Controllers
             BathigraphicAndVolumetricCurveData[] bavcdtable = null;
             if (LakeId > 0 && _context.BathigraphicAndVolumetricCurveData.Count(w => w.LakeId == LakeId) > 0)
             {
-                List<BathigraphicAndVolumetricCurveData> bavcds = _context.BathigraphicAndVolumetricCurveData
-                    .Where(w => w.LakeId == LakeId)
-                    .ToList();
                 bavcdtable = _context.BathigraphicAndVolumetricCurveData
                     .Where(w => w.LakeId == LakeId)
                     .OrderBy(w => w.WaterLevel)
                     .ToArray();
+            }
+            // Переходы
+            //Transition[] trtable = null;
+            //if (LakeId > 0 && _context.Transition.Count(w => w.LakeId == LakeId) > 0)
+            //{
+            //    List<Transition> trs = _context.Transition
+            //        .Where(w => w.LakeId == LakeId)
+            //        .ToList();
+            //    trtable = _context.Transition
+            //        .Where(w => w.LakeId == LakeId)
+            //        .OrderBy(w => w.)
+            //        .ToArray();
+            //}
+            // Изменение состояние воды
+            Transition transition = null;
+            if (LakeId > 0 && _context.Transition.Count(w => w.LakeId == LakeId) > 0)
+            {
+                transition = _context.Transition
+                    .FirstOrDefault(w => w.LakeId == LakeId);
             }
             return Json(new
             {
@@ -515,7 +525,9 @@ namespace ELake.Controllers
                 // Уровни воды озер
                 wltable,
                 // Данные по батиграфической и объемной кривой
-                bavcdtable
+                bavcdtable,
+                // Изменение состояние воды
+                transition
             });
         }
 

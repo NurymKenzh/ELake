@@ -1,0 +1,29 @@
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link href="~/lib/ol/ol.css" rel="stylesheet" />
+<script src="~/lib/ol/ol.js"></script>
+<script src="~/lib/chart.js/Chart.js"></script>
+<script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
+
+<section id="content5">
+    <input id="tabdla1" type="radio" name="dla" checked>
+    <label for="tabdla1">@SharedLocalizer["PermanentAndSeasonalDynamics"]</label>
+    <input id="tabdla2" type="radio" name="dla">
+    <label for="tabdla2">@SharedLocalizer["WaterFrequency"]</label>
+    <input id="tabdla3" type="radio" name="dla">
+    <label for="tabdla3">@SharedLocalizer["ChangeWaterCondition"]</label>
+    <input id="tabdla4" type="radio" name="dla">
+    <label for="tabdla4">@SharedLocalizer["WaterMonthsPresence"]</label>
+    <section id="contentdla1">
+        @* Charts *@
+        <canvas id="chartPASD1" class="PASD" width="400" height="200"></canvas>
+    </section>
+    <section id="contentdla2">
+        @* Charts *@
+        <canvas id="chartTransition" class="Transition" width="400" height="200"></canvas>
+    </section>
+    <section id="contentdla3"></section>
+    <section id="contentdla4"></section>
+</section>

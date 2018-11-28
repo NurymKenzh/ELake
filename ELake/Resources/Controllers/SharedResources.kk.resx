@@ -1644,4 +1644,19 @@
   <data name="Total" xml:space="preserve">
     <value>Барлығы</value>
   </data>
+  <data name="ChangeWaterCondition" xml:space="preserve">
+    <value>Судың күйін өзгерту</value>
+  </data>
+  <data name="MaximumWater" xml:space="preserve">
+    <value>Ең көп су</value>
+  </data>
+  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
+    <value>Тұрақты және маусымдық судың аудандарының динамикасы</value>
+  </data>
+  <data name="WaterFrequency" xml:space="preserve">
+    <value>Су жиілігі</value>
+  </data>
+  <data name="WaterMonthsPresence" xml:space="preserve">
+    <value>Бір айда судың болуы</value>
+  </data>
 </root>

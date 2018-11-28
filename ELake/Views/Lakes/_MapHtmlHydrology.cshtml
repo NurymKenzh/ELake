@@ -8,13 +8,13 @@
 <script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
 
 <section id="content2">
-    <input id="tabghi1" type="radio" name="wb" checked>
-    <label for="tabghi1">@SharedLocalizer["WaterBalances"]</label>
-    <input id="tabghi2" type="radio" name="wb">
-    <label for="tabghi2">@SharedLocalizer["WaterLevels"]</label>
-    <input id="tabghi3" type="radio" name="wb">
-    <label for="tabghi3">@SharedLocalizer["BathigraphicAndVolumetricCurveDatas"]</label>
-    <section id="contentghi1">
+    <input id="tabhy1" type="radio" name="wb" checked>
+    <label for="tabhy1">@SharedLocalizer["WaterBalances"]</label>
+    <input id="tabhy2" type="radio" name="wb">
+    <label for="tabhy2">@SharedLocalizer["WaterLevels"]</label>
+    <input id="tabhy3" type="radio" name="wb">
+    <label for="tabhy3">@SharedLocalizer["BathigraphicAndVolumetricCurveDatas"]</label>
+    <section id="contenthy1">
         <h3>@SharedLocalizer["WaterBalances"]</h3>
         <table class="table">
             <thead>
@@ -174,11 +174,11 @@
         <canvas id="chartWB" class="WB" width="400" height="200"></canvas>
         <input id="chartWBYear" class="WB" type="range" style="width: 100%;" value="0" />
     </section>
-    <section id="contentghi2">
+    <section id="contenthy2">
         @* Charts *@
         <canvas id="chartWL" class="WL" width="400" height="200"></canvas>
     </section>
-    <section id="contentghi3">
+    <section id="contenthy3">
         @* Charts *@
         <canvas id="chartBAVCD" class="BAVCD" width="400" height="200"></canvas>
     </section>

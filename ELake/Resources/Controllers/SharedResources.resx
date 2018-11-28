@@ -1644,4 +1644,19 @@
   <data name="Total" xml:space="preserve">
     <value />
   </data>
+  <data name="ChangeWaterCondition" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MaximumWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterFrequency" xml:space="preserve">
+    <value />
+  </data>
+  <data name="WaterMonthsPresence" xml:space="preserve">
+    <value />
+  </data>
 </root>

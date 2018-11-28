@@ -45,6 +45,33 @@ namespace ELake.Models
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "EphemeralSeasonal")]
         public decimal EphemeralSeasonal { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "MaximumWater")]
+        public decimal MaximumWater
+        {
+            get
+            {
+                return Seasonal + Permanent;
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal PermanentPer
+        {
+            get
+            {
+                return Permanent / MaximumWater;
+            }
+        }
+
+        [Display(Name = "%")]
+        public decimal SeasonalPer
+        {
+            get
+            {
+                return Seasonal / MaximumWater;
+            }
+        }
     }
 
     public class TransitionIndexPageViewModel
