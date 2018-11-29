@@ -886,6 +886,11 @@
             </thead>
             <tbody>
                 <tr>
+                    <td colspan="5">
+                        @SharedLocalizer["Nutrients"]
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         @SharedLocalizer["NH4"]
                     </td>
@@ -963,6 +968,11 @@
                                 @SharedLocalizer["Chart"]
                             </font>
                         </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        @SharedLocalizer["HeavyMetals"]
                     </td>
                 </tr>
                 <tr>
@@ -1105,6 +1115,35 @@
                         </p>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="5">
+                        @SharedLocalizer["KIZVDegree"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["Year"]
+                    </td>
+                    <td colspan="3">
+                        @SharedLocalizer["KIZV"]
+                    </td>
+                </tr>
+                <tr>
+                    <td id="YearKIZV1"></td>
+                    <td id="KIZV1" colspan="3"></td>
+                    <td>
+                        <p onclick="ShowTableKIZV1()" class="link">
+                            <font size="2" color="blue">
+                                @SharedLocalizer["Table"]
+                            </font>
+                        </p>
+                        <p onclick="ShowChartKIZV1()" class="link">
+                            <font size="2" color="blue">
+                                @SharedLocalizer["Chart"]
+                            </font>
+                        </p>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
@@ -1129,6 +1168,11 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td colspan="5">
+                        @SharedLocalizer["Nutrients"]
+                    </td>
+                </tr>
                 <tr>
                     <td>
                         @SharedLocalizer["NH4"]
@@ -1207,6 +1251,11 @@
                                 @SharedLocalizer["Chart"]
                             </font>
                         </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        @SharedLocalizer["HeavyMetals"]
                     </td>
                 </tr>
                 <tr>
@@ -1349,6 +1398,35 @@
                         </p>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="5">
+                        @SharedLocalizer["KIZVDegree"]
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @SharedLocalizer["Year"]
+                    </td>
+                    <td colspan="3">
+                        @SharedLocalizer["KIZV"]
+                    </td>
+                </tr>
+                <tr>
+                    <td id="YearKIZV2"></td>
+                    <td id="KIZV2" colspan="3"></td>
+                    <td>
+                        <p onclick="ShowTableKIZV2()" class="link">
+                            <font size="2" color="blue">
+                                @SharedLocalizer["Table"]
+                            </font>
+                        </p>
+                        <p onclick="ShowChartKIZV2()" class="link">
+                            <font size="2" color="blue">
+                                @SharedLocalizer["Chart"]
+                            </font>
+                        </p>
+                    </td>
+                </tr>
             </tbody>
         </table>
         @* Tables, charts *@
@@ -1364,7 +1442,7 @@
                         @SharedLocalizer["NH4"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVNH4"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1382,7 +1460,7 @@
                         @SharedLocalizer["NO2"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVNO2"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1400,7 +1478,7 @@
                         @SharedLocalizer["NO3"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVNO3"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1418,7 +1496,7 @@
                         @SharedLocalizer["PPO4"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVPPO4"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1436,7 +1514,7 @@
                         @SharedLocalizer["Cu"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVCu"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1454,7 +1532,7 @@
                         @SharedLocalizer["Zn"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVZn"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1472,7 +1550,7 @@
                         @SharedLocalizer["Mn"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVMn"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1490,7 +1568,7 @@
                         @SharedLocalizer["Pb"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVPb"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1508,7 +1586,7 @@
                         @SharedLocalizer["Ni"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVNi"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1526,7 +1604,7 @@
                         @SharedLocalizer["Cd"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVCd"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1544,13 +1622,28 @@
                         @SharedLocalizer["Co"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVCo"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
             <tbody id="tablebodyCo1"></tbody>
         </table>
         <canvas id="chartCo1" class="TI" width="400" height="200"></canvas>
+
+        <table id="tableKIZV1" class="TI table">
+            <thead>
+                <tr>
+                    <th>
+                        @SharedLocalizer["Year"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["KIZV"]
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tablebodyKIZV1"></tbody>
+        </table>
+        <canvas id="chartKIZV1" class="TI" width="400" height="200"></canvas>
 
         <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
 
@@ -1564,7 +1657,7 @@
                         @SharedLocalizer["NH4"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVNH4"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1582,7 +1675,7 @@
                         @SharedLocalizer["NO2"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVNO2"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1600,7 +1693,7 @@
                         @SharedLocalizer["NO3"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVNO3"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1618,7 +1711,7 @@
                         @SharedLocalizer["PPO4"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVPPO4"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1636,7 +1729,7 @@
                         @SharedLocalizer["Cu"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVCu"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1654,7 +1747,7 @@
                         @SharedLocalizer["Zn"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVZn"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1672,7 +1765,7 @@
                         @SharedLocalizer["Mn"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVMn"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1690,7 +1783,7 @@
                         @SharedLocalizer["Pb"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVPb"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1708,7 +1801,7 @@
                         @SharedLocalizer["Ni"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVNi"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1726,7 +1819,7 @@
                         @SharedLocalizer["Cd"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVCd"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
@@ -1744,12 +1837,27 @@
                         @SharedLocalizer["Co"]
                     </th>
                     <th>
-                        @SharedLocalizer["IZVCo"]
+                        @SharedLocalizer["MPCExceeding"]
                     </th>
                 </tr>
             </thead>
             <tbody id="tablebodyCo2"></tbody>
         </table>
         <canvas id="chartCo2" class="TI" width="400" height="200"></canvas>
+
+        <table id="tableKIZV2" class="TI table">
+            <thead>
+                <tr>
+                    <th>
+                        @SharedLocalizer["Year"]
+                    </th>
+                    <th>
+                        @SharedLocalizer["KIZV"]
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tablebodyKIZV2"></tbody>
+        </table>
+        <canvas id="chartKIZV2" class="TI" width="400" height="200"></canvas>
     </section>
 </section>

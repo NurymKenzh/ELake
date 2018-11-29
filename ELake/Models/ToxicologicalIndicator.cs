@@ -312,12 +312,12 @@ namespace ELake.Models
             }
         }
 
-        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "KIZVs")]
-        public string KIZVs
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "KIZV")]
+        public decimal KIZV
         {
             get
             {
-                decimal KIZV = (KIZVkoNH4 ?? 0) +
+                return (KIZVkoNH4 ?? 0) +
                     (KIZVkoNO2 ?? 0) +
                     (KIZVkoNO3 ?? 0) +
                     (KIZVkoPPO4 ?? 0) +
@@ -327,7 +327,15 @@ namespace ELake.Models
                     (KIZVkoPb ?? 0) +
                     (KIZVkoNi ?? 0) +
                     (KIZVkoCd ?? 0) +
-                    (KIZVkoCo ?? 0);
+                    (KIZVkoCo ?? 0); ;
+            }
+        }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "KIZVs")]
+        public string KIZVs
+        {
+            get
+            {
                 if(KIZV<=2)
                 {
                     return Resources.Controllers.SharedResources.Regulatory;

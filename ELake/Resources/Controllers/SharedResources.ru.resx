@@ -1659,6 +1659,15 @@
   <data name="WaterMonthsPresence" xml:space="preserve">
     <value>Присутствие воды в месяцах</value>
   </data>
+  <data name="HeavyMetals" xml:space="preserve">
+    <value>Тяжелые металлы</value>
+  </data>
+  <data name="KIZVDegree" xml:space="preserve">
+    <value>Степень загрязнения водных объектов по КИЗВ с учетом класса опасности</value>
+  </data>
+  <data name="Nutrients" xml:space="preserve">
+    <value>Биогенные вещества</value>
+  </data>
   <data name="Source" xml:space="preserve">
     <value>Источник</value>
   </data>

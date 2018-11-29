@@ -13,7 +13,7 @@
 <script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
 
 @*<input type="button" name="Text" value="VTest" onclick="Test()" />*@
-<input type="text" id="Test" />
+@*<input type="text" id="Test" />*@
 <div class="container-fluid" id="maindiv">
     <div class="row">
         <div class="col-md-9">
@@ -174,6 +174,7 @@
     <input id="Ni" type="hidden" value='@SharedLocalizer["Ni"]' />
     <input id="Cd" type="hidden" value='@SharedLocalizer["Cd"]' />
     <input id="Co" type="hidden" value='@SharedLocalizer["Co"]' />
+    <input id="KIZV" type="hidden" value='@SharedLocalizer["KIZV"]' />
     <input id="ChangeWaterCondition" type="hidden" value='@SharedLocalizer["ChangeWaterCondition"]' />
     <input id="Permanent" type="hidden" value='@SharedLocalizer["Permanent"]' />
     <input id="NewPermanent" type="hidden" value='@SharedLocalizer["NewPermanent"]' />
@@ -519,6 +520,7 @@
         chartColorTINi = 'rgba(255,99,132,1)',
         chartColorTICd = 'rgba(255,99,132,1)',
         chartColorTICo = 'rgba(255,99,132,1)',
+        chartColorTIKIZV = 'rgba(150,200,132,1)',
         chartColorTrPermanent = 'rgba(85,255,0,1)',
         chartColorTrNewPermanent = 'rgba(0,197,255,1)',
         chartColorTrSeasonalToPermanent = 'rgba(255,127,127,1)',
@@ -596,7 +598,6 @@
                 $('#LakeWaterMass').text();
                 $('#ArchivalInfoSource').text();
                 if (data.lakesArchiveData != null) {
-                    $('#Test').val(Object.keys(data.lakesArchiveData));
                     $('#SurveyYear').text(data.lakesArchiveData.surveyYear);
                     $('#LakeLength').text(data.lakesArchiveData.lakeLength);
                     $('#LakeShorelineLength').text(data.lakesArchiveData.lakeShorelineLength);
@@ -1097,6 +1098,10 @@
                 $('#YearCo2').text('');
                 $('#Co2').text('');
                 $('#IZVCo2').text('');
+                $('#YearKIZV1').text('');
+                $('#KIZV1').text('');
+                $('#YearKIZV2').text('');
+                $('#KIZV2').text('');
                 if (data.titable1 != null) {
                     for (i = 0; i < data.titable1.length; i++) {
                         if (data.titable1[i].nH4 != null) {
@@ -1153,6 +1158,10 @@
                             $('#YearCo1').text(data.titable1[i].year);
                             $('#Co1').text(data.titable1[i].co);
                             $('#IZVCo1').text((data.titable1[i].izvCo != null ? data.titable1[i].izvCo.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].kizv != null) {
+                            $('#KIZV1').text((data.titable1[i].kizv != null ? data.titable1[i].kizv.toFixed(2) : null));
+                            $('#YearKIZV1').text(data.titable1[i].year);
                         }
                     }
                 }
@@ -1213,6 +1222,10 @@
                             $('#Co2').text(data.titable2[i].co);
                             $('#IZVCo2').text((data.titable2[i].izvCo != null ? data.titable2[i].izvCo.toFixed(2) : null));
                         }
+                        if (data.titable2[i].kizv != null) {
+                            $('#KIZV2').text((data.titable2[i].kizv != null ? data.titable2[i].kizv.toFixed(2) : null));
+                            $('#YearKIZV2').text(data.titable2[i].year);
+                        }
                     }
                 }
                 TableNH4(data);
@@ -1237,6 +1250,8 @@
                 ChartCd(data);
                 TableCo(data);
                 ChartCo(data);
+                TableKIZV(data);
+                ChartKIZV(data);
                 // Переходы
                 //ChartPASD1X(data);
                 //if (data.wbtable != null) {

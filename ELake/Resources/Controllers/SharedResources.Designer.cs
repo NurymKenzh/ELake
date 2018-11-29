@@ -1449,6 +1449,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string HeavyMetals {
+            get {
+                return ResourceManager.GetString("HeavyMetals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string HighPollution {
             get {
                 return ResourceManager.GetString("HighPollution", resourceCulture);
@@ -1965,6 +1974,15 @@ namespace ELake.Resources.Controllers {
         public static string KIZV {
             get {
                 return ResourceManager.GetString("KIZV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVDegree {
+            get {
+                return ResourceManager.GetString("KIZVDegree", resourceCulture);
             }
         }
         
@@ -3063,6 +3081,15 @@ namespace ELake.Resources.Controllers {
         public static string Number {
             get {
                 return ResourceManager.GetString("Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Nutrients {
+            get {
+                return ResourceManager.GetString("Nutrients", resourceCulture);
             }
         }
         

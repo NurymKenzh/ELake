@@ -186,6 +186,13 @@
                                 <th scope="col">
                                     <div class="form-row align-items-center">
                                         <div class="col-auto my-2">
+                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().KIZV)
+                                        </div>
+                                    </div>
+                                </th>
+                                <th scope="col">
+                                    <div class="form-row align-items-center">
+                                        <div class="col-auto my-2">
                                             @Html.DisplayNameFor(b => b.Items.FirstOrDefault().KIZVs)
                                         </div>
                                     </div>
@@ -216,6 +223,7 @@
                             <td>@Html.DisplayFor(modelItem => item.Ni)</td>
                             <td>@Html.DisplayFor(modelItem => item.Cd)</td>
                             <td>@Html.DisplayFor(modelItem => item.Co)</td>
+                            <td>@Html.DisplayFor(modelItem => item.KIZV)</td>
                             <td>@Html.DisplayFor(modelItem => item.KIZVs)</td>
                             <td>
                                 <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
