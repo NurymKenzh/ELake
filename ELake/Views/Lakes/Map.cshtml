@@ -1163,6 +1163,10 @@
                             $('#KIZV1').text((data.titable1[i].kizv != null ? data.titable1[i].kizv.toFixed(2) : null));
                             $('#YearKIZV1').text(data.titable1[i].year);
                         }
+                        if (data.titable1[i].nutrientsHeavyMetalsStandard != null) {
+                            $("#NutrientsHeavyMetalsStandardLink1").prop("href", window.location.origin + "/NutrientsHeavyMetalsStandards/Details/" + data.titable1[i].nutrientsHeavyMetalsStandard.id);
+                            $("#RegulatoryDocumentLink1").prop("href", window.location.origin + "/RegulatoryDocuments/Details/" + data.titable1[i].nutrientsHeavyMetalsStandard.regulatoryDocument.id);
+                        }
                     }
                 }
                 if (data.titable2 != null) {
@@ -1225,6 +1229,10 @@
                         if (data.titable2[i].kizv != null) {
                             $('#KIZV2').text((data.titable2[i].kizv != null ? data.titable2[i].kizv.toFixed(2) : null));
                             $('#YearKIZV2').text(data.titable2[i].year);
+                        }
+                        if (data.titable2[i].nutrientsHeavyMetalsStandard != null) {
+                            $("#NutrientsHeavyMetalsStandardLink2").prop("href", window.location.origin + "/NutrientsHeavyMetalsStandards/Details/" + data.titable2[i].nutrientsHeavyMetalsStandard.id);
+                            $("#RegulatoryDocumentLink2").prop("href", window.location.origin + "/RegulatoryDocuments/Details/" + data.titable2[i].nutrientsHeavyMetalsStandard.regulatoryDocument.id);
                         }
                     }
                 }
