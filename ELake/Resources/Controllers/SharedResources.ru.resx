@@ -1671,4 +1671,19 @@
   <data name="Source" xml:space="preserve">
     <value>Источник</value>
   </data>
+  <data name="DynamicsLakeArea" xml:space="preserve">
+    <value>Динамика площадей озера</value>
+  </data>
+  <data name="NoWater" xml:space="preserve">
+    <value>Нет воды, км²</value>
+  </data>
+  <data name="PermanentWaterArea" xml:space="preserve">
+    <value>Площадь постоянной воды, км²</value>
+  </data>
+  <data name="SeasonalWaterArea" xml:space="preserve">
+    <value>Площадь сезонной воды, км²</value>
+  </data>
+  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, нет данных, нет воды, площадь сезонной воды, площадь постоянной воды</value>
+  </data>
 </root>

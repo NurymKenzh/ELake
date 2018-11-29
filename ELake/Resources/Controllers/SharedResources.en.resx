@@ -1671,4 +1671,19 @@
   <data name="Source" xml:space="preserve">
     <value>Source</value>
   </data>
+  <data name="DynamicsLakeArea" xml:space="preserve">
+    <value>Dynamics of lake areas</value>
+  </data>
+  <data name="NoWater" xml:space="preserve">
+    <value>No water, km²</value>
+  </data>
+  <data name="PermanentWaterArea" xml:space="preserve">
+    <value>Area of permanent water, km²</value>
+  </data>
+  <data name="SeasonalWaterArea" xml:space="preserve">
+    <value>Area of seasonal water, km²</value>
+  </data>
+  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, year, no data, no water, seasonal water area, constant water area</value>
+  </data>
 </root>

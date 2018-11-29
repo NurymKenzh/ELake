@@ -1671,4 +1671,19 @@
   <data name="Source" xml:space="preserve">
     <value />
   </data>
+  <data name="DynamicsLakeArea" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NoWater" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PermanentWaterArea" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SeasonalWaterArea" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

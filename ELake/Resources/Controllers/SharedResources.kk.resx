@@ -1671,4 +1671,19 @@
   <data name="Source" xml:space="preserve">
     <value>Көзі</value>
   </data>
+  <data name="DynamicsLakeArea" xml:space="preserve">
+    <value>Көл аймағының динамикасы</value>
+  </data>
+  <data name="NoWater" xml:space="preserve">
+    <value>Су жоқ, км²</value>
+  </data>
+  <data name="PermanentWaterArea" xml:space="preserve">
+    <value>Тұрақты судың ауданы, км²</value>
+  </data>
+  <data name="SeasonalWaterArea" xml:space="preserve">
+    <value>Маусымды судың ауданы, км²</value>
+  </data>
+  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың тәртібі: Id Id, жыл, деректер жоқ, су жоқ, маусымдық су аймағы, тұрақты су аймағы</value>
+  </data>
 </root>

@@ -819,9 +819,27 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DynamicsLakeArea {
+            get {
+                return ResourceManager.GetString("DynamicsLakeArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string DynamicsLakeAreas {
             get {
                 return ResourceManager.GetString("DynamicsLakeAreas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string DynamicsLakeAreaUploadDescription {
+            get {
+                return ResourceManager.GetString("DynamicsLakeAreaUploadDescription", resourceCulture);
             }
         }
         
@@ -3069,6 +3087,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string NoWater {
+            get {
+                return ResourceManager.GetString("NoWater", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string NoСhange {
             get {
                 return ResourceManager.GetString("NoСhange", resourceCulture);
@@ -3189,6 +3216,15 @@ namespace ELake.Resources.Controllers {
         public static string PermanentToDeasonal {
             get {
                 return ResourceManager.GetString("PermanentToDeasonal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PermanentWaterArea {
+            get {
+                return ResourceManager.GetString("PermanentWaterArea", resourceCulture);
             }
         }
         
@@ -3576,6 +3612,15 @@ namespace ELake.Resources.Controllers {
         public static string SeasonalToPermanent {
             get {
                 return ResourceManager.GetString("SeasonalToPermanent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SeasonalWaterArea {
+            get {
+                return ResourceManager.GetString("SeasonalWaterArea", resourceCulture);
             }
         }
         
