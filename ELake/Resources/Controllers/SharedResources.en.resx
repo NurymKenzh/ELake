@@ -1659,4 +1659,16 @@
   <data name="WaterMonthsPresence" xml:space="preserve">
     <value>Presence of water in months</value>
   </data>
+  <data name="HeavyMetals" xml:space="preserve">
+    <value>Heavy metals</value>
+  </data>
+  <data name="KIZVDegree" xml:space="preserve">
+    <value>The degree of pollution of water bodies by KIZV taking into account the hazard class</value>
+  </data>
+  <data name="Nutrients" xml:space="preserve">
+    <value>Nutrients</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
 </root>

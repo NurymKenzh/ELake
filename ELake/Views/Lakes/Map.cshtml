@@ -174,6 +174,7 @@
     <input id="Ni" type="hidden" value='@SharedLocalizer["Ni"]' />
     <input id="Cd" type="hidden" value='@SharedLocalizer["Cd"]' />
     <input id="Co" type="hidden" value='@SharedLocalizer["Co"]' />
+    <input id="KIZV" type="hidden" value='@SharedLocalizer["KIZV"]' />
     <input id="ChangeWaterCondition" type="hidden" value='@SharedLocalizer["ChangeWaterCondition"]' />
     <input id="Permanent" type="hidden" value='@SharedLocalizer["Permanent"]' />
     <input id="NewPermanent" type="hidden" value='@SharedLocalizer["NewPermanent"]' />
@@ -187,6 +188,151 @@
     <input id="WaterMonthsPresence" type="hidden" value='@SharedLocalizer["WaterMonthsPresence"]' />
     <input id="Seasonalit" type="hidden" value='@SharedLocalizer["Seasonalit"]' />
     <input id="Month" type="hidden" value='@SharedLocalizer["Month"]' />
+</div>
+@* Основная информация об озере *@
+<div>
+    <h4>@SharedLocalizer["BasicInfoLake"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["LakeId"]
+        </dt>
+        <dd id="BILLakeId"></dd>
+        <dt>
+            @SharedLocalizer["Name"]
+        </dt>
+        <dd id="BILName"></dd>
+        <dt>
+            @SharedLocalizer["Adm1"]
+        </dt>
+        <dd id="BILAdm1"></dd>
+        <dt>
+            @SharedLocalizer["Adm2"]
+        </dt>
+        <dd id="BILAdm2"></dd>
+        <dt>
+            @SharedLocalizer["VHB"]
+        </dt>
+        <dd id="BILVHB"></dd>
+        <dt>
+            @SharedLocalizer["VHU"]
+        </dt>
+        <dd id="BILVHU"></dd>
+        <dt>
+            @SharedLocalizer["Area2015"]
+        </dt>
+        <dd id="BILArea2015"></dd>
+        <dt>
+            @SharedLocalizer["LakeShorelineLength2015"]
+        </dt>
+        <dd id="BILLakeShorelineLength2015"></dd>
+        <dt>
+            @SharedLocalizer["Longitude"]
+        </dt>
+        <dd id="BILLongitude"></dd>
+        <dt>
+            @SharedLocalizer["Latitude"]
+        </dt>
+        <dd id="BILLatitude"></dd>
+    </dl>
+</div>
+@* Архивные данные об озере *@
+<div>
+    <h4>@SharedLocalizer["LakeArchiveData"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["SurveyYear"]
+        </dt>
+        <dd id="SurveyYear"></dd>
+        <dt>
+            @SharedLocalizer["LakeLength"]
+        </dt>
+        <dd id="LakeLength"></dd>
+        <dt>
+            @SharedLocalizer["LakeShorelineLength"]
+        </dt>
+        <dd id="LakeShorelineLength"></dd>
+        <dt>
+            @SharedLocalizer["LakeMirrorArea"]
+        </dt>
+        <dd id="LakeMirrorArea"></dd>
+        <dt>
+            @SharedLocalizer["LakeAbsoluteHeight"]
+        </dt>
+        <dd id="LakeAbsoluteHeight"></dd>
+        <dt>
+            @SharedLocalizer["LakeWidth"]
+        </dt>
+        <dd id="LakeWidth"></dd>
+        <dt>
+            @SharedLocalizer["LakeMaxDepth"]
+        </dt>
+        <dd id="LakeMaxDepth"></dd>
+        <dt>
+            @SharedLocalizer["LakeWaterMass"]
+        </dt>
+        <dd id="LakeWaterMass"></dd>
+        <dt>
+            @SharedLocalizer["ArchivalInfoSource"]
+        </dt>
+        <dd id="ArchivalInfoSource"></dd>
+    </dl>
+</div>
+@* Глобальные данные об озере *@
+<div>
+    <h4>@SharedLocalizer["LakeGlobalData"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @SharedLocalizer["Hylak_id"]
+        </dt>
+        <dd id="Hylak_id"></dd>
+        <dt>
+            @SharedLocalizer["Lake_area"]
+        </dt>
+        <dd id="Lake_area"></dd>
+        <dt>
+            @SharedLocalizer["Shore_len"]
+        </dt>
+        <dd id="Shore_len"></dd>
+        <dt>
+            @SharedLocalizer["Shore_dev"]
+        </dt>
+        <dd id="Shore_dev"> </dd>
+        <dt>
+            @SharedLocalizer["Vol_total"]
+        </dt>
+        <dd id="Vol_total"></dd>
+        <dt>
+            @SharedLocalizer["Depth_avg"]
+        </dt>
+        <dd id="Depth_avg"></dd>
+        <dt>
+            @SharedLocalizer["Dis_avg"]
+        </dt>
+        <dd id="Dis_avg"></dd>
+        <dt>
+            @SharedLocalizer["Res_time"]
+        </dt>
+        <dd id="Res_time"></dd>
+        <dt>
+            @SharedLocalizer["Elevation"]
+        </dt>
+        <dd id="Elevation"></dd>
+        <dt>
+            @SharedLocalizer["Slope_100"]
+        </dt>
+        <dd id="Slope_100"></dd>
+        <dt>
+            @SharedLocalizer["Wshd_area"]
+        </dt>
+        <dd id="Wshd_area"></dd>
+        <dt>
+            @SharedLocalizer["Source"]
+        </dt>
+        <dd><a href="http://www.hydrosheds.org/page/hydrolakes">http://www.hydrosheds.org/page/hydrolakes</a></dd>
+    </dl>
 </div>
 <div id="map"></div>
 @* map and layers *@
@@ -374,6 +520,7 @@
         chartColorTINi = 'rgba(255,99,132,1)',
         chartColorTICd = 'rgba(255,99,132,1)',
         chartColorTICo = 'rgba(255,99,132,1)',
+        chartColorTIKIZV = 'rgba(150,200,132,1)',
         chartColorTrPermanent = 'rgba(85,255,0,1)',
         chartColorTrNewPermanent = 'rgba(0,197,255,1)',
         chartColorTrSeasonalToPermanent = 'rgba(255,127,127,1)',
@@ -393,6 +540,75 @@
             type: 'POST',
             success: function (data) {
                 // Основная информация об озере
+                $('#BILLakeId').text();
+                $('#BILName').text();
+                $('#BILAdm1').text();
+                $('#BILAdm2').text();
+                $('#BILVHB').text();
+                $('#BILVHU').text();
+                $('#BILArea2015').text();
+                $('#BILLakeShorelineLength2015').text();
+                $('#BILLongitude').text();
+                $('#BILLatitude').text();
+                if (data.lake != null) {
+                    $('#BILLakeId').text(data.lake.lakeId);
+                    $('#BILName').text(data.lake.name);
+                    $('#BILAdm1').text(data.adm1);
+                    $('#BILAdm2').text(data.adm2);
+                    $('#BILVHB').text(data.lake.vhb);
+                    $('#BILVHU').text(data.lake.vhu);
+                    $('#BILArea2015').text(data.lake.area2015);
+                    $('#BILLakeShorelineLength2015').text(data.lake.lakeShorelineLength2015);
+                    $('#BILLongitude').text(data.lake.longitude);
+                    $('#BILLatitude').text(data.lake.latitude);
+                }
+                // Глобальная база озер
+                $('#Hylak_id').text();
+                $('#Lake_area').text();
+                $('#Shore_len').text();
+                $('#Shore_dev').text();
+                $('#Vol_total').text();
+                $('#Depth_avg').text();
+                $('#Dis_avg').text();
+                $('#Res_time').text();
+                $('#Elevation').text();
+                $('#Slope_100').text();
+                $('#Wshd_area').text();
+                if (data.lakesGlobalData != null) {
+                    $('#Hylak_id').text(data.lakesGlobalData.hylak_id);
+                    $('#Lake_area').text(data.lakesGlobalData.lake_area);
+                    $('#Shore_len').text(data.lakesGlobalData.shore_len);
+                    $('#Shore_dev').text(data.lakesGlobalData.shore_dev);
+                    $('#Vol_total').text(data.lakesGlobalData.vol_total);
+                    $('#Depth_avg').text(data.lakesGlobalData.depth_avg);
+                    $('#Dis_avg').text(data.lakesGlobalData.dis_avg);
+                    $('#Res_time').text(data.lakesGlobalData.res_time);
+                    $('#Elevation').text(data.lakesGlobalData.elevation);
+                    $('#Slope_100').text(data.lakesGlobalData.slope_100);
+                    $('#Wshd_area').text(data.lakesGlobalData.wshd_area);
+                }
+                // Архивные данные озер
+                $('#SurveyYear').text();
+                $('#LakeLength').text();
+                $('#LakeShorelineLength').text();
+                $('#LakeMirrorArea').text();
+                $('#LakeAbsoluteHeight').text();
+                $('#LakeWidth').text();
+                $('#LakeMaxDepth').text();
+                $('#LakeWaterMass').text();
+                $('#ArchivalInfoSource').text();
+                if (data.lakesArchiveData != null) {
+                    $('#SurveyYear').text(data.lakesArchiveData.surveyYear);
+                    $('#LakeLength').text(data.lakesArchiveData.lakeLength);
+                    $('#LakeShorelineLength').text(data.lakesArchiveData.lakeShorelineLength);
+                    $('#LakeMirrorArea').text(data.lakesArchiveData.lakeMirrorArea);
+                    $('#LakeAbsoluteHeight').text(data.lakesArchiveData.lakeAbsoluteHeight);
+                    $('#LakeWidth').text(data.lakesArchiveData.lakeWidth);
+                    $('#LakeMaxDepth').text(data.lakesArchiveData.lakeMaxDepth);
+                    $('#LakeWaterMass').text(data.lakesArchiveData.lakeWaterMass);
+                    $('#ArchivalInfoSource').text(data.lakesArchiveData.archivalInfoSource);
+                }
+                // Основная информация об озере 2
                 $('#Name').text(data.name);
                 if (LakeId != 0) {
                     $('#LakeIdInfo').html(LakeId);
@@ -882,6 +1098,10 @@
                 $('#YearCo2').text('');
                 $('#Co2').text('');
                 $('#IZVCo2').text('');
+                $('#YearKIZV1').text('');
+                $('#KIZV1').text('');
+                $('#YearKIZV2').text('');
+                $('#KIZV2').text('');
                 if (data.titable1 != null) {
                     for (i = 0; i < data.titable1.length; i++) {
                         if (data.titable1[i].nH4 != null) {
@@ -938,6 +1158,14 @@
                             $('#YearCo1').text(data.titable1[i].year);
                             $('#Co1').text(data.titable1[i].co);
                             $('#IZVCo1').text((data.titable1[i].izvCo != null ? data.titable1[i].izvCo.toFixed(2) : null));
+                        }
+                        if (data.titable1[i].kizv != null) {
+                            $('#KIZV1').text((data.titable1[i].kizv != null ? data.titable1[i].kizv.toFixed(2) : null));
+                            $('#YearKIZV1').text(data.titable1[i].year);
+                        }
+                        if (data.titable1[i].nutrientsHeavyMetalsStandard != null) {
+                            $("#NutrientsHeavyMetalsStandardLink1").prop("href", window.location.origin + "/NutrientsHeavyMetalsStandards/Details/" + data.titable1[i].nutrientsHeavyMetalsStandard.id);
+                            $("#RegulatoryDocumentLink1").prop("href", window.location.origin + "/RegulatoryDocuments/Details/" + data.titable1[i].nutrientsHeavyMetalsStandard.regulatoryDocument.id);
                         }
                     }
                 }
@@ -998,6 +1226,14 @@
                             $('#Co2').text(data.titable2[i].co);
                             $('#IZVCo2').text((data.titable2[i].izvCo != null ? data.titable2[i].izvCo.toFixed(2) : null));
                         }
+                        if (data.titable2[i].kizv != null) {
+                            $('#KIZV2').text((data.titable2[i].kizv != null ? data.titable2[i].kizv.toFixed(2) : null));
+                            $('#YearKIZV2').text(data.titable2[i].year);
+                        }
+                        if (data.titable2[i].nutrientsHeavyMetalsStandard != null) {
+                            $("#NutrientsHeavyMetalsStandardLink2").prop("href", window.location.origin + "/NutrientsHeavyMetalsStandards/Details/" + data.titable2[i].nutrientsHeavyMetalsStandard.id);
+                            $("#RegulatoryDocumentLink2").prop("href", window.location.origin + "/RegulatoryDocuments/Details/" + data.titable2[i].nutrientsHeavyMetalsStandard.regulatoryDocument.id);
+                        }
                     }
                 }
                 TableNH4(data);
@@ -1022,6 +1258,8 @@
                 ChartCd(data);
                 TableCo(data);
                 ChartCo(data);
+                TableKIZV(data);
+                ChartKIZV(data);
                 // Переходы
                 //ChartPASD1X(data);
                 //if (data.wbtable != null) {

@@ -2412,6 +2412,142 @@
         });
     }
 
+    function TableKIZV(data) {
+        var tablebody1 = $('#tablebodyKIZV1'),
+            tablebody2 = $('#tablebodyKIZV2');
+        tablebody1.html('');
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].kizv != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.titable1[i].year + '</td>');
+                    tr.append('<td>' + (data.titable1[i].kizv != null ? data.titable1[i].kizv.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.titable2 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].kizv != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.titable2[i].year + '</td>');
+                    tr.append('<td>' + (data.titable2[i].kizv != null ? data.titable2[i].kizv.toFixed(2) : null) + '</td>');
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    var ChartKIZV1 = null,
+        ChartKIZV2 = null;
+    function ChartKIZV(data) {
+        if (ChartKIZV1 != null) {
+            ChartKIZV1.destroy();
+        }
+        var ctx1 = document.getElementById("chartKIZV1").getContext('2d');
+        var data1 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable1.length; i++) {
+                if (data.titable1[i].kizv != null) {
+                    data1.push({
+                        'x': data.titable1[i].year,
+                        'y': data.titable1[i].kizv
+                    });
+                }
+            }
+        }
+        ChartKIZV1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#KIZV').val(),
+                    data: data1,
+                    backgroundKIZVlor: chartColorTIKIZV,
+                    borderKIZVlor: chartColorTIKIZV,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#KIZV').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+        if (ChartKIZV2 != null) {
+            ChartKIZV2.destroy();
+        }
+        var ctx2 = document.getElementById("chartKIZV2").getContext('2d');
+        var data2 = [];
+        if (data.titable1 != null) {
+            for (var i = 0; i < data.titable2.length; i++) {
+                if (data.titable2[i].kizv != null) {
+                    data2.push({
+                        'x': data.titable2[i].year,
+                        'y': data.titable2[i].kizv
+                    });
+                }
+            }
+        }
+        ChartKIZV2 = new Chart(ctx2, {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: $('#KIZV').val(),
+                    data: data2,
+                    backgroundKIZVlor: chartColorTIKIZV,
+                    borderKIZVlor: chartColorTIKIZV,
+                    borderWidth: 1,
+                    fill: false,
+                    showLine: true,
+                    lineTension: 0
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#KIZV').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Value').val()
+                        }
+                    }]
+                }
+            }
+        });
+    }
+
     ///////////////////////////
 
     function ShowTableMineralization1() {
@@ -3112,6 +3248,46 @@
     function ShowChartCo2() {
         $('.TI').hide();
         $('#chartCo2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableKIZV1() {
+        $('.TI').hide();
+        $('#tableKIZV1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableKIZV2() {
+        $('.TI').hide();
+        $('#tableKIZV2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowChartKIZV1() {
+        $('.TI').hide();
+        $('#chartKIZV1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowChartKIZV2() {
+        $('.TI').hide();
+        $('#chartKIZV2').show();
         $('.FreshPart').hide();
         $('.SaltyPart').hide();
         if (twoparts) {

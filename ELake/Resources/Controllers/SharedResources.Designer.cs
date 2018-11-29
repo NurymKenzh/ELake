@@ -1449,6 +1449,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string HeavyMetals {
+            get {
+                return ResourceManager.GetString("HeavyMetals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string HighPollution {
             get {
                 return ResourceManager.GetString("HighPollution", resourceCulture);
@@ -1965,6 +1974,15 @@ namespace ELake.Resources.Controllers {
         public static string KIZV {
             get {
                 return ResourceManager.GetString("KIZV", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string KIZVDegree {
+            get {
+                return ResourceManager.GetString("KIZVDegree", resourceCulture);
             }
         }
         
@@ -3069,6 +3087,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Nutrients {
+            get {
+                return ResourceManager.GetString("Nutrients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string NutrientsHeavyMetalsStandard {
             get {
                 return ResourceManager.GetString("NutrientsHeavyMetalsStandard", resourceCulture);
@@ -3675,6 +3702,15 @@ namespace ELake.Resources.Controllers {
         public static string SOPerEq {
             get {
                 return ResourceManager.GetString("SOPerEq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Source {
+            get {
+                return ResourceManager.GetString("Source", resourceCulture);
             }
         }
         

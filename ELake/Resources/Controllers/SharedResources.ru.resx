@@ -748,7 +748,7 @@
     <value>Длина озера, км</value>
   </data>
   <data name="LakeMaxDepth" xml:space="preserve">
-    <value>Максимальная глубина озеро, м</value>
+    <value>Максимальная глубина озера, м</value>
   </data>
   <data name="LakeMirrorArea" xml:space="preserve">
     <value>Площадь зеркала озера, км²</value>
@@ -766,7 +766,7 @@
     <value>Год топографической съемки</value>
   </data>
   <data name="VHB" xml:space="preserve">
-    <value>Наименование водохозяйственного бассейна</value>
+    <value>ВХБ (водохозяйственный бассейн)</value>
   </data>
   <data name="VHBEN" xml:space="preserve">
     <value>Наименование водохозяйственного бассейна на английском</value>
@@ -778,7 +778,7 @@
     <value>Наименование водохозяйственного бассейна на русском</value>
   </data>
   <data name="VHU" xml:space="preserve">
-    <value>Наименование водохозяйственного участка</value>
+    <value>ВХУ (водохозяйственный участок)</value>
   </data>
   <data name="LakesArchiveData" xml:space="preserve">
     <value>Архивные данные озер</value>
@@ -847,7 +847,7 @@
     <value>Глобальная база озер</value>
   </data>
   <data name="Lake_area" xml:space="preserve">
-    <value>Площадь поверхности озер, км²</value>
+    <value>Площадь поверхности озера, км²</value>
   </data>
   <data name="Lake_name_ENG" xml:space="preserve">
     <value>Название озера на английском</value>
@@ -1658,5 +1658,17 @@
   </data>
   <data name="WaterMonthsPresence" xml:space="preserve">
     <value>Присутствие воды в месяцах</value>
+  </data>
+  <data name="HeavyMetals" xml:space="preserve">
+    <value>Тяжелые металлы</value>
+  </data>
+  <data name="KIZVDegree" xml:space="preserve">
+    <value>Степень загрязнения водных объектов по КИЗВ с учетом класса опасности</value>
+  </data>
+  <data name="Nutrients" xml:space="preserve">
+    <value>Биогенные вещества</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Источник</value>
   </data>
 </root>

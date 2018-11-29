@@ -55,7 +55,7 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Co")]
         public decimal? Co { get; set; }
 
-        private NutrientsHeavyMetalsStandard NutrientsHeavyMetalsStandard
+        public NutrientsHeavyMetalsStandard NutrientsHeavyMetalsStandard
         {
             get
             {
@@ -64,7 +64,9 @@ namespace ELake.Models
                 NutrientsHeavyMetalsStandard nutrientsHeavyMetalsStandard = null;
                 using (var _context = new ApplicationDbContext(optionsBuilder.Options))
                 {
-                    nutrientsHeavyMetalsStandard = _context.NutrientsHeavyMetalsStandard.FirstOrDefault();
+                    nutrientsHeavyMetalsStandard = _context.NutrientsHeavyMetalsStandard
+                        .Include(n => n.RegulatoryDocument)
+                        .FirstOrDefault();
                 }
                 return nutrientsHeavyMetalsStandard;
             }
@@ -312,12 +314,12 @@ namespace ELake.Models
             }
         }
 
-        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "KIZVs")]
-        public string KIZVs
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "KIZV")]
+        public decimal KIZV
         {
             get
             {
-                decimal KIZV = (KIZVkoNH4 ?? 0) +
+                return (KIZVkoNH4 ?? 0) +
                     (KIZVkoNO2 ?? 0) +
                     (KIZVkoNO3 ?? 0) +
                     (KIZVkoPPO4 ?? 0) +
@@ -327,7 +329,15 @@ namespace ELake.Models
                     (KIZVkoPb ?? 0) +
                     (KIZVkoNi ?? 0) +
                     (KIZVkoCd ?? 0) +
-                    (KIZVkoCo ?? 0);
+                    (KIZVkoCo ?? 0); ;
+            }
+        }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "KIZVs")]
+        public string KIZVs
+        {
+            get
+            {
                 if(KIZV<=2)
                 {
                     return Resources.Controllers.SharedResources.Regulatory;
