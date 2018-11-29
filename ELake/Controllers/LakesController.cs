@@ -373,6 +373,11 @@ namespace ELake.Controllers
         {
             // Основная информация об озере
             Lake lake = _context.Lake.FirstOrDefault(l => l.LakeId == LakeId);
+            // Глобальная база озер
+            LakesGlobalData lakesGlobalData = _context.LakesGlobalData.FirstOrDefault(l => l.LakeId == LakeId);
+            // Архивные данные озер
+            LakesArchiveData lakesArchiveData = _context.LakesArchiveData.FirstOrDefault(l => l.LakeId == LakeId);
+            // Основная информация об озере 2
             string name = lake?.Name,
                 longitude = lake?.Longitude,
                 latitude = lake?.Latitude;
@@ -512,6 +517,12 @@ namespace ELake.Controllers
             return Json(new
             {
                 // Основная информация об озере
+                lake,
+                // Глобальная база озер
+                lakesGlobalData,
+                // Архивные данные озер
+                lakesArchiveData,
+                // Основная информация об озере 2
                 name,
                 longitude,
                 latitude,
