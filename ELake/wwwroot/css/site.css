@@ -303,10 +303,6 @@ header.masthead {
     content: '\f080';
 }
 
-.mtabs label[for*='5']:before {
-    content: '\f080';
-}
-
 .mtabs label:hover {
     color: #ffc107;
     cursor: pointer;
@@ -322,8 +318,7 @@ input:checked + label {
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3,
-#tab4:checked ~ #content4,
-#tab5:checked ~ #content5 {
+#tab4:checked ~ #content4 {
     display: block;
 }
 
@@ -362,16 +357,5 @@ input:checked + label {
 #tabghi1:checked ~ #contentghi1,
 #tabghi2:checked ~ #contentghi2,
 #tabghi3:checked ~ #contentghi3 {
-    display: block;
-}
-#tabhy1:checked ~ #contenthy1,
-#tabhy2:checked ~ #contenthy2,
-#tabhy3:checked ~ #contenthy3 {
-    display: block;
-}
-#tabdla1:checked ~ #contentdla1,
-#tabdla2:checked ~ #contentdla2,
-#tabdla3:checked ~ #contentdla3,
-#tabdla4:checked ~ #contentdla4 {
     display: block;
 }
