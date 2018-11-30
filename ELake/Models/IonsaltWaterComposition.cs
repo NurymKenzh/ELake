@@ -359,27 +359,27 @@ namespace ELake.Models
                     Caf = "",
                     Mgf = "",
                     NaKf = "";
-                if (ClPerEq > 5)
+                //if (ClPerEq > 5)
                 {
                     Clf = $"Cl{String.Format("{0:0}", ClPerEq)}";
                 }
-                if (HCOPerEq > 5)
+                //if (HCOPerEq > 5)
                 {
                     HCOf = $"HCO₃{String.Format("{0:0}", HCOPerEq)}";
                 }
-                if (SOPerEq > 5)
+                //if (SOPerEq > 5)
                 {
                     SOf = $"SO₄{String.Format("{0:0}", SOPerEq)}";
                 }
-                if (CaPerEq > 5)
+                //if (CaPerEq > 5)
                 {
                     Caf = $"Ca{String.Format("{0:0}", CaPerEq)}";
                 }
-                if (MgPerEq > 5)
+                //if (MgPerEq > 5)
                 {
                     Mgf = $"MG{String.Format("{0:0}", MgPerEq)}";
                 }
-                if (NaKPerEq > 5)
+                //if (NaKPerEq > 5)
                 {
                     NaKf = $"Na+K{String.Format("{0:0}", NaKPerEq)}";
                 }
@@ -390,12 +390,12 @@ namespace ELake.Models
                     // 2 HCO
                     if ((HCOPerEq ?? 0) >= (SOPerEq ?? 0))
                     {
-                        anions += string.IsNullOrEmpty(HCOf) ? "" : HCOf;
+                        anions += (string.IsNullOrEmpty(HCOf) ? "" : HCOf) + (string.IsNullOrEmpty(SOf) ? "" : SOf);
                     }
                     // 2 SO
                     else
                     {
-                        anions += string.IsNullOrEmpty(SOf) ? "" : SOf;
+                        anions += (string.IsNullOrEmpty(SOf) ? "" : SOf) + (string.IsNullOrEmpty(HCOf) ? "" : HCOf);
                     }
                 }
                 // 1 HCO
@@ -405,12 +405,12 @@ namespace ELake.Models
                     // 2 Cl
                     if ((ClPerEq ?? 0) >= (SOPerEq ?? 0))
                     {
-                        anions += string.IsNullOrEmpty(Clf) ? "" : Clf;
+                        anions += (string.IsNullOrEmpty(Clf) ? "" : Clf) + (string.IsNullOrEmpty(SOf) ? "" : SOf);
                     }
                     // 2 SO
                     else
                     {
-                        anions += string.IsNullOrEmpty(SOf) ? "" : SOf;
+                        anions += (string.IsNullOrEmpty(SOf) ? "" : SOf) + (string.IsNullOrEmpty(Clf) ? "" : Clf);
                     }
                 }
                 // 1 SO
@@ -420,12 +420,12 @@ namespace ELake.Models
                     // 2 Cl
                     if ((ClPerEq ?? 0) >= (HCOPerEq ?? 0))
                     {
-                        anions += string.IsNullOrEmpty(Clf) ? "" : Clf;
+                        anions += (string.IsNullOrEmpty(Clf) ? "" : Clf) + (string.IsNullOrEmpty(HCOf) ? "" : HCOf);
                     }
                     // 2 HCO
                     else
                     {
-                        anions += string.IsNullOrEmpty(HCOf) ? "" : HCOf;
+                        anions += (string.IsNullOrEmpty(HCOf) ? "" : HCOf) + (string.IsNullOrEmpty(Clf) ? "" : Clf);
                     }
                 }
                 // 1 Ca
@@ -435,12 +435,12 @@ namespace ELake.Models
                     // 2 Mg
                     if ((MgPerEq ?? 0) >= (NaKPerEq ?? 0))
                     {
-                        cations += string.IsNullOrEmpty(Mgf) ? "" : Mgf;
+                        cations += (string.IsNullOrEmpty(Mgf) ? "" : Mgf) + (string.IsNullOrEmpty(NaKf) ? "" : NaKf);
                     }
                     // 2 NaK
                     else
                     {
-                        cations += string.IsNullOrEmpty(NaKf) ? "" : NaKf;
+                        cations += (string.IsNullOrEmpty(NaKf) ? "" : NaKf) + (string.IsNullOrEmpty(Mgf) ? "" : Mgf);
                     }
                 }
                 // 1 Mg
@@ -450,12 +450,12 @@ namespace ELake.Models
                     // 2 Ca
                     if ((CaPerEq ?? 0) >= (NaKPerEq ?? 0))
                     {
-                        cations += string.IsNullOrEmpty(Caf) ? "" : Caf;
+                        cations += (string.IsNullOrEmpty(Caf) ? "" : Caf) + (string.IsNullOrEmpty(NaKf) ? "" : NaKf);
                     }
                     // 2 NaK
                     else
                     {
-                        cations += string.IsNullOrEmpty(NaKf) ? "" : NaKf;
+                        cations += (string.IsNullOrEmpty(NaKf) ? "" : NaKf) + (string.IsNullOrEmpty(Caf) ? "" : Caf);
                     }
                 }
                 // 1 NaK
@@ -465,12 +465,12 @@ namespace ELake.Models
                     // 2 Ca
                     if ((CaPerEq ?? 0) >= (MgPerEq ?? 0))
                     {
-                        cations += string.IsNullOrEmpty(Caf) ? "" : Caf;
+                        cations += (string.IsNullOrEmpty(Caf) ? "" : Caf) + (string.IsNullOrEmpty(Mgf) ? "" : Mgf);
                     }
                     // 2 Mg
                     else
                     {
-                        cations += string.IsNullOrEmpty(Mgf) ? "" : Mgf;
+                        cations += (string.IsNullOrEmpty(Mgf) ? "" : Mgf) + (string.IsNullOrEmpty(Caf) ? "" : Caf);
                     }
                 }
 
