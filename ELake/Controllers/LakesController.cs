@@ -683,6 +683,13 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("OR", "");
             formula_test = formula_test.Replace("Area2015", "");
             formula_test = formula_test.Replace("Shoreline2015", "");
+            formula_test = formula_test.Replace("ArchiveLength", "");
+            formula_test = formula_test.Replace("ArchiveShoreline", "");
+            formula_test = formula_test.Replace("ArchiveMirrorArea", "");
+            formula_test = formula_test.Replace("ArchiveAbsoluteHeight", "");
+            formula_test = formula_test.Replace("ArchiveWidth", "");
+            formula_test = formula_test.Replace("ArchiveMaxDepth", "");
+            formula_test = formula_test.Replace("ArchiveWaterMass", "");
             for (int n = 0; n <= 9; n++)
             {
                 formula_test = formula_test.Replace(n.ToString(), "");
@@ -692,6 +699,18 @@ namespace ELake.Controllers
                 r = false;
             }
             return r;
+        }
+
+        private string PopulateDecimal(decimal? Value)
+        {
+            if(Value == null)
+            {
+                return "0,";
+            }
+            else
+            {
+                return Value.ToString().Replace(',', '.') + "M,";
+            }
         }
 
         [HttpPost]
@@ -711,12 +730,21 @@ namespace ELake.Controllers
             string codePopulateLakes = "";
             foreach (Lake lake in lakesToSearch)
             {
+                LakesArchiveData lakesArchiveData = _context.LakesArchiveData
+                    .FirstOrDefault(l => l.LakeId == lake.LakeId);
                 codePopulateLakes += @"Lakes.Add(new Lake()
                     {
                         Id = " + lake.Id.ToString() + @",
                         LakeId = " + lake.LakeId.ToString() + @",
                         Area2015 = " + lake.Area2015.ToString().Replace(',', '.') + @"M,
                         Shoreline2015 = " + lake.LakeShorelineLength2015.ToString().Replace(',', '.') + @"M,
+                        ArchiveLength = " + PopulateDecimal(lakesArchiveData?.LakeLength) + @"
+                        ArchiveShoreline = " + PopulateDecimal(lakesArchiveData?.LakeShorelineLength) + @"
+                        ArchiveMirrorArea = " + PopulateDecimal(lakesArchiveData?.LakeMirrorArea) + @"
+                        ArchiveAbsoluteHeight = " + PopulateDecimal(lakesArchiveData?.LakeAbsoluteHeight) + @"
+                        ArchiveWidth = " + PopulateDecimal(lakesArchiveData?.LakeWidth) + @"
+                        ArchiveMaxDepth = " + PopulateDecimal(lakesArchiveData?.LakeMaxDepth) + @"
+                        ArchiveWaterMass = " + PopulateDecimal(lakesArchiveData?.LakeWaterMass) + @"
                     });
                     ";
             }
@@ -727,6 +755,13 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("OR", "||");
             codeFilter = codeFilter.Replace("Area2015", "lake.Area2015");
             codeFilter = codeFilter.Replace("Shoreline2015", "lake.Shoreline2015");
+            codeFilter = codeFilter.Replace("ArchiveLength", "lake.ArchiveLength");
+            codeFilter = codeFilter.Replace("ArchiveShoreline", "lake.ArchiveShoreline");
+            codeFilter = codeFilter.Replace("ArchiveMirrorArea", "lake.ArchiveMirrorArea");
+            codeFilter = codeFilter.Replace("ArchiveAbsoluteHeight", "lake.ArchiveAbsoluteHeight");
+            codeFilter = codeFilter.Replace("ArchiveWidth", "lake.ArchiveWidth");
+            codeFilter = codeFilter.Replace("ArchiveMaxDepth", "lake.ArchiveMaxDepth");
+            codeFilter = codeFilter.Replace("ArchiveWaterMass", "lake.ArchiveWaterMass");
             bool checkFormula = CheckFormula(Formula);
 
             string codeToCompile = @"using System;
@@ -741,6 +776,13 @@ namespace ELake.Controllers
                         public int LakeId { get; set; }
                         public decimal Area2015 { get; set; }
                         public decimal Shoreline2015 { get; set; }
+                        public decimal ArchiveLength { get; set; }
+                        public decimal ArchiveShoreline { get; set; }
+                        public decimal ArchiveMirrorArea { get; set; }
+                        public decimal ArchiveAbsoluteHeight { get; set; }
+                        public decimal ArchiveWidth { get; set; }
+                        public decimal ArchiveMaxDepth { get; set; }
+                        public decimal ArchiveWaterMass { get; set; }
                     } 
 
                     public class Calculator

@@ -30,8 +30,16 @@
 <input type="button" onclick="$('#formula').val($('#formula').val() + ' OR ')" value="@SharedLocalizer["OR"]" />
 <br />
 <h4>@SharedLocalizer["BasicInfoLake"]</h4>
-<input type="button" onclick="$('#formula').val($('#formula').val() + 'Area2015')" value="@SharedLocalizer["Area2015"]" />
-<input type="button" onclick="$('#formula').val($('#formula').val() + 'Shoreline2015')" value="@SharedLocalizer["LakeShorelineLength2015"]" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'Area2015')" value="@SharedLocalizer["Area2015"] (Area2015)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'Shoreline2015')" value="@SharedLocalizer["LakeShorelineLength2015"] (Shoreline2015)" />
+<h4>@SharedLocalizer["LakeArchiveData"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveLength')" value="@SharedLocalizer["LakeLength"] (ArchiveLength)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveShoreline')" value="@SharedLocalizer["LakeShorelineLength"] (ArchiveShoreline)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveMirrorArea')" value="@SharedLocalizer["LakeMirrorArea"] (ArchiveMirrorArea)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveAbsoluteHeight')" value="@SharedLocalizer["LakeAbsoluteHeight"] (ArchiveAbsoluteHeight)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveWidth')" value="@SharedLocalizer["LakeWidth"] (ArchiveWidth)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveMaxDepth')" value="@SharedLocalizer["LakeMaxDepth"] (ArchiveMaxDepth)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveWaterMass')" value="@SharedLocalizer["LakeWaterMass"] (ArchiveWaterMass)" />
 
 <div hidden="hidden">
     <input id="Map" type="hidden" value='@SharedLocalizer["Map"]' />
