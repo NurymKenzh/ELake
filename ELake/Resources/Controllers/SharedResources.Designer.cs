@@ -261,6 +261,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string average {
+            get {
+                return ResourceManager.GetString("average", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string BackToList {
             get {
                 return ResourceManager.GetString("BackToList", resourceCulture);
@@ -2592,6 +2601,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string maximum {
+            get {
+                return ResourceManager.GetString("maximum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string MaximumWater {
             get {
                 return ResourceManager.GetString("MaximumWater", resourceCulture);
@@ -2730,6 +2748,15 @@ namespace ELake.Resources.Controllers {
         public static string MineralizationType {
             get {
                 return ResourceManager.GetString("MineralizationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string minimum {
+            get {
+                return ResourceManager.GetString("minimum", resourceCulture);
             }
         }
         
@@ -3072,6 +3099,15 @@ namespace ELake.Resources.Controllers {
         public static string noMetaData {
             get {
                 return ResourceManager.GetString("noMetaData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string NOT {
+            get {
+                return ResourceManager.GetString("NOT", resourceCulture);
             }
         }
         

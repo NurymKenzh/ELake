@@ -700,6 +700,24 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("GlobalElevation", "");
             formula_test = formula_test.Replace("GlobalSlope", "");
             formula_test = formula_test.Replace("GlobalCatchmentArea", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowAvg", "");
+            formula_test = formula_test.Replace("WaterBalancePrecipitationAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceEvaporationAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowMax", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowMax", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowMax", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowMax", "");
+            formula_test = formula_test.Replace("WaterBalancePrecipitationMax", "");
+            formula_test = formula_test.Replace("WaterBalanceEvaporationMax", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowMin", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowMin", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowMin", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowMin", "");
+            formula_test = formula_test.Replace("WaterBalancePrecipitationMin", "");
+            formula_test = formula_test.Replace("WaterBalanceEvaporationMin", "");
             for (int n = 0; n <= 9; n++)
             {
                 formula_test = formula_test.Replace(n.ToString(), "");
@@ -748,9 +766,11 @@ namespace ELake.Controllers
             string assemblyName = Path.GetRandomFileName();
 
             string codeFilter = Formula;
+            // Analyze1
             //codeFilter = codeFilter.Replace(",", ".");
             codeFilter = codeFilter.Replace("AND", "&&");
             codeFilter = codeFilter.Replace("OR", "||");
+            codeFilter = codeFilter.Replace("NOT", "!");
             codeFilter = codeFilter.Replace("Area2015", "lake.Area2015");
             codeFilter = codeFilter.Replace("Shoreline2015", "lake.Shoreline2015");
             codeFilter = codeFilter.Replace("ArchiveLength", "lake.ArchiveLength");
@@ -770,6 +790,25 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("GlobalElevation", "lake.GlobalElevation");
             codeFilter = codeFilter.Replace("GlobalSlope", "lake.GlobalSlope");
             codeFilter = codeFilter.Replace("GlobalCatchmentArea", "lake.GlobalCatchmentArea");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowAvg", "lake.WaterBalanceSurfaceFlowAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowAvg", "lake.WaterBalanceSurfaceOutflowAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowAvg", "lake.WaterBalanceUndergroundFlowAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowAvg", "lake.WaterBalanceUndergroundOutflowAvg");
+            codeFilter = codeFilter.Replace("WaterBalancePrecipitationAvg", "lake.WaterBalancePrecipitationAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceEvaporationAvg", "lake.WaterBalanceEvaporationAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowMax", "lake.WaterBalanceSurfaceFlowMax");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowMax", "lake.WaterBalanceSurfaceOutflowMax");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowMax", "lake.WaterBalanceUndergroundFlowMax");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowMax", "lake.WaterBalanceUndergroundOutflowMax");
+            codeFilter = codeFilter.Replace("WaterBalancePrecipitationMax", "lake.WaterBalancePrecipitationMax");
+            codeFilter = codeFilter.Replace("WaterBalanceEvaporationMax", "lake.WaterBalanceEvaporationMax");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowMin", "lake.WaterBalanceSurfaceFlowMin");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowMin", "lake.WaterBalanceSurfaceOutflowMin");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowMin", "lake.WaterBalanceUndergroundFlowMin");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowMin", "lake.WaterBalanceUndergroundOutflowMin");
+            codeFilter = codeFilter.Replace("WaterBalancePrecipitationMin", "lake.WaterBalancePrecipitationMin");
+            codeFilter = codeFilter.Replace("WaterBalanceEvaporationMin", "lake.WaterBalanceEvaporationMin");
+
             bool checkFormula = CheckFormula(Formula);
 
             string codePopulateLakes = "";
@@ -795,6 +834,8 @@ namespace ELake.Controllers
                         .FirstOrDefault(l => l.LakeId == lake.LakeId);
                     LakesGlobalData lakesGlobalData = _context.LakesGlobalData
                         .FirstOrDefault(l => l.LakeId == lake.LakeId);
+                    //WaterBalance waterBalance = _context.WaterBalance
+                    //    .FirstOrDefault(l => l.LakeId == lake.LakeId);
                     //codePopulateLakes += @"Lakes.Add(new Lake()
                     //    {
                     //        Id = " + lake.Id.ToString() + @",
@@ -821,6 +862,7 @@ namespace ELake.Controllers
                     //    });
                     //    ";
                     string line = lake.Id.ToString();
+                    // Analyze2
                     line += "\t" + PopulateDecimal(lake.LakeId);
                     line += "\t" + PopulateDecimal(lake.Area2015);
                     line += "\t" + PopulateDecimal(lake.LakeShorelineLength2015);
@@ -841,10 +883,29 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(lakesGlobalData?.Elevation);
                     line += "\t" + PopulateDecimal(lakesGlobalData?.Slope_100);
                     line += "\t" + PopulateDecimal(lakesGlobalData?.Wshd_area);
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.SurfaceFlow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.SurfaceOutflow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.UndergroundFlow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.UndergroundOutflow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.Precipitation));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.Evaporation));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.SurfaceFlow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.SurfaceOutflow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.UndergroundFlow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.UndergroundOutflow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.Precipitation));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.Evaporation));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.SurfaceFlow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.SurfaceOutflow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.UndergroundFlow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.UndergroundOutflow));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.Precipitation));
+                    line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.Evaporation));
+
                     file.WriteLine(line);
                 }
             }
-
+            // Analyze3, Analyze4
             string codeToCompile = @"using System;
                 using System.Collections.Generic;
                 using System.IO;
@@ -875,6 +936,24 @@ namespace ELake.Controllers
                         public decimal GlobalElevation { get; set; }
                         public decimal GlobalSlope { get; set; }
                         public decimal GlobalCatchmentArea { get; set; }
+                        public decimal WaterBalanceSurfaceFlowAvg { get; set; }
+                        public decimal WaterBalanceSurfaceOutflowAvg { get; set; }
+                        public decimal WaterBalanceUndergroundFlowAvg { get; set; }
+                        public decimal WaterBalanceUndergroundOutflowAvg { get; set; }
+                        public decimal WaterBalancePrecipitationAvg { get; set; }
+                        public decimal WaterBalanceEvaporationAvg { get; set; }
+                        public decimal WaterBalanceSurfaceFlowMax { get; set; }
+                        public decimal WaterBalanceSurfaceOutflowMax { get; set; }
+                        public decimal WaterBalanceUndergroundFlowMax { get; set; }
+                        public decimal WaterBalanceUndergroundOutflowMax { get; set; }
+                        public decimal WaterBalancePrecipitationMax { get; set; }
+                        public decimal WaterBalanceEvaporationMax { get; set; }
+                        public decimal WaterBalanceSurfaceFlowMin { get; set; }
+                        public decimal WaterBalanceSurfaceOutflowMin { get; set; }
+                        public decimal WaterBalanceUndergroundFlowMin { get; set; }
+                        public decimal WaterBalanceUndergroundOutflowMin { get; set; }
+                        public decimal WaterBalancePrecipitationMin { get; set; }
+                        public decimal WaterBalanceEvaporationMin { get; set; }
                     } 
 
                     public class Calculator
@@ -919,7 +998,26 @@ namespace ELake.Controllers
                                     GlobalStayTime = FromLine(lineS[17]),
                                     GlobalElevation = FromLine(lineS[18]),
                                     GlobalSlope = FromLine(lineS[19]),
-                                    GlobalCatchmentArea = FromLine(lineS[20])
+                                    GlobalCatchmentArea = FromLine(lineS[20]),
+                                    WaterBalanceSurfaceFlowAvg = FromLine(lineS[21]),
+                                    WaterBalanceSurfaceOutflowAvg = FromLine(lineS[22]),
+                                    WaterBalanceUndergroundFlowAvg = FromLine(lineS[23]),
+                                    WaterBalanceUndergroundOutflowAvg = FromLine(lineS[24]),
+                                    WaterBalancePrecipitationAvg = FromLine(lineS[25]),
+                                    WaterBalanceEvaporationAvg = FromLine(lineS[26]),
+                                    WaterBalanceSurfaceFlowMax = FromLine(lineS[27]),
+                                    WaterBalanceSurfaceOutflowMax = FromLine(lineS[28]),
+                                    WaterBalanceUndergroundFlowMax = FromLine(lineS[29]),
+                                    WaterBalanceUndergroundOutflowMax = FromLine(lineS[30]),
+                                    WaterBalancePrecipitationMax = FromLine(lineS[31]),
+                                    WaterBalanceEvaporationMax = FromLine(lineS[32]),
+                                    WaterBalanceSurfaceFlowMin = FromLine(lineS[33]),
+                                    WaterBalanceSurfaceOutflowMin = FromLine(lineS[34]),
+                                    WaterBalanceUndergroundFlowMin = FromLine(lineS[35]),
+                                    WaterBalanceUndergroundOutflowMin = FromLine(lineS[36]),
+                                    WaterBalancePrecipitationMin = FromLine(lineS[37]),
+                                    WaterBalanceEvaporationMin = FromLine(lineS[38]),
+
                                 });
                             }
                             //File.ReadAllLines(fileName);

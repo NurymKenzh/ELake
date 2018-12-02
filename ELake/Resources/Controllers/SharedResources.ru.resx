@@ -1701,4 +1701,16 @@
   <data name="OR" xml:space="preserve">
     <value>Или</value>
   </data>
+  <data name="average" xml:space="preserve">
+    <value>среднее</value>
+  </data>
+  <data name="maximum" xml:space="preserve">
+    <value>максимум</value>
+  </data>
+  <data name="minimum" xml:space="preserve">
+    <value>минимум</value>
+  </data>
+  <data name="NOT" xml:space="preserve">
+    <value>Не</value>
+  </data>
 </root>
