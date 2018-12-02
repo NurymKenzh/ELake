@@ -751,6 +751,15 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.WaterLavelM));
                     line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.WaterLavelM));
                     line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.WaterLavelM));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Average(h => h.WaterLevel));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Average(h => h.LakeArea));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Average(h => h.WaterMassVolume));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Max(h => h.WaterLevel));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Max(h => h.LakeArea));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Max(h => h.WaterMassVolume));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.WaterLevel));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.LakeArea));
+                    line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.WaterMassVolume));
 
                     file.WriteLine(line);
                 }
@@ -815,6 +824,15 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("WaterLevelWaterLavelAvg", "");
             formula_test = formula_test.Replace("WaterLevelWaterLavelMax", "");
             formula_test = formula_test.Replace("WaterLevelWaterLavelMin", "");
+            formula_test = formula_test.Replace("HypsometricWaterLevelAvg", "");
+            formula_test = formula_test.Replace("HypsometricAreaAvg", "");
+            formula_test = formula_test.Replace("HypsometricVolumeAvg", "");
+            formula_test = formula_test.Replace("HypsometricWaterLevelMax", "");
+            formula_test = formula_test.Replace("HypsometricAreaMax", "");
+            formula_test = formula_test.Replace("HypsometricVolumeMax", "");
+            formula_test = formula_test.Replace("HypsometricWaterLevelMin", "");
+            formula_test = formula_test.Replace("HypsometricAreaMin", "");
+            formula_test = formula_test.Replace("HypsometricVolumeMin", "");
 
             for (int n = 0; n <= 9; n++)
             {
@@ -905,6 +923,15 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("WaterLevelWaterLavelAvg", "lake.WaterLevelWaterLavelAvg");
             codeFilter = codeFilter.Replace("WaterLevelWaterLavelMax", "lake.WaterLevelWaterLavelMax");
             codeFilter = codeFilter.Replace("WaterLevelWaterLavelMin", "lake.WaterLevelWaterLavelMin");
+            codeFilter = codeFilter.Replace("HypsometricWaterLevelAvg", "lake.HypsometricWaterLevelAvg");
+            codeFilter = codeFilter.Replace("HypsometricAreaAvg", "lake.HypsometricAreaAvg");
+            codeFilter = codeFilter.Replace("HypsometricVolumeAvg", "lake.HypsometricVolumeAvg");
+            codeFilter = codeFilter.Replace("HypsometricWaterLevelMax", "lake.HypsometricWaterLevelMax");
+            codeFilter = codeFilter.Replace("HypsometricAreaMax", "lake.HypsometricAreaMax");
+            codeFilter = codeFilter.Replace("HypsometricVolumeMax", "lake.HypsometricVolumeMax");
+            codeFilter = codeFilter.Replace("HypsometricWaterLevelMin", "lake.HypsometricWaterLevelMin");
+            codeFilter = codeFilter.Replace("HypsometricAreaMin", "lake.HypsometricAreaMin");
+            codeFilter = codeFilter.Replace("HypsometricVolumeMin", "lake.HypsometricVolumeMin");
 
             bool checkFormula = CheckFormula(Formula);
 
@@ -976,6 +1003,15 @@ namespace ELake.Controllers
                         public decimal WaterLevelWaterLavelAvg { get; set; }
                         public decimal WaterLevelWaterLavelMax { get; set; }
                         public decimal WaterLevelWaterLavelMin { get; set; }
+                        public decimal HypsometricWaterLevelAvg { get; set; }
+                        public decimal HypsometricAreaAvg { get; set; }
+                        public decimal HypsometricVolumeAvg { get; set; }
+                        public decimal HypsometricWaterLevelMax { get; set; }
+                        public decimal HypsometricAreaMax { get; set; }
+                        public decimal HypsometricVolumeMax { get; set; }
+                        public decimal HypsometricWaterLevelMin { get; set; }
+                        public decimal HypsometricAreaMin { get; set; }
+                        public decimal HypsometricVolumeMin { get; set; }
 
                     } 
 
@@ -1043,6 +1079,15 @@ namespace ELake.Controllers
                                     WaterLevelWaterLavelAvg = FromLine(lineS[39]),
                                     WaterLevelWaterLavelMax = FromLine(lineS[40]),
                                     WaterLevelWaterLavelMin = FromLine(lineS[41]),
+                                    HypsometricWaterLevelAvg = FromLine(lineS[42]),
+                                    HypsometricAreaAvg = FromLine(lineS[43]),
+                                    HypsometricVolumeAvg = FromLine(lineS[44]),
+                                    HypsometricWaterLevelMax = FromLine(lineS[45]),
+                                    HypsometricAreaMax = FromLine(lineS[46]),
+                                    HypsometricVolumeMax = FromLine(lineS[47]),
+                                    HypsometricWaterLevelMin = FromLine(lineS[48]),
+                                    HypsometricAreaMin = FromLine(lineS[49]),
+                                    HypsometricVolumeMin = FromLine(lineS[50]),
 
                                 });
                             }
