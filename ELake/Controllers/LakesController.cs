@@ -1183,6 +1183,9 @@ namespace ELake.Controllers
                 "api-ms-win-core-debug-l1-1-0.dll",
                 "api-ms-win-core-datetime-l1-1-0.dll",
                 "api-ms-win-core-console-l1-1-0.dll",
+                "sni.dll",
+                "libuv.dll",
+                "hostfxr.dll",
             };
 
             foreach (var dllFile in Directory.GetFiles(coreDir.FullName, "*.dll"))
