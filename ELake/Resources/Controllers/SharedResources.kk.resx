@@ -1686,4 +1686,19 @@
   <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
     <value>Файлдағы бағандардың тәртібі: Id Id, жыл, деректер жоқ, су жоқ, маусымдық су аймағы, тұрақты су аймағы</value>
   </data>
+  <data name="Analytics" xml:space="preserve">
+    <value>Аналитика</value>
+  </data>
+  <data name="AND" xml:space="preserve">
+    <value>Және</value>
+  </data>
+  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
+    <value>Формуланы пайдалану кезінде қате пайда болды!</value>
+  </data>
+  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
+    <value>Формула жарамсыз таңбаларды қамтиды!</value>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>Немесе</value>
+  </data>
 </root>

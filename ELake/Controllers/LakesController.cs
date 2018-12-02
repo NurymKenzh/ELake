@@ -14,6 +14,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using OfficeOpenXml;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using System.Reflection;
+using Microsoft.CodeAnalysis.Emit;
+using System.Runtime.Loader;
 
 namespace ELake.Controllers
 {
@@ -653,15 +658,174 @@ namespace ELake.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //public ActionResult something(string userGuid)
-        //{
-        //    var p = _context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).Take(4).ToArray();
-        //    return Json(new
-        //    {
-        //        p
-        //    });
-        //}
+        // GET: Lakes/Details/5
+        public async Task<IActionResult> Analytics()
+        {
+            ViewBag.Adm1 = new SelectList(_context.KATO.Where(k => k.Level == 1).OrderBy(k => k.Name), "Id", "Name");
+            return View();
+        }
+
+        public bool CheckFormula(string Formula)
+        {
+            bool r = true;
+            string formula_test = Formula;
+            formula_test = formula_test.Replace("(", "");
+            formula_test = formula_test.Replace(")", "");
+            formula_test = formula_test.Replace("+", "");
+            formula_test = formula_test.Replace("-", "");
+            formula_test = formula_test.Replace("*", "");
+            formula_test = formula_test.Replace("/", "");
+            formula_test = formula_test.Replace(",", ".");
+            formula_test = formula_test.Replace(".", "");
+            formula_test = formula_test.Replace(">", "");
+            formula_test = formula_test.Replace("<", "");
+            formula_test = formula_test.Replace("AND", "");
+            formula_test = formula_test.Replace("OR", "");
+            formula_test = formula_test.Replace("Area2015", "");
+            for (int n = 0; n <= 9; n++)
+            {
+                formula_test = formula_test.Replace(n.ToString(), "");
+            }
+            if (formula_test.Trim() != "")
+            {
+                r = false;
+            }
+            return r;
+        }
+
+        [HttpPost]
+        public ActionResult Analyze(string Formula, int? Adm1KATOId, int? Adm2KATOId)
+        {
+            var lakesToSearch = _context.Lake
+                .ToArray();
+            if (Adm1KATOId != null)
+            {
+                lakesToSearch = lakesToSearch.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm1KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
+            }
+            if (Adm2KATOId != null)
+            {
+                lakesToSearch = lakesToSearch.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm2KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
+            }
+
+            string codePopulateLakes = "";
+            foreach (Lake lake in lakesToSearch)
+            {
+                codePopulateLakes += @"Lakes.Add(new Lake()
+                    {
+                        Id = " + lake.Id.ToString() + @",
+                        LakeId = " + lake.LakeId.ToString() + @",
+                        Area2015 = " + lake.Area2015.ToString().Replace(',', '.') + @"M,
+                    });
+                    ";
+            }
+
+            string codeFilter = Formula;
+            //codeFilter = codeFilter.Replace(",", ".");
+            codeFilter = codeFilter.Replace("AND", "&&");
+            codeFilter = codeFilter.Replace("OR", "||");
+            codeFilter = codeFilter.Replace("Area2015", "lake.Area2015");
+            bool checkFormula = CheckFormula(Formula);
+
+            string codeToCompile = @"using System;
+                using System.Collections.Generic;
+                //using System.Linq;
+                namespace RoslynCompile
+                {
+                    // lake for analytics
+                    public class Lake
+                    {
+                        public int Id { get; set; }
+                        public int LakeId { get; set; }
+                        public decimal Area2015 { get; set; }
+                    } 
+
+                    public class Calculator
+                    {
+                        //public List<Lake> Lakes { get; set; }
+
+                        public int?[] Calculate()
+                        {
+                            List<Lake> Lakes = new List<Lake>();
+                            " + codePopulateLakes + @"
+
+                            List<int?> rLakes = new List<int?>();
+
+                            foreach (Lake lake in Lakes)
+                            {
+                                if(
+                                    " + codeFilter + @"
+                                    )
+                                {
+                                    rLakes.Add(lake.LakeId);
+                                }
+                            }
+
+                            return rLakes
+                                .ToArray();
+                        }
+                    }
+                }";
+            SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(codeToCompile);
+            string assemblyName = Path.GetRandomFileName();
+
+            //var coreDir = Path.GetDirectoryName(typeof(object).GetTypeInfo().Assembly.Location);
+            //var mscorlib = MetadataReference.CreateFromFile(Path.Combine(coreDir, "mscorlib.dll"));
+
+            MetadataReference[] references = new MetadataReference[]
+            {
+                    MetadataReference.CreateFromFile(typeof(object).GetTypeInfo().Assembly.Location),
+                    //mscorlib
+            };
+            CSharpCompilation compilation = CSharpCompilation.Create(
+                assemblyName,
+                syntaxTrees: new[] { syntaxTree },
+                references: references,
+                options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+            int?[] r = new int?[0];
+            string message = "";
+            if(checkFormula)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    EmitResult result = compilation.Emit(ms);
+                    if (!result.Success)
+                    {
+                        IEnumerable<Diagnostic> failures = result.Diagnostics.Where(diagnostic =>
+                            diagnostic.IsWarningAsError ||
+                            diagnostic.Severity == DiagnosticSeverity.Error);
+                        r = new int?[0];
+                        message = _sharedLocalizer["AnErrorOccurredWhileUsingTheFormula"];
+                    }
+                    else
+                    {
+                        ms.Seek(0, SeekOrigin.Begin);
+                        Assembly assembly = AssemblyLoadContext.Default.LoadFromStream(ms);
+                        var type = assembly.GetType("RoslynCompile.Calculator");
+                        var instance = assembly.CreateInstance("RoslynCompile.Calculator");
+                        var meth = type.GetMember("Calculate").First() as MethodInfo;
+                        r = meth.Invoke(instance, null) as int?[];
+                    }
+                }
+            }
+            else
+            {
+                message = _sharedLocalizer["FormulaContainsInvalidCharacters"];
+            }
+
+            var lakes = lakesToSearch
+                .Where(l => r.Contains(l.LakeId))
+                .OrderBy(l => l.Name)
+                .ToArray();
+            if(message == "")
+            {
+                message = _sharedLocalizer["Found"] + ": " + lakes.Count().ToString();
+            }
+            return Json(new
+            {
+                lakes,
+                message
+            });
+        }
 
         [HttpPost]
         public ActionResult GetLakes(string Search, int? Adm1KATOId, int? Adm2KATOId, string VHB, string VHU, int? LakeSystem)

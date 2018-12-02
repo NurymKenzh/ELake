@@ -1686,4 +1686,19 @@
   <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год, нет данных, нет воды, площадь сезонной воды, площадь постоянной воды</value>
   </data>
+  <data name="Analytics" xml:space="preserve">
+    <value>Аналитика</value>
+  </data>
+  <data name="AND" xml:space="preserve">
+    <value>И</value>
+  </data>
+  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
+    <value>Возникла ошибка при использовании формулы!</value>
+  </data>
+  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
+    <value>Формула содержит недопустимые символы!</value>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>Или</value>
+  </data>
 </root>

@@ -1,0 +1,104 @@
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Analytics"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@SharedLocalizer["Analytics"]</h2>
+<select id="adm1" asp-items="ViewBag.Adm1" onchange="GetAdm2();">
+    <option selected></option>
+</select>
+<select id="adm2">
+    <option selected></option>
+</select>
+<input id="formula" type="text" style="width: 100%;" />
+<input type="button" onclick="Analyze()" value="@SharedLocalizer["Find"]" />
+<br />
+<label id="message"></label>
+<br />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '(')" value="(" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + ')')" value=")" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '+')" value="+" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '-')" value="-" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '*')" value="*" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '/')" value="/" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '>')" value=">" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '<')" value="<" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '=')" value="=" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'AND')" value="@SharedLocalizer["AND"]" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'OR')" value="@SharedLocalizer["OR"]" />
+<br />
+<h4>@SharedLocalizer["BasicInfoLake"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'Area2015')" value="@SharedLocalizer["Area2015"]" />
+
+<div hidden="hidden">
+    <input id="Map" type="hidden" value='@SharedLocalizer["Map"]' />
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @SharedLocalizer["Name"]
+            </th>
+            <th>
+                @SharedLocalizer["LakeId"]
+            </th>
+            <th>
+                @SharedLocalizer["Details"]
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tablebodyLakes"></tbody>
+</table>
+<script>
+    function Analyze() {
+        $('#message').text('');
+        $.ajax({
+            url: '@Url.Action("Analyze")',
+            data: {
+                Formula: $('#formula').val(),
+                Adm1KATOId: $('#adm1').val(),
+                Adm2KATOId: $('#adm2').val() },
+            type: 'POST',
+            success: function (data) {
+                var tablebody = $('#tablebodyLakes');
+                tablebody.html('');
+                if (data.lakes != null) {
+                    for (var i = 0; i < data.lakes.length; i++) {
+                        var tr = $('<tr/>').appendTo(tablebody);
+                        tr.append('<td>' + data.lakes[i].name + '</td>');
+                        tr.append('<td>' + data.lakes[i].lakeId + '</td>');
+                        tr.append('<td><a href="Map/' + data.lakes[i].lakeId + '">' + $('#Map').val() + '</a></td>');
+                    }
+                }
+                $('#message').text(data.message);
+            },
+            error: function () {
+            }
+        });
+    }
+</script>
+<script>
+    function GetAdm2() {
+        var $dropdown = $("#adm2");
+        $dropdown.find('option')
+            .remove();
+        $.ajax({
+            url: '@Url.Action("GetAdm2")',
+            data: {
+                Adm1KATOId: $('#adm1').val()
+            },
+            type: 'POST',
+            success: function (data) {
+                $dropdown.append($("<option />"));
+                $.each(data.adm2, function () {
+                    $dropdown.append($("<option />").val(this.id).text(this.name));
+                });
+            },
+            error: function () {
+            }
+        });
+    }
+    GetAdm2();
+</script>
