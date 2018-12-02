@@ -682,6 +682,7 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("AND", "");
             formula_test = formula_test.Replace("OR", "");
             formula_test = formula_test.Replace("Area2015", "");
+            formula_test = formula_test.Replace("Shoreline2015", "");
             for (int n = 0; n <= 9; n++)
             {
                 formula_test = formula_test.Replace(n.ToString(), "");
@@ -715,6 +716,7 @@ namespace ELake.Controllers
                         Id = " + lake.Id.ToString() + @",
                         LakeId = " + lake.LakeId.ToString() + @",
                         Area2015 = " + lake.Area2015.ToString().Replace(',', '.') + @"M,
+                        Shoreline2015 = " + lake.LakeShorelineLength2015.ToString().Replace(',', '.') + @"M,
                     });
                     ";
             }
@@ -724,6 +726,7 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("AND", "&&");
             codeFilter = codeFilter.Replace("OR", "||");
             codeFilter = codeFilter.Replace("Area2015", "lake.Area2015");
+            codeFilter = codeFilter.Replace("Shoreline2015", "lake.Shoreline2015");
             bool checkFormula = CheckFormula(Formula);
 
             string codeToCompile = @"using System;
@@ -737,6 +740,7 @@ namespace ELake.Controllers
                         public int Id { get; set; }
                         public int LakeId { get; set; }
                         public decimal Area2015 { get; set; }
+                        public decimal Shoreline2015 { get; set; }
                     } 
 
                     public class Calculator

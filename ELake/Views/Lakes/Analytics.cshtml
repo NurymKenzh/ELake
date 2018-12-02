@@ -26,11 +26,12 @@
 <input type="button" onclick="$('#formula').val($('#formula').val() + '>')" value=">" />
 <input type="button" onclick="$('#formula').val($('#formula').val() + '<')" value="<" />
 <input type="button" onclick="$('#formula').val($('#formula').val() + '=')" value="=" />
-<input type="button" onclick="$('#formula').val($('#formula').val() + 'AND')" value="@SharedLocalizer["AND"]" />
-<input type="button" onclick="$('#formula').val($('#formula').val() + 'OR')" value="@SharedLocalizer["OR"]" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + ' AND ')" value="@SharedLocalizer["AND"]" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + ' OR ')" value="@SharedLocalizer["OR"]" />
 <br />
 <h4>@SharedLocalizer["BasicInfoLake"]</h4>
 <input type="button" onclick="$('#formula').val($('#formula').val() + 'Area2015')" value="@SharedLocalizer["Area2015"]" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'Shoreline2015')" value="@SharedLocalizer["LakeShorelineLength2015"]" />
 
 <div hidden="hidden">
     <input id="Map" type="hidden" value='@SharedLocalizer["Map"]' />
@@ -69,7 +70,7 @@
                         var tr = $('<tr/>').appendTo(tablebody);
                         tr.append('<td>' + data.lakes[i].name + '</td>');
                         tr.append('<td>' + data.lakes[i].lakeId + '</td>');
-                        tr.append('<td><a href="Map/' + data.lakes[i].lakeId + '">' + $('#Map').val() + '</a></td>');
+                        tr.append('<td><a href="Map/' + data.lakes[i].lakeId + '" target="_blank">' + $('#Map').val() + '</a></td>');
                     }
                 }
                 $('#message').text(data.message);
