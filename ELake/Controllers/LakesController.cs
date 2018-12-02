@@ -713,13 +713,21 @@ namespace ELake.Controllers
 
         private string PopulateDecimal(decimal? Value)
         {
-            if(Value == null)
+            //if(Value == null)
+            //{
+            //    return "0,";
+            //}
+            //else
+            //{
+            //    return Value.ToString().Replace(',', '.') + "M,";
+            //}
+            if (Value == null)
             {
-                return "0,";
+                return "0";
             }
             else
             {
-                return Value.ToString().Replace(',', '.') + "M,";
+                return Value.ToString();
             }
         }
 
@@ -736,40 +744,8 @@ namespace ELake.Controllers
             {
                 lakesToSearch = lakesToSearch.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm2KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
             }
-
-            string codePopulateLakes = "";
-            foreach (Lake lake in lakesToSearch)
-            {
-                LakesArchiveData lakesArchiveData = _context.LakesArchiveData
-                    .FirstOrDefault(l => l.LakeId == lake.LakeId);
-                LakesGlobalData lakesGlobalData = _context.LakesGlobalData
-                    .FirstOrDefault(l => l.LakeId == lake.LakeId);
-                codePopulateLakes += @"Lakes.Add(new Lake()
-                    {
-                        Id = " + lake.Id.ToString() + @",
-                        LakeId = " + lake.LakeId.ToString() + @",
-                        Area2015 = " + lake.Area2015.ToString().Replace(',', '.') + @"M,
-                        Shoreline2015 = " + lake.LakeShorelineLength2015.ToString().Replace(',', '.') + @"M,
-                        ArchiveLength = " + PopulateDecimal(lakesArchiveData?.LakeLength) + @"
-                        ArchiveShoreline = " + PopulateDecimal(lakesArchiveData?.LakeShorelineLength) + @"
-                        ArchiveMirrorArea = " + PopulateDecimal(lakesArchiveData?.LakeMirrorArea) + @"
-                        ArchiveAbsoluteHeight = " + PopulateDecimal(lakesArchiveData?.LakeAbsoluteHeight) + @"
-                        ArchiveWidth = " + PopulateDecimal(lakesArchiveData?.LakeWidth) + @"
-                        ArchiveMaxDepth = " + PopulateDecimal(lakesArchiveData?.LakeMaxDepth) + @"
-                        ArchiveWaterMass = " + PopulateDecimal(lakesArchiveData?.LakeWaterMass) + @"
-                        GlobalArea = " + PopulateDecimal(lakesGlobalData?.Lake_area) + @"
-                        GlobalShoreLength = " + PopulateDecimal(lakesGlobalData?.Shore_len) + @"
-                        GlobalIndentation = " + PopulateDecimal(lakesGlobalData?.Shore_dev) + @"
-                        GlobalVolume = " + PopulateDecimal(lakesGlobalData?.Vol_total) + @"
-                        GlobalDepth = " + PopulateDecimal(lakesGlobalData?.Depth_avg) + @"
-                        GlobalFlow = " + PopulateDecimal(lakesGlobalData?.Dis_avg) + @"
-                        GlobalStayTime = " + PopulateDecimal(lakesGlobalData?.Res_time) + @"
-                        GlobalElevation = " + PopulateDecimal(lakesGlobalData?.Elevation) + @"
-                        GlobalSlope = " + PopulateDecimal(lakesGlobalData?.Slope_100) + @"
-                        GlobalCatchmentArea = " + PopulateDecimal(lakesGlobalData?.Wshd_area) + @"
-                    });
-                    ";
-            }
+            
+            string assemblyName = Path.GetRandomFileName();
 
             string codeFilter = Formula;
             //codeFilter = codeFilter.Replace(",", ".");
@@ -796,8 +772,82 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("GlobalCatchmentArea", "lake.GlobalCatchmentArea");
             bool checkFormula = CheckFormula(Formula);
 
+            string codePopulateLakes = "";
+            string sContentRootPath = _hostingEnvironment.WebRootPath;
+            sContentRootPath = Path.Combine(sContentRootPath, "Analytics");
+            DirectoryInfo di = new DirectoryInfo(sContentRootPath);
+            foreach (FileInfo filed in di.GetFiles())
+            {
+                try
+                {
+                    filed.Delete();
+                }
+                catch
+                {
+                }
+            }
+            string filePopulateLakes = Path.Combine(sContentRootPath, assemblyName);
+            using (StreamWriter file = new System.IO.StreamWriter(filePopulateLakes))
+            {
+                foreach (Lake lake in lakesToSearch)
+                {
+                    LakesArchiveData lakesArchiveData = _context.LakesArchiveData
+                        .FirstOrDefault(l => l.LakeId == lake.LakeId);
+                    LakesGlobalData lakesGlobalData = _context.LakesGlobalData
+                        .FirstOrDefault(l => l.LakeId == lake.LakeId);
+                    //codePopulateLakes += @"Lakes.Add(new Lake()
+                    //    {
+                    //        Id = " + lake.Id.ToString() + @",
+                    //        LakeId = " + lake.LakeId.ToString() + @",
+                    //        Area2015 = " + lake.Area2015.ToString().Replace(',', '.') + @"M,
+                    //        Shoreline2015 = " + lake.LakeShorelineLength2015.ToString().Replace(',', '.') + @"M,
+                    //        ArchiveLength = " + PopulateDecimal(lakesArchiveData?.LakeLength) + @"
+                    //        ArchiveShoreline = " + PopulateDecimal(lakesArchiveData?.LakeShorelineLength) + @"
+                    //        ArchiveMirrorArea = " + PopulateDecimal(lakesArchiveData?.LakeMirrorArea) + @"
+                    //        ArchiveAbsoluteHeight = " + PopulateDecimal(lakesArchiveData?.LakeAbsoluteHeight) + @"
+                    //        ArchiveWidth = " + PopulateDecimal(lakesArchiveData?.LakeWidth) + @"
+                    //        ArchiveMaxDepth = " + PopulateDecimal(lakesArchiveData?.LakeMaxDepth) + @"
+                    //        ArchiveWaterMass = " + PopulateDecimal(lakesArchiveData?.LakeWaterMass) + @"
+                    //        GlobalArea = " + PopulateDecimal(lakesGlobalData?.Lake_area) + @"
+                    //        GlobalShoreLength = " + PopulateDecimal(lakesGlobalData?.Shore_len) + @"
+                    //        GlobalIndentation = " + PopulateDecimal(lakesGlobalData?.Shore_dev) + @"
+                    //        GlobalVolume = " + PopulateDecimal(lakesGlobalData?.Vol_total) + @"
+                    //        GlobalDepth = " + PopulateDecimal(lakesGlobalData?.Depth_avg) + @"
+                    //        GlobalFlow = " + PopulateDecimal(lakesGlobalData?.Dis_avg) + @"
+                    //        GlobalStayTime = " + PopulateDecimal(lakesGlobalData?.Res_time) + @"
+                    //        GlobalElevation = " + PopulateDecimal(lakesGlobalData?.Elevation) + @"
+                    //        GlobalSlope = " + PopulateDecimal(lakesGlobalData?.Slope_100) + @"
+                    //        GlobalCatchmentArea = " + PopulateDecimal(lakesGlobalData?.Wshd_area) + @"
+                    //    });
+                    //    ";
+                    string line = lake.Id.ToString();
+                    line += "\t" + PopulateDecimal(lake.LakeId);
+                    line += "\t" + PopulateDecimal(lake.Area2015);
+                    line += "\t" + PopulateDecimal(lake.LakeShorelineLength2015);
+                    line += "\t" + PopulateDecimal(lakesArchiveData?.LakeLength);
+                    line += "\t" + PopulateDecimal(lakesArchiveData?.LakeShorelineLength);
+                    line += "\t" + PopulateDecimal(lakesArchiveData?.LakeMirrorArea);
+                    line += "\t" + PopulateDecimal(lakesArchiveData?.LakeAbsoluteHeight);
+                    line += "\t" + PopulateDecimal(lakesArchiveData?.LakeWidth);
+                    line += "\t" + PopulateDecimal(lakesArchiveData?.LakeMaxDepth);
+                    line += "\t" + PopulateDecimal(lakesArchiveData?.LakeWaterMass);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Lake_area);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Shore_len);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Shore_dev);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Vol_total);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Depth_avg);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Dis_avg);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Res_time);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Elevation);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Slope_100);
+                    line += "\t" + PopulateDecimal(lakesGlobalData?.Wshd_area);
+                    file.WriteLine(line);
+                }
+            }
+
             string codeToCompile = @"using System;
                 using System.Collections.Generic;
+                using System.IO;
                 //using System.Linq;
                 namespace RoslynCompile
                 {
@@ -830,11 +880,49 @@ namespace ELake.Controllers
                     public class Calculator
                     {
                         //public List<Lake> Lakes { get; set; }
+                        public decimal FromLine(string line)
+                        {
+                            return string.IsNullOrEmpty(line) ? 0 : Convert.ToDecimal(line);
+                        }
 
                         public int?[] Calculate()
                         {
                             List<Lake> Lakes = new List<Lake>();
                             " + codePopulateLakes + @"
+
+                            " + "string fileName = @\"" + filePopulateLakes + "\";" + @"
+
+                            string line;
+                            StreamReader file = new StreamReader(fileName);
+                            while ((line = file.ReadLine()) != null)
+                            {
+                                string[] lineS = line.Split('\t');
+                                Lakes.Add(new Lake()
+                                {
+                                    Id = Convert.ToInt32(lineS[0]),
+                                    LakeId = Convert.ToInt32(lineS[1]),
+                                    Area2015 = FromLine(lineS[2]),
+                                    Shoreline2015 = FromLine(lineS[3]),
+                                    ArchiveLength = FromLine(lineS[4]),
+                                    ArchiveShoreline = FromLine(lineS[5]),
+                                    ArchiveMirrorArea = FromLine(lineS[6]),
+                                    ArchiveAbsoluteHeight = FromLine(lineS[7]),
+                                    ArchiveWidth = FromLine(lineS[8]),
+                                    ArchiveMaxDepth = FromLine(lineS[9]),
+                                    ArchiveWaterMass = FromLine(lineS[10]),
+                                    GlobalArea = FromLine(lineS[11]),
+                                    GlobalShoreLength = FromLine(lineS[12]),
+                                    GlobalIndentation = FromLine(lineS[13]),
+                                    GlobalVolume = FromLine(lineS[14]),
+                                    GlobalDepth = FromLine(lineS[15]),
+                                    GlobalFlow = FromLine(lineS[16]),
+                                    GlobalStayTime = FromLine(lineS[17]),
+                                    GlobalElevation = FromLine(lineS[18]),
+                                    GlobalSlope = FromLine(lineS[19]),
+                                    GlobalCatchmentArea = FromLine(lineS[20])
+                                });
+                            }
+                            //File.ReadAllLines(fileName);
 
                             List<int?> rLakes = new List<int?>();
 
@@ -854,21 +942,127 @@ namespace ELake.Controllers
                     }
                 }";
             SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(codeToCompile);
-            string assemblyName = Path.GetRandomFileName();
 
             //var coreDir = Path.GetDirectoryName(typeof(object).GetTypeInfo().Assembly.Location);
             //var mscorlib = MetadataReference.CreateFromFile(Path.Combine(coreDir, "mscorlib.dll"));
 
-            MetadataReference[] references = new MetadataReference[]
+            List<MetadataReference> references = new List<MetadataReference>
             {
-                    MetadataReference.CreateFromFile(typeof(object).GetTypeInfo().Assembly.Location),
-                    //mscorlib
+                    MetadataReference.CreateFromFile(typeof(Object).GetTypeInfo().Assembly.Location),
+                    MetadataReference.CreateFromFile(typeof(Uri).GetTypeInfo().Assembly.Location)
             };
+
+
+            var dd = typeof(Enumerable).GetTypeInfo().Assembly.Location;
+            var coreDir = Directory.GetParent(dd);
+
+            string[] notTheseDLL = new string[]
+            {
+                "ucrtbase.dll",
+                "sos_amd64_amd64_4.6.26614.01.dll",
+                "sos.dll",
+                "mscorrc.dll",
+                "mscorrc.debug.dll",
+                "mscordbi.dll",
+                "mscordaccore_amd64_amd64_4.6.26614.01.dll",
+                "mscordaccore.dll",
+                "Microsoft.DiaSymReader.Native.amd64.dll",
+                "hostpolicy.dll",
+                "dbgshim.dll",
+                "coreclr.dll",
+                "clrjit.dll",
+                "clretwrc.dll",
+                "clrcompression.dll",
+                "api-ms-win-crt-utility-l1-1-0.dll",
+                "api-ms-win-crt-time-l1-1-0.dll",
+                "api-ms-win-crt-string-l1-1-0.dll",
+                "api-ms-win-crt-stdio-l1-1-0.dll",
+                "api-ms-win-crt-runtime-l1-1-0.dll",
+                "api-ms-win-crt-process-l1-1-0.dll",
+                "api-ms-win-crt-private-l1-1-0.dll",
+                "api-ms-win-crt-multibyte-l1-1-0.dll",
+                "api-ms-win-crt-math-l1-1-0.dll",
+                "api-ms-win-crt-locale-l1-1-0.dll",
+                "api-ms-win-crt-heap-l1-1-0.dll",
+                "api-ms-win-crt-filesystem-l1-1-0.dll",
+                "api-ms-win-crt-environment-l1-1-0.dll",
+                "api-ms-win-crt-convert-l1-1-0.dll",
+                "api-ms-win-crt-conio-l1-1-0.dll",
+                "api-ms-win-core-util-l1-1-0.dll",
+                "api-ms-win-core-timezone-l1-1-0.dll",
+                "api-ms-win-core-sysinfo-l1-1-0.dll",
+                "api-ms-win-core-synch-l1-2-0.dll",
+                "api-ms-win-core-synch-l1-1-0.dll",
+                "api-ms-win-core-string-l1-1-0.dll",
+                "api-ms-win-core-rtlsupport-l1-1-0.dll",
+                "api-ms-win-core-profile-l1-1-0.dll",
+                "api-ms-win-core-processthreads-l1-1-1.dll",
+                "api-ms-win-core-processthreads-l1-1-0.dll",
+                "api-ms-win-core-processenvironment-l1-1-0.dll",
+                "api-ms-win-core-namedpipe-l1-1-0.dll",
+                "api-ms-win-core-memory-l1-1-0.dll",
+                "api-ms-win-core-localization-l1-2-0.dll",
+                "api-ms-win-core-libraryloader-l1-1-0.dll",
+                "api-ms-win-core-interlocked-l1-1-0.dll",
+                "api-ms-win-core-heap-l1-1-0.dll",
+                "api-ms-win-core-handle-l1-1-0.dll",
+                "api-ms-win-core-file-l2-1-0.dll",
+                "api-ms-win-core-file-l1-2-0.dll",
+                "api-ms-win-core-file-l1-1-0.dll",
+                "api-ms-win-core-errorhandling-l1-1-0.dll",
+                "api-ms-win-core-debug-l1-1-0.dll",
+                "api-ms-win-core-datetime-l1-1-0.dll",
+                "api-ms-win-core-console-l1-1-0.dll",
+            };
+
+            foreach (var dllFile in Directory.GetFiles(coreDir.FullName, "*.dll"))
+            {
+                if(!notTheseDLL.Contains(Path.GetFileName(dllFile)))
+                {
+                    references.Add(MetadataReference.CreateFromFile(dllFile));
+                }
+            }
+
             CSharpCompilation compilation = CSharpCompilation.Create(
                 assemblyName,
                 syntaxTrees: new[] { syntaxTree },
-                references: references,
-                options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+                //references: references,
+                options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary))
+                .AddReferences(references.ToArray());
+
+
+            //CSharpCompilation compilation = CSharpCompilation.Create(
+            //    assemblyName,
+            //    syntaxTrees: new[] { syntaxTree },
+            //    references: references,
+            //    options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+
+            ////test file
+            //string line_;
+            //StreamReader file_ = new StreamReader(filePopulateLakes);
+            //while ((line_ = file_.ReadLine()) != null)
+            //{
+            //    try
+            //    {
+            //        string[] lineS = line_.Split('\t');
+            //        int i1 = Convert.ToInt32(lineS[0]);
+            //        i1 = Convert.ToInt32(lineS[1]);
+            //        decimal d = string.IsNullOrEmpty(lineS[2]) ? 0 : Convert.ToDecimal(lineS[2]);
+            //        d = string.IsNullOrEmpty(lineS[3]) ? 0 : Convert.ToDecimal(lineS[3]);
+            //        d = string.IsNullOrEmpty(lineS[4]) ? 0 : Convert.ToDecimal(lineS[4]);
+            //        d = string.IsNullOrEmpty(lineS[5]) ? 0 : Convert.ToDecimal(lineS[5]);
+            //        d = string.IsNullOrEmpty(lineS[6]) ? 0 : Convert.ToDecimal(lineS[6]);
+            //        d = string.IsNullOrEmpty(lineS[7]) ? 0 : Convert.ToDecimal(lineS[7]);
+            //        d = string.IsNullOrEmpty(lineS[8]) ? 0 : Convert.ToDecimal(lineS[8]);
+            //        d = string.IsNullOrEmpty(lineS[9]) ? 0 : Convert.ToDecimal(lineS[9]);
+            //        d = string.IsNullOrEmpty(lineS[10]) ? 0 : Convert.ToDecimal(lineS[10]);
+            //    }
+            //    catch(Exception e)
+            //    {
+            //        break;
+            //    }
+            //}
+
             int?[] r = new int?[0];
             string message = "";
             if(checkFormula)
