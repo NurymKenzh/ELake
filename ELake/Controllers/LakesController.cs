@@ -665,170 +665,17 @@ namespace ELake.Controllers
             return View();
         }
 
-        public bool CheckFormula(string Formula)
+
+        [Authorize(Roles = "Administrator, Moderator")]
+        public async Task<IActionResult> CreateFileToAnalytics()
         {
-            bool r = true;
-            string formula_test = Formula;
-            formula_test = formula_test.Replace("(", "");
-            formula_test = formula_test.Replace(")", "");
-            formula_test = formula_test.Replace("+", "");
-            formula_test = formula_test.Replace("-", "");
-            formula_test = formula_test.Replace("*", "");
-            formula_test = formula_test.Replace("/", "");
-            formula_test = formula_test.Replace(",", ".");
-            formula_test = formula_test.Replace(".", "");
-            formula_test = formula_test.Replace(">", "");
-            formula_test = formula_test.Replace("<", "");
-            formula_test = formula_test.Replace("AND", "");
-            formula_test = formula_test.Replace("OR", "");
-            formula_test = formula_test.Replace("Area2015", "");
-            formula_test = formula_test.Replace("Shoreline2015", "");
-            formula_test = formula_test.Replace("ArchiveLength", "");
-            formula_test = formula_test.Replace("ArchiveShoreline", "");
-            formula_test = formula_test.Replace("ArchiveMirrorArea", "");
-            formula_test = formula_test.Replace("ArchiveAbsoluteHeight", "");
-            formula_test = formula_test.Replace("ArchiveWidth", "");
-            formula_test = formula_test.Replace("ArchiveMaxDepth", "");
-            formula_test = formula_test.Replace("ArchiveWaterMass", "");
-            formula_test = formula_test.Replace("GlobalArea", "");
-            formula_test = formula_test.Replace("GlobalShoreLength", "");
-            formula_test = formula_test.Replace("GlobalIndentation", "");
-            formula_test = formula_test.Replace("GlobalVolume", "");
-            formula_test = formula_test.Replace("GlobalDepth", "");
-            formula_test = formula_test.Replace("GlobalFlow", "");
-            formula_test = formula_test.Replace("GlobalStayTime", "");
-            formula_test = formula_test.Replace("GlobalElevation", "");
-            formula_test = formula_test.Replace("GlobalSlope", "");
-            formula_test = formula_test.Replace("GlobalCatchmentArea", "");
-            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowAvg", "");
-            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowAvg", "");
-            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowAvg", "");
-            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowAvg", "");
-            formula_test = formula_test.Replace("WaterBalancePrecipitationAvg", "");
-            formula_test = formula_test.Replace("WaterBalanceEvaporationAvg", "");
-            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowMax", "");
-            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowMax", "");
-            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowMax", "");
-            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowMax", "");
-            formula_test = formula_test.Replace("WaterBalancePrecipitationMax", "");
-            formula_test = formula_test.Replace("WaterBalanceEvaporationMax", "");
-            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowMin", "");
-            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowMin", "");
-            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowMin", "");
-            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowMin", "");
-            formula_test = formula_test.Replace("WaterBalancePrecipitationMin", "");
-            formula_test = formula_test.Replace("WaterBalanceEvaporationMin", "");
-            for (int n = 0; n <= 9; n++)
-            {
-                formula_test = formula_test.Replace(n.ToString(), "");
-            }
-            if (formula_test.Trim() != "")
-            {
-                r = false;
-            }
-            return r;
-        }
-
-        private string PopulateDecimal(decimal? Value)
-        {
-            //if(Value == null)
-            //{
-            //    return "0,";
-            //}
-            //else
-            //{
-            //    return Value.ToString().Replace(',', '.') + "M,";
-            //}
-            if (Value == null)
-            {
-                return "0";
-            }
-            else
-            {
-                return Value.ToString();
-            }
-        }
-
-        [HttpPost]
-        public ActionResult Analyze(string Formula, int? Adm1KATOId, int? Adm2KATOId)
-        {
-            var lakesToSearch = _context.Lake
-                .ToArray();
-            if (Adm1KATOId != null)
-            {
-                lakesToSearch = lakesToSearch.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm1KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
-            }
-            if (Adm2KATOId != null)
-            {
-                lakesToSearch = lakesToSearch.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm2KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
-            }
-            
-            string assemblyName = Path.GetRandomFileName();
-
-            string codeFilter = Formula;
-            // Analyze1
-            //codeFilter = codeFilter.Replace(",", ".");
-            codeFilter = codeFilter.Replace("AND", "&&");
-            codeFilter = codeFilter.Replace("OR", "||");
-            codeFilter = codeFilter.Replace("NOT", "!");
-            codeFilter = codeFilter.Replace("Area2015", "lake.Area2015");
-            codeFilter = codeFilter.Replace("Shoreline2015", "lake.Shoreline2015");
-            codeFilter = codeFilter.Replace("ArchiveLength", "lake.ArchiveLength");
-            codeFilter = codeFilter.Replace("ArchiveShoreline", "lake.ArchiveShoreline");
-            codeFilter = codeFilter.Replace("ArchiveMirrorArea", "lake.ArchiveMirrorArea");
-            codeFilter = codeFilter.Replace("ArchiveAbsoluteHeight", "lake.ArchiveAbsoluteHeight");
-            codeFilter = codeFilter.Replace("ArchiveWidth", "lake.ArchiveWidth");
-            codeFilter = codeFilter.Replace("ArchiveMaxDepth", "lake.ArchiveMaxDepth");
-            codeFilter = codeFilter.Replace("ArchiveWaterMass", "lake.ArchiveWaterMass");
-            codeFilter = codeFilter.Replace("GlobalArea", "lake.GlobalArea");
-            codeFilter = codeFilter.Replace("GlobalShoreLength", "lake.GlobalShoreLength");
-            codeFilter = codeFilter.Replace("GlobalIndentation", "lake.GlobalIndentation");
-            codeFilter = codeFilter.Replace("GlobalVolume", "lake.GlobalVolume");
-            codeFilter = codeFilter.Replace("GlobalDepth", "lake.GlobalDepth");
-            codeFilter = codeFilter.Replace("GlobalFlow", "lake.GlobalFlow");
-            codeFilter = codeFilter.Replace("GlobalStayTime", "lake.GlobalStayTime");
-            codeFilter = codeFilter.Replace("GlobalElevation", "lake.GlobalElevation");
-            codeFilter = codeFilter.Replace("GlobalSlope", "lake.GlobalSlope");
-            codeFilter = codeFilter.Replace("GlobalCatchmentArea", "lake.GlobalCatchmentArea");
-            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowAvg", "lake.WaterBalanceSurfaceFlowAvg");
-            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowAvg", "lake.WaterBalanceSurfaceOutflowAvg");
-            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowAvg", "lake.WaterBalanceUndergroundFlowAvg");
-            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowAvg", "lake.WaterBalanceUndergroundOutflowAvg");
-            codeFilter = codeFilter.Replace("WaterBalancePrecipitationAvg", "lake.WaterBalancePrecipitationAvg");
-            codeFilter = codeFilter.Replace("WaterBalanceEvaporationAvg", "lake.WaterBalanceEvaporationAvg");
-            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowMax", "lake.WaterBalanceSurfaceFlowMax");
-            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowMax", "lake.WaterBalanceSurfaceOutflowMax");
-            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowMax", "lake.WaterBalanceUndergroundFlowMax");
-            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowMax", "lake.WaterBalanceUndergroundOutflowMax");
-            codeFilter = codeFilter.Replace("WaterBalancePrecipitationMax", "lake.WaterBalancePrecipitationMax");
-            codeFilter = codeFilter.Replace("WaterBalanceEvaporationMax", "lake.WaterBalanceEvaporationMax");
-            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowMin", "lake.WaterBalanceSurfaceFlowMin");
-            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowMin", "lake.WaterBalanceSurfaceOutflowMin");
-            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowMin", "lake.WaterBalanceUndergroundFlowMin");
-            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowMin", "lake.WaterBalanceUndergroundOutflowMin");
-            codeFilter = codeFilter.Replace("WaterBalancePrecipitationMin", "lake.WaterBalancePrecipitationMin");
-            codeFilter = codeFilter.Replace("WaterBalanceEvaporationMin", "lake.WaterBalanceEvaporationMin");
-
-            bool checkFormula = CheckFormula(Formula);
-
-            string codePopulateLakes = "";
             string sContentRootPath = _hostingEnvironment.WebRootPath;
             sContentRootPath = Path.Combine(sContentRootPath, "Analytics");
-            DirectoryInfo di = new DirectoryInfo(sContentRootPath);
-            foreach (FileInfo filed in di.GetFiles())
-            {
-                try
-                {
-                    filed.Delete();
-                }
-                catch
-                {
-                }
-            }
+            string assemblyName = "lakes.txt";
             string filePopulateLakes = Path.Combine(sContentRootPath, assemblyName);
-            using (StreamWriter file = new System.IO.StreamWriter(filePopulateLakes))
+            using (StreamWriter file = new StreamWriter(filePopulateLakes))
             {
-                foreach (Lake lake in lakesToSearch)
+                foreach (Lake lake in _context.Lake)
                 {
                     LakesArchiveData lakesArchiveData = _context.LakesArchiveData
                         .FirstOrDefault(l => l.LakeId == lake.LakeId);
@@ -901,10 +748,182 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.UndergroundOutflow));
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.Precipitation));
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.Evaporation));
+                    line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.WaterLavelM));
+                    line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.WaterLavelM));
+                    line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.WaterLavelM));
 
                     file.WriteLine(line);
                 }
             }
+
+            return View();
+        }
+
+        public bool CheckFormula(string Formula)
+        {
+            bool r = true;
+            string formula_test = Formula;
+            formula_test = formula_test.Replace("(", "");
+            formula_test = formula_test.Replace(")", "");
+            formula_test = formula_test.Replace("+", "");
+            formula_test = formula_test.Replace("-", "");
+            formula_test = formula_test.Replace("*", "");
+            formula_test = formula_test.Replace("/", "");
+            formula_test = formula_test.Replace(",", ".");
+            formula_test = formula_test.Replace(".", "");
+            formula_test = formula_test.Replace(">", "");
+            formula_test = formula_test.Replace("<", "");
+            formula_test = formula_test.Replace("AND", "");
+            formula_test = formula_test.Replace("OR", "");
+            formula_test = formula_test.Replace("Area2015", "");
+            formula_test = formula_test.Replace("Shoreline2015", "");
+            formula_test = formula_test.Replace("ArchiveLength", "");
+            formula_test = formula_test.Replace("ArchiveShoreline", "");
+            formula_test = formula_test.Replace("ArchiveMirrorArea", "");
+            formula_test = formula_test.Replace("ArchiveAbsoluteHeight", "");
+            formula_test = formula_test.Replace("ArchiveWidth", "");
+            formula_test = formula_test.Replace("ArchiveMaxDepth", "");
+            formula_test = formula_test.Replace("ArchiveWaterMass", "");
+            formula_test = formula_test.Replace("GlobalArea", "");
+            formula_test = formula_test.Replace("GlobalShoreLength", "");
+            formula_test = formula_test.Replace("GlobalIndentation", "");
+            formula_test = formula_test.Replace("GlobalVolume", "");
+            formula_test = formula_test.Replace("GlobalDepth", "");
+            formula_test = formula_test.Replace("GlobalFlow", "");
+            formula_test = formula_test.Replace("GlobalStayTime", "");
+            formula_test = formula_test.Replace("GlobalElevation", "");
+            formula_test = formula_test.Replace("GlobalSlope", "");
+            formula_test = formula_test.Replace("GlobalCatchmentArea", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowAvg", "");
+            formula_test = formula_test.Replace("WaterBalancePrecipitationAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceEvaporationAvg", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowMax", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowMax", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowMax", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowMax", "");
+            formula_test = formula_test.Replace("WaterBalancePrecipitationMax", "");
+            formula_test = formula_test.Replace("WaterBalanceEvaporationMax", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceFlowMin", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowMin", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundFlowMin", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowMin", "");
+            formula_test = formula_test.Replace("WaterBalancePrecipitationMin", "");
+            formula_test = formula_test.Replace("WaterBalanceEvaporationMin", "");
+            formula_test = formula_test.Replace("WaterLevelWaterLavelAvg", "");
+            formula_test = formula_test.Replace("WaterLevelWaterLavelMax", "");
+            formula_test = formula_test.Replace("WaterLevelWaterLavelMin", "");
+
+            for (int n = 0; n <= 9; n++)
+            {
+                formula_test = formula_test.Replace(n.ToString(), "");
+            }
+            if (formula_test.Trim() != "")
+            {
+                r = false;
+            }
+            return r;
+        }
+
+        private string PopulateDecimal(decimal? Value)
+        {
+            //if(Value == null)
+            //{
+            //    return "0,";
+            //}
+            //else
+            //{
+            //    return Value.ToString().Replace(',', '.') + "M,";
+            //}
+            if (Value == null)
+            {
+                return "0";
+            }
+            else
+            {
+                return Value.ToString();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Analyze(string Formula, int? Adm1KATOId, int? Adm2KATOId)
+        {
+            var lakesToSearch = _context.Lake
+                .ToArray();
+
+
+            string assemblyName = Path.GetRandomFileName();
+            string sContentRootPath = _hostingEnvironment.WebRootPath;
+            sContentRootPath = Path.Combine(sContentRootPath, "Analytics");
+            string filePopulateLakes = Path.Combine(sContentRootPath, "lakes.txt");
+
+            string codeFilter = Formula;
+            // Analyze1
+            //codeFilter = codeFilter.Replace(",", ".");
+            codeFilter = codeFilter.Replace("AND", "&&");
+            codeFilter = codeFilter.Replace("OR", "||");
+            codeFilter = codeFilter.Replace("NOT", "!");
+            codeFilter = codeFilter.Replace("Area2015", "lake.Area2015");
+            codeFilter = codeFilter.Replace("Shoreline2015", "lake.Shoreline2015");
+            codeFilter = codeFilter.Replace("ArchiveLength", "lake.ArchiveLength");
+            codeFilter = codeFilter.Replace("ArchiveShoreline", "lake.ArchiveShoreline");
+            codeFilter = codeFilter.Replace("ArchiveMirrorArea", "lake.ArchiveMirrorArea");
+            codeFilter = codeFilter.Replace("ArchiveAbsoluteHeight", "lake.ArchiveAbsoluteHeight");
+            codeFilter = codeFilter.Replace("ArchiveWidth", "lake.ArchiveWidth");
+            codeFilter = codeFilter.Replace("ArchiveMaxDepth", "lake.ArchiveMaxDepth");
+            codeFilter = codeFilter.Replace("ArchiveWaterMass", "lake.ArchiveWaterMass");
+            codeFilter = codeFilter.Replace("GlobalArea", "lake.GlobalArea");
+            codeFilter = codeFilter.Replace("GlobalShoreLength", "lake.GlobalShoreLength");
+            codeFilter = codeFilter.Replace("GlobalIndentation", "lake.GlobalIndentation");
+            codeFilter = codeFilter.Replace("GlobalVolume", "lake.GlobalVolume");
+            codeFilter = codeFilter.Replace("GlobalDepth", "lake.GlobalDepth");
+            codeFilter = codeFilter.Replace("GlobalFlow", "lake.GlobalFlow");
+            codeFilter = codeFilter.Replace("GlobalStayTime", "lake.GlobalStayTime");
+            codeFilter = codeFilter.Replace("GlobalElevation", "lake.GlobalElevation");
+            codeFilter = codeFilter.Replace("GlobalSlope", "lake.GlobalSlope");
+            codeFilter = codeFilter.Replace("GlobalCatchmentArea", "lake.GlobalCatchmentArea");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowAvg", "lake.WaterBalanceSurfaceFlowAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowAvg", "lake.WaterBalanceSurfaceOutflowAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowAvg", "lake.WaterBalanceUndergroundFlowAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowAvg", "lake.WaterBalanceUndergroundOutflowAvg");
+            codeFilter = codeFilter.Replace("WaterBalancePrecipitationAvg", "lake.WaterBalancePrecipitationAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceEvaporationAvg", "lake.WaterBalanceEvaporationAvg");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowMax", "lake.WaterBalanceSurfaceFlowMax");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowMax", "lake.WaterBalanceSurfaceOutflowMax");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowMax", "lake.WaterBalanceUndergroundFlowMax");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowMax", "lake.WaterBalanceUndergroundOutflowMax");
+            codeFilter = codeFilter.Replace("WaterBalancePrecipitationMax", "lake.WaterBalancePrecipitationMax");
+            codeFilter = codeFilter.Replace("WaterBalanceEvaporationMax", "lake.WaterBalanceEvaporationMax");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowMin", "lake.WaterBalanceSurfaceFlowMin");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowMin", "lake.WaterBalanceSurfaceOutflowMin");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowMin", "lake.WaterBalanceUndergroundFlowMin");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowMin", "lake.WaterBalanceUndergroundOutflowMin");
+            codeFilter = codeFilter.Replace("WaterBalancePrecipitationMin", "lake.WaterBalancePrecipitationMin");
+            codeFilter = codeFilter.Replace("WaterBalanceEvaporationMin", "lake.WaterBalanceEvaporationMin");
+            codeFilter = codeFilter.Replace("WaterLevelWaterLavelAvg", "lake.WaterLevelWaterLavelAvg");
+            codeFilter = codeFilter.Replace("WaterLevelWaterLavelMax", "lake.WaterLevelWaterLavelMax");
+            codeFilter = codeFilter.Replace("WaterLevelWaterLavelMin", "lake.WaterLevelWaterLavelMin");
+
+            bool checkFormula = CheckFormula(Formula);
+
+            string codePopulateLakes = "";
+
+            
+            //DirectoryInfo di = new DirectoryInfo(sContentRootPath);
+            //foreach (FileInfo filed in di.GetFiles())
+            //{
+            //    try
+            //    {
+            //        filed.Delete();
+            //    }
+            //    catch
+            //    {
+            //    }
+            //}
+            
+
             // Analyze3, Analyze4
             string codeToCompile = @"using System;
                 using System.Collections.Generic;
@@ -954,6 +973,10 @@ namespace ELake.Controllers
                         public decimal WaterBalanceUndergroundOutflowMin { get; set; }
                         public decimal WaterBalancePrecipitationMin { get; set; }
                         public decimal WaterBalanceEvaporationMin { get; set; }
+                        public decimal WaterLevelWaterLavelAvg { get; set; }
+                        public decimal WaterLevelWaterLavelMax { get; set; }
+                        public decimal WaterLevelWaterLavelMin { get; set; }
+
                     } 
 
                     public class Calculator
@@ -1017,6 +1040,9 @@ namespace ELake.Controllers
                                     WaterBalanceUndergroundOutflowMin = FromLine(lineS[36]),
                                     WaterBalancePrecipitationMin = FromLine(lineS[37]),
                                     WaterBalanceEvaporationMin = FromLine(lineS[38]),
+                                    WaterLevelWaterLavelAvg = FromLine(lineS[39]),
+                                    WaterLevelWaterLavelMax = FromLine(lineS[40]),
+                                    WaterLevelWaterLavelMin = FromLine(lineS[41]),
 
                                 });
                             }
@@ -1196,7 +1222,17 @@ namespace ELake.Controllers
                 .Where(l => r.Contains(l.LakeId))
                 .OrderBy(l => l.Name)
                 .ToArray();
-            if(message == "")
+
+            if (Adm1KATOId != null)
+            {
+                lakes = lakes.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm1KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
+            }
+            if (Adm2KATOId != null)
+            {
+                lakes = lakes.Where(l => _context.LakeKATO.Where(lk => lk.KATOId == Adm2KATOId).Select(lk => lk.LakeId).Contains(l.LakeId)).ToArray();
+            }
+
+            if (message == "")
             {
                 message = _sharedLocalizer["Found"] + ": " + lakes.Count().ToString();
             }
