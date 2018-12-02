@@ -784,6 +784,7 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("<", "");
             formula_test = formula_test.Replace("AND", "");
             formula_test = formula_test.Replace("OR", "");
+            formula_test = formula_test.Replace("NOT", "");
             formula_test = formula_test.Replace("Area2015", "");
             formula_test = formula_test.Replace("Shoreline2015", "");
             formula_test = formula_test.Replace("ArchiveLength", "");
@@ -1245,7 +1246,7 @@ namespace ELake.Controllers
                             diagnostic.IsWarningAsError ||
                             diagnostic.Severity == DiagnosticSeverity.Error);
                         r = new int?[0];
-                        message = _sharedLocalizer["AnErrorOccurredWhileUsingTheFormula"];
+                        message = _sharedLocalizer["AnErrorOccurredWhileUsingTheFormula"] + ": " + string.Join(". ", result.Diagnostics);
                     }
                     else
                     {
