@@ -690,6 +690,16 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("ArchiveWidth", "");
             formula_test = formula_test.Replace("ArchiveMaxDepth", "");
             formula_test = formula_test.Replace("ArchiveWaterMass", "");
+            formula_test = formula_test.Replace("GlobalArea", "");
+            formula_test = formula_test.Replace("GlobalShoreLength", "");
+            formula_test = formula_test.Replace("GlobalIndentation", "");
+            formula_test = formula_test.Replace("GlobalVolume", "");
+            formula_test = formula_test.Replace("GlobalDepth", "");
+            formula_test = formula_test.Replace("GlobalFlow", "");
+            formula_test = formula_test.Replace("GlobalStayTime", "");
+            formula_test = formula_test.Replace("GlobalElevation", "");
+            formula_test = formula_test.Replace("GlobalSlope", "");
+            formula_test = formula_test.Replace("GlobalCatchmentArea", "");
             for (int n = 0; n <= 9; n++)
             {
                 formula_test = formula_test.Replace(n.ToString(), "");
@@ -732,6 +742,8 @@ namespace ELake.Controllers
             {
                 LakesArchiveData lakesArchiveData = _context.LakesArchiveData
                     .FirstOrDefault(l => l.LakeId == lake.LakeId);
+                LakesGlobalData lakesGlobalData = _context.LakesGlobalData
+                    .FirstOrDefault(l => l.LakeId == lake.LakeId);
                 codePopulateLakes += @"Lakes.Add(new Lake()
                     {
                         Id = " + lake.Id.ToString() + @",
@@ -745,6 +757,16 @@ namespace ELake.Controllers
                         ArchiveWidth = " + PopulateDecimal(lakesArchiveData?.LakeWidth) + @"
                         ArchiveMaxDepth = " + PopulateDecimal(lakesArchiveData?.LakeMaxDepth) + @"
                         ArchiveWaterMass = " + PopulateDecimal(lakesArchiveData?.LakeWaterMass) + @"
+                        GlobalArea = " + PopulateDecimal(lakesGlobalData?.Lake_area) + @"
+                        GlobalShoreLength = " + PopulateDecimal(lakesGlobalData?.Shore_len) + @"
+                        GlobalIndentation = " + PopulateDecimal(lakesGlobalData?.Shore_dev) + @"
+                        GlobalVolume = " + PopulateDecimal(lakesGlobalData?.Vol_total) + @"
+                        GlobalDepth = " + PopulateDecimal(lakesGlobalData?.Depth_avg) + @"
+                        GlobalFlow = " + PopulateDecimal(lakesGlobalData?.Dis_avg) + @"
+                        GlobalStayTime = " + PopulateDecimal(lakesGlobalData?.Res_time) + @"
+                        GlobalElevation = " + PopulateDecimal(lakesGlobalData?.Elevation) + @"
+                        GlobalSlope = " + PopulateDecimal(lakesGlobalData?.Slope_100) + @"
+                        GlobalCatchmentArea = " + PopulateDecimal(lakesGlobalData?.Wshd_area) + @"
                     });
                     ";
             }
@@ -762,6 +784,16 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("ArchiveWidth", "lake.ArchiveWidth");
             codeFilter = codeFilter.Replace("ArchiveMaxDepth", "lake.ArchiveMaxDepth");
             codeFilter = codeFilter.Replace("ArchiveWaterMass", "lake.ArchiveWaterMass");
+            codeFilter = codeFilter.Replace("GlobalArea", "lake.GlobalArea");
+            codeFilter = codeFilter.Replace("GlobalShoreLength", "lake.GlobalShoreLength");
+            codeFilter = codeFilter.Replace("GlobalIndentation", "lake.GlobalIndentation");
+            codeFilter = codeFilter.Replace("GlobalVolume", "lake.GlobalVolume");
+            codeFilter = codeFilter.Replace("GlobalDepth", "lake.GlobalDepth");
+            codeFilter = codeFilter.Replace("GlobalFlow", "lake.GlobalFlow");
+            codeFilter = codeFilter.Replace("GlobalStayTime", "lake.GlobalStayTime");
+            codeFilter = codeFilter.Replace("GlobalElevation", "lake.GlobalElevation");
+            codeFilter = codeFilter.Replace("GlobalSlope", "lake.GlobalSlope");
+            codeFilter = codeFilter.Replace("GlobalCatchmentArea", "lake.GlobalCatchmentArea");
             bool checkFormula = CheckFormula(Formula);
 
             string codeToCompile = @"using System;
@@ -783,6 +815,16 @@ namespace ELake.Controllers
                         public decimal ArchiveWidth { get; set; }
                         public decimal ArchiveMaxDepth { get; set; }
                         public decimal ArchiveWaterMass { get; set; }
+                        public decimal GlobalArea { get; set; }
+                        public decimal GlobalShoreLength { get; set; }
+                        public decimal GlobalIndentation { get; set; }
+                        public decimal GlobalVolume { get; set; }
+                        public decimal GlobalDepth { get; set; }
+                        public decimal GlobalFlow { get; set; }
+                        public decimal GlobalStayTime { get; set; }
+                        public decimal GlobalElevation { get; set; }
+                        public decimal GlobalSlope { get; set; }
+                        public decimal GlobalCatchmentArea { get; set; }
                     } 
 
                     public class Calculator
