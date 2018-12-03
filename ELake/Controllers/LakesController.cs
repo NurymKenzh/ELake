@@ -681,6 +681,8 @@ namespace ELake.Controllers
                         .FirstOrDefault(l => l.LakeId == lake.LakeId);
                     LakesGlobalData lakesGlobalData = _context.LakesGlobalData
                         .FirstOrDefault(l => l.LakeId == lake.LakeId);
+                    Transition transition = _context.Transition
+                        .FirstOrDefault(l => l.LakeId == lake.LakeId);
                     //WaterBalance waterBalance = _context.WaterBalance
                     //    .FirstOrDefault(l => l.LakeId == lake.LakeId);
                     //codePopulateLakes += @"Lakes.Add(new Lake()
@@ -829,6 +831,17 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Ni));
                     line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Cd));
                     line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Co));
+                    line += "\t" + PopulateDecimal(transition?.NoСhange);
+                    line += "\t" + PopulateDecimal(transition?.Permanent);
+                    line += "\t" + PopulateDecimal(transition?.NewPermanent);
+                    line += "\t" + PopulateDecimal(transition?.LostPermanent);
+                    line += "\t" + PopulateDecimal(transition?.Seasonal);
+                    line += "\t" + PopulateDecimal(transition?.NewSeasonal);
+                    line += "\t" + PopulateDecimal(transition?.LostSeasonal);
+                    line += "\t" + PopulateDecimal(transition?.SeasonalToPermanent);
+                    line += "\t" + PopulateDecimal(transition?.PermanentToDeasonal);
+                    line += "\t" + PopulateDecimal(transition?.EphemeralPermanent);
+                    line += "\t" + PopulateDecimal(transition?.EphemeralSeasonal);
 
                     file.WriteLine(line);
                 }
@@ -973,6 +986,17 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("ToxicNiMin", "");
             formula_test = formula_test.Replace("ToxicCdMin", "");
             formula_test = formula_test.Replace("ToxicCoMin", "");
+            formula_test = formula_test.Replace("TransitionNoСhange", "");
+            formula_test = formula_test.Replace("TransitionPermanent", "");
+            formula_test = formula_test.Replace("TransitionNewPermanent", "");
+            formula_test = formula_test.Replace("TransitionLostPermanent", "");
+            formula_test = formula_test.Replace("TransitionSeasonal", "");
+            formula_test = formula_test.Replace("TransitionNewSeasonal", "");
+            formula_test = formula_test.Replace("TransitionLostSeasonal", "");
+            formula_test = formula_test.Replace("TransitionSeasonalToPermanent", "");
+            formula_test = formula_test.Replace("TransitionPermanentToDeasonal", "");
+            formula_test = formula_test.Replace("TransitionEphemeralPermanent", "");
+            formula_test = formula_test.Replace("TransitionEphemeralSeasonal", "");
 
             for (int n = 0; n <= 9; n++)
             {
@@ -1141,6 +1165,17 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("ToxicNiMin", "lake.ToxicNiMin");
             codeFilter = codeFilter.Replace("ToxicCdMin", "lake.ToxicCdMin");
             codeFilter = codeFilter.Replace("ToxicCoMin", "lake.ToxicCoMin");
+            codeFilter = codeFilter.Replace("TransitionNoСhange", "lake.TransitionNoСhange");
+            codeFilter = codeFilter.Replace("TransitionPermanent", "lake.TransitionPermanent");
+            codeFilter = codeFilter.Replace("TransitionNewPermanent", "lake.TransitionNewPermanent");
+            codeFilter = codeFilter.Replace("TransitionLostPermanent", "lake.TransitionLostPermanent");
+            codeFilter = codeFilter.Replace("TransitionSeasonal", "lake.TransitionSeasonal");
+            codeFilter = codeFilter.Replace("TransitionNewSeasonal", "lake.TransitionNewSeasonal");
+            codeFilter = codeFilter.Replace("TransitionLostSeasonal", "lake.TransitionLostSeasonal");
+            codeFilter = codeFilter.Replace("TransitionSeasonalToPermanent", "lake.TransitionSeasonalToPermanent");
+            codeFilter = codeFilter.Replace("TransitionPermanentToDeasonal", "lake.TransitionPermanentToDeasonal");
+            codeFilter = codeFilter.Replace("TransitionEphemeralPermanent", "lake.TransitionEphemeralPermanent");
+            codeFilter = codeFilter.Replace("TransitionEphemeralSeasonal", "lake.TransitionEphemeralSeasonal");
 
             bool checkFormula = CheckFormula(Formula);
 
@@ -1290,6 +1325,17 @@ namespace ELake.Controllers
                         public decimal ToxicNiMin { get; set; }
                         public decimal ToxicCdMin { get; set; }
                         public decimal ToxicCoMin { get; set; }
+                        public decimal TransitionNoСhange { get; set; }
+                        public decimal TransitionPermanent { get; set; }
+                        public decimal TransitionNewPermanent { get; set; }
+                        public decimal TransitionLostPermanent { get; set; }
+                        public decimal TransitionSeasonal { get; set; }
+                        public decimal TransitionNewSeasonal { get; set; }
+                        public decimal TransitionLostSeasonal { get; set; }
+                        public decimal TransitionSeasonalToPermanent { get; set; }
+                        public decimal TransitionPermanentToDeasonal { get; set; }
+                        public decimal TransitionEphemeralPermanent { get; set; }
+                        public decimal TransitionEphemeralSeasonal { get; set; }
 
                     } 
 
@@ -1435,6 +1481,18 @@ namespace ELake.Controllers
                                     ToxicNiMin = FromLine(lineS[117]),
                                     ToxicCdMin = FromLine(lineS[118]),
                                     ToxicCoMin = FromLine(lineS[119]),
+
+                                    TransitionNoСhange = FromLine(lineS[120]),
+                                    TransitionPermanent = FromLine(lineS[121]),
+                                    TransitionNewPermanent = FromLine(lineS[122]),
+                                    TransitionLostPermanent = FromLine(lineS[123]),
+                                    TransitionSeasonal = FromLine(lineS[124]),
+                                    TransitionNewSeasonal = FromLine(lineS[125]),
+                                    TransitionLostSeasonal = FromLine(lineS[126]),
+                                    TransitionSeasonalToPermanent = FromLine(lineS[127]),
+                                    TransitionPermanentToDeasonal = FromLine(lineS[128]),
+                                    TransitionEphemeralPermanent = FromLine(lineS[129]),
+                                    TransitionEphemeralSeasonal = FromLine(lineS[130]),
 
                                 });
                             }
