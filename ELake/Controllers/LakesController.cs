@@ -778,6 +778,24 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.PercentOxygWater));
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.pH));
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.OrganicSubstances));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.CaMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.MgMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.NaKMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.ClMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.HCOMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.SOMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.CaMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.MgMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.NaKMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.ClMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.HCOMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.SOMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.CaMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.MgMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.NaKMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.ClMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.HCOMgEq));
+                    line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.SOMgEq));
 
                     file.WriteLine(line);
                 }
@@ -871,6 +889,24 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("GeneralHydroChemistryPercentOxygWaterMin", "");
             formula_test = formula_test.Replace("GeneralHydroChemistrypHMin", "");
             formula_test = formula_test.Replace("GeneralHydroChemistryOrganicSubstancesMin", "");
+            formula_test = formula_test.Replace("IonsaltCaAvg", "");
+            formula_test = formula_test.Replace("IonsaltMgAvg", "");
+            formula_test = formula_test.Replace("IonsaltNaKAvg", "");
+            formula_test = formula_test.Replace("IonsaltClAvg", "");
+            formula_test = formula_test.Replace("IonsaltHCOAvg", "");
+            formula_test = formula_test.Replace("IonsaltSOAvg", "");
+            formula_test = formula_test.Replace("IonsaltCaMax", "");
+            formula_test = formula_test.Replace("IonsaltMgMax", "");
+            formula_test = formula_test.Replace("IonsaltNaKMax", "");
+            formula_test = formula_test.Replace("IonsaltClMax", "");
+            formula_test = formula_test.Replace("IonsaltHCOMax", "");
+            formula_test = formula_test.Replace("IonsaltSOMax", "");
+            formula_test = formula_test.Replace("IonsaltCaMin", "");
+            formula_test = formula_test.Replace("IonsaltMgMin", "");
+            formula_test = formula_test.Replace("IonsaltNaKMin", "");
+            formula_test = formula_test.Replace("IonsaltClMin", "");
+            formula_test = formula_test.Replace("IonsaltHCOMin", "");
+            formula_test = formula_test.Replace("IonsaltSOMin", "");
 
             for (int n = 0; n <= 9; n++)
             {
@@ -988,6 +1024,24 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("GeneralHydroChemistryPercentOxygWaterMin", "lake.GeneralHydroChemistryPercentOxygWaterMin");
             codeFilter = codeFilter.Replace("GeneralHydroChemistrypHMin", "lake.GeneralHydroChemistrypHMin");
             codeFilter = codeFilter.Replace("GeneralHydroChemistryOrganicSubstancesMin", "lake.GeneralHydroChemistryOrganicSubstancesMin");
+            codeFilter = codeFilter.Replace("IonsaltCaAvg", "lake.IonsaltCaAvg");
+            codeFilter = codeFilter.Replace("IonsaltMgAvg", "lake.IonsaltMgAvg");
+            codeFilter = codeFilter.Replace("IonsaltNaKAvg", "lake.IonsaltNaKAvg");
+            codeFilter = codeFilter.Replace("IonsaltClAvg", "lake.IonsaltClAvg");
+            codeFilter = codeFilter.Replace("IonsaltHCOAvg", "lake.IonsaltHCOAvg");
+            codeFilter = codeFilter.Replace("IonsaltSOAvg", "lake.IonsaltSOAvg");
+            codeFilter = codeFilter.Replace("IonsaltCaMax", "lake.IonsaltCaMax");
+            codeFilter = codeFilter.Replace("IonsaltMgMax", "lake.IonsaltMgMax");
+            codeFilter = codeFilter.Replace("IonsaltNaKMax", "lake.IonsaltNaKMax");
+            codeFilter = codeFilter.Replace("IonsaltClMax", "lake.IonsaltClMax");
+            codeFilter = codeFilter.Replace("IonsaltHCOMax", "lake.IonsaltHCOMax");
+            codeFilter = codeFilter.Replace("IonsaltSOMax", "lake.IonsaltSOMax");
+            codeFilter = codeFilter.Replace("IonsaltCaMin", "lake.IonsaltCaMin");
+            codeFilter = codeFilter.Replace("IonsaltMgMin", "lake.IonsaltMgMin");
+            codeFilter = codeFilter.Replace("IonsaltNaKMin", "lake.IonsaltNaKMin");
+            codeFilter = codeFilter.Replace("IonsaltClMin", "lake.IonsaltClMin");
+            codeFilter = codeFilter.Replace("IonsaltHCOMin", "lake.IonsaltHCOMin");
+            codeFilter = codeFilter.Replace("IonsaltSOMin", "lake.IonsaltSOMin");
 
             bool checkFormula = CheckFormula(Formula);
 
@@ -1086,6 +1140,24 @@ namespace ELake.Controllers
                         public decimal GeneralHydroChemistryPercentOxygWaterMin { get; set; }
                         public decimal GeneralHydroChemistrypHMin { get; set; }
                         public decimal GeneralHydroChemistryOrganicSubstancesMin { get; set; }
+                        public decimal IonsaltCaAvg { get; set; }
+                        public decimal IonsaltMgAvg { get; set; }
+                        public decimal IonsaltNaKAvg { get; set; }
+                        public decimal IonsaltClAvg { get; set; }
+                        public decimal IonsaltHCOAvg { get; set; }
+                        public decimal IonsaltSOAvg { get; set; }
+                        public decimal IonsaltCaMax { get; set; }
+                        public decimal IonsaltMgMax { get; set; }
+                        public decimal IonsaltNaKMax { get; set; }
+                        public decimal IonsaltClMax { get; set; }
+                        public decimal IonsaltHCOMax { get; set; }
+                        public decimal IonsaltSOMax { get; set; }
+                        public decimal IonsaltCaMin { get; set; }
+                        public decimal IonsaltMgMin { get; set; }
+                        public decimal IonsaltNaKMin { get; set; }
+                        public decimal IonsaltClMin { get; set; }
+                        public decimal IonsaltHCOMin { get; set; }
+                        public decimal IonsaltSOMin { get; set; }
 
                     } 
 
@@ -1180,6 +1252,24 @@ namespace ELake.Controllers
                                     GeneralHydroChemistryPercentOxygWaterMin = FromLine(lineS[66]),
                                     GeneralHydroChemistrypHMin = FromLine(lineS[67]),
                                     GeneralHydroChemistryOrganicSubstancesMin = FromLine(lineS[68]),
+                                    IonsaltCaAvg = FromLine(lineS[69]),
+                                    IonsaltMgAvg = FromLine(lineS[70]),
+                                    IonsaltNaKAvg = FromLine(lineS[71]),
+                                    IonsaltClAvg = FromLine(lineS[72]),
+                                    IonsaltHCOAvg = FromLine(lineS[73]),
+                                    IonsaltSOAvg = FromLine(lineS[74]),
+                                    IonsaltCaMax = FromLine(lineS[75]),
+                                    IonsaltMgMax = FromLine(lineS[76]),
+                                    IonsaltNaKMax = FromLine(lineS[77]),
+                                    IonsaltClMax = FromLine(lineS[78]),
+                                    IonsaltHCOMax = FromLine(lineS[79]),
+                                    IonsaltSOMax = FromLine(lineS[80]),
+                                    IonsaltCaMin = FromLine(lineS[81]),
+                                    IonsaltMgMin = FromLine(lineS[82]),
+                                    IonsaltNaKMin = FromLine(lineS[83]),
+                                    IonsaltClMin = FromLine(lineS[84]),
+                                    IonsaltHCOMin = FromLine(lineS[85]),
+                                    IonsaltSOMin = FromLine(lineS[86]),
 
                                 });
                             }
