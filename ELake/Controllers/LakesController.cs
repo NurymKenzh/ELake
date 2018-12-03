@@ -683,6 +683,8 @@ namespace ELake.Controllers
                         .FirstOrDefault(l => l.LakeId == lake.LakeId);
                     Transition transition = _context.Transition
                         .FirstOrDefault(l => l.LakeId == lake.LakeId);
+                    Seasonalit seasonalit = _context.Seasonalit
+                        .FirstOrDefault(l => l.LakeId == lake.LakeId);
                     //WaterBalance waterBalance = _context.WaterBalance
                     //    .FirstOrDefault(l => l.LakeId == lake.LakeId);
                     //codePopulateLakes += @"Lakes.Add(new Lake()
@@ -842,6 +844,19 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(transition?.PermanentToDeasonal);
                     line += "\t" + PopulateDecimal(transition?.EphemeralPermanent);
                     line += "\t" + PopulateDecimal(transition?.EphemeralSeasonal);
+                    line += "\t" + PopulateDecimal(seasonalit?.NoData);
+                    line += "\t" + PopulateDecimal(seasonalit?.January);
+                    line += "\t" + PopulateDecimal(seasonalit?.February);
+                    line += "\t" + PopulateDecimal(seasonalit?.March);
+                    line += "\t" + PopulateDecimal(seasonalit?.April);
+                    line += "\t" + PopulateDecimal(seasonalit?.May);
+                    line += "\t" + PopulateDecimal(seasonalit?.June);
+                    line += "\t" + PopulateDecimal(seasonalit?.July);
+                    line += "\t" + PopulateDecimal(seasonalit?.August);
+                    line += "\t" + PopulateDecimal(seasonalit?.September);
+                    line += "\t" + PopulateDecimal(seasonalit?.October);
+                    line += "\t" + PopulateDecimal(seasonalit?.November);
+                    line += "\t" + PopulateDecimal(seasonalit?.December);
 
                     file.WriteLine(line);
                 }
@@ -997,6 +1012,19 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("TransitionPermanentToDeasonal", "");
             formula_test = formula_test.Replace("TransitionEphemeralPermanent", "");
             formula_test = formula_test.Replace("TransitionEphemeralSeasonal", "");
+            formula_test = formula_test.Replace("SeasonalityNoData", "");
+            formula_test = formula_test.Replace("SeasonalityJanuary", "");
+            formula_test = formula_test.Replace("SeasonalityFebruary", "");
+            formula_test = formula_test.Replace("SeasonalityMarch", "");
+            formula_test = formula_test.Replace("SeasonalityApril", "");
+            formula_test = formula_test.Replace("SeasonalityMay", "");
+            formula_test = formula_test.Replace("SeasonalityJune", "");
+            formula_test = formula_test.Replace("SeasonalityJuly", "");
+            formula_test = formula_test.Replace("SeasonalityAugust", "");
+            formula_test = formula_test.Replace("SeasonalitySeptember", "");
+            formula_test = formula_test.Replace("SeasonalityOctober", "");
+            formula_test = formula_test.Replace("SeasonalityNovember", "");
+            formula_test = formula_test.Replace("SeasonalityDecember", "");
 
             for (int n = 0; n <= 9; n++)
             {
@@ -1176,6 +1204,19 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("TransitionPermanentToDeasonal", "lake.TransitionPermanentToDeasonal");
             codeFilter = codeFilter.Replace("TransitionEphemeralPermanent", "lake.TransitionEphemeralPermanent");
             codeFilter = codeFilter.Replace("TransitionEphemeralSeasonal", "lake.TransitionEphemeralSeasonal");
+            codeFilter = codeFilter.Replace("SeasonalityNoData", "lake.SeasonalityNoData");
+            codeFilter = codeFilter.Replace("SeasonalityJanuary", "lake.SeasonalityJanuary");
+            codeFilter = codeFilter.Replace("SeasonalityFebruary", "lake.SeasonalityFebruary");
+            codeFilter = codeFilter.Replace("SeasonalityMarch", "lake.SeasonalityMarch");
+            codeFilter = codeFilter.Replace("SeasonalityApril", "lake.SeasonalityApril");
+            codeFilter = codeFilter.Replace("SeasonalityMay", "lake.SeasonalityMay");
+            codeFilter = codeFilter.Replace("SeasonalityJune", "lake.SeasonalityJune");
+            codeFilter = codeFilter.Replace("SeasonalityJuly", "lake.SeasonalityJuly");
+            codeFilter = codeFilter.Replace("SeasonalityAugust", "lake.SeasonalityAugust");
+            codeFilter = codeFilter.Replace("SeasonalitySeptember", "lake.SeasonalitySeptember");
+            codeFilter = codeFilter.Replace("SeasonalityOctober", "lake.SeasonalityOctober");
+            codeFilter = codeFilter.Replace("SeasonalityNovember", "lake.SeasonalityNovember");
+            codeFilter = codeFilter.Replace("SeasonalityDecember", "lake.SeasonalityDecember");
 
             bool checkFormula = CheckFormula(Formula);
 
@@ -1336,6 +1377,19 @@ namespace ELake.Controllers
                         public decimal TransitionPermanentToDeasonal { get; set; }
                         public decimal TransitionEphemeralPermanent { get; set; }
                         public decimal TransitionEphemeralSeasonal { get; set; }
+                        public decimal SeasonalityNoData { get; set; }
+                        public decimal SeasonalityJanuary { get; set; }
+                        public decimal SeasonalityFebruary { get; set; }
+                        public decimal SeasonalityMarch { get; set; }
+                        public decimal SeasonalityApril { get; set; }
+                        public decimal SeasonalityMay { get; set; }
+                        public decimal SeasonalityJune { get; set; }
+                        public decimal SeasonalityJuly { get; set; }
+                        public decimal SeasonalityAugust { get; set; }
+                        public decimal SeasonalitySeptember { get; set; }
+                        public decimal SeasonalityOctober { get; set; }
+                        public decimal SeasonalityNovember { get; set; }
+                        public decimal SeasonalityDecember { get; set; }
 
                     } 
 
@@ -1481,7 +1535,6 @@ namespace ELake.Controllers
                                     ToxicNiMin = FromLine(lineS[117]),
                                     ToxicCdMin = FromLine(lineS[118]),
                                     ToxicCoMin = FromLine(lineS[119]),
-
                                     TransitionNoСhange = FromLine(lineS[120]),
                                     TransitionPermanent = FromLine(lineS[121]),
                                     TransitionNewPermanent = FromLine(lineS[122]),
@@ -1493,6 +1546,19 @@ namespace ELake.Controllers
                                     TransitionPermanentToDeasonal = FromLine(lineS[128]),
                                     TransitionEphemeralPermanent = FromLine(lineS[129]),
                                     TransitionEphemeralSeasonal = FromLine(lineS[130]),
+                                    SeasonalityNoData = FromLine(lineS[131]),
+                                    SeasonalityJanuary = FromLine(lineS[132]),
+                                    SeasonalityFebruary = FromLine(lineS[133]),
+                                    SeasonalityMarch = FromLine(lineS[134]),
+                                    SeasonalityApril = FromLine(lineS[135]),
+                                    SeasonalityMay = FromLine(lineS[136]),
+                                    SeasonalityJune = FromLine(lineS[137]),
+                                    SeasonalityJuly = FromLine(lineS[138]),
+                                    SeasonalityAugust = FromLine(lineS[139]),
+                                    SeasonalitySeptember = FromLine(lineS[140]),
+                                    SeasonalityOctober = FromLine(lineS[141]),
+                                    SeasonalityNovember = FromLine(lineS[142]),
+                                    SeasonalityDecember = FromLine(lineS[143]),
 
                                 });
                             }
