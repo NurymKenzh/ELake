@@ -796,6 +796,39 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.ClMgEq));
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.HCOMgEq));
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.SOMgEq));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NH4));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NO2));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NO3));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.PPO4));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Cu));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Zn));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Mn));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Pb));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Ni));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Cd));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Co));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.NH4));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.NO2));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.NO3));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.PPO4));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Cu));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Zn));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Mn));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Pb));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Ni));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Cd));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Co));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.NH4));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.NO2));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.NO3));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.PPO4));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Cu));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Zn));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Mn));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Pb));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Ni));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Cd));
+                    line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Co));
 
                     file.WriteLine(line);
                 }
@@ -907,6 +940,39 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("IonsaltClMin", "");
             formula_test = formula_test.Replace("IonsaltHCOMin", "");
             formula_test = formula_test.Replace("IonsaltSOMin", "");
+            formula_test = formula_test.Replace("ToxicNH4Avg", "");
+            formula_test = formula_test.Replace("ToxicNO2Avg", "");
+            formula_test = formula_test.Replace("ToxicNO3Avg", "");
+            formula_test = formula_test.Replace("ToxicPPO4Avg", "");
+            formula_test = formula_test.Replace("ToxicCuAvg", "");
+            formula_test = formula_test.Replace("ToxicZnAvg", "");
+            formula_test = formula_test.Replace("ToxicMnAvg", "");
+            formula_test = formula_test.Replace("ToxicPbAvg", "");
+            formula_test = formula_test.Replace("ToxicNiAvg", "");
+            formula_test = formula_test.Replace("ToxicCdAvg", "");
+            formula_test = formula_test.Replace("ToxicCoAvg", "");
+            formula_test = formula_test.Replace("ToxicNH4Max", "");
+            formula_test = formula_test.Replace("ToxicNO2Max", "");
+            formula_test = formula_test.Replace("ToxicNO3Max", "");
+            formula_test = formula_test.Replace("ToxicPPO4Max", "");
+            formula_test = formula_test.Replace("ToxicCuMax", "");
+            formula_test = formula_test.Replace("ToxicZnMax", "");
+            formula_test = formula_test.Replace("ToxicMnMax", "");
+            formula_test = formula_test.Replace("ToxicPbMax", "");
+            formula_test = formula_test.Replace("ToxicNiMax", "");
+            formula_test = formula_test.Replace("ToxicCdMax", "");
+            formula_test = formula_test.Replace("ToxicCoMax", "");
+            formula_test = formula_test.Replace("ToxicNH4Min", "");
+            formula_test = formula_test.Replace("ToxicNO2Min", "");
+            formula_test = formula_test.Replace("ToxicNO3Min", "");
+            formula_test = formula_test.Replace("ToxicPPO4Min", "");
+            formula_test = formula_test.Replace("ToxicCuMin", "");
+            formula_test = formula_test.Replace("ToxicZnMin", "");
+            formula_test = formula_test.Replace("ToxicMnMin", "");
+            formula_test = formula_test.Replace("ToxicPbMin", "");
+            formula_test = formula_test.Replace("ToxicNiMin", "");
+            formula_test = formula_test.Replace("ToxicCdMin", "");
+            formula_test = formula_test.Replace("ToxicCoMin", "");
 
             for (int n = 0; n <= 9; n++)
             {
@@ -1042,6 +1108,39 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("IonsaltClMin", "lake.IonsaltClMin");
             codeFilter = codeFilter.Replace("IonsaltHCOMin", "lake.IonsaltHCOMin");
             codeFilter = codeFilter.Replace("IonsaltSOMin", "lake.IonsaltSOMin");
+            codeFilter = codeFilter.Replace("ToxicNH4Avg", "lake.ToxicNH4Avg");
+            codeFilter = codeFilter.Replace("ToxicNO2Avg", "lake.ToxicNO2Avg");
+            codeFilter = codeFilter.Replace("ToxicNO3Avg", "lake.ToxicNO3Avg");
+            codeFilter = codeFilter.Replace("ToxicPPO4Avg", "lake.ToxicPPO4Avg");
+            codeFilter = codeFilter.Replace("ToxicCuAvg", "lake.ToxicCuAvg");
+            codeFilter = codeFilter.Replace("ToxicZnAvg", "lake.ToxicZnAvg");
+            codeFilter = codeFilter.Replace("ToxicMnAvg", "lake.ToxicMnAvg");
+            codeFilter = codeFilter.Replace("ToxicPbAvg", "lake.ToxicPbAvg");
+            codeFilter = codeFilter.Replace("ToxicNiAvg", "lake.ToxicNiAvg");
+            codeFilter = codeFilter.Replace("ToxicCdAvg", "lake.ToxicCdAvg");
+            codeFilter = codeFilter.Replace("ToxicCoAvg", "lake.ToxicCoAvg");
+            codeFilter = codeFilter.Replace("ToxicNH4Max", "lake.ToxicNH4Max");
+            codeFilter = codeFilter.Replace("ToxicNO2Max", "lake.ToxicNO2Max");
+            codeFilter = codeFilter.Replace("ToxicNO3Max", "lake.ToxicNO3Max");
+            codeFilter = codeFilter.Replace("ToxicPPO4Max", "lake.ToxicPPO4Max");
+            codeFilter = codeFilter.Replace("ToxicCuMax", "lake.ToxicCuMax");
+            codeFilter = codeFilter.Replace("ToxicZnMax", "lake.ToxicZnMax");
+            codeFilter = codeFilter.Replace("ToxicMnMax", "lake.ToxicMnMax");
+            codeFilter = codeFilter.Replace("ToxicPbMax", "lake.ToxicPbMax");
+            codeFilter = codeFilter.Replace("ToxicNiMax", "lake.ToxicNiMax");
+            codeFilter = codeFilter.Replace("ToxicCdMax", "lake.ToxicCdMax");
+            codeFilter = codeFilter.Replace("ToxicCoMax", "lake.ToxicCoMax");
+            codeFilter = codeFilter.Replace("ToxicNH4Min", "lake.ToxicNH4Min");
+            codeFilter = codeFilter.Replace("ToxicNO2Min", "lake.ToxicNO2Min");
+            codeFilter = codeFilter.Replace("ToxicNO3Min", "lake.ToxicNO3Min");
+            codeFilter = codeFilter.Replace("ToxicPPO4Min", "lake.ToxicPPO4Min");
+            codeFilter = codeFilter.Replace("ToxicCuMin", "lake.ToxicCuMin");
+            codeFilter = codeFilter.Replace("ToxicZnMin", "lake.ToxicZnMin");
+            codeFilter = codeFilter.Replace("ToxicMnMin", "lake.ToxicMnMin");
+            codeFilter = codeFilter.Replace("ToxicPbMin", "lake.ToxicPbMin");
+            codeFilter = codeFilter.Replace("ToxicNiMin", "lake.ToxicNiMin");
+            codeFilter = codeFilter.Replace("ToxicCdMin", "lake.ToxicCdMin");
+            codeFilter = codeFilter.Replace("ToxicCoMin", "lake.ToxicCoMin");
 
             bool checkFormula = CheckFormula(Formula);
 
@@ -1158,6 +1257,39 @@ namespace ELake.Controllers
                         public decimal IonsaltClMin { get; set; }
                         public decimal IonsaltHCOMin { get; set; }
                         public decimal IonsaltSOMin { get; set; }
+                        public decimal ToxicNH4Avg { get; set; }
+                        public decimal ToxicNO2Avg { get; set; }
+                        public decimal ToxicNO3Avg { get; set; }
+                        public decimal ToxicPPO4Avg { get; set; }
+                        public decimal ToxicCuAvg { get; set; }
+                        public decimal ToxicZnAvg { get; set; }
+                        public decimal ToxicMnAvg { get; set; }
+                        public decimal ToxicPbAvg { get; set; }
+                        public decimal ToxicNiAvg { get; set; }
+                        public decimal ToxicCdAvg { get; set; }
+                        public decimal ToxicCoAvg { get; set; }
+                        public decimal ToxicNH4Max { get; set; }
+                        public decimal ToxicNO2Max { get; set; }
+                        public decimal ToxicNO3Max { get; set; }
+                        public decimal ToxicPPO4Max { get; set; }
+                        public decimal ToxicCuMax { get; set; }
+                        public decimal ToxicZnMax { get; set; }
+                        public decimal ToxicMnMax { get; set; }
+                        public decimal ToxicPbMax { get; set; }
+                        public decimal ToxicNiMax { get; set; }
+                        public decimal ToxicCdMax { get; set; }
+                        public decimal ToxicCoMax { get; set; }
+                        public decimal ToxicNH4Min { get; set; }
+                        public decimal ToxicNO2Min { get; set; }
+                        public decimal ToxicNO3Min { get; set; }
+                        public decimal ToxicPPO4Min { get; set; }
+                        public decimal ToxicCuMin { get; set; }
+                        public decimal ToxicZnMin { get; set; }
+                        public decimal ToxicMnMin { get; set; }
+                        public decimal ToxicPbMin { get; set; }
+                        public decimal ToxicNiMin { get; set; }
+                        public decimal ToxicCdMin { get; set; }
+                        public decimal ToxicCoMin { get; set; }
 
                     } 
 
@@ -1270,6 +1402,39 @@ namespace ELake.Controllers
                                     IonsaltClMin = FromLine(lineS[84]),
                                     IonsaltHCOMin = FromLine(lineS[85]),
                                     IonsaltSOMin = FromLine(lineS[86]),
+                                    ToxicNH4Avg = FromLine(lineS[87]),
+                                    ToxicNO2Avg = FromLine(lineS[88]),
+                                    ToxicNO3Avg = FromLine(lineS[89]),
+                                    ToxicPPO4Avg = FromLine(lineS[90]),
+                                    ToxicCuAvg = FromLine(lineS[91]),
+                                    ToxicZnAvg = FromLine(lineS[92]),
+                                    ToxicMnAvg = FromLine(lineS[93]),
+                                    ToxicPbAvg = FromLine(lineS[94]),
+                                    ToxicNiAvg = FromLine(lineS[95]),
+                                    ToxicCdAvg = FromLine(lineS[96]),
+                                    ToxicCoAvg = FromLine(lineS[97]),
+                                    ToxicNH4Max = FromLine(lineS[98]),
+                                    ToxicNO2Max = FromLine(lineS[99]),
+                                    ToxicNO3Max = FromLine(lineS[100]),
+                                    ToxicPPO4Max = FromLine(lineS[101]),
+                                    ToxicCuMax = FromLine(lineS[102]),
+                                    ToxicZnMax = FromLine(lineS[103]),
+                                    ToxicMnMax = FromLine(lineS[104]),
+                                    ToxicPbMax = FromLine(lineS[105]),
+                                    ToxicNiMax = FromLine(lineS[106]),
+                                    ToxicCdMax = FromLine(lineS[107]),
+                                    ToxicCoMax = FromLine(lineS[108]),
+                                    ToxicNH4Min = FromLine(lineS[109]),
+                                    ToxicNO2Min = FromLine(lineS[110]),
+                                    ToxicNO3Min = FromLine(lineS[111]),
+                                    ToxicPPO4Min = FromLine(lineS[112]),
+                                    ToxicCuMin = FromLine(lineS[113]),
+                                    ToxicZnMin = FromLine(lineS[114]),
+                                    ToxicMnMin = FromLine(lineS[115]),
+                                    ToxicPbMin = FromLine(lineS[116]),
+                                    ToxicNiMin = FromLine(lineS[117]),
+                                    ToxicCdMin = FromLine(lineS[118]),
+                                    ToxicCoMin = FromLine(lineS[119]),
 
                                 });
                             }
