@@ -857,6 +857,18 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(seasonalit?.October);
                     line += "\t" + PopulateDecimal(seasonalit?.November);
                     line += "\t" + PopulateDecimal(seasonalit?.December);
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoData));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoWater));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.SeasonalWaterArea));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.PermanentWaterArea));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.NoData));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.NoWater));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.SeasonalWaterArea));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.PermanentWaterArea));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NoData));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NoWater));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.SeasonalWaterArea));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.PermanentWaterArea));
 
                     file.WriteLine(line);
                 }
@@ -1025,6 +1037,18 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("SeasonalityOctober", "");
             formula_test = formula_test.Replace("SeasonalityNovember", "");
             formula_test = formula_test.Replace("SeasonalityDecember", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaNoDataAvg", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaNoWaterAvg", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaSeasonalAvg", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaPermanentAvg", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaNoDataMax", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaNoWaterMax", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaSeasonalMax", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaPermanentMax", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaNoDataMin", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaNoWaterMin", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaSeasonalMin", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaPermanentMin", "");
 
             for (int n = 0; n <= 9; n++)
             {
@@ -1217,6 +1241,18 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("SeasonalityOctober", "lake.SeasonalityOctober");
             codeFilter = codeFilter.Replace("SeasonalityNovember", "lake.SeasonalityNovember");
             codeFilter = codeFilter.Replace("SeasonalityDecember", "lake.SeasonalityDecember");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaNoDataAvg", "lake.DynamicsLakeAreaNoDataAvg");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaNoWaterAvg", "lake.DynamicsLakeAreaNoWaterAvg");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaSeasonalAvg", "lake.DynamicsLakeAreaSeasonalAvg");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaPermanentAvg", "lake.DynamicsLakeAreaPermanentAvg");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaNoDataMax", "lake.DynamicsLakeAreaNoDataMax");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaNoWaterMax", "lake.DynamicsLakeAreaNoWaterMax");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaSeasonalMax", "lake.DynamicsLakeAreaSeasonalMax");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaPermanentMax", "lake.DynamicsLakeAreaPermanentMax");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaNoDataMin", "lake.DynamicsLakeAreaNoDataMin");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaNoWaterMin", "lake.DynamicsLakeAreaNoWaterMin");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaSeasonalMin", "lake.DynamicsLakeAreaSeasonalMin");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaPermanentMin", "lake.DynamicsLakeAreaPermanentMin");
 
             bool checkFormula = CheckFormula(Formula);
 
@@ -1390,6 +1426,18 @@ namespace ELake.Controllers
                         public decimal SeasonalityOctober { get; set; }
                         public decimal SeasonalityNovember { get; set; }
                         public decimal SeasonalityDecember { get; set; }
+                        public decimal DynamicsLakeAreaNoDataAvg { get; set; }
+                        public decimal DynamicsLakeAreaNoWaterAvg { get; set; }
+                        public decimal DynamicsLakeAreaSeasonalAvg { get; set; }
+                        public decimal DynamicsLakeAreaPermanentAvg { get; set; }
+                        public decimal DynamicsLakeAreaNoDataMax { get; set; }
+                        public decimal DynamicsLakeAreaNoWaterMax { get; set; }
+                        public decimal DynamicsLakeAreaSeasonalMax { get; set; }
+                        public decimal DynamicsLakeAreaPermanentMax { get; set; }
+                        public decimal DynamicsLakeAreaNoDataMin { get; set; }
+                        public decimal DynamicsLakeAreaNoWaterMin { get; set; }
+                        public decimal DynamicsLakeAreaSeasonalMin { get; set; }
+                        public decimal DynamicsLakeAreaPermanentMin { get; set; }
 
                     } 
 
@@ -1559,6 +1607,18 @@ namespace ELake.Controllers
                                     SeasonalityOctober = FromLine(lineS[141]),
                                     SeasonalityNovember = FromLine(lineS[142]),
                                     SeasonalityDecember = FromLine(lineS[143]),
+                                    DynamicsLakeAreaNoDataAvg = FromLine(lineS[144]),
+                                    DynamicsLakeAreaNoWaterAvg = FromLine(lineS[145]),
+                                    DynamicsLakeAreaSeasonalAvg = FromLine(lineS[146]),
+                                    DynamicsLakeAreaPermanentAvg = FromLine(lineS[147]),
+                                    DynamicsLakeAreaNoDataMax = FromLine(lineS[148]),
+                                    DynamicsLakeAreaNoWaterMax = FromLine(lineS[149]),
+                                    DynamicsLakeAreaSeasonalMax = FromLine(lineS[150]),
+                                    DynamicsLakeAreaPermanentMax = FromLine(lineS[151]),
+                                    DynamicsLakeAreaNoDataMin = FromLine(lineS[152]),
+                                    DynamicsLakeAreaNoWaterMin = FromLine(lineS[153]),
+                                    DynamicsLakeAreaSeasonalMin = FromLine(lineS[154]),
+                                    DynamicsLakeAreaPermanentMin = FromLine(lineS[155]),
 
                                 });
                             }
