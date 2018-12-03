@@ -760,6 +760,24 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.WaterLevel));
                     line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.LakeArea));
                     line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.WaterMassVolume));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.Mineralization));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.TotalHardness));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.DissOxygWater));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.PercentOxygWater));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.pH));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.OrganicSubstances));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.Mineralization));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.TotalHardness));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.DissOxygWater));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.PercentOxygWater));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.pH));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.OrganicSubstances));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.Mineralization));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.TotalHardness));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.DissOxygWater));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.PercentOxygWater));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.pH));
+                    line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.OrganicSubstances));
 
                     file.WriteLine(line);
                 }
@@ -772,6 +790,7 @@ namespace ELake.Controllers
         {
             bool r = true;
             string formula_test = Formula;
+            formula_test = formula_test.Replace(" ", "");
             formula_test = formula_test.Replace("(", "");
             formula_test = formula_test.Replace(")", "");
             formula_test = formula_test.Replace("+", "");
@@ -834,6 +853,24 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("HypsometricWaterLevelMin", "");
             formula_test = formula_test.Replace("HypsometricAreaMin", "");
             formula_test = formula_test.Replace("HypsometricVolumeMin", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryMineralizationAvg", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryTotalHardnessAvg", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryDissOxygWaterAvg", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryPercentOxygWaterAvg", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistrypHAvg", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryOrganicSubstancesAvg", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryMineralizationMax", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryTotalHardnessMax", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryDissOxygWaterMax", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryPercentOxygWaterMax", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistrypHMax", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryOrganicSubstancesMax", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryMineralizationMin", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryTotalHardnessMin", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryDissOxygWaterMin", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryPercentOxygWaterMin", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistrypHMin", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryOrganicSubstancesMin", "");
 
             for (int n = 0; n <= 9; n++)
             {
@@ -933,6 +970,24 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("HypsometricWaterLevelMin", "lake.HypsometricWaterLevelMin");
             codeFilter = codeFilter.Replace("HypsometricAreaMin", "lake.HypsometricAreaMin");
             codeFilter = codeFilter.Replace("HypsometricVolumeMin", "lake.HypsometricVolumeMin");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryMineralizationAvg", "lake.GeneralHydroChemistryMineralizationAvg");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryTotalHardnessAvg", "lake.GeneralHydroChemistryTotalHardnessAvg");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryDissOxygWaterAvg", "lake.GeneralHydroChemistryDissOxygWaterAvg");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryPercentOxygWaterAvg", "lake.GeneralHydroChemistryPercentOxygWaterAvg");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistrypHAvg", "lake.GeneralHydroChemistrypHAvg");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryOrganicSubstancesAvg", "lake.GeneralHydroChemistryOrganicSubstancesAvg");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryMineralizationMax", "lake.GeneralHydroChemistryMineralizationMax");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryTotalHardnessMax", "lake.GeneralHydroChemistryTotalHardnessMax");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryDissOxygWaterMax", "lake.GeneralHydroChemistryDissOxygWaterMax");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryPercentOxygWaterMax", "lake.GeneralHydroChemistryPercentOxygWaterMax");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistrypHMax", "lake.GeneralHydroChemistrypHMax");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryOrganicSubstancesMax", "lake.GeneralHydroChemistryOrganicSubstancesMax");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryMineralizationMin", "lake.GeneralHydroChemistryMineralizationMin");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryTotalHardnessMin", "lake.GeneralHydroChemistryTotalHardnessMin");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryDissOxygWaterMin", "lake.GeneralHydroChemistryDissOxygWaterMin");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryPercentOxygWaterMin", "lake.GeneralHydroChemistryPercentOxygWaterMin");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistrypHMin", "lake.GeneralHydroChemistrypHMin");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryOrganicSubstancesMin", "lake.GeneralHydroChemistryOrganicSubstancesMin");
 
             bool checkFormula = CheckFormula(Formula);
 
@@ -1013,6 +1068,24 @@ namespace ELake.Controllers
                         public decimal HypsometricWaterLevelMin { get; set; }
                         public decimal HypsometricAreaMin { get; set; }
                         public decimal HypsometricVolumeMin { get; set; }
+                        public decimal GeneralHydroChemistryMineralizationAvg { get; set; }
+                        public decimal GeneralHydroChemistryTotalHardnessAvg { get; set; }
+                        public decimal GeneralHydroChemistryDissOxygWaterAvg { get; set; }
+                        public decimal GeneralHydroChemistryPercentOxygWaterAvg { get; set; }
+                        public decimal GeneralHydroChemistrypHAvg { get; set; }
+                        public decimal GeneralHydroChemistryOrganicSubstancesAvg { get; set; }
+                        public decimal GeneralHydroChemistryMineralizationMax { get; set; }
+                        public decimal GeneralHydroChemistryTotalHardnessMax { get; set; }
+                        public decimal GeneralHydroChemistryDissOxygWaterMax { get; set; }
+                        public decimal GeneralHydroChemistryPercentOxygWaterMax { get; set; }
+                        public decimal GeneralHydroChemistrypHMax { get; set; }
+                        public decimal GeneralHydroChemistryOrganicSubstancesMax { get; set; }
+                        public decimal GeneralHydroChemistryMineralizationMin { get; set; }
+                        public decimal GeneralHydroChemistryTotalHardnessMin { get; set; }
+                        public decimal GeneralHydroChemistryDissOxygWaterMin { get; set; }
+                        public decimal GeneralHydroChemistryPercentOxygWaterMin { get; set; }
+                        public decimal GeneralHydroChemistrypHMin { get; set; }
+                        public decimal GeneralHydroChemistryOrganicSubstancesMin { get; set; }
 
                     } 
 
@@ -1089,6 +1162,24 @@ namespace ELake.Controllers
                                     HypsometricWaterLevelMin = FromLine(lineS[48]),
                                     HypsometricAreaMin = FromLine(lineS[49]),
                                     HypsometricVolumeMin = FromLine(lineS[50]),
+                                    GeneralHydroChemistryMineralizationAvg = FromLine(lineS[51]),
+                                    GeneralHydroChemistryTotalHardnessAvg = FromLine(lineS[52]),
+                                    GeneralHydroChemistryDissOxygWaterAvg = FromLine(lineS[53]),
+                                    GeneralHydroChemistryPercentOxygWaterAvg = FromLine(lineS[54]),
+                                    GeneralHydroChemistrypHAvg = FromLine(lineS[55]),
+                                    GeneralHydroChemistryOrganicSubstancesAvg = FromLine(lineS[56]),
+                                    GeneralHydroChemistryMineralizationMax = FromLine(lineS[57]),
+                                    GeneralHydroChemistryTotalHardnessMax = FromLine(lineS[58]),
+                                    GeneralHydroChemistryDissOxygWaterMax = FromLine(lineS[59]),
+                                    GeneralHydroChemistryPercentOxygWaterMax = FromLine(lineS[60]),
+                                    GeneralHydroChemistrypHMax = FromLine(lineS[61]),
+                                    GeneralHydroChemistryOrganicSubstancesMax = FromLine(lineS[62]),
+                                    GeneralHydroChemistryMineralizationMin = FromLine(lineS[63]),
+                                    GeneralHydroChemistryTotalHardnessMin = FromLine(lineS[64]),
+                                    GeneralHydroChemistryDissOxygWaterMin = FromLine(lineS[65]),
+                                    GeneralHydroChemistryPercentOxygWaterMin = FromLine(lineS[66]),
+                                    GeneralHydroChemistrypHMin = FromLine(lineS[67]),
+                                    GeneralHydroChemistryOrganicSubstancesMin = FromLine(lineS[68]),
 
                                 });
                             }
