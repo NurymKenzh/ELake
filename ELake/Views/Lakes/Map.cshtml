@@ -196,7 +196,16 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <canvas id="lineChartExample2"></canvas>
+                                    <div class="dropdown">
+                                        <label>@SharedLocalizer["BaseLayer"]</label>
+                                        <input id="layerBaseShow" type="checkbox" checked="checked" onchange="ChangeLayers()" />
+                                        <select id="layerBaseType" class="form-control" onchange="ChangeLayers()">
+                                            <option value="OSM">OpenStreetMap</option>
+                                            <option value="BingAerialWithLabels">Bing Aerial</option>
+                                        </select>
+                                        <br />
+                                        <input id="layerBaseOpacity" type="range" min="0" max="100" value="100" style="width: 100%;" oninput="ChangeLayers()"/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -425,10 +434,23 @@
 @* map and layers *@
 <script type="text/javascript">
     var layers = [];
+    var Source_OSM = new ol.source.OSM(),
+        Source_BingAerialWithLabels = new ol.source.BingMaps({
+        key: 'AmYNYRGlIrw_kppWvrIhfzY1v046b4Ft5nopz6Av94XDvTTo8xTkHCEaZ_zMwCOJ',
+        imagerySet: 'AerialWithLabels',
+    });
     layers.push(new ol.layer.Tile({
-        source: new ol.source.OSM()
+        //source: new ol.source.OSM()
+        //source: new BingMaps({
+        //    key: 'AmYNYRGlIrw_kppWvrIhfzY1v046b4Ft5nopz6Av94XDvTTo8xTkHCEaZ_zMwCOJ',
+        //    imagerySet: styles[i]
+        //    // use maxZoom 19 to see stretched tiles instead of the BingMaps
+        //    // "no photos at this zoom level" tiles
+        //    // maxZoom: 19
+        //})
+        source: Source_OSM
     }));
-    layers[0].set('name', 'OSM');
+    layers[0].set('name', 'Base');
 
     var geoserverPort = '8080',
         geoserverAddress = window.location.hostname;
@@ -448,6 +470,7 @@
     });
     Layer_Lakes.setOpacity(0.80);
     layers.push(Layer_Lakes);
+    layers[1].set('name', 'Lakes');
 
     var Source_Lake = new ol.source.Vector({});
     var Layer_Lake = new ol.layer.Vector({
@@ -463,6 +486,7 @@
         })
     });
     layers.push(Layer_Lake);
+    layers[2].set('name', 'LakesSelect');
 
     var geoserverPort = '8080',
         //geoserverAddress = '82.200.146.116';
@@ -518,6 +542,21 @@
             //alert('error');
         }
     });
+
+    function ChangeLayers() {
+        map.getLayers().forEach(function (layer) {
+            if (layer.get('name') == 'Base') {
+                layer.setVisible($('#layerBaseShow').is(':checked'));
+                layer.setOpacity($('#layerBaseOpacity').val() / 100);
+                if ($('#layerBaseType').val() == 'OSM') {
+                    layer.setSource(Source_OSM);
+                }
+                else if ($('#layerBaseType').val() == 'BingAerialWithLabels') {
+                    layer.setSource(Source_BingAerialWithLabels);
+                }
+            }
+        })
+    }
 </script>
 @* Select lake and zoom to *@
 <script>
