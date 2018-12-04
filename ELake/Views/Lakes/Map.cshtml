@@ -204,7 +204,27 @@
                                             <option value="BingAerialWithLabels">Bing Aerial</option>
                                         </select>
                                         <br />
-                                        <input id="layerBaseOpacity" type="range" min="0" max="100" value="100" style="width: 100%;" oninput="ChangeLayers()"/>
+                                        <input id="layerBaseOpacity" type="range" min="0" max="100" value="100" style="width: 100%;" oninput="ChangeLayers()" />
+
+                                        <label>@SharedLocalizer["GlobalSurfaceWater"]</label>
+                                        <input id="layerGlobalSurfaceWaterShow" type="checkbox" onchange="ChangeLayers()" />
+                                        <select id="layerGlobalSurfaceWaterType" class="form-control" onchange="ChangeLayers()">
+                                            <option value="OccurrenceChangeIntensity">@SharedLocalizer["OccurrenceChangeIntensity"]</option>
+                                            <option value="Seasonality">@SharedLocalizer["Seasonality"]</option>
+                                            <option value="Occurrence">@SharedLocalizer["Occurrence"]</option>
+                                            <option value="Recurrence">@SharedLocalizer["Recurrence"]</option>
+                                            <option value="MaximumWaterExtent">@SharedLocalizer["MaximumWaterExtent"]</option>
+                                            <option value="Transitions">@SharedLocalizer["Transitions"]</option>
+                                        </select>
+                                        <br />
+                                        <input id="layerGlobalSurfaceWaterOpacity" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
+
+                                        <label>@SharedLocalizer["Lakes"]</label>
+                                        <input id="layerLakesShow" type="checkbox" checked="checked" onchange="ChangeLayers()" />
+                                        <br />
+                                        <input id="layerLakesOpacity" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
+
+                                        @*YearlyHistory*@
                                     </div>
                                 </div>
                             </div>
@@ -450,10 +470,84 @@
         //})
         source: Source_OSM
     }));
-    layers[0].set('name', 'Base');
+    layers[layers.length - 1].set('name', 'Base');
 
     var geoserverPort = '8080',
-        geoserverAddress = window.location.hostname;
+        //geoserverAddress = window.location.hostname;
+        geoserverAddress = 'elake.geoset.kz';
+
+    var Source_OccurrenceChangeIntensity = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:GlobalSurfaceWater',
+            'STYLES': 'Occurrence change intensity',
+            'VERSION': '1.1.0',
+            'FORMAT': 'image/png',
+            'TILED': true
+        },
+        serverType: 'geoserver'
+    });
+    var Source_Seasonality = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:GlobalSurfaceWater',
+            'STYLES': 'Seasonality',
+            'VERSION': '1.1.0',
+            'FORMAT': 'image/png',
+            'TILED': true
+        },
+        serverType: 'geoserver'
+    });
+    var Source_Occurrence = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:GlobalSurfaceWater',
+            'STYLES': 'Occurrence',
+            'VERSION': '1.1.0',
+            'FORMAT': 'image/png',
+            'TILED': true
+        },
+        serverType: 'geoserver'
+    });
+    var Source_Recurrence = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:GlobalSurfaceWater',
+            'STYLES': 'Recurrence',
+            'VERSION': '1.1.0',
+            'FORMAT': 'image/png',
+            'TILED': true
+        },
+        serverType: 'geoserver'
+    });
+    var Source_MaximumWaterExtent = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:GlobalSurfaceWater',
+            'STYLES': 'Maximum water extent',
+            'VERSION': '1.1.0',
+            'FORMAT': 'image/png',
+            'TILED': true
+        },
+        serverType: 'geoserver'
+    });
+    var Source_Transitions = new ol.source.TileWMS({
+        url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
+        params: {
+            'LAYERS': 'ELake:GlobalSurfaceWater',
+            'STYLES': 'Transitions',
+            'VERSION': '1.1.0',
+            'FORMAT': 'image/png',
+            'TILED': true
+        },
+        serverType: 'geoserver'
+    });
+    var Layer_GlobalSurfaceWater = new ol.layer.Tile({
+        source: Source_OccurrenceChangeIntensity
+    });
+    Layer_GlobalSurfaceWater.setOpacity(0.80);
+    layers.push(Layer_GlobalSurfaceWater);
+    layers[layers.length - 1].set('name', 'GlobalSurfaceWater');
 
     var Source_Lakes = new ol.source.TileWMS({
         url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
@@ -470,7 +564,7 @@
     });
     Layer_Lakes.setOpacity(0.80);
     layers.push(Layer_Lakes);
-    layers[1].set('name', 'Lakes');
+    layers[layers.length - 1].set('name', 'Lakes');
 
     var Source_Lake = new ol.source.Vector({});
     var Layer_Lake = new ol.layer.Vector({
@@ -486,7 +580,7 @@
         })
     });
     layers.push(Layer_Lake);
-    layers[2].set('name', 'LakesSelect');
+    layers[layers.length - 1].set('name', 'LakesSelect');
 
     var geoserverPort = '8080',
         //geoserverAddress = '82.200.146.116';
@@ -555,8 +649,36 @@
                     layer.setSource(Source_BingAerialWithLabels);
                 }
             }
+            if (layer.get('name') == 'GlobalSurfaceWater') {
+                layer.setVisible($('#layerGlobalSurfaceWaterShow').is(':checked'));
+                layer.setOpacity($('#layerGlobalSurfaceWaterOpacity').val() / 100);
+                if ($('#layerGlobalSurfaceWaterType').val() == 'OccurrenceChangeIntensity') {
+                    layer.setSource(Source_OccurrenceChangeIntensity);
+                }
+                else if ($('#layerGlobalSurfaceWaterType').val() == 'Seasonality') {
+                    layer.setSource(Source_Seasonality);
+                }
+                else if ($('#layerGlobalSurfaceWaterType').val() == 'Occurrence') {
+                    layer.setSource(Source_Occurrence);
+                }
+                else if ($('#layerGlobalSurfaceWaterType').val() == 'Recurrence') {
+                    layer.setSource(Source_Recurrence);
+                }
+                else if ($('#layerGlobalSurfaceWaterType').val() == 'MaximumWaterExtent') {
+                    layer.setSource(Source_MaximumWaterExtent);
+                }
+                else if ($('#layerGlobalSurfaceWaterType').val() == 'Transitions') {
+                    layer.setSource(Source_Transitions);
+                }
+            }
+            if (layer.get('name') == 'Lakes') {
+                layer.setVisible($('#layerLakesShow').is(':checked'));
+                layer.setOpacity($('#layerLakesOpacity').val() / 100);
+            }
         })
     }
+
+    ChangeLayers();
 </script>
 @* Select lake and zoom to *@
 <script>
