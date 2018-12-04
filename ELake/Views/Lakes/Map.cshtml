@@ -21,30 +21,6 @@
     <link href="~/lib/distribution/css/custom.css" rel="stylesheet" />
 </head>
 <div class="page">
-    <!-- Main Navbar-->
-    <header class="header">
-        <nav class="navbar">
-            <div class="container-fluid">
-                <div class="navbar-holder d-flex align-items-center justify-content-between">
-                    <!-- Navbar Header-->
-                    <div class="navbar-header">
-                        <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
-                            <div class="brand-text d-none d-lg-inline-block"><span>Menu </span></div>
-                        </a><!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
-                    </div>
-                    <div class="col-lg-11">
-                        <form class="form-inline">
-                            <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="@SharedLocalizer["Search"]" aria-label="Search" oninput="GetAdm1(); GetAdm2(); GetVHB(); GetVHU(); GetSystem(); SearchChange(0);">
-                            <input type="button" class="btn btn-light btn-sm" value="@SharedLocalizer["Reset"]" onclick="ResetSearch()" />
-                        </form>
-                    </div>
-                    <div class="col-lg-11">
-                        @await Html.PartialAsync("_LoginPartial")
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
     <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
         <nav class="side-navbar">
@@ -121,7 +97,13 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="#content1" onclick="ShowTableWB()" > <i class="fa fa-list-ul"></i> @SharedLocalizer["BasicInfoLake"]</a></li>
+                <li>
+                    <a class="nav-link" asp-controller="Home" asp-action="Index">
+                        <i class="fa fa-home"></i>
+                        @SharedLocalizer["Home"]
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
                 <li>
                     <a href="#Hydrology" aria-expanded="false" data-toggle="collapse"> <i class="icon-grid"></i>Tables </a>
                     <ul id="Hydrology" class="collapse list-unstyled ">
