@@ -46,6 +46,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\JSON\" />
+    <Folder Include="wwwroot\Analytics\" />
     <Folder Include="wwwroot\RegulatoryDocuments\" />
     <Folder Include="wwwroot\Video\" />
     <Folder Include="wwwroot\Uploads\" />

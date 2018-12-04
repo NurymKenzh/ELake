@@ -1,0 +1,269 @@
+﻿@using ELake.Controllers
+@using Microsoft.Extensions.Localization
+@inject IStringLocalizer<SharedResources> SharedLocalizer
+@{
+    ViewData["Title"] = SharedLocalizer["Analytics"];
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@SharedLocalizer["Analytics"]</h2>
+<select id="adm1" asp-items="ViewBag.Adm1" onchange="GetAdm2();">
+    <option selected></option>
+</select>
+<select id="adm2">
+    <option selected></option>
+</select>
+<input id="formula" type="text" style="width: 100%;" />
+<input type="button" onclick="Analyze()" value="@SharedLocalizer["Find"]" />
+<br />
+<label id="message"></label>
+<br />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '(')" value="(" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + ')')" value=")" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '+')" value="+" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '-')" value="-" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '*')" value="*" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '/')" value="/" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '>')" value=">" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '<')" value="<" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + '=')" value="=" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + ' AND ')" value="@SharedLocalizer["AND"]" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + ' OR ')" value="@SharedLocalizer["OR"]" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + ' NOT ')" value="@SharedLocalizer["NOT"]" />
+<br />
+<h4>@SharedLocalizer["BasicInfoLake"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'Area2015')" value="@SharedLocalizer["Area2015"] (Area2015)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'Shoreline2015')" value="@SharedLocalizer["LakeShorelineLength2015"] (Shoreline2015)" />
+<h4>@SharedLocalizer["LakeArchiveData"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveLength')" value="@SharedLocalizer["LakeLength"] (ArchiveLength)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveShoreline')" value="@SharedLocalizer["LakeShorelineLength"] (ArchiveShoreline)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveMirrorArea')" value="@SharedLocalizer["LakeMirrorArea"] (ArchiveMirrorArea)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveAbsoluteHeight')" value="@SharedLocalizer["LakeAbsoluteHeight"] (ArchiveAbsoluteHeight)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveWidth')" value="@SharedLocalizer["LakeWidth"] (ArchiveWidth)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveMaxDepth')" value="@SharedLocalizer["LakeMaxDepth"] (ArchiveMaxDepth)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveWaterMass')" value="@SharedLocalizer["LakeWaterMass"] (ArchiveWaterMass)" />
+<h4>@SharedLocalizer["LakeGlobalData"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalArea')" value="@SharedLocalizer["Lake_area"] (GlobalArea)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalShoreLength')" value="@SharedLocalizer["Shore_len"] (GlobalShoreLength)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalIndentation')" value="@SharedLocalizer["Shore_dev"] (GlobalIndentation)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalVolume')" value="@SharedLocalizer["Vol_total"] (GlobalVolume)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalDepth')" value="@SharedLocalizer["Depth_avg"] (GlobalDepth)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalFlow')" value="@SharedLocalizer["Dis_avg"] (GlobalFlow)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalStayTime')" value="@SharedLocalizer["Res_time"] (GlobalStayTime)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalElevation')" value="@SharedLocalizer["Elevation"] (GlobalElevation)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalSlope')" value="@SharedLocalizer["Slope_100"] (GlobalSlope)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalCatchmentArea')" value="@SharedLocalizer["Wshd_area"] (GlobalCatchmentArea)" />
+<h4>@SharedLocalizer["Hydrology"]. @SharedLocalizer["WaterBalances"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowAvg')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceFlowAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowAvg')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceOutflowAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowAvg')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundFlowAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowAvg')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundOutflowAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationAvg')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["average"]) (WaterBalancePrecipitationAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationAvg')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["average"]) (WaterBalanceEvaporationAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowMax')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceFlowMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowMax')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceOutflowMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowMax')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundFlowMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowMax')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundOutflowMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationMax')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["maximum"]) (WaterBalancePrecipitationMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationMax')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["maximum"]) (WaterBalanceEvaporationMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowMin')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceFlowMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowMin')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceOutflowMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowMin')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundFlowMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowMin')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundOutflowMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationMin')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["minimum"]) (WaterBalancePrecipitationMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationMin')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["minimum"]) (WaterBalanceEvaporationMin)" />
+<h4>@SharedLocalizer["Hydrology"]. @SharedLocalizer["WaterLevels"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterLevelWaterLavelAvg')" value="@SharedLocalizer["WaterLavelM"] (@SharedLocalizer["average"]) (WaterLevelWaterLavelAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterLevelWaterLavelMax')" value="@SharedLocalizer["WaterLavelM"] (@SharedLocalizer["maximum"]) (WaterLevelWaterLavelMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterLevelWaterLavelMin')" value="@SharedLocalizer["WaterLavelM"] (@SharedLocalizer["minimum"]) (WaterLevelWaterLavelMin)" />
+<h4>@SharedLocalizer["Hydrology"]. @SharedLocalizer["BathigraphicAndVolumetricCurveDatas"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricWaterLevelAvg')" value="@SharedLocalizer["WaterLevel"] (@SharedLocalizer["average"]) (HypsometricWaterLevelAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricAreaAvg')" value="@SharedLocalizer["LakeArea"] (@SharedLocalizer["average"]) (HypsometricAreaAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricVolumeAvg')" value="@SharedLocalizer["WaterMassVolume"] (@SharedLocalizer["average"]) (HypsometricVolumeAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricWaterLevelMax')" value="@SharedLocalizer["WaterLevel"] (@SharedLocalizer["maximum"]) (HypsometricWaterLevelMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricAreaMax')" value="@SharedLocalizer["LakeArea"] (@SharedLocalizer["maximum"]) (HypsometricAreaMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricVolumeMax')" value="@SharedLocalizer["WaterMassVolume"] (@SharedLocalizer["maximum"]) (HypsometricVolumeMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricWaterLevelMin')" value="@SharedLocalizer["WaterLevel"] (@SharedLocalizer["minimum"]) (HypsometricWaterLevelMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricAreaMin')" value="@SharedLocalizer["LakeArea"] (@SharedLocalizer["minimum"]) (HypsometricAreaMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'HypsometricVolumeMin')" value="@SharedLocalizer["WaterMassVolume"] (@SharedLocalizer["minimum"]) (HypsometricVolumeMin)" />
+<h4>@SharedLocalizer["Hydrochemistries"]. @SharedLocalizer["GeneralHydrochemicalIndicators"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryMineralizationAvg')" value="@SharedLocalizer["Mineralization"] (@SharedLocalizer["average"]) (GeneralHydroChemistryMineralizationAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryTotalHardnessAvg')" value="@SharedLocalizer["TotalHardness"] (@SharedLocalizer["average"]) (GeneralHydroChemistryTotalHardnessAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryDissOxygWaterAvg')" value="@SharedLocalizer["DissOxygWater"] (@SharedLocalizer["average"]) (GeneralHydroChemistryDissOxygWaterAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryPercentOxygWaterAvg')" value="@SharedLocalizer["PercentOxygWater"] (@SharedLocalizer["average"]) (GeneralHydroChemistryPercentOxygWaterAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistrypHAvg')" value="@SharedLocalizer["pH"] (@SharedLocalizer["average"]) (GeneralHydroChemistrypHAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryOrganicSubstancesAvg')" value="@SharedLocalizer["OrganicSubstances"] (@SharedLocalizer["average"]) (GeneralHydroChemistryOrganicSubstancesAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryMineralizationMax')" value="@SharedLocalizer["Mineralization"] (@SharedLocalizer["maximum"]) (GeneralHydroChemistryMineralizationMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryTotalHardnessMax')" value="@SharedLocalizer["TotalHardness"] (@SharedLocalizer["maximum"]) (GeneralHydroChemistryTotalHardnessMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryDissOxygWaterMax')" value="@SharedLocalizer["DissOxygWater"] (@SharedLocalizer["maximum"]) (GeneralHydroChemistryDissOxygWaterMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryPercentOxygWaterMax')" value="@SharedLocalizer["PercentOxygWater"] (@SharedLocalizer["maximum"]) (GeneralHydroChemistryPercentOxygWaterMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistrypHMax')" value="@SharedLocalizer["pH"] (@SharedLocalizer["maximum"]) (GeneralHydroChemistrypHMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryOrganicSubstancesMax')" value="@SharedLocalizer["OrganicSubstances"] (@SharedLocalizer["maximum"]) (GeneralHydroChemistryOrganicSubstancesMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryMineralizationMin')" value="@SharedLocalizer["Mineralization"] (@SharedLocalizer["minimum"]) (GeneralHydroChemistryMineralizationMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryTotalHardnessMin')" value="@SharedLocalizer["TotalHardness"] (@SharedLocalizer["minimum"]) (GeneralHydroChemistryTotalHardnessMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryDissOxygWaterMin')" value="@SharedLocalizer["DissOxygWater"] (@SharedLocalizer["minimum"]) (GeneralHydroChemistryDissOxygWaterMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryPercentOxygWaterMin')" value="@SharedLocalizer["PercentOxygWater"] (@SharedLocalizer["minimum"]) (GeneralHydroChemistryPercentOxygWaterMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistrypHMin')" value="@SharedLocalizer["pH"] (@SharedLocalizer["minimum"]) (GeneralHydroChemistrypHMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'GeneralHydroChemistryOrganicSubstancesMin')" value="@SharedLocalizer["OrganicSubstances"] (@SharedLocalizer["minimum"]) (GeneralHydroChemistryOrganicSubstancesMin)" />
+<h4>@SharedLocalizer["Hydrochemistries"]. @SharedLocalizer["IonsaltWaterCompositions"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltCaAvg')" value="@SharedLocalizer["CaMgEq"] (@SharedLocalizer["average"]) (IonsaltCaAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltMgAvg')" value="@SharedLocalizer["MgMgEq"] (@SharedLocalizer["average"]) (IonsaltMgAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltNaKAvg')" value="@SharedLocalizer["NaKMgEq"] (@SharedLocalizer["average"]) (IonsaltNaKAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltClAvg')" value="@SharedLocalizer["ClMgEq"] (@SharedLocalizer["average"]) (IonsaltClAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltHCOAvg')" value="@SharedLocalizer["HCOMgEq"] (@SharedLocalizer["average"]) (IonsaltHCOAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltSOAvg')" value="@SharedLocalizer["SOMgEq"] (@SharedLocalizer["average"]) (IonsaltSOAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltCaMax')" value="@SharedLocalizer["CaMgEq"] (@SharedLocalizer["maximum"]) (IonsaltCaMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltMgMax')" value="@SharedLocalizer["MgMgEq"] (@SharedLocalizer["maximum"]) (IonsaltMgMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltNaKMax')" value="@SharedLocalizer["NaKMgEq"] (@SharedLocalizer["maximum"]) (IonsaltNaKMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltClMax')" value="@SharedLocalizer["ClMgEq"] (@SharedLocalizer["maximum"]) (IonsaltClMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltHCOMax')" value="@SharedLocalizer["HCOMgEq"] (@SharedLocalizer["maximum"]) (IonsaltHCOMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltSOMax')" value="@SharedLocalizer["SOMgEq"] (@SharedLocalizer["maximum"]) (IonsaltSOMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltCaMin')" value="@SharedLocalizer["CaMgEq"] (@SharedLocalizer["minimum"]) (IonsaltCaMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltMgMin')" value="@SharedLocalizer["MgMgEq"] (@SharedLocalizer["minimum"]) (IonsaltMgMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltNaKMin')" value="@SharedLocalizer["NaKMgEq"] (@SharedLocalizer["minimum"]) (IonsaltNaKMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltClMin')" value="@SharedLocalizer["ClMgEq"] (@SharedLocalizer["minimum"]) (IonsaltClMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltHCOMin')" value="@SharedLocalizer["HCOMgEq"] (@SharedLocalizer["minimum"]) (IonsaltHCOMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'IonsaltSOMin')" value="@SharedLocalizer["SOMgEq"] (@SharedLocalizer["minimum"]) (IonsaltSOMin)" />
+<h4>@SharedLocalizer["Hydrochemistries"]. @SharedLocalizer["ToxicologicalIndicators"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNH4Avg')" value="@SharedLocalizer["NH4"] (@SharedLocalizer["average"]) (ToxicNH4Avg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNO2Avg')" value="@SharedLocalizer["NO2"] (@SharedLocalizer["average"]) (ToxicNO2Avg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNO3Avg')" value="@SharedLocalizer["NO3"] (@SharedLocalizer["average"]) (ToxicNO3Avg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicPPO4Avg')" value="@SharedLocalizer["PPO4"] (@SharedLocalizer["average"]) (ToxicPPO4Avg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCuAvg')" value="@SharedLocalizer["Cu"] (@SharedLocalizer["average"]) (ToxicCuAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicZnAvg')" value="@SharedLocalizer["Zn"] (@SharedLocalizer["average"]) (ToxicZnAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicMnAvg')" value="@SharedLocalizer["Mn"] (@SharedLocalizer["average"]) (ToxicMnAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicPbAvg')" value="@SharedLocalizer["Pb"] (@SharedLocalizer["average"]) (ToxicPbAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNiAvg')" value="@SharedLocalizer["Ni"] (@SharedLocalizer["average"]) (ToxicNiAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCdAvg')" value="@SharedLocalizer["Cd"] (@SharedLocalizer["average"]) (ToxicCdAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCoAvg')" value="@SharedLocalizer["Co"] (@SharedLocalizer["average"]) (ToxicCoAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNH4Max')" value="@SharedLocalizer["NH4"] (@SharedLocalizer["maximum"]) (ToxicNH4Max)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNO2Max')" value="@SharedLocalizer["NO2"] (@SharedLocalizer["maximum"]) (ToxicNO2Max)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNO3Max')" value="@SharedLocalizer["NO3"] (@SharedLocalizer["maximum"]) (ToxicNO3Max)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicPPO4Max')" value="@SharedLocalizer["PPO4"] (@SharedLocalizer["maximum"]) (ToxicPPO4Max)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCuMax')" value="@SharedLocalizer["Cu"] (@SharedLocalizer["maximum"]) (ToxicCuMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicZnMax')" value="@SharedLocalizer["Zn"] (@SharedLocalizer["maximum"]) (ToxicZnMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicMnMax')" value="@SharedLocalizer["Mn"] (@SharedLocalizer["maximum"]) (ToxicMnMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicPbMax')" value="@SharedLocalizer["Pb"] (@SharedLocalizer["maximum"]) (ToxicPbMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNiMax')" value="@SharedLocalizer["Ni"] (@SharedLocalizer["maximum"]) (ToxicNiMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCdMax')" value="@SharedLocalizer["Cd"] (@SharedLocalizer["maximum"]) (ToxicCdMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCoMax')" value="@SharedLocalizer["Co"] (@SharedLocalizer["maximum"]) (ToxicCoMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNH4Min')" value="@SharedLocalizer["NH4"] (@SharedLocalizer["minimum"]) (ToxicNH4Min)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNO2Min')" value="@SharedLocalizer["NO2"] (@SharedLocalizer["minimum"]) (ToxicNO2Min)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNO3Min')" value="@SharedLocalizer["NO3"] (@SharedLocalizer["minimum"]) (ToxicNO3Min)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicPPO4Min')" value="@SharedLocalizer["PPO4"] (@SharedLocalizer["minimum"]) (ToxicPPO4Min)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCuMin')" value="@SharedLocalizer["Cu"] (@SharedLocalizer["minimum"]) (ToxicCuMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicZnMin')" value="@SharedLocalizer["Zn"] (@SharedLocalizer["minimum"]) (ToxicZnMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicMnMin')" value="@SharedLocalizer["Mn"] (@SharedLocalizer["minimum"]) (ToxicMnMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicPbMin')" value="@SharedLocalizer["Pb"] (@SharedLocalizer["minimum"]) (ToxicPbMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNiMin')" value="@SharedLocalizer["Ni"] (@SharedLocalizer["minimum"]) (ToxicNiMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCdMin')" value="@SharedLocalizer["Cd"] (@SharedLocalizer["minimum"]) (ToxicCdMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicCoMin')" value="@SharedLocalizer["Co"] (@SharedLocalizer["minimum"]) (ToxicCoMin)" />
+<h4>@SharedLocalizer["DynamicsLakeAreas"]. @SharedLocalizer["Transitions"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionNoСhange')" value="@SharedLocalizer["NoСhange"] (TransitionNoСhange)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionPermanent')" value="@SharedLocalizer["Permanent"] (TransitionPermanent)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionNewPermanent')" value="@SharedLocalizer["NewPermanent"] (TransitionNewPermanent)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionLostPermanent')" value="@SharedLocalizer["LostPermanent"] (TransitionLostPermanent)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionSeasonal')" value="@SharedLocalizer["Seasonal"] (TransitionSeasonal)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionNewSeasonal')" value="@SharedLocalizer["NewSeasonal"] (TransitionNewSeasonal)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionLostSeasonal')" value="@SharedLocalizer["LostSeasonal"] (TransitionLostSeasonal)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionSeasonalToPermanent')" value="@SharedLocalizer["SeasonalToPermanent"] (TransitionSeasonalToPermanent)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionPermanentToDeasonal')" value="@SharedLocalizer["PermanentToDeasonal"] (TransitionPermanentToDeasonal)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionEphemeralPermanent')" value="@SharedLocalizer["EphemeralPermanent"] (TransitionEphemeralPermanent)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'TransitionEphemeralSeasonal')" value="@SharedLocalizer["EphemeralSeasonal"] (TransitionEphemeralSeasonal)" />
+<h4>@SharedLocalizer["DynamicsLakeAreas"]. @SharedLocalizer["Seasonalits"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityNoData')" value="@SharedLocalizer["NoData"] (SeasonalityNoData)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityJanuary')" value="@SharedLocalizer["January"] (SeasonalityJanuary)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityFebruary')" value="@SharedLocalizer["February"] (SeasonalityFebruary)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityMarch')" value="@SharedLocalizer["March"] (SeasonalityMarch)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityApril')" value="@SharedLocalizer["April"] (SeasonalityApril)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityMay')" value="@SharedLocalizer["May"] (SeasonalityMay)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityJune')" value="@SharedLocalizer["June"] (SeasonalityJune)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityJuly')" value="@SharedLocalizer["July"] (SeasonalityJuly)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityAugust')" value="@SharedLocalizer["August"] (SeasonalityAugust)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalitySeptember')" value="@SharedLocalizer["September"] (SeasonalitySeptember)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityOctober')" value="@SharedLocalizer["October"] (SeasonalityOctober)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityNovember')" value="@SharedLocalizer["November"] (SeasonalityNovember)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'SeasonalityDecember')" value="@SharedLocalizer["December"] (SeasonalityDecember)" />
+<h4>@SharedLocalizer["DynamicsLakeAreas"]. @SharedLocalizer["DynamicsLakeAreas"]</h4>
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaNoDataAvg')" value="@SharedLocalizer["NoData"] (@SharedLocalizer["average"]) (DynamicsLakeAreaNoDataAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaNoWaterAvg')" value="@SharedLocalizer["NoWater"] (@SharedLocalizer["average"]) (DynamicsLakeAreaNoWaterAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaSeasonalAvg')" value="@SharedLocalizer["SeasonalWaterArea"] (@SharedLocalizer["average"]) (DynamicsLakeAreaSeasonalAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaPermanentAvg')" value="@SharedLocalizer["PermanentWaterArea"] (@SharedLocalizer["average"]) (DynamicsLakeAreaPermanentAvg)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaNoDataMax')" value="@SharedLocalizer["NoData"] (@SharedLocalizer["maximum"]) (DynamicsLakeAreaNoDataMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaNoWaterMax')" value="@SharedLocalizer["NoWater"] (@SharedLocalizer["maximum"]) (DynamicsLakeAreaNoWaterMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaSeasonalMax')" value="@SharedLocalizer["SeasonalWaterArea"] (@SharedLocalizer["maximum"]) (DynamicsLakeAreaSeasonalMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaPermanentMax')" value="@SharedLocalizer["PermanentWaterArea"] (@SharedLocalizer["maximum"]) (DynamicsLakeAreaPermanentMax)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaNoDataMin')" value="@SharedLocalizer["NoData"] (@SharedLocalizer["minimum"]) (DynamicsLakeAreaNoDataMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaNoWaterMin')" value="@SharedLocalizer["NoWater"] (@SharedLocalizer["minimum"]) (DynamicsLakeAreaNoWaterMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaSeasonalMin')" value="@SharedLocalizer["SeasonalWaterArea"] (@SharedLocalizer["minimum"]) (DynamicsLakeAreaSeasonalMin)" />
+<input type="button" onclick="$('#formula').val($('#formula').val() + 'DynamicsLakeAreaPermanentMin')" value="@SharedLocalizer["PermanentWaterArea"] (@SharedLocalizer["minimum"]) (DynamicsLakeAreaPermanentMin)" />
+
+<div hidden="hidden">
+    <input id="Map" type="hidden" value='@SharedLocalizer["Map"]' />
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @SharedLocalizer["Name"]
+            </th>
+            <th>
+                @SharedLocalizer["LakeId"]
+            </th>
+            <th>
+                @SharedLocalizer["Details"]
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tablebodyLakes"></tbody>
+</table>
+<script>
+    function Analyze() {
+        $('#message').text('');
+        $.ajax({
+            url: '@Url.Action("Analyze")',
+            data: {
+                Formula: $('#formula').val(),
+                Adm1KATOId: $('#adm1').val(),
+                Adm2KATOId: $('#adm2').val() },
+            type: 'POST',
+            success: function (data) {
+                var tablebody = $('#tablebodyLakes');
+                tablebody.html('');
+                if (data.lakes != null) {
+                    for (var i = 0; i < data.lakes.length; i++) {
+                        var tr = $('<tr/>').appendTo(tablebody);
+                        tr.append('<td>' + data.lakes[i].name + '</td>');
+                        tr.append('<td>' + data.lakes[i].lakeId + '</td>');
+                        tr.append('<td><a href="Map/' + data.lakes[i].lakeId + '" target="_blank">' + $('#Map').val() + '</a></td>');
+                    }
+                }
+                $('#message').text(data.message);
+            },
+            error: function () {
+            }
+        });
+    }
+</script>
+<script>
+    function GetAdm2() {
+        var $dropdown = $("#adm2");
+        $dropdown.find('option')
+            .remove();
+        $.ajax({
+            url: '@Url.Action("GetAdm2")',
+            data: {
+                Adm1KATOId: $('#adm1').val()
+            },
+            type: 'POST',
+            success: function (data) {
+                $dropdown.append($("<option />"));
+                $.each(data.adm2, function () {
+                    $dropdown.append($("<option />").val(this.id).text(this.name));
+                });
+            },
+            error: function () {
+            }
+        });
+    }
+    GetAdm2();
+</script>

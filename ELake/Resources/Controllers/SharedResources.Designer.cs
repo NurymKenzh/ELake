@@ -171,6 +171,33 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Analytics {
+            get {
+                return ResourceManager.GetString("Analytics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string AND {
+            get {
+                return ResourceManager.GetString("AND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string AnErrorOccurredWhileUsingTheFormula {
+            get {
+                return ResourceManager.GetString("AnErrorOccurredWhileUsingTheFormula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string AnionsSumMgEq {
             get {
                 return ResourceManager.GetString("AnionsSumMgEq", resourceCulture);
@@ -228,6 +255,15 @@ namespace ELake.Resources.Controllers {
         public static string August {
             get {
                 return ResourceManager.GetString("August", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string average {
+            get {
+                return ResourceManager.GetString("average", resourceCulture);
             }
         }
         
@@ -1164,6 +1200,15 @@ namespace ELake.Resources.Controllers {
         public static string ForceEntryYear {
             get {
                 return ResourceManager.GetString("ForceEntryYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string FormulaContainsInvalidCharacters {
+            get {
+                return ResourceManager.GetString("FormulaContainsInvalidCharacters", resourceCulture);
             }
         }
         
@@ -2556,6 +2601,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string maximum {
+            get {
+                return ResourceManager.GetString("maximum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string MaximumWater {
             get {
                 return ResourceManager.GetString("MaximumWater", resourceCulture);
@@ -2694,6 +2748,15 @@ namespace ELake.Resources.Controllers {
         public static string MineralizationType {
             get {
                 return ResourceManager.GetString("MineralizationType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string minimum {
+            get {
+                return ResourceManager.GetString("minimum", resourceCulture);
             }
         }
         
@@ -3042,6 +3105,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string NOT {
+            get {
+                return ResourceManager.GetString("NOT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string not3857 {
             get {
                 return ResourceManager.GetString("not3857", resourceCulture);
@@ -3153,6 +3225,15 @@ namespace ELake.Resources.Controllers {
         public static string Opacity {
             get {
                 return ResourceManager.GetString("Opacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string OR {
+            get {
+                return ResourceManager.GetString("OR", resourceCulture);
             }
         }
         

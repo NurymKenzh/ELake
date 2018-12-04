@@ -60,7 +60,11 @@ namespace ELake.Models
         {
             get
             {
-                return Permanent / MaximumWater;
+                if(MaximumWater!=0)
+                {
+                    return Permanent / MaximumWater;
+                }
+                return 0;
             }
         }
 
@@ -69,7 +73,11 @@ namespace ELake.Models
         {
             get
             {
-                return Seasonal / MaximumWater;
+                if (MaximumWater != 0)
+                {
+                    return Seasonal / MaximumWater;
+                }
+                return 0;
             }
         }
     }

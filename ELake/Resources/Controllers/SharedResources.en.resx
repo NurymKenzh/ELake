@@ -1686,4 +1686,31 @@
   <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
     <value>Column order in the file: Lake Id, year, no data, no water, seasonal water area, constant water area</value>
   </data>
+  <data name="Analytics" xml:space="preserve">
+    <value>Analytics</value>
+  </data>
+  <data name="AND" xml:space="preserve">
+    <value>And</value>
+  </data>
+  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
+    <value>An error occurred while using the formula!</value>
+  </data>
+  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
+    <value>Formula contains invalid characters!</value>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="average" xml:space="preserve">
+    <value>average</value>
+  </data>
+  <data name="maximum" xml:space="preserve">
+    <value>maximum</value>
+  </data>
+  <data name="minimum" xml:space="preserve">
+    <value>minimum</value>
+  </data>
+  <data name="NOT" xml:space="preserve">
+    <value>Not</value>
+  </data>
 </root>

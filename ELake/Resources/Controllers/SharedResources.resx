@@ -1686,4 +1686,31 @@
   <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="Analytics" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AND" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value />
+  </data>
+  <data name="average" xml:space="preserve">
+    <value />
+  </data>
+  <data name="maximum" xml:space="preserve">
+    <value />
+  </data>
+  <data name="minimum" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NOT" xml:space="preserve">
+    <value />
+  </data>
 </root>
