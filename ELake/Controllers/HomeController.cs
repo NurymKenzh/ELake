@@ -47,6 +47,19 @@ namespace ELake.Controllers
             //}
             //_context.SaveChanges();
 
+            //foreach (var ti in _context.ToxicologicalIndicator)
+            //{
+            //    ti.Cu /= 1000;
+            //    ti.Zn /= 1000;
+            //    ti.Mn /= 1000;
+            //    ti.Pb /= 1000;
+            //    ti.Ni /= 1000;
+            //    ti.Cd /= 1000;
+            //    ti.Co /= 1000;
+            //    _context.Update(ti);
+            //}
+            //_context.SaveChanges();
+
             //ViewBag.Lakes = new SelectList(_context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).OrderBy(l => l.Name), "LakeId", "Name");
 
             return View();
