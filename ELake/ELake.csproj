@@ -96,6 +96,9 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Lakes\Map - Copy %282%29.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Lakes\Map - Copy.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
