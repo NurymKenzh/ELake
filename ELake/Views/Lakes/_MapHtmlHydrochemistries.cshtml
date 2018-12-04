@@ -6,1870 +6,1581 @@
 <script src="~/lib/ol/ol.js"></script>
 <script src="~/lib/chart.js/Chart.js"></script>
 <script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
-
+<!-- theme stylesheet-->
+<link href="~/lib/distribution/css/style.green.css" rel="stylesheet" id="theme-stylesheet" />
+<!-- Custom stylesheet - for your changes-->
+<link href="~/lib/distribution/css/custom.css" rel="stylesheet" />
 <section id="content3">
-    <input id="tabghi1" type="radio" name="ghi" checked>
-    <label for="tabghi1">@SharedLocalizer["GeneralHydrochemicalIndicators"]</label>
-    <input id="tabghi2" type="radio" name="ghi">
-    <label for="tabghi2">@SharedLocalizer["IonsaltWaterCompositions"]</label>
-    <input id="tabghi3" type="radio" name="ghi">
-    <label for="tabghi3">@SharedLocalizer["ToxicologicalIndicators"]</label>
-    <section id="contentghi1">
-        <h3>@SharedLocalizer["GeneralHydrochemicalIndicators"]</h3>
-        <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Indicator"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Value"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["QualitativeAssessment"]
-                    </th>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Mineralization"]
-                    </td>
-                    <td id="YearMineralization1"></td>
-                    <td id="Mineralization1"></td>
-                    <td id="MineralizationType1"></td>
-                    <td>
-                        <p onclick="ShowTableMineralization1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartMineralization1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["TotalHardness"]
-                    </td>
-                    <td id="YearTotalHardness1"></td>
-                    <td id="TotalHardness1"></td>
-                    <td id="WaterHardness1"></td>
-                    <td>
-                        <p onclick="ShowTableTotalHardness1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartTotalHardness1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["DissOxygWater"]
-                    </td>
-                    <td id="YearDissOxygWater1"></td>
-                    <td id="DissOxygWater1"></td>
-                    <td id="DissolvedOxygenInWaterDegree1"></td>
-                    <td>
-                        <p onclick="ShowTableDissOxygWater1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartDissOxygWater1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["PercentOxygWater"]
-                    </td>
-                    <td id="YearPercentOxygWater1"></td>
-                    <td id="PercentOxygWater1"></td>
-                    <td></td>
-                    <td>
-                        <p onclick="ShowTablePercentOxygWater1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartPercentOxygWater1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["pH"]
-                    </td>
-                    <td id="YearpH1"></td>
-                    <td id="pH1"></td>
-                    <td id="AcidityOfWaterDegree1"></td>
-                    <td>
-                        <p onclick="ShowTablepH1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartpH1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["OrganicSubstances"]
-                    </td>
-                    <td id="YearOrganicSubstances1"></td>
-                    <td id="OrganicSubstances1"></td>
-                    <td></td>
-                    <td>
-                        <p onclick="ShowTableOrganicSubstances1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartOrganicSubstances1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
-        <table class="LakePart table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Indicator"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Value"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["QualitativeAssessment"]
-                    </th>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Mineralization"]
-                    </td>
-                    <td id="YearMineralization2"></td>
-                    <td id="Mineralization2"></td>
-                    <td id="MineralizationType2"></td>
-                    <td>
-                        <p onclick="ShowTableMineralization2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartMineralization2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["TotalHardness"]
-                    </td>
-                    <td id="YearTotalHardness2"></td>
-                    <td id="TotalHardness2"></td>
-                    <td id="WaterHardness2"></td>
-                    <td>
-                        <p onclick="ShowTableTotalHardness2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartTotalHardness2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["DissOxygWater"]
-                    </td>
-                    <td id="YearDissOxygWater2"></td>
-                    <td id="DissOxygWater2"></td>
-                    <td id="DissolvedOxygenInWaterDegree2"></td>
-                    <td>
-                        <p onclick="ShowTableDissOxygWater2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartDissOxygWater2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["PercentOxygWater"]
-                    </td>
-                    <td id="YearPercentOxygWater2"></td>
-                    <td id="PercentOxygWater2"></td>
-                    <td></td>
-                    <td>
-                        <p onclick="ShowTablePercentOxygWater2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartPercentOxygWater2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["pH"]
-                    </td>
-                    <td id="YearpH2"></td>
-                    <td id="pH2"></td>
-                    <td id="AcidityOfWaterDegree2"></td>
-                    <td>
-                        <p onclick="ShowTablepH2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartpH2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["OrganicSubstances"]
-                    </td>
-                    <td id="YearOrganicSubstances2"></td>
-                    <td id="OrganicSubstances2"></td>
-                    <td></td>
-                    <td>
-                        <p onclick="ShowTableOrganicSubstances2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartOrganicSubstances2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        @* Tables, charts *@
-        <h4 class="FreshPart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
-        <table id="tableMineralization1" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Mineralization"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MineralizationType"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyMineralization1"></tbody>
-        </table>
-        <canvas id="chartMineralization1" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tableTotalHardness1" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["TotalHardness"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["WaterHardness"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyTotalHardness1"></tbody>
-        </table>
-        <canvas id="chartTotalHardness1" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tableDissOxygWater1" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["DissOxygWater"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["DissolvedOxygenInWaterDegree"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyDissOxygWater1"></tbody>
-        </table>
-        <canvas id="chartDissOxygWater1" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tablePercentOxygWater1" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["PercentOxygWater"]
-                    </th>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyPercentOxygWater1"></tbody>
-        </table>
-        <canvas id="chartPercentOxygWater1" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tablepH1" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["pH"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["AcidityOfWaterDegree"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodypH1"></tbody>
-        </table>
-        <canvas id="chartpH1" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tableOrganicSubstances1" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["OrganicSubstances"]
-                    </th>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyOrganicSubstances1"></tbody>
-        </table>
-        <canvas id="chartOrganicSubstances1" class="GHI" width="400" height="200"></canvas>
-
-        <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
-
-        <table id="tableMineralization2" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Mineralization"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MineralizationType"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyMineralization2"></tbody>
-        </table>
-        <canvas id="chartMineralization2" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tableTotalHardness2" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["TotalHardness"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["WaterHardness"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyTotalHardness2"></tbody>
-        </table>
-        <canvas id="chartTotalHardness2" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tableDissOxygWater2" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["DissOxygWater"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["DissolvedOxygenInWaterDegree"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyDissOxygWater2"></tbody>
-        </table>
-        <canvas id="chartDissOxygWater2" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tablePercentOxygWater2" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["PercentOxygWater"]
-                    </th>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyPercentOxygWater2"></tbody>
-        </table>
-        <canvas id="chartPercentOxygWater2" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tablepH2" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["pH"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["AcidityOfWaterDegree"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodypH2"></tbody>
-        </table>
-        <canvas id="chartpH2" class="GHI" width="400" height="200"></canvas>
-
-        <table id="tableOrganicSubstances2" class="GHI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["OrganicSubstances"]
-                    </th>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyOrganicSubstances2"></tbody>
-        </table>
-        <canvas id="chartOrganicSubstances2" class="GHI" width="400" height="200"></canvas>
-    </section>
-    <section id="contentghi2">
-        <h3>@SharedLocalizer["IonsaltWaterCompositions"]</h3>
-        <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["IonName"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Value"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MeasurementUnit"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["AlekinWaterCompositionClass"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["KurlovFormula"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Ca"]
-                    </td>
-                    <td id="YearCa1"></td>
-                    <td id="Ca1"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                    <td rowspan="2">
-                        <p id="AlekinWaterCompositionClass1"></p>
-                        <p onclick="ShowTableAlekinWaterCompositionClass1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                    </td>
-                    <td rowspan="2">
-                        <p id="KurlovFormula1"></p>
-                        <p onclick="ShowTableKurlovFormula1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Mg"]
-                    </td>
-                    <td id="YearMg1"></td>
-                    <td id="Mg1"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["NaK"]
-                    </td>
-                    <td id="YearNaK1"></td>
-                    <td id="NaK1"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Cl"]
-                    </td>
-                    <td id="YearCl1"></td>
-                    <td id="Cl1"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["HCO"]
-                    </td>
-                    <td id="YearHCO1"></td>
-                    <td id="HCO1"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["SO"]
-                    </td>
-                    <td id="YearSO1"></td>
-                    <td id="SO1"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
-        <table class="table LakePart">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["IonName"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Value"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MeasurementUnit"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["AlekinWaterCompositionClass"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["KurlovFormula"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Ca"]
-                    </td>
-                    <td id="YearCa2"></td>
-                    <td id="Ca2"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                    <td rowspan="2">
-                        <p id="AlekinWaterCompositionClass2"></p>
-                        <p onclick="ShowTableAlekinWaterCompositionClass2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                    </td>
-                    <td rowspan="2">
-                        <p id="KurlovFormula2"></p>
-                        <p onclick="ShowTableKurlovFormula2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Mg"]
-                    </td>
-                    <td id="YearMg2"></td>
-                    <td id="Mg2"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["NaK"]
-                    </td>
-                    <td id="YearNaK2"></td>
-                    <td id="NaK2"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Cl"]
-                    </td>
-                    <td id="YearCl2"></td>
-                    <td id="Cl2"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["HCO"]
-                    </td>
-                    <td id="YearHCO2"></td>
-                    <td id="HCO2"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["SO"]
-                    </td>
-                    <td id="YearSO2"></td>
-                    <td id="SO2"></td>
-                    <td id="IonUnit">
-                        @SharedLocalizer["IonUnit"]
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        @* Tables *@
-        <h4 class="FreshPart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
-        <table id="tableAlekinWaterCompositionClass1" class="IWC table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["CaMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MgMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NaKMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["ClMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["HCOMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["SOMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["AlekinWaterCompositionClass"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyAlekinWaterCompositionClass1"></tbody>
-        </table>
-        <table id="tableKurlovFormula1" class="IWC table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["CaMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MgMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NaKMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["ClMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["HCOMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["SOMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["KurlovFormula"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyKurlovFormula1"></tbody>
-        </table>
-
-        <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
-        <table id="tableAlekinWaterCompositionClass2" class="IWC table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["CaMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MgMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NaKMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["ClMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["HCOMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["SOMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["AlekinWaterCompositionClass"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyAlekinWaterCompositionClass2"></tbody>
-        </table>
-        <table id="tableKurlovFormula2" class="IWC table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["CaMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MgMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NaKMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["ClMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["HCOMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["SOMg"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["KurlovFormula"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyKurlovFormula2"></tbody>
-        </table>
-    </section>
-    <section id="contentghi3">
-        <h3>@SharedLocalizer["ToxicologicalIndicators"]</h3>
-        <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Indicator"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Value"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                    <th>
-                        <a id="NutrientsHeavyMetalsStandardLink1" href="" target="_blank">
-                            @SharedLocalizer["NutrientsHeavyMetalsStandard"]
-                        </a>
-                        /
-                        <a id="RegulatoryDocumentLink1" href="" target="_blank">
-                            @SharedLocalizer["RegulatoryDocument"]
-                        </a>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="5">
-                        @SharedLocalizer["Nutrients"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["NH4"]
-                    </td>
-                    <td id="YearNH41"></td>
-                    <td id="NH41"></td>
-                    <td id="IZVNH41"></td>
-                    <td>
-                        <p onclick="ShowTableNH41()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartNH41()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["NO2"]
-                    </td>
-                    <td id="YearNO21"></td>
-                    <td id="NO21"></td>
-                    <td id="IZVNO21"></td>
-                    <td>
-                        <p onclick="ShowTableNO21()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartNO21()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["NO3"]
-                    </td>
-                    <td id="YearNO31"></td>
-                    <td id="NO31"></td>
-                    <td id="IZVNO31"></td>
-                    <td>
-                        <p onclick="ShowTableNO31()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartNO31()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["PPO4"]
-                    </td>
-                    <td id="YearPPO41"></td>
-                    <td id="PPO41"></td>
-                    <td id="IZVPPO41"></td>
-                    <td>
-                        <p onclick="ShowTablePPO41()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartPPO41()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        @SharedLocalizer["HeavyMetals"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Cu"]
-                    </td>
-                    <td id="YearCu1"></td>
-                    <td id="Cu1"></td>
-                    <td id="IZVCu1"></td>
-                    <td>
-                        <p onclick="ShowTableCu1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartCu1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Zn"]
-                    </td>
-                    <td id="YearZn1"></td>
-                    <td id="Zn1"></td>
-                    <td id="IZVZn1"></td>
-                    <td>
-                        <p onclick="ShowTableZn1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartZn1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Mn"]
-                    </td>
-                    <td id="YearMn1"></td>
-                    <td id="Mn1"></td>
-                    <td id="IZVMn1"></td>
-                    <td>
-                        <p onclick="ShowTableMn1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartMn1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Pb"]
-                    </td>
-                    <td id="YearPb1"></td>
-                    <td id="Pb1"></td>
-                    <td id="IZVPb1"></td>
-                    <td>
-                        <p onclick="ShowTablePb1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartPb1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Ni"]
-                    </td>
-                    <td id="YearNi1"></td>
-                    <td id="Ni1"></td>
-                    <td id="IZVNi1"></td>
-                    <td>
-                        <p onclick="ShowTableNi1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartNi1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Cd"]
-                    </td>
-                    <td id="YearCd1"></td>
-                    <td id="Cd1"></td>
-                    <td id="IZVCd1"></td>
-                    <td>
-                        <p onclick="ShowTableCd1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartCd1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Co"]
-                    </td>
-                    <td id="YearCo1"></td>
-                    <td id="Co1"></td>
-                    <td id="IZVCo1"></td>
-                    <td>
-                        <p onclick="ShowTableCo1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartCo1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        @SharedLocalizer["KIZVDegree"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Year"]
-                    </td>
-                    <td colspan="3">
-                        @SharedLocalizer["KIZV"]
-                    </td>
-                </tr>
-                <tr>
-                    <td id="YearKIZV1"></td>
-                    <td id="KIZV1" colspan="3"></td>
-                    <td>
-                        <p onclick="ShowTableKIZV1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartKIZV1()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
-        <table class="LakePart table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Indicator"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Value"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                    <th>
-                        <a id="NutrientsHeavyMetalsStandardLink2" href="" target="_blank">
-                            @SharedLocalizer["NutrientsHeavyMetalsStandard"]
-                        </a>
-                        /
-                        <a id="RegulatoryDocumentLink2" href="" target="_blank">
-                            @SharedLocalizer["RegulatoryDocument"]
-                        </a>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="5">
-                        @SharedLocalizer["Nutrients"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["NH4"]
-                    </td>
-                    <td id="YearNH42"></td>
-                    <td id="NH42"></td>
-                    <td id="IZVNH42"></td>
-                    <td>
-                        <p onclick="ShowTableNH42()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartNH42()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["NO2"]
-                    </td>
-                    <td id="YearNO22"></td>
-                    <td id="NO22"></td>
-                    <td id="IZVNO22"></td>
-                    <td>
-                        <p onclick="ShowTableNO22()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartNO22()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["NO3"]
-                    </td>
-                    <td id="YearNO32"></td>
-                    <td id="NO32"></td>
-                    <td id="IZVNO32"></td>
-                    <td>
-                        <p onclick="ShowTableNO32()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartNO32()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["PPO4"]
-                    </td>
-                    <td id="YearPPO42"></td>
-                    <td id="PPO42"></td>
-                    <td id="IZVPPO42"></td>
-                    <td>
-                        <p onclick="ShowTablePPO42()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartPPO42()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        @SharedLocalizer["HeavyMetals"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Cu"]
-                    </td>
-                    <td id="YearCu2"></td>
-                    <td id="Cu2"></td>
-                    <td id="IZVCu2"></td>
-                    <td>
-                        <p onclick="ShowTableCu2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartCu2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Zn"]
-                    </td>
-                    <td id="YearZn2"></td>
-                    <td id="Zn2"></td>
-                    <td id="IZVZn2"></td>
-                    <td>
-                        <p onclick="ShowTableZn2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartZn2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Mn"]
-                    </td>
-                    <td id="YearMn2"></td>
-                    <td id="Mn2"></td>
-                    <td id="IZVMn2"></td>
-                    <td>
-                        <p onclick="ShowTableMn2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartMn2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Pb"]
-                    </td>
-                    <td id="YearPb2"></td>
-                    <td id="Pb2"></td>
-                    <td id="IZVPb2"></td>
-                    <td>
-                        <p onclick="ShowTablePb2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartPb2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Ni"]
-                    </td>
-                    <td id="YearNi2"></td>
-                    <td id="Ni2"></td>
-                    <td id="IZVNi2"></td>
-                    <td>
-                        <p onclick="ShowTableNi2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartNi2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Cd"]
-                    </td>
-                    <td id="YearCd2"></td>
-                    <td id="Cd2"></td>
-                    <td id="IZVCd2"></td>
-                    <td>
-                        <p onclick="ShowTableCd2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartCd2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Co"]
-                    </td>
-                    <td id="YearCo2"></td>
-                    <td id="Co2"></td>
-                    <td id="IZVCo2"></td>
-                    <td>
-                        <p onclick="ShowTableCo2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartCo2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5">
-                        @SharedLocalizer["KIZVDegree"]
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @SharedLocalizer["Year"]
-                    </td>
-                    <td colspan="3">
-                        @SharedLocalizer["KIZV"]
-                    </td>
-                </tr>
-                <tr>
-                    <td id="YearKIZV2"></td>
-                    <td id="KIZV2" colspan="3"></td>
-                    <td>
-                        <p onclick="ShowTableKIZV2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Table"]
-                            </font>
-                        </p>
-                        <p onclick="ShowChartKIZV2()" class="link">
-                            <font size="2" color="blue">
-                                @SharedLocalizer["Chart"]
-                            </font>
-                        </p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        @* Tables, charts *@
-        <h4 class="FreshPart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
-
-        <table id="tableNH41" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NH4"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyNH41"></tbody>
-        </table>
-        <canvas id="chartNH41" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableNO21" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NO2"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyNO21"></tbody>
-        </table>
-        <canvas id="chartNO21" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableNO31" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NO3"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyNO31"></tbody>
-        </table>
-        <canvas id="chartNO31" class="TI" width="400" height="200"></canvas>
-
-        <table id="tablePPO41" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["PPO4"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyPPO41"></tbody>
-        </table>
-        <canvas id="chartPPO41" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableCu1" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Cu"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyCu1"></tbody>
-        </table>
-        <canvas id="chartCu1" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableZn1" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Zn"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyZn1"></tbody>
-        </table>
-        <canvas id="chartZn1" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableMn1" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Mn"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyMn1"></tbody>
-        </table>
-        <canvas id="chartMn1" class="TI" width="400" height="200"></canvas>
-
-        <table id="tablePb1" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Pb"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyPb1"></tbody>
-        </table>
-        <canvas id="chartPb1" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableNi1" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Ni"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyNi1"></tbody>
-        </table>
-        <canvas id="chartNi1" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableCd1" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Cd"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyCd1"></tbody>
-        </table>
-        <canvas id="chartCd1" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableCo1" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Co"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyCo1"></tbody>
-        </table>
-        <canvas id="chartCo1" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableKIZV1" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["KIZV"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyKIZV1"></tbody>
-        </table>
-        <canvas id="chartKIZV1" class="TI" width="400" height="200"></canvas>
-
-        <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
-
-        <table id="tableNH42" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NH4"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyNH42"></tbody>
-        </table>
-        <canvas id="chartNH42" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableNO22" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NO2"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyNO22"></tbody>
-        </table>
-        <canvas id="chartNO22" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableNO32" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["NO3"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyNO32"></tbody>
-        </table>
-        <canvas id="chartNO32" class="TI" width="400" height="200"></canvas>
-
-        <table id="tablePPO42" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["PPO4"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyPPO42"></tbody>
-        </table>
-        <canvas id="chartPPO42" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableCu2" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Cu"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyCu2"></tbody>
-        </table>
-        <canvas id="chartCu2" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableZn2" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Zn"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyZn2"></tbody>
-        </table>
-        <canvas id="chartZn2" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableMn2" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Mn"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyMn2"></tbody>
-        </table>
-        <canvas id="chartMn2" class="TI" width="400" height="200"></canvas>
-
-        <table id="tablePb2" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Pb"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyPb2"></tbody>
-        </table>
-        <canvas id="chartPb2" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableNi2" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Ni"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyNi2"></tbody>
-        </table>
-        <canvas id="chartNi2" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableCd2" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Cd"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyCd2"></tbody>
-        </table>
-        <canvas id="chartCd2" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableCo2" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["Co"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["MPCExceeding"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyCo2"></tbody>
-        </table>
-        <canvas id="chartCo2" class="TI" width="400" height="200"></canvas>
-
-        <table id="tableKIZV2" class="TI table">
-            <thead>
-                <tr>
-                    <th>
-                        @SharedLocalizer["Year"]
-                    </th>
-                    <th>
-                        @SharedLocalizer["KIZV"]
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="tablebodyKIZV2"></tbody>
-        </table>
-        <canvas id="chartKIZV2" class="TI" width="400" height="200"></canvas>
-    </section>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-3">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-tabghi1-list" data-toggle="list" href="#list-tabghi1" role="tab" aria-controls="home">@SharedLocalizer["GeneralHydrochemicalIndicators"]</a>
+                    <a class="list-group-item list-group-item-action" id="list-tabghi2-list" data-toggle="list" href="#list-tabghi2" role="tab" aria-controls="tabghi2">@SharedLocalizer["IonsaltWaterCompositions"]</a>
+                    <a class="list-group-item list-group-item-action" id="list-tabghi3-list" data-toggle="list" href="#list-tabghi3" role="tab" aria-controls="tabghi3">@SharedLocalizer["ToxicologicalIndicators"]</a>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-tabghi1" role="tabpanel" aria-labelledby="list-tabghi1-list">
+                        <div class="contentghi1 card" id="contentghi1">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
+                                </div>
+                            </div>
+                            <div class="card-header bg-success text-white d-flex">
+                                <h2 class="h4">@SharedLocalizer["GeneralHydrochemicalIndicators"]</h2>
+                            </div>
+                            <div class="card-body no-padding">
+                                <div class="table-responsive">
+                                    <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                                    <table class="table table-striped table-sm">
+                                        <thead class="table-info">
+                                            <tr>
+                                                <th>@SharedLocalizer["Indicator"]</th>
+                                                <th> @SharedLocalizer["Year"]</th>
+                                                <th> @SharedLocalizer["Value"]</th>
+                                                <th> @SharedLocalizer["QualitativeAssessment"]</th>
+                                                <th>Table</th>
+                                                <th>Chart</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["Mineralization"]
+                                                </td>
+                                                <td id="YearMineralization1"></td>
+                                                <td id="Mineralization1"></td>
+                                                <td id="MineralizationType1"></td>
+                                                <td>
+                                                    <a onclick="ShowTableMineralization1()" href="#tableMineralization1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartMineralization1()" href="#chartMineralization1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["TotalHardness"]
+                                                </td>
+                                                <td id="YearTotalHardness1"></td>
+                                                <td id="TotalHardness1"></td>
+                                                <td id="WaterHardness1"></td>
+                                                <td>
+                                                    <a onclick="ShowTableTotalHardness1()" href="#tableTotalHardness1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartTotalHardness1()" href="#chartTotalHardness1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["DissOxygWater"]
+                                                </td>
+                                                <td id="YearDissOxygWater1"></td>
+                                                <td id="DissOxygWater1"></td>
+                                                <td id="DissolvedOxygenInWaterDegree1"></td>
+                                                <td>
+                                                    <a onclick="ShowTableDissOxygWater1()" href="#tableDissOxygWater1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartDissOxygWater1()" href="#chartDissOxygWater1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["PercentOxygWater"]
+                                                </td>
+                                                <td id="YearPercentOxygWater1"></td>
+                                                <td id="PercentOxygWater1"></td>
+                                                <td></td>
+                                                <td>
+                                                    <a onclick="ShowTablePercentOxygWater1()" href="#tablePercentOxygWater1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartDissOxygWater1()" href="#chartPercentOxygWater1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["pH"]
+                                                </td>
+                                                <td id="YearpH1"></td>
+                                                <td id="pH1"></td>
+                                                <td id="AcidityOfWaterDegree1"></td>
+                                                <td>
+                                                    <a onclick="ShowTablepH1()" href="#tablepH1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartpH1()" href="#chartpH1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["OrganicSubstances"]
+                                                </td>
+                                                <td id="YearOrganicSubstances1"></td>
+                                                <td id="OrganicSubstances1"></td>
+                                                <td></td>
+                                                <td>
+                                                    <a onclick="ShowTableOrganicSubstances1()" href="#tableOrganicSubstances1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartOrganicSubstances1()" href="#chartOrganicSubstances1" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                                    <table class="table table-striped table-sm">
+                                        <thead class="table-info">
+                                            <tr>
+                                                <th>@SharedLocalizer["Indicator"]</th>
+                                                <th> @SharedLocalizer["Year"]</th>
+                                                <th> @SharedLocalizer["Value"]</th>
+                                                <th> @SharedLocalizer["QualitativeAssessment"]</th>
+                                                <th>Table</th>
+                                                <th>Chart</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["Mineralization"]
+                                                </td>
+                                                <td id="YearMineralization2"></td>
+                                                <td id="Mineralization2"></td>
+                                                <td id="MineralizationType2"></td>
+                                                <td>
+                                                    <a onclick="ShowTableMineralization2()" href="#tableMineralization2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartMineralization2()" href="#chartMineralization2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["TotalHardness"]
+                                                </td>
+                                                <td id="YearTotalHardness2"></td>
+                                                <td id="TotalHardness2"></td>
+                                                <td id="WaterHardness2"></td>
+                                                <td>
+                                                    <a onclick="ShowTableTotalHardness2()" href="#tableTotalHardness2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartTotalHardness2()" href="#chartTotalHardness2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["DissOxygWater"]
+                                                </td>
+                                                <td id="YearDissOxygWater2"></td>
+                                                <td id="DissOxygWater2"></td>
+                                                <td id="DissolvedOxygenInWaterDegree2"></td>
+                                                <td>
+                                                    <a onclick="ShowTableDissOxygWater2()" href="#tableDissOxygWater2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartDissOxygWater2()" href="#chartDissOxygWater2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["PercentOxygWater"]
+                                                </td>
+                                                <td id="YearPercentOxygWater2"></td>
+                                                <td id="PercentOxygWater2"></td>
+                                                <td></td>
+                                                <td>
+                                                    <a onclick="ShowTablePercentOxygWater2()" href="#tablePercentOxygWater2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartDissOxygWater2()" href="#chartPercentOxygWater2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["pH"]
+                                                </td>
+                                                <td id="YearpH2"></td>
+                                                <td id="pH2"></td>
+                                                <td id="AcidityOfWaterDegree2"></td>
+                                                <td>
+                                                    <a onclick="ShowTablepH2()" href="#tablepH2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartpH2()" href="#chartpH2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @SharedLocalizer["OrganicSubstances"]
+                                                </td>
+                                                <td id="YearOrganicSubstances2"></td>
+                                                <td id="OrganicSubstances2"></td>
+                                                <td></td>
+                                                <td>
+                                                    <a onclick="ShowTableOrganicSubstances2()" href="#tableOrganicSubstances2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-table" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a onclick="ShowChartOrganicSubstances2()" href="#chartOrganicSubstances2" class="btn btn-link btn-sm p-0">
+                                                        <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="tab-pane fade" id="list-tabghi2" role="tabpanel" aria-labelledby="list-tabghi2-list">
+                        <div class="contentghi2 card" id="contentghi2">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
+                                </div>
+                            </div>
+                            <div class="card-header bg-success text-white d-flex">
+                                <h2 class="h4">@SharedLocalizer["IonsaltWaterCompositions"]</h2>
+                            </div>
+                            <div class="card-body no-padding">
+                                <div class="row bg-white">
+                                    <!-- Таб Пресная -->
+                                    <div class="col-xl-8 col-sm-6">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-sm">
+                                                <thead class="table-info">
+                                                    <tr>
+                                                        <th>@SharedLocalizer["IonName"]</th>
+                                                        <th> @SharedLocalizer["Year"]</th>
+                                                        <th> @SharedLocalizer["Value"]</th>
+                                                        <th> @SharedLocalizer["MeasurementUnit"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Ca"]
+                                                        </td>
+                                                        <td id="YearCa1"></td>
+                                                        <td id="Ca1"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Mg"]
+                                                        </td>
+                                                        <td id="YearMg1"></td>
+                                                        <td id="Mg1"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["NaK"]
+                                                        </td>
+                                                        <td id="YearNaK1"></td>
+                                                        <td id="NaK1"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Cl"]
+                                                        </td>
+                                                        <td id="YearCl1"></td>
+                                                        <td id="Cl1"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["HCO"]
+                                                        </td>
+                                                        <td id="YearHCO1"></td>
+                                                        <td id="HCO1"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["SO"]
+                                                        </td>
+                                                        <td id="YearSO1"></td>
+                                                        <td id="SO1"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- Формула Пресная -->
+                                    <div class="col-xl-4 col-sm-6">
+                                        <div class="statistics mt-3">
+                                            <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                                <div class="icon bg-red" onclick="ShowTableAlekinWaterCompositionClass1()" href="#tableAlekinWaterCompositionClass1"><i class="fa fa-table"></i></div>
+                                                <div class="text">
+                                                    <small> @SharedLocalizer["AlekinWaterCompositionClass"]</small><br><b id="AlekinWaterCompositionClass1"></b>
+                                                </div>
+                                            </div>
+                                            <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                                <div class="icon bg-red" onclick="ShowTableKurlovFormula1()" href="#tableAlekinWaterCompositionClass1"><i class="fa fa-table"></i></div>
+                                                <div class="text">
+                                                    <small> @SharedLocalizer["KurlovFormula"]</small><br><b id="KurlovFormula1"></b>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row bg-white">
+                                    <!-- Таб Соленая -->
+                                    <div class="col-xl-8 col-sm-6">
+                                        <div class="table-responsive">
+                                            <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                                            <table class="table table-striped table-sm">
+                                                <thead class="table-info">
+                                                    <tr>
+                                                        <th>@SharedLocalizer["IonName"]</th>
+                                                        <th> @SharedLocalizer["Year"]</th>
+                                                        <th> @SharedLocalizer["Value"]</th>
+                                                        <th> @SharedLocalizer["MeasurementUnit"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Ca"]
+                                                        </td>
+                                                        <td id="YearCa2"></td>
+                                                        <td id="Ca2"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Mg"]
+                                                        </td>
+                                                        <td id="YearMg2"></td>
+                                                        <td id="Mg2"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["NaK"]
+                                                        </td>
+                                                        <td id="YearNaK2"></td>
+                                                        <td id="NaK2"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Cl"]
+                                                        </td>
+                                                        <td id="YearCl2"></td>
+                                                        <td id="Cl2"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["HCO"]
+                                                        </td>
+                                                        <td id="YearHCO2"></td>
+                                                        <td id="HCO2"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["SO"]
+                                                        </td>
+                                                        <td id="YearSO2"></td>
+                                                        <td id="SO2"></td>
+                                                        <td id="IonUnit">@SharedLocalizer["IonUnit"]</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- Формула Соленая -->
+                                    <div class="col-xl-4 col-sm-6">
+                                        <div class="statistics mt-3">
+                                            <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                                <div class="icon bg-red" onclick="ShowTableAlekinWaterCompositionClass2()" href="#tableAlekinWaterCompositionClass2"><i class="fa fa-table"></i></div>
+                                                <div class="text">
+                                                    <small> @SharedLocalizer["AlekinWaterCompositionClass"]</small><br><b id="AlekinWaterCompositionClass2"></b>
+                                                </div>
+                                            </div>
+                                            <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                                <div class="icon bg-red" onclick="ShowTableKurlovFormula2()" href="#tableAlekinWaterCompositionClass2"><i class="fa fa-table"></i></div>
+                                                <div class="text">
+                                                    <small> @SharedLocalizer["KurlovFormula"]</small><br><b id="KurlovFormula2"></b>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list-tabghi3" role="tabpanel" aria-labelledby="list-tabghi3-list">
+                        <div class="contentghi3 card" id="contentghi3">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
+                                </div>
+                            </div>
+                            <div class="card-header bg-success text-white d-flex">
+                                <h2 class="h4">@SharedLocalizer["ToxicologicalIndicators"]</h2>
+                            </div>
+                            <div class="card-body no-padding">
+                                <div class="row bg-white">
+                                    <!-- Таб Пресная -->
+                                    <div class="col-xl-8 col-sm-6">
+                                        <div class="table-responsive">
+                                            <h4 class="LakePart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                                            <table class="table table-striped table-sm">
+                                                <thead class="table-info">
+                                                    <tr>
+                                                        <th>@SharedLocalizer["Indicator"]</th>
+                                                        <th>@SharedLocalizer["Year"]</th>
+                                                        <th>@SharedLocalizer["Value"]</th>
+                                                        <th>@SharedLocalizer["MPCExceeding"]</th>
+                                                        <th>@SharedLocalizer["Table"]</th>
+                                                        <th>@SharedLocalizer["Chart"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="6">
+                                                            @SharedLocalizer["Nutrients"]
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["NH4"]
+                                                        </td>
+                                                        <td id="YearNH41"></td>
+                                                        <td id="NH41"></td>
+                                                        <td id="IZVNH41"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableNH41()" href="#tableNH41" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartNH41()" href="#chartNH41" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["NO2"]
+                                                        </td>
+                                                        <td id="YearNO21"></td>
+                                                        <td id="NO21"></td>
+                                                        <td id="IZVNO21"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableNO21()" href="#tableNO21" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartNO21()" href="#chartNO21" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["NO3"]
+                                                        </td>
+                                                        <td id="YearNO31"></td>
+                                                        <td id="NO31"></td>
+                                                        <td id="IZVNO31"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableNO31()" href="#tableNO31" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartNO31()" href="#chartNO31" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["PPO4"]
+                                                        </td>
+                                                        <td id="YearPPO41"></td>
+                                                        <td id="PPO41"></td>
+                                                        <td id="IZVPPO41"></td>
+                                                        <td>
+                                                            <a onclick="ShowTablePPO41()" href="#tablePPO41" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartPPO41()" href="#chartPPO41" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            @SharedLocalizer["HeavyMetals"]
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Cu"]
+                                                        </td>
+                                                        <td id="YearCu1"></td>
+                                                        <td id="Cu1"></td>
+                                                        <td id="IZVCu1"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableCu1()" href="#tableCu1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartCu1()" href="#chartCu1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Zn"]
+                                                        </td>
+                                                        <td id="YearZn1"></td>
+                                                        <td id="Zn1"></td>
+                                                        <td id="IZVZn1"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableZn1()" href="#tableZn1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartZn1()" href="#chartZn1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Mn"]
+                                                        </td>
+                                                        <td id="YearMn1"></td>
+                                                        <td id="Mn1"></td>
+                                                        <td id="IZVMn1"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableMn1()" href="#tableMn1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartMn1()" href="#chartMn1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Pb"]
+                                                        </td>
+                                                        <td id="YearPb1"></td>
+                                                        <td id="Pb1"></td>
+                                                        <td id="IZVPb1"></td>
+                                                        <td>
+                                                            <a onclick="ShowTablePb1()" href="#tablePb1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartPb1()" href="#chartPb1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Ni"]
+                                                        </td>
+                                                        <td id="YearNi1"></td>
+                                                        <td id="Ni1"></td>
+                                                        <td id="IZVNi1"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableNi1()" href="#tableNi1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartNi1()" href="#chartNi1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Cd"]
+                                                        </td>
+                                                        <td id="YearCd1"></td>
+                                                        <td id="Cd1"></td>
+                                                        <td id="IZVCd1"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableCd1()" href="#tableCd1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartCd1()" href="#chartCd1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Co"]
+                                                        </td>
+                                                        <td id="YearCo1"></td>
+                                                        <td id="Co1"></td>
+                                                        <td id="IZVCo1"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableCo1()" href="#tableCo1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartCo1()" href="#chartCo1" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- Формула Пресная -->
+                                    <div class="col-xl-4 col-sm-6">
+                                        <div class="statistics mt-3">
+                                            <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                                <div class="icon bg-warning"><i class="fa fa-info"></i></div>
+                                                <a class="text-primary p-0" id="NutrientsHeavyMetalsStandardLink1" href="" target="_blank">
+                                                    @SharedLocalizer["NutrientsHeavyMetalsStandard"]
+                                                </a>
+                                            </div>
+                                            <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                                <div class="icon bg-info"><i class="fa fa-info"></i></div>
+                                                <a class="text-primary p-0" id="RegulatoryDocumentLink1" href="" target="_blank">
+                                                    @SharedLocalizer["RegulatoryDocument"]
+                                                </a>
+                                            </div>
+                                            <div class="info d-flex  bg-white has-shadow">
+                                                <table class="table table-striped table-sm">
+                                                    <thead class="table-info">
+                                                        <tr class="table-success">
+                                                            <th colspan="4">@SharedLocalizer["KIZVDegree"]</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>@SharedLocalizer["Year"]</th>
+                                                            <th>@SharedLocalizer["KIZV"]</th>
+                                                            <th>@SharedLocalizer["Table"]</th>
+                                                            <th>@SharedLocalizer["Chart"]</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id="YearKIZV1"></td>
+                                                            <td id="KIZV1"></td>
+                                                            <td>
+                                                                <a onclick="ShowTableKIZV1()" href="#tableKIZV1" class="btn btn-link btn-sm p-0">
+                                                                    <span class="fa fa-table" aria-hidden="true"></span>
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a onclick="ShowChartKIZV1()" href="#chartKIZV1" class="btn btn-link btn-sm p-0">
+                                                                    <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row bg-white">
+                                    <!-- Таб Пресная -->
+                                    <div class="col-xl-8 col-sm-6">
+                                        <div class="table-responsive">
+                                            <h4 class="LakePart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                                            <table class="table table-striped table-sm">
+                                                <thead class="table-info">
+                                                    <tr>
+                                                        <th>@SharedLocalizer["Indicator"]</th>
+                                                        <th>@SharedLocalizer["Year"]</th>
+                                                        <th>@SharedLocalizer["Value"]</th>
+                                                        <th>@SharedLocalizer["MPCExceeding"]</th>
+                                                        <th>@SharedLocalizer["Table"]</th>
+                                                        <th>@SharedLocalizer["Chart"]</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            @SharedLocalizer["Nutrients"]
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["NH4"]
+                                                        </td>
+                                                        <td id="YearNH42"></td>
+                                                        <td id="NH42"></td>
+                                                        <td id="IZVNH41"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableNH42()" href="#tableNH42" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartNH42()" href="#chartNH42" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["NO2"]
+                                                        </td>
+                                                        <td id="YearNO22"></td>
+                                                        <td id="NO22"></td>
+                                                        <td id="IZVNO22"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableNO22()" href="#tableNO22" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartNO22()" href="#chartNO22" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["NO3"]
+                                                        </td>
+                                                        <td id="YearNO32"></td>
+                                                        <td id="NO32"></td>
+                                                        <td id="IZVNO32"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableNO32()" href="#tableNO32" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartNO32()" href="#chartNO32" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["PPO4"]
+                                                        </td>
+                                                        <td id="YearPPO42"></td>
+                                                        <td id="PPO42"></td>
+                                                        <td id="IZVPPO42"></td>
+                                                        <td>
+                                                            <a onclick="ShowTablePPO42()" href="#tablePPO42" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartPPO42()" href="#chartPPO42" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5">
+                                                            @SharedLocalizer["HeavyMetals"]
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Cu"]
+                                                        </td>
+                                                        <td id="YearCu2"></td>
+                                                        <td id="Cu2"></td>
+                                                        <td id="IZVCu2"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableCu2()" href="#tableCu2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartCu2()" href="#chartCu2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Zn"]
+                                                        </td>
+                                                        <td id="YearZn2"></td>
+                                                        <td id="Zn2"></td>
+                                                        <td id="IZVZn2"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableZn2()" href="#tableZn2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartZn2()" href="#chartZn2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Mn"]
+                                                        </td>
+                                                        <td id="YearMn2"></td>
+                                                        <td id="Mn2"></td>
+                                                        <td id="IZVMn2"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableMn2()" href="#tableMn2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartMn2()" href="#chartMn2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Pb"]
+                                                        </td>
+                                                        <td id="YearPb2"></td>
+                                                        <td id="Pb2"></td>
+                                                        <td id="IZVPb2"></td>
+                                                        <td>
+                                                            <a onclick="ShowTablePb2()" href="#tablePb2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartPb2()" href="#chartPb2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Ni"]
+                                                        </td>
+                                                        <td id="YearNi2"></td>
+                                                        <td id="Ni2"></td>
+                                                        <td id="IZVNi2"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableNi2()" href="#tableNi2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartNi2()" href="#chartNi2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Cd"]
+                                                        </td>
+                                                        <td id="YearCd2"></td>
+                                                        <td id="Cd2"></td>
+                                                        <td id="IZVCd2"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableCd2()" href="#tableCd2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartCd2()" href="#chartCd2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            @SharedLocalizer["Co"]
+                                                        </td>
+                                                        <td id="YearCo2"></td>
+                                                        <td id="Co2"></td>
+                                                        <td id="IZVCo2"></td>
+                                                        <td>
+                                                            <a onclick="ShowTableCo2()" href="#tableCo2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-table" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                        <td>
+                                                            <a onclick="ShowChartCo2()" href="#chartCo2" class="btn btn-link btn-sm p-0">
+                                                                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!-- Формула Пресная -->
+                                    <div class="col-xl-4 col-sm-6">
+                                        <div class="statistics mt-3">
+                                            <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                                <div class="icon bg-warning"><i class="fa fa-info"></i></div>
+                                                <a class="text-primary p-0" id="NutrientsHeavyMetalsStandardLink2" href="" target="_blank">
+                                                    @SharedLocalizer["NutrientsHeavyMetalsStandard"]
+                                                </a>
+                                            </div>
+                                            <div class="statistic d-flex align-items-center bg-white has-shadow">
+                                                <div class="icon bg-info"><i class="fa fa-info"></i></div>
+                                                <a class="text-primary p-0" id="RegulatoryDocumentLink2" href="" target="_blank">
+                                                    @SharedLocalizer["RegulatoryDocument"]
+                                                </a>
+                                            </div>
+                                            <div class="info d-flex  bg-white has-shadow">
+                                                <table class="table table-striped table-sm">
+                                                    <thead class="table-info">
+                                                        <tr class="table-success">
+                                                            <th colspan="4">@SharedLocalizer["KIZVDegree"]</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>@SharedLocalizer["Year"]</th>
+                                                            <th>@SharedLocalizer["KIZV"]</th>
+                                                            <th>@SharedLocalizer["Table"]</th>
+                                                            <th>@SharedLocalizer["Chart"]</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td id="YearKIZV2"></td>
+                                                            <td id="KIZV2"></td>
+                                                            <td>
+                                                                <a onclick="ShowTableKIZV2()" href="#tableKIZV2" class="btn btn-link btn-sm p-0">
+                                                                    <span class="fa fa-table" aria-hidden="true"></span>
+                                                                </a>
+                                                            </td>
+                                                            <td>
+                                                                <a onclick="ShowChartKIZV2()" href="#chartKIZV2" class="btn btn-link btn-sm p-0">
+                                                                    <span class="fa fa-line-chart" aria-hidden="true"></span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb-holder container-fluid">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">@SharedLocalizer["GeneralHydrochemicalIndicators"]</a></li>
+                <li class="breadcrumb-item active">Charts            </li>
+            </ul>
+            <!-- Tables, charts-->
+            <div class="contentghi1">
+                <div class="card-body no-padding">
+                    <div class="table-responsive">
+                        <!-- GHI Пресная  часть-->
+                        <table id="tableMineralization1" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th> @SharedLocalizer["Mineralization"]</th>
+                                    <th> @SharedLocalizer["MineralizationType"]</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyMineralization1"></tbody>
+                        </table>
+                        <canvas id="chartMineralization1" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableTotalHardness1" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th> @SharedLocalizer["TotalHardness"]</th>
+                                    <th> @SharedLocalizer["WaterHardness"]</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyTotalHardness1"></tbody>
+                        </table>
+                        <canvas id="chartTotalHardness1" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableDissOxygWater1" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th> @SharedLocalizer["DissOxygWater"]</th>
+                                    <th> @SharedLocalizer["DissolvedOxygenInWaterDegree"]</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyDissOxygWater1"></tbody>
+                        </table>
+                        <canvas id="chartDissOxygWater1" class="GHI" width="400" height="200"></canvas>
+                        <table id="tablePercentOxygWater1" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th> @SharedLocalizer["PercentOxygWater"]</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyPercentOxygWater1"></tbody>
+                        </table>
+                        <canvas id="chartPercentOxygWater1" class="GHI" width="400" height="200"></canvas>
+                        <table id="tablepH1" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th> @SharedLocalizer["pH"]</th>
+                                    <th> @SharedLocalizer["AcidityOfWaterDegree"]</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodypH1"></tbody>
+                        </table>
+                        <canvas id="chartpH1" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableOrganicSubstances1" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th>@SharedLocalizer["OrganicSubstances"]</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyOrganicSubstances1"></tbody>
+                        </table>
+                        <canvas id="chartOrganicSubstances1" class="GHI" width="400" height="200"></canvas>
+                    </div>
+                    <div class="table-responsive">
+                        <!-- GHI Соленая часть-->
+                        <table id="tableMineralization2" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th>@SharedLocalizer["Mineralization"]</th>
+                                    <th>@SharedLocalizer["MineralizationType"]</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyMineralization2"></tbody>
+                        </table>
+                        <canvas id="chartMineralization2" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableTotalHardness2" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th>@SharedLocalizer["TotalHardness"]</th>
+                                    <th>@SharedLocalizer["WaterHardness"]</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyTotalHardness2"></tbody>
+                        </table>
+                        <canvas id="chartTotalHardness2" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableDissOxygWater2" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th>@SharedLocalizer["DissOxygWater"]</th>
+                                    <th>@SharedLocalizer["DissolvedOxygenInWaterDegree"]</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyDissOxygWater2"></tbody>
+                        </table>
+                        <canvas id="chartDissOxygWater2" class="GHI" width="400" height="200"></canvas>
+                        <table id="tablePercentOxygWater2" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th>@SharedLocalizer["PercentOxygWater"]</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyPercentOxygWater2"></tbody>
+                        </table>
+                        <canvas id="chartPercentOxygWater2" class="GHI" width="400" height="200"></canvas>
+                        <table id="tablepH2" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th>@SharedLocalizer["pH"]</th>
+                                    <th>@SharedLocalizer["AcidityOfWaterDegree"]</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodypH2"></tbody>
+                        </table>
+                        <canvas id="chartpH2" class="GHI" width="400" height="200"></canvas>
+                        <table id="tableOrganicSubstances2" class="GHI table table-striped table-sm">
+                            <thead class="table-info">
+                                <tr>
+                                    <th>@SharedLocalizer["Year"]</th>
+                                    <th>@SharedLocalizer["OrganicSubstances"]</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablebodyOrganicSubstances2"></tbody>
+                        </table>
+                        <canvas id="chartOrganicSubstances2" class="GHI" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="contentghi2">
+                <!-- Пресная  часть-->
+                <h4 class="FreshPart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                <div class="table-responsive">
+                    <table id="tableAlekinWaterCompositionClass1" class="IWC table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["CaMg"]</th>
+                                <th> @SharedLocalizer["MgMg"]</th>
+                                <th> @SharedLocalizer["NaKMg"]</th>
+                                <th> @SharedLocalizer["ClMg"]</th>
+                                <th> @SharedLocalizer["HCOMg"]</th>
+                                <th> @SharedLocalizer["SOMg"]</th>
+                                <th> @SharedLocalizer["AlekinWaterCompositionClass"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyAlekinWaterCompositionClass1"></tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table id="tableKurlovFormula1" class="IWC table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["CaMg"]</th>
+                                <th> @SharedLocalizer["MgMg"]</th>
+                                <th> @SharedLocalizer["NaKMg"]</th>
+                                <th> @SharedLocalizer["ClMg"]</th>
+                                <th> @SharedLocalizer["HCOMg"]</th>
+                                <th> @SharedLocalizer["SOMg"]</th>
+                                <th> @SharedLocalizer["KurlovFormula"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyKurlovFormula1"></tbody>
+                    </table>
+                </div>
+                <!-- Соленая часть-->
+                <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                <div class="table-responsive">
+                    <table id="tableAlekinWaterCompositionClass2" class="IWC table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["CaMg"]</th>
+                                <th> @SharedLocalizer["MgMg"]</th>
+                                <th> @SharedLocalizer["NaKMg"]</th>
+                                <th> @SharedLocalizer["ClMg"]</th>
+                                <th> @SharedLocalizer["HCOMg"]</th>
+                                <th> @SharedLocalizer["SOMg"]</th>
+                                <th> @SharedLocalizer["KurlovFormula"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyAlekinWaterCompositionClass2"></tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table id="tableKurlovFormula2" class="IWC table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["CaMg"]</th>
+                                <th> @SharedLocalizer["MgMg"]</th>
+                                <th> @SharedLocalizer["NaKMg"]</th>
+                                <th> @SharedLocalizer["ClMg"]</th>
+                                <th> @SharedLocalizer["HCOMg"]</th>
+                                <th> @SharedLocalizer["SOMg"]</th>
+                                <th> @SharedLocalizer["KurlovFormula"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyKurlovFormula2"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="contentghi3">
+                <!-- Пресная  часть-->
+                <h4 class="FreshPart">@SharedLocalizer[LakePart.FreshPart.ToString()]</h4>
+                <div class="table-responsive">
+                    <table id="tableNH41" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["NH4"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyNH41"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartNH41" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableNO21" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["NO2"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyNO21"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartNO21" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableNO31" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["NO3"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyNO31"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartNO31" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tablePPO41" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["PPO4"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyPPO41"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartPPO41" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableCu1" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Cu"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyCu1"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartCu1" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableZn1" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Zn"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyZn1"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartZn1" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableMn1" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Mn"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyMn1"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartMn1" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tablePb1" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Pb"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyPb1"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartPb1" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableNi1" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Ni"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyNi1"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartNi1" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableCd1" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Cd"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyCd1"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartCd1" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableCo1" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Co"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyCo1"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartCo1" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableKIZV1" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["KIZV"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyKIZV1"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartKIZV1" class="TI" width="400" height="200"></canvas>
+                <!-- Соленая часть-->
+                <h4 class="SaltyPart">@SharedLocalizer[LakePart.SaltyPart.ToString()]</h4>
+                <div class="table-responsive">
+                    <table id="tableNH42" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["NH4"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyNH42"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartNH42" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableNO22" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["NO2"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyNO22"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartNO22" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableNO32" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["NO3"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyNO32"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartNO32" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tablePPO42" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["PPO4"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyPPO42"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartPPO42" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableCu2" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Cu"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyCu2"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartCu2" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableZn2" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Zn"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyZn2"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartZn2" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableMn2" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Mn"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyMn2"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartMn2" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tablePb2" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Pb"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyPb2"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartPb2" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableNi2" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Ni"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyNi2"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartNi2" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableCd2" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Cd"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyCd2"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartCd2" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableCo2" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["Co"]</th>
+                                <th> @SharedLocalizer["MPCExceeding"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyCo2"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartCo2" class="TI" width="400" height="200"></canvas>
+                <div class="table-responsive">
+                    <table id="tableKIZV2" class="TI table table-striped table-sm">
+                        <thead class="table-info">
+                            <tr>
+                                <th>@SharedLocalizer["Year"]</th>
+                                <th> @SharedLocalizer["KIZV"]</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebodyKIZV2"></tbody>
+                    </table>
+                </div>
+                <canvas id="chartKIZV2" class="TI" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>    
 </section>

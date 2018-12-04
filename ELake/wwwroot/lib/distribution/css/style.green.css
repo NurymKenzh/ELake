@@ -36,7 +36,7 @@ span:focus {
 }
 
 section {
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 canvas {
@@ -47,7 +47,7 @@ canvas {
 }
 
 .container-fluid {
-  padding: 0 30px;
+  padding: 0 10px;
 }
 
 @media (max-width: 575px) {
@@ -136,7 +136,7 @@ input {
 }
 
 .card {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px 0 2px rgba(0, 0, 0, 0.05);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1), -1px 0 2px rgba(0, 0, 0, 0.05);
 }
@@ -391,8 +391,8 @@ input {
 */
 nav.side-navbar {
   background: #fff;
-  min-width: 350px;
-  max-width: 350px;
+  min-width: 300px;
+  max-width: 300px;
   color: #686a76;
   -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -1095,7 +1095,6 @@ section.dashboard-counts div[class*='col-']:last-of-type .item {
 .project .row {
   margin: 0;
   padding: 15px 0;
-  margin-bottom: 15px;
 }
 
 .project div[class*='col-'] {
