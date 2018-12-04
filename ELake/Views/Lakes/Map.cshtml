@@ -422,10 +422,6 @@
     <input id="Seasonalit" type="hidden" value='@SharedLocalizer["Seasonalit"]' />
     <input id="Month" type="hidden" value='@SharedLocalizer["Month"]' />
 </div>
-
-
-
-
 @* map and layers *@
 <script type="text/javascript">
     var layers = [];
@@ -486,7 +482,7 @@
         })
     });
 
-    $("#maindiv").LoadingOverlay("show");
+    $("#map").LoadingOverlay("show");
 
     var Layer_Lakes_v = new ol.layer.Vector({});
 
@@ -514,11 +510,11 @@
                     LakeId = "0";
                 }
             }
-            $("#maindiv").LoadingOverlay("hide");
+            $("#map").LoadingOverlay("hide");
             SelectLakeZoom(@LakeId, true);
         },
         error: function () {
-            $("#maindiv").LoadingOverlay("hide");
+            $("#map").LoadingOverlay("hide");
             //alert('error');
         }
     });
