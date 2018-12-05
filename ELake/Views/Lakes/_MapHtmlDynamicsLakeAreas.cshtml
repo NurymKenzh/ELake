@@ -6,29 +6,96 @@
 <script src="~/lib/ol/ol.js"></script>
 <script src="~/lib/chart.js/Chart.js"></script>
 <script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
-
 <section id="content5">
-    <input id="tabdla1" type="radio" name="dla" checked>
-    <label for="tabdla1">@SharedLocalizer["PermanentAndSeasonalDynamics"]</label>
-    <input id="tabdla2" type="radio" name="dla">
-    <label for="tabdla2">@SharedLocalizer["WaterFrequency"]</label>
-    <input id="tabdla3" type="radio" name="dla">
-    <label for="tabdla3">@SharedLocalizer["ChangeWaterCondition"]</label>
-    <input id="tabdla4" type="radio" name="dla">
-    <label for="tabdla4">@SharedLocalizer["WaterMonthsPresence"]</label>
-    <section id="contentdla1">
-        @* Charts *@
-        <canvas id="chartPASD1" class="PASD" width="400" height="200"></canvas>
-        <canvas id="chartPASD2" class="PASD" width="400" height="200"></canvas>
-        <input id="chartPASDYear" class="PASD" type="range" style="width: 100%; display: block;" value="0" />
-    </section>
-    <section id="contentdla2"></section>
-    <section id="contentdla3">
-        @* Charts *@
-        <canvas id="chartTransition" class="Transition" width="400" height="200"></canvas>
-    </section>
-    <section id="contentdla4">
-        @* Charts *@
-        <canvas id="chartSeasonalit" class="Seasonalit" width="400" height="200"></canvas>
-    </section>
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-2">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-tabdla1-list" data-toggle="list" href="#list-tabdla1" role="tab" aria-controls="home">@SharedLocalizer["PermanentAndSeasonalDynamics"]</a>
+                    <a class="list-group-item list-group-item-action" id="list-tabdla2-list" data-toggle="list" href="#list-tabdla2" role="tab" aria-controls="tabdla2">@SharedLocalizer["ChangeWaterCondition"]</a>
+                    <a class="list-group-item list-group-item-action" id="list-tabdla3-list" data-toggle="list" href="#list-tabdla3" role="tab" aria-controls="tabdla3">@SharedLocalizer["WaterMonthsPresence"]</a>
+                    <a class="list-group-item list-group-item-action" id="list-tabdla4-list" data-toggle="list" href="#list-tabdla4" role="tab" aria-controls="tabdla4">@SharedLocalizer["WaterFrequency"]</a>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-tabdla1" role="tabpanel" aria-labelledby="list-tabdla1-list">
+                        <div class="contentdla1 card" id="contentghi1">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
+                                </div>
+                            </div>
+                            <div class="card-header bg-success text-white d-flex">
+                                <h2 class="h4">@SharedLocalizer["PermanentAndSeasonalDynamics"]</h2>
+                            </div>
+                            <div class="card-body no-padding">
+                                <div class="row bg-white">
+                                    <!-- Chart -->
+                                    <div class="col-6 border-right">
+                                        <canvas id="chartPASD1" class="PASD" height="100"></canvas>
+                                    </div>
+                                    <!-- PIe -->
+                                    <div class="col-6">
+                                        <canvas id="chartPASD2" class="PASD" height="100"></canvas>
+                                        <label for="chartPASDYear"></label>
+                                        <input id="chartPASDYear" class="PASD custom-range" type="range" style="width: 100%; display: block;" value="0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list-tabdla2" role="tabpanel" aria-labelledby="list-tabdla2-list">
+                        <div class="contentghi2 card" id="contentghi2">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
+                                </div>
+                            </div>
+                            <div class="card-header bg-success text-white d-flex">
+                                <h2 class="h4">@SharedLocalizer["ChangeWaterCondition"]</h2>
+                            </div>
+                            <div class="card-body no-padding">
+                                <canvas id="chartTransition" class="Transition" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list-tabdla3" role="tabpanel" aria-labelledby="list-tabdla3-list">
+                        <div class="contentghi3 card" id="contentghi3">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
+                                </div>
+                            </div>
+                            <div class="card-header bg-success text-white d-flex">
+                                <h2 class="h4">@SharedLocalizer["WaterMonthsPresence"]</h2>
+                            </div>
+                            <div class="card-body no-padding">
+                                <canvas id="chartSeasonalit" class="Seasonalit" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="list-tabdla4" role="tabpanel" aria-labelledby="list-tabdla4-list">
+                        <div class="contentghi4 card" id="contentghi4">
+                            <div class="card-close">
+                                <div class="dropdown">
+                                    <button type="button" id="closeCard5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                    <div aria-labelledby="closeCard5" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
+                                </div>
+                            </div>
+                            <div class="card-header bg-success text-white d-flex">
+                                <h2 class="h4">@SharedLocalizer["WaterFrequency"]</h2>
+                            </div>
+                            <div class="card-body no-padding">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
 </section>
