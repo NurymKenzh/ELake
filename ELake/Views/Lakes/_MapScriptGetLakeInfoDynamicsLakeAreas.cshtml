@@ -1,7 +1,161 @@
 ﻿<script>
-    var ChartPASD1 = null;
+    var ChartPASD1 = null,
+        ChartPASD2 = null,
+        dataPASD;
 
     function ChartPASD1X(data) {
-        
+        if (ChartPASD1 != null) {
+            ChartPASD1.destroy();
+        }
+
+        var ctx1 = document.getElementById("chartPASD1").getContext('2d');
+        var data1 = [],
+            data2 = [],
+            data3 = [];
+        if (data.pasdtable != null) {
+            for (var i = 0; i < data.pasdtable.length; i++) {
+                if (data.pasdtable[i].seasonalWaterArea != null) {
+                    data1.push({
+                        'x': data.pasdtable[i].year,
+                        'y': data.pasdtable[i].seasonalWaterArea
+                    });
+                }
+                if (data.pasdtable[i].permanentWaterArea != null) {
+                    data2.push({
+                        'x': data.pasdtable[i].year,
+                        'y': data.pasdtable[i].permanentWaterArea
+                    });
+                }
+                if (data.pasdtable[i].maximumWaterArea != null) {
+                    data3.push({
+                        'x': data.pasdtable[i].year,
+                        'y': data.pasdtable[i].maximumWaterArea
+                    });
+                }
+            }
+        }
+        ChartPASD1 = new Chart(ctx1, {
+            type: 'scatter',
+            data: {
+                    datasets: [{
+                        label: $('#SeasonalWaterArea').val(),
+                        data: data1,
+                        backgroundColor: chartColorSeasonalWaterArea,
+                        borderColor: chartColorSeasonalWaterArea,
+                        borderWidth: 1,
+                        fill: false,
+                        showLine: true,
+                        lineTension: 0
+                    },
+                    {
+                        label: $('#PermanentWaterArea').val(),
+                        data: data2,
+                        backgroundColor: chartColorPermanentWaterArea,
+                        borderColor: chartColorPermanentWaterArea,
+                        borderWidth: 1,
+                        fill: false,
+                        showLine: true,
+                        lineTension: 0
+                    },
+                    {
+                        label: $('#MaximumWaterArea').val(),
+                        data: data3,
+                        backgroundColor: chartColorMaximumWaterArea,
+                        borderColor: chartColorMaximumWaterArea,
+                        borderWidth: 1,
+                        fill: false,
+                        showLine: true,
+                        lineTension: 0
+                    }]
+            },
+            options: {
+                spanGaps: true,
+                title: {
+                    display: true,
+                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PermanentAndSeasonalDynamics').val()
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Year').val()
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: $('#Areakm2').val()
+                        }
+                    }]
+                }
+            }
+        });
     }
+
+    function ChartPASD2X(data) {
+        var year = $('#chartPASDYear').val();
+        var ctx1 = document.getElementById("chartPASD2").getContext('2d');
+        var dataSeasonalWaterArea = 0,
+            dataPermanentWaterArea = 0,
+            dataMaximumWaterArea = 0;
+        if (data.pasdtable != null) {
+            for (var i = 0; i < data.pasdtable.length; i++) {
+                if (data.pasdtable[i].year == year) {
+                    dataSeasonalWaterArea = data.pasdtable[i].seasonalWaterArea;
+                    dataPermanentWaterArea = data.pasdtable[i].permanentWaterArea;
+                    dataMaximumWaterArea = data.pasdtable[i].maximumWaterArea;
+                }
+            }
+        }
+        if (ChartPASD2 == null) {
+            ChartPASD2 = new Chart(ctx1, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            dataSeasonalWaterArea,
+                            dataPermanentWaterArea,
+                            dataMaximumWaterArea
+                        ],
+                        backgroundColor: [
+                            chartColorSeasonalWaterArea,
+                            chartColorPermanentWaterArea,
+                            chartColorMaximumWaterArea
+                        ]
+                    }],
+                    labels: [
+                        $('#SeasonalWaterArea').val(),
+                        $('#PermanentWaterArea').val(),
+                        $('#MaximumWaterArea').val()
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PermanentAndSeasonalDynamics').val() + ' (' + $('#chartPASDYear').val() + '). '
+                    },
+                }
+            });
+        }
+        else {
+            ChartPASD2.config.data.datasets[0].data[0] = [dataSeasonalWaterArea];
+            ChartPASD2.config.data.datasets[0].data[1] = [dataPermanentWaterArea];
+            ChartPASD2.config.data.datasets[0].data[2] = [dataMaximumWaterArea];
+            ChartPASD2.config.options.title.text = $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PermanentAndSeasonalDynamics').val() + ' (' + $('#chartPASDYear').val() + '). ';
+            ChartPASD2.update();
+        }
+    }
+
+    //function ShowChartPASD2() {
+    //    $('.WB').hide();
+    //    $('#ChartPASD2').show();
+    //    $('#ChartPASD2Year').show();
+    //}
+
+    $('#chartPASDYear').on('input', function () {
+        ChartPASD2X(dataPASD, $('#chartPASDYear').val());
+    });
 </script>

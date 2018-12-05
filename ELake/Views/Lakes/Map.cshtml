@@ -448,6 +448,11 @@
     <input id="LostSeasonal" type="hidden" value='@SharedLocalizer["LostSeasonal"]' />
     <input id="EphemeralSeasonal" type="hidden" value='@SharedLocalizer["EphemeralSeasonal"]' />
     <input id="WaterMonthsPresence" type="hidden" value='@SharedLocalizer["WaterMonthsPresence"]' />
+    <input id="PermanentAndSeasonalDynamics" type="hidden" value='@SharedLocalizer["PermanentAndSeasonalDynamics"]' />
+    <input id="Areakm2" type="hidden" value='@SharedLocalizer["Areakm2"]' />
+    <input id="SeasonalWaterArea" type="hidden" value='@SharedLocalizer["SeasonalWaterArea"]' />
+    <input id="PermanentWaterArea" type="hidden" value='@SharedLocalizer["PermanentWaterArea"]' />
+    <input id="MaximumWaterArea" type="hidden" value='@SharedLocalizer["MaximumWaterArea"]' />
     <input id="Seasonalit" type="hidden" value='@SharedLocalizer["Seasonalit"]' />
     <input id="Month" type="hidden" value='@SharedLocalizer["Month"]' />
 </div>
@@ -473,8 +478,8 @@
     layers[layers.length - 1].set('name', 'Base');
 
     var geoserverPort = '8080',
-        //geoserverAddress = window.location.hostname;
-        geoserverAddress = 'elake.geoset.kz';
+        geoserverAddress = window.location.hostname;
+        //geoserverAddress = 'elake.geoset.kz';
 
     var Source_OccurrenceChangeIntensity = new ol.source.TileWMS({
         url: 'http://' + geoserverAddress + ':' + geoserverPort + '/geoserver/ELake/wms?',
@@ -769,6 +774,9 @@
         chartColorTICd = 'rgba(255,99,132,1)',
         chartColorTICo = 'rgba(255,99,132,1)',
         chartColorTIKIZV = 'rgba(150,200,132,1)',
+        chartColorSeasonalWaterArea = 'rgba(230,74,208,1)',
+        chartColorPermanentWaterArea = 'rgba(0,112,192,1)',
+        chartColorMaximumWaterArea = 'rgba(192,0,0,1)',
         chartColorTrPermanent = 'rgba(85,255,0,1)',
         chartColorTrNewPermanent = 'rgba(0,197,255,1)',
         chartColorTrSeasonalToPermanent = 'rgba(255,127,127,1)',
@@ -1517,6 +1525,15 @@
                 //    ChartPASD1X(data);
                 //    dataWB = data;
                 //}
+                // Димнамика площадей
+                ChartPASD1X(data);
+                if (data.pasdtable != null) {
+                    $('#chartPASDYear').attr('min', data.pasdtable.length > 0 ? data.pasdtable[0].year : 0);
+                    $('#chartPASDYear').attr('max', data.pasdtable.length > 0 ? data.pasdtable[data.pasdtable.length - 1].year : 0);
+                    $('#chartPASDYear').val(data.pasdtable.length > 0 ? data.pasdtable[0].year : 0);
+                    ChartPASD2X(data);
+                    dataPASD = data;
+                }
                 // Изменение состояние воды
                 ChartTransitionX(data);
                 // Присутствие воды в месяцах

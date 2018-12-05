@@ -27,6 +27,15 @@ namespace ELake.Models
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "PermanentWaterArea")]
         public decimal PermanentWaterArea { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "MaximumWaterArea")]
+        public decimal MaximumWaterArea
+        {
+            get
+            {
+                return SeasonalWaterArea + PermanentWaterArea;
+            }
+        }
     }
 
     public class DynamicsLakeAreaIndexPageViewModel

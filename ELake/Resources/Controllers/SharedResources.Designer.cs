@@ -243,6 +243,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Areakm2 {
+            get {
+                return ResourceManager.GetString("Areakm2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string AsLakeLayer {
             get {
                 return ResourceManager.GetString("AsLakeLayer", resourceCulture);
@@ -282,6 +291,15 @@ namespace ELake.Resources.Controllers {
         public static string BackToTop {
             get {
                 return ResourceManager.GetString("BackToTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string BaseLayer {
+            get {
+                return ResourceManager.GetString("BaseLayer", resourceCulture);
             }
         }
         
@@ -2619,6 +2637,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string MaximumWaterArea {
+            get {
+                return ResourceManager.GetString("MaximumWaterArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MaximumWaterExtent {
+            get {
+                return ResourceManager.GetString("MaximumWaterExtent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string May {
             get {
                 return ResourceManager.GetString("May", resourceCulture);
@@ -3213,6 +3249,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Occurrence {
+            get {
+                return ResourceManager.GetString("Occurrence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string OccurrenceChangeIntensity {
+            get {
+                return ResourceManager.GetString("OccurrenceChangeIntensity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string October {
             get {
                 return ResourceManager.GetString("October", resourceCulture);
@@ -3510,6 +3564,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Recurrence {
+            get {
+                return ResourceManager.GetString("Recurrence", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
@@ -3684,6 +3747,15 @@ namespace ELake.Resources.Controllers {
         public static string SeasonalitUploadDescription {
             get {
                 return ResourceManager.GetString("SeasonalitUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Seasonality {
+            get {
+                return ResourceManager.GetString("Seasonality", resourceCulture);
             }
         }
         

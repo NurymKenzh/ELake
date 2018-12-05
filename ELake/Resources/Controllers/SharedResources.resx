@@ -1713,4 +1713,28 @@
   <data name="NOT" xml:space="preserve">
     <value />
   </data>
+  <data name="Areakm2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BaseLayer" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MaximumWaterArea" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MaximumWaterExtent" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Occurrence" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OccurrenceChangeIntensity" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Recurrence" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Seasonality" xml:space="preserve">
+    <value />
+  </data>
 </root>
