@@ -25,177 +25,115 @@
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
-            <div class="col-12 col-sm-2 col-md-8">
+            <div class="col-md-8 mt-3">
                 <p>
                     <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
                     <a class="btn btn-outline-success ml-1" asp-action="Upload"><i class="fa fa-pencil"></i> @SharedLocalizer["Upload"]</a>
                 </p>
             </div>
-            <div class="table-responsive-lg">
+            <div class="table-responsive" style="overflow-x: auto;">
                 @using (Html.BeginForm("Index", "WaterBalances", new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter }, FormMethod.Get))
                 {
                     @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4">
-                                <ul class="pagination justify-content-end">
-                                    @if (Model.Pager.CurrentPage > 1)
-                                    {
-                                        <li class="page-item page-link">
-                                            @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
-                                                new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </li>
-                                        <li class="page-item page-link">
-                                            @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
-                                                new { Page = Model.Pager.CurrentPage - 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </li>
-                                    }
-                                    @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
-                                    {
+                        <ul class="pagination justify-content-md-start">
+                            @if (Model.Pager.CurrentPage > 1)
+                            {
+                                <li class="page-item page-link">
+                                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;&laquo;"), "Index",
+                                        new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                </li>
+                                <li class="page-item page-link">
+                                    @Html.ActionLink(WebUtility.HtmlDecode("&laquo;"), "Index",
+                                        new { Page = Model.Pager.CurrentPage - 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                </li>
+                            }
+                            @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                            {
 
-                                        <li class="page-item page-link @(page == Model.Pager.CurrentPage ? "active" : "")" @(page == Model.Pager.CurrentPage ? "style=background-color:#b8daff;" : "")>
-                                            @Html.ActionLink(page.ToString(), "Index",
-                                                new { Page = page, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </li>
-                                    }
-                                    @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
-                                    {
-                                        <li class="page-item page-link">
-                                            @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
-                                                new { Page = Model.Pager.CurrentPage + 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </li>
-                                        <li class="page-item page-link">
-                                            @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
-                                                new { Page = Model.Pager.TotalPages, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </li>
-                                    }
-                                </ul>
-                            </div>
-                        </div>
+                                <li class="page-item page-link @(page == Model.Pager.CurrentPage ? "active" : "")" @(page == Model.Pager.CurrentPage ? "style=background-color:#b8daff;" : "")>
+                                    @Html.ActionLink(page.ToString(), "Index",
+                                        new { Page = page, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                </li>
+                            }
+                            @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                            {
+                                <li class="page-item page-link">
+                                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;"), "Index",
+                                        new { Page = Model.Pager.CurrentPage + 1, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                </li>
+                                <li class="page-item page-link">
+                                    @Html.ActionLink(WebUtility.HtmlDecode("&raquo;&raquo;"), "Index",
+                                        new { Page = Model.Pager.TotalPages, SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                </li>
+                            }
+                        </ul>
                     }
-                    <table class="table table-striped table-bordered table-sm">
-                        <thead>
-                            <tr class="table-primary">
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-4 my-1">
+                    <table id="WaterBalances" class="table table-striped table-bordered table-sm">
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col" class="align-middle" style="width: 100px;">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="LakeId">
+                                                @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
+                                       new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                            </label>
                                             @Html.Editor("LakeId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["LakeId"] }, value = "" })
                                         </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
-                                           new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </div>
-                                    </div>
+                                    </form>
                                 </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-5 my-1">
+                                <th scope="col" class="align-middle" style="width: 100px;">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="LakeId">
+                                                @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().Year).ToString(), "Index",
+                                       new { SortOrder = ViewBag.YearSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                            </label>
                                             @Html.Editor("Year", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["Year"] }, value = "" })
                                         </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().Year).ToString(), "Index",
-                                           new { SortOrder = ViewBag.YearSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </div>
-                                    </div>
+                                    </form>
                                 </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().SurfaceFlow)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().SurfaceOutflow)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().UndergroundFlow)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().UndergroundOutflow)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Precipitation)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Evaporation)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().WaterBalanceReceipt)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().WaterBalanceExpenditure)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Discrepancy)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-1">
-                                            <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary">
-                                        </div>
-                                    </div>
-                                </th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().SurfaceFlow)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().SurfaceOutflow)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().UndergroundFlow)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().UndergroundOutflow)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Precipitation)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Evaporation)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().WaterBalanceReceipt)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().WaterBalanceExpenditure)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Discrepancy)</th>
+                                <th scope="col" class="align-middle"><input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary"></th>
                             </tr>
                         </thead>
-                        @foreach (var item in Model.Items)
-                        {
-                            <tr>
-                                <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
-                                <td>@Html.DisplayFor(modelItem => item.Year)</td>
-                                <td>@Html.DisplayFor(modelItem => item.SurfaceFlow)</td>
-                                <td>@Html.DisplayFor(modelItem => item.SurfaceOutflow)</td>
-                                <td>@Html.DisplayFor(modelItem => item.UndergroundFlow)</td>
-                                <td>@Html.DisplayFor(modelItem => item.UndergroundOutflow)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Precipitation)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Evaporation)</td>
-                                <td>@Html.DisplayFor(modelItem => item.WaterBalanceReceipt)</td>
-                                <td>@Html.DisplayFor(modelItem => item.WaterBalanceExpenditure)</td>
-                                <td>@Html.DisplayFor(modelItem => item.Discrepancy)</td>
-                                <td>
-                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
-                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        }
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.Year)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SurfaceFlow)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SurfaceOutflow)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.UndergroundFlow)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.UndergroundOutflow)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Precipitation)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Evaporation)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.WaterBalanceReceipt)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.WaterBalanceExpenditure)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Discrepancy)</td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <ul class="pagination justify-content-end">
+                        <ul class="pagination">
                             @if (Model.Pager.CurrentPage > 1)
                             {
                                 <li class="page-item page-link">
@@ -229,6 +167,7 @@
                     }
                 }
             </div>
+            
         </div>
     </div>
 </div>

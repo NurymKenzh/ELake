@@ -25,21 +25,19 @@
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
-            <div class="col-12 col-sm-2 col-md-8">
+            <div class="col-auto">
                 <p>
                     <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
                     <a class="btn btn-outline-success ml-1" asp-action="Upload"><i class="fa fa-pencil"></i> @SharedLocalizer["Upload"]</a>
                 </p>
             </div>
-            <div class="table-responsive-lg">
+            <div class="table-responsive" style="overflow-x: auto;">
                 @using (Html.BeginForm("Index", "ToxicologicalIndicators", new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter }, FormMethod.Get))
                 {
                     @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4">
-                                <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                                     @if (Model.Pager.CurrentPage > 1)
                                     {
                                         <li class="page-item page-link">
@@ -71,171 +69,81 @@
                                         </li>
                                     }
                                 </ul>
-                            </div>
-                        </div>
                     }
                     <table class="table table-striped table-bordered table-sm">
-                        <thead>
-                            <tr class="table-primary">
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-4 my-1">
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col" class="align-middle" style="width: 80px;">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="LakeId">
+                                                @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
+                                        new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                            </label>
                                             @Html.Editor("LakeId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["LakeId"] }, value = "" })
                                         </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
-                                           new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </div>
-                                    </div>
+                                    </form>
                                 </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-5 my-1">
+                                <th scope="col" class="align-middle" style="width: 80px;">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="LakeId">
+                                                @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().Year).ToString(), "Index",
+                                       new { SortOrder = ViewBag.YearSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
+                                            </label>
                                             @Html.Editor("Year", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["Year"] }, value = "" })
                                         </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().Year).ToString(), "Index",
-                                           new { SortOrder = ViewBag.YearSort, LakeId = ViewBag.LakeIdFilter, Year = ViewBag.YearFilter })
-                                        </div>
-                                    </div>
+                                    </form>
                                 </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakePart)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NH4)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NO2)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NO3)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().PPO4)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Cu)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Zn)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Mn)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Pb)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Ni)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Cd)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Co)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().KIZV)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().KIZVs)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-1">
-                                            <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary">
-                                        </div>
-                                    </div>
-                                </th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakePart)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().NH4)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().NO2)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().NO3)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().PPO4)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().Cu)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().Zn)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().Mn)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().Pb)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().Ni)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().Cd)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().Co)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().KIZV)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().KIZVs)</th>
+                                <th scope="col" class="align-middle"><input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary"></th>
                             </tr>
                         </thead>
-                        @foreach (var item in Model.Items)
-                        {
-                        <tr>
-                            <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
-                            <td>@Html.DisplayFor(modelItem => item.Year)</td>
-                            <td>@SharedLocalizer[item.LakePart.ToString()]</td>
-                            <td>@Html.DisplayFor(modelItem => item.NH4)</td>
-                            <td>@Html.DisplayFor(modelItem => item.NO2)</td>
-                            <td>@Html.DisplayFor(modelItem => item.NO3)</td>
-                            <td>@Html.DisplayFor(modelItem => item.PPO4)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Cu)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Zn)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Mn)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Pb)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Ni)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Cd)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Co)</td>
-                            <td>@Html.DisplayFor(modelItem => item.KIZV)</td>
-                            <td>@Html.DisplayFor(modelItem => item.KIZVs)</td>
-                            <td>
-                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        }
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.Year)</td>
+                                    <td>@SharedLocalizer[item.LakePart.ToString()]</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NH4)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NO2)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NO3)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.PPO4)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Cu)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Zn)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Mn)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Pb)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Ni)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Cd)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Co)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.KIZV)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.KIZVs)</td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>                        
                     </table>
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                             @if (Model.Pager.CurrentPage > 1)
                             {
                                 <li class="page-item page-link">
