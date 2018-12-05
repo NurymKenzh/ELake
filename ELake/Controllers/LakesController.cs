@@ -505,6 +505,15 @@ namespace ELake.Controllers
             //        .OrderBy(w => w.)
             //        .ToArray();
             //}
+            // Димнамика площадей
+            DynamicsLakeArea[] pasdtable = null;
+            if (LakeId > 0 && _context.DynamicsLakeArea.Count(w => w.LakeId == LakeId) > 0)
+            {
+                pasdtable = _context.DynamicsLakeArea
+                    .Where(w => w.LakeId == LakeId)
+                    .OrderBy(w => w.Year)
+                    .ToArray();
+            }
             // Изменение состояние воды
             Transition transition = null;
             if (LakeId > 0 && _context.Transition.Count(w => w.LakeId == LakeId) > 0)
@@ -549,6 +558,8 @@ namespace ELake.Controllers
                 wltable,
                 // Данные по батиграфической и объемной кривой
                 bavcdtable,
+                // Димнамика площадей
+                pasdtable,
                 // Изменение состояние воды
                 transition,
                 // Присутствие воды в месяцах
