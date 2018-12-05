@@ -42,6 +42,13 @@
 </head>
 <body>
     <nav class="navbar">
+        <!-- Search Box-->
+        <div class="search-box">
+            <button class="dismiss" value="@SharedLocalizer["Reset"]" onclick="ResetSearch()"><i class="icon-close"></i></button>
+            <form id="searchForm" action="#" role="search">
+                <input id="searchlake" type="search" placeholder="Enter lake name..." class="form-control" oninput="GetAdm1(); GetAdm2(); GetVHB(); GetVHU(); GetSystem(); SearchChange(0);">
+            </form>
+        </div>
         <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
                 <!-- Navbar Header-->
@@ -50,44 +57,26 @@
                         <div class="brand-text d-none d-lg-inline-block"><span>Menu </span></div>
                     </a><!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
                 </div>
+                <!-- Navbar Menu -->
+                <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                    <!-- Search-->
+                    <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="fa fa-search"></i></a></li>
 
-                <div class="col-lg-10">
-                    <form class="form-inline">
-                        <input id="search" class="form-control form-control-sm mr-sm-2" type="search" placeholder="@SharedLocalizer["Search"]" aria-label="Search" oninput="GetAdm1(); GetAdm2(); GetVHB(); GetVHU(); GetSystem(); SearchChange(0);">
-                        <input type="button" class="btn btn-light btn-sm" value="@SharedLocalizer["Reset"]" onclick="ResetSearch()" />
-                        <div class="col offset-md-6 offset-sm-2">
-                            @await Html.PartialAsync("_LoginPartial")
-                        </div>                        
-                    </form>
-                </div>
+                    <!-- Languages dropdown    -->
+                    <li class="nav-fill dropdown">
+                        <a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="~/images/ru.png" alt="English"><span class="d-none d-sm-inline-block">Русский</span></a>
+                        <ul aria-labelledby="languages" class="dropdown-menu">
+                            <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="~/images/kz.png" alt="English" class="mr-2">Қазақ</a></li>
+                            <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="~/images/gb.png" alt="English" class="mr-2">English</a></li>
+                        </ul>
+                    </li>
+                    <!-- Logout    -->
+                    <li class="nav-link">@await Html.PartialAsync("_LoginPartial")</li>
+                </ul>
             </div>
         </div>
     </nav>
-    @RenderBody()
-    <!-- FOOTER -->   
-    <footer class="footer">
-        <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
-        </div>
-    </footer>
-    <footer class="footer bg-light border-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md">
-                    <p class="mb-2"><a asp-controller="Home" asp-action="Index">@SharedLocalizer["Home"]</a> &middot; <a asp-controller="Home" asp-action="About">@SharedLocalizer["About"]</a> &middot; <a asp-controller="Home" asp-action="Information">@SharedLocalizer["Information"]</a> &middot; <a asp-controller="Home" asp-action="Contact">@SharedLocalizer["Contact"]</a></p>
-                    <small class="text-muted">&copy; @DateTime.Today.Year.ToString()</small>
-                </div>
-                
-                <div class="col-6 col-md">
-                    <ul class="list-unstyled text-small">
-                        <li>
-                        <a class="float-right text-muted">@await Html.PartialAsync("_SelectLanguagePartial")</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @RenderBody()    
     <environment include="Development">
         @*<script src="~/lib/jquery/dist/jquery.js"></script>*@
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
