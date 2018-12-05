@@ -23,21 +23,19 @@
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
-            <div class="col-12 col-sm-2 col-md-8">
+            <div class="col-md-8 mt-3">
                 <p>
                     <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
                     <a class="btn btn-outline-success ml-1" asp-action="Upload"><i class="fa fa-pencil"></i> @SharedLocalizer["Upload"]</a>
                 </p>
             </div>
-            <div class="table-responsive-lg">
+            <div class="table-responsive-lg" style="overflow-x: auto;">
                 @using (Html.BeginForm("Index", "GeneralHydrobiologicalIndicators", new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter, FishId = ViewBag.FishIdFilter, SurveyYearYear = ViewBag.SurveyYearYearFilter }, FormMethod.Get))
                 {
                     @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4">
-                                <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                                     @if (Model.Pager.CurrentPage > 1)
                                     {
                                         <li class="page-item page-link">
@@ -69,143 +67,84 @@
                                         </li>
                                     }
                                 </ul>
-                            </div>
-                        </div>
                     }
-                    <table class="table table-striped table-bordered table-sm">
-                        <thead>
-                            <tr class="table-primary">
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-4 my-1">
-                                            @Html.Editor("LakeId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["LakeId"] }, value = "" })
-                                        </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
-                                           new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter, FishId = ViewBag.FishIdFilter, SurveyYearYear = ViewBag.SurveyYearYearFilter })
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-5 my-1">
-                                            @Html.Editor("FishId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["FishId"] }, value = "" })
-                                        </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().FishId).ToString(), "Index",
-                                           new { SortOrder = ViewBag.FishIdSort, LakeId = ViewBag.LakeIdFilter, FishId = ViewBag.FishIdFilter, SurveyYearYear = ViewBag.SurveyYearYearFilter })
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-5 my-1">
-                                            @Html.Editor("SurveyYear", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["SurveyYear"] }, value = "" })
-                                        </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().SurveyYear).ToString(), "Index",
-                                           new { SortOrder = ViewBag.SurveyYearSort, LakeId = ViewBag.LakeIdFilter, FishId = ViewBag.FishIdFilter, SurveyYearYear = ViewBag.SurveyYearYearFilter })
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().ZooplanktonBiomass)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().BenthosBiomass)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().SpeciesWealthIndex)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().FishCatchLimit)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().CurrentCommercialFishProductivity)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().PotentialFishProducts)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().PotentialGrowingVolume)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().CurrentUsage)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().RecommendedUse)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-1">
-                                            <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary">
-                                        </div>
-                                    </div>
-                                </th>
-                            </tr>
-                        </thead>
-                        @foreach (var item in Model.Items)
-                        {
-                        <tr>
-                            <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
-                            <td>@Html.DisplayFor(modelItem => item.FishId)</td>
-                            <td>@Html.DisplayFor(modelItem => item.SurveyYear)</td>
-                            <td>@Html.DisplayFor(modelItem => item.ZooplanktonBiomass)</td>
-                            <td>@Html.DisplayFor(modelItem => item.BenthosBiomass)</td>
-                            <td>@Html.DisplayFor(modelItem => item.SpeciesWealthIndex)</td>
-                            <td>@Html.DisplayFor(modelItem => item.FishCatchLimit)</td>
-                            <td>@Html.DisplayFor(modelItem => item.CurrentCommercialFishProductivity)</td>
-                            <td>@Html.DisplayFor(modelItem => item.PotentialFishProducts)</td>
-                            <td>@Html.DisplayFor(modelItem => item.PotentialGrowingVolume)</td>
-                            <td>@Html.DisplayFor(modelItem => item.CurrentUsage)</td>
-                            <td>@Html.DisplayFor(modelItem => item.RecommendedUse)</td>
-                            <td>
-                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        }
-                    </table>
+                        <table class="table table-striped table-bordered table-sm">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th scope="col" class="align-middle" style="width: 100px;">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="LakeId">
+                                                    @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
+                                               new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter, FishId = ViewBag.FishIdFilter, SurveyYearYear = ViewBag.SurveyYearYearFilter })
+
+                                                </label>
+                                                @Html.Editor("LakeId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["LakeId"] }, value = "" })
+                                            </div>
+                                        </form>
+                                    </th>
+                                    <th scope="col" class="align-middle" style="width: 100px;">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="FishId">
+                                                    @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().FishId).ToString(), "Index",
+                                               new { SortOrder = ViewBag.FishIdSort, LakeId = ViewBag.LakeIdFilter, FishId = ViewBag.FishIdFilter, SurveyYearYear = ViewBag.SurveyYearYearFilter })
+                                                </label>
+                                                @Html.Editor("FishId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["FishId"] }, value = "" })
+                                            </div>
+                                        </form>
+                                    </th>
+                                    <th scope="col" class="align-middle" style="width: 100px;">
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="FishId">
+                                                    @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().SurveyYear).ToString(), "Index",
+                                                new { SortOrder = ViewBag.SurveyYearSort, LakeId = ViewBag.LakeIdFilter, FishId = ViewBag.FishIdFilter, SurveyYearYear = ViewBag.SurveyYearYearFilter })
+                                                </label>
+                                                @Html.Editor("SurveyYear", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["SurveyYear"] }, value = "" })
+                                            </div>
+                                        </form>
+                                    </th>
+                                    <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().ZooplanktonBiomass)</th>
+                                    <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().BenthosBiomass)</th>
+                                    <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().SpeciesWealthIndex)</th>
+                                    <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().FishCatchLimit)</th>
+                                    <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().CurrentCommercialFishProductivity)</th>
+                                    <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().PotentialFishProducts)</th>
+                                    <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().PotentialGrowingVolume)</th>
+                                    <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().CurrentUsage)</th>
+                                    <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().RecommendedUse)</th>
+                                    <th scope="col" class="align-middle"><input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Items)
+                                {
+                                    <tr>
+                                        <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
+                                        <td>@Html.DisplayFor(modelItem => item.FishId)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.SurveyYear)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.ZooplanktonBiomass)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.BenthosBiomass)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.SpeciesWealthIndex)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.FishCatchLimit)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.CurrentCommercialFishProductivity)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.PotentialFishProducts)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.PotentialGrowingVolume)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.CurrentUsage)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.RecommendedUse)</td>
+                                        <td>
+                                            <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                            <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>                                
+                        </table>
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                             @if (Model.Pager.CurrentPage > 1)
                             {
                                 <li class="page-item page-link">

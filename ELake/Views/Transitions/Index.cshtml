@@ -25,21 +25,19 @@
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
-            <div class="col-12 col-sm-2 col-md-8">
+            <div class="col-auto">
                 <p>
                     <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
                     <a class="btn btn-outline-success ml-1" asp-action="Upload"><i class="fa fa-pencil"></i> @SharedLocalizer["Upload"]</a>
                 </p>
             </div>
-            <div class="table-responsive-lg">
+            <div class="table-responsive" style="overflow-x: auto;">
                 @using (Html.BeginForm("Index", "Transitions", new { SortOrder = ViewBag.SortOrder, LakeId = ViewBag.LakeIdFilter }, FormMethod.Get))
                 {
                     @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4">
-                                <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                                     @if (Model.Pager.CurrentPage > 1)
                                     {
                                         <li class="page-item page-link">
@@ -71,135 +69,63 @@
                                         </li>
                                     }
                                 </ul>
-                            </div>
-                        </div>
                     }
                     <table class="table table-striped table-bordered table-sm">
-                        <thead>
-                            <tr class="table-primary">
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-4 my-1">
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col" class="align-middle" style="width: 100px;">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="LakeId">
+                                                @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
+                                           new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter })
+                                            </label>
                                             @Html.Editor("LakeId", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["LakeId"] }, value = "" })
                                         </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().LakeId).ToString(), "Index",
-                                           new { SortOrder = ViewBag.LakeIdSort, LakeId = ViewBag.LakeIdFilter })
-                                        </div>
-                                    </div>
+                                    </form>
                                 </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NoСhange)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Permanent)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NewPermanent)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().LostPermanent)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Seasonal)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NewSeasonal)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().LostSeasonal)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().SeasonalToPermanent)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().PermanentToDeasonal)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().EphemeralPermanent)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().EphemeralSeasonal)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-1">
-                                            <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary">
-                                        </div>
-                                    </div>
-                                </th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NoСhange)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Permanent)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NewPermanent)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().LostPermanent)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Seasonal)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().NewSeasonal)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().LostSeasonal)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().SeasonalToPermanent)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().PermanentToDeasonal)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().EphemeralPermanent)</th>
+                                <th scope="col" class="align-middle"> @Html.DisplayNameFor(b => b.Items.FirstOrDefault().EphemeralSeasonal)</th>
+                                <th scope="col" class="align-middle"><input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary"></th>
                             </tr>
                         </thead>
-                        @foreach (var item in Model.Items)
-                        {
-                        <tr>
-                            <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
-                            <td>@Html.DisplayFor(modelItem => item.NoСhange)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Permanent)</td>
-                            <td>@Html.DisplayFor(modelItem => item.NewPermanent)</td>
-                            <td>@Html.DisplayFor(modelItem => item.LostPermanent)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Seasonal)</td>
-                            <td>@Html.DisplayFor(modelItem => item.NewSeasonal)</td>
-                            <td>@Html.DisplayFor(modelItem => item.LostSeasonal)</td>
-                            <td>@Html.DisplayFor(modelItem => item.SeasonalToPermanent)</td>
-                            <td>@Html.DisplayFor(modelItem => item.PermanentToDeasonal)</td>
-                            <td>@Html.DisplayFor(modelItem => item.EphemeralPermanent)</td>
-                            <td>@Html.DisplayFor(modelItem => item.EphemeralSeasonal)</td>
-                            <td>
-                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        }
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <th scope="row">@Html.DisplayFor(modelItem => item.LakeId)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.NoСhange)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Permanent)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NewPermanent)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.LostPermanent)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Seasonal)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.NewSeasonal)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.LostSeasonal)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SeasonalToPermanent)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.PermanentToDeasonal)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.EphemeralPermanent)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.EphemeralSeasonal)</td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>                        
                     </table>
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                             @if (Model.Pager.CurrentPage > 1)
                             {
                                 <li class="page-item page-link">
