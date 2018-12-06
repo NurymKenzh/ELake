@@ -1737,4 +1737,10 @@
   <data name="Seasonality" xml:space="preserve">
     <value>Сезонность</value>
   </data>
+  <data name="District" xml:space="preserve">
+    <value>Район</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Область</value>
+  </data>
 </root>

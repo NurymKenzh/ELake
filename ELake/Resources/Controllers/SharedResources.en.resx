@@ -1737,4 +1737,10 @@
   <data name="Seasonality" xml:space="preserve">
     <value>Seasonality</value>
   </data>
+  <data name="District" xml:space="preserve">
+    <value>District</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
 </root>

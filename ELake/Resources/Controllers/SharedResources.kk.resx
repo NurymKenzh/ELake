@@ -1737,4 +1737,10 @@
   <data name="Seasonality" xml:space="preserve">
     <value>Мезгілдік</value>
   </data>
+  <data name="District" xml:space="preserve">
+    <value>Ауданы</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Аймақ</value>
+  </data>
 </root>
