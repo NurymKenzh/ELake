@@ -1627,7 +1627,7 @@
         $.ajax({
             url: '@Url.Action("GetLakes")',
             data: {
-                Search: $('#searchlike').val(),
+                Search: $('#searchlake').val(),
                 Adm1KATOId: Adm1KATOId,
                 Adm2KATOId: Adm2KATOId,
                 VHB: VHB,
@@ -1662,7 +1662,7 @@
         $.ajax({
             url: '@Url.Action("GetAdm1")',
             data: {
-                Search: $('#searchlike').val()
+                Search: $('#searchlake').val()
             },
             type: 'POST',
             success: function (data) {
@@ -1683,7 +1683,7 @@
         $.ajax({
             url: '@Url.Action("GetAdm2")',
             data: {
-                Search: $('#searchlike').val(),
+                Search: $('#searchlake').val(),
                 Adm1KATOId: $('#adm1').val()
             },
             type: 'POST',
@@ -1705,7 +1705,7 @@
         $.ajax({
             url: '@Url.Action("GetVHB")',
             data: {
-                Search: $('#searchlike').val()
+                Search: $('#searchlake').val()
             },
             type: 'POST',
             success: function (data) {
@@ -1726,7 +1726,7 @@
         $.ajax({
             url: '@Url.Action("GetVHU")',
             data: {
-                Search: $('#searchlike').val(),
+                Search: $('#searchlake').val(),
                 VHB: $('#svhb').val()
             },
             type: 'POST',
@@ -1749,7 +1749,7 @@
         $.ajax({
             url: '@Url.Action("GetSystem")',
             data: {
-                Search: $('#searchlike').val()
+                Search: $('#searchlake').val()
             },
             type: 'POST',
             success: function (data) {
@@ -1764,7 +1764,7 @@
     }
 
     function ResetSearch() {
-        $('#searchlike').val('');
+        $('#searchlake').val('');
         GetAdm1();
         GetAdm2();
         GetVHB();
@@ -1783,7 +1783,7 @@
     $(document).ready(function () {
         $("#LakeGroup").hide();
         ChangeDataType();
-        $('#searchlike').val($('#LakeName').val());
+        $('#searchlake').val($('#LakeName').val());
         if ($('#ViewBagLakeId').val() != '') {
             GetAdm1(); GetAdm2(); GetVHB(); GetVHU();
             SearchChange($('#ViewBagLakeId').val());

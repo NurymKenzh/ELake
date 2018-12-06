@@ -130,7 +130,7 @@
                                 <input id="LakeId" class="form-control form-control-lg" placeholder="Enter lake name...">
                             </div>
                             <div class="col-12 col-md-3">
-                                <button type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">@SharedLocalizer["Search"]</button>
+                                <button id="btnSearch" type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">@SharedLocalizer["Search"]</button>
                             </div>
                         </div>
                     </form>
@@ -172,6 +172,15 @@
         </div>
     </section>
 </body>
+
+<script>
+    $("#LakeId").keypress(function (event) {
+        if (event.which == 13) {
+            $("#btnSearch").click();
+            return false;
+        }
+    });
+</script>
 
 <script>
     function GoToLake() {
