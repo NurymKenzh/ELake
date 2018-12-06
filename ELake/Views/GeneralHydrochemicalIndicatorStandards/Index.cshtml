@@ -27,20 +27,18 @@
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
-            <div class="col-12 col-sm-2 col-md-8">
+            <div class="col-auto">
                 <p>
                     <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
                 </p>
             </div>
-            <div class="table-responsive-lg">
+            <div class="table-responsive">
                 @using (Html.BeginForm("Index", "GeneralHydrochemicalIndicatorStandards", new { SortOrder = ViewBag.SortOrder, Indicator = ViewBag.IndicatorFilter }, FormMethod.Get))
                 {
                     @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4">
-                                <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                                     @if (Model.Pager.CurrentPage > 1)
                                     {
                                         <li class="page-item page-link">
@@ -72,87 +70,51 @@
                                         </li>
                                     }
                                 </ul>
-                            </div>
-                        </div>
                     }
                     <table class="table table-striped table-bordered table-sm">
-                        <thead>
-                            <tr class="table-primary">
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-sm-4 my-1">
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col" class="align-middle" style="width: 130px;">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="Indicator">
+                                                @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().Indicator).ToString(), "Index",
+                                           new { SortOrder = ViewBag.IndicatorSort, Indicator = ViewBag.IndicatorFilter })
+                                            </label>
                                             @Html.Editor("Indicator", null, new { htmlAttributes = new { @class = "form-control is-valid", placeholder = SharedLocalizer["Indicator"] }, value = "" })
                                         </div>
-                                        <div class="col-sm-auto my-1">
-                                            @Html.ActionLink(Html.DisplayNameFor(b => b.Items.FirstOrDefault().Indicator).ToString(), "Index",
-                                           new { SortOrder = ViewBag.IndicatorSort, Indicator = ViewBag.IndicatorFilter })
-                                        </div>
-                                    </div>
+                                    </form>
                                 </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().Value)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().LowerLimit)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().UpperLimit)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MeasurementUnit)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().RegulatoryDocument)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-1">
-                                            <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary">
-                                        </div>
-                                    </div>
-                                </th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().Value)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().LowerLimit)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().UpperLimit)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MeasurementUnit)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().RegulatoryDocument)</th>
+                                <th scope="col" class="align-middle"><input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary"></th>
                             </tr>
                         </thead>
-                        @foreach (var item in Model.Items)
-                        {
-                        <tr>
-                            <th scope="row">@Html.DisplayFor(modelItem => item.Indicator)</th>
-                            <td>@Html.DisplayFor(modelItem => item.Value)</td>
-                            <td>@Html.DisplayFor(modelItem => item.LowerLimit)</td>
-                            <td>@Html.DisplayFor(modelItem => item.UpperLimit)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MeasurementUnit.Name)</td>
-                            <td>@Html.DisplayFor(modelItem => item.RegulatoryDocument.Name)</td>
-                            <td>
-                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        }
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <th scope="row">@Html.DisplayFor(modelItem => item.Indicator)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.Value)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.LowerLimit)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.UpperLimit)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MeasurementUnit.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.RegulatoryDocument.Name)</td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>                        
                     </table>
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                             @if (Model.Pager.CurrentPage > 1)
                             {
                                 <li class="page-item page-link">

@@ -27,20 +27,18 @@
                 <hr>
                 <p class="mb-0">There should be a description or video</p>
             </div>
-            <div class="col-12 col-sm-2 col-md-8">
+            <div class="col-auto">
                 <p>
                     <a class="btn btn-outline-success ml-1" asp-action="Create"><i class="fa fa-pencil"></i> @SharedLocalizer["Create"]</a>
                 </p>
             </div>
-            <div class="table-responsive-lg">
+            <div class="table-responsive" style="overflow-x: auto;">
                 @using (Html.BeginForm("Index", "NutrientsHeavyMetalsStandards", new {  }, FormMethod.Get))
                 {
                     @Html.Editor("SortOrder", null, new { htmlAttributes = new { @hidden = "hidden" }, value = ViewBag.SortOrder })
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <div class="row no-gutters">
-                            <div class="col-6 col-md-4">
-                                <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                                     @if (Model.Pager.CurrentPage > 1)
                                     {
                                         <li class="page-item page-link">
@@ -72,219 +70,75 @@
                                         </li>
                                     }
                                 </ul>
-                            </div>
-                        </div>
                     }
                     <table class="table table-striped table-bordered table-sm">
-                        <thead>
-                            <tr class="table-primary">
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().RegulatoryDocument)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCNH4)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCNO2)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCNO3)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCPPO4)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCCu)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCZn)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCMn)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCPb)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCNi)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCCd)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCCo)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassNH4)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassNO2)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassNO3)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassPPO4)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassCu)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassZn)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassMn)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassPb)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassNi)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassCd)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-2">
-                                            @Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassCo)
-                                        </div>
-                                    </div>
-                                </th>
-                                <th scope="col">
-                                    <div class="form-row align-items-center">
-                                        <div class="col-auto my-1">
-                                            <input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary">
-                                        </div>
-                                    </div>
-                                </th>
+                        <thead class="table-primary">
+                            <tr>
+                                <th scope="col" class="align-middle" style="min-width: 300px;">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().RegulatoryDocument)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCNH4)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCNO2)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCNO3)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCPPO4)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCCu)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCZn)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCMn)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCPb)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCNi)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCCd)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().MPCCo)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassNH4)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassNO2)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassNO3)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassPPO4)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassCu)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassZn)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassMn)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassPb)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassNi)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassCd)</th>
+                                <th scope="col" class="align-middle">@Html.DisplayNameFor(b => b.Items.FirstOrDefault().HazardClassCo)</th>
+                                <th scope="col" class="align-middle"><input type="submit" value="@SharedLocalizer["Find"]" class="btn btn-outline-primary"></th>
                             </tr>
                         </thead>
-                        @foreach (var item in Model.Items)
-                        {
-                        <tr>
-                            <th scope="row">@Html.DisplayFor(modelItem => item.RegulatoryDocument.Name)</th>
-                            <td>@Html.DisplayFor(modelItem => item.MPCNH4)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCNO2)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCNO3)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCPPO4)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCCu)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCZn)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCMn)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCPb)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCNi)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCCd)</td>
-                            <td>@Html.DisplayFor(modelItem => item.MPCCo)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassNH4)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassNO2)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassNO3)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassPPO4)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassCu)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassZn)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassMn)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassPb)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassNi)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassCd)</td>
-                            <td>@Html.DisplayFor(modelItem => item.HazardClassCo)</td>
-                            <td>
-                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        }
+                        <tbody>
+                            @foreach (var item in Model.Items)
+                            {
+                                <tr>
+                                    <th scope="row">@Html.DisplayFor(modelItem => item.RegulatoryDocument.Name)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCNH4)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCNO2)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCNO3)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCPPO4)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCCu)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCZn)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCMn)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCPb)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCNi)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCCd)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.MPCCo)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassNH4)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassNO2)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassNO3)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassPPO4)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassCu)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassZn)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassMn)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassPb)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassNi)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassCd)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.HazardClassCo)</td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-pencil-square-o"></i></a> |
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>                        
                     </table>
                     @if (Model.Pager.EndPage > 1)
                     {
-                        <ul class="pagination justify-content-end">
+                        <ul class="pagination justify-content-md-start">
                             @if (Model.Pager.CurrentPage > 1)
                             {
                                 <li class="page-item page-link">
