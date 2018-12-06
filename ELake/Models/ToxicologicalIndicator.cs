@@ -178,7 +178,7 @@ namespace ELake.Models
             {
                 if ((NH4 ?? 0) > 1)
                 {
-                    return NH4 * NutrientsHeavyMetalsStandard?.HazardClassNH4;
+                    return NH4 / NutrientsHeavyMetalsStandard?.HazardClassNH4;
                 }
                 return null;
             }
@@ -191,7 +191,7 @@ namespace ELake.Models
             {
                 if ((NO2 ?? 0) > 1)
                 {
-                    return NO2 * NutrientsHeavyMetalsStandard?.HazardClassNO2;
+                    return NO2 / NutrientsHeavyMetalsStandard?.HazardClassNO2;
                 }
                 return null;
             }
@@ -204,7 +204,7 @@ namespace ELake.Models
             {
                 if ((NO3 ?? 0) > 1)
                 {
-                    return NO3 * NutrientsHeavyMetalsStandard?.HazardClassNO3;
+                    return NO3 / NutrientsHeavyMetalsStandard?.HazardClassNO3;
                 }
                 return null;
             }
@@ -217,7 +217,7 @@ namespace ELake.Models
             {
                 if ((PPO4 ?? 0) > 1)
                 {
-                    return PPO4 * NutrientsHeavyMetalsStandard?.HazardClassPPO4;
+                    return PPO4 / NutrientsHeavyMetalsStandard?.HazardClassPPO4;
                 }
                 return null;
             }
@@ -230,7 +230,7 @@ namespace ELake.Models
             {
                 if ((Cu ?? 0) > 1)
                 {
-                    return Cu * NutrientsHeavyMetalsStandard?.HazardClassCu;
+                    return Cu / NutrientsHeavyMetalsStandard?.HazardClassCu;
                 }
                 return null;
             }
@@ -243,7 +243,7 @@ namespace ELake.Models
             {
                 if ((Zn ?? 0) > 1)
                 {
-                    return Zn * NutrientsHeavyMetalsStandard?.HazardClassZn;
+                    return Zn / NutrientsHeavyMetalsStandard?.HazardClassZn;
                 }
                 return null;
             }
@@ -256,7 +256,7 @@ namespace ELake.Models
             {
                 if ((Mn ?? 0) > 1)
                 {
-                    return Mn * NutrientsHeavyMetalsStandard?.HazardClassMn;
+                    return Mn / NutrientsHeavyMetalsStandard?.HazardClassMn;
                 }
                 return null;
             }
@@ -269,7 +269,7 @@ namespace ELake.Models
             {
                 if ((Pb ?? 0) > 1)
                 {
-                    return Pb * NutrientsHeavyMetalsStandard?.HazardClassPb;
+                    return Pb / NutrientsHeavyMetalsStandard?.HazardClassPb;
                 }
                 return null;
             }
@@ -282,7 +282,7 @@ namespace ELake.Models
             {
                 if ((Ni ?? 0) > 1)
                 {
-                    return Ni * NutrientsHeavyMetalsStandard?.HazardClassNi;
+                    return Ni / NutrientsHeavyMetalsStandard?.HazardClassNi;
                 }
                 return null;
             }
@@ -295,7 +295,7 @@ namespace ELake.Models
             {
                 if ((Cd ?? 0) > 1)
                 {
-                    return Cd * NutrientsHeavyMetalsStandard?.HazardClassCd;
+                    return Cd / NutrientsHeavyMetalsStandard?.HazardClassCd;
                 }
                 return null;
             }
@@ -308,7 +308,7 @@ namespace ELake.Models
             {
                 if ((Co ?? 0) > 1)
                 {
-                    return Co * NutrientsHeavyMetalsStandard?.HazardClassCo;
+                    return Co / NutrientsHeavyMetalsStandard?.HazardClassCo;
                 }
                 return null;
             }
@@ -319,7 +319,7 @@ namespace ELake.Models
         {
             get
             {
-                return (KIZVkoNH4 ?? 0) +
+                return ((KIZVkoNH4 ?? 0) +
                     (KIZVkoNO2 ?? 0) +
                     (KIZVkoNO3 ?? 0) +
                     (KIZVkoPPO4 ?? 0) +
@@ -329,7 +329,7 @@ namespace ELake.Models
                     (KIZVkoPb ?? 0) +
                     (KIZVkoNi ?? 0) +
                     (KIZVkoCd ?? 0) +
-                    (KIZVkoCo ?? 0); ;
+                    (KIZVkoCo ?? 0)) / 11;
             }
         }
 
