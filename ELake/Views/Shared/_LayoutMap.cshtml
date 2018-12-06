@@ -7,7 +7,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="~/images/brand/favicon.ico" type="image/x-icon">
-    <title>2018.12.04 - @ViewData["Title"] - ELake</title>
+    <title>@ViewData["Title"] - ELake</title>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -53,8 +53,9 @@
             <div class="navbar-holder d-flex align-items-center justify-content-between">
                 <!-- Navbar Header-->
                 <div class="navbar-header ml-3">
-                    <!-- Navbar Brand --><a href="index.html" class="navbar-brand d-none d-sm-inline-block">
-                        <div class="brand-text d-none d-lg-inline-block"><span>Menu </span></div>
+                    <!-- Navbar Brand -->
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand d-none d-sm-inline-block">
+                        <div class="brand-text d-none d-lg-inline-block"><span>ELake </span><strong> Menu</strong></div>
                     </a><!-- Toggle Button--><a id="toggle-btn" href="#" class="menu-btn active"><span></span><span></span><span></span></a>
                 </div>
                 <!-- Navbar Menu -->

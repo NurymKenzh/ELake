@@ -35,17 +35,21 @@
                 </div>
             </div>
             <!-- Sidebar Navidation Menus-->
-            <span class="heading">Озера</span>
-            <div class="col-sm-auto p-2">
-                <div class="input-group">
-                    <select id="LakeId" class="form-control" size="5" onchange="GetLakeGroup(); SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
-                    <select id="LakeGroup" class="form-control" size="5" onchange="SelectLakeZoom($('#LakeGroup').val().toString(), true)"></select>
-                </div>
-            </div>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled pt-0">
+                <li><span class="heading">Lakes</span></li>
                 <li>
-                    <a href="#filtertab1" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterKATO" onchange="SearchChange(0);"> <i class="icon-grid"></i>@SharedLocalizer["FilterKATO"]</a>
-                    <ul id="filtertab1" class="collapse collapse show ">
+                    <div class="col-sm-auto p-2">
+                        <div class="input-group">
+                            <select id="LakeId" class="form-control" size="5" onchange="GetLakeGroup(); SelectLakeZoom($('#LakeId').val().toString(), true)"></select>
+                            <label for="LakeGroup" class="sr-only">Group</label>
+                            <select id="LakeGroup" class="form-control" size="5" onchange="SelectLakeZoom($('#LakeGroup').val().toString(), true)"></select>
+                        </div>
+                    </div>
+                </li>
+                <li><span class="heading">Search with Filters</span></li>
+                <li>
+                    <a href="#filtertab1" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterKATO" onchange="SearchChange(0);"> <i class="fa fa-filter"></i>@SharedLocalizer["FilterKATO"]</a>
+                    <ul id="filtertab1" class="collapse">
                         <li>
                             <div class="col-sm-auto m-1">
                                 <div class="input-group">
@@ -83,7 +87,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#filtertab3" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterSystem" onchange="SearchChange(0);"><i class="fa fa-grav"></i>@SharedLocalizer["LakeSystem"]</a>
+                    <a href="#filtertab3" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterSystem" onchange="SearchChange(0);"><i class="icon-list"></i>@SharedLocalizer["LakeSystem"]</a>
                     <ul id="filtertab3" class="collapse list-unstyled ">
                         <li>
                             <div class="col-sm-auto m-1">
@@ -97,40 +101,54 @@
                         </li>
                     </ul>
                 </li>
+                <li><span class="heading">Extras</span></li>
                 <li>
-                    <a class="nav-link" asp-controller="Home" asp-action="Index">
-                        <i class="fa fa-home"></i>
-                        @SharedLocalizer["Home"]
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#Hydrology" aria-expanded="false" data-toggle="collapse"> <i class="icon-grid"></i>Tables </a>
-                    <ul id="Hydrology" class="collapse list-unstyled ">
+                    <a href="#Directories" aria-expanded="false" data-toggle="collapse"> <i class="icon-info"></i>@SharedLocalizer["Directories"]</a>
+                    <ul id="Directories" class="collapse list-unstyled ">
                         <li>
-                            <a href="#tab2">@SharedLocalizer["Hydrology"]</a>
+                            <a asp-controller="Lakes" asp-action="Index">@SharedLocalizer["Lakes"]</a>
+                            <a asp-controller="FishKinds" asp-action="Index">@SharedLocalizer["FishKinds"]</a>
+                            <a asp-controller="DocumentTypes" asp-action="Index">@SharedLocalizer["DocumentTypes"]</a>
                         </li>
-                        <li><a href="#">Page</a></li>
-                        <li><a href="#">Page</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#Tables" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-table"></i>@SharedLocalizer["Tables"]</a>
+                    <ul id="Tables" class="collapse list-unstyled ">
+                        <li>
+                            <a asp-controller="WaterBalances" asp-action="Index">@SharedLocalizer["Hydrology"]</a>
+                            <a asp-controller="GeneralHydrochemicalIndicators" asp-action="Index">@SharedLocalizer["Hydrochemistries"]</a>
+                            <a asp-controller="GeneralHydrobiologicalIndicators" asp-action="Index">@SharedLocalizer["Hydrobiology"]</a>
+                            <a asp-controller="Transitions" asp-action="Index">@SharedLocalizer["DynamicsLakeAreas"]</a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
             <span class="heading">Extras</span>
             <ul class="list-unstyled">
-                <li> <a href="#"> <i class="fa fa-tasks"></i>Demo </a></li>
+                <li> <a href="#"> <i class="fa fa-tag"></i>Demo </a></li>
                 <li> <a href="#"> <i class="fa fa-paper-plane-o"></i>Demo </a></li>
                 <li> <a href="#"> <i class="fa fa-paper-plane-o"></i>Demo </a></li>
                 <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
             </ul>
         </nav>
         <div class="content-inner">
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-holder container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#content1">@SharedLocalizer["BasicInfoLake"]</a></li>
+                    <li class="breadcrumb-item"><a href="#" id="BILAdm1"></a></li>
+                    <li class="breadcrumb-item active" id="BILName"> </li>
+                </ul>
+            </div>
             <!-- Page Header-->
             <!-- Map Section-->
-            <section class="mapsection p-3">
+            <section class="mapsection p-2">
                 <div class="container-fluid p-0">
                     <div class="row">
                         <!-- Maps-->
-                        <div class="col-lg-8">
+                        <div class="col-lg-9">
                             <div class="card">
                                 <div class="card-close">
                                     <div class="close">
@@ -142,8 +160,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Основная информация об озере-->
-                        <div class="col-lg-4">
+                        <!-- Legend-->
+                        <div class="col-lg-3 pl-0">
                             <div class="card no-margin-bottom">
                                 <div class="card-close">
                                     <div class="dropdown">
@@ -152,96 +170,57 @@
                                     </div>
                                 </div>
                                 <div class="card-header d-flex align-items-center text-white bg-success ">
-                                    <h3 class="h4">@SharedLocalizer["BasicInfoLake"]</h3>
+                                    <h3 class="h4">Legend</h3>
                                 </div>
                                 <div class="card-body no-padding">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-sm">
-                                            <tbody>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["Name"]</th>
-                                                    <td id="BILName"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["LakeId"]</th>
-                                                    <td id="LakeIdInfo"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["Adm1"]</th>
-                                                    <td id="BILAdm1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["Adm2"]</th>
-                                                    <td id="BILAdm2"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["VHB"]</th>
-                                                    <td id="BILVHB"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["VHU"]</th>
-                                                    <td id="BILVHU"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["Area2015"]</th>
-                                                    <td id="BILArea2015"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["LakeShorelineLength2015"]</th>
-                                                    <td id="BILLakeShorelineLength2015"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["Longitude"]</th>
-                                                    <td id="BILLongitude"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="pl-2" scope="row">@SharedLocalizer["Latitude"]</th>
-                                                    <td id="BILLatitude"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="line-chart-example card">
-                                <div class="card-close">
-                                    <div class="dropdown">
-                                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="dropdown">
-                                        <label>@SharedLocalizer["BaseLayer"]</label>
-                                        <input id="layerBaseShow" type="checkbox" checked="checked" onchange="ChangeLayers()" />
-                                        <select id="layerBaseType" class="form-control" onchange="ChangeLayers()">
-                                            <option value="OSM">OpenStreetMap</option>
-                                            <option value="BingAerialWithLabels">Bing Aerial</option>
-                                        </select>
-                                        <br />
-                                        <input id="layerBaseOpacity" type="range" min="0" max="100" value="100" style="width: 100%;" oninput="ChangeLayers()" />
-
-                                        <label>@SharedLocalizer["GlobalSurfaceWater"]</label>
-                                        <input id="layerGlobalSurfaceWaterShow" type="checkbox" onchange="ChangeLayers()" />
-                                        <select id="layerGlobalSurfaceWaterType" class="form-control" onchange="ChangeLayers()">
-                                            <option value="OccurrenceChangeIntensity">@SharedLocalizer["OccurrenceChangeIntensity"]</option>
-                                            <option value="Seasonality">@SharedLocalizer["Seasonality"]</option>
-                                            <option value="Occurrence">@SharedLocalizer["Occurrence"]</option>
-                                            <option value="Recurrence">@SharedLocalizer["Recurrence"]</option>
-                                            <option value="MaximumWaterExtent">@SharedLocalizer["MaximumWaterExtent"]</option>
-                                            <option value="Transitions">@SharedLocalizer["Transitions"]</option>
-                                        </select>
-                                        <br />
-                                        <input id="layerGlobalSurfaceWaterOpacity" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
-
-                                        <label>@SharedLocalizer["Lakes"]</label>
-                                        <input id="layerLakesShow" type="checkbox" checked="checked" onchange="ChangeLayers()" />
-                                        <br />
-                                        <input id="layerLakesOpacity" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
-
-                                        @*YearlyHistory*@
-                                    </div>
+                                    <form class="m-2">
+                                        <div class="form-group">
+                                            <label>@SharedLocalizer["Lakes"]</label>
+                                            <input id="layerLakesShow" type="checkbox" checked="checked" onchange="ChangeLayers()" /> <i href="#" class="material-icons btn-sm" data-toggle="modal" data-target="#Legend">info_outline</i>
+                                            <input id="layerLakesOpacity" class="custom-range" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
+                                        </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="Legend" tabindex="-1" role="dialog" aria-labelledby="Legend" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="Legend">Legend</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        ...
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="text-body">@SharedLocalizer["BaseLayer"]</label>
+                                            <input id="layerBaseShow" type="checkbox" checked="checked" onchange="ChangeLayers()" /><i class="material-icons btn-sm" id="legend" value="Легенда" onclick="NDVILegend()">info_outline</i>
+                                            <select id="layerBaseType" class="form-control form-control-sm" onchange="ChangeLayers()">
+                                                <option value="OSM">OpenStreetMap</option>
+                                                <option value="BingAerialWithLabels">Bing Aerial</option>
+                                            </select>
+                                            <input id="layerBaseOpacity" class="range" type="range" min="0" max="100" value="100" style="width: 100%;" oninput="ChangeLayers()" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>@SharedLocalizer["GlobalSurfaceWater"]</label>
+                                            <input id="layerGlobalSurfaceWaterShow" type="checkbox" onchange="ChangeLayers()" /><i class="material-icons btn-sm" id="legend" value="Легенда" onclick="NDVILegend()">info_outline</i>
+                                            <select id="layerGlobalSurfaceWaterType" class="form-control form-control-sm" onchange="ChangeLayers()">
+                                                <option value="OccurrenceChangeIntensity">@SharedLocalizer["OccurrenceChangeIntensity"]</option>
+                                                <option value="Seasonality">@SharedLocalizer["Seasonality"]</option>
+                                                <option value="Occurrence">@SharedLocalizer["Occurrence"]</option>
+                                                <option value="Recurrence">@SharedLocalizer["Recurrence"]</option>
+                                                <option value="MaximumWaterExtent">@SharedLocalizer["MaximumWaterExtent"]</option>
+                                                <option value="Transitions">@SharedLocalizer["Transitions"]</option>
+                                            </select>
+                                            <input id="layerGlobalSurfaceWaterOpacity" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -251,9 +230,9 @@
             <!-- List Section-->
             <header class="page-header pt-0">
                 <div class="container-fluid" id="maindiv">
-                    <div class='mtabs ml-2'>
+                    <div class='mtabs ml-0'>
                         <input id="tab1" type="radio" name="tabs" checked>
-                        <label for="tab1">@SharedLocalizer["BasicInfoLake"]</label>
+                        <label for="tab1">Сведение об озере</label>
                         <input id="tab2" type="radio" name="tabs">
                         <label for="tab2">@SharedLocalizer["Hydrology"]</label>
                         <input id="tab3" type="radio" name="tabs">
@@ -265,8 +244,71 @@
                         <section id="content1">
                             <div class="container-fluid  p-0">
                                 <div class="row">
+                                    <!--/.Основная информация об озере-->
+                                    <div class="col-md-4">
+                                        <div class="card no-margin-bottom">
+                                            <div class="card-close">
+                                                <div class="dropdown">
+                                                    <button type="button" id="closeCard1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                                                    <div aria-labelledby="closeCard1" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="card-header bg-transparent border-success ">
+                                                <h3 class="h4">@SharedLocalizer["BasicInfoLake"]</h3>
+                                            </div>
+                                            <div class="card-body no-padding">
+                                                <div class="table-responsive">
+                                                    <table class="table table-sm">
+                                                        <tbody>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["Name"]</th>
+                                                                <td id="BILName"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["LakeId"]</th>
+                                                                <td id="LakeIdInfo"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["Adm1"]</th>
+                                                                <td id="BILAdm1"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["Adm2"]</th>
+                                                                <td id="BILAdm2"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["VHB"]</th>
+                                                                <td id="BILVHB"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["VHU"]</th>
+                                                                <td id="BILVHU"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["Area2015"]</th>
+                                                                <td id="BILArea2015"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["LakeShorelineLength2015"]</th>
+                                                                <td id="BILLakeShorelineLength2015"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["Longitude"]</th>
+                                                                <td id="BILLongitude"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="pl-2" scope="row">@SharedLocalizer["Latitude"]</th>
+                                                                <td id="BILLatitude"></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                     <!--/.Архивные данные об озере-->
-                                    <div class="col-lg-6">
+                                    <div class="col-md-4">
                                         <div class="card no-margin-bottom">
                                             <div class="card-close">
                                                 <div class="dropdown">
@@ -274,7 +316,7 @@
                                                     <div aria-labelledby="closeCard3" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
                                                 </div>
                                             </div>
-                                            <div class="card-header d-flex align-items-center">
+                                            <div class="card-header bg-transparent border-success">
                                                 <h3 class="h4">@SharedLocalizer["LakeArchiveData"]</h3>
                                             </div>
                                             <div class="card-body no-padding">
@@ -326,7 +368,7 @@
                                         </div>
                                     </div>
                                     <!--/.Глобальные данные об озере-->
-                                    <div class="col-lg-6">
+                                    <div class="col-md-4">
                                         <div class="card no-margin-bottom">
                                             <div class="card-close">
                                                 <div class="dropdown">
@@ -334,7 +376,7 @@
                                                     <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Скрыть</a></div>
                                                 </div>
                                             </div>
-                                            <div class="card-header d-flex align-items-center">
+                                            <div class="card-header bg-transparent border-success">
                                                 <h3 class="h4">@SharedLocalizer["LakeGlobalData"]</h3>
                                             </div>
                                             <div class="card-body no-padding">
@@ -407,6 +449,19 @@
                     </div>
                 </div>
             </header>
+            <!-- Page Footer-->
+            <footer class="main-footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>ELake &copy; 2018</p>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 </div>
@@ -1627,7 +1682,7 @@
         $.ajax({
             url: '@Url.Action("GetLakes")',
             data: {
-                Search: $('#searchlike').val(),
+                Search: $('#searchlake').val(),
                 Adm1KATOId: Adm1KATOId,
                 Adm2KATOId: Adm2KATOId,
                 VHB: VHB,
@@ -1662,7 +1717,7 @@
         $.ajax({
             url: '@Url.Action("GetAdm1")',
             data: {
-                Search: $('#searchlike').val()
+                Search: $('#searchlake').val()
             },
             type: 'POST',
             success: function (data) {
@@ -1683,7 +1738,7 @@
         $.ajax({
             url: '@Url.Action("GetAdm2")',
             data: {
-                Search: $('#searchlike').val(),
+                Search: $('#searchlake').val(),
                 Adm1KATOId: $('#adm1').val()
             },
             type: 'POST',
@@ -1705,7 +1760,7 @@
         $.ajax({
             url: '@Url.Action("GetVHB")',
             data: {
-                Search: $('#searchlike').val()
+                Search: $('#searchlake').val()
             },
             type: 'POST',
             success: function (data) {
@@ -1726,7 +1781,7 @@
         $.ajax({
             url: '@Url.Action("GetVHU")',
             data: {
-                Search: $('#searchlike').val(),
+                Search: $('#searchlake').val(),
                 VHB: $('#svhb').val()
             },
             type: 'POST',
@@ -1749,7 +1804,7 @@
         $.ajax({
             url: '@Url.Action("GetSystem")',
             data: {
-                Search: $('#searchlike').val()
+                Search: $('#searchlake').val()
             },
             type: 'POST',
             success: function (data) {
@@ -1764,7 +1819,7 @@
     }
 
     function ResetSearch() {
-        $('#searchlike').val('');
+        $('#searchlake').val('');
         GetAdm1();
         GetAdm2();
         GetVHB();
@@ -1783,7 +1838,7 @@
     $(document).ready(function () {
         $("#LakeGroup").hide();
         ChangeDataType();
-        $('#searchlike').val($('#LakeName').val());
+        $('#searchlake').val($('#LakeName').val());
         if ($('#ViewBagLakeId').val() != '') {
             GetAdm1(); GetAdm2(); GetVHB(); GetVHU();
             SearchChange($('#ViewBagLakeId').val());
