@@ -244,7 +244,7 @@
     <value>Карты</value>
   </data>
   <data name="Mg" xml:space="preserve">
-    <value>MG²⁺, катионы магния, мг-экв/дм³</value>
+    <value>Mg²⁺, катионы магния, мг-экв/дм³</value>
   </data>
   <data name="Mineralization" xml:space="preserve">
     <value>Значение минерализации, мг/дм³</value>
@@ -1015,7 +1015,7 @@
     <value>Ca²⁺, катионы кальция, мг/дм³</value>
   </data>
   <data name="CaMgEq" xml:space="preserve">
-    <value>Ca²⁺, катионы кальция, мг-экв/дм³</value>
+    <value>Ca²⁺, ионы кальция, %-экв</value>
   </data>
   <data name="CaPerEq" xml:space="preserve">
     <value>Ca²⁺, катионы кальция, %-экв</value>
@@ -1027,7 +1027,7 @@
     <value>Cl⁻, хлоридные анионы, мг/дм³</value>
   </data>
   <data name="ClMgEq" xml:space="preserve">
-    <value>Cl⁻, хлоридные анионы, мг-экв/дм³</value>
+    <value>Cl⁻, хлорид ионы, %-экв</value>
   </data>
   <data name="ClPerEq" xml:space="preserve">
     <value>Cl⁻, хлоридные анионы, %-экв</value>
@@ -1036,7 +1036,7 @@
     <value>HCO₃⁻, гидрокорбонатные анионы, мг/дм³</value>
   </data>
   <data name="HCOMgEq" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонатные анионы, мг-экв/дм³</value>
+    <value>HCO₃⁻, гидрокорбонатные ионы, %-экв</value>
   </data>
   <data name="HCOPerEq" xml:space="preserve">
     <value>HCO₃⁻, гидрокорбонатные анионы, %-экв</value>
@@ -1054,19 +1054,19 @@
     <value>Сумма ионов в %-экв</value>
   </data>
   <data name="MgMg" xml:space="preserve">
-    <value>MG²⁺, катионы магния, мг/дм³</value>
+    <value>Mg²⁺, катионы магния, мг/дм³</value>
   </data>
   <data name="MgMgEq" xml:space="preserve">
-    <value>MG²⁺, катионы магния, мг-экв/дм³</value>
+    <value>Mg²⁺, ионы магния, %-экв</value>
   </data>
   <data name="MgPerEq" xml:space="preserve">
-    <value>MG²⁺, катионы магния, %-экв</value>
+    <value>Mg²⁺, катионы магния, %-экв</value>
   </data>
   <data name="NaKMg" xml:space="preserve">
     <value>Na⁺+K⁺, катионы натрий калия, мг/дм³</value>
   </data>
   <data name="NaKMgEq" xml:space="preserve">
-    <value>Na⁺+K⁺, катионы натрий калия, мг-экв/дм³</value>
+    <value>Na⁺+K⁺, ионы натрий калия, %-экв</value>
   </data>
   <data name="NaKPerEq" xml:space="preserve">
     <value>Na⁺+K⁺, катионы натрий калия, %-экв</value>
@@ -1075,7 +1075,7 @@
     <value>SO₄²⁻, сульфатные анионы, мг/дм³</value>
   </data>
   <data name="SOMgEq" xml:space="preserve">
-    <value>SO₄²⁻, сульфатные анионы, мг-экв/дм³</value>
+    <value>SO₄²⁻, сульфат ионы, %-экв</value>
   </data>
   <data name="SOPerEq" xml:space="preserve">
     <value>SO₄²⁻, сульфатные анионы, %-экв</value>
