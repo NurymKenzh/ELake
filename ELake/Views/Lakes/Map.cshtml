@@ -27,7 +27,7 @@
             <!-- Statistics Header-->
             <div class="sidebar-header d-flex align-items-center p-0">
                 <div class="statistic d-flex align-items-center">
-                    <div class="icon bg-red"><i class="fa  fa-paper-plane-o"></i></div>
+                    <div class="icon bg-orange"><i class="fa  fa-paper-plane-o"></i></div>
                     <div class="title">
                         <h1 class="h3" id="foundLakes"></h1>
                         <p>@SharedLocalizer["Found"]</p>
@@ -48,7 +48,7 @@
                 </li>
                 <li><span class="heading">Search with Filters</span></li>
                 <li>
-                    <a href="#filtertab1" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterKATO" onchange="SearchChange(0);"> <i class="fa fa-filter"></i>@SharedLocalizer["FilterKATO"]</a>
+                    <a href="#filtertab1" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterKATO" onchange="SearchChange(0);"> <i class="icon-grid"></i>@SharedLocalizer["FilterKATO"]</a>
                     <ul id="filtertab1" class="collapse">
                         <li>
                             <div class="col-sm-auto m-1">
@@ -67,7 +67,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#filtertab2" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterVHBVHU" onchange="SearchChange(0);"> <i class="fa fa-tasks"></i>@SharedLocalizer["FilterVHBVHU"]</a>
+                    <a href="#filtertab2" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterVHBVHU" onchange="SearchChange(0);"> <i class="fa fa-th-list"></i>@SharedLocalizer["FilterVHBVHU"]</a>
                     <ul id="filtertab2" class="collapse list-unstyled ">
                         <li>
                             <div class="col-sm-auto m-1">
@@ -176,27 +176,8 @@
                                     <form class="m-2">
                                         <div class="form-group">
                                             <label>@SharedLocalizer["Lakes"]</label>
-                                            <input id="layerLakesShow" type="checkbox" checked="checked" onchange="ChangeLayers()" /> <i href="#" class="material-icons btn-sm" data-toggle="modal" data-target="#Legend">info_outline</i>
+                                            <input id="layerLakesShow" type="checkbox" checked="checked" onchange="ChangeLayers()" />
                                             <input id="layerLakesOpacity" class="custom-range" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
-                                        </div>
-                                        <!-- Modal -->
-                                        <div class="modal fade" id="Legend" tabindex="-1" role="dialog" aria-labelledby="Legend" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="Legend">Legend</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        ...
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="text-body">@SharedLocalizer["BaseLayer"]</label>
@@ -209,7 +190,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>@SharedLocalizer["GlobalSurfaceWater"]</label>
-                                            <input id="layerGlobalSurfaceWaterShow" type="checkbox" onchange="ChangeLayers()" /><i class="material-icons btn-sm" id="legend" value="Легенда" onclick="NDVILegend()">info_outline</i>
+                                            <input id="layerGlobalSurfaceWaterShow" type="checkbox" onchange="ChangeLayers()" /><i href="#" class="material-icons btn-sm" data-toggle="modal" data-target="#Legend" style="cursor: pointer;">info_outline</i>
                                             <select id="layerGlobalSurfaceWaterType" class="form-control form-control-sm" onchange="ChangeLayers()">
                                                 <option value="OccurrenceChangeIntensity">@SharedLocalizer["OccurrenceChangeIntensity"]</option>
                                                 <option value="Seasonality">@SharedLocalizer["Seasonality"]</option>
@@ -219,6 +200,25 @@
                                                 <option value="Transitions">@SharedLocalizer["Transitions"]</option>
                                             </select>
                                             <input id="layerGlobalSurfaceWaterOpacity" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
+                                        </div>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="Legend"  role="dialog" aria-labelledby="Legend" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header p-1">
+                                                        <h5 class="modal-title" id="Legend">Legend</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        ...
+                                                    </div>
+                                                    <div class="modal-footer p-1">
+                                                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>

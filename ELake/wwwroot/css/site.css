@@ -137,16 +137,16 @@ header.masthead {
             font-size: 5rem;
         }
 
-.testimonials {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+.greeting {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
-    .testimonials .testimonial-item {
+    .greeting .testimonial-item {
         max-width: 18rem;
     }
 
-        .testimonials .testimonial-item img {
+        .greeting .testimonial-item img {
             max-width: 12rem;
             box-shadow: 0 5px 5px 0 #adb5bd;
         }
@@ -311,6 +311,18 @@ header.masthead {
 .mtabs label:hover {
     color: #ffc107;
     cursor: pointer;
+}
+.panel-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
 }
 
 input:checked + label {

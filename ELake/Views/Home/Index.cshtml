@@ -9,30 +9,9 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery-ui/jquery-ui.js"></script>
 
-<style>
-    .ui-autocomplete {
-        max-height: 100px;
-        overflow-y: auto;
-        /* prevent horizontal scrollbar */
-        overflow-x: hidden;
-    }
-    /* IE 6 doesn't support max-height
-    * we use height instead, but this forces the menu to always be this tall
-    */
-    * html .ui-autocomplete {
-        height: 100px;
-    }
-</style>
+
 
 <body>
-
-    <!-- Navigation -->
-    @*<nav class="navbar navbar-light bg-light static-top">
-            <div class="container">
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" rel="#">ELake</a>
-                <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer["LogIn"]</a>
-            </div>
-        </nav>*@
 
     <header>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -83,7 +62,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <a class="btn-default" asp-controller="Lakes" asp-action="Map">
+                        <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Map">
                             <div class="features-icons-icon d-flex">
                                 <i class="icon-magnifier m-auto text-primary"></i>
                             </div>
@@ -94,16 +73,18 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <div class="features-icons-icon d-flex">
-                            <i class="icon-layers m-auto text-primary"></i>
-                        </div>
-                        <h3>Mapping Services</h3>
+                        <a class="btn btn-outline-light" asp-controller="Layers" asp-action="Index">
+                            <div class="features-icons-icon d-flex">
+                                <i class="icon-layers m-auto text-primary"></i>
+                            </div>
+                        </a>
+                        <h3>Layer Services</h3>
                         <p class="lead mb-0">We process customer-collected data using specialized software to generate bathymetric maps of waterbodies</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                        <a class="btn-default" asp-controller="Lakes" asp-action="Analytics">
+                        <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Analytics">
                             <div class="features-icons-icon d-flex">
                                 <i class="icon-settings m-auto text-primary"></i>
                             </div>
@@ -125,9 +106,9 @@
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     <form>
-                        <div class="form-row">
+                        <div class="form-row" id="LakeId">
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
-                                <input id="LakeId" class="form-control form-control-lg" placeholder="Enter lake name...">
+                                <input id="LakeId" class="form-control form-control-lg" placeholder="Enter lake name..." onclick="GoToLake()">
                             </div>
                             <div class="col-12 col-md-3">
                                 <button type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">@SharedLocalizer["Search"]</button>
@@ -138,11 +119,28 @@
             </div>
         </div>
     </section>
-    <!-- Testimonials -->
-    <section class="testimonials text-center bg-light">
-        <img class="mb-2" src="~/images/ELake v02.png" alt="" height="150">
-        <h2>Welcome to the Water Atlas</h2>
-        <p class="lead mb-0">The Water Atlas Program was designed to help meet the needs of local governments by providing the means through technology to connect multiple stakeholders in water resource management. The Atlas serves as a one-stop data warehouse, which provides unprecedented access to a wealth of water resource information. This information is presented in a variety of ways, including interactive graphs, tables, maps and graphics, so as to be understandable to both water research professionals and those people simply interested in learning more about the water resources within their area.</p>
+    <!-- Greeting -->
+    <section class="greeting text-center bg-light">
+        <img class="mb-0" src="~/images/ELake v02.png" alt="" height="150">
+        <h2>Welcome to the web application &quot;Lake Kazakhstan!&quot;</h2>
+        <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+            The beta version of the web application on the lakes of Kazakhstan was developed by the
+            Institute of Geography of the Republic of Kazakhstan in 2018. The digital resource is intended
+            for a wide range of users, including hydrologists, scientists, engineers, users of nature, students,
+            decision-makers in the field of water resources and those people who just want to learn more
+            about the lakes of the country.
+        </p>
+        <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+            The web application contains general characteristics of lakes, data on the water-resource
+            potential of lakes, the quality of lake waters, hydrobiological and tourist-recreational potential of
+            lakes. The information is presented in various forms, in the form of interactive maps, tables and
+            graphs.
+            We sought to make a digital resource that educates citizens about the data presented and
+            gives scientists easy access to the specialized information they need. We recommend that you
+            use the web application as a tool to assist in the conservation and rational use of vital water
+            resources.
+        </p>
+
     </section>
     <!-- Image Showcases -->
     <section class="showcase pb-5">
