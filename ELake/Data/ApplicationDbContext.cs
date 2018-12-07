@@ -21,6 +21,30 @@ namespace ELake.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
+
+            builder.Entity<WaterBalance>()
+                .HasIndex(w => w.LakeId);
+            builder.Entity<LakesArchiveData>()
+                .HasIndex(l => l.LakeId);
+            builder.Entity<LakesGlobalData>()
+                .HasIndex(l => l.LakeId);
+
+            builder.Entity<Transition>()
+                .HasIndex(l => l.LakeId);
+            builder.Entity<Seasonalit>()
+                .HasIndex(l => l.LakeId);
+            builder.Entity<WaterLevel>()
+                .HasIndex(l => l.LakeId);
+            builder.Entity<BathigraphicAndVolumetricCurveData>()
+                .HasIndex(l => l.LakeId);
+            builder.Entity<GeneralHydrochemicalIndicator>()
+                .HasIndex(l => l.LakeId);
+            builder.Entity<IonsaltWaterComposition>()
+                .HasIndex(l => l.LakeId);
+            builder.Entity<ToxicologicalIndicator>()
+                .HasIndex(l => l.LakeId);
+            builder.Entity<DynamicsLakeArea>()
+                .HasIndex(l => l.LakeId);
         }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }

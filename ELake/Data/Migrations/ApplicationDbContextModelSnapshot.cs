@@ -86,6 +86,8 @@ namespace ELake.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LakeId");
+
                     b.ToTable("BathigraphicAndVolumetricCurveData");
                 });
 
@@ -119,6 +121,8 @@ namespace ELake.Data.Migrations
                     b.Property<int>("Year");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LakeId");
 
                     b.ToTable("DynamicsLakeArea");
                 });
@@ -223,6 +227,8 @@ namespace ELake.Data.Migrations
                     b.Property<decimal?>("pH");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LakeId");
 
                     b.ToTable("GeneralHydrochemicalIndicator");
                 });
@@ -340,6 +346,8 @@ namespace ELake.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LakeId");
+
                     b.ToTable("IonsaltWaterComposition");
                 });
 
@@ -442,6 +450,8 @@ namespace ELake.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LakeId");
+
                     b.ToTable("LakesArchiveData");
                 });
 
@@ -497,6 +507,8 @@ namespace ELake.Data.Migrations
                     b.Property<decimal?>("Wshd_area");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LakeId");
 
                     b.ToTable("LakesGlobalData");
                 });
@@ -856,6 +868,8 @@ namespace ELake.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LakeId");
+
                     b.ToTable("Seasonalit");
                 });
 
@@ -926,6 +940,8 @@ namespace ELake.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LakeId");
+
                     b.ToTable("ToxicologicalIndicator");
                 });
 
@@ -959,6 +975,8 @@ namespace ELake.Data.Migrations
                     b.Property<decimal>("SeasonalToPermanent");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LakeId");
 
                     b.ToTable("Transition");
                 });
@@ -1018,6 +1036,8 @@ namespace ELake.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LakeId");
+
                     b.ToTable("WaterBalance");
                 });
 
@@ -1033,6 +1053,8 @@ namespace ELake.Data.Migrations
                     b.Property<int>("Year");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LakeId");
 
                     b.ToTable("WaterLevel");
                 });
