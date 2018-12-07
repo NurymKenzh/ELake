@@ -1,1 +1,292 @@
 ﻿
+<head>
+    <!-- theme stylesheet-->
+    <link href="~/lib/distribution/css/style.green.css" rel="stylesheet" id="theme-stylesheet" />
+    <!-- Custom stylesheet - for your changes-->
+    <link href="~/lib/distribution/css/custom.css" rel="stylesheet" />
+</head>
+
+<header class="page-header">
+    <div class="container-fluid">
+        <h2 class="no-margin-bottom">Dashboard</h2>
+    </div>
+</header>
+<!-- Dashboard Header Section    -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="list-group ">
+                <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
+                <a href="#" class="list-group-item list-group-item-action">User Management</a>
+                <a href="#" class="list-group-item list-group-item-action">Used</a>
+                <a href="#" class="list-group-item list-group-item-action">Enquiry</a>
+                <a href="#" class="list-group-item list-group-item-action">Dealer</a>
+                <a href="#" class="list-group-item list-group-item-action">Media</a>
+                <a href="#" class="list-group-item list-group-item-action">Post</a>
+                <a href="#" class="list-group-item list-group-item-action">Category</a>
+                <a href="#" class="list-group-item list-group-item-action">New</a>
+                <a href="#" class="list-group-item list-group-item-action">Comments</a>
+                <a href="#" class="list-group-item list-group-item-action">Appearance</a>
+                <a href="#" class="list-group-item list-group-item-action">Reports</a>
+                <a href="#" class="list-group-item list-group-item-action">Settings</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 border-right">
+                            <h4>Add New Post</h4>
+                        </div>
+                        <div class="col-md-7">
+                            <button type="button" class="btn btn-sm btn-primary">Add New</button>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <form>
+                                <div class="form-group row">
+                                    <label for="text" class="col-12 col-form-label">Enter Title here</label>
+                                    <div class="col-12">
+                                        <input id="text" name="text" placeholder="Enter Title here" class="form-control here" required="required" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="textarea" class="col-12 col-form-label">Visual Editor</label>
+                                    <div class="col-12">
+                                        <textarea id="textarea" name="textarea" cols="40" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="card mb-3" style="max-width: 18rem;">
+                                <div class="card-header bg-light ">Publish</div>
+                                <div class="card-body">
+
+                                </div>
+                                <div class="card-footer bg-light">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm">Preview</button>
+                                    <button type="button" class="btn btn-info btn-sm">Save Draft</button>
+                                    <button type="button" class="btn btn-primary btn-sm">Publish</button>
+                                </div>
+                            </div>
+                            <div class="card mb-3" style="max-width: 18rem;">
+                                <div class="card-header bg-light ">Tags</div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-group row">
+                                            <div class="col-9">
+                                                <input id="tags" name="tags" placeholder="seperate with commas" required="required" class="form-control here" type="text">
+                                            </div>
+                                            <div class=" col-2">
+                                                <button name="submit" type="submit" class="btn btn-light">Add</button>
+                                            </div>
+                                            <div class="col-12">
+                                                <small>Seperate Tags with commas</small>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                                <div class="card-footer bg-light">
+                                    <a href="#">Choose from the most used tags</a>
+                                </div>
+                            </div>
+                            <div class="card mb-3" style="max-width: 18rem;">
+                                <div class="card-header bg-light ">Categories</div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-group row">
+                                            <div class="col-9">
+                                                <input id="tags" name="tags" placeholder=" " required="required" class="form-control here" type="text">
+                                            </div>
+                                            <div class=" col-2">
+                                                <button name="submit" type="submit" class="btn btn-light">Add</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                    <form>
+                                        <div class="form-group row">
+                                            <label for="select" class="col-12 col-form-label">Select Category</label>
+                                            <div class="col-8">
+                                                <select id="select" name="select" class="custom-select" required="required">
+                                                    <option value="rabbit">Rabbit</option>
+                                                    <option value="duck">Duck</option>
+                                                    <option value="fish">Fish</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer bg-light">
+                                    <button type="button" class="btn btn-primary btn-sm">Add New Category</button>
+                                </div>
+                            </div>
+                            <div class="card mb-3" style="max-width: 18rem;">
+                                <div class="card-header bg-light ">Featured Image</div>
+                                <div class="card-body">
+
+                                </div>
+                                <div class="card-footer bg-light">
+                                    <a href="#">Set Featured Image</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Trending Articles-->
+        <div class="col-lg-6">
+            <div class="articles card">
+                <div class="card-close">
+                    <div class="dropdown">
+                        <button type="button" id="closeCard4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
+                        <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
+                    </div>
+                </div>
+                <div class="card-header d-flex align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" title="Bold">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" title="Italic">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" title="Underline">
+                            <i class="fa fa-angle-right"></i>
+                        </button>
+                        <button type="button" class="btn btn-default" data-toggle="tooltip" title="Strikethrough">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body no-padding">
+                </div>
+            </div>
+        </div>
+        <!-- Check List -->
+
+    </div>
+</div>
+
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="logo-wrapper">
+                <div id="logo">❬✉️❭</div>
+                <h1>HTML E-mail Builder</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="">Width:</label><input type="number" id="tablewidth" class="form-control" value="600" style="width:100px; display:inline; margin-left: 10px;" /> px.
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Templates</h5>
+            <button id="html-email" class="btn btn-primary btn-md">HTML e-mail template</button>
+            <button id="reset-classes" class="btn btn-primary btn-md">Reset CSS</button>
+            <button id="dev-classes" class="btn btn-primary btn-md">Development Classes</button>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Layout</h5>
+            <button id="create-table" class="btn btn-primary btn-md">Create table</button>
+            <button id="create-cols" class="btn btn-primary btn-md">Create columns</button>
+            <button id="create-rows" class="btn btn-primary btn-md">Create rows</button>
+            <button id="create-link" class="btn btn-primary btn-md">Create link</button>
+            <button id="create-button" class="btn btn-primary btn-md">Create button</button>
+            <buttom id="empty-td" class="btn btn-primary btn-md">Empty cell</buttom>
+            <button id="create-image" class="btn btn-primary btn-md">Image</button>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Tools</h5>
+            <button id="create-hr" class="btn btn-secondary btn-sm">Create spacer</button>
+            <button id="create-vml-button" class="btn btn-secondary btn-sm">Create VML button</button>
+            <button id="unclosed-tag-finder-button" class="btn btn-secondary btn-sm">Unclosed tag finder</button>
+            <button id="media-query" class="btn btn-secondary btn-sm">Media Query</button>
+            <button id="short-tags" class="btn btn-secondary btn-sm">Apply Snippets</button>
+            <button id="remove-comments" class="btn btn-secondary btn-sm">Remove comments</button>
+            <h6>ASCII entities</h6>
+            <button class="ascii btn btn-primary btn-sm" data-ascii="\&bull\;">•</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&lsquo\; \&rsquo\;">‘ ’</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&ldquo\; \&rdquo\;">“ ”</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&ndash\;">–</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&mdash\;">—</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#10072\;">❘</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\copy\;">©</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\reg\;">®</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&trade\;">™</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\cent\;">¢</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\pound\;">£</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\euro\;">€</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\yen\;">¥</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#9658\;">►</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#10140\;">➜</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\rarr\;">→</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#10093\;">❭</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#10095\;">❯</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#10097\;">❱</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#10006\;">✖</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\star\;">&star;</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\starf\;">&starf;</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\phone\;">&phone;</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\check\;">&check;</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\cross\;">&cross;</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\hearts\;">♥</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#10052\;">❄</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#9729\;">☁</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#9728\;">☀</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#9835\;">♫</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#9776\;">☰</button>
+            <button class="ascii btn btn-secondary btn-sm" data-ascii="\&\#10005\;">✕</button>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group" id="code-wrapper">
+                <textarea name="" id="code" cols="30" rows="10" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="unclosed-tag-finder-results"></div>
+            <pre id="unclosed-tag-finder-code"></pre>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button id="width-1" class="btn btn-sm btn-secondary">
+                /div>
+        </div>
+        /div>
+    </div>
+    /div>
+</div>
