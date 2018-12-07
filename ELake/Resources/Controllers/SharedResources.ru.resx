@@ -1084,16 +1084,16 @@
     <value>Cа</value>
   </data>
   <data name="Cd" xml:space="preserve">
-    <value>Cd</value>
+    <value>Кадмий Cd</value>
   </data>
   <data name="ChlorideClass" xml:space="preserve">
     <value>Cl</value>
   </data>
   <data name="Co" xml:space="preserve">
-    <value>Co</value>
+    <value>Кобальт Co</value>
   </data>
   <data name="Cu" xml:space="preserve">
-    <value>Cu</value>
+    <value>Медь Cu</value>
   </data>
   <data name="DocumentType" xml:space="preserve">
     <value>Тип документа</value>
@@ -1183,25 +1183,25 @@
     <value>Mg</value>
   </data>
   <data name="Mn" xml:space="preserve">
-    <value>Mn</value>
+    <value>Марганец Mn</value>
   </data>
   <data name="NH4" xml:space="preserve">
-    <value>NH₄</value>
+    <value>Аммоний-ион NH₄⁺</value>
   </data>
   <data name="Ni" xml:space="preserve">
-    <value>Ni</value>
+    <value>Никель Ni</value>
   </data>
   <data name="NO2" xml:space="preserve">
-    <value>NO₂</value>
+    <value>Нитрит-анион NO₂⁻</value>
   </data>
   <data name="NO3" xml:space="preserve">
-    <value>NO₃</value>
+    <value>Нитрат-анион NO₃⁻</value>
   </data>
   <data name="Pb" xml:space="preserve">
-    <value>Pb</value>
+    <value>Свинец Pb</value>
   </data>
   <data name="PPO4" xml:space="preserve">
-    <value>PPO₄</value>
+    <value>Фосфаты PPO₄⁻</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value>Na</value>
@@ -1234,7 +1234,7 @@
     <value>Тип воды</value>
   </data>
   <data name="Zn" xml:space="preserve">
-    <value>Zn</value>
+    <value>Цинк Zn</value>
   </data>
   <data name="Archival" xml:space="preserve">
     <value>Архивный</value>
