@@ -62,14 +62,17 @@
                     <!-- Search-->
                     <li class="nav-item d-flex align-items-center"><a id="search" href="#"><i class="fa fa-search"></i></a></li>
 
+                    <li>
+                        <a class="float-right text-muted">@await Html.PartialAsync("_SelectLanguagePartial - Copy")</a>
+                        </li>
                     <!-- Languages dropdown    -->
-                    <li class="nav-fill dropdown">
+                    @*<li class="nav-fill dropdown">
                         <a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle"><img src="~/images/ru.png" alt="English"><span class="d-none d-sm-inline-block">Русский</span></a>
                         <ul aria-labelledby="languages" class="dropdown-menu">
                             <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="~/images/kz.png" alt="English" class="mr-2">Қазақ</a></li>
                             <li><a rel="nofollow" href="#" class="dropdown-item"> <img src="~/images/gb.png" alt="English" class="mr-2">English</a></li>
                         </ul>
-                    </li>
+                    </li>*@
                     <!-- Logout    -->
                     <li class="nav-link">@await Html.PartialAsync("_LoginPartial")</li>
                 </ul>

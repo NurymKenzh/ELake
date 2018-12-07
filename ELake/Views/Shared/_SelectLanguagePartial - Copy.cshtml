@@ -1,0 +1,162 @@
+﻿<link href="~/lib/jquery-ui/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-ui/jquery-ui.js"></script>
+
+@{
+    //var culture = "en";
+    //var returnUrl = string.IsNullOrEmpty(Context.Request.Path) ? "~/" : $"~{Context.Request.Path.Value + Context.Request.QueryString.Value}";
+}
+
+<!-- Languages dropdown    -->
+@*<form id="selectLanguage" asp-controller="Home" asp-action="SetLanguage" asp-route-culture="@culture" asp-route-returnUrl="@returnUrl" method="post" class="form-horizontal" role="form">*@
+<li class="nav-fill dropdown">
+    <a id="languages" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link language dropdown-toggle" style="visibility:hidden"><img id="imgMain" src="~/images/ru.png" alt="Русский"><span id="spanMain" class="d-none d-sm-inline-block">Русский</span></a>
+    <ul aria-labelledby="languages" class="dropdown-menu">
+        <li><a id="lang2" rel="nofollow" href="#" class="dropdown-item"> <img id="img2" src="~/images/gb.png" alt="English" class="mr-2">English</a></li>
+        <li><a id="lang3" rel="nofollow" href="#" class="dropdown-item"> <img id="img3" src="~/images/kz.png" alt="Қазақ" class="mr-2">Қазақ</a></li>
+    </ul>
+</li>
+
+<script>
+        $("#lang2").on('click', function () {
+            var culture = "";
+            if (document.getElementById("lang2").lastChild.data == "English") {
+                culture = "en";
+
+                sessionStorage.setItem('img1', '/images/gb.png');
+                sessionStorage.setItem('alt1', 'English');
+                sessionStorage.setItem('span', 'English');
+
+                sessionStorage.setItem('img2', '/images/ru.png');
+                sessionStorage.setItem('alt2', 'Русский');
+                sessionStorage.setItem('lang2', 'Русский');
+
+                sessionStorage.setItem('img3', '/images/kz.png');
+                sessionStorage.setItem('alt3', 'Қазақ');
+                sessionStorage.setItem('lang3', 'Қазақ');
+            }
+            if (document.getElementById("lang2").lastChild.data == "Русский") {
+                culture = "ru";
+
+                sessionStorage.setItem('img1', '/images/ru.png');
+                sessionStorage.setItem('alt1', 'Русский');
+                sessionStorage.setItem('span', 'Русский');
+
+                sessionStorage.setItem('img2', '/images/gb.png');
+                sessionStorage.setItem('alt2', 'English');
+                sessionStorage.setItem('lang2', 'English');
+
+                sessionStorage.setItem('img3', '/images/kz.png');
+                sessionStorage.setItem('alt3', 'Қазақ');
+                sessionStorage.setItem('lang3', 'Қазақ');
+            }
+            var returnUrl = "";
+            if ('@string.IsNullOrEmpty(Context.Request.Path)') {
+                returnUrl = "~/";
+            }
+            else {
+                returnUrl = "$~" + '@Context.Request.Path.Value' + '@Context.Request.QueryString.Value';
+            }
+            $.ajax({
+                url: '@Url.Action("SetLanguage", "Home")',
+                data: {
+                    culture: culture,
+                    returnUrl: returnUrl
+                },
+                type: 'POST',
+                success: function (data) {
+                    window.location.reload();
+                },
+                error: function () {
+                }
+            });
+        });
+        $("#lang3").on('click', function () {
+            var culture = "";
+            if (document.getElementById("lang3").lastChild.data == "Қазақ") {
+                culture = "kk";
+
+                sessionStorage.setItem('img1', '/images/kz.png');
+                sessionStorage.setItem('alt1', 'Қазақ');
+                sessionStorage.setItem('span', 'Қазақ');
+
+                sessionStorage.setItem('img2', '/images/ru.png');
+                sessionStorage.setItem('alt2', 'Русский');
+                sessionStorage.setItem('lang2', 'Русский');
+
+                sessionStorage.setItem('img3', '/images/gb.png');
+                sessionStorage.setItem('alt3', 'English');
+                sessionStorage.setItem('lang3', 'English');
+            }
+            if (document.getElementById("lang3").lastChild.data == "English") {
+                culture = "en";
+
+                sessionStorage.setItem('img1', '/images/gb.png');
+                sessionStorage.setItem('alt1', 'English');
+                sessionStorage.setItem('span', 'English');
+
+                sessionStorage.setItem('img2', '/images/ru.png');
+                sessionStorage.setItem('alt2', 'Русский');
+                sessionStorage.setItem('lang2', 'Русский');
+
+                sessionStorage.setItem('img3', '/images/kz.png');
+                sessionStorage.setItem('alt3', 'Қазақ');
+                sessionStorage.setItem('lang3', 'Қазақ');
+            }
+            var returnUrl = "";
+            if ('@string.IsNullOrEmpty(Context.Request.Path)') {
+                returnUrl = "~/";
+            }
+            else {
+                returnUrl = "$~" + '@Context.Request.Path.Value' + '@Context.Request.QueryString.Value';
+            }
+            $.ajax({
+                url: '@Url.Action("SetLanguage", "Home")',
+                data: {
+                    culture: culture,
+                    returnUrl: returnUrl
+                },
+                type: 'POST',
+                success: function (data) {
+                    window.location.reload();
+                },
+                error: function () {
+                }
+            });
+            //culture = "kk";
+            //$("#selectLanguage").submit();
+        });
+</script>
+
+<script>
+    $(document).ready(function () {
+        if (sessionStorage.getItem('img1') != null) {
+            document.getElementById("imgMain").src = sessionStorage.getItem('img1');
+        }
+        if (sessionStorage.getItem('alt1') != null) {
+            document.getElementById("imgMain").alt = sessionStorage.getItem('alt1');
+        }
+        if (sessionStorage.getItem('span') != null) {
+            document.getElementById("spanMain").innerText = sessionStorage.getItem('span');
+        }
+        if (sessionStorage.getItem('img2') != null) {
+            document.getElementById("img2").src = sessionStorage.getItem('img2');
+        }
+        if (sessionStorage.getItem('alt2') != null) {
+            document.getElementById("img2").alt = sessionStorage.getItem('alt2');
+        }
+        if (sessionStorage.getItem('lang2') != null) {
+            document.getElementById("lang2").lastChild.data = sessionStorage.getItem('lang2');
+        }
+        if (sessionStorage.getItem('img3') != null) {
+            document.getElementById("img3").src = sessionStorage.getItem('img3');
+        }
+        if (sessionStorage.getItem('alt3') != null) {
+            document.getElementById("img3").alt = sessionStorage.getItem('alt3');
+        }
+        if (sessionStorage.getItem('lang3') != null) {
+            document.getElementById("lang3").lastChild.data = sessionStorage.getItem('lang3');
+        }
+        document.getElementById("languages").style.visibility = "visible";
+    });
+</script>
