@@ -396,11 +396,11 @@
   <data name="Value" xml:space="preserve">
     <value>Мағынасы</value>
   </data>
-  <data name="WaterLavelM" xml:space="preserve">
-    <value>Судың орташа деңгейі, м</value>
+  <data name="WaterLavelMy" xml:space="preserve">
+    <value>Н, м.абс.</value>
   </data>
   <data name="WaterLevel" xml:space="preserve">
-    <value>Көлдің су деңгейі</value>
+    <value>Көлдің орташа жылдық деңгейінің ұзақ мерзімді бағыты</value>
   </data>
   <data name="WaterLevels" xml:space="preserve">
     <value>Көлдің су деңгейлері</value>
@@ -1399,7 +1399,7 @@
     <value>Файлдағы бағандар тәртібі: Id көлдер, жыл, көлдің бөлігі, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
   <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
-    <value>Ваннографиялық және көлемдік қисық туралы мәліметтер</value>
+    <value>Көлдің батправиялық және көлемдік қисық сызығы</value>
   </data>
   <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
     <value>Ваннографиялық және көлемдік қисық туралы мәліметтер</value>
@@ -1742,5 +1742,11 @@
   </data>
   <data name="Region" xml:space="preserve">
     <value>Аймақ</value>
+  </data>
+  <data name="WaterLavelM" xml:space="preserve">
+    <value>Судың орташа деңгейі, м</value>
+  </data>
+  <data name="WaterMassVolumeX" xml:space="preserve">
+    <value>V, млн. м³</value>
   </data>
 </root>

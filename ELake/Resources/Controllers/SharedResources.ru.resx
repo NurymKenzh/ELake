@@ -396,11 +396,11 @@
   <data name="Value" xml:space="preserve">
     <value>Значение</value>
   </data>
-  <data name="WaterLavelM" xml:space="preserve">
-    <value>Средний уровень воды, м</value>
+  <data name="WaterLavelMy" xml:space="preserve">
+    <value>Н, м.абс.</value>
   </data>
   <data name="WaterLevel" xml:space="preserve">
-    <value>Уровень воды озера</value>
+    <value>Многолетний ход среднегодовых уровней озера</value>
   </data>
   <data name="WaterLevels" xml:space="preserve">
     <value>Уровни воды озер</value>
@@ -1399,7 +1399,7 @@
     <value>Порядок столбцов в файле: Id озера, год, часть озера, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
   <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
-    <value>Данных по батиграфической и объемной кривой</value>
+    <value>Батиграфическая и объемная кривая озера</value>
   </data>
   <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
     <value>Данных по батиграфической и объемной кривой</value>
@@ -1742,5 +1742,11 @@
   </data>
   <data name="Region" xml:space="preserve">
     <value>Область</value>
+  </data>
+  <data name="WaterLavelM" xml:space="preserve">
+    <value>Средний уровень воды, м</value>
+  </data>
+  <data name="WaterMassVolumeX" xml:space="preserve">
+    <value>V, млн. м³</value>
   </data>
 </root>

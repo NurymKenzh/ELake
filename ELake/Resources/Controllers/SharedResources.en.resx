@@ -396,11 +396,11 @@
   <data name="Value" xml:space="preserve">
     <value>Value</value>
   </data>
-  <data name="WaterLavelM" xml:space="preserve">
-    <value>Average water level, m</value>
+  <data name="WaterLavelMy" xml:space="preserve">
+    <value>H, m.abs.</value>
   </data>
   <data name="WaterLevel" xml:space="preserve">
-    <value>Lake water level</value>
+    <value>Long-term course of average annual lake levels</value>
   </data>
   <data name="WaterLevels" xml:space="preserve">
     <value>Lakes water levels</value>
@@ -1399,7 +1399,7 @@
     <value>Column order in the file: Id lakes, year, part of the lake, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
   </data>
   <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
-    <value>Data on the bathigraphic and volumetric curve</value>
+    <value>Batgraphic and volumetric curve of the lake</value>
   </data>
   <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
     <value>Data on the bathigraphic and volumetric curve</value>
@@ -1742,5 +1742,11 @@
   </data>
   <data name="Region" xml:space="preserve">
     <value>Region</value>
+  </data>
+  <data name="WaterLavelM" xml:space="preserve">
+    <value>Average water level, m</value>
+  </data>
+  <data name="WaterMassVolumeX" xml:space="preserve">
+    <value>V, million m³</value>
   </data>
 </root>

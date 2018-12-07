@@ -81,7 +81,7 @@
                     responsive: true,
                     title: {
                         display: true,
-                        text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). '
+                        text: $('#BILName').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). '
                     },
                 }
             });
@@ -93,7 +93,7 @@
             ChartWB.config.data.datasets[0].data[3] = [dataSurfaceOutflow];
             ChartWB.config.data.datasets[0].data[4] = [dataEvaporation];
             ChartWB.config.data.datasets[0].data[5] = [dataUndergroundOutflow];
-            ChartWB.config.options.title.text = $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). ';
+            ChartWB.config.options.title.text = $('#BILName').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). ';
             ChartWB.update();
         }
     }
@@ -132,7 +132,8 @@
                 spanGaps: true,
                 title: {
                     display: true,
-                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterLevel').val()
+                    //text: $('#BILName').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterLevel').val()
+                    text: $('#WaterLevel').val() + ' ' + $('#BILName').text()
                 },
                 scales: {
                     xAxes: [{
@@ -146,7 +147,7 @@
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: $('#WaterLavelM').val()
+                            labelString: $('#WaterLavelMy').val()
                         }
                     }]
                 }
@@ -206,7 +207,8 @@
                 spanGaps: true,
                 title: {
                     display: true,
-                    text: $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#BathigraphicAndVolumetricCurveData').val()
+                    //text: $('#BILName').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#BathigraphicAndVolumetricCurveData').val()
+                    text: $('#BathigraphicAndVolumetricCurveData').val() + ' ' + $('#BILName').text()
                 },
                 scales: {
                     xAxes: [{
@@ -227,7 +229,7 @@
                         },
                         scaleLabel: {
                             display: true,
-                            labelString: $('#WaterMassVolume').val()
+                            labelString: $('#WaterMassVolumeX').val()
                         }
                     }],
                     yAxes: [{
@@ -237,7 +239,7 @@
                         display: true,
                         scaleLabel: {
                             display: true,
-                            labelString: $('#WaterLevel').val()
+                            labelString: $('#WaterLavelMy').val()
                         }
                     }],
                 }
