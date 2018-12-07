@@ -17,19 +17,19 @@
                 if (data.pasdtable[i].seasonalWaterArea != null) {
                     data1.push({
                         'x': data.pasdtable[i].year,
-                        'y': data.pasdtable[i].seasonalWaterArea
+                        'y': data.pasdtable[i].seasonalWaterArea.toFixed(1)
                     });
                 }
                 if (data.pasdtable[i].permanentWaterArea != null) {
                     data2.push({
                         'x': data.pasdtable[i].year,
-                        'y': data.pasdtable[i].permanentWaterArea
+                        'y': data.pasdtable[i].permanentWaterArea.toFixed(1)
                     });
                 }
                 if (data.pasdtable[i].maximumWaterArea != null) {
                     data3.push({
                         'x': data.pasdtable[i].year,
-                        'y': data.pasdtable[i].maximumWaterArea
+                        'y': data.pasdtable[i].maximumWaterArea.toFixed(1)
                     });
                 }
             }
@@ -109,15 +109,18 @@
                 }
             }
         }
+        var seasonalWaterArea = dataSeasonalWaterArea.toFixed(1);
+        var permanentWaterArea = dataPermanentWaterArea.toFixed(1);
+        var maximumWaterArea = dataMaximumWaterArea.toFixed(1);
         if (ChartPASD2 == null) {
             ChartPASD2 = new Chart(ctx1, {
                 type: 'pie',
                 data: {
                     datasets: [{
                         data: [
-                            dataSeasonalWaterArea,
-                            dataPermanentWaterArea,
-                            dataMaximumWaterArea
+                            seasonalWaterArea,
+                            permanentWaterArea,
+                            maximumWaterArea
                         ],
                         backgroundColor: [
                             chartColorSeasonalWaterArea,

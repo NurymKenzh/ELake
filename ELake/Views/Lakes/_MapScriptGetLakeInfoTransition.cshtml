@@ -7,20 +7,29 @@
         }
         var ctx1 = document.getElementById("chartTransition").getContext('2d');
         if (data.transition != null) {
+            var permanent = data.transition.permanent.toFixed(1);
+            var newPermanent = data.transition.newPermanent.toFixed(1);
+            var seasonalToPermanent = data.transition.seasonalToPermanent.toFixed(1);
+            var seasonal = data.transition.seasonal.toFixed(1);
+            var newSeasonal = data.transition.newSeasonal.toFixed(1);
+            var permanentToDeasonal = data.transition.permanentToDeasonal.toFixed(1);
+            var lostPermanent = data.transition.lostPermanent.toFixed(1);
+            var lostSeasonal = data.transition.lostSeasonal.toFixed(1);
+            var ephemeralSeasonal = data.transition.ephemeralSeasonal.toFixed(1);
             ChartTransition = new Chart(ctx1, {
                 type: 'pie',
                 data: {
                     datasets: [{
                         data: [
-                            data.transition.permanent,
-                            data.transition.newPermanent,
-                            data.transition.seasonalToPermanent,
-                            data.transition.seasonal,
-                            data.transition.newSeasonal,
-                            data.transition.permanentToDeasonal,
-                            data.transition.lostPermanent,
-                            data.transition.lostSeasonal,
-                            data.transition.ephemeralSeasonal
+                            permanent,
+                            newPermanent,
+                            seasonalToPermanent,
+                            seasonal,
+                            newSeasonal,
+                            permanentToDeasonal,
+                            lostPermanent,
+                            lostSeasonal,
+                            ephemeralSeasonal
                         ],
                         backgroundColor: [
                             chartColorTrPermanent,
