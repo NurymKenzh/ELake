@@ -103,15 +103,30 @@
         if (data.pasdtable != null) {
             for (var i = 0; i < data.pasdtable.length; i++) {
                 if (data.pasdtable[i].year == year) {
-                    dataSeasonalWaterArea = data.pasdtable[i].seasonalWaterArea;
-                    dataPermanentWaterArea = data.pasdtable[i].permanentWaterArea;
-                    dataMaximumWaterArea = data.pasdtable[i].maximumWaterArea;
+                    try {
+                        dataSeasonalWaterArea = data.pasdtable[i].seasonalWaterArea.toFixed(1);
+                    }
+                    catch {
+                        dataSeasonalWaterArea = data.pasdtable[i].seasonalWaterArea;
+                    }
+                    try {
+                        dataPermanentWaterArea = data.pasdtable[i].permanentWaterArea.toFixed(1);
+                    }
+                    catch {
+                        dataPermanentWaterArea = data.pasdtable[i].permanentWaterArea;
+                    }
+                    try {
+                        dataMaximumWaterArea = data.pasdtable[i].maximumWaterArea.toFixed(1);
+                    }
+                    catch {
+                        dataMaximumWaterArea = data.pasdtable[i].maximumWaterArea;
+                    }
                 }
             }
         }
-        var seasonalWaterArea = dataSeasonalWaterArea.toFixed(1);
-        var permanentWaterArea = dataPermanentWaterArea.toFixed(1);
-        var maximumWaterArea = dataMaximumWaterArea.toFixed(1);
+        var seasonalWaterArea = dataSeasonalWaterArea;
+        var permanentWaterArea = dataPermanentWaterArea;
+        var maximumWaterArea = dataMaximumWaterArea;
         if (ChartPASD2 == null) {
             ChartPASD2 = new Chart(ctx1, {
                 type: 'pie',

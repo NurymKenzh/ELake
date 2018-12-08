@@ -106,7 +106,7 @@
                 </div>
                 <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                     <form>
-                        <div class="form-row" id="LakeId">
+                        <div class="form-row" id="LakeIdDiv">
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
                                 <input id="LakeId" class="form-control form-control-lg" placeholder="Enter lake name..." onclick="GoToLake()">
                             </div>
@@ -182,6 +182,7 @@
 
 <script>
     function GoToLake() {
+        alert($('#LakeId').val());
         $.ajax({
             url: '@Url.Action("GetLakeId")',
             data: {
