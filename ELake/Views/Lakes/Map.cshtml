@@ -473,6 +473,7 @@
     <input id="MaximumWaterArea" type="hidden" value='@SharedLocalizer["MaximumWaterArea"]' />
     <input id="Seasonalit" type="hidden" value='@SharedLocalizer["Seasonalit"]' />
     <input id="Month" type="hidden" value='@SharedLocalizer["Month"]' />
+    <input id="NoData" type="hidden" value='@SharedLocalizer["NoData"]' />
 </div>
 @* map and layers *@
 <script type="text/javascript">
@@ -825,16 +826,67 @@
                 $('#BILLongitude').text();
                 $('#BILLatitude').text();
                 if (data.lake != null) {
-                    $('#BILLakeId').text(data.lake.lakeId);
-                    $('#BILName').text(data.lake.name);
-                    $('#BILAdm1').text(data.adm1);
-                    $('#BILAdm2').text(data.adm2);
-                    $('#BILVHB').text(data.lake.vhb);
-                    $('#BILVHU').text(data.lake.vhu);
-                    $('#BILArea2015').text(data.lake.area2015);
-                    $('#BILLakeShorelineLength2015').text(data.lake.lakeShorelineLength2015);
-                    $('#BILLongitude').text(data.lake.longitude);
-                    $('#BILLatitude').text(data.lake.latitude);
+                    //$('#BILLakeId').text(data.lake.lakeId);
+                    //$('#BILName').text(data.lake.name);
+                    //$('#BILAdm1').text(data.adm1);
+                    //$('#BILAdm2').text(data.adm2);
+                    //$('#BILVHB').text(data.lake.vhb);
+                    //$('#BILVHU').text(data.lake.vhu);
+                    //$('#BILArea2015').text(data.lake.area2015);
+                    //$('#BILLakeShorelineLength2015').text(data.lake.lakeShorelineLength2015);
+                    //$('#BILLongitude').text(data.lake.longitude);
+                    //$('#BILLatitude').text(data.lake.latitude);
+
+                    if (data.lake.lakeId != null) {
+                        $('#BILLakeId').text(data.lake.lakeId);
+                    } else {
+                        $('#BILLakeId').text($('#NoData').val());
+                    }
+                    if (data.lake.name != null) {
+                        $('#BILName').text(data.lake.name);
+                    } else {
+                        $('#BILName').text($('#NoData').val());
+                    }
+                    if (data.adm1 != null) {
+                        $('#BILAdm1').text(data.adm1);
+                    } else {
+                        $('#BILAdm1').text($('#NoData').val());
+                    }
+                    if (data.adm2 != null) {
+                        $('#BILAdm2').text(data.adm2);
+                    } else {
+                        $('#BILAdm2').text($('#NoData').val());
+                    }
+                    if (data.lake.vhb != null) {
+                        $('#BILVHB').text(data.lake.vhb);
+                    } else {
+                        $('#BILVHB').text($('#NoData').val());
+                    }
+                    if (data.lake.vhu != null) {
+                        $('#BILVHU').text(data.lake.vhu);
+                    } else {
+                        $('#BILVHU').text($('#NoData').val());
+                    }
+                    if (data.lake.area2015 != null) {
+                        $('#BILArea2015').text(data.lake.area2015);
+                    } else {
+                        $('#BILArea2015').text($('#NoData').val());
+                    }
+                    if (data.lake.lakeShorelineLength2015 != null) {
+                        $('#BILLakeShorelineLength2015').text(data.lake.lakeShorelineLength2015);
+                    } else {
+                        $('#BILLakeShorelineLength2015').text($('#NoData').val());
+                    }
+                    if (data.lake.longitude != null) {
+                        $('#BILLongitude').text(data.lake.longitude);
+                    } else {
+                        $('#BILLongitude').text($('#NoData').val());
+                    }
+                    if (data.lake.latitude != null) {
+                        $('#BILLatitude').text(data.lake.latitude);
+                    } else {
+                        $('#BILLatitude').text($('#NoData').val());
+                    }
                 }
                 // Глобальная база озер
                 $('#Hylak_id').text();
@@ -849,17 +901,73 @@
                 $('#Slope_100').text();
                 $('#Wshd_area').text();
                 if (data.lakesGlobalData != null) {
-                    $('#Hylak_id').text(data.lakesGlobalData.hylak_id);
-                    $('#Lake_area').text(data.lakesGlobalData.lake_area);
-                    $('#Shore_len').text(data.lakesGlobalData.shore_len);
-                    $('#Shore_dev').text(data.lakesGlobalData.shore_dev);
-                    $('#Vol_total').text(data.lakesGlobalData.vol_total);
-                    $('#Depth_avg').text(data.lakesGlobalData.depth_avg);
-                    $('#Dis_avg').text(data.lakesGlobalData.dis_avg);
-                    $('#Res_time').text(data.lakesGlobalData.res_time);
-                    $('#Elevation').text(data.lakesGlobalData.elevation);
-                    $('#Slope_100').text(data.lakesGlobalData.slope_100);
-                    $('#Wshd_area').text(data.lakesGlobalData.wshd_area);
+                    //$('#Hylak_id').text(data.lakesGlobalData.hylak_id);
+                    //$('#Lake_area').text(data.lakesGlobalData.lake_area);
+                    //$('#Shore_len').text(data.lakesGlobalData.shore_len);
+                    //$('#Shore_dev').text(data.lakesGlobalData.shore_dev);
+                    //$('#Vol_total').text(data.lakesGlobalData.vol_total);
+                    //$('#Depth_avg').text(data.lakesGlobalData.depth_avg);
+                    //$('#Dis_avg').text(data.lakesGlobalData.dis_avg);
+                    //$('#Res_time').text(data.lakesGlobalData.res_time);
+                    //$('#Elevation').text(data.lakesGlobalData.elevation);
+                    //$('#Slope_100').text(data.lakesGlobalData.slope_100);
+                    //$('#Wshd_area').text(data.lakesGlobalData.wshd_area);
+
+                    if (data.lakesGlobalData.hylak_id != null) {
+                        $('#Hylak_id').text(data.lakesGlobalData.hylak_id);
+                    } else {
+                        $('#Hylak_id').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.lake_area != null) {
+                        $('#Lake_area').text(data.lakesGlobalData.lake_area);
+                    } else {
+                        $('#Lake_area').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.shore_len != null) {
+                        $('#Shore_len').text(data.lakesGlobalData.shore_len);
+                    } else {
+                        $('#Shore_len').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.shore_dev != null) {
+                        $('#Shore_dev').text(data.lakesGlobalData.shore_dev);
+                    } else {
+                        $('#Shore_dev').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.vol_total != null) {
+                        $('#Vol_total').text(data.lakesGlobalData.vol_total);
+                    } else {
+                        $('#Vol_total').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.depth_avg != null) {
+                        $('#Depth_avg').text(data.lakesGlobalData.depth_avg);
+                    } else {
+                        $('#Depth_avg').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.dis_avg != null) {
+                        $('#Dis_avg').text(data.lakesGlobalData.dis_avg);
+                    } else {
+                        $('#Dis_avg').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.res_time != null) {
+                        $('#Res_time').text(data.lakesGlobalData.res_time);
+                    } else {
+                        $('#Res_time').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.elevation != null) {
+                        $('#Elevation').text(data.lakesGlobalData.elevation);
+                    } else {
+                        $('#Elevation').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.slope_100 != null) {
+                        $('#Slope_100').text(data.lakesGlobalData.slope_100);
+                    } else {
+                        $('#Slope_100').text($('#NoData').val());
+                    }
+                    if (data.lakesGlobalData.wshd_area != null) {
+                        $('#Wshd_area').text(data.lakesGlobalData.wshd_area);
+                    } else {
+                        $('#Wshd_area').text($('#NoData').val());
+                    }
                 }
                 // Архивные данные озер
                 $('#SurveyYear').text();
@@ -872,15 +980,61 @@
                 $('#LakeWaterMass').text();
                 $('#ArchivalInfoSource').text();
                 if (data.lakesArchiveData != null) {
-                    $('#SurveyYear').text(data.lakesArchiveData.surveyYear);
-                    $('#LakeLength').text(data.lakesArchiveData.lakeLength);
-                    $('#LakeShorelineLength').text(data.lakesArchiveData.lakeShorelineLength);
-                    $('#LakeMirrorArea').text(data.lakesArchiveData.lakeMirrorArea);
-                    $('#LakeAbsoluteHeight').text(data.lakesArchiveData.lakeAbsoluteHeight);
-                    $('#LakeWidth').text(data.lakesArchiveData.lakeWidth);
-                    $('#LakeMaxDepth').text(data.lakesArchiveData.lakeMaxDepth);
-                    $('#LakeWaterMass').text(data.lakesArchiveData.lakeWaterMass);
-                    $('#ArchivalInfoSource').text(data.lakesArchiveData.archivalInfoSource);
+                    //$('#SurveyYear').text(data.lakesArchiveData.surveyYear);
+                    //$('#LakeLength').text(data.lakesArchiveData.lakeLength);
+                    //$('#LakeShorelineLength').text(data.lakesArchiveData.lakeShorelineLength);
+                    //$('#LakeMirrorArea').text(data.lakesArchiveData.lakeMirrorArea);
+                    //$('#LakeAbsoluteHeight').text(data.lakesArchiveData.lakeAbsoluteHeight);
+                    //$('#LakeWidth').text(data.lakesArchiveData.lakeWidth);
+                    //$('#LakeMaxDepth').text(data.lakesArchiveData.lakeMaxDepth);
+                    //$('#LakeWaterMass').text(data.lakesArchiveData.lakeWaterMass);
+                    //$('#ArchivalInfoSource').text(data.lakesArchiveData.archivalInfoSource);
+
+                    if (data.lakesArchiveData.surveyYear != null) {
+                        $('#SurveyYear').text(data.lakesArchiveData.surveyYear);
+                    } else {
+                        $('#SurveyYear').text($('#NoData').val());
+                    }
+                    if (data.lakesArchiveData.lakeLength != null) {
+                        $('#LakeLength').text(data.lakesArchiveData.lakeLength);
+                    } else {
+                        $('#LakeLength').text($('#NoData').val());
+                    }
+                    if (data.lakesArchiveData.lakeShorelineLength != null) {
+                        $('#LakeShorelineLength').text(data.lakesArchiveData.lakeShorelineLength);
+                    } else {
+                        $('#LakeShorelineLength').text($('#NoData').val());
+                    }
+                    if (data.lakesArchiveData.lakeMirrorArea != null) {
+                        $('#LakeMirrorArea').text(data.lakesArchiveData.lakeMirrorArea);
+                    } else {
+                        $('#LakeMirrorArea').text($('#NoData').val());
+                    }
+                    if (data.lakesArchiveData.lakeAbsoluteHeight != null) {
+                        $('#LakeAbsoluteHeight').text(data.lakesArchiveData.lakeAbsoluteHeight);
+                    } else {
+                        $('#LakeAbsoluteHeight').text($('#NoData').val());
+                    }
+                    if (data.lakesArchiveData.lakeWidth != null) {
+                        $('#LakeWidth').text(data.lakesArchiveData.lakeWidth);
+                    } else {
+                        $('#LakeWidth').text($('#NoData').val());
+                    }
+                    if (data.lakesArchiveData.lakeMaxDepth != null) {
+                        $('#LakeMaxDepth').text(data.lakesArchiveData.lakeMaxDepth);
+                    } else {
+                        $('#LakeMaxDepth').text($('#NoData').val());
+                    }
+                    if (data.lakesArchiveData.lakeWaterMass != null) {
+                        $('#LakeWaterMass').text(data.lakesArchiveData.lakeWaterMass);
+                    } else {
+                        $('#LakeWaterMass').text($('#NoData').val());
+                    }
+                    if (data.lakesArchiveData.archivalInfoSource != null) {
+                        $('#ArchivalInfoSource').text(data.lakesArchiveData.archivalInfoSource);
+                    } else {
+                        $('#ArchivalInfoSource').text($('#NoData').val());
+                    }
                 }
                 // Основная информация об озере 2
                 $('#Name').text(data.name);
@@ -903,21 +1057,21 @@
                 $('.FreshPart').hide();
                 $('.SaltyPart').hide();
                 // Водный баланс
-                $('#SurfaceFlow').text('');
-                $('#SurfaceFlowPer').text('');
-                $('#UndergroundFlow').text('');
-                $('#UndergroundFlowPer').text('');
-                $('#Precipitation').text('');
-                $('#PrecipitationPer').text('');
-                $('#WaterBalanceExpenditure').text('');
-                $('#WaterBalanceExpenditurePer').text('');
-                $('#SurfaceOutflow').text('');
-                $('#SurfaceOutflowPer').text('');
-                $('#UndergroundOutflow').text('');
-                $('#UndergroundOutflowPer').text('');
-                $('#Evaporation').text('');
-                $('#EvaporationPer').text('');
-                $('#Discrepancy').text('');
+                $('#SurfaceFlow').text($('#NoData').val());
+                $('#SurfaceFlowPer').text($('#NoData').val());
+                $('#UndergroundFlow').text($('#NoData').val());
+                $('#UndergroundFlowPer').text($('#NoData').val());
+                $('#Precipitation').text($('#NoData').val());
+                $('#PrecipitationPer').text($('#NoData').val());
+                $('#WaterBalanceExpenditure').text($('#NoData').val());
+                $('#WaterBalanceExpenditurePer').text($('#NoData').val());
+                $('#SurfaceOutflow').text($('#NoData').val());
+                $('#SurfaceOutflowPer').text($('#NoData').val());
+                $('#UndergroundOutflow').text($('#NoData').val());
+                $('#UndergroundOutflowPer').text($('#NoData').val());
+                $('#Evaporation').text($('#NoData').val());
+                $('#EvaporationPer').text($('#NoData').val());
+                $('#Discrepancy').text($('#NoData').val());
                 if (data.wbtable != null) {
                     var SurfaceFlow = 0,
                         SurfaceFlowPer = 0,
@@ -1106,38 +1260,38 @@
                 // Данные по батиграфической и объемной кривой
                 ChartBAVCDX(data);
                 // Общие гидрохимические показатели
-                $('#YearMineralization1').text('');
-                $('#Mineralization1').text('');
-                $('#MineralizationType1').text('');
-                $('#YearTotalHardness1').text('');
-                $('#TotalHardness1').text('');
-                $('#WaterHardness1').text('');
-                $('#YearDissOxygWater1').text('');
-                $('#DissOxygWater1').text('');
-                $('#DissolvedOxygenInWaterDegree1').text('');
-                $('#YearPercentOxygWater1').text('');
-                $('#PercentOxygWater1').text('');
-                $('#YearpH1').text('');
-                $('#pH1').text('');
-                $('#AcidityOfWaterDegree1').text('');
-                $('#YearOrganicSubstances1').text('');
-                $('#OrganicSubstances1').text('');
-                $('#YearMineralization2').text('');
-                $('#Mineralization2').text('');
-                $('#MineralizationType2').text('');
-                $('#YearTotalHardness2').text('');
-                $('#TotalHardness2').text('');
-                $('#WaterHardness2').text('');
-                $('#YearDissOxygWater2').text('');
-                $('#DissOxygWater2').text('');
-                $('#DissolvedOxygenInWaterDegree2').text('');
-                $('#YearPercentOxygWater2').text('');
-                $('#PercentOxygWater2').text('');
-                $('#YearpH2').text('');
-                $('#pH2').text('');
-                $('#AcidityOfWaterDegree2').text('');
-                $('#YearOrganicSubstances2').text('');
-                $('#OrganicSubstances2').text('');
+                $('#YearMineralization1').text($('#NoData').val());
+                $('#Mineralization1').text($('#NoData').val());
+                $('#MineralizationType1').text($('#NoData').val());
+                $('#YearTotalHardness1').text($('#NoData').val());
+                $('#TotalHardness1').text($('#NoData').val());
+                $('#WaterHardness1').text($('#NoData').val());
+                $('#YearDissOxygWater1').text($('#NoData').val());
+                $('#DissOxygWater1').text($('#NoData').val());
+                $('#DissolvedOxygenInWaterDegree1').text($('#NoData').val());
+                $('#YearPercentOxygWater1').text($('#NoData').val());
+                $('#PercentOxygWater1').text($('#NoData').val());
+                $('#YearpH1').text($('#NoData').val());
+                $('#pH1').text($('#NoData').val());
+                $('#AcidityOfWaterDegree1').text($('#NoData').val());
+                $('#YearOrganicSubstances1').text($('#NoData').val());
+                $('#OrganicSubstances1').text($('#NoData').val());
+                $('#YearMineralization2').text($('#NoData').val());
+                $('#Mineralization2').text($('#NoData').val());
+                $('#MineralizationType2').text($('#NoData').val());
+                $('#YearTotalHardness2').text($('#NoData').val());
+                $('#TotalHardness2').text($('#NoData').val());
+                $('#WaterHardness2').text($('#NoData').val());
+                $('#YearDissOxygWater2').text($('#NoData').val());
+                $('#DissOxygWater2').text($('#NoData').val());
+                $('#DissolvedOxygenInWaterDegree2').text($('#NoData').val());
+                $('#YearPercentOxygWater2').text($('#NoData').val());
+                $('#PercentOxygWater2').text($('#NoData').val());
+                $('#YearpH2').text($('#NoData').val());
+                $('#pH2').text($('#NoData').val());
+                $('#AcidityOfWaterDegree2').text($('#NoData').val());
+                $('#YearOrganicSubstances2').text($('#NoData').val());
+                $('#OrganicSubstances2').text($('#NoData').val());
                 if (data.ghitable1 != null) {
                     for (i = 0; i < data.ghitable1.length; i++) {
                         if (data.ghitable1[i].mineralization != null) {
@@ -1215,34 +1369,34 @@
                 TablepH(data);
                 ChartpH(data);
                 // Ионно-солевой состав воды
-                $('#YearCa1').text('');
-                $('#Ca1').text('');
-                $('#AlekinWaterCompositionClass1').text('');
-                $('#KurlovFormula1').text('');
-                $('#YearMg1').text('');
-                $('#Mg1').text('');
-                $('#YearNaK1').text('');
-                $('#NaK1').text('');
-                $('#YearCl1').text('');
-                $('#Cl1').text('');
-                $('#YearHCO1').text('');
-                $('#HCO1').text('');
-                $('#YearSO1').text('');
-                $('#SO1').text('');
-                $('#YearCa2').text('');
-                $('#Ca2').text('');
-                $('#AlekinWaterCompositionClass2').text('');
-                $('#KurlovFormula2').text('');
-                $('#YearMg2').text('');
-                $('#Mg2').text('');
-                $('#YearNaK2').text('');
-                $('#NaK2').text('');
-                $('#YearCl2').text('');
-                $('#Cl2').text('');
-                $('#YearHCO2').text('');
-                $('#HCO2').text('');
-                $('#YearSO2').text('');
-                $('#SO2').text('');
+                $('#YearCa1').text($('#NoData').val());
+                $('#Ca1').text($('#NoData').val());
+                $('#AlekinWaterCompositionClass1').text($('#NoData').val());
+                $('#KurlovFormula1').text($('#NoData').val());
+                $('#YearMg1').text($('#NoData').val());
+                $('#Mg1').text($('#NoData').val());
+                $('#YearNaK1').text($('#NoData').val());
+                $('#NaK1').text($('#NoData').val());
+                $('#YearCl1').text($('#NoData').val());
+                $('#Cl1').text($('#NoData').val());
+                $('#YearHCO1').text($('#NoData').val());
+                $('#HCO1').text($('#NoData').val());
+                $('#YearSO1').text($('#NoData').val());
+                $('#SO1').text($('#NoData').val());
+                $('#YearCa2').text($('#NoData').val());
+                $('#Ca2').text($('#NoData').val());
+                $('#AlekinWaterCompositionClass2').text($('#NoData').val());
+                $('#KurlovFormula2').text($('#NoData').val());
+                $('#YearMg2').text($('#NoData').val());
+                $('#Mg2').text($('#NoData').val());
+                $('#YearNaK2').text($('#NoData').val());
+                $('#NaK2').text($('#NoData').val());
+                $('#YearCl2').text($('#NoData').val());
+                $('#Cl2').text($('#NoData').val());
+                $('#YearHCO2').text($('#NoData').val());
+                $('#HCO2').text($('#NoData').val());
+                $('#YearSO2').text($('#NoData').val());
+                $('#SO2').text($('#NoData').val());
                 if (data.iwctable1 != null) {
                     for (i = 0; i < data.iwctable1.length; i++) {
                         if (data.iwctable1[i].caMg != null) {
@@ -1306,76 +1460,76 @@
                 TableKurlovFormula(data);
                 TableAlekinWaterCompositionClass(data);
                 // Токсикологические показатели
-                $('#YearNH41').text('');
-                $('#NH41').text('');
-                $('#IZVNH41').text('');
-                $('#YearNO21').text('');
-                $('#NO21').text('');
-                $('#IZVNO21').text('');
-                $('#YearNO31').text('');
-                $('#NO31').text('');
-                $('#IZVNO31').text('');
-                $('#YearPPO41').text('');
-                $('#PPO41').text('');
-                $('#IZVPPO41').text('');
-                $('#YearCu1').text('');
-                $('#Cu1').text('');
-                $('#IZVCu1').text('');
-                $('#YearZn1').text('');
-                $('#Zn1').text('');
-                $('#IZVZn1').text('');
-                $('#YearMn1').text('');
-                $('#Mn1').text('');
-                $('#IZVMn1').text('');
-                $('#YearPb1').text('');
-                $('#Pb1').text('');
-                $('#IZVPb1').text('');
-                $('#YearNi1').text('');
-                $('#Ni1').text('');
-                $('#IZVNi1').text('');
-                $('#YearCd1').text('');
-                $('#Cd1').text('');
-                $('#IZVCd1').text('');
-                $('#YearCo1').text('');
-                $('#Co1').text('');
-                $('#IZVCo1').text('');
-                $('#YearNH42').text('');
-                $('#NH42').text('');
-                $('#IZVNH42').text('');
-                $('#YearNO22').text('');
-                $('#NO22').text('');
-                $('#IZVNO22').text('');
-                $('#YearNO32').text('');
-                $('#NO32').text('');
-                $('#IZVNO32').text('');
-                $('#YearPPO42').text('');
-                $('#PPO42').text('');
-                $('#IZVPPO42').text('');
-                $('#YearCu2').text('');
-                $('#Cu2').text('');
-                $('#IZVCu2').text('');
-                $('#YearZn2').text('');
-                $('#Zn2').text('');
-                $('#IZVZn2').text('');
-                $('#YearMn2').text('');
-                $('#Mn2').text('');
-                $('#IZVMn2').text('');
-                $('#YearPb2').text('');
-                $('#Pb2').text('');
-                $('#IZVPb2').text('');
-                $('#YearNi2').text('');
-                $('#Ni2').text('');
-                $('#IZVNi2').text('');
-                $('#YearCd2').text('');
-                $('#Cd2').text('');
-                $('#IZVCd2').text('');
-                $('#YearCo2').text('');
-                $('#Co2').text('');
-                $('#IZVCo2').text('');
-                $('#YearKIZV1').text('');
-                $('#KIZV1').text('');
-                $('#YearKIZV2').text('');
-                $('#KIZV2').text('');
+                $('#YearNH41').text($('#NoData').val());
+                $('#NH41').text($('#NoData').val());
+                $('#IZVNH41').text($('#NoData').val());
+                $('#YearNO21').text($('#NoData').val());
+                $('#NO21').text($('#NoData').val());
+                $('#IZVNO21').text($('#NoData').val());
+                $('#YearNO31').text($('#NoData').val());
+                $('#NO31').text($('#NoData').val());
+                $('#IZVNO31').text($('#NoData').val());
+                $('#YearPPO41').text($('#NoData').val());
+                $('#PPO41').text($('#NoData').val());
+                $('#IZVPPO41').text($('#NoData').val());
+                $('#YearCu1').text($('#NoData').val());
+                $('#Cu1').text($('#NoData').val());
+                $('#IZVCu1').text($('#NoData').val());
+                $('#YearZn1').text($('#NoData').val());
+                $('#Zn1').text($('#NoData').val());
+                $('#IZVZn1').text($('#NoData').val());
+                $('#YearMn1').text($('#NoData').val());
+                $('#Mn1').text($('#NoData').val());
+                $('#IZVMn1').text($('#NoData').val());
+                $('#YearPb1').text($('#NoData').val());
+                $('#Pb1').text($('#NoData').val());
+                $('#IZVPb1').text($('#NoData').val());
+                $('#YearNi1').text($('#NoData').val());
+                $('#Ni1').text($('#NoData').val());
+                $('#IZVNi1').text($('#NoData').val());
+                $('#YearCd1').text($('#NoData').val());
+                $('#Cd1').text($('#NoData').val());
+                $('#IZVCd1').text($('#NoData').val());
+                $('#YearCo1').text($('#NoData').val());
+                $('#Co1').text($('#NoData').val());
+                $('#IZVCo1').text($('#NoData').val());
+                $('#YearNH42').text($('#NoData').val());
+                $('#NH42').text($('#NoData').val());
+                $('#IZVNH42').text($('#NoData').val());
+                $('#YearNO22').text($('#NoData').val());
+                $('#NO22').text($('#NoData').val());
+                $('#IZVNO22').text($('#NoData').val());
+                $('#YearNO32').text($('#NoData').val());
+                $('#NO32').text($('#NoData').val());
+                $('#IZVNO32').text($('#NoData').val());
+                $('#YearPPO42').text($('#NoData').val());
+                $('#PPO42').text($('#NoData').val());
+                $('#IZVPPO42').text($('#NoData').val());
+                $('#YearCu2').text($('#NoData').val());
+                $('#Cu2').text($('#NoData').val());
+                $('#IZVCu2').text($('#NoData').val());
+                $('#YearZn2').text($('#NoData').val());
+                $('#Zn2').text($('#NoData').val());
+                $('#IZVZn2').text($('#NoData').val());
+                $('#YearMn2').text($('#NoData').val());
+                $('#Mn2').text($('#NoData').val());
+                $('#IZVMn2').text($('#NoData').val());
+                $('#YearPb2').text($('#NoData').val());
+                $('#Pb2').text($('#NoData').val());
+                $('#IZVPb2').text($('#NoData').val());
+                $('#YearNi2').text($('#NoData').val());
+                $('#Ni2').text($('#NoData').val());
+                $('#IZVNi2').text($('#NoData').val());
+                $('#YearCd2').text($('#NoData').val());
+                $('#Cd2').text($('#NoData').val());
+                $('#IZVCd2').text($('#NoData').val());
+                $('#YearCo2').text($('#NoData').val());
+                $('#Co2').text($('#NoData').val());
+                $('#IZVCo2').text($('#NoData').val());
+                $('#YearKIZV1').text($('#NoData').val());
+                $('#KIZV1').text($('#NoData').val());
+                $('#YearKIZV2').text($('#NoData').val());
+                $('#KIZV2').text($('#NoData').val());
                 if (data.titable1 != null) {
                     for (i = 0; i < data.titable1.length; i++) {
                         if (data.titable1[i].nH4 != null) {
