@@ -117,20 +117,137 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AcidityOfWaterDegree" xml:space="preserve">
+    <value>The degree of acidity of water</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Add</value>
+  </data>
+  <data name="AddLakes" xml:space="preserve">
+    <value>Add Lakes</value>
+  </data>
+  <data name="Adm1" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Adm2" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="Adm3" xml:space="preserve">
+    <value>Rural District</value>
   </data>
   <data name="Administration" xml:space="preserve">
     <value>Administration</value>
   </data>
+  <data name="AlekinWaterCompositionClass" xml:space="preserve">
+    <value>Water composition class (according to O. A. Alekin)</value>
+  </data>
+  <data name="AlkalineWater" xml:space="preserve">
+    <value>Alkaline water</value>
+  </data>
+  <data name="AnalizeWater" xml:space="preserve">
+    <value>Lakes analysis</value>
+  </data>
+  <data name="Analytics" xml:space="preserve">
+    <value>Analytics</value>
+  </data>
+  <data name="AND" xml:space="preserve">
+    <value>And</value>
+  </data>
+  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
+    <value>An error occurred while using the formula!</value>
+  </data>
+  <data name="AnionsSumMgEq" xml:space="preserve">
+    <value>The amount of anions in mEq / dm³</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>April</value>
+  </data>
+  <data name="Archival" xml:space="preserve">
+    <value>Archival</value>
+  </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value>Source of archival information</value>
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value>Lake mirror area for 2015, km2</value>
+  </data>
+  <data name="Areakm2" xml:space="preserve">
+    <value>Area, km²</value>
+  </data>
   <data name="AsLakeLayer" xml:space="preserve">
     <value>Layer of lakes</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>August</value>
+  </data>
+  <data name="average" xml:space="preserve">
+    <value>average</value>
   </data>
   <data name="BackToList" xml:space="preserve">
     <value>Back to List</value>
   </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Back to top</value>
+  </data>
+  <data name="BaseLayer" xml:space="preserve">
+    <value>Core layer</value>
+  </data>
+  <data name="BasicInfoLake" xml:space="preserve">
+    <value>Basic information about the lake</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
+    <value>Data on the bathigraphic and volumetric curve</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
+    <value>Data on the bathigraphic and volumetric curve</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
+    <value>The order of the columns in the file: Lake Id, water level, lake area, water mass</value>
+  </data>
+  <data name="BenthosBiomass" xml:space="preserve">
+    <value>Biomass of benthos, g / m²</value>
+  </data>
+  <data name="Brackish" xml:space="preserve">
+    <value>Brackish</value>
+  </data>
+  <data name="Brine" xml:space="preserve">
+    <value>Brine</value>
+  </data>
   <data name="Ca" xml:space="preserve">
     <value>Calcium cations, mg / dm3</value>
+  </data>
+  <data name="CalciumGroup" xml:space="preserve">
+    <value>Cа</value>
+  </data>
+  <data name="CaMg" xml:space="preserve">
+    <value>Ca²⁺, calcium cations, mg / dm³</value>
+  </data>
+  <data name="CaMgEq" xml:space="preserve">
+    <value>Ca²⁺, calcium cations, mEq / dm³</value>
+  </data>
+  <data name="CaPerEq" xml:space="preserve">
+    <value>Ca²⁺, calcium cations,% eq</value>
+  </data>
+  <data name="CationsSumMgEq" xml:space="preserve">
+    <value>Cation Sums in mEq / dm³</value>
+  </data>
+  <data name="Cd" xml:space="preserve">
+    <value>Cd</value>
+  </data>
+  <data name="ChangeWaterCondition" xml:space="preserve">
+    <value>Change in water condition</value>
+  </data>
+  <data name="Chart" xml:space="preserve">
+    <value>Chart</value>
+  </data>
+  <data name="ChlorideClass" xml:space="preserve">
+    <value>Cl</value>
   </data>
   <data name="CIWP" xml:space="preserve">
     <value>KIZV including Co</value>
@@ -138,14 +255,56 @@
   <data name="Cl" xml:space="preserve">
     <value>Chloride anions, mg / dm3</value>
   </data>
+  <data name="ClMg" xml:space="preserve">
+    <value>Cl⁻, chloride anions, mg / dm³</value>
+  </data>
+  <data name="ClMgEq" xml:space="preserve">
+    <value>Cl⁻, chloride anions, mEq / dm³</value>
+  </data>
+  <data name="ClPerEq" xml:space="preserve">
+    <value>Cl⁻, chloride anions,% eq</value>
+  </data>
+  <data name="Co" xml:space="preserve">
+    <value>Co</value>
+  </data>
   <data name="ColorPicker" xml:space="preserve">
     <value>Thematic colors, Standard colors, Colors, Theme color, Back to the palette, History, History does not yet exist.</value>
   </data>
   <data name="Colors" xml:space="preserve">
     <value>Colors</value>
   </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Compare</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirm password</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Continent" xml:space="preserve">
+    <value>Continent</value>
+  </data>
+  <data name="Continent_ENG" xml:space="preserve">
+    <value>Continent in English</value>
+  </data>
+  <data name="Continent_KZ" xml:space="preserve">
+    <value>Continent in Kazakh</value>
+  </data>
+  <data name="Continent_RU" xml:space="preserve">
+    <value>Continent in Russian</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Country_ENG" xml:space="preserve">
+    <value>Country in English</value>
+  </data>
+  <data name="Country_KZ" xml:space="preserve">
+    <value>Country in Kazakh</value>
+  </data>
+  <data name="Country_RU" xml:space="preserve">
+    <value>Country in Russian</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
@@ -153,32 +312,140 @@
   <data name="CreateANewAccount" xml:space="preserve">
     <value>Create a new account.</value>
   </data>
+  <data name="Cu" xml:space="preserve">
+    <value>Cu</value>
+  </data>
+  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
+    <value>Current fishery productivity of fish,kg/ha</value>
+  </data>
+  <data name="CurrentUsage" xml:space="preserve">
+    <value>Current us</value>
+  </data>
+  <data name="DataType" xml:space="preserve">
+    <value>Data type</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>December</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="DeleteGeoTIFFFile" xml:space="preserve">
     <value>Delete GeoTIFF file</value>
   </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>Delete the GeoTIFF file by water</value>
+  </data>
   <data name="DeleteShapeFile" xml:space="preserve">
     <value>Delete Shape file</value>
+  </data>
+  <data name="DeletingJustification" xml:space="preserve">
+    <value>Justification for deleting the document</value>
+  </data>
+  <data name="Depth_avg" xml:space="preserve">
+    <value>Average lake depth, m</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="DescriptionEN" xml:space="preserve">
+    <value>Description in English</value>
+  </data>
+  <data name="DescriptionKK" xml:space="preserve">
+    <value>Description in Kazakh</value>
+  </data>
+  <data name="DescriptionRU" xml:space="preserve">
+    <value>Description in Russian</value>
   </data>
   <data name="Details" xml:space="preserve">
     <value>Details</value>
   </data>
+  <data name="Directories" xml:space="preserve">
+    <value>Directories</value>
+  </data>
+  <data name="Discrepancy" xml:space="preserve">
+    <value>Discrepancy</value>
+  </data>
+  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
+    <value>The degree of dissolved oxygen in water</value>
+  </data>
   <data name="DissOxygWater" xml:space="preserve">
     <value>Dissolved oxygen in water, mg-eqv / dm3</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="Dis_avg" xml:space="preserve">
+    <value>Average long-term discharge flowing through the lake, m3/sec</value>
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>Document type</value>
+  </data>
+  <data name="DocumentTypes" xml:space="preserve">
+    <value>Types of documents</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="Dynamics" xml:space="preserve">
+    <value>Dynamics</value>
+  </data>
+  <data name="DynamicsLakeArea" xml:space="preserve">
+    <value>Dynamics of lake areas</value>
+  </data>
+  <data name="DynamicsLakeAreas" xml:space="preserve">
+    <value>Dynamics of lake areas</value>
+  </data>
+  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, year, no data, no water, seasonal water area, constant water area</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Elevation of lake surface, in meters above sea level</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="EphemeralPermanent" xml:space="preserve">
+    <value>Ephemeral permanent</value>
+  </data>
+  <data name="EphemeralSeasonal" xml:space="preserve">
+    <value>Ephemeral seasonal</value>
   </data>
   <data name="Evaporation" xml:space="preserve">
     <value>Evaporation</value>
   </data>
+  <data name="EvaporationPer" xml:space="preserve">
+    <value>Evaporation,%</value>
+  </data>
   <data name="Evaporations" xml:space="preserve">
     <value>Evaporation</value>
+  </data>
+  <data name="exist" xml:space="preserve">
+    <value>already exists</value>
+  </data>
+  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
+    <value>Extremely high levels of pollution</value>
+  </data>
+  <data name="FamilyId" xml:space="preserve">
+    <value>Id family</value>
+  </data>
+  <data name="FamilyNameKK" xml:space="preserve">
+    <value>The name of the family of fish in Kazakh</value>
+  </data>
+  <data name="FamilyNameLA" xml:space="preserve">
+    <value>The name of the family of fish in Latin</value>
+  </data>
+  <data name="FamilyNameRU" xml:space="preserve">
+    <value>The name of the family of fish in Russian</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>February</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
   </data>
   <data name="FileNameWithPath" xml:space="preserve">
     <value>The path to the file</value>
@@ -189,8 +456,101 @@
   <data name="FilesUploaded" xml:space="preserve">
     <value>Files uploaded</value>
   </data>
+  <data name="FilterKATO" xml:space="preserve">
+    <value>Region, district</value>
+  </data>
+  <data name="FilterVHBVHU" xml:space="preserve">
+    <value>VHB, VCU</value>
+  </data>
   <data name="Find" xml:space="preserve">
     <value>Find</value>
+  </data>
+  <data name="FindKATO" xml:space="preserve">
+    <value>Find KATO</value>
+  </data>
+  <data name="FirstRowHeader" xml:space="preserve">
+    <value>The first column is the heading.</value>
+  </data>
+  <data name="FishCatchLimit" xml:space="preserve">
+    <value>Fish catch limit, tons</value>
+  </data>
+  <data name="FishId" xml:space="preserve">
+    <value>Id fish</value>
+  </data>
+  <data name="FishKind" xml:space="preserve">
+    <value>Kind of fish</value>
+  </data>
+  <data name="FishKinds" xml:space="preserve">
+    <value>Types of fish</value>
+  </data>
+  <data name="FishKindUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Id of fish, Id of family, name of fish in Kazakh, name of fish in Russian, name of fish in Latin, name of family of fish in Kazakh, name of family of fish in Russian, name of family of fish in Latin</value>
+  </data>
+  <data name="FishNameKK" xml:space="preserve">
+    <value>Name of fish in Kazakh</value>
+  </data>
+  <data name="FishNameLA" xml:space="preserve">
+    <value>Name of fish in Latin</value>
+  </data>
+  <data name="FishNameRU" xml:space="preserve">
+    <value>Name of fish in Russian</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="ForceEntryDay" xml:space="preserve">
+    <value>Day of entry into force</value>
+  </data>
+  <data name="ForceEntryDayDateYear" xml:space="preserve">
+    <value>Date (year) of entry into force</value>
+  </data>
+  <data name="ForceEntryMonth" xml:space="preserve">
+    <value>Month of entry into force</value>
+  </data>
+  <data name="ForceEntryYear" xml:space="preserve">
+    <value>Year of entry into force</value>
+  </data>
+  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
+    <value>Formula contains invalid characters!</value>
+  </data>
+  <data name="Found" xml:space="preserve">
+    <value>Found</value>
+  </data>
+  <data name="Fresh" xml:space="preserve">
+    <value>Fresh</value>
+  </data>
+  <data name="FreshPart" xml:space="preserve">
+    <value>Fresh</value>
+  </data>
+  <data name="FullyPart" xml:space="preserve">
+    <value>Fully</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Functions</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
+    <value>General hydrobiological indicator of the lake</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
+    <value>General hydrobiological indicators of lakes</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, fish Id, research year, zooplankton biomass, benthos biomass, index of species diversity, fish catch limit, current fishery productivity of fish,  Potential fishery productivity of fish, Potential fish catch and volume of the fishery yield, current use, recommended use</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
+    <value>General hydrochemical indicators</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
+    <value>General hydrochemical indicators</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorStandard" xml:space="preserve">
+    <value>Standard of general hydrochemical indicators</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
+    <value>Standards of general hydrochemical indicators</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, year, part of the lake, salinity value, total water hardness, oxygen dissolved in water, percentage of water saturation with dissolved oxygen, pH value, organic matter</value>
   </data>
   <data name="GeoServerName" xml:space="preserve">
     <value>Name in GeoServer</value>
@@ -201,233 +561,77 @@
   <data name="GeoTIFFFile" xml:space="preserve">
     <value>GeoTIFF file</value>
   </data>
+  <data name="GlobalSurfaceWater" xml:space="preserve">
+    <value>Surface water</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="HazardClassCd" xml:space="preserve">
+    <value>Hazard class Cd</value>
+  </data>
+  <data name="HazardClassCo" xml:space="preserve">
+    <value>Hazard Class Co</value>
+  </data>
+  <data name="HazardClassCu" xml:space="preserve">
+    <value>Cu hazard class</value>
+  </data>
+  <data name="HazardClassMn" xml:space="preserve">
+    <value>Hazard class Mn</value>
+  </data>
+  <data name="HazardClassNH4" xml:space="preserve">
+    <value>Hazard Class NH₄</value>
+  </data>
+  <data name="HazardClassNi" xml:space="preserve">
+    <value>Ni hazard class</value>
+  </data>
+  <data name="HazardClassNO2" xml:space="preserve">
+    <value>NO2 hazard class</value>
+  </data>
+  <data name="HazardClassNO3" xml:space="preserve">
+    <value>Hazard class NO₃</value>
+  </data>
+  <data name="HazardClassPb" xml:space="preserve">
+    <value>Hazard class Pb</value>
+  </data>
+  <data name="HazardClassPPO4" xml:space="preserve">
+    <value>Hazard class PPO PP</value>
+  </data>
+  <data name="HazardClassZn" xml:space="preserve">
+    <value>Hazard Class Zn</value>
+  </data>
   <data name="HCO" xml:space="preserve">
     <value>Hydrocorbonate anions, mg / dm3</value>
   </data>
+  <data name="HCOMg" xml:space="preserve">
+    <value>HCO₃⁻, hydrocarbonate anions, mg / dm³</value>
+  </data>
+  <data name="HCOMgEq" xml:space="preserve">
+    <value>HCO₃⁻, hydrocarbonate anions, mEq / dm³</value>
+  </data>
+  <data name="HCOPerEq" xml:space="preserve">
+    <value>HCO₃⁻, hydrocarbonate anions,% eq</value>
+  </data>
+  <data name="HeavyMetals" xml:space="preserve">
+    <value>Heavy metals</value>
+  </data>
+  <data name="HighPollution" xml:space="preserve">
+    <value>High pollution</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="Hydrobiology" xml:space="preserve">
+    <value>Hydrobiology</value>
+  </data>
+  <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
+    <value>C</value>
   </data>
   <data name="Hydrochemistries" xml:space="preserve">
     <value>Hydrochemistries</value>
   </data>
   <data name="Hydrochemistry" xml:space="preserve">
     <value>Hydrochemistry</value>
-  </data>
-  <data name="Lake" xml:space="preserve">
-    <value>Lake</value>
-  </data>
-  <data name="LakeId" xml:space="preserve">
-    <value>Id of the lake</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="Layer" xml:space="preserve">
-    <value>Layer</value>
-  </data>
-  <data name="LayerFile" xml:space="preserve">
-    <value>Layer File</value>
-  </data>
-  <data name="Layers" xml:space="preserve">
-    <value>Layers</value>
-  </data>
-  <data name="LogIn" xml:space="preserve">
-    <value>Log in</value>
-  </data>
-  <data name="LogOut" xml:space="preserve">
-    <value>Log out</value>
-  </data>
-  <data name="Map" xml:space="preserve">
-    <value>Map</value>
-  </data>
-  <data name="Maps" xml:space="preserve">
-    <value>Maps</value>
-  </data>
-  <data name="Mg" xml:space="preserve">
-    <value>Magnesium cations, mg / dm3</value>
-  </data>
-  <data name="Mineralization" xml:space="preserve">
-    <value>Value of mineralization, mg / dm3</value>
-  </data>
-  <data name="MinValues" xml:space="preserve">
-    <value>Minimum values</value>
-  </data>
-  <data name="NaK" xml:space="preserve">
-    <value>Sodium potassium cations, mg / dm3</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="NameEN" xml:space="preserve">
-    <value>Name (english)</value>
-  </data>
-  <data name="NameKK" xml:space="preserve">
-    <value>Name (kazakh)</value>
-  </data>
-  <data name="NameRU" xml:space="preserve">
-    <value>Name (russian)</value>
-  </data>
-  <data name="NH" xml:space="preserve">
-    <value>NH</value>
-  </data>
-  <data name="Opacity" xml:space="preserve">
-    <value>Opacity</value>
-  </data>
-  <data name="OrganicSubstances" xml:space="preserve">
-    <value>Organic matter, mgO / dm3</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Password</value>
-  </data>
-  <data name="PercentOxygWater" xml:space="preserve">
-    <value>Saturation percentage,%</value>
-  </data>
-  <data name="pH" xml:space="preserve">
-    <value>PH value</value>
-  </data>
-  <data name="PPO" xml:space="preserve">
-    <value>PPO</value>
-  </data>
-  <data name="Precipitation" xml:space="preserve">
-    <value>Precipitation</value>
-  </data>
-  <data name="Precipitations" xml:space="preserve">
-    <value>Precipitation</value>
-  </data>
-  <data name="Publish" xml:space="preserve">
-    <value>Publish</value>
-  </data>
-  <data name="PublishDescription" xml:space="preserve">
-    <value>The file size should be no more than 1 GB. Files can be in the zip archive.</value>
-  </data>
-  <data name="PublishGeoTIFF" xml:space="preserve">
-    <value>Publish GeoTIFF file</value>
-  </data>
-  <data name="PublishLayer" xml:space="preserve">
-    <value>Publish raster layer</value>
-  </data>
-  <data name="PublishShape" xml:space="preserve">
-    <value>Publish the shp-file</value>
-  </data>
-  <data name="Register" xml:space="preserve">
-    <value>Register</value>
-  </data>
-  <data name="RegisterAsANewUser" xml:space="preserve">
-    <value>Register as a new user?</value>
-  </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>Remember me?</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Roles</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="ShapeFile" xml:space="preserve">
-    <value>Shape-file</value>
-  </data>
-  <data name="Show" xml:space="preserve">
-    <value>Show</value>
-  </data>
-  <data name="SO" xml:space="preserve">
-    <value>Sulphate anions, mg / dm3</value>
-  </data>
-  <data name="StyleWaterLevel" xml:space="preserve">
-    <value>The style of lake water levels</value>
-  </data>
-  <data name="SurfaceFlow" xml:space="preserve">
-    <value>Surface flow</value>
-  </data>
-  <data name="SurfaceFlows" xml:space="preserve">
-    <value>Surface tributaries</value>
-  </data>
-  <data name="SurfaceOutflow" xml:space="preserve">
-    <value>Surface outflow</value>
-  </data>
-  <data name="SurfaceOutflows" xml:space="preserve">
-    <value>Surface outflows</value>
-  </data>
-  <data name="TotalHardness" xml:space="preserve">
-    <value>Total hardness of water, mg-equ / dm3</value>
-  </data>
-  <data name="UndergroundFlow" xml:space="preserve">
-    <value>Underground tributary</value>
-  </data>
-  <data name="UndergroundFlows" xml:space="preserve">
-    <value>Underground tributaries</value>
-  </data>
-  <data name="UndergroundOutflow" xml:space="preserve">
-    <value>Underground outflow</value>
-  </data>
-  <data name="UndergroundOutflows" xml:space="preserve">
-    <value>Underground outflows</value>
-  </data>
-  <data name="Unpublish" xml:space="preserve">
-    <value>Unpublish</value>
-  </data>
-  <data name="UnpublishGeoTIFF" xml:space="preserve">
-    <value>Unpublish GeoTIFF file</value>
-  </data>
-  <data name="UnpublishShape" xml:space="preserve">
-    <value>Unpublish Shape file</value>
-  </data>
-  <data name="Upload" xml:space="preserve">
-    <value>Upload</value>
-  </data>
-  <data name="UploadGeoTIFFFiles" xml:space="preserve">
-    <value>Upload GeoTIFF files</value>
-  </data>
-  <data name="UploadShapeFiles" xml:space="preserve">
-    <value>Upload Shape files</value>
-  </data>
-  <data name="UseALocalAccountToLogIn" xml:space="preserve">
-    <value>Use a local account to log in.</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>User</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Users</value>
-  </data>
-  <data name="Value" xml:space="preserve">
-    <value>Value</value>
-  </data>
-  <data name="WaterLavelMy" xml:space="preserve">
-    <value>H, m.abs.</value>
-  </data>
-  <data name="WaterLevel" xml:space="preserve">
-    <value>Long-term course of average annual lake levels</value>
-  </data>
-  <data name="WaterLevels" xml:space="preserve">
-    <value>Lakes water levels</value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Year</value>
-  </data>
-  <data name="DataType" xml:space="preserve">
-    <value>Data type</value>
-  </data>
-  <data name="StyleEvaporation" xml:space="preserve">
-    <value>Style of fumes</value>
-  </data>
-  <data name="StylePrecipitation" xml:space="preserve">
-    <value>Type of precipitation</value>
-  </data>
-  <data name="StyleSurfaceFlow" xml:space="preserve">
-    <value>The style of surface tributaries</value>
-  </data>
-  <data name="StyleSurfaceOutflow" xml:space="preserve">
-    <value>Style of surface outflows</value>
-  </data>
-  <data name="StyleUndergroundFlow" xml:space="preserve">
-    <value>The style of the underground tributaries</value>
-  </data>
-  <data name="StyleUndergroundOutflow" xml:space="preserve">
-    <value>Style of underground outflows</value>
   </data>
   <data name="HydrochemistryCas" xml:space="preserve">
     <value>Calcium cations, mg / dm3</value>
@@ -501,6 +705,735 @@
   <data name="HydrochemistryZns" xml:space="preserve">
     <value>Zn</value>
   </data>
+  <data name="Hydrology" xml:space="preserve">
+    <value>Hydrology</value>
+  </data>
+  <data name="Hylak_id" xml:space="preserve">
+    <value>Unique lake identifier</value>
+  </data>
+  <data name="IncludeWater" xml:space="preserve">
+    <value>Includes layers of water</value>
+  </data>
+  <data name="Indicator" xml:space="preserve">
+    <value>Indicator</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Instruction</value>
+  </data>
+  <data name="IonName" xml:space="preserve">
+    <value>Ion name</value>
+  </data>
+  <data name="IonsaltWaterComposition" xml:space="preserve">
+    <value>Ion-salt composition of water</value>
+  </data>
+  <data name="IonsaltWaterCompositions" xml:space="preserve">
+    <value>Ion-salt composition of water</value>
+  </data>
+  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
+    <value>The order of the columns in the file: Lake Id, year, part of the lake, calcium cations, magnesium cations, sodium potassium cations, chloride anions, hydrocarbonate anions, sulfate anions</value>
+  </data>
+  <data name="IonsSumMgEq" xml:space="preserve">
+    <value>The amount of ions in mEq / dm³</value>
+  </data>
+  <data name="IonsSumPerEq" xml:space="preserve">
+    <value>Amount of ions in% eq</value>
+  </data>
+  <data name="IonUnit" xml:space="preserve">
+    <value>mg / dm³ /% eq / dm³</value>
+  </data>
+  <data name="IZVCd" xml:space="preserve">
+    <value>IZV Cd</value>
+  </data>
+  <data name="IZVCo" xml:space="preserve">
+    <value>IZV Co</value>
+  </data>
+  <data name="IZVCu" xml:space="preserve">
+    <value>IZV Cu</value>
+  </data>
+  <data name="IZVMn" xml:space="preserve">
+    <value>Izv mn</value>
+  </data>
+  <data name="IZVNH4" xml:space="preserve">
+    <value>IZV NH₄</value>
+  </data>
+  <data name="IZVNi" xml:space="preserve">
+    <value>IZV Ni</value>
+  </data>
+  <data name="IZVNO2" xml:space="preserve">
+    <value>IZV NO2</value>
+  </data>
+  <data name="IZVNO3" xml:space="preserve">
+    <value>IZV NO₃</value>
+  </data>
+  <data name="IZVPb" xml:space="preserve">
+    <value>IZV Pb</value>
+  </data>
+  <data name="IZVPPO4" xml:space="preserve">
+    <value>IZV PPO₄</value>
+  </data>
+  <data name="IZVZn" xml:space="preserve">
+    <value>IZV Zn</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>January</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>July</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>June</value>
+  </data>
+  <data name="KIZV" xml:space="preserve">
+    <value>KIZV</value>
+  </data>
+  <data name="KIZVDegree" xml:space="preserve">
+    <value>The degree of pollution of water bodies by KIZV taking into account the hazard class</value>
+  </data>
+  <data name="KIZVkoCd" xml:space="preserve">
+    <value>KIZVko Cd</value>
+  </data>
+  <data name="KIZVkoCo" xml:space="preserve">
+    <value>KIZVko Co</value>
+  </data>
+  <data name="KIZVkoCu" xml:space="preserve">
+    <value>KIZVko Cu</value>
+  </data>
+  <data name="KIZVkoMn" xml:space="preserve">
+    <value>KIZVko Mn</value>
+  </data>
+  <data name="KIZVkoNH4" xml:space="preserve">
+    <value>KIZVko NH₄</value>
+  </data>
+  <data name="KIZVkoNi" xml:space="preserve">
+    <value>KIZVko Ni</value>
+  </data>
+  <data name="KIZVkoNO2" xml:space="preserve">
+    <value>KIZVko NO2</value>
+  </data>
+  <data name="KIZVkoNO3" xml:space="preserve">
+    <value>KIZVko NO₃</value>
+  </data>
+  <data name="KIZVkoPb" xml:space="preserve">
+    <value>KIZVko Pb</value>
+  </data>
+  <data name="KIZVkoPPO4" xml:space="preserve">
+    <value>KIZVko PPO₄</value>
+  </data>
+  <data name="KIZVkoZn" xml:space="preserve">
+    <value>KIZVko Zn</value>
+  </data>
+  <data name="KIZVs" xml:space="preserve">
+    <value>KIZV</value>
+  </data>
+  <data name="KurlovFormula" xml:space="preserve">
+    <value>The formula of chemical composition of water according to MG Kurlov</value>
+  </data>
+  <data name="Lake" xml:space="preserve">
+    <value>Lake</value>
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value>Absolute height of the lake, m</value>
+  </data>
+  <data name="LakeArchiveData" xml:space="preserve">
+    <value>Archival Lake Information</value>
+  </data>
+  <data name="LakeArea" xml:space="preserve">
+    <value>Lake area, km²</value>
+  </data>
+  <data name="LakeGlobalData" xml:space="preserve">
+    <value>Information about the lake from the global base</value>
+  </data>
+  <data name="LakeId" xml:space="preserve">
+    <value>Id of the lake</value>
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value>The length of the lake, km</value>
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value>Maximum depth of lake, m</value>
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value>Lake mirror area, km2</value>
+  </data>
+  <data name="LakePart" xml:space="preserve">
+    <value>Part of the lake</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Lakes</value>
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value>Lakes archive data</value>
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value>Lakes archive data</value>
+  </data>
+  <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, year of topographic survey, lake dlin, lake shoreline clay, lake mirror area, total lake height, lake width, maximum lake depth, volume of lake water mass, source of archival information</value>
+  </data>
+  <data name="LakesGlobalData" xml:space="preserve">
+    <value>Global Lakes Base</value>
+  </data>
+  <data name="LakesGlobalDatas" xml:space="preserve">
+    <value>Global Lakes Base</value>
+  </data>
+  <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, Lake Unique Identifier, Lake Name (English), Lake Name (Russian), Lake Name (Kazakh), Country (English), Country (Russian), Country (Kazakh), Continent (English), continent (Russian), continent (Kazakh), data sources (English), data sources, data sources (Kazakh), lake type indicator, unique identifier of the reservoir in the grand database, surface area of ​​lakes, coastline length, jagged coastline, total lake volume, reservoir volume , source of volume data, average lake depth, average long-term runoff flowing through the lake, average water residence time in the lake, height of the lake surface above sea level, average slope within a 100-meter buffer around the lake landfill, catchment area, longitude, latitude</value>
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value>The length of the lake shoreline, km</value>
+  </data>
+  <data name="LakeShorelineLength2015" xml:space="preserve">
+    <value>The length of the lake shoreline for 2015, km</value>
+  </data>
+  <data name="LakeSystem" xml:space="preserve">
+    <value>Lake system</value>
+  </data>
+  <data name="LakeSystemId" xml:space="preserve">
+    <value>Lake system id</value>
+  </data>
+  <data name="LakeSystems" xml:space="preserve">
+    <value>Lake systems</value>
+  </data>
+  <data name="LakeSystemUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake system Id, title (Russian), title (Kazakh), title (English)</value>
+  </data>
+  <data name="LakeUploadDescription" xml:space="preserve">
+    <value>The order of the columns in the file is: Lake Id, lake name in Kazakh, lake name in Russian, lake name in English, name of the water basin in Kazakh, name of the water basin in Russian, name of the water basin in English, name of the water site, Id lake system, length lake shoreline for 2015, lake mirror area for 2015, longitude, latitude</value>
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value>The volume of lake water mass, mln.m3</value>
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value>Lake width, km</value>
+  </data>
+  <data name="Lake_area" xml:space="preserve">
+    <value>Lake surface area, km2</value>
+  </data>
+  <data name="Lake_name" xml:space="preserve">
+    <value>Lake name</value>
+  </data>
+  <data name="Lake_name_ENG" xml:space="preserve">
+    <value>Lake name in English</value>
+  </data>
+  <data name="Lake_name_KZ" xml:space="preserve">
+    <value>The name of the lake in Kazakh</value>
+  </data>
+  <data name="Lake_name_RU" xml:space="preserve">
+    <value>Name of the lake in Russian</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="Layer" xml:space="preserve">
+    <value>Layer</value>
+  </data>
+  <data name="LayerFile" xml:space="preserve">
+    <value>Layer File</value>
+  </data>
+  <data name="Layers" xml:space="preserve">
+    <value>Layers</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Legend</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="LostPermanent" xml:space="preserve">
+    <value>Lost permanent</value>
+  </data>
+  <data name="LostSeasonal" xml:space="preserve">
+    <value>Lost seasonal</value>
+  </data>
+  <data name="LowerLimit" xml:space="preserve">
+    <value>lower limit</value>
+  </data>
+  <data name="MagnesiumGroup" xml:space="preserve">
+    <value>Mg</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="Maps" xml:space="preserve">
+    <value>Maps</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>March</value>
+  </data>
+  <data name="MarineSalinity" xml:space="preserve">
+    <value>Marine salinity</value>
+  </data>
+  <data name="maximum" xml:space="preserve">
+    <value>maximum</value>
+  </data>
+  <data name="MaximumWater" xml:space="preserve">
+    <value>Maximum water</value>
+  </data>
+  <data name="MaximumWaterArea" xml:space="preserve">
+    <value>Maximum water area</value>
+  </data>
+  <data name="MaximumWaterExtent" xml:space="preserve">
+    <value> The Maximum Water Extent</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="MeasurementUnit" xml:space="preserve">
+    <value>Unit of measurement</value>
+  </data>
+  <data name="MeasurementUnits" xml:space="preserve">
+    <value>Units of measurement</value>
+  </data>
+  <data name="MessageCantBeDeleted" xml:space="preserve">
+    <value>{0} can't be deleted because it is used in current layers: {1}!</value>
+  </data>
+  <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
+    <value>File extension must be "shp"!</value>
+  </data>
+  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
+    <value>File extension must be "tif" or "tiff"!</value>
+  </data>
+  <data name="MessageFileWasDeleted" xml:space="preserve">
+    <value>File {0} was deleted!</value>
+  </data>
+  <data name="MessageLayerAlreadyExist" xml:space="preserve">
+    <value>Layer {0} is already exist in {1} workspace!</value>
+  </data>
+  <data name="MessageLayerIsntExist" xml:space="preserve">
+    <value>Layer {0} isn't exist in {1} workspace!</value>
+  </data>
+  <data name="Mg" xml:space="preserve">
+    <value>Magnesium cations, mg / dm3</value>
+  </data>
+  <data name="MgMg" xml:space="preserve">
+    <value>MG²⁺, magnesium cations, mg / dm³</value>
+  </data>
+  <data name="MgMgEq" xml:space="preserve">
+    <value>MG²⁺, magnesium cations, mEq / dm³</value>
+  </data>
+  <data name="MgPerEq" xml:space="preserve">
+    <value>MG²⁺, magnesium cations,% eq</value>
+  </data>
+  <data name="Mineralization" xml:space="preserve">
+    <value>Value of mineralization, mg / dm3</value>
+  </data>
+  <data name="MineralizationType" xml:space="preserve">
+    <value>Type of mineralization</value>
+  </data>
+  <data name="minimum" xml:space="preserve">
+    <value>minimum</value>
+  </data>
+  <data name="MinValues" xml:space="preserve">
+    <value>Minimum values</value>
+  </data>
+  <data name="Mn" xml:space="preserve">
+    <value>Mn</value>
+  </data>
+  <data name="ModeratelyTough" xml:space="preserve">
+    <value>Moderately tough</value>
+  </data>
+  <data name="ModeratePollution" xml:space="preserve">
+    <value>Moderate pollution</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="MonthlyHistory" xml:space="preserve">
+    <value>By months</value>
+  </data>
+  <data name="MonthlyRecurrence" xml:space="preserve">
+    <value>Average monthly data</value>
+  </data>
+  <data name="MPCCd" xml:space="preserve">
+    <value>MPC Cd value</value>
+  </data>
+  <data name="MPCCo" xml:space="preserve">
+    <value>MPC Co value</value>
+  </data>
+  <data name="MPCCu" xml:space="preserve">
+    <value>MPC value Cu</value>
+  </data>
+  <data name="MPCExceeding" xml:space="preserve">
+    <value>The ratio of exceeding the maximum permissible concentration</value>
+  </data>
+  <data name="MPCMn" xml:space="preserve">
+    <value>MPC value Mn</value>
+  </data>
+  <data name="MPCNH4" xml:space="preserve">
+    <value>MPC value NH₄</value>
+  </data>
+  <data name="MPCNi" xml:space="preserve">
+    <value>MPC value Ni</value>
+  </data>
+  <data name="MPCNO2" xml:space="preserve">
+    <value>MPC value NO2</value>
+  </data>
+  <data name="MPCNO3" xml:space="preserve">
+    <value>MPC value NO₃</value>
+  </data>
+  <data name="MPCPb" xml:space="preserve">
+    <value>MPC value Pb</value>
+  </data>
+  <data name="MPCPPO4" xml:space="preserve">
+    <value>MPC value PPO₄</value>
+  </data>
+  <data name="MPCZn" xml:space="preserve">
+    <value>MPC value Zn</value>
+  </data>
+  <data name="NaK" xml:space="preserve">
+    <value>Sodium potassium cations, mg / dm3</value>
+  </data>
+  <data name="NaKMg" xml:space="preserve">
+    <value>Na⁺ + K⁺, sodium potassium cations, mg / dm³</value>
+  </data>
+  <data name="NaKMgEq" xml:space="preserve">
+    <value>Na⁺ + K⁺, sodium potassium cations, mEq / dm³</value>
+  </data>
+  <data name="NaKPerEq" xml:space="preserve">
+    <value>Na⁺ + K⁺, sodium potassium cations,% eq</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NameEN" xml:space="preserve">
+    <value>Name (english)</value>
+  </data>
+  <data name="NameKK" xml:space="preserve">
+    <value>Name (kazakh)</value>
+  </data>
+  <data name="NameRU" xml:space="preserve">
+    <value>Name (russian)</value>
+  </data>
+  <data name="NeutralWaters" xml:space="preserve">
+    <value>Neutral waters</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>New document</value>
+  </data>
+  <data name="NewPermanent" xml:space="preserve">
+    <value>New permanent</value>
+  </data>
+  <data name="NewSeasonal" xml:space="preserve">
+    <value>New seasonal</value>
+  </data>
+  <data name="NH" xml:space="preserve">
+    <value>NH</value>
+  </data>
+  <data name="NH4" xml:space="preserve">
+    <value>NH₄</value>
+  </data>
+  <data name="Ni" xml:space="preserve">
+    <value>Ni</value>
+  </data>
+  <data name="NO2" xml:space="preserve">
+    <value>NO2</value>
+  </data>
+  <data name="NO3" xml:space="preserve">
+    <value>NO₃</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No data</value>
+  </data>
+  <data name="noMetaData" xml:space="preserve">
+    <value>no metadata</value>
+  </data>
+  <data name="NOT" xml:space="preserve">
+    <value>Not</value>
+  </data>
+  <data name="not3857" xml:space="preserve">
+    <value>The coordinate system is not EPSG:3857</value>
+  </data>
+  <data name="not3857Changed" xml:space="preserve">
+    <value>The coordinate system is not EPSG:3857. Changed.</value>
+  </data>
+  <data name="notGeoTIFF" xml:space="preserve">
+    <value>not GeoTIFF</value>
+  </data>
+  <data name="notShape" xml:space="preserve">
+    <value>not a Shape-file</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>November</value>
+  </data>
+  <data name="NoWater" xml:space="preserve">
+    <value>No water, km²</value>
+  </data>
+  <data name="NoСhange" xml:space="preserve">
+    <value>No change</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Nutrients" xml:space="preserve">
+    <value>Nutrients</value>
+  </data>
+  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
+    <value>Standard of nutrients and heavy metals</value>
+  </data>
+  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
+    <value>Standards of nutrients and heavy metals</value>
+  </data>
+  <data name="Occurrence" xml:space="preserve">
+    <value>The Water Occurrence</value>
+  </data>
+  <data name="OccurrenceChangeIntensity" xml:space="preserve">
+    <value>The Water Occurrence Change</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>October</value>
+  </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>Opacity</value>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="OrganicSubstances" xml:space="preserve">
+    <value>Organic matter, mgO / dm3</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Pb" xml:space="preserve">
+    <value>Pb</value>
+  </data>
+  <data name="PercentOxygWater" xml:space="preserve">
+    <value>Saturation percentage,%</value>
+  </data>
+  <data name="Permanent" xml:space="preserve">
+    <value>Permanent</value>
+  </data>
+  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
+    <value>Dynamics of permanent and seasonal water areas</value>
+  </data>
+  <data name="PermanentToDeasonal" xml:space="preserve">
+    <value>Permanent to seasonal</value>
+  </data>
+  <data name="PermanentWaterArea" xml:space="preserve">
+    <value>Area of permanent water, km²</value>
+  </data>
+  <data name="PermanentWaterAreaPer" xml:space="preserve">
+    <value>Area of constant water,%</value>
+  </data>
+  <data name="pH" xml:space="preserve">
+    <value>PH value</value>
+  </data>
+  <data name="PotentialFishProducts" xml:space="preserve">
+    <value>Potential fish products, kg / ha</value>
+  </data>
+  <data name="PotentialGrowingVolume" xml:space="preserve">
+    <value>Potential growing volume, kg / ha</value>
+  </data>
+  <data name="Pour_lat" xml:space="preserve">
+    <value>Latitude</value>
+  </data>
+  <data name="Pour_long" xml:space="preserve">
+    <value>Longitude</value>
+  </data>
+  <data name="PPO" xml:space="preserve">
+    <value>PPO</value>
+  </data>
+  <data name="PPO4" xml:space="preserve">
+    <value>PPO₄</value>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="PrecipitationPer" xml:space="preserve">
+    <value>Precipitation,%</value>
+  </data>
+  <data name="Precipitations" xml:space="preserve">
+    <value>Precipitation</value>
+  </data>
+  <data name="PreviousDocument" xml:space="preserve">
+    <value>Previous document</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Publish</value>
+  </data>
+  <data name="PublishDescription" xml:space="preserve">
+    <value>The file size should be no more than 1 GB. Files can be in the zip archive.</value>
+  </data>
+  <data name="PublishGeoTIFF" xml:space="preserve">
+    <value>Publish GeoTIFF file</value>
+  </data>
+  <data name="PublishGeoTIFFWater" xml:space="preserve">
+    <value>Publish GeoTIFF file (Water)</value>
+  </data>
+  <data name="PublishLayer" xml:space="preserve">
+    <value>Publish raster layer</value>
+  </data>
+  <data name="PublishShape" xml:space="preserve">
+    <value>Publish the shp-file</value>
+  </data>
+  <data name="QualitativeAssessment" xml:space="preserve">
+    <value>Qualitative assessment</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Raster</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Rasters</value>
+  </data>
+  <data name="RasterValue" xml:space="preserve">
+    <value>Pixel value</value>
+  </data>
+  <data name="RasterValueStat" xml:space="preserve">
+    <value>Statistics of pixel values in the lake</value>
+  </data>
+  <data name="RecommendedUse" xml:space="preserve">
+    <value>Recommended use</value>
+  </data>
+  <data name="Recurrence" xml:space="preserve">
+    <value>The Annual Water Recurrence</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisterAsANewUser" xml:space="preserve">
+    <value>Register as a new user?</value>
+  </data>
+  <data name="Regulatory" xml:space="preserve">
+    <value>Regulatory</value>
+  </data>
+  <data name="RegulatoryDocument" xml:space="preserve">
+    <value>Regulatory Document</value>
+  </data>
+  <data name="RegulatoryDocuments" xml:space="preserve">
+    <value>Regulations</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Remember me?</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="Replace" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Res_time" xml:space="preserve">
+    <value>Average residence time of the lake water, in days</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="SaltyPart" xml:space="preserve">
+    <value>Salty</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchByLakeName" xml:space="preserve">
+    <value>Search by lake name</value>
+  </data>
+  <data name="Seasonal" xml:space="preserve">
+    <value>Seasonal</value>
+  </data>
+  <data name="Seasonalit" xml:space="preserve">
+    <value>Seasonality</value>
+  </data>
+  <data name="Seasonalits" xml:space="preserve">
+    <value>Seasonalities</value>
+  </data>
+  <data name="SeasonalitUploadDescription" xml:space="preserve">
+    <value>The order of the columns in the file: Lake Id, no data, January, February, March, April, May, June, July, August, September, October, November, December</value>
+  </data>
+  <data name="Seasonality" xml:space="preserve">
+    <value>The Water Seasonality</value>
+  </data>
+  <data name="SeasonalToPermanent" xml:space="preserve">
+    <value>Seasonal to permanent</value>
+  </data>
+  <data name="SeasonalWaterArea" xml:space="preserve">
+    <value>Area of seasonal water, km²</value>
+  </data>
+  <data name="SeasonalWaterAreaPer" xml:space="preserve">
+    <value>Area of seasonal water,%</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>September</value>
+  </data>
+  <data name="ShapeFile" xml:space="preserve">
+    <value>Shape-file</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Shape-files</value>
+  </data>
+  <data name="ShoreIrregularityRatio" xml:space="preserve">
+    <value>Shore irregularity ratio</value>
+  </data>
+  <data name="Shore_dev" xml:space="preserve">
+    <value>Shoreline development</value>
+  </data>
+  <data name="Shore_len" xml:space="preserve">
+    <value>Length of shoreline, km</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="Slope_100" xml:space="preserve">
+    <value>Average slope within a 100 meter buffer around the lake polygon, in degrees</value>
+  </data>
+  <data name="SO" xml:space="preserve">
+    <value>Sulphate anions, mg / dm3</value>
+  </data>
+  <data name="SodiumGroup" xml:space="preserve">
+    <value>Na</value>
+  </data>
+  <data name="Soft" xml:space="preserve">
+    <value>Soft</value>
+  </data>
+  <data name="SOMg" xml:space="preserve">
+    <value>SO₄²⁻, sulfate anions, mg / dm³</value>
+  </data>
+  <data name="SOMgEq" xml:space="preserve">
+    <value>SO₄²⁻, sulfate anions, mEq / dm³</value>
+  </data>
+  <data name="SOPerEq" xml:space="preserve">
+    <value>SO₄²⁻, sulphate anions,% eq</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="SourWater" xml:space="preserve">
+    <value>Sour water</value>
+  </data>
+  <data name="SpeciesWealthIndex" xml:space="preserve">
+    <value>Species wealth index, units</value>
+  </data>
+  <data name="StronglyAcidicWater" xml:space="preserve">
+    <value>Strongly acidic water</value>
+  </data>
+  <data name="StronglyAlkalineWater" xml:space="preserve">
+    <value>Strongly alkaline water</value>
+  </data>
+  <data name="StyleEvaporation" xml:space="preserve">
+    <value>Style of fumes</value>
+  </data>
   <data name="StyleHydrochemistryCa" xml:space="preserve">
     <value>Style of calcium cations</value>
   </data>
@@ -573,8 +1506,131 @@
   <data name="StyleHydrochemistryZn" xml:space="preserve">
     <value>Style Zn</value>
   </data>
-  <data name="Legend" xml:space="preserve">
-    <value>Legend</value>
+  <data name="StylePrecipitation" xml:space="preserve">
+    <value>Type of precipitation</value>
+  </data>
+  <data name="StyleSurfaceFlow" xml:space="preserve">
+    <value>The style of surface tributaries</value>
+  </data>
+  <data name="StyleSurfaceOutflow" xml:space="preserve">
+    <value>Style of surface outflows</value>
+  </data>
+  <data name="StyleUndergroundFlow" xml:space="preserve">
+    <value>The style of the underground tributaries</value>
+  </data>
+  <data name="StyleUndergroundOutflow" xml:space="preserve">
+    <value>Style of underground outflows</value>
+  </data>
+  <data name="StyleWaterLevel" xml:space="preserve">
+    <value>The style of lake water levels</value>
+  </data>
+  <data name="SubacidWaters" xml:space="preserve">
+    <value>Subacid waters</value>
+  </data>
+  <data name="SulphateClass" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="SurfaceFlow" xml:space="preserve">
+    <value>Surface flow</value>
+  </data>
+  <data name="SurfaceFlowPer" xml:space="preserve">
+    <value>Surface flow,%</value>
+  </data>
+  <data name="SurfaceFlows" xml:space="preserve">
+    <value>Surface tributaries</value>
+  </data>
+  <data name="SurfaceOutflow" xml:space="preserve">
+    <value>Surface outflow</value>
+  </data>
+  <data name="SurfaceOutflowPer" xml:space="preserve">
+    <value>Surface outflow,%</value>
+  </data>
+  <data name="SurfaceOutflows" xml:space="preserve">
+    <value>Surface outflows</value>
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value>Year Survey</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TotalHardness" xml:space="preserve">
+    <value>Total hardness of water, mg-equ / dm3</value>
+  </data>
+  <data name="Tough" xml:space="preserve">
+    <value>Tough</value>
+  </data>
+  <data name="ToxicologicalIndicator" xml:space="preserve">
+    <value>Toxicological indicator</value>
+  </data>
+  <data name="ToxicologicalIndicators" xml:space="preserve">
+    <value>Toxicological indicators</value>
+  </data>
+  <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Id lakes, year, part of the lake, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
+  </data>
+  <data name="Transition" xml:space="preserve">
+    <value>Transition</value>
+  </data>
+  <data name="Transitions" xml:space="preserve">
+    <value>The Water Transitions</value>
+  </data>
+  <data name="TransitionUploadDescription" xml:space="preserve">
+    <value>Column order in the file: Lake Id, no change, permanent, new permanent, lost permanent, seasonal, new seasonal, lost seasonal, seasonal to permanent, permanent to seasonal, ephemeral permanent, ephemeral seasonal</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Type1" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="Type2" xml:space="preserve">
+    <value>II</value>
+  </data>
+  <data name="Type3" xml:space="preserve">
+    <value>III</value>
+  </data>
+  <data name="Type4" xml:space="preserve">
+    <value>IV</value>
+  </data>
+  <data name="UndergroundFlow" xml:space="preserve">
+    <value>Underground tributary</value>
+  </data>
+  <data name="UndergroundFlowPer" xml:space="preserve">
+    <value>Underground flow,%</value>
+  </data>
+  <data name="UndergroundFlows" xml:space="preserve">
+    <value>Underground tributaries</value>
+  </data>
+  <data name="UndergroundOutflow" xml:space="preserve">
+    <value>Underground outflow</value>
+  </data>
+  <data name="UndergroundOutflowPer" xml:space="preserve">
+    <value>Underground outflow,%</value>
+  </data>
+  <data name="UndergroundOutflows" xml:space="preserve">
+    <value>Underground outflows</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>Unpublish</value>
+  </data>
+  <data name="UnpublishGeoTIFF" xml:space="preserve">
+    <value>Unpublish GeoTIFF file</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>Unpublish GeoTIFF file by water</value>
+  </data>
+  <data name="UnpublishShape" xml:space="preserve">
+    <value>Unpublish Shape file</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>Update</value>
@@ -582,188 +1638,44 @@
   <data name="UpdateLakeLayerStyle" xml:space="preserve">
     <value>Update lake layer style</value>
   </data>
-  <data name="MessageCantBeDeleted" xml:space="preserve">
-    <value>{0} can't be deleted because it is used in current layers: {1}!</value>
-  </data>
-  <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
-    <value>File extension must be "shp"!</value>
-  </data>
-  <data name="MessageFileWasDeleted" xml:space="preserve">
-    <value>File {0} was deleted!</value>
-  </data>
-  <data name="MessageLayerAlreadyExist" xml:space="preserve">
-    <value>Layer {0} is already exist in {1} workspace!</value>
-  </data>
-  <data name="MessageLayerIsntExist" xml:space="preserve">
-    <value>Layer {0} isn't exist in {1} workspace!</value>
-  </data>
-  <data name="Instruction" xml:space="preserve">
-    <value>Instruction</value>
-  </data>
-  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
-    <value>File extension must be "tif" or "tiff"!</value>
-  </data>
-  <data name="exist" xml:space="preserve">
-    <value>already exists</value>
-  </data>
-  <data name="notGeoTIFF" xml:space="preserve">
-    <value>not GeoTIFF</value>
-  </data>
-  <data name="notShape" xml:space="preserve">
-    <value>not a Shape-file</value>
+  <data name="Upload" xml:space="preserve">
+    <value>Upload</value>
   </data>
   <data name="uploaded" xml:space="preserve">
     <value>uploaded</value>
   </data>
-  <data name="Action" xml:space="preserve">
-    <value>Action</value>
+  <data name="UploadedCount" xml:space="preserve">
+    <value>Total uploaded</value>
   </data>
-  <data name="AddLakes" xml:space="preserve">
-    <value>Add Lakes</value>
-  </data>
-  <data name="Compare" xml:space="preserve">
-    <value>Compare</value>
-  </data>
-  <data name="Replace" xml:space="preserve">
-    <value>Replace</value>
-  </data>
-  <data name="FindKATO" xml:space="preserve">
-    <value>Find KATO</value>
-  </data>
-  <data name="noMetaData" xml:space="preserve">
-    <value>no metadata</value>
-  </data>
-  <data name="Tags" xml:space="preserve">
-    <value>Tags</value>
-  </data>
-  <data name="DescriptionEN" xml:space="preserve">
-    <value>Description in English</value>
-  </data>
-  <data name="DescriptionKK" xml:space="preserve">
-    <value>Description in Kazakh</value>
-  </data>
-  <data name="DescriptionRU" xml:space="preserve">
-    <value>Description in Russian</value>
-  </data>
-  <data name="not3857" xml:space="preserve">
-    <value>The coordinate system is not EPSG:3857</value>
-  </data>
-  <data name="not3857Changed" xml:space="preserve">
-    <value>The coordinate system is not EPSG:3857. Changed.</value>
-  </data>
-  <data name="Month" xml:space="preserve">
-    <value>Month</value>
-  </data>
-  <data name="MonthlyHistory" xml:space="preserve">
-    <value>By months</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Type</value>
+  <data name="UploadGeoTIFFFiles" xml:space="preserve">
+    <value>Upload GeoTIFF files</value>
   </data>
   <data name="UploadGeoTIFFFilesWater" xml:space="preserve">
     <value>Upload GeoTIFF files by water</value>
   </data>
-  <data name="YearlyHistory" xml:space="preserve">
-    <value>By years</value>
+  <data name="UploadShapeFiles" xml:space="preserve">
+    <value>Upload Shape files</value>
   </data>
-  <data name="Folder" xml:space="preserve">
-    <value>Folder</value>
+  <data name="UpperLimit" xml:space="preserve">
+    <value>Upper limit</value>
   </data>
-  <data name="PublishGeoTIFFWater" xml:space="preserve">
-    <value>Publish GeoTIFF file (Water)</value>
+  <data name="UseALocalAccountToLogIn" xml:space="preserve">
+    <value>Use a local account to log in.</value>
   </data>
-  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
-    <value>Delete the GeoTIFF file by water</value>
+  <data name="User" xml:space="preserve">
+    <value>User</value>
   </data>
-  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
-    <value>Unpublish GeoTIFF file by water</value>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
   </data>
-  <data name="GlobalSurfaceWater" xml:space="preserve">
-    <value>Surface water</value>
+  <data name="Value" xml:space="preserve">
+    <value>Value</value>
   </data>
-  <data name="MonthlyRecurrence" xml:space="preserve">
-    <value>Average monthly data</value>
+  <data name="VerySoft" xml:space="preserve">
+    <value>Very soft</value>
   </data>
-  <data name="IncludeWater" xml:space="preserve">
-    <value>Includes layers of water</value>
-  </data>
-  <data name="AnalizeWater" xml:space="preserve">
-    <value>Lakes analysis</value>
-  </data>
-  <data name="RasterValue" xml:space="preserve">
-    <value>Pixel value</value>
-  </data>
-  <data name="RasterValueStat" xml:space="preserve">
-    <value>Statistics of pixel values in the lake</value>
-  </data>
-  <data name="ZonalStatWater" xml:space="preserve">
-    <value>Zone statistics</value>
-  </data>
-  <data name="ZonalStatWaters" xml:space="preserve">
-    <value>Zone statistics</value>
-  </data>
-  <data name="WaterType" xml:space="preserve">
-    <value>Type of water data</value>
-  </data>
-  <data name="About" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="BackToTop" xml:space="preserve">
-    <value>Back to top</value>
-  </data>
-  <data name="Contact" xml:space="preserve">
-    <value>Contact</value>
-  </data>
-  <data name="Functions" xml:space="preserve">
-    <value>Functions</value>
-  </data>
-  <data name="Information" xml:space="preserve">
-    <value>Information</value>
-  </data>
-  <data name="Lakes" xml:space="preserve">
-    <value>Lakes</value>
-  </data>
-  <data name="Raster" xml:space="preserve">
-    <value>Raster</value>
-  </data>
-  <data name="Rasters" xml:space="preserve">
-    <value>Rasters</value>
-  </data>
-  <data name="ShapeFiles" xml:space="preserve">
-    <value>Shape-files</value>
-  </data>
-  <data name="Tables" xml:space="preserve">
-    <value>Tables</value>
-  </data>
-  <data name="ArchivalInfoSource" xml:space="preserve">
-    <value>Source of archival information</value>
-  </data>
-  <data name="Area2015" xml:space="preserve">
-    <value>Lake mirror area for 2015, km2</value>
-  </data>
-  <data name="LakeAbsoluteHeight" xml:space="preserve">
-    <value>Absolute height of the lake, m</value>
-  </data>
-  <data name="LakeLength" xml:space="preserve">
-    <value>The length of the lake, km</value>
-  </data>
-  <data name="LakeMaxDepth" xml:space="preserve">
-    <value>Maximum depth of lake, m</value>
-  </data>
-  <data name="LakeMirrorArea" xml:space="preserve">
-    <value>Lake mirror area, km2</value>
-  </data>
-  <data name="LakeShorelineLength" xml:space="preserve">
-    <value>The length of the lake shoreline, km</value>
-  </data>
-  <data name="LakeWaterMass" xml:space="preserve">
-    <value>The volume of lake water mass, mln.m3</value>
-  </data>
-  <data name="LakeWidth" xml:space="preserve">
-    <value>Lake width, km</value>
-  </data>
-  <data name="SurveyYear" xml:space="preserve">
-    <value>Year Survey</value>
+  <data name="VeryTough" xml:space="preserve">
+    <value>Very tough</value>
   </data>
   <data name="VHB" xml:space="preserve">
     <value>Name of the water basin</value>
@@ -780,134 +1692,8 @@
   <data name="VHU" xml:space="preserve">
     <value>Name of the water site</value>
   </data>
-  <data name="LakesArchiveData" xml:space="preserve">
-    <value>Lakes archive data</value>
-  </data>
-  <data name="LakesArchiveDatas" xml:space="preserve">
-    <value>Lakes archive data</value>
-  </data>
-  <data name="LakeShorelineLength2015" xml:space="preserve">
-    <value>The length of the lake shoreline for 2015, km</value>
-  </data>
-  <data name="Latitude" xml:space="preserve">
-    <value>Latitude</value>
-  </data>
-  <data name="Longitude" xml:space="preserve">
-    <value>Longitude</value>
-  </data>
-  <data name="Adm1" xml:space="preserve">
-    <value>Region</value>
-  </data>
-  <data name="Adm2" xml:space="preserve">
-    <value>Area</value>
-  </data>
-  <data name="Adm3" xml:space="preserve">
-    <value>Rural District</value>
-  </data>
-  <data name="BasicInfoLake" xml:space="preserve">
-    <value>Basic information about the lake</value>
-  </data>
-  <data name="Continent_ENG" xml:space="preserve">
-    <value>Continent in English</value>
-  </data>
-  <data name="Continent_KZ" xml:space="preserve">
-    <value>Continent in Kazakh</value>
-  </data>
-  <data name="Continent_RU" xml:space="preserve">
-    <value>Continent in Russian</value>
-  </data>
-  <data name="Country_ENG" xml:space="preserve">
-    <value>Country in English</value>
-  </data>
-  <data name="Country_KZ" xml:space="preserve">
-    <value>Country in Kazakh</value>
-  </data>
-  <data name="Country_RU" xml:space="preserve">
-    <value>Country in Russian</value>
-  </data>
-  <data name="Depth_avg" xml:space="preserve">
-    <value>Average lake depth, m</value>
-  </data>
-  <data name="Dis_avg" xml:space="preserve">
-    <value>Average long-term discharge flowing through the lake, m3/sec</value>
-  </data>
-  <data name="Elevation" xml:space="preserve">
-    <value>Elevation of lake surface, in meters above sea level</value>
-  </data>
-  <data name="Hylak_id" xml:space="preserve">
-    <value>Unique lake identifier</value>
-  </data>
-  <data name="LakeArchiveData" xml:space="preserve">
-    <value>Archival Lake Information</value>
-  </data>
-  <data name="LakesGlobalData" xml:space="preserve">
-    <value>Global Lakes Base</value>
-  </data>
-  <data name="LakesGlobalDatas" xml:space="preserve">
-    <value>Global Lakes Base</value>
-  </data>
-  <data name="Lake_area" xml:space="preserve">
-    <value>Lake surface area, km2</value>
-  </data>
-  <data name="Lake_name_ENG" xml:space="preserve">
-    <value>Lake name in English</value>
-  </data>
-  <data name="Lake_name_KZ" xml:space="preserve">
-    <value>The name of the lake in Kazakh</value>
-  </data>
-  <data name="Lake_name_RU" xml:space="preserve">
-    <value>Name of the lake in Russian</value>
-  </data>
-  <data name="Pour_lat" xml:space="preserve">
-    <value>Latitude</value>
-  </data>
-  <data name="Pour_long" xml:space="preserve">
-    <value>Longitude</value>
-  </data>
-  <data name="Res_time" xml:space="preserve">
-    <value>Average residence time of the lake water, in days</value>
-  </data>
-  <data name="Shore_dev" xml:space="preserve">
-    <value>Shoreline development</value>
-  </data>
-  <data name="Shore_len" xml:space="preserve">
-    <value>Length of shoreline, km</value>
-  </data>
-  <data name="Slope_100" xml:space="preserve">
-    <value>Average slope within a 100 meter buffer around the lake polygon, in degrees</value>
-  </data>
   <data name="Vol_total" xml:space="preserve">
     <value>Total lake volume, bln.m3</value>
-  </data>
-  <data name="Wshd_area" xml:space="preserve">
-    <value>Area of the watershed associated with the lake, km2</value>
-  </data>
-  <data name="LakeGlobalData" xml:space="preserve">
-    <value>Information about the lake from the global base</value>
-  </data>
-  <data name="Continent" xml:space="preserve">
-    <value>Continent</value>
-  </data>
-  <data name="Country" xml:space="preserve">
-    <value>Country</value>
-  </data>
-  <data name="Lake_name" xml:space="preserve">
-    <value>Lake name</value>
-  </data>
-  <data name="Discrepancy" xml:space="preserve">
-    <value>Discrepancy</value>
-  </data>
-  <data name="File" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="FirstRowHeader" xml:space="preserve">
-    <value>The first column is the heading.</value>
-  </data>
-  <data name="Row" xml:space="preserve">
-    <value>Line</value>
-  </data>
-  <data name="UploadedCount" xml:space="preserve">
-    <value>Total uploaded</value>
   </data>
   <data name="WaterBalance" xml:space="preserve">
     <value>Water balance</value>
@@ -924,497 +1710,26 @@
   <data name="WaterBalanceUploadDescription" xml:space="preserve">
     <value>Column order in the file: Lake Id, year, surface inflow, surface outflow, underground inflow, underground outflow, precipitation, evaporation</value>
   </data>
-  <data name="ShoreIrregularityRatio" xml:space="preserve">
-    <value>Shore irregularity ratio</value>
+  <data name="WaterClass" xml:space="preserve">
+    <value>Water class</value>
   </data>
-  <data name="LakeUploadDescription" xml:space="preserve">
-    <value>The order of the columns in the file is: Lake Id, lake name in Kazakh, lake name in Russian, lake name in English, name of the water basin in Kazakh, name of the water basin in Russian, name of the water basin in English, name of the water site, Id lake system, length lake shoreline for 2015, lake mirror area for 2015, longitude, latitude</value>
-  </data>
-  <data name="Brackish" xml:space="preserve">
-    <value>Brackish</value>
-  </data>
-  <data name="Brine" xml:space="preserve">
-    <value>Brine</value>
-  </data>
-  <data name="Fresh" xml:space="preserve">
-    <value>Fresh</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
-    <value>General hydrochemical indicators</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
-    <value>General hydrochemical indicators</value>
-  </data>
-  <data name="MarineSalinity" xml:space="preserve">
-    <value>Marine salinity</value>
-  </data>
-  <data name="MineralizationType" xml:space="preserve">
-    <value>Type of mineralization</value>
-  </data>
-  <data name="AcidityOfWaterDegree" xml:space="preserve">
-    <value>The degree of acidity of water</value>
-  </data>
-  <data name="AlkalineWater" xml:space="preserve">
-    <value>Alkaline water</value>
-  </data>
-  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
-    <value>The degree of dissolved oxygen in water</value>
-  </data>
-  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
-    <value>Extremely high levels of pollution</value>
-  </data>
-  <data name="HighPollution" xml:space="preserve">
-    <value>High pollution</value>
-  </data>
-  <data name="ModeratelyTough" xml:space="preserve">
-    <value>Moderately tough</value>
-  </data>
-  <data name="ModeratePollution" xml:space="preserve">
-    <value>Moderate pollution</value>
-  </data>
-  <data name="NeutralWaters" xml:space="preserve">
-    <value>Neutral waters</value>
-  </data>
-  <data name="Regulatory" xml:space="preserve">
-    <value>Regulatory</value>
-  </data>
-  <data name="Soft" xml:space="preserve">
-    <value>Soft</value>
-  </data>
-  <data name="SourWater" xml:space="preserve">
-    <value>Sour water</value>
-  </data>
-  <data name="StronglyAcidicWater" xml:space="preserve">
-    <value>Strongly acidic water</value>
-  </data>
-  <data name="StronglyAlkalineWater" xml:space="preserve">
-    <value>Strongly alkaline water</value>
-  </data>
-  <data name="SubacidWaters" xml:space="preserve">
-    <value>Subacid waters</value>
-  </data>
-  <data name="Tough" xml:space="preserve">
-    <value>Tough</value>
-  </data>
-  <data name="VerySoft" xml:space="preserve">
-    <value>Very soft</value>
-  </data>
-  <data name="VeryTough" xml:space="preserve">
-    <value>Very tough</value>
+  <data name="WaterFrequency" xml:space="preserve">
+    <value>Water frequency</value>
   </data>
   <data name="WaterHardness" xml:space="preserve">
     <value>Water hardness</value>
   </data>
-  <data name="WeakAlkalineWater" xml:space="preserve">
-    <value>Weak alkaline water</value>
+  <data name="WaterLavelM" xml:space="preserve">
+    <value>Average water level, m</value>
   </data>
-  <data name="AnionsSumMgEq" xml:space="preserve">
-    <value>The amount of anions in mEq / dm³</value>
+  <data name="WaterLavelMy" xml:space="preserve">
+    <value>H, m.abs.</value>
   </data>
-  <data name="CaMg" xml:space="preserve">
-    <value>Ca²⁺, calcium cations, mg / dm³</value>
+  <data name="WaterLevel" xml:space="preserve">
+    <value>Lake water level</value>
   </data>
-  <data name="CaMgEq" xml:space="preserve">
-    <value>Ca²⁺, calcium ions, % eq</value>
-  </data>
-  <data name="CaPerEq" xml:space="preserve">
-    <value>Ca²⁺, calcium cations,% eq</value>
-  </data>
-  <data name="CationsSumMgEq" xml:space="preserve">
-    <value>Cation Sums in mEq / dm³</value>
-  </data>
-  <data name="ClMg" xml:space="preserve">
-    <value>Cl⁻, chloride anions, mg / dm³</value>
-  </data>
-  <data name="ClMgEq" xml:space="preserve">
-    <value>Cl⁻, chloride ions, % eq</value>
-  </data>
-  <data name="ClPerEq" xml:space="preserve">
-    <value>Cl⁻, chloride anions,% eq</value>
-  </data>
-  <data name="HCOMg" xml:space="preserve">
-    <value>HCO₃⁻, hydrocarbonate anions, mg / dm³</value>
-  </data>
-  <data name="HCOMgEq" xml:space="preserve">
-    <value>HCO₃⁻, hydrocarbonate ions, % eq</value>
-  </data>
-  <data name="HCOPerEq" xml:space="preserve">
-    <value>HCO₃⁻, hydrocarbonate anions,% eq</value>
-  </data>
-  <data name="IonsaltWaterComposition" xml:space="preserve">
-    <value>Ion-salt composition of water</value>
-  </data>
-  <data name="IonsaltWaterCompositions" xml:space="preserve">
-    <value>Ion-salt composition of water</value>
-  </data>
-  <data name="IonsSumMgEq" xml:space="preserve">
-    <value>The amount of ions in mEq / dm³</value>
-  </data>
-  <data name="IonsSumPerEq" xml:space="preserve">
-    <value>Amount of ions in% eq</value>
-  </data>
-  <data name="MgMg" xml:space="preserve">
-    <value>Mg²⁺, magnesium cations, mg / dm³</value>
-  </data>
-  <data name="MgMgEq" xml:space="preserve">
-    <value>Mg²⁺, magnesium ions, ,% eq</value>
-  </data>
-  <data name="MgPerEq" xml:space="preserve">
-    <value>Mg²⁺, magnesium cations,% eq</value>
-  </data>
-  <data name="NaKMg" xml:space="preserve">
-    <value>Na⁺ + K⁺, sodium potassium cations, mg / dm³</value>
-  </data>
-  <data name="NaKMgEq" xml:space="preserve">
-    <value>Na⁺ + K⁺, sodium potassium ions, % eq</value>
-  </data>
-  <data name="NaKPerEq" xml:space="preserve">
-    <value>Na⁺ + K⁺, sodium potassium cations,% eq</value>
-  </data>
-  <data name="SOMg" xml:space="preserve">
-    <value>SO₄²⁻, sulfate anions, mg / dm³</value>
-  </data>
-  <data name="SOMgEq" xml:space="preserve">
-    <value>SO₄²⁻, sulfate ions, % eq</value>
-  </data>
-  <data name="SOPerEq" xml:space="preserve">
-    <value>SO₄²⁻, sulphate anions,% eq</value>
-  </data>
-  <data name="CalciumGroup" xml:space="preserve">
-    <value>Cа</value>
-  </data>
-  <data name="Cd" xml:space="preserve">
-    <value>Cadmium Cd</value>
-  </data>
-  <data name="ChlorideClass" xml:space="preserve">
-    <value>Cl</value>
-  </data>
-  <data name="Co" xml:space="preserve">
-    <value>Cobalt Co</value>
-  </data>
-  <data name="Cu" xml:space="preserve">
-    <value>Copper Cu</value>
-  </data>
-  <data name="DocumentType" xml:space="preserve">
-    <value>Document type</value>
-  </data>
-  <data name="DocumentTypes" xml:space="preserve">
-    <value>Types of documents</value>
-  </data>
-  <data name="Group" xml:space="preserve">
-    <value>Group</value>
-  </data>
-  <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
-    <value>C</value>
-  </data>
-  <data name="IZVCd" xml:space="preserve">
-    <value>IZV Cd</value>
-  </data>
-  <data name="IZVCo" xml:space="preserve">
-    <value>IZV Co</value>
-  </data>
-  <data name="IZVCu" xml:space="preserve">
-    <value>IZV Cu</value>
-  </data>
-  <data name="IZVMn" xml:space="preserve">
-    <value>Izv mn</value>
-  </data>
-  <data name="IZVNH4" xml:space="preserve">
-    <value>IZV NH₄</value>
-  </data>
-  <data name="IZVNi" xml:space="preserve">
-    <value>IZV Ni</value>
-  </data>
-  <data name="IZVNO2" xml:space="preserve">
-    <value>IZV NO2</value>
-  </data>
-  <data name="IZVNO3" xml:space="preserve">
-    <value>IZV NO₃</value>
-  </data>
-  <data name="IZVPb" xml:space="preserve">
-    <value>IZV Pb</value>
-  </data>
-  <data name="IZVPPO4" xml:space="preserve">
-    <value>IZV PPO₄</value>
-  </data>
-  <data name="IZVZn" xml:space="preserve">
-    <value>IZV Zn</value>
-  </data>
-  <data name="KIZV" xml:space="preserve">
-    <value>KIZV</value>
-  </data>
-  <data name="KIZVkoCd" xml:space="preserve">
-    <value>KIZVko Cd</value>
-  </data>
-  <data name="KIZVkoCo" xml:space="preserve">
-    <value>KIZVko Co</value>
-  </data>
-  <data name="KIZVkoCu" xml:space="preserve">
-    <value>KIZVko Cu</value>
-  </data>
-  <data name="KIZVkoMn" xml:space="preserve">
-    <value>KIZVko Mn</value>
-  </data>
-  <data name="KIZVkoNH4" xml:space="preserve">
-    <value>KIZVko NH₄</value>
-  </data>
-  <data name="KIZVkoNi" xml:space="preserve">
-    <value>KIZVko Ni</value>
-  </data>
-  <data name="KIZVkoNO2" xml:space="preserve">
-    <value>KIZVko NO2</value>
-  </data>
-  <data name="KIZVkoNO3" xml:space="preserve">
-    <value>KIZVko NO₃</value>
-  </data>
-  <data name="KIZVkoPb" xml:space="preserve">
-    <value>KIZVko Pb</value>
-  </data>
-  <data name="KIZVkoPPO4" xml:space="preserve">
-    <value>KIZVko PPO₄</value>
-  </data>
-  <data name="KIZVkoZn" xml:space="preserve">
-    <value>KIZVko Zn</value>
-  </data>
-  <data name="KurlovFormula" xml:space="preserve">
-    <value>The formula of chemical composition of water according to MG Kurlov</value>
-  </data>
-  <data name="MagnesiumGroup" xml:space="preserve">
-    <value>Mg</value>
-  </data>
-  <data name="Mn" xml:space="preserve">
-    <value>Manganese Mn</value>
-  </data>
-  <data name="NH4" xml:space="preserve">
-    <value>Ammonium ion NH₄⁺</value>
-  </data>
-  <data name="Ni" xml:space="preserve">
-    <value>Nickel Ni</value>
-  </data>
-  <data name="NO2" xml:space="preserve">
-    <value>Nitrite anion NO₂⁻</value>
-  </data>
-  <data name="NO3" xml:space="preserve">
-    <value>Nitrate anion NO₃⁻</value>
-  </data>
-  <data name="Pb" xml:space="preserve">
-    <value>Lead Pb</value>
-  </data>
-  <data name="PPO4" xml:space="preserve">
-    <value>Phosphates PPO₄⁻</value>
-  </data>
-  <data name="SodiumGroup" xml:space="preserve">
-    <value>Na</value>
-  </data>
-  <data name="SulphateClass" xml:space="preserve">
-    <value>S</value>
-  </data>
-  <data name="ToxicologicalIndicator" xml:space="preserve">
-    <value>Toxicological indicator</value>
-  </data>
-  <data name="ToxicologicalIndicators" xml:space="preserve">
-    <value>Toxicological indicators</value>
-  </data>
-  <data name="Type1" xml:space="preserve">
-    <value>I</value>
-  </data>
-  <data name="Type2" xml:space="preserve">
-    <value>II</value>
-  </data>
-  <data name="Type3" xml:space="preserve">
-    <value>III</value>
-  </data>
-  <data name="Type4" xml:space="preserve">
-    <value>IV</value>
-  </data>
-  <data name="WaterClass" xml:space="preserve">
-    <value>Water class</value>
-  </data>
-  <data name="WatersType" xml:space="preserve">
-    <value>Water type</value>
-  </data>
-  <data name="Zn" xml:space="preserve">
-    <value>Zinc Zn</value>
-  </data>
-  <data name="Archival" xml:space="preserve">
-    <value>Archival</value>
-  </data>
-  <data name="DeletingJustification" xml:space="preserve">
-    <value>Justification for deleting the document</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="Download" xml:space="preserve">
-    <value>Download</value>
-  </data>
-  <data name="ForceEntryDay" xml:space="preserve">
-    <value>Day of entry into force</value>
-  </data>
-  <data name="ForceEntryDayDateYear" xml:space="preserve">
-    <value>Date (year) of entry into force</value>
-  </data>
-  <data name="ForceEntryMonth" xml:space="preserve">
-    <value>Month of entry into force</value>
-  </data>
-  <data name="ForceEntryYear" xml:space="preserve">
-    <value>Year of entry into force</value>
-  </data>
-  <data name="NewDocument" xml:space="preserve">
-    <value>New document</value>
-  </data>
-  <data name="Number" xml:space="preserve">
-    <value>Number</value>
-  </data>
-  <data name="PreviousDocument" xml:space="preserve">
-    <value>Previous document</value>
-  </data>
-  <data name="RegulatoryDocument" xml:space="preserve">
-    <value>Regulatory Document</value>
-  </data>
-  <data name="RegulatoryDocuments" xml:space="preserve">
-    <value>Regulations</value>
-  </data>
-  <data name="Directories" xml:space="preserve">
-    <value>Directories</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicatorStandard" xml:space="preserve">
-    <value>Standard of general hydrochemical indicators</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
-    <value>Standards of general hydrochemical indicators</value>
-  </data>
-  <data name="HazardClassCd" xml:space="preserve">
-    <value>Hazard class Cd</value>
-  </data>
-  <data name="HazardClassCo" xml:space="preserve">
-    <value>Hazard Class Co</value>
-  </data>
-  <data name="HazardClassCu" xml:space="preserve">
-    <value>Cu hazard class</value>
-  </data>
-  <data name="HazardClassMn" xml:space="preserve">
-    <value>Hazard class Mn</value>
-  </data>
-  <data name="HazardClassNH4" xml:space="preserve">
-    <value>Hazard Class NH₄</value>
-  </data>
-  <data name="HazardClassNi" xml:space="preserve">
-    <value>Ni hazard class</value>
-  </data>
-  <data name="HazardClassNO2" xml:space="preserve">
-    <value>NO2 hazard class</value>
-  </data>
-  <data name="HazardClassNO3" xml:space="preserve">
-    <value>Hazard class NO₃</value>
-  </data>
-  <data name="HazardClassPb" xml:space="preserve">
-    <value>Hazard class Pb</value>
-  </data>
-  <data name="HazardClassPPO4" xml:space="preserve">
-    <value>Hazard class PPO PP</value>
-  </data>
-  <data name="HazardClassZn" xml:space="preserve">
-    <value>Hazard Class Zn</value>
-  </data>
-  <data name="Hydrology" xml:space="preserve">
-    <value>Hydrology</value>
-  </data>
-  <data name="Indicator" xml:space="preserve">
-    <value>Indicator</value>
-  </data>
-  <data name="LowerLimit" xml:space="preserve">
-    <value>lower limit</value>
-  </data>
-  <data name="MeasurementUnit" xml:space="preserve">
-    <value>Unit of measurement</value>
-  </data>
-  <data name="MeasurementUnits" xml:space="preserve">
-    <value>Units of measurement</value>
-  </data>
-  <data name="MPCCd" xml:space="preserve">
-    <value>MPC Cd value</value>
-  </data>
-  <data name="MPCCo" xml:space="preserve">
-    <value>MPC Co value</value>
-  </data>
-  <data name="MPCCu" xml:space="preserve">
-    <value>MPC value Cu</value>
-  </data>
-  <data name="MPCMn" xml:space="preserve">
-    <value>MPC value Mn</value>
-  </data>
-  <data name="MPCNH4" xml:space="preserve">
-    <value>MPC value NH₄</value>
-  </data>
-  <data name="MPCNi" xml:space="preserve">
-    <value>MPC value Ni</value>
-  </data>
-  <data name="MPCNO2" xml:space="preserve">
-    <value>MPC value NO2</value>
-  </data>
-  <data name="MPCNO3" xml:space="preserve">
-    <value>MPC value NO₃</value>
-  </data>
-  <data name="MPCPb" xml:space="preserve">
-    <value>MPC value Pb</value>
-  </data>
-  <data name="MPCPPO4" xml:space="preserve">
-    <value>MPC value PPO₄</value>
-  </data>
-  <data name="MPCZn" xml:space="preserve">
-    <value>MPC value Zn</value>
-  </data>
-  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
-    <value>Standard of nutrients and heavy metals</value>
-  </data>
-  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
-    <value>Standards of nutrients and heavy metals</value>
-  </data>
-  <data name="UpperLimit" xml:space="preserve">
-    <value>Upper limit</value>
-  </data>
-  <data name="KIZVs" xml:space="preserve">
-    <value>KIZV</value>
-  </data>
-  <data name="FreshPart" xml:space="preserve">
-    <value>Fresh</value>
-  </data>
-  <data name="FullyPart" xml:space="preserve">
-    <value>Fully</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake Id, year, part of the lake, salinity value, total water hardness, oxygen dissolved in water, percentage of water saturation with dissolved oxygen, pH value, organic matter</value>
-  </data>
-  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
-    <value>The order of the columns in the file: Lake Id, year, part of the lake, calcium cations, magnesium cations, sodium potassium cations, chloride anions, hydrocarbonate anions, sulfate anions</value>
-  </data>
-  <data name="LakePart" xml:space="preserve">
-    <value>Part of the lake</value>
-  </data>
-  <data name="SaltyPart" xml:space="preserve">
-    <value>Salty</value>
-  </data>
-  <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Id lakes, year, part of the lake, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
-  </data>
-  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
-    <value>Batgraphic and volumetric curve of the lake</value>
-  </data>
-  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
-    <value>Data on the bathigraphic and volumetric curve</value>
-  </data>
-  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
-    <value>The order of the columns in the file: Lake Id, water level, lake area, water mass</value>
-  </data>
-  <data name="LakeArea" xml:space="preserve">
-    <value>Lake area, km²</value>
-  </data>
-  <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake Id, year of topographic survey, lake dlin, lake shoreline clay, lake mirror area, total lake height, lake width, maximum lake depth, volume of lake water mass, source of archival information</value>
-  </data>
-  <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake Id, Lake Unique Identifier, Lake Name (English), Lake Name (Russian), Lake Name (Kazakh), Country (English), Country (Russian), Country (Kazakh), Continent (English), continent (Russian), continent (Kazakh), data sources (English), data sources, data sources (Kazakh), lake type indicator, unique identifier of the reservoir in the grand database, surface area of ​​lakes, coastline length, jagged coastline, total lake volume, reservoir volume , source of volume data, average lake depth, average long-term runoff flowing through the lake, average water residence time in the lake, height of the lake surface above sea level, average slope within a 100-meter buffer around the lake landfill, catchment area, longitude, latitude</value>
+  <data name="WaterLevels" xml:space="preserve">
+    <value>Lakes water levels</value>
   </data>
   <data name="WaterLevelUploadDescription" xml:space="preserve">
     <value>The order of the columns in the file: Lake Id, year, average annual lake level</value>
@@ -1422,331 +1737,40 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value>Volume of water mass, million m³</value>
   </data>
-  <data name="BenthosBiomass" xml:space="preserve">
-    <value>Biomass of benthos, g / m²</value>
-  </data>
-  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
-    <value>Current commercial fish productivity, kg / ha</value>
-  </data>
-  <data name="CurrentUsage" xml:space="preserve">
-    <value>Current usage</value>
-  </data>
-  <data name="FamilyId" xml:space="preserve">
-    <value>Id family</value>
-  </data>
-  <data name="FamilyNameKK" xml:space="preserve">
-    <value>The name of the family of fish in Kazakh</value>
-  </data>
-  <data name="FamilyNameLA" xml:space="preserve">
-    <value>The name of the family of fish in Latin</value>
-  </data>
-  <data name="FamilyNameRU" xml:space="preserve">
-    <value>The name of the family of fish in Russian</value>
-  </data>
-  <data name="FishCatchLimit" xml:space="preserve">
-    <value>Fish catch limit, tons</value>
-  </data>
-  <data name="FishId" xml:space="preserve">
-    <value>Id fish</value>
-  </data>
-  <data name="FishKind" xml:space="preserve">
-    <value>Kind of fish</value>
-  </data>
-  <data name="FishKinds" xml:space="preserve">
-    <value>Types of fish</value>
-  </data>
-  <data name="FishKindUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Id of fish, Id of family, name of fish in Kazakh, name of fish in Russian, name of fish in Latin, name of family of fish in Kazakh, name of family of fish in Russian, name of family of fish in Latin</value>
-  </data>
-  <data name="FishNameKK" xml:space="preserve">
-    <value>Name of fish in Kazakh</value>
-  </data>
-  <data name="FishNameLA" xml:space="preserve">
-    <value>Name of fish in Latin</value>
-  </data>
-  <data name="FishNameRU" xml:space="preserve">
-    <value>Name of fish in Russian</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
-    <value>General hydrobiological indicator of the lake</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
-    <value>General hydrobiological indicators of lakes</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake Id, fish Id, year of study, zooplankton biomass, benthos biomass, species richness index, fish catch limit, current commercial fish productivity, potential fish production, potential rearing, current use, recommended use</value>
-  </data>
-  <data name="PotentialFishProducts" xml:space="preserve">
-    <value>Potential fish products, kg / ha</value>
-  </data>
-  <data name="PotentialGrowingVolume" xml:space="preserve">
-    <value>Potential growing volume, kg / ha</value>
-  </data>
-  <data name="RecommendedUse" xml:space="preserve">
-    <value>Recommended use</value>
-  </data>
-  <data name="SpeciesWealthIndex" xml:space="preserve">
-    <value>Species wealth index, units</value>
-  </data>
-  <data name="ZooplanktonBiomass" xml:space="preserve">
-    <value>Zooplankton biomass, g / m³</value>
-  </data>
-  <data name="EphemeralPermanent" xml:space="preserve">
-    <value>Ephemeral permanent</value>
-  </data>
-  <data name="EphemeralSeasonal" xml:space="preserve">
-    <value>Ephemeral seasonal</value>
-  </data>
-  <data name="Hydrobiology" xml:space="preserve">
-    <value>Hydrobiology</value>
-  </data>
-  <data name="LostPermanent" xml:space="preserve">
-    <value>Lost permanent</value>
-  </data>
-  <data name="LostSeasonal" xml:space="preserve">
-    <value>Lost seasonal</value>
-  </data>
-  <data name="NewPermanent" xml:space="preserve">
-    <value>New permanent</value>
-  </data>
-  <data name="NewSeasonal" xml:space="preserve">
-    <value>New seasonal</value>
-  </data>
-  <data name="NoСhange" xml:space="preserve">
-    <value>No change</value>
-  </data>
-  <data name="Permanent" xml:space="preserve">
-    <value>Permanent</value>
-  </data>
-  <data name="PermanentToDeasonal" xml:space="preserve">
-    <value>Permanent to seasonal</value>
-  </data>
-  <data name="Seasonal" xml:space="preserve">
-    <value>Seasonal</value>
-  </data>
-  <data name="SeasonalToPermanent" xml:space="preserve">
-    <value>Seasonal to permanent</value>
-  </data>
-  <data name="Transition" xml:space="preserve">
-    <value>Transition</value>
-  </data>
-  <data name="Transitions" xml:space="preserve">
-    <value>Transitions</value>
-  </data>
-  <data name="TransitionUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake Id, no change, permanent, new permanent, lost permanent, seasonal, new seasonal, lost seasonal, seasonal to permanent, permanent to seasonal, ephemeral permanent, ephemeral seasonal</value>
-  </data>
-  <data name="April" xml:space="preserve">
-    <value>April</value>
-  </data>
-  <data name="August" xml:space="preserve">
-    <value>August</value>
-  </data>
-  <data name="December" xml:space="preserve">
-    <value>December</value>
-  </data>
-  <data name="DynamicsLakeAreas" xml:space="preserve">
-    <value>Dynamics of lake areas</value>
-  </data>
-  <data name="February" xml:space="preserve">
-    <value>February</value>
-  </data>
-  <data name="January" xml:space="preserve">
-    <value>January</value>
-  </data>
-  <data name="July" xml:space="preserve">
-    <value>July</value>
-  </data>
-  <data name="June" xml:space="preserve">
-    <value>June</value>
-  </data>
-  <data name="March" xml:space="preserve">
-    <value>March</value>
-  </data>
-  <data name="May" xml:space="preserve">
-    <value>May</value>
-  </data>
-  <data name="NoData" xml:space="preserve">
-    <value>No data</value>
-  </data>
-  <data name="November" xml:space="preserve">
-    <value>November</value>
-  </data>
-  <data name="October" xml:space="preserve">
-    <value>October</value>
-  </data>
-  <data name="Seasonalit" xml:space="preserve">
-    <value>Seasonality</value>
-  </data>
-  <data name="Seasonalits" xml:space="preserve">
-    <value>Seasonalities</value>
-  </data>
-  <data name="SeasonalitUploadDescription" xml:space="preserve">
-    <value>The order of the columns in the file: Lake Id, no data, January, February, March, April, May, June, July, August, September, October, November, December</value>
-  </data>
-  <data name="September" xml:space="preserve">
-    <value>September</value>
-  </data>
-  <data name="LakeSystem" xml:space="preserve">
-    <value>Lake system</value>
-  </data>
-  <data name="LakeSystemId" xml:space="preserve">
-    <value>Lake system id</value>
-  </data>
-  <data name="LakeSystems" xml:space="preserve">
-    <value>Lake systems</value>
-  </data>
-  <data name="LakeSystemUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake system Id, title (Russian), title (Kazakh), title (English)</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="SearchByLakeName" xml:space="preserve">
-    <value>Search by lake name</value>
-  </data>
-  <data name="FilterKATO" xml:space="preserve">
-    <value>Region, district</value>
-  </data>
-  <data name="FilterVHBVHU" xml:space="preserve">
-    <value>VHB, VCU</value>
-  </data>
-  <data name="Found" xml:space="preserve">
-    <value>Found</value>
-  </data>
-  <data name="Reset" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="Chart" xml:space="preserve">
-    <value>Chart</value>
-  </data>
-  <data name="Dynamics" xml:space="preserve">
-    <value>Dynamics</value>
-  </data>
-  <data name="QualitativeAssessment" xml:space="preserve">
-    <value>Qualitative assessment</value>
-  </data>
-  <data name="Table" xml:space="preserve">
-    <value>Table</value>
-  </data>
-  <data name="AlekinWaterCompositionClass" xml:space="preserve">
-    <value>Water composition class (according to O. A. Alekin)</value>
-  </data>
-  <data name="IonName" xml:space="preserve">
-    <value>Ion name</value>
-  </data>
-  <data name="IonUnit" xml:space="preserve">
-    <value>mg / dm³ /% eq / dm³</value>
-  </data>
-  <data name="MPCExceeding" xml:space="preserve">
-    <value>The ratio of exceeding the maximum permissible concentration</value>
-  </data>
-  <data name="Total" xml:space="preserve">
-    <value>Total</value>
-  </data>
-  <data name="ChangeWaterCondition" xml:space="preserve">
-    <value>Change in water condition</value>
-  </data>
-  <data name="MaximumWater" xml:space="preserve">
-    <value>Maximum water</value>
-  </data>
-  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
-    <value>Dynamics of permanent and seasonal water areas</value>
-  </data>
-  <data name="WaterFrequency" xml:space="preserve">
-    <value>Water frequency</value>
+  <data name="WaterMassVolumeX" xml:space="preserve">
+    <value>V, million m³</value>
   </data>
   <data name="WaterMonthsPresence" xml:space="preserve">
     <value>Presence of water in months</value>
   </data>
-  <data name="HeavyMetals" xml:space="preserve">
-    <value>Heavy metals</value>
+  <data name="WatersType" xml:space="preserve">
+    <value>Water type</value>
   </data>
-  <data name="KIZVDegree" xml:space="preserve">
-    <value>The degree of pollution of water bodies by KIZV taking into account the hazard class</value>
+  <data name="WaterType" xml:space="preserve">
+    <value>Type of water data</value>
   </data>
-  <data name="Nutrients" xml:space="preserve">
-    <value>Nutrients</value>
+  <data name="WeakAlkalineWater" xml:space="preserve">
+    <value>Weak alkaline water</value>
   </data>
-  <data name="Source" xml:space="preserve">
-    <value>Source</value>
+  <data name="Wshd_area" xml:space="preserve">
+    <value>Area of the watershed associated with the lake, km2</value>
   </data>
-  <data name="DynamicsLakeArea" xml:space="preserve">
-    <value>Dynamics of lake areas</value>
+  <data name="Year" xml:space="preserve">
+    <value>Year</value>
   </data>
-  <data name="NoWater" xml:space="preserve">
-    <value>No water, km²</value>
+  <data name="YearlyHistory" xml:space="preserve">
+    <value>By years</value>
   </data>
-  <data name="PermanentWaterArea" xml:space="preserve">
-    <value>Area of permanent water, km²</value>
+  <data name="Zn" xml:space="preserve">
+    <value>Zn</value>
   </data>
-  <data name="SeasonalWaterArea" xml:space="preserve">
-    <value>Area of seasonal water, km²</value>
+  <data name="ZonalStatWater" xml:space="preserve">
+    <value>Zone statistics</value>
   </data>
-  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
-    <value>Column order in the file: Lake Id, year, no data, no water, seasonal water area, constant water area</value>
+  <data name="ZonalStatWaters" xml:space="preserve">
+    <value>Zone statistics</value>
   </data>
-  <data name="Analytics" xml:space="preserve">
-    <value>Analytics</value>
-  </data>
-  <data name="AND" xml:space="preserve">
-    <value>And</value>
-  </data>
-  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
-    <value>An error occurred while using the formula!</value>
-  </data>
-  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
-    <value>Formula contains invalid characters!</value>
-  </data>
-  <data name="OR" xml:space="preserve">
-    <value>Or</value>
-  </data>
-  <data name="average" xml:space="preserve">
-    <value>average</value>
-  </data>
-  <data name="maximum" xml:space="preserve">
-    <value>maximum</value>
-  </data>
-  <data name="minimum" xml:space="preserve">
-    <value>minimum</value>
-  </data>
-  <data name="NOT" xml:space="preserve">
-    <value>Not</value>
-  </data>
-  <data name="Areakm2" xml:space="preserve">
-    <value>Area, km²</value>
-  </data>
-  <data name="BaseLayer" xml:space="preserve">
-    <value>Core layer</value>
-  </data>
-  <data name="MaximumWaterArea" xml:space="preserve">
-    <value>Maximum water area</value>
-  </data>
-  <data name="MaximumWaterExtent" xml:space="preserve">
-    <value>Maximum water volume</value>
-  </data>
-  <data name="Occurrence" xml:space="preserve">
-    <value>Entry</value>
-  </data>
-  <data name="OccurrenceChangeIntensity" xml:space="preserve">
-    <value>Intensity of change</value>
-  </data>
-  <data name="Recurrence" xml:space="preserve">
-    <value>Recurrence</value>
-  </data>
-  <data name="Seasonality" xml:space="preserve">
-    <value>Seasonality</value>
-  </data>
-  <data name="District" xml:space="preserve">
-    <value>District</value>
-  </data>
-  <data name="Region" xml:space="preserve">
-    <value>Region</value>
-  </data>
-  <data name="WaterLavelM" xml:space="preserve">
-    <value>Average water level, m</value>
-  </data>
-  <data name="WaterMassVolumeX" xml:space="preserve">
-    <value>V, million m³</value>
+  <data name="ZooplanktonBiomass" xml:space="preserve">
+    <value>Zooplankton biomass, g / m³</value>
   </data>
 </root>

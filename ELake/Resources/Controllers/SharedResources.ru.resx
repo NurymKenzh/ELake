@@ -117,26 +117,155 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>О сайте</value>
+  </data>
+  <data name="AcidityOfWaterDegree" xml:space="preserve">
+    <value>Степень кислотности воды</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Действие</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Добавить</value>
+  </data>
+  <data name="AddLakes" xml:space="preserve">
+    <value>Добавить озера</value>
+  </data>
+  <data name="Adm1" xml:space="preserve">
+    <value>Область</value>
+  </data>
+  <data name="Adm2" xml:space="preserve">
+    <value>Район</value>
+  </data>
+  <data name="Adm3" xml:space="preserve">
+    <value>Сельский округ</value>
   </data>
   <data name="Administration" xml:space="preserve">
     <value>Администрирование</value>
   </data>
+  <data name="AlekinWaterCompositionClass" xml:space="preserve">
+    <value>Класс состава воды (по О. А. Алекину)</value>
+  </data>
+  <data name="AlkalineWater" xml:space="preserve">
+    <value>Щелочные воды</value>
+  </data>
+  <data name="AnalizeWater" xml:space="preserve">
+    <value>Анализ озер</value>
+  </data>
+  <data name="Analytics" xml:space="preserve">
+    <value>Аналитика</value>
+  </data>
+  <data name="AND" xml:space="preserve">
+    <value>И</value>
+  </data>
+  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
+    <value>Возникла ошибка при использовании формулы!</value>
+  </data>
+  <data name="AnionsSumMgEq" xml:space="preserve">
+    <value>Суммы анионов в мг-экв/дм³</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Апрель</value>
+  </data>
+  <data name="Archival" xml:space="preserve">
+    <value>Архивный</value>
+  </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value>Источник архивной информации</value>
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value>Площадь зеркала озера за 2015, км²</value>
+  </data>
+  <data name="Areakm2" xml:space="preserve">
+    <value>Площадь, км²</value>
+  </data>
   <data name="AsLakeLayer" xml:space="preserve">
     <value>Слой озер</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Август</value>
+  </data>
+  <data name="average" xml:space="preserve">
+    <value>Среднее</value>
   </data>
   <data name="BackToList" xml:space="preserve">
     <value>Обратно к списку</value>
   </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Вверх</value>
+  </data>
+  <data name="BaseLayer" xml:space="preserve">
+    <value>Основной слой</value>
+  </data>
+  <data name="BasicInfoLake" xml:space="preserve">
+    <value>Основная информация об озере</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
+    <value>Батиграфическая и объемная кривая</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
+    <value>Батиграфическая и объемная кривая</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, уровень воды, площадь озера, объем водной массы</value>
+  </data>
+  <data name="BenthosBiomass" xml:space="preserve">
+    <value>Биомасса бентоса, г/м²</value>
+  </data>
+  <data name="Brackish" xml:space="preserve">
+    <value>Солоноватое</value>
+  </data>
+  <data name="Brine" xml:space="preserve">
+    <value>Рассол</value>
+  </data>
   <data name="Ca" xml:space="preserve">
     <value>Ca²⁺, катионы кальция, мг-экв/дм³</value>
+  </data>
+  <data name="CalciumGroup" xml:space="preserve">
+    <value>Cа</value>
+  </data>
+  <data name="CaMg" xml:space="preserve">
+    <value>Ca²⁺, катионы кальция, мг/дм³</value>
+  </data>
+  <data name="CaMgEq" xml:space="preserve">
+    <value>Ca²⁺, катионы кальция, мг-экв/дм³</value>
+  </data>
+  <data name="CaPerEq" xml:space="preserve">
+    <value>Ca²⁺, катионы кальция, %-экв</value>
+  </data>
+  <data name="CationsSumMgEq" xml:space="preserve">
+    <value>Суммы катионов в мг-экв/дм³</value>
+  </data>
+  <data name="Cd" xml:space="preserve">
+    <value>Cd</value>
+  </data>
+  <data name="ChangeWaterCondition" xml:space="preserve">
+    <value>Изменение состояния воды</value>
+  </data>
+  <data name="Chart" xml:space="preserve">
+    <value>Диаграмма</value>
+  </data>
+  <data name="ChlorideClass" xml:space="preserve">
+    <value>Cl</value>
   </data>
   <data name="CIWP" xml:space="preserve">
     <value>КИЗВ с учетом Ко</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>CL⁻, хлоридные анионы, мг-экв/дм³</value>
+    <value>Cl⁻,хлоридные анионы, мг-экв/дм³</value>
+  </data>
+  <data name="ClMg" xml:space="preserve">
+    <value>Cl⁻, хлоридные анионы, мг/дм³</value>
+  </data>
+  <data name="ClMgEq" xml:space="preserve">
+    <value>Cl⁻, хлоридные анионы, мг-экв/дм³</value>
+  </data>
+  <data name="ClPerEq" xml:space="preserve">
+    <value>Cl⁻, хлоридные анионы, %-экв</value>
+  </data>
+  <data name="Co" xml:space="preserve">
+    <value>Co</value>
   </data>
   <data name="ColorPicker" xml:space="preserve">
     <value>Тематические цвета, Стандартные цвета, Цветовая гамма, Цвет темы, Назад в палитру, История, История еще не существует.</value>
@@ -144,8 +273,38 @@
   <data name="Colors" xml:space="preserve">
     <value>Цвета</value>
   </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Сравнить</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Подтвердите пароль</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="Continent" xml:space="preserve">
+    <value>Континент</value>
+  </data>
+  <data name="Continent_ENG" xml:space="preserve">
+    <value>Континент на английском</value>
+  </data>
+  <data name="Continent_KZ" xml:space="preserve">
+    <value>Континент на казахском</value>
+  </data>
+  <data name="Continent_RU" xml:space="preserve">
+    <value>Континент на русском</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="Country_ENG" xml:space="preserve">
+    <value>Страна на английском</value>
+  </data>
+  <data name="Country_KZ" xml:space="preserve">
+    <value>Страна на казахском</value>
+  </data>
+  <data name="Country_RU" xml:space="preserve">
+    <value>Страна на русском</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Создать</value>
@@ -153,32 +312,140 @@
   <data name="CreateANewAccount" xml:space="preserve">
     <value>Создать новый аккаунт.</value>
   </data>
+  <data name="Cu" xml:space="preserve">
+    <value>Cu</value>
+  </data>
+  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
+    <value>Текущая промысловая рыбопродуктивность, кг/га</value>
+  </data>
+  <data name="CurrentUsage" xml:space="preserve">
+    <value>Текущее использование</value>
+  </data>
+  <data name="DataType" xml:space="preserve">
+    <value>Тип данных</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Декабрь</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Удалить</value>
   </data>
   <data name="DeleteGeoTIFFFile" xml:space="preserve">
     <value>Удалить GeoTIFF-файл</value>
   </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>Удалить GeoTIFF-файл по воде</value>
+  </data>
   <data name="DeleteShapeFile" xml:space="preserve">
     <value>Удалить Shape-файл</value>
+  </data>
+  <data name="DeletingJustification" xml:space="preserve">
+    <value>Обоснование для удаления  документа</value>
+  </data>
+  <data name="Depth_avg" xml:space="preserve">
+    <value>Средняя глубина озера, м</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="DescriptionEN" xml:space="preserve">
+    <value>Описание на английском</value>
+  </data>
+  <data name="DescriptionKK" xml:space="preserve">
+    <value>Описание на казахском</value>
+  </data>
+  <data name="DescriptionRU" xml:space="preserve">
+    <value>Описание на русском</value>
   </data>
   <data name="Details" xml:space="preserve">
     <value>Детали</value>
   </data>
+  <data name="Directories" xml:space="preserve">
+    <value>Справочники</value>
+  </data>
+  <data name="Discrepancy" xml:space="preserve">
+    <value>Невязка</value>
+  </data>
+  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
+    <value>Степень по растворенному кислороду в воде</value>
+  </data>
   <data name="DissOxygWater" xml:space="preserve">
     <value>Растворенный в воде кислород, мг/дм³</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>Район</value>
+  </data>
+  <data name="Dis_avg" xml:space="preserve">
+    <value>Средний долгосрочный сток, протекающий через озеро, м3/сек.</value>
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>Тип документа</value>
+  </data>
+  <data name="DocumentTypes" xml:space="preserve">
+    <value>Типы документов</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Скачать</value>
+  </data>
+  <data name="Dynamics" xml:space="preserve">
+    <value>Динамика</value>
+  </data>
+  <data name="DynamicsLakeArea" xml:space="preserve">
+    <value>Динамика площадей озера</value>
+  </data>
+  <data name="DynamicsLakeAreas" xml:space="preserve">
+    <value>Динамика площадей озер</value>
+  </data>
+  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, нет данных, нет воды, площадь сезонной воды, площадь постоянной воды</value>
   </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Высота поверхности озера над уровнем моря, м</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Эл. адрес</value>
+  </data>
+  <data name="EphemeralPermanent" xml:space="preserve">
+    <value>Эфемерный постоянный</value>
+  </data>
+  <data name="EphemeralSeasonal" xml:space="preserve">
+    <value>Эфемерные сезонные</value>
   </data>
   <data name="Evaporation" xml:space="preserve">
     <value>Испарение, млн.м³</value>
   </data>
+  <data name="EvaporationPer" xml:space="preserve">
+    <value>Испарение, %</value>
+  </data>
   <data name="Evaporations" xml:space="preserve">
-    <value>Испарения</value>
+    <value>Испарение, млн.м³</value>
+  </data>
+  <data name="exist" xml:space="preserve">
+    <value>уже существует</value>
+  </data>
+  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
+    <value>Чрезвычайно высокий уровень загрязнения</value>
+  </data>
+  <data name="FamilyId" xml:space="preserve">
+    <value>Id семейства</value>
+  </data>
+  <data name="FamilyNameKK" xml:space="preserve">
+    <value>Название семейства рыб на казахском</value>
+  </data>
+  <data name="FamilyNameLA" xml:space="preserve">
+    <value>Название семейства рыб на латинице</value>
+  </data>
+  <data name="FamilyNameRU" xml:space="preserve">
+    <value>Название семейства рыб на русском</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Февраль</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Файл</value>
   </data>
   <data name="FileNameWithPath" xml:space="preserve">
     <value>Путь к файлу</value>
@@ -189,8 +456,101 @@
   <data name="FilesUploaded" xml:space="preserve">
     <value>Файлы загружены</value>
   </data>
+  <data name="FilterKATO" xml:space="preserve">
+    <value>Область, район</value>
+  </data>
+  <data name="FilterVHBVHU" xml:space="preserve">
+    <value>ВХБ, ВХУ</value>
+  </data>
   <data name="Find" xml:space="preserve">
     <value>Найти</value>
+  </data>
+  <data name="FindKATO" xml:space="preserve">
+    <value>Найти КАТО</value>
+  </data>
+  <data name="FirstRowHeader" xml:space="preserve">
+    <value>Первый столбец - заголовок</value>
+  </data>
+  <data name="FishCatchLimit" xml:space="preserve">
+    <value>Лимит улова рыбы, тонн</value>
+  </data>
+  <data name="FishId" xml:space="preserve">
+    <value>Id рыбы</value>
+  </data>
+  <data name="FishKind" xml:space="preserve">
+    <value>Вид рыб</value>
+  </data>
+  <data name="FishKinds" xml:space="preserve">
+    <value>Виды рыб</value>
+  </data>
+  <data name="FishKindUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id рыбы, Id семейства, название рыб на казахском, название рыб на русском, название рыб на латинице, название семейства рыб на казахском, название семейства рыб на русском, название семейства рыб на латинице</value>
+  </data>
+  <data name="FishNameKK" xml:space="preserve">
+    <value>Название рыб на казахском</value>
+  </data>
+  <data name="FishNameLA" xml:space="preserve">
+    <value>Название рыб на латинице</value>
+  </data>
+  <data name="FishNameRU" xml:space="preserve">
+    <value>Название рыб на русском</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Папка</value>
+  </data>
+  <data name="ForceEntryDay" xml:space="preserve">
+    <value>День вступления в силу</value>
+  </data>
+  <data name="ForceEntryDayDateYear" xml:space="preserve">
+    <value>Дата (год) вступления в силу</value>
+  </data>
+  <data name="ForceEntryMonth" xml:space="preserve">
+    <value>Месяц вступления в силу</value>
+  </data>
+  <data name="ForceEntryYear" xml:space="preserve">
+    <value>Год вступления в силу</value>
+  </data>
+  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
+    <value>Формула содержит недопустимые символы!</value>
+  </data>
+  <data name="Found" xml:space="preserve">
+    <value>Найдено</value>
+  </data>
+  <data name="Fresh" xml:space="preserve">
+    <value>Пресное</value>
+  </data>
+  <data name="FreshPart" xml:space="preserve">
+    <value>Пресная часть</value>
+  </data>
+  <data name="FullyPart" xml:space="preserve">
+    <value>Полностью</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Функции</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
+    <value>Общий гидробиологический показатель озера</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
+    <value>Общие гидробиологические показатели озер</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, Id рыбы, год исследования, биомасса зоопланктона, биомасса бентоса, индекс видового богатства, лимит улова рыбы, текущая промысловая рыбопродуктивность, потенциальная рыбопродуктинвость, потенциальный улов и объём выращивания, текущее использование, рекомендованное использование</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
+    <value>Общие гидрохимические показатели</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
+    <value>Общие гидрохимические показатели</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorStandard" xml:space="preserve">
+    <value>Норматив общих гидрохимических показателей</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
+    <value>Нормативы общих гидрохимических показателей</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, часть озера, значение минерализации, общая жесткость воды, растворенный в воде кислород, процент насыщенности воды растворенным кислородом, значение рН, органические вещества</value>
   </data>
   <data name="GeoServerName" xml:space="preserve">
     <value>Название в GeoServer</value>
@@ -201,233 +561,77 @@
   <data name="GeoTIFFFile" xml:space="preserve">
     <value>GeoTIFF-файл</value>
   </data>
+  <data name="GlobalSurfaceWater" xml:space="preserve">
+    <value>Поверхностная вода</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Группа</value>
+  </data>
+  <data name="HazardClassCd" xml:space="preserve">
+    <value>Класс опасности Cd</value>
+  </data>
+  <data name="HazardClassCo" xml:space="preserve">
+    <value>Класс опасности Co</value>
+  </data>
+  <data name="HazardClassCu" xml:space="preserve">
+    <value>Класс опасности Cu</value>
+  </data>
+  <data name="HazardClassMn" xml:space="preserve">
+    <value>Класс опасности Mn</value>
+  </data>
+  <data name="HazardClassNH4" xml:space="preserve">
+    <value>Класс опасности NH₄</value>
+  </data>
+  <data name="HazardClassNi" xml:space="preserve">
+    <value>Класс опасности Ni</value>
+  </data>
+  <data name="HazardClassNO2" xml:space="preserve">
+    <value>Класс опасности NO2</value>
+  </data>
+  <data name="HazardClassNO3" xml:space="preserve">
+    <value>Класс опасности NO₃</value>
+  </data>
+  <data name="HazardClassPb" xml:space="preserve">
+    <value>Класс опасности Pb</value>
+  </data>
+  <data name="HazardClassPPO4" xml:space="preserve">
+    <value>Класс опасности PPO₄</value>
+  </data>
+  <data name="HazardClassZn" xml:space="preserve">
+    <value>Класс опасности Zn</value>
+  </data>
   <data name="HCO" xml:space="preserve">
     <value>HCO₃⁻, гидрокорбонатные анионы, мг-экв/дм³</value>
   </data>
+  <data name="HCOMg" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонатные анионы, мг/дм³</value>
+  </data>
+  <data name="HCOMgEq" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонатные анионы, мг-экв/дм³</value>
+  </data>
+  <data name="HCOPerEq" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонатные анионы, %-экв</value>
+  </data>
+  <data name="HeavyMetals" xml:space="preserve">
+    <value>Тяжелые металлы</value>
+  </data>
+  <data name="HighPollution" xml:space="preserve">
+    <value>Высокий уровень загрязнения</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Главная</value>
+  </data>
+  <data name="Hydrobiology" xml:space="preserve">
+    <value>Гидробиология</value>
+  </data>
+  <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
+    <value>C</value>
   </data>
   <data name="Hydrochemistries" xml:space="preserve">
     <value>Гидрохимия</value>
   </data>
   <data name="Hydrochemistry" xml:space="preserve">
     <value>Гидрохимия</value>
-  </data>
-  <data name="Lake" xml:space="preserve">
-    <value>Озеро</value>
-  </data>
-  <data name="LakeId" xml:space="preserve">
-    <value>Id озера</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>Язык</value>
-  </data>
-  <data name="Layer" xml:space="preserve">
-    <value>Слой</value>
-  </data>
-  <data name="LayerFile" xml:space="preserve">
-    <value>Файл слоя</value>
-  </data>
-  <data name="Layers" xml:space="preserve">
-    <value>Слои</value>
-  </data>
-  <data name="LogIn" xml:space="preserve">
-    <value>Войти</value>
-  </data>
-  <data name="LogOut" xml:space="preserve">
-    <value>Выйти</value>
-  </data>
-  <data name="Map" xml:space="preserve">
-    <value>Карта</value>
-  </data>
-  <data name="Maps" xml:space="preserve">
-    <value>Карты</value>
-  </data>
-  <data name="Mg" xml:space="preserve">
-    <value>Mg²⁺, катионы магния, мг-экв/дм³</value>
-  </data>
-  <data name="Mineralization" xml:space="preserve">
-    <value>Значение минерализации, мг/дм³</value>
-  </data>
-  <data name="MinValues" xml:space="preserve">
-    <value>Минимальные значения</value>
-  </data>
-  <data name="NaK" xml:space="preserve">
-    <value>Na⁺+K⁺, катионы натрий калия, мг-экв/дм³</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Название</value>
-  </data>
-  <data name="NameEN" xml:space="preserve">
-    <value>Название (английский)</value>
-  </data>
-  <data name="NameKK" xml:space="preserve">
-    <value>Название (казахский)</value>
-  </data>
-  <data name="NameRU" xml:space="preserve">
-    <value>Название (русский)</value>
-  </data>
-  <data name="NH" xml:space="preserve">
-    <value>NH</value>
-  </data>
-  <data name="Opacity" xml:space="preserve">
-    <value>Непрозрачность</value>
-  </data>
-  <data name="OrganicSubstances" xml:space="preserve">
-    <value>Органические вещества,мгО/дм³</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Пароль</value>
-  </data>
-  <data name="PercentOxygWater" xml:space="preserve">
-    <value>Процент насыщенности воды растворенным кислородом, %</value>
-  </data>
-  <data name="pH" xml:space="preserve">
-    <value>Значение рН</value>
-  </data>
-  <data name="PPO" xml:space="preserve">
-    <value>PPO</value>
-  </data>
-  <data name="Precipitation" xml:space="preserve">
-    <value>Осадки, млн.м³</value>
-  </data>
-  <data name="Precipitations" xml:space="preserve">
-    <value>Осадки</value>
-  </data>
-  <data name="Publish" xml:space="preserve">
-    <value>Опубликовать</value>
-  </data>
-  <data name="PublishDescription" xml:space="preserve">
-    <value>Размер файлов должен быть не более 1 ГБ. Файлы могут быть в zip архиве.</value>
-  </data>
-  <data name="PublishGeoTIFF" xml:space="preserve">
-    <value>Опубликовать GeoTIFF-файл</value>
-  </data>
-  <data name="PublishLayer" xml:space="preserve">
-    <value>Публикация растрового слоя</value>
-  </data>
-  <data name="PublishShape" xml:space="preserve">
-    <value>Опубликовать shp-файл</value>
-  </data>
-  <data name="Register" xml:space="preserve">
-    <value>Регистрация</value>
-  </data>
-  <data name="RegisterAsANewUser" xml:space="preserve">
-    <value>Зарегистрироваться как новый пользователь?</value>
-  </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>Запомнить меня?</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Удалить</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Роли</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Сохранить</value>
-  </data>
-  <data name="ShapeFile" xml:space="preserve">
-    <value>Shape-файл</value>
-  </data>
-  <data name="Show" xml:space="preserve">
-    <value>Показать</value>
-  </data>
-  <data name="SO" xml:space="preserve">
-    <value>SO₄²⁻, сульфатные анионы, мг-экв/дм³</value>
-  </data>
-  <data name="StyleWaterLevel" xml:space="preserve">
-    <value>Стиль уровней вод озер</value>
-  </data>
-  <data name="SurfaceFlow" xml:space="preserve">
-    <value>Поверхностный приток, млн.м³</value>
-  </data>
-  <data name="SurfaceFlows" xml:space="preserve">
-    <value>Поверхностные притоки</value>
-  </data>
-  <data name="SurfaceOutflow" xml:space="preserve">
-    <value>Поверхностный отток, млн.м³</value>
-  </data>
-  <data name="SurfaceOutflows" xml:space="preserve">
-    <value>Поверхностные оттоки</value>
-  </data>
-  <data name="TotalHardness" xml:space="preserve">
-    <value>Общая жесткость воды, мг-экв/дм³</value>
-  </data>
-  <data name="UndergroundFlow" xml:space="preserve">
-    <value>Подземный приток, млн.м³</value>
-  </data>
-  <data name="UndergroundFlows" xml:space="preserve">
-    <value>Подземные притоки</value>
-  </data>
-  <data name="UndergroundOutflow" xml:space="preserve">
-    <value>Подземный отток, млн.м³</value>
-  </data>
-  <data name="UndergroundOutflows" xml:space="preserve">
-    <value>Подземные оттоки</value>
-  </data>
-  <data name="Unpublish" xml:space="preserve">
-    <value>Отменить публикацию</value>
-  </data>
-  <data name="UnpublishGeoTIFF" xml:space="preserve">
-    <value>Отменить публикацию GeoTIFF-файла</value>
-  </data>
-  <data name="UnpublishShape" xml:space="preserve">
-    <value>Отменить публикацию Shape-файла</value>
-  </data>
-  <data name="Upload" xml:space="preserve">
-    <value>Загрузить</value>
-  </data>
-  <data name="UploadGeoTIFFFiles" xml:space="preserve">
-    <value>Загрузить GeoTIFF-файлы</value>
-  </data>
-  <data name="UploadShapeFiles" xml:space="preserve">
-    <value>Загрузить Shape-файлы</value>
-  </data>
-  <data name="UseALocalAccountToLogIn" xml:space="preserve">
-    <value>Используйте локальную учетную запись для входа в систему.</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>Пользователь</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Пользователи</value>
-  </data>
-  <data name="Value" xml:space="preserve">
-    <value>Значение</value>
-  </data>
-  <data name="WaterLavelMy" xml:space="preserve">
-    <value>Н, м.абс.</value>
-  </data>
-  <data name="WaterLevel" xml:space="preserve">
-    <value>Многолетний ход среднегодовых уровней озера</value>
-  </data>
-  <data name="WaterLevels" xml:space="preserve">
-    <value>Уровни воды озер</value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Год</value>
-  </data>
-  <data name="DataType" xml:space="preserve">
-    <value>Тип данных</value>
-  </data>
-  <data name="StyleEvaporation" xml:space="preserve">
-    <value>Стиль испарений</value>
-  </data>
-  <data name="StylePrecipitation" xml:space="preserve">
-    <value>Стиль осадков</value>
-  </data>
-  <data name="StyleSurfaceFlow" xml:space="preserve">
-    <value>Стиль поверхностных притоков</value>
-  </data>
-  <data name="StyleSurfaceOutflow" xml:space="preserve">
-    <value>Стиль поверхностных оттоков</value>
-  </data>
-  <data name="StyleUndergroundFlow" xml:space="preserve">
-    <value>Стиль подземных притоков</value>
-  </data>
-  <data name="StyleUndergroundOutflow" xml:space="preserve">
-    <value>Стиль подземных оттоков</value>
   </data>
   <data name="HydrochemistryCas" xml:space="preserve">
     <value>Катионы кальция,мг/дм³</value>
@@ -436,7 +640,7 @@
     <value>Cd</value>
   </data>
   <data name="HydrochemistryCIWPs" xml:space="preserve">
-    <value>КИЗВ с учетом Ко</value>
+    <value>КИЗВ с учетом класса опасности</value>
   </data>
   <data name="HydrochemistryCls" xml:space="preserve">
     <value>Хлоридные анионы, мг/дм³</value>
@@ -448,7 +652,7 @@
     <value>Cu</value>
   </data>
   <data name="HydrochemistryDissOxygWaters" xml:space="preserve">
-    <value>Растворенный в воде кислород, мг-экв/дм³</value>
+    <value>Растворенный в воде кислород, мг/дм³</value>
   </data>
   <data name="HydrochemistryHCOs" xml:space="preserve">
     <value>Гидрокорбонатные анионы, мг/дм³</value>
@@ -490,7 +694,7 @@
     <value>Значение рН</value>
   </data>
   <data name="HydrochemistryPPOs" xml:space="preserve">
-    <value>PPO</value>
+    <value>PPO4</value>
   </data>
   <data name="HydrochemistrySOs" xml:space="preserve">
     <value>Сульфатные анионы, мг/дм³</value>
@@ -500,6 +704,735 @@
   </data>
   <data name="HydrochemistryZns" xml:space="preserve">
     <value>Zn</value>
+  </data>
+  <data name="Hydrology" xml:space="preserve">
+    <value>Гидрология</value>
+  </data>
+  <data name="Hylak_id" xml:space="preserve">
+    <value>Уникальный идентификатор озера</value>
+  </data>
+  <data name="IncludeWater" xml:space="preserve">
+    <value>Включает слои по воде</value>
+  </data>
+  <data name="Indicator" xml:space="preserve">
+    <value>Показатель</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>Инструкция</value>
+  </data>
+  <data name="IonName" xml:space="preserve">
+    <value>Название ионов</value>
+  </data>
+  <data name="IonsaltWaterComposition" xml:space="preserve">
+    <value>Ионно-солевой состав воды</value>
+  </data>
+  <data name="IonsaltWaterCompositions" xml:space="preserve">
+    <value>Ионно-солевой состав воды</value>
+  </data>
+  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, часть озера, катионы кальция, катионы магния, катионы натрий калия, хлоридные анионы, гидрокорбонатные анионы, сульфатные анионы</value>
+  </data>
+  <data name="IonsSumMgEq" xml:space="preserve">
+    <value>Суммы ионов в мг-экв/дм³</value>
+  </data>
+  <data name="IonsSumPerEq" xml:space="preserve">
+    <value>Сумма ионов в %-экв</value>
+  </data>
+  <data name="IonUnit" xml:space="preserve">
+    <value>мг/дм³ / %-экв</value>
+  </data>
+  <data name="IZVCd" xml:space="preserve">
+    <value>ИЗВ Cd</value>
+  </data>
+  <data name="IZVCo" xml:space="preserve">
+    <value>ИЗВ Co</value>
+  </data>
+  <data name="IZVCu" xml:space="preserve">
+    <value>ИЗВ Cu</value>
+  </data>
+  <data name="IZVMn" xml:space="preserve">
+    <value>ИЗВ Mn</value>
+  </data>
+  <data name="IZVNH4" xml:space="preserve">
+    <value>ИЗВ NH₄</value>
+  </data>
+  <data name="IZVNi" xml:space="preserve">
+    <value>ИЗВ Ni</value>
+  </data>
+  <data name="IZVNO2" xml:space="preserve">
+    <value>ИЗВ NO₂</value>
+  </data>
+  <data name="IZVNO3" xml:space="preserve">
+    <value>ИЗВ NO₃</value>
+  </data>
+  <data name="IZVPb" xml:space="preserve">
+    <value>ИЗВ Pb</value>
+  </data>
+  <data name="IZVPPO4" xml:space="preserve">
+    <value>ИЗВ PPO₄</value>
+  </data>
+  <data name="IZVZn" xml:space="preserve">
+    <value>ИЗВ Zn</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Январь</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Июль</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Июнь</value>
+  </data>
+  <data name="KIZV" xml:space="preserve">
+    <value>КИЗВ</value>
+  </data>
+  <data name="KIZVDegree" xml:space="preserve">
+    <value>Степень загрязнения водных объектов по КИЗВ с учетом класса опасности</value>
+  </data>
+  <data name="KIZVkoCd" xml:space="preserve">
+    <value>КИЗВко Cd</value>
+  </data>
+  <data name="KIZVkoCo" xml:space="preserve">
+    <value>КИЗВко Co</value>
+  </data>
+  <data name="KIZVkoCu" xml:space="preserve">
+    <value>КИЗВко Cu</value>
+  </data>
+  <data name="KIZVkoMn" xml:space="preserve">
+    <value>КИЗВко Mn</value>
+  </data>
+  <data name="KIZVkoNH4" xml:space="preserve">
+    <value>КИЗВко NH₄</value>
+  </data>
+  <data name="KIZVkoNi" xml:space="preserve">
+    <value>КИЗВко Ni</value>
+  </data>
+  <data name="KIZVkoNO2" xml:space="preserve">
+    <value>КИЗВко NO2</value>
+  </data>
+  <data name="KIZVkoNO3" xml:space="preserve">
+    <value>КИЗВко NO₃</value>
+  </data>
+  <data name="KIZVkoPb" xml:space="preserve">
+    <value>КИЗВко Pb</value>
+  </data>
+  <data name="KIZVkoPPO4" xml:space="preserve">
+    <value>КИЗВко PPO₄</value>
+  </data>
+  <data name="KIZVkoZn" xml:space="preserve">
+    <value>КИЗВко Zn</value>
+  </data>
+  <data name="KIZVs" xml:space="preserve">
+    <value>КИЗВ</value>
+  </data>
+  <data name="KurlovFormula" xml:space="preserve">
+    <value>Формула химсостава воды по М.Г.Курлову</value>
+  </data>
+  <data name="Lake" xml:space="preserve">
+    <value>Озеро</value>
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value>Абсолютная высота озера, м</value>
+  </data>
+  <data name="LakeArchiveData" xml:space="preserve">
+    <value>Архивная информация об озере</value>
+  </data>
+  <data name="LakeArea" xml:space="preserve">
+    <value>Площадь озера, км²</value>
+  </data>
+  <data name="LakeGlobalData" xml:space="preserve">
+    <value>Информация об озере из глобальной базы</value>
+  </data>
+  <data name="LakeId" xml:space="preserve">
+    <value>Id озера</value>
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value>Длина озера, км</value>
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value>Максимальная глубина озера, м</value>
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value>Площадь зеркала озера, км²</value>
+  </data>
+  <data name="LakePart" xml:space="preserve">
+    <value>Часть озера</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Озера</value>
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value>Архивные данные озер</value>
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value>Архивные данные озер</value>
+  </data>
+  <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год топографической съемки, длина озера, длина береговой линии озера, площадь зеркала озера, абсолютная высота озера, ширина озера, максимальная глубина озеро, объем водной массы озера, источник архивной информации</value>
+  </data>
+  <data name="LakesGlobalData" xml:space="preserve">
+    <value>Глобальная база озер</value>
+  </data>
+  <data name="LakesGlobalDatas" xml:space="preserve">
+    <value>Глобальная база озер</value>
+  </data>
+  <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, уникальный идентификатор озера, название озера (английский), название озера (русский), название озера (казахский), страна (английский), страна (русский), страна (казахский), континент (английский), континент (русский), континент (казахский), источники данных (английский), источники данных (русский), источники данных (казахский), индикатор типа озера, уникальный идентификатор водохранилища в базе данных GRAND, площадь поверхности озер, длина береговой линии, изрезанность  береговой линии, общий объем озера, объем водохранилищ, источник данных об объеме, средняя глубина озера, средний долгосрочный сток, протекающий через озеро, среднее время пребывания воды в озере, высота поверхности озера над уровнем моря, средний уклон в пределах 100-метрового буфера вокруг полигона озера, площадь водосбора, долгота, широта</value>
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value>Длина береговой линии озера, км </value>
+  </data>
+  <data name="LakeShorelineLength2015" xml:space="preserve">
+    <value>Длина береговой линии озера за 2015, км</value>
+  </data>
+  <data name="LakeSystem" xml:space="preserve">
+    <value>Озерная система</value>
+  </data>
+  <data name="LakeSystemId" xml:space="preserve">
+    <value>Id озерной системы</value>
+  </data>
+  <data name="LakeSystems" xml:space="preserve">
+    <value>Озерные системы</value>
+  </data>
+  <data name="LakeSystemUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озерной системы, название (русский), название (казахский), название (английский)</value>
+  </data>
+  <data name="LakeUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, наименование озера на казахском, наименование озера на русском, наименование озера на английском, наименование водохозяйственного бассейна на казахском, наименование водохозяйственного бассейна на русском, наименование водохозяйственного бассейна на английском, наименование водохозяйственного участка, Id озерной системы, длина береговой линии озера за 2015, площадь зеркала озера за 2015, долгота, широта</value>
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value>Объем водной массы озера, млн.м³</value>
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value>Ширина озера, км</value>
+  </data>
+  <data name="Lake_area" xml:space="preserve">
+    <value>Площадь поверхности озера, км²</value>
+  </data>
+  <data name="Lake_name" xml:space="preserve">
+    <value>Название озера</value>
+  </data>
+  <data name="Lake_name_ENG" xml:space="preserve">
+    <value>Название озера на английском</value>
+  </data>
+  <data name="Lake_name_KZ" xml:space="preserve">
+    <value>Название озера на казахском</value>
+  </data>
+  <data name="Lake_name_RU" xml:space="preserve">
+    <value>Название озера на русском</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Широта</value>
+  </data>
+  <data name="Layer" xml:space="preserve">
+    <value>Слой</value>
+  </data>
+  <data name="LayerFile" xml:space="preserve">
+    <value>Файл слоя</value>
+  </data>
+  <data name="Layers" xml:space="preserve">
+    <value>Слои</value>
+  </data>
+  <data name="Legend" xml:space="preserve">
+    <value>Легенда</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Выйти</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Долгота</value>
+  </data>
+  <data name="LostPermanent" xml:space="preserve">
+    <value>Потерянные</value>
+  </data>
+  <data name="LostSeasonal" xml:space="preserve">
+    <value>Потерянные сезонные</value>
+  </data>
+  <data name="LowerLimit" xml:space="preserve">
+    <value>Нижний предел</value>
+  </data>
+  <data name="MagnesiumGroup" xml:space="preserve">
+    <value>Mg</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>Карта</value>
+  </data>
+  <data name="Maps" xml:space="preserve">
+    <value>Карты</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Март</value>
+  </data>
+  <data name="MarineSalinity" xml:space="preserve">
+    <value>Морская соленость</value>
+  </data>
+  <data name="maximum" xml:space="preserve">
+    <value>максимум</value>
+  </data>
+  <data name="MaximumWater" xml:space="preserve">
+    <value>Максимальная вода</value>
+  </data>
+  <data name="MaximumWaterArea" xml:space="preserve">
+    <value>Площадь максимальной водной поверхности, км²</value>
+  </data>
+  <data name="MaximumWaterExtent" xml:space="preserve">
+    <value>The Maximum Water Extent (Максимальная площадь воды)</value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Май</value>
+  </data>
+  <data name="MeasurementUnit" xml:space="preserve">
+    <value>Единица измерения</value>
+  </data>
+  <data name="MeasurementUnits" xml:space="preserve">
+    <value>Единицы измерения</value>
+  </data>
+  <data name="MessageCantBeDeleted" xml:space="preserve">
+    <value>{0} нельзя удалить, поскольку он используется в текущих слоях: {1}!</value>
+  </data>
+  <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
+    <value>Расширение файла должно быть «shp»!</value>
+  </data>
+  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
+    <value>Расширение файла должно быть «tif»!</value>
+  </data>
+  <data name="MessageFileWasDeleted" xml:space="preserve">
+    <value>Файл {0} удален!</value>
+  </data>
+  <data name="MessageLayerAlreadyExist" xml:space="preserve">
+    <value>Слой {0} уже существует в {1} рабочем пространстве!</value>
+  </data>
+  <data name="MessageLayerIsntExist" xml:space="preserve">
+    <value>Слой {0} не существует в рабочем пространстве {1}!</value>
+  </data>
+  <data name="Mg" xml:space="preserve">
+    <value>Mg²⁺, катионы магния, мг-экв/дм³</value>
+  </data>
+  <data name="MgMg" xml:space="preserve">
+    <value>Mg²⁺, катионы магния, мг/дм³</value>
+  </data>
+  <data name="MgMgEq" xml:space="preserve">
+    <value>Mg²⁺, катионы магния, мг-экв/дм³</value>
+  </data>
+  <data name="MgPerEq" xml:space="preserve">
+    <value>Mg²⁺, катионы магния, %-экв</value>
+  </data>
+  <data name="Mineralization" xml:space="preserve">
+    <value>Значение минерализации, мг/дм³</value>
+  </data>
+  <data name="MineralizationType" xml:space="preserve">
+    <value>Тип минерализации</value>
+  </data>
+  <data name="minimum" xml:space="preserve">
+    <value>минимум</value>
+  </data>
+  <data name="MinValues" xml:space="preserve">
+    <value>Минимальные значения</value>
+  </data>
+  <data name="Mn" xml:space="preserve">
+    <value>Mn</value>
+  </data>
+  <data name="ModeratelyTough" xml:space="preserve">
+    <value>Умеренно жесткая</value>
+  </data>
+  <data name="ModeratePollution" xml:space="preserve">
+    <value>Умеренный уровень загрязнения</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>Месяц</value>
+  </data>
+  <data name="MonthlyHistory" xml:space="preserve">
+    <value>По месяцам</value>
+  </data>
+  <data name="MonthlyRecurrence" xml:space="preserve">
+    <value>Среднемесячные данные</value>
+  </data>
+  <data name="MPCCd" xml:space="preserve">
+    <value>Значение ПДК Cd</value>
+  </data>
+  <data name="MPCCo" xml:space="preserve">
+    <value>Значение ПДК Co</value>
+  </data>
+  <data name="MPCCu" xml:space="preserve">
+    <value>Значение ПДК Cu</value>
+  </data>
+  <data name="MPCExceeding" xml:space="preserve">
+    <value>Кратность превышения ПДК</value>
+  </data>
+  <data name="MPCMn" xml:space="preserve">
+    <value>Значение ПДК Mn</value>
+  </data>
+  <data name="MPCNH4" xml:space="preserve">
+    <value>Значение ПДК NH₄</value>
+  </data>
+  <data name="MPCNi" xml:space="preserve">
+    <value>Значение ПДК Ni</value>
+  </data>
+  <data name="MPCNO2" xml:space="preserve">
+    <value>Значение ПДК NO2</value>
+  </data>
+  <data name="MPCNO3" xml:space="preserve">
+    <value>Значение ПДК NO₃</value>
+  </data>
+  <data name="MPCPb" xml:space="preserve">
+    <value>Значение ПДК Pb</value>
+  </data>
+  <data name="MPCPPO4" xml:space="preserve">
+    <value>Значение ПДК PPO₄</value>
+  </data>
+  <data name="MPCZn" xml:space="preserve">
+    <value>Значение ПДК Zn</value>
+  </data>
+  <data name="NaK" xml:space="preserve">
+    <value>Na⁺+K⁺, катионы натрий калия, мг-экв/дм³</value>
+  </data>
+  <data name="NaKMg" xml:space="preserve">
+    <value>Na⁺+K⁺, катионы натрий калия, мг/дм³</value>
+  </data>
+  <data name="NaKMgEq" xml:space="preserve">
+    <value>Na⁺+K⁺, катионы натрий калия, мг-экв/дм³</value>
+  </data>
+  <data name="NaKPerEq" xml:space="preserve">
+    <value>Na⁺+K⁺, катионы натрий калия, %-экв</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="NameEN" xml:space="preserve">
+    <value>Название (английский)</value>
+  </data>
+  <data name="NameKK" xml:space="preserve">
+    <value>Название (казахский)</value>
+  </data>
+  <data name="NameRU" xml:space="preserve">
+    <value>Название (русский)</value>
+  </data>
+  <data name="NeutralWaters" xml:space="preserve">
+    <value>Нейтральные воды</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>Новый документ</value>
+  </data>
+  <data name="NewPermanent" xml:space="preserve">
+    <value>Новые постоянные</value>
+  </data>
+  <data name="NewSeasonal" xml:space="preserve">
+    <value>Новые сезонные</value>
+  </data>
+  <data name="NH" xml:space="preserve">
+    <value>NH</value>
+  </data>
+  <data name="NH4" xml:space="preserve">
+    <value>NH₄</value>
+  </data>
+  <data name="Ni" xml:space="preserve">
+    <value>Ni</value>
+  </data>
+  <data name="NO2" xml:space="preserve">
+    <value>NO₂</value>
+  </data>
+  <data name="NO3" xml:space="preserve">
+    <value>NO₃</value>
+  </data>
+  <data name="NoData" xml:space="preserve">
+    <value>Нет данных</value>
+  </data>
+  <data name="noMetaData" xml:space="preserve">
+    <value>нет метаданных</value>
+  </data>
+  <data name="NOT" xml:space="preserve">
+    <value>Не</value>
+  </data>
+  <data name="not3857" xml:space="preserve">
+    <value>Система координат не EPSG:3857</value>
+  </data>
+  <data name="not3857Changed" xml:space="preserve">
+    <value>Система координат не EPSG:3857. Изменено.</value>
+  </data>
+  <data name="notGeoTIFF" xml:space="preserve">
+    <value>не GeoTIFF</value>
+  </data>
+  <data name="notShape" xml:space="preserve">
+    <value>не Shape-файл</value>
+  </data>
+  <data name="November" xml:space="preserve">
+    <value>Ноябрь</value>
+  </data>
+  <data name="NoWater" xml:space="preserve">
+    <value>Нет воды, км²</value>
+  </data>
+  <data name="NoСhange" xml:space="preserve">
+    <value>Без изменений</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Номер</value>
+  </data>
+  <data name="Nutrients" xml:space="preserve">
+    <value>Биогенные вещества</value>
+  </data>
+  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
+    <value>Норматив биогенных веществ и тяжелых металлов</value>
+  </data>
+  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
+    <value>Нормативы биогенных веществ и тяжелых металлов</value>
+  </data>
+  <data name="Occurrence" xml:space="preserve">
+    <value>The Water Occurrence (Повторяемость воды)</value>
+  </data>
+  <data name="OccurrenceChangeIntensity" xml:space="preserve">
+    <value>The Water Occurrence Change (Интенсивность изменения воды)</value>
+  </data>
+  <data name="October" xml:space="preserve">
+    <value>Октябрь</value>
+  </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>Непрозрачность</value>
+  </data>
+  <data name="OR" xml:space="preserve">
+    <value>Или</value>
+  </data>
+  <data name="OrganicSubstances" xml:space="preserve">
+    <value>Органические вещества,мгО/дм³</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Pb" xml:space="preserve">
+    <value>Pb</value>
+  </data>
+  <data name="PercentOxygWater" xml:space="preserve">
+    <value>Процент насыщенности воды растворенным кислородом, %</value>
+  </data>
+  <data name="Permanent" xml:space="preserve">
+    <value>Постоянные</value>
+  </data>
+  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
+    <value>Динамика площадей постоянной и сезонной воды</value>
+  </data>
+  <data name="PermanentToDeasonal" xml:space="preserve">
+    <value>Сезонные воды, преобразованные из постоянных</value>
+  </data>
+  <data name="PermanentWaterArea" xml:space="preserve">
+    <value>Площадь постоянной воды, км²</value>
+  </data>
+  <data name="PermanentWaterAreaPer" xml:space="preserve">
+    <value>Площадь постоянной воды, %</value>
+  </data>
+  <data name="pH" xml:space="preserve">
+    <value>Значение рН</value>
+  </data>
+  <data name="PotentialFishProducts" xml:space="preserve">
+    <value>Потенциальная рыбопродуктинвость, кг/га</value>
+  </data>
+  <data name="PotentialGrowingVolume" xml:space="preserve">
+    <value>Потенциальный объём выращивания, кг/га</value>
+  </data>
+  <data name="Pour_lat" xml:space="preserve">
+    <value>Широта</value>
+  </data>
+  <data name="Pour_long" xml:space="preserve">
+    <value>Долгота</value>
+  </data>
+  <data name="PPO" xml:space="preserve">
+    <value>PPO</value>
+  </data>
+  <data name="PPO4" xml:space="preserve">
+    <value>PPO₄</value>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Осадки, млн.м³</value>
+  </data>
+  <data name="PrecipitationPer" xml:space="preserve">
+    <value>Осадки, %</value>
+  </data>
+  <data name="Precipitations" xml:space="preserve">
+    <value>Осадки</value>
+  </data>
+  <data name="PreviousDocument" xml:space="preserve">
+    <value>Предыдущий документ</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Опубликовать</value>
+  </data>
+  <data name="PublishDescription" xml:space="preserve">
+    <value>Размер файлов должен быть не более 1 ГБ. Файлы могут быть в zip архиве.</value>
+  </data>
+  <data name="PublishGeoTIFF" xml:space="preserve">
+    <value>Опубликовать GeoTIFF-файл</value>
+  </data>
+  <data name="PublishGeoTIFFWater" xml:space="preserve">
+    <value>Опубликовать GeoTIFF-файл (вода)</value>
+  </data>
+  <data name="PublishLayer" xml:space="preserve">
+    <value>Публикация растрового слоя</value>
+  </data>
+  <data name="PublishShape" xml:space="preserve">
+    <value>Опубликовать shp-файл</value>
+  </data>
+  <data name="QualitativeAssessment" xml:space="preserve">
+    <value>Качественная оценка</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Растр</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Растры</value>
+  </data>
+  <data name="RasterValue" xml:space="preserve">
+    <value>Значение пикселя</value>
+  </data>
+  <data name="RasterValueStat" xml:space="preserve">
+    <value>Статистика значения пикселя в озере</value>
+  </data>
+  <data name="RecommendedUse" xml:space="preserve">
+    <value>Рекомендованное использование</value>
+  </data>
+  <data name="Recurrence" xml:space="preserve">
+    <value>The Annual Water Recurrence (Возвращение воды)</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Область</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="RegisterAsANewUser" xml:space="preserve">
+    <value>Зарегистрироваться как новый пользователь?</value>
+  </data>
+  <data name="Regulatory" xml:space="preserve">
+    <value>Нормативно-чистая</value>
+  </data>
+  <data name="RegulatoryDocument" xml:space="preserve">
+    <value>Нормативный документ</value>
+  </data>
+  <data name="RegulatoryDocuments" xml:space="preserve">
+    <value>Нормативные документы</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Запомнить меня?</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Replace" xml:space="preserve">
+    <value>Заменить</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Сбросить</value>
+  </data>
+  <data name="Res_time" xml:space="preserve">
+    <value>Среднее время пребывания воды в озере, в днях.</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Роли</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>Строка</value>
+  </data>
+  <data name="SaltyPart" xml:space="preserve">
+    <value>Соленая часть</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="SearchByLakeName" xml:space="preserve">
+    <value>Поиск по названию озера</value>
+  </data>
+  <data name="Seasonal" xml:space="preserve">
+    <value>Сезонные </value>
+  </data>
+  <data name="Seasonalit" xml:space="preserve">
+    <value>сезонность (м.б. У ось в графике)</value>
+  </data>
+  <data name="Seasonalits" xml:space="preserve">
+    <value>The Water Seasonality (Присутствие воды в месяцах)</value>
+  </data>
+  <data name="SeasonalitUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, нет данных, январь, февраль, март, апрель, май, июнь, июль, август, сентябрь, октября, ноябрь, декабрь</value>
+  </data>
+  <data name="Seasonality" xml:space="preserve">
+    <value>The Water Seasonality (Присутствие воды в месяцах)</value>
+  </data>
+  <data name="SeasonalToPermanent" xml:space="preserve">
+    <value>Постоянные воды, преобразованные из сезонных</value>
+  </data>
+  <data name="SeasonalWaterArea" xml:space="preserve">
+    <value>Площадь сезонной воды, км²</value>
+  </data>
+  <data name="SeasonalWaterAreaPer" xml:space="preserve">
+    <value>Площадь сезонной воды, %</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Сентябрь</value>
+  </data>
+  <data name="ShapeFile" xml:space="preserve">
+    <value>Shape-файл</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Shape-файлы</value>
+  </data>
+  <data name="ShoreIrregularityRatio" xml:space="preserve">
+    <value>Коэффициент изрезанности берега</value>
+  </data>
+  <data name="Shore_dev" xml:space="preserve">
+    <value>Изрезанность  береговой линии</value>
+  </data>
+  <data name="Shore_len" xml:space="preserve">
+    <value>Длина береговой линии, км</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>Показать</value>
+  </data>
+  <data name="Slope_100" xml:space="preserve">
+    <value>Средний уклон в пределах 100-метрового буфера вокруг полигона озера, в градусах</value>
+  </data>
+  <data name="SO" xml:space="preserve">
+    <value>SO₄²⁻, сульфатные анионы, мг-экв/дм³</value>
+  </data>
+  <data name="SodiumGroup" xml:space="preserve">
+    <value>Na</value>
+  </data>
+  <data name="Soft" xml:space="preserve">
+    <value>Мягкая</value>
+  </data>
+  <data name="SOMg" xml:space="preserve">
+    <value>SO₄²⁻, сульфатные анионы, мг/дм³</value>
+  </data>
+  <data name="SOMgEq" xml:space="preserve">
+    <value>SO₄²⁻, сульфатные анионы, мг-экв/дм³</value>
+  </data>
+  <data name="SOPerEq" xml:space="preserve">
+    <value>SO₄²⁻, сульфатные анионы, %-экв</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Источник</value>
+  </data>
+  <data name="SourWater" xml:space="preserve">
+    <value>Кислые воды</value>
+  </data>
+  <data name="SpeciesWealthIndex" xml:space="preserve">
+    <value>Индекс видового богатства, ед.</value>
+  </data>
+  <data name="StronglyAcidicWater" xml:space="preserve">
+    <value>Сильнокислые воды</value>
+  </data>
+  <data name="StronglyAlkalineWater" xml:space="preserve">
+    <value>Сильнощелочные воды</value>
+  </data>
+  <data name="StyleEvaporation" xml:space="preserve">
+    <value>Стиль испарений</value>
   </data>
   <data name="StyleHydrochemistryCa" xml:space="preserve">
     <value>Стиль катионов кальция</value>
@@ -573,8 +1506,131 @@
   <data name="StyleHydrochemistryZn" xml:space="preserve">
     <value>Стиль Zn</value>
   </data>
-  <data name="Legend" xml:space="preserve">
-    <value>Легенда</value>
+  <data name="StylePrecipitation" xml:space="preserve">
+    <value>Стиль осадков</value>
+  </data>
+  <data name="StyleSurfaceFlow" xml:space="preserve">
+    <value>Стиль поверхностных притоков</value>
+  </data>
+  <data name="StyleSurfaceOutflow" xml:space="preserve">
+    <value>Стиль поверхностных оттоков</value>
+  </data>
+  <data name="StyleUndergroundFlow" xml:space="preserve">
+    <value>Стиль подземных притоков</value>
+  </data>
+  <data name="StyleUndergroundOutflow" xml:space="preserve">
+    <value>Стиль подземных оттоков</value>
+  </data>
+  <data name="StyleWaterLevel" xml:space="preserve">
+    <value>Стиль уровней вод озер</value>
+  </data>
+  <data name="SubacidWaters" xml:space="preserve">
+    <value>Слабокислые воды</value>
+  </data>
+  <data name="SulphateClass" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="SurfaceFlow" xml:space="preserve">
+    <value>Поверхностный приток, млн.м³</value>
+  </data>
+  <data name="SurfaceFlowPer" xml:space="preserve">
+    <value>Поверхностный приток, %</value>
+  </data>
+  <data name="SurfaceFlows" xml:space="preserve">
+    <value>Поверхностные притоки</value>
+  </data>
+  <data name="SurfaceOutflow" xml:space="preserve">
+    <value>Поверхностный отток, млн.м³</value>
+  </data>
+  <data name="SurfaceOutflowPer" xml:space="preserve">
+    <value>Поверхностный отток, %</value>
+  </data>
+  <data name="SurfaceOutflows" xml:space="preserve">
+    <value>Поверхностные оттоки</value>
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value>Год топографической съемки</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Таблица</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Таблицы</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Теги</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Всего</value>
+  </data>
+  <data name="TotalHardness" xml:space="preserve">
+    <value>Общая жесткость воды, мг-экв/дм³</value>
+  </data>
+  <data name="Tough" xml:space="preserve">
+    <value>Жесткая</value>
+  </data>
+  <data name="ToxicologicalIndicator" xml:space="preserve">
+    <value>Токсикологический показатель</value>
+  </data>
+  <data name="ToxicologicalIndicators" xml:space="preserve">
+    <value>Токсикологические показатели</value>
+  </data>
+  <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Id озера, год, часть озера, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
+  </data>
+  <data name="Transition" xml:space="preserve">
+    <value>Transition (Переход)</value>
+  </data>
+  <data name="Transitions" xml:space="preserve">
+    <value>The Water Transitions (Изменение состояния воды) </value>
+  </data>
+  <data name="TransitionUploadDescription" xml:space="preserve">
+    <value>Порядок столбцов в файле: Озеро Id, без изменений, постоянные, новые постоянные, потерянные постоянные, сезонные, новые сезонные, потерянные сезонные, постоянные воды, преобразованные из сезонных, сезонные воды, преобразованные из постоянных, эфемерные постоянные, эфемерные сезонные</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="Type1" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="Type2" xml:space="preserve">
+    <value>II</value>
+  </data>
+  <data name="Type3" xml:space="preserve">
+    <value>III</value>
+  </data>
+  <data name="Type4" xml:space="preserve">
+    <value>IV</value>
+  </data>
+  <data name="UndergroundFlow" xml:space="preserve">
+    <value>Подземный приток, млн.м³</value>
+  </data>
+  <data name="UndergroundFlowPer" xml:space="preserve">
+    <value>Подземный приток, %</value>
+  </data>
+  <data name="UndergroundFlows" xml:space="preserve">
+    <value>Подземные притоки</value>
+  </data>
+  <data name="UndergroundOutflow" xml:space="preserve">
+    <value>Подземный отток, млн.м³</value>
+  </data>
+  <data name="UndergroundOutflowPer" xml:space="preserve">
+    <value>Подземный отток, %</value>
+  </data>
+  <data name="UndergroundOutflows" xml:space="preserve">
+    <value>Подземные оттоки</value>
+  </data>
+  <data name="Unpublish" xml:space="preserve">
+    <value>Отменить публикацию</value>
+  </data>
+  <data name="UnpublishGeoTIFF" xml:space="preserve">
+    <value>Отменить публикацию GeoTIFF-файла</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>Отменить публикацию GeoTIFF-файла по воде</value>
+  </data>
+  <data name="UnpublishShape" xml:space="preserve">
+    <value>Отменить публикацию Shape-файла</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>Обновить</value>
@@ -582,188 +1638,44 @@
   <data name="UpdateLakeLayerStyle" xml:space="preserve">
     <value>Обновить стиль слоя озер</value>
   </data>
-  <data name="MessageCantBeDeleted" xml:space="preserve">
-    <value>{0} нельзя удалить, поскольку он используется в текущих слоях: {1}!</value>
-  </data>
-  <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
-    <value>Расширение файла должно быть «shp»!</value>
-  </data>
-  <data name="MessageFileWasDeleted" xml:space="preserve">
-    <value>Файл {0} удален!</value>
-  </data>
-  <data name="MessageLayerAlreadyExist" xml:space="preserve">
-    <value>Слой {0} уже существует в {1} рабочем пространстве!</value>
-  </data>
-  <data name="MessageLayerIsntExist" xml:space="preserve">
-    <value>Слой {0} не существует в рабочем пространстве {1}!</value>
-  </data>
-  <data name="Instruction" xml:space="preserve">
-    <value>Инструкция</value>
-  </data>
-  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
-    <value>Расширение файла должно быть «tif»!</value>
-  </data>
-  <data name="exist" xml:space="preserve">
-    <value>уже существует</value>
-  </data>
-  <data name="notGeoTIFF" xml:space="preserve">
-    <value>не GeoTIFF</value>
-  </data>
-  <data name="notShape" xml:space="preserve">
-    <value>не Shape-файл</value>
+  <data name="Upload" xml:space="preserve">
+    <value>Загрузить</value>
   </data>
   <data name="uploaded" xml:space="preserve">
     <value>загружен</value>
   </data>
-  <data name="Action" xml:space="preserve">
-    <value>Действие</value>
+  <data name="UploadedCount" xml:space="preserve">
+    <value>Итого загружено</value>
   </data>
-  <data name="AddLakes" xml:space="preserve">
-    <value>Добавить озера</value>
-  </data>
-  <data name="Compare" xml:space="preserve">
-    <value>Сравнить</value>
-  </data>
-  <data name="Replace" xml:space="preserve">
-    <value>Заменить</value>
-  </data>
-  <data name="FindKATO" xml:space="preserve">
-    <value>Найти КАТО</value>
-  </data>
-  <data name="noMetaData" xml:space="preserve">
-    <value>нет метаданных</value>
-  </data>
-  <data name="Tags" xml:space="preserve">
-    <value>Теги</value>
-  </data>
-  <data name="DescriptionEN" xml:space="preserve">
-    <value>Описание на английском</value>
-  </data>
-  <data name="DescriptionKK" xml:space="preserve">
-    <value>Описание на казахском</value>
-  </data>
-  <data name="DescriptionRU" xml:space="preserve">
-    <value>Описание на русском</value>
-  </data>
-  <data name="not3857" xml:space="preserve">
-    <value>Система координат не EPSG:3857</value>
-  </data>
-  <data name="not3857Changed" xml:space="preserve">
-    <value>Система координат не EPSG:3857. Изменено.</value>
-  </data>
-  <data name="Month" xml:space="preserve">
-    <value>Месяц</value>
-  </data>
-  <data name="MonthlyHistory" xml:space="preserve">
-    <value>По месяцам</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>Тип</value>
+  <data name="UploadGeoTIFFFiles" xml:space="preserve">
+    <value>Загрузить GeoTIFF-файлы</value>
   </data>
   <data name="UploadGeoTIFFFilesWater" xml:space="preserve">
     <value>Загрузить GeoTIFF-файлы по воде</value>
   </data>
-  <data name="YearlyHistory" xml:space="preserve">
-    <value>По годам</value>
+  <data name="UploadShapeFiles" xml:space="preserve">
+    <value>Загрузить Shape-файлы</value>
   </data>
-  <data name="Folder" xml:space="preserve">
-    <value>Папка</value>
+  <data name="UpperLimit" xml:space="preserve">
+    <value>Верхний предел</value>
   </data>
-  <data name="PublishGeoTIFFWater" xml:space="preserve">
-    <value>Опубликовать GeoTIFF-файл (вода)</value>
+  <data name="UseALocalAccountToLogIn" xml:space="preserve">
+    <value>Используйте локальную учетную запись для входа в систему</value>
   </data>
-  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
-    <value>Удалить GeoTIFF-файл по воде</value>
+  <data name="User" xml:space="preserve">
+    <value>Пользователь</value>
   </data>
-  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
-    <value>Отменить публикацию GeoTIFF-файла по воде</value>
+  <data name="Users" xml:space="preserve">
+    <value>Пользователи</value>
   </data>
-  <data name="GlobalSurfaceWater" xml:space="preserve">
-    <value>Поверхностная вода</value>
+  <data name="Value" xml:space="preserve">
+    <value>Значение</value>
   </data>
-  <data name="MonthlyRecurrence" xml:space="preserve">
-    <value>Среднемесячные данные</value>
+  <data name="VerySoft" xml:space="preserve">
+    <value>Очень мягкая</value>
   </data>
-  <data name="IncludeWater" xml:space="preserve">
-    <value>Включает слои по воде</value>
-  </data>
-  <data name="AnalizeWater" xml:space="preserve">
-    <value>Анализ озер</value>
-  </data>
-  <data name="RasterValue" xml:space="preserve">
-    <value>Значение пикселя</value>
-  </data>
-  <data name="RasterValueStat" xml:space="preserve">
-    <value>Статистика значения пикселя в озере</value>
-  </data>
-  <data name="ZonalStatWater" xml:space="preserve">
-    <value>Зональная статистика</value>
-  </data>
-  <data name="ZonalStatWaters" xml:space="preserve">
-    <value>Зональная статистика</value>
-  </data>
-  <data name="WaterType" xml:space="preserve">
-    <value>Тип данных по воде</value>
-  </data>
-  <data name="About" xml:space="preserve">
-    <value>О сайте</value>
-  </data>
-  <data name="BackToTop" xml:space="preserve">
-    <value>Вверх</value>
-  </data>
-  <data name="Contact" xml:space="preserve">
-    <value>Контакты</value>
-  </data>
-  <data name="Functions" xml:space="preserve">
-    <value>Функции</value>
-  </data>
-  <data name="Information" xml:space="preserve">
-    <value>Информация</value>
-  </data>
-  <data name="Lakes" xml:space="preserve">
-    <value>Озера</value>
-  </data>
-  <data name="Raster" xml:space="preserve">
-    <value>Растр</value>
-  </data>
-  <data name="Rasters" xml:space="preserve">
-    <value>Растры</value>
-  </data>
-  <data name="ShapeFiles" xml:space="preserve">
-    <value>Shape-файлы</value>
-  </data>
-  <data name="Tables" xml:space="preserve">
-    <value>Таблицы</value>
-  </data>
-  <data name="ArchivalInfoSource" xml:space="preserve">
-    <value>Источник архивной информации</value>
-  </data>
-  <data name="Area2015" xml:space="preserve">
-    <value>Площадь зеркала озера за 2015, км²</value>
-  </data>
-  <data name="LakeAbsoluteHeight" xml:space="preserve">
-    <value>Абсолютная высота озера, м</value>
-  </data>
-  <data name="LakeLength" xml:space="preserve">
-    <value>Длина озера, км</value>
-  </data>
-  <data name="LakeMaxDepth" xml:space="preserve">
-    <value>Максимальная глубина озера, м</value>
-  </data>
-  <data name="LakeMirrorArea" xml:space="preserve">
-    <value>Площадь зеркала озера, км²</value>
-  </data>
-  <data name="LakeShorelineLength" xml:space="preserve">
-    <value>Длина береговой линии озера, км </value>
-  </data>
-  <data name="LakeWaterMass" xml:space="preserve">
-    <value>Объем водной массы озера, млн.м³</value>
-  </data>
-  <data name="LakeWidth" xml:space="preserve">
-    <value>Ширина озера, км</value>
-  </data>
-  <data name="SurveyYear" xml:space="preserve">
-    <value>Год топографической съемки</value>
+  <data name="VeryTough" xml:space="preserve">
+    <value>Очень жесткая</value>
   </data>
   <data name="VHB" xml:space="preserve">
     <value>ВХБ (водохозяйственный бассейн)</value>
@@ -780,134 +1692,8 @@
   <data name="VHU" xml:space="preserve">
     <value>ВХУ (водохозяйственный участок)</value>
   </data>
-  <data name="LakesArchiveData" xml:space="preserve">
-    <value>Архивные данные озер</value>
-  </data>
-  <data name="LakesArchiveDatas" xml:space="preserve">
-    <value>Архивные данные озер</value>
-  </data>
-  <data name="LakeShorelineLength2015" xml:space="preserve">
-    <value>Длина береговой линии озера за 2015, км</value>
-  </data>
-  <data name="Latitude" xml:space="preserve">
-    <value>Широта</value>
-  </data>
-  <data name="Longitude" xml:space="preserve">
-    <value>Долгота</value>
-  </data>
-  <data name="Adm1" xml:space="preserve">
-    <value>Область</value>
-  </data>
-  <data name="Adm2" xml:space="preserve">
-    <value>Район</value>
-  </data>
-  <data name="Adm3" xml:space="preserve">
-    <value>Сельский округ</value>
-  </data>
-  <data name="BasicInfoLake" xml:space="preserve">
-    <value>Основная информация об озере</value>
-  </data>
-  <data name="Continent_ENG" xml:space="preserve">
-    <value>Континент на английском</value>
-  </data>
-  <data name="Continent_KZ" xml:space="preserve">
-    <value>Континент на казахском</value>
-  </data>
-  <data name="Continent_RU" xml:space="preserve">
-    <value>Континент на русском</value>
-  </data>
-  <data name="Country_ENG" xml:space="preserve">
-    <value>Страна на английском</value>
-  </data>
-  <data name="Country_KZ" xml:space="preserve">
-    <value>Страна на казахском</value>
-  </data>
-  <data name="Country_RU" xml:space="preserve">
-    <value>Страна на русском</value>
-  </data>
-  <data name="Depth_avg" xml:space="preserve">
-    <value>Средняя глубина озера,м</value>
-  </data>
-  <data name="Dis_avg" xml:space="preserve">
-    <value>Средний долгосрочный сток, протекающий через озеро, м3/сек.</value>
-  </data>
-  <data name="Elevation" xml:space="preserve">
-    <value>Высота поверхности озера над уровнем моря, м</value>
-  </data>
-  <data name="Hylak_id" xml:space="preserve">
-    <value>Уникальный идентификатор озера</value>
-  </data>
-  <data name="LakeArchiveData" xml:space="preserve">
-    <value>Архивная информация об озере</value>
-  </data>
-  <data name="LakesGlobalData" xml:space="preserve">
-    <value>Глобальная база озер</value>
-  </data>
-  <data name="LakesGlobalDatas" xml:space="preserve">
-    <value>Глобальная база озер</value>
-  </data>
-  <data name="Lake_area" xml:space="preserve">
-    <value>Площадь поверхности озера, км²</value>
-  </data>
-  <data name="Lake_name_ENG" xml:space="preserve">
-    <value>Название озера на английском</value>
-  </data>
-  <data name="Lake_name_KZ" xml:space="preserve">
-    <value>Название озера на казахском</value>
-  </data>
-  <data name="Lake_name_RU" xml:space="preserve">
-    <value>Название озера на русском</value>
-  </data>
-  <data name="Pour_lat" xml:space="preserve">
-    <value>Широта</value>
-  </data>
-  <data name="Pour_long" xml:space="preserve">
-    <value>Долгота</value>
-  </data>
-  <data name="Res_time" xml:space="preserve">
-    <value>Среднее время пребывания воды в озере, в днях.</value>
-  </data>
-  <data name="Shore_dev" xml:space="preserve">
-    <value>Изрезанность  береговой линии</value>
-  </data>
-  <data name="Shore_len" xml:space="preserve">
-    <value>Длина береговой линии, км</value>
-  </data>
-  <data name="Slope_100" xml:space="preserve">
-    <value>Средний уклон в пределах 100-метрового буфера вокруг полигона озера, в градусах</value>
-  </data>
   <data name="Vol_total" xml:space="preserve">
     <value>Общий объем озера, млн. м³</value>
-  </data>
-  <data name="Wshd_area" xml:space="preserve">
-    <value>Площадь водосбора, км²</value>
-  </data>
-  <data name="LakeGlobalData" xml:space="preserve">
-    <value>Информация об озере из глобальной базы</value>
-  </data>
-  <data name="Continent" xml:space="preserve">
-    <value>Континент</value>
-  </data>
-  <data name="Country" xml:space="preserve">
-    <value>Страна</value>
-  </data>
-  <data name="Lake_name" xml:space="preserve">
-    <value>Название озера</value>
-  </data>
-  <data name="Discrepancy" xml:space="preserve">
-    <value>Невязка</value>
-  </data>
-  <data name="File" xml:space="preserve">
-    <value>Файл</value>
-  </data>
-  <data name="FirstRowHeader" xml:space="preserve">
-    <value>Первый столбец - заголовок</value>
-  </data>
-  <data name="Row" xml:space="preserve">
-    <value>Строка</value>
-  </data>
-  <data name="UploadedCount" xml:space="preserve">
-    <value>Итого загружено</value>
   </data>
   <data name="WaterBalance" xml:space="preserve">
     <value>Водный баланс</value>
@@ -924,497 +1710,26 @@
   <data name="WaterBalanceUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год, поверхностный приток, поверхностный отток, подземный приток, подземный отток, осадки, испарение</value>
   </data>
-  <data name="ShoreIrregularityRatio" xml:space="preserve">
-    <value>Коэффициент изрезанности берега</value>
+  <data name="WaterClass" xml:space="preserve">
+    <value>Класс воды</value>
   </data>
-  <data name="LakeUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, наименование озера на казахском, наименование озера на русском, наименование озера на английском, наименование водохозяйственного бассейна на казахском, наименование водохозяйственного бассейна на русском, наименование водохозяйственного бассейна на английском, наименование водохозяйственного участка, Id озерной системы, длина береговой линии озера за 2015, площадь зеркала озера за 2015, долгота, широта</value>
-  </data>
-  <data name="Brackish" xml:space="preserve">
-    <value>Солоноватое</value>
-  </data>
-  <data name="Brine" xml:space="preserve">
-    <value>Рассол</value>
-  </data>
-  <data name="Fresh" xml:space="preserve">
-    <value>Пресное</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
-    <value>Общие гидрохимические показатели</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
-    <value>Общие гидрохимические показатели</value>
-  </data>
-  <data name="MarineSalinity" xml:space="preserve">
-    <value>Морская соленость</value>
-  </data>
-  <data name="MineralizationType" xml:space="preserve">
-    <value>Тип минерализации</value>
-  </data>
-  <data name="AcidityOfWaterDegree" xml:space="preserve">
-    <value>Степень кислотности воды</value>
-  </data>
-  <data name="AlkalineWater" xml:space="preserve">
-    <value>Щелочные воды</value>
-  </data>
-  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
-    <value>Степень по растворенному кислороду в воде</value>
-  </data>
-  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
-    <value>Чрезвычайно высокий уровень загрязнения</value>
-  </data>
-  <data name="HighPollution" xml:space="preserve">
-    <value>Высокий уровень загрязнения</value>
-  </data>
-  <data name="ModeratelyTough" xml:space="preserve">
-    <value>Умеренно жесткая</value>
-  </data>
-  <data name="ModeratePollution" xml:space="preserve">
-    <value>Умеренный уровень загрязнения</value>
-  </data>
-  <data name="NeutralWaters" xml:space="preserve">
-    <value>Нейтральные воды</value>
-  </data>
-  <data name="Regulatory" xml:space="preserve">
-    <value>Нормативно-чистая</value>
-  </data>
-  <data name="Soft" xml:space="preserve">
-    <value>Мягкая</value>
-  </data>
-  <data name="SourWater" xml:space="preserve">
-    <value>Кислые воды</value>
-  </data>
-  <data name="StronglyAcidicWater" xml:space="preserve">
-    <value>Сильнокислые воды</value>
-  </data>
-  <data name="StronglyAlkalineWater" xml:space="preserve">
-    <value>Сильнощелочные воды</value>
-  </data>
-  <data name="SubacidWaters" xml:space="preserve">
-    <value>Слабокислые воды</value>
-  </data>
-  <data name="Tough" xml:space="preserve">
-    <value>Жесткая</value>
-  </data>
-  <data name="VerySoft" xml:space="preserve">
-    <value>Очень мягкая</value>
-  </data>
-  <data name="VeryTough" xml:space="preserve">
-    <value>Очень жесткая</value>
+  <data name="WaterFrequency" xml:space="preserve">
+    <value>Повторяемость воды</value>
   </data>
   <data name="WaterHardness" xml:space="preserve">
     <value>Степень жесткости воды</value>
   </data>
-  <data name="WeakAlkalineWater" xml:space="preserve">
-    <value>Слабощелочные воды</value>
+  <data name="WaterLavelM" xml:space="preserve">
+    <value>Средний уровень воды, м</value>
   </data>
-  <data name="AnionsSumMgEq" xml:space="preserve">
-    <value>Суммы анионов в мг-экв/дм³</value>
+  <data name="WaterLavelMy" xml:space="preserve">
+    <value>Н, м.абс.</value>
   </data>
-  <data name="CaMg" xml:space="preserve">
-    <value>Ca²⁺, катионы кальция, мг/дм³</value>
+  <data name="WaterLevel" xml:space="preserve">
+    <value>Уровень воды озера</value>
   </data>
-  <data name="CaMgEq" xml:space="preserve">
-    <value>Ca²⁺, ионы кальция, %-экв</value>
-  </data>
-  <data name="CaPerEq" xml:space="preserve">
-    <value>Ca²⁺, катионы кальция, %-экв</value>
-  </data>
-  <data name="CationsSumMgEq" xml:space="preserve">
-    <value>Суммы катионов в мг-экв/дм³</value>
-  </data>
-  <data name="ClMg" xml:space="preserve">
-    <value>Cl⁻, хлоридные анионы, мг/дм³</value>
-  </data>
-  <data name="ClMgEq" xml:space="preserve">
-    <value>Cl⁻, хлорид ионы, %-экв</value>
-  </data>
-  <data name="ClPerEq" xml:space="preserve">
-    <value>Cl⁻, хлоридные анионы, %-экв</value>
-  </data>
-  <data name="HCOMg" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонатные анионы, мг/дм³</value>
-  </data>
-  <data name="HCOMgEq" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонатные ионы, %-экв</value>
-  </data>
-  <data name="HCOPerEq" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонатные анионы, %-экв</value>
-  </data>
-  <data name="IonsaltWaterComposition" xml:space="preserve">
-    <value>Ионно-солевой состав воды</value>
-  </data>
-  <data name="IonsaltWaterCompositions" xml:space="preserve">
-    <value>Ионно-солевой состав воды</value>
-  </data>
-  <data name="IonsSumMgEq" xml:space="preserve">
-    <value>Суммы ионов в мг-экв/дм³</value>
-  </data>
-  <data name="IonsSumPerEq" xml:space="preserve">
-    <value>Сумма ионов в %-экв</value>
-  </data>
-  <data name="MgMg" xml:space="preserve">
-    <value>Mg²⁺, катионы магния, мг/дм³</value>
-  </data>
-  <data name="MgMgEq" xml:space="preserve">
-    <value>Mg²⁺, ионы магния, %-экв</value>
-  </data>
-  <data name="MgPerEq" xml:space="preserve">
-    <value>Mg²⁺, катионы магния, %-экв</value>
-  </data>
-  <data name="NaKMg" xml:space="preserve">
-    <value>Na⁺+K⁺, катионы натрий калия, мг/дм³</value>
-  </data>
-  <data name="NaKMgEq" xml:space="preserve">
-    <value>Na⁺+K⁺, ионы натрий калия, %-экв</value>
-  </data>
-  <data name="NaKPerEq" xml:space="preserve">
-    <value>Na⁺+K⁺, катионы натрий калия, %-экв</value>
-  </data>
-  <data name="SOMg" xml:space="preserve">
-    <value>SO₄²⁻, сульфатные анионы, мг/дм³</value>
-  </data>
-  <data name="SOMgEq" xml:space="preserve">
-    <value>SO₄²⁻, сульфат ионы, %-экв</value>
-  </data>
-  <data name="SOPerEq" xml:space="preserve">
-    <value>SO₄²⁻, сульфатные анионы, %-экв</value>
-  </data>
-  <data name="CalciumGroup" xml:space="preserve">
-    <value>Cа</value>
-  </data>
-  <data name="Cd" xml:space="preserve">
-    <value>Кадмий Cd</value>
-  </data>
-  <data name="ChlorideClass" xml:space="preserve">
-    <value>Cl</value>
-  </data>
-  <data name="Co" xml:space="preserve">
-    <value>Кобальт Co</value>
-  </data>
-  <data name="Cu" xml:space="preserve">
-    <value>Медь Cu</value>
-  </data>
-  <data name="DocumentType" xml:space="preserve">
-    <value>Тип документа</value>
-  </data>
-  <data name="DocumentTypes" xml:space="preserve">
-    <value>Типы документов</value>
-  </data>
-  <data name="Group" xml:space="preserve">
-    <value>Группа</value>
-  </data>
-  <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
-    <value>C</value>
-  </data>
-  <data name="IZVCd" xml:space="preserve">
-    <value>ИЗВ Cd</value>
-  </data>
-  <data name="IZVCo" xml:space="preserve">
-    <value>ИЗВ Co</value>
-  </data>
-  <data name="IZVCu" xml:space="preserve">
-    <value>ИЗВ Cu</value>
-  </data>
-  <data name="IZVMn" xml:space="preserve">
-    <value>ИЗВ Mn</value>
-  </data>
-  <data name="IZVNH4" xml:space="preserve">
-    <value>ИЗВ NH₄</value>
-  </data>
-  <data name="IZVNi" xml:space="preserve">
-    <value>ИЗВ Ni</value>
-  </data>
-  <data name="IZVNO2" xml:space="preserve">
-    <value>ИЗВ NO₂</value>
-  </data>
-  <data name="IZVNO3" xml:space="preserve">
-    <value>ИЗВ NO₃</value>
-  </data>
-  <data name="IZVPb" xml:space="preserve">
-    <value>ИЗВ Pb</value>
-  </data>
-  <data name="IZVPPO4" xml:space="preserve">
-    <value>ИЗВ PPO₄</value>
-  </data>
-  <data name="IZVZn" xml:space="preserve">
-    <value>ИЗВ Zn</value>
-  </data>
-  <data name="KIZV" xml:space="preserve">
-    <value>КИЗВ</value>
-  </data>
-  <data name="KIZVkoCd" xml:space="preserve">
-    <value>КИЗВко Cd</value>
-  </data>
-  <data name="KIZVkoCo" xml:space="preserve">
-    <value>КИЗВко Co</value>
-  </data>
-  <data name="KIZVkoCu" xml:space="preserve">
-    <value>КИЗВко Cu</value>
-  </data>
-  <data name="KIZVkoMn" xml:space="preserve">
-    <value>КИЗВко Mn</value>
-  </data>
-  <data name="KIZVkoNH4" xml:space="preserve">
-    <value>КИЗВко NH₄</value>
-  </data>
-  <data name="KIZVkoNi" xml:space="preserve">
-    <value>КИЗВко Ni</value>
-  </data>
-  <data name="KIZVkoNO2" xml:space="preserve">
-    <value>КИЗВко NO2</value>
-  </data>
-  <data name="KIZVkoNO3" xml:space="preserve">
-    <value>КИЗВко NO₃</value>
-  </data>
-  <data name="KIZVkoPb" xml:space="preserve">
-    <value>КИЗВко Pb</value>
-  </data>
-  <data name="KIZVkoPPO4" xml:space="preserve">
-    <value>КИЗВко PPO₄</value>
-  </data>
-  <data name="KIZVkoZn" xml:space="preserve">
-    <value>КИЗВко Zn</value>
-  </data>
-  <data name="KurlovFormula" xml:space="preserve">
-    <value>Формула химсостава воды по М.Г.Курлову</value>
-  </data>
-  <data name="MagnesiumGroup" xml:space="preserve">
-    <value>Mg</value>
-  </data>
-  <data name="Mn" xml:space="preserve">
-    <value>Марганец Mn</value>
-  </data>
-  <data name="NH4" xml:space="preserve">
-    <value>Аммоний-ион NH₄⁺</value>
-  </data>
-  <data name="Ni" xml:space="preserve">
-    <value>Никель Ni</value>
-  </data>
-  <data name="NO2" xml:space="preserve">
-    <value>Нитрит-анион NO₂⁻</value>
-  </data>
-  <data name="NO3" xml:space="preserve">
-    <value>Нитрат-анион NO₃⁻</value>
-  </data>
-  <data name="Pb" xml:space="preserve">
-    <value>Свинец Pb</value>
-  </data>
-  <data name="PPO4" xml:space="preserve">
-    <value>Фосфаты PPO₄⁻</value>
-  </data>
-  <data name="SodiumGroup" xml:space="preserve">
-    <value>Na</value>
-  </data>
-  <data name="SulphateClass" xml:space="preserve">
-    <value>S</value>
-  </data>
-  <data name="ToxicologicalIndicator" xml:space="preserve">
-    <value>Токсикологический показатель</value>
-  </data>
-  <data name="ToxicologicalIndicators" xml:space="preserve">
-    <value>Токсикологические показатели</value>
-  </data>
-  <data name="Type1" xml:space="preserve">
-    <value>I</value>
-  </data>
-  <data name="Type2" xml:space="preserve">
-    <value>II</value>
-  </data>
-  <data name="Type3" xml:space="preserve">
-    <value>III</value>
-  </data>
-  <data name="Type4" xml:space="preserve">
-    <value>IV</value>
-  </data>
-  <data name="WaterClass" xml:space="preserve">
-    <value>Класс воды</value>
-  </data>
-  <data name="WatersType" xml:space="preserve">
-    <value>Тип воды</value>
-  </data>
-  <data name="Zn" xml:space="preserve">
-    <value>Цинк Zn</value>
-  </data>
-  <data name="Archival" xml:space="preserve">
-    <value>Архивный</value>
-  </data>
-  <data name="DeletingJustification" xml:space="preserve">
-    <value>Обоснование для удаления  документа</value>
-  </data>
-  <data name="Description" xml:space="preserve">
-    <value>Описание</value>
-  </data>
-  <data name="Download" xml:space="preserve">
-    <value>Скачать</value>
-  </data>
-  <data name="ForceEntryDay" xml:space="preserve">
-    <value>День вступления в силу</value>
-  </data>
-  <data name="ForceEntryDayDateYear" xml:space="preserve">
-    <value>Дата (год) вступления в силу</value>
-  </data>
-  <data name="ForceEntryMonth" xml:space="preserve">
-    <value>Месяц вступления в силу</value>
-  </data>
-  <data name="ForceEntryYear" xml:space="preserve">
-    <value>Год вступления в силу</value>
-  </data>
-  <data name="NewDocument" xml:space="preserve">
-    <value>Новый документ</value>
-  </data>
-  <data name="Number" xml:space="preserve">
-    <value>Номер</value>
-  </data>
-  <data name="PreviousDocument" xml:space="preserve">
-    <value>Предыдущий документ</value>
-  </data>
-  <data name="RegulatoryDocument" xml:space="preserve">
-    <value>Нормативный документ</value>
-  </data>
-  <data name="RegulatoryDocuments" xml:space="preserve">
-    <value>Нормативные документы</value>
-  </data>
-  <data name="Directories" xml:space="preserve">
-    <value>Справочники</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicatorStandard" xml:space="preserve">
-    <value>Норматив общих гидрохимических показателей</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
-    <value>Нормативы общих гидрохимических показателей</value>
-  </data>
-  <data name="HazardClassCd" xml:space="preserve">
-    <value>Класс опасности Cd</value>
-  </data>
-  <data name="HazardClassCo" xml:space="preserve">
-    <value>Класс опасности Co</value>
-  </data>
-  <data name="HazardClassCu" xml:space="preserve">
-    <value>Класс опасности Cu</value>
-  </data>
-  <data name="HazardClassMn" xml:space="preserve">
-    <value>Класс опасности Mn</value>
-  </data>
-  <data name="HazardClassNH4" xml:space="preserve">
-    <value>Класс опасности NH₄</value>
-  </data>
-  <data name="HazardClassNi" xml:space="preserve">
-    <value>Класс опасности Ni</value>
-  </data>
-  <data name="HazardClassNO2" xml:space="preserve">
-    <value>Класс опасности NO2</value>
-  </data>
-  <data name="HazardClassNO3" xml:space="preserve">
-    <value>Класс опасности NO₃</value>
-  </data>
-  <data name="HazardClassPb" xml:space="preserve">
-    <value>Класс опасности Pb</value>
-  </data>
-  <data name="HazardClassPPO4" xml:space="preserve">
-    <value>Класс опасности PPO₄</value>
-  </data>
-  <data name="HazardClassZn" xml:space="preserve">
-    <value>Класс опасности Zn</value>
-  </data>
-  <data name="Hydrology" xml:space="preserve">
-    <value>Гидрология</value>
-  </data>
-  <data name="Indicator" xml:space="preserve">
-    <value>Показатель</value>
-  </data>
-  <data name="LowerLimit" xml:space="preserve">
-    <value>Нижний предел</value>
-  </data>
-  <data name="MeasurementUnit" xml:space="preserve">
-    <value>Единица измерения</value>
-  </data>
-  <data name="MeasurementUnits" xml:space="preserve">
-    <value>Единицы измерения</value>
-  </data>
-  <data name="MPCCd" xml:space="preserve">
-    <value>Значение ПДК Cd</value>
-  </data>
-  <data name="MPCCo" xml:space="preserve">
-    <value>Значение ПДК Co</value>
-  </data>
-  <data name="MPCCu" xml:space="preserve">
-    <value>Значение ПДК Cu</value>
-  </data>
-  <data name="MPCMn" xml:space="preserve">
-    <value>Значение ПДК Mn</value>
-  </data>
-  <data name="MPCNH4" xml:space="preserve">
-    <value>Значение ПДК NH₄</value>
-  </data>
-  <data name="MPCNi" xml:space="preserve">
-    <value>Значение ПДК Ni</value>
-  </data>
-  <data name="MPCNO2" xml:space="preserve">
-    <value>Значение ПДК NO2</value>
-  </data>
-  <data name="MPCNO3" xml:space="preserve">
-    <value>Значение ПДК NO₃</value>
-  </data>
-  <data name="MPCPb" xml:space="preserve">
-    <value>Значение ПДК Pb</value>
-  </data>
-  <data name="MPCPPO4" xml:space="preserve">
-    <value>Значение ПДК PPO₄</value>
-  </data>
-  <data name="MPCZn" xml:space="preserve">
-    <value>Значение ПДК Zn</value>
-  </data>
-  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
-    <value>Норматив биогенных веществ и тяжелых металлов</value>
-  </data>
-  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
-    <value>Нормативы биогенных веществ и тяжелых металлов</value>
-  </data>
-  <data name="UpperLimit" xml:space="preserve">
-    <value>Верхний предел</value>
-  </data>
-  <data name="KIZVs" xml:space="preserve">
-    <value>КИЗВ</value>
-  </data>
-  <data name="FreshPart" xml:space="preserve">
-    <value>Пресная часть</value>
-  </data>
-  <data name="FullyPart" xml:space="preserve">
-    <value>Полностью</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, год, часть озера, значение минерализации, общая жесткость воды, растворенный в воде кислород, процент насыщенности воды растворенным кислородом, значение рН, органические вещества</value>
-  </data>
-  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, год, часть озера, катионы кальция, катионы магния, катионы натрий калия, хлоридные анионы, гидрокорбонатные анионы, сульфатные анионы</value>
-  </data>
-  <data name="LakePart" xml:space="preserve">
-    <value>Часть озера</value>
-  </data>
-  <data name="SaltyPart" xml:space="preserve">
-    <value>Соленая часть</value>
-  </data>
-  <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, год, часть озера, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
-  </data>
-  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
-    <value>Батиграфическая и объемная кривая озера</value>
-  </data>
-  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
-    <value>Данных по батиграфической и объемной кривой</value>
-  </data>
-  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, уровень воды, площадь озера, объем водной массы</value>
-  </data>
-  <data name="LakeArea" xml:space="preserve">
-    <value>Площадь озера, км²</value>
-  </data>
-  <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, год топографической съемки, дглина озера, глина береговой линии озера, площадь зеркала озера, фбсолютная высота озера, ширина озера, максимальная глубина озеро, объем водной массы озера, источник архивной информации</value>
-  </data>
-  <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, уникальный идентификатор озера, название озера (английский), название озера (русский), название озера (казахский), страна (английский), страна (русский), страна (казахский), континент (английский), континент (русский), континент (казахский), источники данных (английский), источники данных, источники данных (казахский), индикатор типа озера, уникальный идентификатор водохранилища в базе данных grand, площадь поверхности озер, длина береговой линии, изрезанность  береговой линии, общий объем озера, объем водохранилищ, источник данных об объеме, средняя глубина озера, средний долгосрочный сток, протекающий через озеро, среднее время пребывания воды в озере, высота поверхности озера над уровнем моря, средний уклон в пределах 100-метрового буфера вокруг полигона озера, площадь водосбора, долгота, широта</value>
+  <data name="WaterLevels" xml:space="preserve">
+    <value>Уровни воды озер</value>
   </data>
   <data name="WaterLevelUploadDescription" xml:space="preserve">
     <value>Порядок столбцов в файле: Id озера, год, среднегодовой уровень озера</value>
@@ -1422,331 +1737,40 @@
   <data name="WaterMassVolume" xml:space="preserve">
     <value>Объем водной массы, млн.м³</value>
   </data>
-  <data name="BenthosBiomass" xml:space="preserve">
-    <value>Биомасса бентоса, г/м²</value>
-  </data>
-  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
-    <value>Текущая промысловая рыбопродуктивность, кг/га</value>
-  </data>
-  <data name="CurrentUsage" xml:space="preserve">
-    <value>Текущее использование</value>
-  </data>
-  <data name="FamilyId" xml:space="preserve">
-    <value>Id семейства</value>
-  </data>
-  <data name="FamilyNameKK" xml:space="preserve">
-    <value>Название семейства рыб на казахском</value>
-  </data>
-  <data name="FamilyNameLA" xml:space="preserve">
-    <value>Название семейства рыб на латинице</value>
-  </data>
-  <data name="FamilyNameRU" xml:space="preserve">
-    <value>Название семейства рыб на русском</value>
-  </data>
-  <data name="FishCatchLimit" xml:space="preserve">
-    <value>Лимит улова рыбы, тонн</value>
-  </data>
-  <data name="FishId" xml:space="preserve">
-    <value>Id рыбы</value>
-  </data>
-  <data name="FishKind" xml:space="preserve">
-    <value>Вид рыб</value>
-  </data>
-  <data name="FishKinds" xml:space="preserve">
-    <value>Виды рыб</value>
-  </data>
-  <data name="FishKindUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id рыбы, Id семейства, название рыб на казахском, название рыб на русском, название рыб на латинице, название семейства рыб на казахском, название семейства рыб на русском, название семейства рыб на латинице</value>
-  </data>
-  <data name="FishNameKK" xml:space="preserve">
-    <value>Название рыб на казахском</value>
-  </data>
-  <data name="FishNameLA" xml:space="preserve">
-    <value>Название рыб на латинице</value>
-  </data>
-  <data name="FishNameRU" xml:space="preserve">
-    <value>Название рыб на русском</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
-    <value>Общий гидробиологический показатель озера</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
-    <value>Общие гидробиологические показатели озер</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, Id рыбы, год исследования, биомасса зоопланктона, биомасса бентоса, индекс видового богатства, лимит улова рыбы, текущая промысловая рыбопродуктивность, потенциальная рыбопродуктинвость, потенциальный объём выращивания, текущее использование, рекомендованное использование</value>
-  </data>
-  <data name="PotentialFishProducts" xml:space="preserve">
-    <value>Потенциальная рыбопродуктинвость, кг/га</value>
-  </data>
-  <data name="PotentialGrowingVolume" xml:space="preserve">
-    <value>Потенциальный объём выращивания, кг/га</value>
-  </data>
-  <data name="RecommendedUse" xml:space="preserve">
-    <value>Рекомендованное использование</value>
-  </data>
-  <data name="SpeciesWealthIndex" xml:space="preserve">
-    <value>Индекс видового богатства, ед.</value>
-  </data>
-  <data name="ZooplanktonBiomass" xml:space="preserve">
-    <value>Биомасса зоопланктона, г/м³</value>
-  </data>
-  <data name="EphemeralPermanent" xml:space="preserve">
-    <value>Эфемерный постоянный</value>
-  </data>
-  <data name="EphemeralSeasonal" xml:space="preserve">
-    <value>Эфемерные сезонные</value>
-  </data>
-  <data name="Hydrobiology" xml:space="preserve">
-    <value>Гидробиология</value>
-  </data>
-  <data name="LostPermanent" xml:space="preserve">
-    <value>Потерянный</value>
-  </data>
-  <data name="LostSeasonal" xml:space="preserve">
-    <value>Потерянные сезонные</value>
-  </data>
-  <data name="NewPermanent" xml:space="preserve">
-    <value>Новый постоянный</value>
-  </data>
-  <data name="NewSeasonal" xml:space="preserve">
-    <value>Новые сезонные</value>
-  </data>
-  <data name="NoСhange" xml:space="preserve">
-    <value>Без изменений</value>
-  </data>
-  <data name="Permanent" xml:space="preserve">
-    <value>Перманентный</value>
-  </data>
-  <data name="PermanentToDeasonal" xml:space="preserve">
-    <value>Постоянный к сезонным</value>
-  </data>
-  <data name="Seasonal" xml:space="preserve">
-    <value>Сезонное</value>
-  </data>
-  <data name="SeasonalToPermanent" xml:space="preserve">
-    <value>Сезонные постоянные</value>
-  </data>
-  <data name="Transition" xml:space="preserve">
-    <value>Переход</value>
-  </data>
-  <data name="Transitions" xml:space="preserve">
-    <value>Переходы</value>
-  </data>
-  <data name="TransitionUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Озеро Id, без изменений, постоянное, новое постоянное, потерянное постоянное, сезонное, новое сезонное, потерянное сезонное, от сезонного до постоянного, постоянное до сезонного, эфемерное постоянное, эфемерное сезонное</value>
-  </data>
-  <data name="April" xml:space="preserve">
-    <value>Апрель</value>
-  </data>
-  <data name="August" xml:space="preserve">
-    <value>Августейший</value>
-  </data>
-  <data name="December" xml:space="preserve">
-    <value>Декабрь</value>
-  </data>
-  <data name="DynamicsLakeAreas" xml:space="preserve">
-    <value>Динамика площадей озер</value>
-  </data>
-  <data name="February" xml:space="preserve">
-    <value>Февраль</value>
-  </data>
-  <data name="January" xml:space="preserve">
-    <value>Январь</value>
-  </data>
-  <data name="July" xml:space="preserve">
-    <value>Июль</value>
-  </data>
-  <data name="June" xml:space="preserve">
-    <value>Июнь</value>
-  </data>
-  <data name="March" xml:space="preserve">
-    <value>Март</value>
-  </data>
-  <data name="May" xml:space="preserve">
-    <value>Май</value>
-  </data>
-  <data name="NoData" xml:space="preserve">
-    <value>Нет данных</value>
-  </data>
-  <data name="November" xml:space="preserve">
-    <value>Ноябрь</value>
-  </data>
-  <data name="October" xml:space="preserve">
-    <value>Октября</value>
-  </data>
-  <data name="Seasonalit" xml:space="preserve">
-    <value>Сезонность</value>
-  </data>
-  <data name="Seasonalits" xml:space="preserve">
-    <value>Сезонности</value>
-  </data>
-  <data name="SeasonalitUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, нет данных, январь, февраль, март, апрель, май, июнь, июль, августейший, сентябрь, октября, ноябрь, декабрь</value>
-  </data>
-  <data name="September" xml:space="preserve">
-    <value>Сентябрь</value>
-  </data>
-  <data name="LakeSystem" xml:space="preserve">
-    <value>Озерная система</value>
-  </data>
-  <data name="LakeSystemId" xml:space="preserve">
-    <value>Id озерной системы</value>
-  </data>
-  <data name="LakeSystems" xml:space="preserve">
-    <value>Озерные системы</value>
-  </data>
-  <data name="LakeSystemUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озерной системы, название (русский), название (казахский), название (английский)</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Поиск</value>
-  </data>
-  <data name="SearchByLakeName" xml:space="preserve">
-    <value>Поиск по названию озера</value>
-  </data>
-  <data name="FilterKATO" xml:space="preserve">
-    <value>Область, район</value>
-  </data>
-  <data name="FilterVHBVHU" xml:space="preserve">
-    <value>ВХБ, ВХУ</value>
-  </data>
-  <data name="Found" xml:space="preserve">
-    <value>Найдено</value>
-  </data>
-  <data name="Reset" xml:space="preserve">
-    <value>Сбросить</value>
-  </data>
-  <data name="Chart" xml:space="preserve">
-    <value>Диаграмма</value>
-  </data>
-  <data name="Dynamics" xml:space="preserve">
-    <value>Динамика</value>
-  </data>
-  <data name="QualitativeAssessment" xml:space="preserve">
-    <value>Качественная оценка</value>
-  </data>
-  <data name="Table" xml:space="preserve">
-    <value>Таблица</value>
-  </data>
-  <data name="AlekinWaterCompositionClass" xml:space="preserve">
-    <value>Класс состава воды (по О. А. Алекину)</value>
-  </data>
-  <data name="IonName" xml:space="preserve">
-    <value>Название ионов</value>
-  </data>
-  <data name="IonUnit" xml:space="preserve">
-    <value>мг/дм³ / %-экв/дм³</value>
-  </data>
-  <data name="MPCExceeding" xml:space="preserve">
-    <value>Кратность превышения ПДК</value>
-  </data>
-  <data name="Total" xml:space="preserve">
-    <value>Всего</value>
-  </data>
-  <data name="ChangeWaterCondition" xml:space="preserve">
-    <value>Изменение состояние воды</value>
-  </data>
-  <data name="MaximumWater" xml:space="preserve">
-    <value>Максимальная вода</value>
-  </data>
-  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
-    <value>Динамика площадей постоянной и сезонной воды</value>
-  </data>
-  <data name="WaterFrequency" xml:space="preserve">
-    <value>Повторяемость воды</value>
+  <data name="WaterMassVolumeX" xml:space="preserve">
+    <value>V, млн. м³</value>
   </data>
   <data name="WaterMonthsPresence" xml:space="preserve">
     <value>Присутствие воды в месяцах</value>
   </data>
-  <data name="HeavyMetals" xml:space="preserve">
-    <value>Тяжелые металлы</value>
+  <data name="WatersType" xml:space="preserve">
+    <value>Тип воды</value>
   </data>
-  <data name="KIZVDegree" xml:space="preserve">
-    <value>Степень загрязнения водных объектов по КИЗВ с учетом класса опасности</value>
+  <data name="WaterType" xml:space="preserve">
+    <value>Тип данных по воде</value>
   </data>
-  <data name="Nutrients" xml:space="preserve">
-    <value>Биогенные вещества</value>
+  <data name="WeakAlkalineWater" xml:space="preserve">
+    <value>Слабощелочные воды</value>
   </data>
-  <data name="Source" xml:space="preserve">
-    <value>Источник</value>
+  <data name="Wshd_area" xml:space="preserve">
+    <value>Площадь водосбора, км²</value>
   </data>
-  <data name="DynamicsLakeArea" xml:space="preserve">
-    <value>Динамика площадей озера</value>
+  <data name="Year" xml:space="preserve">
+    <value>Год</value>
   </data>
-  <data name="NoWater" xml:space="preserve">
-    <value>Нет воды, км²</value>
+  <data name="YearlyHistory" xml:space="preserve">
+    <value>По годам</value>
   </data>
-  <data name="PermanentWaterArea" xml:space="preserve">
-    <value>Площадь постоянной воды, км²</value>
+  <data name="Zn" xml:space="preserve">
+    <value>Zn</value>
   </data>
-  <data name="SeasonalWaterArea" xml:space="preserve">
-    <value>Площадь сезонной воды, км²</value>
+  <data name="ZonalStatWater" xml:space="preserve">
+    <value>Зональная статистика</value>
   </data>
-  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
-    <value>Порядок столбцов в файле: Id озера, год, нет данных, нет воды, площадь сезонной воды, площадь постоянной воды</value>
+  <data name="ZonalStatWaters" xml:space="preserve">
+    <value>Зональная статистика</value>
   </data>
-  <data name="Analytics" xml:space="preserve">
-    <value>Аналитика</value>
-  </data>
-  <data name="AND" xml:space="preserve">
-    <value>И</value>
-  </data>
-  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
-    <value>Возникла ошибка при использовании формулы!</value>
-  </data>
-  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
-    <value>Формула содержит недопустимые символы!</value>
-  </data>
-  <data name="OR" xml:space="preserve">
-    <value>Или</value>
-  </data>
-  <data name="average" xml:space="preserve">
-    <value>среднее</value>
-  </data>
-  <data name="maximum" xml:space="preserve">
-    <value>максимум</value>
-  </data>
-  <data name="minimum" xml:space="preserve">
-    <value>минимум</value>
-  </data>
-  <data name="NOT" xml:space="preserve">
-    <value>Не</value>
-  </data>
-  <data name="Areakm2" xml:space="preserve">
-    <value>Площадь, км²</value>
-  </data>
-  <data name="BaseLayer" xml:space="preserve">
-    <value>Основной слой</value>
-  </data>
-  <data name="MaximumWaterArea" xml:space="preserve">
-    <value>Площадь максимальной воды, км²</value>
-  </data>
-  <data name="MaximumWaterExtent" xml:space="preserve">
-    <value>Максимальный объем воды</value>
-  </data>
-  <data name="Occurrence" xml:space="preserve">
-    <value>Вхождение</value>
-  </data>
-  <data name="OccurrenceChangeIntensity" xml:space="preserve">
-    <value>Интенсивность изменения</value>
-  </data>
-  <data name="Recurrence" xml:space="preserve">
-    <value>Рекуррентность</value>
-  </data>
-  <data name="Seasonality" xml:space="preserve">
-    <value>Сезонность</value>
-  </data>
-  <data name="District" xml:space="preserve">
-    <value>Район</value>
-  </data>
-  <data name="Region" xml:space="preserve">
-    <value>Область</value>
-  </data>
-  <data name="WaterLavelM" xml:space="preserve">
-    <value>Средний уровень воды, м</value>
-  </data>
-  <data name="WaterMassVolumeX" xml:space="preserve">
-    <value>V, млн. м³</value>
+  <data name="ZooplanktonBiomass" xml:space="preserve">
+    <value>Биомасса зоопланктона, г/м³</value>
   </data>
 </root>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -96,6 +97,21 @@ namespace ELake.Models
                 return LakeShorelineLength2015 / (decimal)(2 * Math.PI) / (decimal) Math.Sqrt((double)(Area2015 / (decimal) Math.PI));
             }
         }
+
+        [NotMapped]
+        public decimal? LakeLength { get; set; }
+        [NotMapped]
+        public decimal? LakeShorelineLength { get; set; }
+        [NotMapped]
+        public decimal? LakeMirrorArea { get; set; }
+        [NotMapped]
+        public decimal? LakeAbsoluteHeight { get; set; }
+        [NotMapped]
+        public decimal? LakeWidth { get; set; }
+        [NotMapped]
+        public decimal? LakeMaxDepth { get; set; }
+        [NotMapped]
+        public decimal? LakeWaterMass { get; set; }
     }
 
     public class LakeIndexPageViewModel

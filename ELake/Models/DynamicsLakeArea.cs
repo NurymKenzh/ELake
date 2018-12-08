@@ -36,6 +36,32 @@ namespace ELake.Models
                 return SeasonalWaterArea + PermanentWaterArea;
             }
         }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "SeasonalWaterAreaPer")]
+        public decimal SeasonalWaterAreaPer
+        {
+            get
+            {
+                if(MaximumWaterArea!=0)
+                {
+                    return SeasonalWaterArea / MaximumWaterArea * 100;
+                }
+                return 0;
+            }
+        }
+
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "PermanentWaterAreaPer")]
+        public decimal PermanentWaterAreaPer
+        {
+            get
+            {
+                if (MaximumWaterArea != 0)
+                {
+                    return PermanentWaterArea / MaximumWaterArea * 100;
+                }
+                return 0;
+            }
+        }
     }
 
     public class DynamicsLakeAreaIndexPageViewModel

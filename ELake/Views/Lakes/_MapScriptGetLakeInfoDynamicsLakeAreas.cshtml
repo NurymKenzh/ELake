@@ -106,19 +106,19 @@
                     try {
                         dataSeasonalWaterArea = data.pasdtable[i].seasonalWaterArea.toFixed(1);
                     }
-                    catch {
+                    catch (err) {
                         dataSeasonalWaterArea = data.pasdtable[i].seasonalWaterArea;
                     }
                     try {
                         dataPermanentWaterArea = data.pasdtable[i].permanentWaterArea.toFixed(1);
                     }
-                    catch {
+                    catch (err) {
                         dataPermanentWaterArea = data.pasdtable[i].permanentWaterArea;
                     }
                     try {
                         dataMaximumWaterArea = data.pasdtable[i].maximumWaterArea.toFixed(1);
                     }
-                    catch {
+                    catch (err) {
                         dataMaximumWaterArea = data.pasdtable[i].maximumWaterArea;
                     }
                 }
@@ -135,18 +135,18 @@
                         data: [
                             seasonalWaterArea,
                             permanentWaterArea,
-                            maximumWaterArea
+                            //maximumWaterArea
                         ],
                         backgroundColor: [
                             chartColorSeasonalWaterArea,
                             chartColorPermanentWaterArea,
-                            chartColorMaximumWaterArea
+                            //chartColorMaximumWaterArea
                         ]
                     }],
                     labels: [
                         $('#SeasonalWaterArea').val(),
                         $('#PermanentWaterArea').val(),
-                        $('#MaximumWaterArea').val()
+                        //$('#MaximumWaterArea').val()
                     ]
                 },
                 options: {
@@ -161,7 +161,7 @@
         else {
             ChartPASD2.config.data.datasets[0].data[0] = [dataSeasonalWaterArea];
             ChartPASD2.config.data.datasets[0].data[1] = [dataPermanentWaterArea];
-            ChartPASD2.config.data.datasets[0].data[2] = [dataMaximumWaterArea];
+            //ChartPASD2.config.data.datasets[0].data[2] = [dataMaximumWaterArea];
             ChartPASD2.config.options.title.text = $('#Name').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#PermanentAndSeasonalDynamics').val() + ' (' + $('#chartPASDYear').val() + '). ';
             ChartPASD2.update();
         }

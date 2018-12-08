@@ -963,6 +963,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string EvaporationPer {
+            get {
+                return ResourceManager.GetString("EvaporationPer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string Evaporations {
             get {
                 return ResourceManager.GetString("Evaporations", resourceCulture);
@@ -3375,6 +3384,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string PermanentWaterAreaPer {
+            get {
+                return ResourceManager.GetString("PermanentWaterAreaPer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string pH {
             get {
                 return ResourceManager.GetString("pH", resourceCulture);
@@ -3441,6 +3459,15 @@ namespace ELake.Resources.Controllers {
         public static string Precipitation {
             get {
                 return ResourceManager.GetString("Precipitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string PrecipitationPer {
+            get {
+                return ResourceManager.GetString("PrecipitationPer", resourceCulture);
             }
         }
         
@@ -3792,6 +3819,15 @@ namespace ELake.Resources.Controllers {
         public static string SeasonalWaterArea {
             get {
                 return ResourceManager.GetString("SeasonalWaterArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SeasonalWaterAreaPer {
+            get {
+                return ResourceManager.GetString("SeasonalWaterAreaPer", resourceCulture);
             }
         }
         
@@ -4275,6 +4311,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string SurfaceFlowPer {
+            get {
+                return ResourceManager.GetString("SurfaceFlowPer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string SurfaceFlows {
             get {
                 return ResourceManager.GetString("SurfaceFlows", resourceCulture);
@@ -4287,6 +4332,15 @@ namespace ELake.Resources.Controllers {
         public static string SurfaceOutflow {
             get {
                 return ResourceManager.GetString("SurfaceOutflow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SurfaceOutflowPer {
+            get {
+                return ResourceManager.GetString("SurfaceOutflowPer", resourceCulture);
             }
         }
         
@@ -4473,6 +4527,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string UndergroundFlowPer {
+            get {
+                return ResourceManager.GetString("UndergroundFlowPer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string UndergroundFlows {
             get {
                 return ResourceManager.GetString("UndergroundFlows", resourceCulture);
@@ -4485,6 +4548,15 @@ namespace ELake.Resources.Controllers {
         public static string UndergroundOutflow {
             get {
                 return ResourceManager.GetString("UndergroundOutflow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string UndergroundOutflowPer {
+            get {
+                return ResourceManager.GetString("UndergroundOutflowPer", resourceCulture);
             }
         }
         
@@ -4806,6 +4878,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string WaterLavelMy {
+            get {
+                return ResourceManager.GetString("WaterLavelMy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string WaterLevel {
             get {
                 return ResourceManager.GetString("WaterLevel", resourceCulture);
@@ -4836,6 +4917,15 @@ namespace ELake.Resources.Controllers {
         public static string WaterMassVolume {
             get {
                 return ResourceManager.GetString("WaterMassVolume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string WaterMassVolumeX {
+            get {
+                return ResourceManager.GetString("WaterMassVolumeX", resourceCulture);
             }
         }
         

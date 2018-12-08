@@ -117,35 +117,194 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About" xml:space="preserve">
+    <value>Сайт туралы</value>
+  </data>
+  <data name="AcidityOfWaterDegree" xml:space="preserve">
+    <value>Судың қышқылдық дәрежесі</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Әрекет</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Қосу</value>
   </data>
+  <data name="AddLakes" xml:space="preserve">
+    <value>Көлдерді қосыңыз</value>
+  </data>
+  <data name="Adm1" xml:space="preserve">
+    <value>Облыс</value>
+  </data>
+  <data name="Adm2" xml:space="preserve">
+    <value>Аудан</value>
+  </data>
+  <data name="Adm3" xml:space="preserve">
+    <value>Ауылдық округ</value>
+  </data>
   <data name="Administration" xml:space="preserve">
-    <value>Әкімшілік</value>
+    <value>Басқару</value>
+  </data>
+  <data name="AlekinWaterCompositionClass" xml:space="preserve">
+    <value>Су құрамының класы (О.А. Алекин бойынша)</value>
+  </data>
+  <data name="AlkalineWater" xml:space="preserve">
+    <value>Сілтілі сулар</value>
+  </data>
+  <data name="AnalizeWater" xml:space="preserve">
+    <value>Көлдерді талдау</value>
+  </data>
+  <data name="Analytics" xml:space="preserve">
+    <value>Аналитика</value>
+  </data>
+  <data name="AND" xml:space="preserve">
+    <value>Және</value>
+  </data>
+  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
+    <value>Формуланы пайдалану кезінде қате пайда болды!</value>
+  </data>
+  <data name="AnionsSumMgEq" xml:space="preserve">
+    <value>Аниондар суммасы мг-экв/дм³</value>
+  </data>
+  <data name="April" xml:space="preserve">
+    <value>Сәуір</value>
+  </data>
+  <data name="Archival" xml:space="preserve">
+    <value>Мұрағаттық </value>
+  </data>
+  <data name="ArchivalInfoSource" xml:space="preserve">
+    <value>Мұрағаттық ақпарат көзі</value>
+  </data>
+  <data name="Area2015" xml:space="preserve">
+    <value>2015 жылғы көл айдынының ауданы, км2</value>
+  </data>
+  <data name="Areakm2" xml:space="preserve">
+    <value>Ауданы, км²</value>
   </data>
   <data name="AsLakeLayer" xml:space="preserve">
-    <value>Көлдердің қабаты</value>
+    <value>Көлдер қабаты</value>
+  </data>
+  <data name="August" xml:space="preserve">
+    <value>Тамыз</value>
+  </data>
+  <data name="average" xml:space="preserve">
+    <value>Орташа</value>
   </data>
   <data name="BackToList" xml:space="preserve">
     <value>Тізімге оралу</value>
   </data>
+  <data name="BackToTop" xml:space="preserve">
+    <value>Жоғары қарай</value>
+  </data>
+  <data name="BaseLayer" xml:space="preserve">
+    <value>Негізгі қабат</value>
+  </data>
+  <data name="BasicInfoLake" xml:space="preserve">
+    <value>Көл туралы негізгі ақпарат</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
+    <value>Батиметриялық және көлемдік қисықтар</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
+    <value>Батиметриялық және көлемдік қисықтар</value>
+  </data>
+  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар реті: көл Id, су деңгейі, көл айдынының ауданы, су массасының көлемі</value>
+  </data>
+  <data name="BenthosBiomass" xml:space="preserve">
+    <value>Бентос биомасса, г/м2</value>
+  </data>
+  <data name="Brackish" xml:space="preserve">
+    <value>Тұздылау</value>
+  </data>
+  <data name="Brine" xml:space="preserve">
+    <value>Тұзды</value>
+  </data>
   <data name="Ca" xml:space="preserve">
-    <value>Кальций катиондары, мг / дм3</value>
+    <value>Ca²⁺,Кальций катиондары, мг-экв/дм3</value>
+  </data>
+  <data name="CalciumGroup" xml:space="preserve">
+    <value>Cа</value>
+  </data>
+  <data name="CaMg" xml:space="preserve">
+    <value>Ca²⁺, кальций катиондары, мг/дм³</value>
+  </data>
+  <data name="CaMgEq" xml:space="preserve">
+    <value>Ca²⁺, кальций катиондары, мг-экв/дм³</value>
+  </data>
+  <data name="CaPerEq" xml:space="preserve">
+    <value>Ca²⁺, кальций катиондары,%-экв</value>
+  </data>
+  <data name="CationsSumMgEq" xml:space="preserve">
+    <value>мг-экв/дм³-де катиондар суммасы</value>
+  </data>
+  <data name="Cd" xml:space="preserve">
+    <value>Cd</value>
+  </data>
+  <data name="ChangeWaterCondition" xml:space="preserve">
+    <value>Су жағдайының өзгеруі</value>
+  </data>
+  <data name="Chart" xml:space="preserve">
+    <value>Диаграмма</value>
+  </data>
+  <data name="ChlorideClass" xml:space="preserve">
+    <value>Cl</value>
   </data>
   <data name="CIWP" xml:space="preserve">
-    <value>KIZV, оның ішінде Co</value>
+    <value>Қауіптілік класын ескере отырып есептелген СЛКИ</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>Хлоридті аниондар, мг / дм3</value>
+    <value>Хлоридті аниондар, мг-экв/дм³</value>
+  </data>
+  <data name="ClMg" xml:space="preserve">
+    <value>Cl⁻, хлорлы аниондар, мг/дм³</value>
+  </data>
+  <data name="ClMgEq" xml:space="preserve">
+    <value>Cl⁻, хлорлы аниондар, мг-экв/дм³</value>
+  </data>
+  <data name="ClPerEq" xml:space="preserve">
+    <value>Cl⁻, хлорлы аниондар,%-экв</value>
+  </data>
+  <data name="Co" xml:space="preserve">
+    <value>Co</value>
   </data>
   <data name="ColorPicker" xml:space="preserve">
-    <value>Тақырыптық түстер, Стандартты түстер, Түстер, Тақырып түсі, Бояғышқа оралу, Тарих, Тарих әлі жоқ.</value>
+    <value>Тақырыптық түстер, Стандартты түстер, Түстер, Тақырып түсі, Бояғышқа оралу, Тарихы, Тарихы әлі жоқ.</value>
   </data>
   <data name="Colors" xml:space="preserve">
     <value>Түстер</value>
   </data>
+  <data name="Compare" xml:space="preserve">
+    <value>Салыстыру</value>
+  </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Құпия сөзді растау</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Бізбен байланысыңыз</value>
+  </data>
+  <data name="Continent" xml:space="preserve">
+    <value>Континент</value>
+  </data>
+  <data name="Continent_ENG" xml:space="preserve">
+    <value>Континент ағылшын тілінде</value>
+  </data>
+  <data name="Continent_KZ" xml:space="preserve">
+    <value>Континент қазақ тіліндегі </value>
+  </data>
+  <data name="Continent_RU" xml:space="preserve">
+    <value>Континент орыс тілінде</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Ел</value>
+  </data>
+  <data name="Country_ENG" xml:space="preserve">
+    <value>Ел атауы ағылшын тілінде</value>
+  </data>
+  <data name="Country_KZ" xml:space="preserve">
+    <value>Ел атауы қазақ тілінде</value>
+  </data>
+  <data name="Country_RU" xml:space="preserve">
+    <value>Ел атауы орыс тілінде</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Жасау</value>
@@ -153,32 +312,140 @@
   <data name="CreateANewAccount" xml:space="preserve">
     <value>Жаңа есептік жазба жасаңыз.</value>
   </data>
+  <data name="Cu" xml:space="preserve">
+    <value>Cu</value>
+  </data>
+  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
+    <value>Ағымдағы кәсіптік балық өнімділігі, кг/га</value>
+  </data>
+  <data name="CurrentUsage" xml:space="preserve">
+    <value>Ағымдағы қолданылуы</value>
+  </data>
+  <data name="DataType" xml:space="preserve">
+    <value>Деректер түрі</value>
+  </data>
+  <data name="December" xml:space="preserve">
+    <value>Желтоқсан</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Жою</value>
   </data>
   <data name="DeleteGeoTIFFFile" xml:space="preserve">
     <value>GeoTIFF файлын жою</value>
   </data>
+  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
+    <value>Су бойынша GeoTIFF файлын жою</value>
+  </data>
   <data name="DeleteShapeFile" xml:space="preserve">
-    <value>Шапфайлды жою</value>
+    <value>Shape-файлды жою</value>
+  </data>
+  <data name="DeletingJustification" xml:space="preserve">
+    <value>Құжатты жою үшін негіздеме</value>
+  </data>
+  <data name="Depth_avg" xml:space="preserve">
+    <value>Көлдің орташа тереңдігі, м</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Сипаттама</value>
+  </data>
+  <data name="DescriptionEN" xml:space="preserve">
+    <value>Сипаттама ағылшын тілінде</value>
+  </data>
+  <data name="DescriptionKK" xml:space="preserve">
+    <value>Сипаттама қазақ тілінде</value>
+  </data>
+  <data name="DescriptionRU" xml:space="preserve">
+    <value>Сипаттама орыс тілінде</value>
   </data>
   <data name="Details" xml:space="preserve">
     <value>Толығырақ</value>
   </data>
+  <data name="Directories" xml:space="preserve">
+    <value>Анықтамалықтар</value>
+  </data>
+  <data name="Discrepancy" xml:space="preserve">
+    <value>Сәйкессіздік</value>
+  </data>
+  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
+    <value>Судағы еріген оттегі бойынша дәрежесі</value>
+  </data>
   <data name="DissOxygWater" xml:space="preserve">
-    <value>Судағы еріген оттегі, мг-эгв / дм3</value>
+    <value>Судағы еріген оттегі, мг/дм3</value>
+  </data>
+  <data name="District" xml:space="preserve">
+    <value>Аудан</value>
+  </data>
+  <data name="Dis_avg" xml:space="preserve">
+    <value>Көлден ағып өтетін орташа көпжылдық ағынды, м3/сек</value>
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>Құжат түрі</value>
+  </data>
+  <data name="DocumentTypes" xml:space="preserve">
+    <value>Құжаттардың түрлері</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>Жүктеу</value>
+  </data>
+  <data name="Dynamics" xml:space="preserve">
+    <value>Динамика</value>
+  </data>
+  <data name="DynamicsLakeArea" xml:space="preserve">
+    <value>Көл айдыны ауданының динамикасы</value>
+  </data>
+  <data name="DynamicsLakeAreas" xml:space="preserve">
+    <value>Көл айдыны ауданының динамикасы</value>
+  </data>
+  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың реті: көл Id, жыл, деректер жоқ, су жоқ, маусымдық су ауданы, тұрақты су ауданы</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Өңдеу</value>
+    <value>Редакциялау</value>
+  </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Көл бетінің теңіз деңгейінен алғандағы биіктігі, м</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Эл. мекен-жайы</value>
   </data>
+  <data name="EphemeralPermanent" xml:space="preserve">
+    <value>Эфемерлі тұрақты</value>
+  </data>
+  <data name="EphemeralSeasonal" xml:space="preserve">
+    <value>Эфемерлі маусымдық</value>
+  </data>
   <data name="Evaporation" xml:space="preserve">
-    <value>Булану</value>
+    <value>Булану, млн.м³</value>
+  </data>
+  <data name="EvaporationPer" xml:space="preserve">
+    <value>Булану,%</value>
   </data>
   <data name="Evaporations" xml:space="preserve">
-    <value>Булану</value>
+    <value>Булану, млн.м³</value>
+  </data>
+  <data name="exist" xml:space="preserve">
+    <value>бұрыннан бар</value>
+  </data>
+  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
+    <value>Ластанудың өте жоғары деңгейі</value>
+  </data>
+  <data name="FamilyId" xml:space="preserve">
+    <value>Тұқымдастық Id </value>
+  </data>
+  <data name="FamilyNameKK" xml:space="preserve">
+    <value>Балық тұқымдастығының атауы қазақ тілінде</value>
+  </data>
+  <data name="FamilyNameLA" xml:space="preserve">
+    <value>Балық тұқымдастығының латынша атауы</value>
+  </data>
+  <data name="FamilyNameRU" xml:space="preserve">
+    <value>Балық тұқымдастығының атауы орыс тілінде</value>
+  </data>
+  <data name="February" xml:space="preserve">
+    <value>Ақпан</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>Файл</value>
   </data>
   <data name="FileNameWithPath" xml:space="preserve">
     <value>Файл жолы</value>
@@ -189,23 +456,176 @@
   <data name="FilesUploaded" xml:space="preserve">
     <value>Файлдар жүктелді</value>
   </data>
+  <data name="FilterKATO" xml:space="preserve">
+    <value>Облыс, аудан</value>
+  </data>
+  <data name="FilterVHBVHU" xml:space="preserve">
+    <value>США, СШУ</value>
+  </data>
   <data name="Find" xml:space="preserve">
     <value>Табу</value>
   </data>
+  <data name="FindKATO" xml:space="preserve">
+    <value>ӘАНК-ын табыңыз</value>
+  </data>
+  <data name="FirstRowHeader" xml:space="preserve">
+    <value>Бірінші баған - тақырыбы</value>
+  </data>
+  <data name="FishCatchLimit" xml:space="preserve">
+    <value>Балық аулау лимиті, тонна</value>
+  </data>
+  <data name="FishId" xml:space="preserve">
+    <value>Балық Id </value>
+  </data>
+  <data name="FishKind" xml:space="preserve">
+    <value>Балықтың түрі</value>
+  </data>
+  <data name="FishKinds" xml:space="preserve">
+    <value>Балық түрлері</value>
+  </data>
+  <data name="FishKindUploadDescription" xml:space="preserve">
+    <value>Файлдағы баған тәртібі: балықтың  Id, тұқымдастық Id,  балықтың қазақша атауы, балықтың орысша атауы, балықтың латынша атауы, балық тұқымдастығының қазақша атауы, балық тұқымдастығының орысша атауы, балық тұқымдастығының латынша атауы</value>
+  </data>
+  <data name="FishNameKK" xml:space="preserve">
+    <value>Балықтың қазақша атауы</value>
+  </data>
+  <data name="FishNameLA" xml:space="preserve">
+    <value>Балықтың латынша атауы</value>
+  </data>
+  <data name="FishNameRU" xml:space="preserve">
+    <value>Балықтың орысша атауы</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Папка</value>
+  </data>
+  <data name="ForceEntryDay" xml:space="preserve">
+    <value>Күшіне ену күні</value>
+  </data>
+  <data name="ForceEntryDayDateYear" xml:space="preserve">
+    <value>Күшіне ену күні (жылы)</value>
+  </data>
+  <data name="ForceEntryMonth" xml:space="preserve">
+    <value>Күшіне ену айы</value>
+  </data>
+  <data name="ForceEntryYear" xml:space="preserve">
+    <value>Күшіне енген жылы</value>
+  </data>
+  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
+    <value>Формулада жарамсыз таңбалар бар!</value>
+  </data>
+  <data name="Found" xml:space="preserve">
+    <value>Табылды</value>
+  </data>
+  <data name="Fresh" xml:space="preserve">
+    <value>Тұщы</value>
+  </data>
+  <data name="FreshPart" xml:space="preserve">
+    <value>Тұщы бөлігі</value>
+  </data>
+  <data name="FullyPart" xml:space="preserve">
+    <value>Толығымен</value>
+  </data>
+  <data name="Functions" xml:space="preserve">
+    <value>Функциялар</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
+    <value>Көлдің жалпы гидробиологиялық көрсеткіші</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
+    <value>Көлдердің жалпы гидробиологиялық көрсеткіштері</value>
+  </data>
+  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағанның тәртібі: көл Id, балық Id, зерттеу жылы, зоопланктон биомассасы, бентос биомасса, түрлік байлық индексі, балық аулау лимиті, ағымдағы кәсіптік балық өнімділігі, потенциалдық балық өнімділігі, балы өсірудің потенциалдық көлемі, ағымдағы қолданылуы, ұсыныс бойынша қолданылуы</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
+    <value>Жалпы гидрохимиялық көрсеткіштер</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
+    <value>Жалпы гидрохимиялық көрсеткіштер</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorStandard" xml:space="preserve">
+    <value>Жалпы гидрохимиялық көрсеткіштердің нормативі</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
+    <value>Жалпы гидрохимиялық көрсеткіштердің нормативтері</value>
+  </data>
+  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: көл Id, жыл, көлдің бір бөлігі, минерализация көрсеткіші, судың жалпы кермектігі, судағы еріген оттегі, судың еріген оттегімен қанығу проценті, рН мәні, органикалық заттар</value>
+  </data>
   <data name="GeoServerName" xml:space="preserve">
-    <value>GeoServer бағдарламасындағы атау</value>
+    <value>GeoServer-дегі атауы</value>
   </data>
   <data name="GeoServerStyle" xml:space="preserve">
-    <value>GeoServer-дағы стиль</value>
+    <value>GeoServer-дегі стилі</value>
   </data>
   <data name="GeoTIFFFile" xml:space="preserve">
     <value>GeoTIFF файл</value>
   </data>
+  <data name="GlobalSurfaceWater" xml:space="preserve">
+    <value>Жербеті суы</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Топ</value>
+  </data>
+  <data name="HazardClassCd" xml:space="preserve">
+    <value>Cd қауіптілік класы </value>
+  </data>
+  <data name="HazardClassCo" xml:space="preserve">
+    <value>Co қауіптілік класы </value>
+  </data>
+  <data name="HazardClassCu" xml:space="preserve">
+    <value>Cu қауіптілік класы </value>
+  </data>
+  <data name="HazardClassMn" xml:space="preserve">
+    <value>Mn қауіптілік класы </value>
+  </data>
+  <data name="HazardClassNH4" xml:space="preserve">
+    <value>NH₄ қауіптілік класы </value>
+  </data>
+  <data name="HazardClassNi" xml:space="preserve">
+    <value>Ni қауіптілік класы</value>
+  </data>
+  <data name="HazardClassNO2" xml:space="preserve">
+    <value>NO2 қауіп классы</value>
+  </data>
+  <data name="HazardClassNO3" xml:space="preserve">
+    <value>NO₃ қауіптілік класы </value>
+  </data>
+  <data name="HazardClassPb" xml:space="preserve">
+    <value>Pb қауіптілік класы </value>
+  </data>
+  <data name="HazardClassPPO4" xml:space="preserve">
+    <value> PPO4 қауіптілік класы </value>
+  </data>
+  <data name="HazardClassZn" xml:space="preserve">
+    <value>Zn қауіптілік класы </value>
+  </data>
   <data name="HCO" xml:space="preserve">
-    <value>Көмірсутекті аниондар, мг / дм3</value>
+    <value>HCO₃⁻, гидрокорбонаттық аниондар, мг-экв/дм³</value>
+  </data>
+  <data name="HCOMg" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонаттық аниондар, мг/дм³</value>
+  </data>
+  <data name="HCOMgEq" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонаттық аниондар, мг-экв/дм³</value>
+  </data>
+  <data name="HCOPerEq" xml:space="preserve">
+    <value>HCO₃⁻, гидрокорбонаттық аниондар, %-экв</value>
+  </data>
+  <data name="HeavyMetals" xml:space="preserve">
+    <value>Ауыр металдар</value>
+  </data>
+  <data name="HighPollution" xml:space="preserve">
+    <value>Ластанудың жоғары деңгейі</value>
   </data>
   <data name="Home" xml:space="preserve">
     <value>Басты</value>
+  </data>
+  <data name="Hydrobiology" xml:space="preserve">
+    <value>Гидробиология</value>
+  </data>
+  <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
+    <value>C</value>
   </data>
   <data name="Hydrochemistries" xml:space="preserve">
     <value>Гидрохимия</value>
@@ -213,233 +633,17 @@
   <data name="Hydrochemistry" xml:space="preserve">
     <value>Гидрохимия</value>
   </data>
-  <data name="Lake" xml:space="preserve">
-    <value>Көл</value>
-  </data>
-  <data name="LakeId" xml:space="preserve">
-    <value>Көлдің иесі</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>Тіл</value>
-  </data>
-  <data name="Layer" xml:space="preserve">
-    <value>Қабат</value>
-  </data>
-  <data name="LayerFile" xml:space="preserve">
-    <value>Қабат файлы</value>
-  </data>
-  <data name="Layers" xml:space="preserve">
-    <value>Қабаттар</value>
-  </data>
-  <data name="LogIn" xml:space="preserve">
-    <value>Жүйеге кіріңіз</value>
-  </data>
-  <data name="LogOut" xml:space="preserve">
-    <value>Шығу</value>
-  </data>
-  <data name="Map" xml:space="preserve">
-    <value>Карта</value>
-  </data>
-  <data name="Maps" xml:space="preserve">
-    <value>Карталар</value>
-  </data>
-  <data name="Mg" xml:space="preserve">
-    <value>Магний катиондары, мг / дм3</value>
-  </data>
-  <data name="Mineralization" xml:space="preserve">
-    <value>Минералданудың мәні, мг / дм3</value>
-  </data>
-  <data name="MinValues" xml:space="preserve">
-    <value>Ең аз мәндер</value>
-  </data>
-  <data name="NaK" xml:space="preserve">
-    <value>Натрий калий катиондары, мг / дм3</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>Атауы</value>
-  </data>
-  <data name="NameEN" xml:space="preserve">
-    <value>Атауы (ағылшын)</value>
-  </data>
-  <data name="NameKK" xml:space="preserve">
-    <value>Атауы (қазақ)</value>
-  </data>
-  <data name="NameRU" xml:space="preserve">
-    <value>Атауы (орыс)</value>
-  </data>
-  <data name="NH" xml:space="preserve">
-    <value>NH</value>
-  </data>
-  <data name="Opacity" xml:space="preserve">
-    <value>Ашықтық</value>
-  </data>
-  <data name="OrganicSubstances" xml:space="preserve">
-    <value>Органикалық заттар, мгО / дм3</value>
-  </data>
-  <data name="Password" xml:space="preserve">
-    <value>Құпия сөз</value>
-  </data>
-  <data name="PercentOxygWater" xml:space="preserve">
-    <value>Қанықтылық пайызы,%</value>
-  </data>
-  <data name="pH" xml:space="preserve">
-    <value>PH мәні</value>
-  </data>
-  <data name="PPO" xml:space="preserve">
-    <value>PPO</value>
-  </data>
-  <data name="Precipitation" xml:space="preserve">
-    <value>Жауын-шашын</value>
-  </data>
-  <data name="Precipitations" xml:space="preserve">
-    <value>Жауын-шашын</value>
-  </data>
-  <data name="Publish" xml:space="preserve">
-    <value>Жариялау</value>
-  </data>
-  <data name="PublishDescription" xml:space="preserve">
-    <value>Файл мөлшері 1 Гб-тан аспауы керек. Файлдар zip мұрағатында болуы мүмкін.</value>
-  </data>
-  <data name="PublishGeoTIFF" xml:space="preserve">
-    <value>GeoTIFF файлын жариялау</value>
-  </data>
-  <data name="PublishLayer" xml:space="preserve">
-    <value>Растерлік қабатты жариялау</value>
-  </data>
-  <data name="PublishShape" xml:space="preserve">
-    <value>Shp-файлын жариялау</value>
-  </data>
-  <data name="Register" xml:space="preserve">
-    <value>Тіркеу формасы</value>
-  </data>
-  <data name="RegisterAsANewUser" xml:space="preserve">
-    <value>Жаңа пайдаланушы ретінде тіркелу керек пе?</value>
-  </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>Мені есте сақтау?</value>
-  </data>
-  <data name="Remove" xml:space="preserve">
-    <value>Жою</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Рөлдер</value>
-  </data>
-  <data name="Save" xml:space="preserve">
-    <value>Сақтау</value>
-  </data>
-  <data name="ShapeFile" xml:space="preserve">
-    <value>Shape-file</value>
-  </data>
-  <data name="Show" xml:space="preserve">
-    <value>Көрсету</value>
-  </data>
-  <data name="SO" xml:space="preserve">
-    <value>Сульфатты аниондар, мг / дм3</value>
-  </data>
-  <data name="StyleWaterLevel" xml:space="preserve">
-    <value>Көлдің су деңгейінің стилі</value>
-  </data>
-  <data name="SurfaceFlow" xml:space="preserve">
-    <value>Беттік ағын</value>
-  </data>
-  <data name="SurfaceFlows" xml:space="preserve">
-    <value>Беттік ағындар</value>
-  </data>
-  <data name="SurfaceOutflow" xml:space="preserve">
-    <value>Беткі ағып кету</value>
-  </data>
-  <data name="SurfaceOutflows" xml:space="preserve">
-    <value>Беткі ағып кетулер</value>
-  </data>
-  <data name="TotalHardness" xml:space="preserve">
-    <value>Судың жалпы қатаңдығы, мг-тең / дм3</value>
-  </data>
-  <data name="UndergroundFlow" xml:space="preserve">
-    <value>Жер асты коллекторы</value>
-  </data>
-  <data name="UndergroundFlows" xml:space="preserve">
-    <value>Жер асты шегелері</value>
-  </data>
-  <data name="UndergroundOutflow" xml:space="preserve">
-    <value>Жерасты шығару</value>
-  </data>
-  <data name="UndergroundOutflows" xml:space="preserve">
-    <value>Жер асты ағып кетуі</value>
-  </data>
-  <data name="Unpublish" xml:space="preserve">
-    <value>Жарияламау</value>
-  </data>
-  <data name="UnpublishGeoTIFF" xml:space="preserve">
-    <value>GeoTIFF файлын жарияламаңыз</value>
-  </data>
-  <data name="UnpublishShape" xml:space="preserve">
-    <value>Файлфайлды жарияламау</value>
-  </data>
-  <data name="Upload" xml:space="preserve">
-    <value>Жүктеу</value>
-  </data>
-  <data name="UploadGeoTIFFFiles" xml:space="preserve">
-    <value>GeoTIFF файлдарды жүктеу</value>
-  </data>
-  <data name="UploadShapeFiles" xml:space="preserve">
-    <value>Shape файлдарды жүктеу</value>
-  </data>
-  <data name="UseALocalAccountToLogIn" xml:space="preserve">
-    <value>Жүйеге кіру үшін жергілікті есептік жазбаны пайдаланыңыз.</value>
-  </data>
-  <data name="User" xml:space="preserve">
-    <value>Пайдаланушы</value>
-  </data>
-  <data name="Users" xml:space="preserve">
-    <value>Пайдаланушылар</value>
-  </data>
-  <data name="Value" xml:space="preserve">
-    <value>Мағынасы</value>
-  </data>
-  <data name="WaterLavelMy" xml:space="preserve">
-    <value>Н, м.абс.</value>
-  </data>
-  <data name="WaterLevel" xml:space="preserve">
-    <value>Көлдің орташа жылдық деңгейінің ұзақ мерзімді бағыты</value>
-  </data>
-  <data name="WaterLevels" xml:space="preserve">
-    <value>Көлдің су деңгейлері</value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Жыл</value>
-  </data>
-  <data name="DataType" xml:space="preserve">
-    <value>Деректер түрі</value>
-  </data>
-  <data name="StyleEvaporation" xml:space="preserve">
-    <value>Түтіндер стилі</value>
-  </data>
-  <data name="StylePrecipitation" xml:space="preserve">
-    <value>Жауын-шашын түрі</value>
-  </data>
-  <data name="StyleSurfaceFlow" xml:space="preserve">
-    <value>Беткі ағындардың стилі</value>
-  </data>
-  <data name="StyleSurfaceOutflow" xml:space="preserve">
-    <value>Бетінің ағып кету стилі</value>
-  </data>
-  <data name="StyleUndergroundFlow" xml:space="preserve">
-    <value>Жер асты ағындарының стилі</value>
-  </data>
-  <data name="StyleUndergroundOutflow" xml:space="preserve">
-    <value>Жер асты ағынын стилі</value>
-  </data>
   <data name="HydrochemistryCas" xml:space="preserve">
-    <value>Кальций катиондары, мг / дм3</value>
+    <value>Кальций катиондары, мг/дм3</value>
   </data>
   <data name="HydrochemistryCds" xml:space="preserve">
     <value>Cd</value>
   </data>
   <data name="HydrochemistryCIWPs" xml:space="preserve">
-    <value>KIZV, оның ішінде Co</value>
+    <value>Қауіптілік класын ескере отырып есептелген СЛКИ</value>
   </data>
   <data name="HydrochemistryCls" xml:space="preserve">
-    <value>Хлоридті аниондар, мг / дм3</value>
+    <value>Хлоридті аниондар, мг/дм3</value>
   </data>
   <data name="HydrochemistryCos" xml:space="preserve">
     <value>Co</value>
@@ -448,22 +652,22 @@
     <value>Cu</value>
   </data>
   <data name="HydrochemistryDissOxygWaters" xml:space="preserve">
-    <value>Судағы еріген оттегі, мг-эгв / дм3</value>
+    <value>Судағы еріген оттегі, мг/дм3</value>
   </data>
   <data name="HydrochemistryHCOs" xml:space="preserve">
-    <value>Көмірсутекті аниондар, мг / дм3</value>
+    <value>Гидрокорбонатты аниондар, мг/дм3</value>
   </data>
   <data name="HydrochemistryMgs" xml:space="preserve">
-    <value>Магний катиондары, мг / дм3</value>
+    <value>Магний катиондары, мг/дм3</value>
   </data>
   <data name="HydrochemistryMineralizations" xml:space="preserve">
-    <value>Минералданудың мәні, мг / дм3</value>
+    <value>Минерализация мәні, мг/дм3</value>
   </data>
   <data name="HydrochemistryMns" xml:space="preserve">
     <value>Mn</value>
   </data>
   <data name="HydrochemistryNaKs" xml:space="preserve">
-    <value>Натрий калий катиондары, мг / дм3</value>
+    <value>Натрий калий катиондары, мг/дм3</value>
   </data>
   <data name="HydrochemistryNHs" xml:space="preserve">
     <value>NH</value>
@@ -478,115 +682,328 @@
     <value>NO3</value>
   </data>
   <data name="HydrochemistryOrganicSubstancess" xml:space="preserve">
-    <value>Органикалық заттар, мгО / дм3</value>
+    <value>Органикалық заттар, мгО/дм3</value>
   </data>
   <data name="HydrochemistryPbs" xml:space="preserve">
     <value>Pb</value>
   </data>
   <data name="HydrochemistryPercentOxygWaters" xml:space="preserve">
-    <value>Қанықтылық пайызы,%</value>
+    <value>Қанығу проценті,%</value>
   </data>
   <data name="HydrochemistrypHs" xml:space="preserve">
-    <value>PH мәні</value>
+    <value>рH мәні</value>
   </data>
   <data name="HydrochemistryPPOs" xml:space="preserve">
-    <value>PPO</value>
+    <value>PPO4</value>
   </data>
   <data name="HydrochemistrySOs" xml:space="preserve">
-    <value>Сульфатты аниондар, мг / дм3</value>
+    <value>Сульфатты аниондар, мг/дм3</value>
   </data>
   <data name="HydrochemistryTotalHardnesss" xml:space="preserve">
-    <value>Судың жалпы қатаңдығы, мг-тең / дм3</value>
+    <value>Судың жалпы кермектігі, мг-экв/дм³</value>
   </data>
   <data name="HydrochemistryZns" xml:space="preserve">
     <value>Zn</value>
   </data>
-  <data name="StyleHydrochemistryCa" xml:space="preserve">
-    <value>Кальций катиондарының стилі</value>
+  <data name="Hydrology" xml:space="preserve">
+    <value>Гидрология</value>
   </data>
-  <data name="StyleHydrochemistryCd" xml:space="preserve">
-    <value>Cd стилі</value>
+  <data name="Hylak_id" xml:space="preserve">
+    <value>Көлдің бірегей идентификаторы</value>
   </data>
-  <data name="StyleHydrochemistryCIWP" xml:space="preserve">
-    <value>Стиль KIZV қоса Co</value>
+  <data name="IncludeWater" xml:space="preserve">
+    <value>Су бойынша қабаттарды қамтиды</value>
   </data>
-  <data name="StyleHydrochemistryCl" xml:space="preserve">
-    <value>Хлоридті аниондардың стилі</value>
+  <data name="Indicator" xml:space="preserve">
+    <value>Көрсеткіш</value>
   </data>
-  <data name="StyleHydrochemistryCo" xml:space="preserve">
-    <value>Co стилі</value>
+  <data name="Information" xml:space="preserve">
+    <value>Ақпарат</value>
   </data>
-  <data name="StyleHydrochemistryCu" xml:space="preserve">
-    <value>Стиль Cu</value>
+  <data name="Instruction" xml:space="preserve">
+    <value>Нұсқаулық</value>
   </data>
-  <data name="StyleHydrochemistryDissOxygWater" xml:space="preserve">
-    <value>Суда еритін оттегі стилі</value>
+  <data name="IonName" xml:space="preserve">
+    <value>Иондар атауы</value>
   </data>
-  <data name="StyleHydrochemistryHCO" xml:space="preserve">
-    <value>Гидрокоронат аниондарының стилі</value>
+  <data name="IonsaltWaterComposition" xml:space="preserve">
+    <value>Судың иондық-тұздық құрамы</value>
   </data>
-  <data name="StyleHydrochemistryMg" xml:space="preserve">
-    <value>Магний катиондарының стилі</value>
+  <data name="IonsaltWaterCompositions" xml:space="preserve">
+    <value>Судың иондық-тұздық құрамы</value>
   </data>
-  <data name="StyleHydrochemistryMineralization" xml:space="preserve">
-    <value>Минерализация стилі</value>
+  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың тәртібі: көл Id, жыл, көлдің бір бөлігі, кальций катиондары, магний катиондары, натрий калий катиондары, хлоридті аниондары, гидрокарбонатты аниондар, сульфатты аниондар</value>
   </data>
-  <data name="StyleHydrochemistryMn" xml:space="preserve">
-    <value>Стиль Mn</value>
+  <data name="IonsSumMgEq" xml:space="preserve">
+    <value>Иондар суммасы, мг-экв/дм³</value>
   </data>
-  <data name="StyleHydrochemistryNaK" xml:space="preserve">
-    <value>Натрий калий катиондарының стилі</value>
+  <data name="IonsSumPerEq" xml:space="preserve">
+    <value>Иондар суммасы, %-экв</value>
   </data>
-  <data name="StyleHydrochemistryNH" xml:space="preserve">
-    <value>Стиль NH</value>
+  <data name="IonUnit" xml:space="preserve">
+    <value>мг/дм³ / %-экв</value>
   </data>
-  <data name="StyleHydrochemistryNi" xml:space="preserve">
-    <value>Стиль Ni</value>
+  <data name="IZVCd" xml:space="preserve">
+    <value>Cd бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistryNO2" xml:space="preserve">
-    <value>NO2 стилі</value>
+  <data name="IZVCo" xml:space="preserve">
+    <value>Co бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistryNO3" xml:space="preserve">
-    <value>NO3 стилі</value>
+  <data name="IZVCu" xml:space="preserve">
+    <value>Cu бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistryOrganicSubstances" xml:space="preserve">
-    <value>Органикалық заттардың стильдері</value>
+  <data name="IZVMn" xml:space="preserve">
+    <value>Mn бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistryPb" xml:space="preserve">
-    <value>Стиль Pb</value>
+  <data name="IZVNH4" xml:space="preserve">
+    <value>NH₄ бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistryPercentOxygWater" xml:space="preserve">
-    <value>Пайыздың қанықтылық стилі</value>
+  <data name="IZVNi" xml:space="preserve">
+    <value>Ni бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistrypH" xml:space="preserve">
-    <value>PH Style</value>
+  <data name="IZVNO2" xml:space="preserve">
+    <value> NO2 бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistryPPO" xml:space="preserve">
-    <value>Style PPO</value>
+  <data name="IZVNO3" xml:space="preserve">
+    <value>NO₃ бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistrySO" xml:space="preserve">
-    <value>Сульфатты аниондардың стилі</value>
+  <data name="IZVPb" xml:space="preserve">
+    <value>Pb бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistryTotalHardness" xml:space="preserve">
-    <value>Судың жалпы қаттылық стилі</value>
+  <data name="IZVPPO4" xml:space="preserve">
+    <value>PPO₄ бойынша СЛИ</value>
   </data>
-  <data name="StyleHydrochemistryZn" xml:space="preserve">
-    <value>Стиль Zn</value>
+  <data name="IZVZn" xml:space="preserve">
+    <value>Zn бойынша СЛИ</value>
+  </data>
+  <data name="January" xml:space="preserve">
+    <value>Қаңтар</value>
+  </data>
+  <data name="July" xml:space="preserve">
+    <value>Шілде</value>
+  </data>
+  <data name="June" xml:space="preserve">
+    <value>Маусым</value>
+  </data>
+  <data name="KIZV" xml:space="preserve">
+    <value>СЛКИ</value>
+  </data>
+  <data name="KIZVDegree" xml:space="preserve">
+    <value>Қауіптілік класын ескере отырып, есептелген СЛКИ  бойынша су нысандарының ластану дәрежесі</value>
+  </data>
+  <data name="KIZVkoCd" xml:space="preserve">
+    <value>Cd бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoCo" xml:space="preserve">
+    <value>Co бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoCu" xml:space="preserve">
+    <value>Cu бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoMn" xml:space="preserve">
+    <value>Mn бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoNH4" xml:space="preserve">
+    <value>NH₄ бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoNi" xml:space="preserve">
+    <value>Ni бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoNO2" xml:space="preserve">
+    <value> NO2 бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoNO3" xml:space="preserve">
+    <value>NO₃ бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoPb" xml:space="preserve">
+    <value>Pb бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoPPO4" xml:space="preserve">
+    <value>PPO₄ бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVkoZn" xml:space="preserve">
+    <value>Zn бойынша қауіптілік класын ескере отырып есептелген СЛКИ</value>
+  </data>
+  <data name="KIZVs" xml:space="preserve">
+    <value>СЛКИ</value>
+  </data>
+  <data name="KurlovFormula" xml:space="preserve">
+    <value>Судың химиялық құрамының М .Г. Курлов бойынша формуласы</value>
+  </data>
+  <data name="Lake" xml:space="preserve">
+    <value>Көл</value>
+  </data>
+  <data name="LakeAbsoluteHeight" xml:space="preserve">
+    <value>Көлдің абсолюттік биіктігі, м</value>
+  </data>
+  <data name="LakeArchiveData" xml:space="preserve">
+    <value>Көл туралы мұрағаттық ақпарат</value>
+  </data>
+  <data name="LakeArea" xml:space="preserve">
+    <value>Көл айдынының ауданы, км²</value>
+  </data>
+  <data name="LakeGlobalData" xml:space="preserve">
+    <value>Ғаламдық базадағы көл туралы ақпарат</value>
+  </data>
+  <data name="LakeId" xml:space="preserve">
+    <value>Көлдің Id</value>
+  </data>
+  <data name="LakeLength" xml:space="preserve">
+    <value>Көлдің ұзындығы, км</value>
+  </data>
+  <data name="LakeMaxDepth" xml:space="preserve">
+    <value>Көлдің ең терең жері, м</value>
+  </data>
+  <data name="LakeMirrorArea" xml:space="preserve">
+    <value>Көл айдынының ауданы, км2</value>
+  </data>
+  <data name="LakePart" xml:space="preserve">
+    <value>Көлдің бір бөлігі</value>
+  </data>
+  <data name="Lakes" xml:space="preserve">
+    <value>Көлдер</value>
+  </data>
+  <data name="LakesArchiveData" xml:space="preserve">
+    <value>Көлдердің мұрағаттық деректері</value>
+  </data>
+  <data name="LakesArchiveDatas" xml:space="preserve">
+    <value>Көлдердің мұрағаттық деректері</value>
+  </data>
+  <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: көл Id, топографиялық зерттеу жылы, көлдің ұзындығы, көлдің жағалаулық сызығының ұзындығы, көл айдынының ауданы, көлдің абсолюттік биіктігі, көлдің ені, көлдің ең терең жері, көлдің су массасының көлемі, мұрағаттық ақпарат көзі</value>
+  </data>
+  <data name="LakesGlobalData" xml:space="preserve">
+    <value>Көлдердің ғаламдық базасы</value>
+  </data>
+  <data name="LakesGlobalDatas" xml:space="preserve">
+    <value>Көлдердің ғаламдық базасы</value>
+  </data>
+  <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағанның тәртібі: Көл Id, Көлдің бірегей идентификаторы , Көл атауы (ағылшынша),  Көл атауы (орысша), Көл атауы (қазақша), ел (ағылшынша), ел (орысша), ел (қазақша), Континент (ағылшынша), Континент (орысша), Континент (қазақша), Деректер көзі (ағылшынша), Деректер көзі (орысша),  Деректер көзі (қазақша), Көл типінің индикаторы, GRAND деректер базасындағы су бөгендерінің  бірегей идентификаторы, Көлдер бетінің ауданы, Жағалау сызығының ұзындығы, Жағалау сызығының тілімденуі, Көлдің жалпы көлемі,Су бөгендерінің жалпы көлемі, Көлдердің көлемі бойынша дерек көздері, Көлдің орташа тереңдігі, Көл арқылы өтетін орташа ұзақ мерзімді ағынды, Судың көлде орташа болу ұзақтығы, Көлдің теңіз деңгейінен биіктігі, Көл айналасындағы 100 метрлік буферлік аумақтағы орташа еңістік, Сужинау ауданы, Бойлық, Ендік</value>
+  </data>
+  <data name="LakeShorelineLength" xml:space="preserve">
+    <value>Көлдың жағалаулық сызығының ұзындығы, км</value>
+  </data>
+  <data name="LakeShorelineLength2015" xml:space="preserve">
+    <value>Көлдың жағалаулық сызығының 2015 жыл бойынша ұзындығы, км</value>
+  </data>
+  <data name="LakeSystem" xml:space="preserve">
+    <value>Көл жүйесі</value>
+  </data>
+  <data name="LakeSystemId" xml:space="preserve">
+    <value>Көл жүйесі Id</value>
+  </data>
+  <data name="LakeSystems" xml:space="preserve">
+    <value>Көл жүйелері</value>
+  </data>
+  <data name="LakeSystemUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағанның тәртібі: көл жүйесі Id , атауы (орысша), атауы (қазақша), атауы (ағылшынша)</value>
+  </data>
+  <data name="LakeUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағанның тәртібі: көл Id, көлдің қазақша атауы, көлдің орысша атауы, көлдің ағылшынша атауы, су шаруашылық алаптың қазақша атауы, су шаруашылық алаптың орысша атауы , су шаруашылық алаптың ағылшынша атауы, су шаруашылық учаскенің атауы, көл жүйеснің Id, көлдің жағалау сызығының 2015 жылғы ұзындығы, көл айдынының 2015 жылғы ауданы, бойлық, ендік</value>
+  </data>
+  <data name="LakeWaterMass" xml:space="preserve">
+    <value>Көлдің су массасының көлемі, млн.м3</value>
+  </data>
+  <data name="LakeWidth" xml:space="preserve">
+    <value>Көлдің ені, км</value>
+  </data>
+  <data name="Lake_area" xml:space="preserve">
+    <value>Көл айдынының ауданы, км2</value>
+  </data>
+  <data name="Lake_name" xml:space="preserve">
+    <value>Көлдің аты</value>
+  </data>
+  <data name="Lake_name_ENG" xml:space="preserve">
+    <value>Көлдің ағылшынша атауы</value>
+  </data>
+  <data name="Lake_name_KZ" xml:space="preserve">
+    <value>Көлдің қазақша атауы</value>
+  </data>
+  <data name="Lake_name_RU" xml:space="preserve">
+    <value>Көлдің орысша атауы</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Тіл</value>
+  </data>
+  <data name="Latitude" xml:space="preserve">
+    <value>Ендік</value>
+  </data>
+  <data name="Layer" xml:space="preserve">
+    <value>Қабат</value>
+  </data>
+  <data name="LayerFile" xml:space="preserve">
+    <value>Қабат файлы</value>
+  </data>
+  <data name="Layers" xml:space="preserve">
+    <value>Қабаттар</value>
   </data>
   <data name="Legend" xml:space="preserve">
-    <value>Аңыз</value>
+    <value>Легенда</value>
   </data>
-  <data name="Update" xml:space="preserve">
-    <value>Жаңарту</value>
+  <data name="LogIn" xml:space="preserve">
+    <value>Жүйеге кіріңіз</value>
   </data>
-  <data name="UpdateLakeLayerStyle" xml:space="preserve">
-    <value>Қабат қабаты деңгейін жаңарту</value>
+  <data name="LogOut" xml:space="preserve">
+    <value>Шығу</value>
+  </data>
+  <data name="Longitude" xml:space="preserve">
+    <value>Бойлық</value>
+  </data>
+  <data name="LostPermanent" xml:space="preserve">
+    <value>Жоғалған</value>
+  </data>
+  <data name="LostSeasonal" xml:space="preserve">
+    <value>Жоғалған маусымдық сулар</value>
+  </data>
+  <data name="LowerLimit" xml:space="preserve">
+    <value>Төменгі шек</value>
+  </data>
+  <data name="MagnesiumGroup" xml:space="preserve">
+    <value>Mg</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>Карта</value>
+  </data>
+  <data name="Maps" xml:space="preserve">
+    <value>Карталар</value>
+  </data>
+  <data name="March" xml:space="preserve">
+    <value>Наурыз</value>
+  </data>
+  <data name="MarineSalinity" xml:space="preserve">
+    <value>Теңіз тұздылығындай</value>
+  </data>
+  <data name="maximum" xml:space="preserve">
+    <value>максимум</value>
+  </data>
+  <data name="MaximumWater" xml:space="preserve">
+    <value>Ең көп су</value>
+  </data>
+  <data name="MaximumWaterArea" xml:space="preserve">
+    <value>Судың максималды ауданы, км²</value>
+  </data>
+  <data name="MaximumWaterExtent" xml:space="preserve">
+    <value>The Maximum Water Extent (Судың максималды ауданы) </value>
+  </data>
+  <data name="May" xml:space="preserve">
+    <value>Мамыр</value>
+  </data>
+  <data name="MeasurementUnit" xml:space="preserve">
+    <value>Өлшем бірлігі</value>
+  </data>
+  <data name="MeasurementUnits" xml:space="preserve">
+    <value>Өлшем бірліктері</value>
   </data>
   <data name="MessageCantBeDeleted" xml:space="preserve">
-    <value>{0} жою мүмкін емес, себебі ол ағымдағы қабаттарда қолданылады: {1}!</value>
+    <value>{0} жоюға болмайды, себебі ол ағымдағы қабаттарда қолданылады: {1}!</value>
   </data>
   <data name="MessageFileExtensionMustBeShp" xml:space="preserve">
     <value>Файл кеңейтімі «shp» болуы керек!</value>
+  </data>
+  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
+    <value>Файл кеңейтімі «tif» болуы керек!</value>
   </data>
   <data name="MessageFileWasDeleted" xml:space="preserve">
     <value>{0} файлы жойылды!</value>
@@ -597,59 +1014,38 @@
   <data name="MessageLayerIsntExist" xml:space="preserve">
     <value>{0} қабаты жұмыс кеңістігінде {1} жоқ!</value>
   </data>
-  <data name="Instruction" xml:space="preserve">
-    <value>Нұсқаулық</value>
+  <data name="Mg" xml:space="preserve">
+    <value>Mg²⁺,  магний катиондары, мг-экв/дм³</value>
   </data>
-  <data name="MessageFileExtensionMustBeTiff" xml:space="preserve">
-    <value>Файл кеңейтімі «tif» болуы керек!</value>
+  <data name="MgMg" xml:space="preserve">
+    <value>Mg²⁺,  магний катиондары, мг/дм³</value>
   </data>
-  <data name="exist" xml:space="preserve">
-    <value>бұрыннан бар</value>
+  <data name="MgMgEq" xml:space="preserve">
+    <value>Mg²⁺,  магний катиондары, мг-экв/дм³</value>
   </data>
-  <data name="notGeoTIFF" xml:space="preserve">
-    <value>GeoTIFF емес</value>
+  <data name="MgPerEq" xml:space="preserve">
+    <value>Mg²⁺,  магний катиондары, %-экв</value>
   </data>
-  <data name="notShape" xml:space="preserve">
-    <value>Shape-файл емес</value>
+  <data name="Mineralization" xml:space="preserve">
+    <value>Минерализация мәні, мг/дм3</value>
   </data>
-  <data name="uploaded" xml:space="preserve">
-    <value>жүктелді</value>
+  <data name="MineralizationType" xml:space="preserve">
+    <value>Минерализация түрі</value>
   </data>
-  <data name="Action" xml:space="preserve">
-    <value>Әрекет</value>
+  <data name="minimum" xml:space="preserve">
+    <value>ең аз</value>
   </data>
-  <data name="AddLakes" xml:space="preserve">
-    <value>Көлдерді қосыңыз</value>
+  <data name="MinValues" xml:space="preserve">
+    <value>Ең аз мәндер</value>
   </data>
-  <data name="Compare" xml:space="preserve">
-    <value>Салыстыру</value>
+  <data name="Mn" xml:space="preserve">
+    <value>Mn</value>
   </data>
-  <data name="Replace" xml:space="preserve">
-    <value>Ауыстыру</value>
+  <data name="ModeratelyTough" xml:space="preserve">
+    <value>Кермектігі орташа</value>
   </data>
-  <data name="FindKATO" xml:space="preserve">
-    <value>KATO-ны табыңыз</value>
-  </data>
-  <data name="noMetaData" xml:space="preserve">
-    <value>метадеректер жоқ</value>
-  </data>
-  <data name="Tags" xml:space="preserve">
-    <value>Тегтер</value>
-  </data>
-  <data name="DescriptionEN" xml:space="preserve">
-    <value>Сипаттама ағылшын тілінде</value>
-  </data>
-  <data name="DescriptionKK" xml:space="preserve">
-    <value>Сипаттама қазақ тілінде</value>
-  </data>
-  <data name="DescriptionRU" xml:space="preserve">
-    <value>Сипаттама орыс тілінде</value>
-  </data>
-  <data name="not3857" xml:space="preserve">
-    <value>Координаттар жүйесі EPSG:3857 емес</value>
-  </data>
-  <data name="not3857Changed" xml:space="preserve">
-    <value>Координаттар жүйесі EPSG:3857 емес. Өзгертілді.</value>
+  <data name="ModeratePollution" xml:space="preserve">
+    <value>Ластанудың орташа деңгейі</value>
   </data>
   <data name="Month" xml:space="preserve">
     <value>Ай</value>
@@ -657,206 +1053,188 @@
   <data name="MonthlyHistory" xml:space="preserve">
     <value>Айлар бойынша</value>
   </data>
-  <data name="Type" xml:space="preserve">
-    <value>Түрі</value>
-  </data>
-  <data name="UploadGeoTIFFFilesWater" xml:space="preserve">
-    <value>GeoTIFF файлдарын су арқылы жүктеңіз</value>
-  </data>
-  <data name="YearlyHistory" xml:space="preserve">
-    <value>Жылдар бойынша</value>
-  </data>
-  <data name="Folder" xml:space="preserve">
-    <value>Қалта</value>
-  </data>
-  <data name="PublishGeoTIFFWater" xml:space="preserve">
-    <value>GeoTIFF файлын жариялау (су)</value>
-  </data>
-  <data name="DeleteGeoTIFFFileWater" xml:space="preserve">
-    <value>GeoTIFF файлын су арқылы жойыңыз</value>
-  </data>
-  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
-    <value>GeoTIFF файлын судан жарияламаңыз</value>
-  </data>
-  <data name="GlobalSurfaceWater" xml:space="preserve">
-    <value>Жер үсті суы</value>
-  </data>
   <data name="MonthlyRecurrence" xml:space="preserve">
     <value>Орташа айлық деректер</value>
   </data>
-  <data name="IncludeWater" xml:space="preserve">
-    <value>Судың қабаттарын қамтиды</value>
+  <data name="MPCCd" xml:space="preserve">
+    <value>Cd бойынша ШРК мәні</value>
   </data>
-  <data name="AnalizeWater" xml:space="preserve">
-    <value>Көлдерді талдау</value>
+  <data name="MPCCo" xml:space="preserve">
+    <value>Co бойынша ШРК мәні</value>
   </data>
-  <data name="RasterValue" xml:space="preserve">
-    <value>Пиксельдік мән</value>
+  <data name="MPCCu" xml:space="preserve">
+    <value>Cu бойынша ШРК мәні</value>
   </data>
-  <data name="RasterValueStat" xml:space="preserve">
-    <value>Көлде пиксель мәндерінің статистикасы</value>
+  <data name="MPCExceeding" xml:space="preserve">
+    <value>Шекті рұқсат етілген концентрациядан асып кету коэффициенті</value>
   </data>
-  <data name="ZonalStatWater" xml:space="preserve">
-    <value>Зоналық статистика</value>
+  <data name="MPCMn" xml:space="preserve">
+    <value>Mn бойынша ШРК мәні</value>
   </data>
-  <data name="ZonalStatWaters" xml:space="preserve">
-    <value>Зоналық статистика</value>
+  <data name="MPCNH4" xml:space="preserve">
+    <value>NH₄ бойынша ШРК мәні</value>
   </data>
-  <data name="WaterType" xml:space="preserve">
-    <value>Су деректерінің түрі</value>
+  <data name="MPCNi" xml:space="preserve">
+    <value>Ni бойынша ШРК мәні</value>
   </data>
-  <data name="About" xml:space="preserve">
-    <value>Сайт туралы</value>
+  <data name="MPCNO2" xml:space="preserve">
+    <value>NO2 бойынша ШРК мәні</value>
   </data>
-  <data name="BackToTop" xml:space="preserve">
-    <value>Жоғары қарай</value>
+  <data name="MPCNO3" xml:space="preserve">
+    <value>NO₃ бойынша ШРК мәні</value>
   </data>
-  <data name="Contact" xml:space="preserve">
-    <value>Бізбен байланысыңыз</value>
+  <data name="MPCPb" xml:space="preserve">
+    <value>Pb бойынша ШРК мәні</value>
   </data>
-  <data name="Functions" xml:space="preserve">
-    <value>Функциялар</value>
+  <data name="MPCPPO4" xml:space="preserve">
+    <value>PPO₄ бойынша ШРК мәні</value>
   </data>
-  <data name="Information" xml:space="preserve">
-    <value>Ақпарат</value>
+  <data name="MPCZn" xml:space="preserve">
+    <value>Zn бойынша ШРК мәні</value>
   </data>
-  <data name="Lakes" xml:space="preserve">
-    <value>Көлдер</value>
+  <data name="NaK" xml:space="preserve">
+    <value>Na⁺+K⁺, натрий калий катиондары, мг-экв/дм³</value>
   </data>
-  <data name="Raster" xml:space="preserve">
-    <value>Растр</value>
+  <data name="NaKMg" xml:space="preserve">
+    <value>Na⁺+K⁺, натрий калий катиондары, мг/дм³</value>
   </data>
-  <data name="Rasters" xml:space="preserve">
-    <value>Шеберлер</value>
+  <data name="NaKMgEq" xml:space="preserve">
+    <value>Na⁺+K⁺, натрий калий катиондары, мг-экв/дм³</value>
   </data>
-  <data name="ShapeFiles" xml:space="preserve">
-    <value>Файлдарды құрастыру</value>
+  <data name="NaKPerEq" xml:space="preserve">
+    <value>Na⁺+K⁺, натрий калий катиондары,  %-экв</value>
   </data>
-  <data name="Tables" xml:space="preserve">
-    <value>Кестелер</value>
+  <data name="Name" xml:space="preserve">
+    <value>Атауы</value>
   </data>
-  <data name="ArchivalInfoSource" xml:space="preserve">
-    <value>Мұрағаттық ақпарат көзі</value>
+  <data name="NameEN" xml:space="preserve">
+    <value>Атауы (ағылшынша)</value>
   </data>
-  <data name="Area2015" xml:space="preserve">
-    <value>2015 жылға арналған көлдің айна ауданы, км2</value>
+  <data name="NameKK" xml:space="preserve">
+    <value>Атауы (қазақша)</value>
   </data>
-  <data name="LakeAbsoluteHeight" xml:space="preserve">
-    <value>Көлдің абсолютті биіктігі, м</value>
+  <data name="NameRU" xml:space="preserve">
+    <value>Атауы (орысша)</value>
   </data>
-  <data name="LakeLength" xml:space="preserve">
-    <value>Көлдің ұзындығы, км</value>
+  <data name="NeutralWaters" xml:space="preserve">
+    <value>Бейтарап сулар</value>
   </data>
-  <data name="LakeMaxDepth" xml:space="preserve">
-    <value>Көлдің максималды тереңдігі, м</value>
+  <data name="NewDocument" xml:space="preserve">
+    <value>Жаңа құжат</value>
   </data>
-  <data name="LakeMirrorArea" xml:space="preserve">
-    <value>Көлдің айна ауданы, км2</value>
+  <data name="NewPermanent" xml:space="preserve">
+    <value>Жаңа тұрақты</value>
   </data>
-  <data name="LakeShorelineLength" xml:space="preserve">
-    <value>Көл жағасының ұзындығы, км</value>
+  <data name="NewSeasonal" xml:space="preserve">
+    <value>Жаңа маусымдық</value>
   </data>
-  <data name="LakeWaterMass" xml:space="preserve">
-    <value>Көлдің су массасының көлемі, млн.м3</value>
+  <data name="NH" xml:space="preserve">
+    <value>NH</value>
   </data>
-  <data name="LakeWidth" xml:space="preserve">
-    <value>Көлдің ені, км</value>
+  <data name="NH4" xml:space="preserve">
+    <value>NH₄</value>
   </data>
-  <data name="SurveyYear" xml:space="preserve">
-    <value>Жылдық шолу</value>
+  <data name="Ni" xml:space="preserve">
+    <value>Ni</value>
   </data>
-  <data name="VHB" xml:space="preserve">
-    <value>Су қоймасының атауы</value>
+  <data name="NO2" xml:space="preserve">
+    <value>NO2</value>
   </data>
-  <data name="VHBEN" xml:space="preserve">
-    <value>Су бассейнінің атауы ағылшын тілінде</value>
+  <data name="NO3" xml:space="preserve">
+    <value>NO₃</value>
   </data>
-  <data name="VHBKK" xml:space="preserve">
-    <value>Қазақша су қоймасының атауы</value>
+  <data name="NoData" xml:space="preserve">
+    <value>Деректер жоқ</value>
   </data>
-  <data name="VHBRU" xml:space="preserve">
-    <value>Орыс тілінде су бассейнінің атауы</value>
+  <data name="noMetaData" xml:space="preserve">
+    <value>метадеректер жоқ</value>
   </data>
-  <data name="VHU" xml:space="preserve">
-    <value>Су объектісінің атауы</value>
+  <data name="NOT" xml:space="preserve">
+    <value>Емес</value>
   </data>
-  <data name="LakesArchiveData" xml:space="preserve">
-    <value>Көлдер архивінің деректері</value>
+  <data name="not3857" xml:space="preserve">
+    <value>Координаттар жүйесі EPSG:3857 емес</value>
   </data>
-  <data name="LakesArchiveDatas" xml:space="preserve">
-    <value>Көлдер архивінің деректері</value>
+  <data name="not3857Changed" xml:space="preserve">
+    <value>Координаттар жүйесі EPSG:3857 емес. Өзгертілді.</value>
   </data>
-  <data name="LakeShorelineLength2015" xml:space="preserve">
-    <value>Көл жағасының ұзындығы 2015 жылға, км</value>
+  <data name="notGeoTIFF" xml:space="preserve">
+    <value>GeoTIFF емес</value>
   </data>
-  <data name="Latitude" xml:space="preserve">
-    <value>Latitude</value>
+  <data name="notShape" xml:space="preserve">
+    <value>Shape-файл емес</value>
   </data>
-  <data name="Longitude" xml:space="preserve">
-    <value>Ұзындығы</value>
+  <data name="November" xml:space="preserve">
+    <value>Қараша</value>
   </data>
-  <data name="Adm1" xml:space="preserve">
-    <value>Ауданы</value>
+  <data name="NoWater" xml:space="preserve">
+    <value>Су жоқ, км²</value>
   </data>
-  <data name="Adm2" xml:space="preserve">
-    <value>Аудан</value>
+  <data name="NoСhange" xml:space="preserve">
+    <value>Өзгерістер жоқ</value>
   </data>
-  <data name="Adm3" xml:space="preserve">
-    <value>Ауыл ауданы</value>
+  <data name="Number" xml:space="preserve">
+    <value>Нөмірі</value>
   </data>
-  <data name="BasicInfoLake" xml:space="preserve">
-    <value>Көл туралы негізгі ақпарат</value>
+  <data name="Nutrients" xml:space="preserve">
+    <value>Биогендік заттар</value>
   </data>
-  <data name="Continent_ENG" xml:space="preserve">
-    <value>Континент ағылшын тілінде</value>
+  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
+    <value>Биогендік заттар мен ауыр металдар нормативі</value>
   </data>
-  <data name="Continent_KZ" xml:space="preserve">
-    <value>Қазақ тіліндегі континент</value>
+  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
+    <value>Биогендік заттар мен ауыр металдар нормативтері</value>
   </data>
-  <data name="Continent_RU" xml:space="preserve">
-    <value>Континент орыс тілінде</value>
+  <data name="Occurrence" xml:space="preserve">
+    <value>The Water Occurrence (Судың қайталануы)</value>
   </data>
-  <data name="Country_ENG" xml:space="preserve">
-    <value>Елдегі ағылшын тілінде</value>
+  <data name="OccurrenceChangeIntensity" xml:space="preserve">
+    <value>The Water Occurrence Change (Cудың өзеру қарқындылығы)</value>
   </data>
-  <data name="Country_KZ" xml:space="preserve">
-    <value>Қазақ тілі</value>
+  <data name="October" xml:space="preserve">
+    <value>Қазан</value>
   </data>
-  <data name="Country_RU" xml:space="preserve">
-    <value>Елдегі орыс тілінде</value>
+  <data name="Opacity" xml:space="preserve">
+    <value>Ашықтық</value>
   </data>
-  <data name="Depth_avg" xml:space="preserve">
-    <value>Көлдің орташа тереңдігі, м</value>
+  <data name="OR" xml:space="preserve">
+    <value>Немесе</value>
   </data>
-  <data name="Dis_avg" xml:space="preserve">
-    <value>Көлден ағып өтетін орташа көпжылдық ағынды, м3/сек</value>
+  <data name="OrganicSubstances" xml:space="preserve">
+    <value>Органикалық заттар, мгО/дм3</value>
   </data>
-  <data name="Elevation" xml:space="preserve">
-    <value>Көл бетінің теңіз деңгейінен алғандағы биіктігі, м</value>
+  <data name="Password" xml:space="preserve">
+    <value>Құпия сөз</value>
   </data>
-  <data name="Hylak_id" xml:space="preserve">
-    <value>Көлдің бірегей идентификаторы</value>
+  <data name="Pb" xml:space="preserve">
+    <value>Pb</value>
   </data>
-  <data name="LakeArchiveData" xml:space="preserve">
-    <value>Мұрағат көлі туралы ақпарат</value>
+  <data name="PercentOxygWater" xml:space="preserve">
+    <value>Судың еріген оттегімен қанығу проценті,%</value>
   </data>
-  <data name="LakesGlobalData" xml:space="preserve">
-    <value>Ғаламдық көлдер базасы</value>
+  <data name="Permanent" xml:space="preserve">
+    <value>Тұрақты</value>
   </data>
-  <data name="LakesGlobalDatas" xml:space="preserve">
-    <value>Ғаламдық көлдер базасы</value>
+  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
+    <value>Тұрақты және маусымдық су аудандарының динамикасы</value>
   </data>
-  <data name="Lake_area" xml:space="preserve">
-    <value>Көл айдынының ауданы, км2</value>
+  <data name="PermanentToDeasonal" xml:space="preserve">
+    <value>Тұрақты судан маусымды суға</value>
   </data>
-  <data name="Lake_name_ENG" xml:space="preserve">
-    <value>Ағылшын тіліндегі көлдің атауы</value>
+  <data name="PermanentWaterArea" xml:space="preserve">
+    <value>Тұрақты суд ауданы, км²</value>
   </data>
-  <data name="Lake_name_KZ" xml:space="preserve">
-    <value>Қазақ тіліндегі көлдің атауы</value>
+  <data name="PermanentWaterAreaPer" xml:space="preserve">
+    <value>Тұрақты судың ауданы,%</value>
   </data>
-  <data name="Lake_name_RU" xml:space="preserve">
-    <value>Көлдің орыс тіліндегі атауы</value>
+  <data name="pH" xml:space="preserve">
+    <value>рH мәні</value>
+  </data>
+  <data name="PotentialFishProducts" xml:space="preserve">
+    <value>Потенциалдық балық өнімділігі, кг/га</value>
+  </data>
+  <data name="PotentialGrowingVolume" xml:space="preserve">
+    <value>Балық өсірудің потенциалдық көлемі, кг/га</value>
   </data>
   <data name="Pour_lat" xml:space="preserve">
     <value>Ендік</value>
@@ -864,8 +1242,149 @@
   <data name="Pour_long" xml:space="preserve">
     <value>Бойлық</value>
   </data>
+  <data name="PPO" xml:space="preserve">
+    <value>PPO</value>
+  </data>
+  <data name="PPO4" xml:space="preserve">
+    <value>PPO₄</value>
+  </data>
+  <data name="Precipitation" xml:space="preserve">
+    <value>Жауын-шашын, млн.м³</value>
+  </data>
+  <data name="PrecipitationPer" xml:space="preserve">
+    <value>Жауын-шашын,%</value>
+  </data>
+  <data name="Precipitations" xml:space="preserve">
+    <value>Жауын-шашын</value>
+  </data>
+  <data name="PreviousDocument" xml:space="preserve">
+    <value>Алдыңғы құжат</value>
+  </data>
+  <data name="Publish" xml:space="preserve">
+    <value>Жариялау</value>
+  </data>
+  <data name="PublishDescription" xml:space="preserve">
+    <value>Файл мөлшері 1 Гб-тан аспауы керек. Файлдар zip мұрағатында болуы мүмкін.</value>
+  </data>
+  <data name="PublishGeoTIFF" xml:space="preserve">
+    <value>GeoTIFF файлын жариялау</value>
+  </data>
+  <data name="PublishGeoTIFFWater" xml:space="preserve">
+    <value>GeoTIFF файлын жариялау (су)</value>
+  </data>
+  <data name="PublishLayer" xml:space="preserve">
+    <value>Растрлық қабатты жариялау</value>
+  </data>
+  <data name="PublishShape" xml:space="preserve">
+    <value>Shp-файлын жариялау</value>
+  </data>
+  <data name="QualitativeAssessment" xml:space="preserve">
+    <value>Сапалы бағалау</value>
+  </data>
+  <data name="Raster" xml:space="preserve">
+    <value>Растр</value>
+  </data>
+  <data name="Rasters" xml:space="preserve">
+    <value>Растрлар</value>
+  </data>
+  <data name="RasterValue" xml:space="preserve">
+    <value>Пиксельдің мәні</value>
+  </data>
+  <data name="RasterValueStat" xml:space="preserve">
+    <value>Көлдегі пиксель мәндерінің статистикасы</value>
+  </data>
+  <data name="RecommendedUse" xml:space="preserve">
+    <value>Ұсынылған қолдану</value>
+  </data>
+  <data name="Recurrence" xml:space="preserve">
+    <value>The Annual Water Recurrence (Судың қайтуы)</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Ауданы</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Тіркеу </value>
+  </data>
+  <data name="RegisterAsANewUser" xml:space="preserve">
+    <value>Жаңа пайдаланушы ретінде тіркелу керек пе?</value>
+  </data>
+  <data name="Regulatory" xml:space="preserve">
+    <value>Нормативті таза</value>
+  </data>
+  <data name="RegulatoryDocument" xml:space="preserve">
+    <value>Нормативтік құжат</value>
+  </data>
+  <data name="RegulatoryDocuments" xml:space="preserve">
+    <value>Нормативтік құжаттар</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Мені есте сақтау?</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Жою</value>
+  </data>
+  <data name="Replace" xml:space="preserve">
+    <value>Ауыстыру</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Қалпына келтіру</value>
+  </data>
   <data name="Res_time" xml:space="preserve">
-    <value>Көлде су болуының орташа уақыты, күндер</value>
+    <value>Көлде судың болуының орташа уақыты, күндер</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Рөлдер</value>
+  </data>
+  <data name="Row" xml:space="preserve">
+    <value>Қатар</value>
+  </data>
+  <data name="SaltyPart" xml:space="preserve">
+    <value>Тұзды бөлігі</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сақтау</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Іздеу</value>
+  </data>
+  <data name="SearchByLakeName" xml:space="preserve">
+    <value>Көлдің аты бойынша іздеу</value>
+  </data>
+  <data name="Seasonal" xml:space="preserve">
+    <value>Маусымдық</value>
+  </data>
+  <data name="Seasonalit" xml:space="preserve">
+    <value>Судың айларда болуы</value>
+  </data>
+  <data name="Seasonalits" xml:space="preserve">
+    <value>The Water Seasonality (Судың жыл айларында болуы)</value>
+  </data>
+  <data name="SeasonalitUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың тәртібі: Көл Id, деректер жоқ, қаңтар, ақпан, наурыз, сәуір, мамыр, маусым, шілде, тамыз, қыркүйек, қазан, қараша, желтоқсан</value>
+  </data>
+  <data name="Seasonality" xml:space="preserve">
+    <value>The Water Seasonality (Судың жыл айларында болуы)</value>
+  </data>
+  <data name="SeasonalToPermanent" xml:space="preserve">
+    <value>Маусымдық  судан тұрақты суға ауысқан сулар</value>
+  </data>
+  <data name="SeasonalWaterArea" xml:space="preserve">
+    <value>Маусымды судың ауданы, км²</value>
+  </data>
+  <data name="SeasonalWaterAreaPer" xml:space="preserve">
+    <value>Маусымдық су көлемі,%</value>
+  </data>
+  <data name="September" xml:space="preserve">
+    <value>Қыркүйек</value>
+  </data>
+  <data name="ShapeFile" xml:space="preserve">
+    <value>Shape-файл</value>
+  </data>
+  <data name="ShapeFiles" xml:space="preserve">
+    <value>Shape-файлдар</value>
+  </data>
+  <data name="ShoreIrregularityRatio" xml:space="preserve">
+    <value>Жағалаудың тілімдену коэффициенті</value>
   </data>
   <data name="Shore_dev" xml:space="preserve">
     <value>Жағалау сызығының тілімденуі</value>
@@ -873,347 +1392,203 @@
   <data name="Shore_len" xml:space="preserve">
     <value>Жағалау сызығының ұзындығы, км</value>
   </data>
+  <data name="Show" xml:space="preserve">
+    <value>Көрсету</value>
+  </data>
   <data name="Slope_100" xml:space="preserve">
-    <value>Көл айналасының 100-метрлік буфері шегіндегі орташа еңістік, градус</value>
+    <value>Көл айналасындағы 100-метрлік буферлік аумақтың орташа еңістік, градус</value>
   </data>
-  <data name="Vol_total" xml:space="preserve">
-    <value>Көлдің жалпы көлемі, млн.м3</value>
-  </data>
-  <data name="Wshd_area" xml:space="preserve">
-    <value>Сужинау ауданы, км2</value>
-  </data>
-  <data name="LakeGlobalData" xml:space="preserve">
-    <value>Әлемдік базадан көл туралы ақпарат</value>
-  </data>
-  <data name="Continent" xml:space="preserve">
-    <value>Континент</value>
-  </data>
-  <data name="Country" xml:space="preserve">
-    <value>Ел</value>
-  </data>
-  <data name="Lake_name" xml:space="preserve">
-    <value>Көлдің аты</value>
-  </data>
-  <data name="Discrepancy" xml:space="preserve">
-    <value>Сәйкестік</value>
-  </data>
-  <data name="File" xml:space="preserve">
-    <value>Файл</value>
-  </data>
-  <data name="FirstRowHeader" xml:space="preserve">
-    <value>Бірінші баған - тақырып.</value>
-  </data>
-  <data name="Row" xml:space="preserve">
-    <value>String</value>
-  </data>
-  <data name="UploadedCount" xml:space="preserve">
-    <value>Барлығы жүктеп салынды</value>
-  </data>
-  <data name="WaterBalance" xml:space="preserve">
-    <value>Су балансы</value>
-  </data>
-  <data name="WaterBalanceExpenditure" xml:space="preserve">
-    <value>Су теңгерімінің шығыс бөлігі</value>
-  </data>
-  <data name="WaterBalanceReceipt" xml:space="preserve">
-    <value>Су балансының түсуі</value>
-  </data>
-  <data name="WaterBalances" xml:space="preserve">
-    <value>Су балансы</value>
-  </data>
-  <data name="WaterBalanceUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандар тәртібі: Id Id, жыл, бетінің ағуы, беткі шығысы, жер асты ағыны, жер асты ағыны, жауын-шашын, булану</value>
-  </data>
-  <data name="ShoreIrregularityRatio" xml:space="preserve">
-    <value>Жағалаудың қателігі коэффициенті</value>
-  </data>
-  <data name="LakeUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағанның тәртібі: көлдің Id атауы, қазақ тіліндегі көлдің атауы, орыс тіліндегі көлдің атауы, ағылшын тіліндегі көлдің атауы, қазақша су қоймасының атауы, орысша су бассейнінің атауы, ағылшын тіліндегі су бассейнінің атауы, су секторының атауы, Id көл жүйесі, ұзындығы 2015 жылға арналған көл жағасында, көлдің айна ауданы үшін 2015, бойлық, ендік</value>
-  </data>
-  <data name="Brackish" xml:space="preserve">
-    <value>Тығыздық</value>
-  </data>
-  <data name="Brine" xml:space="preserve">
-    <value>Пицца</value>
-  </data>
-  <data name="Fresh" xml:space="preserve">
-    <value>Таза</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicator" xml:space="preserve">
-    <value>Жалпы гидрохимиялық көрсеткіштер</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicators" xml:space="preserve">
-    <value>Жалпы гидрохимиялық көрсеткіштер</value>
-  </data>
-  <data name="MarineSalinity" xml:space="preserve">
-    <value>Теңіз тұздығы</value>
-  </data>
-  <data name="MineralizationType" xml:space="preserve">
-    <value>Минерализация түрі</value>
-  </data>
-  <data name="AcidityOfWaterDegree" xml:space="preserve">
-    <value>Судың қышқылдық дәрежесі</value>
-  </data>
-  <data name="AlkalineWater" xml:space="preserve">
-    <value>Алкалин суы</value>
-  </data>
-  <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
-    <value>Судағы ерітілген оттегі деңгейі</value>
-  </data>
-  <data name="ExtremelyHighLevelsPollution" xml:space="preserve">
-    <value>Ластанудың өте жоғары деңгейі</value>
-  </data>
-  <data name="HighPollution" xml:space="preserve">
-    <value>Жоғары ластану</value>
-  </data>
-  <data name="ModeratelyTough" xml:space="preserve">
-    <value>Орташа қатаң</value>
-  </data>
-  <data name="ModeratePollution" xml:space="preserve">
-    <value>Орташа ластану</value>
-  </data>
-  <data name="NeutralWaters" xml:space="preserve">
-    <value>Бейтарап сулар</value>
-  </data>
-  <data name="Regulatory" xml:space="preserve">
-    <value>Заңнамалық</value>
-  </data>
-  <data name="Soft" xml:space="preserve">
-    <value>Жұмсақ</value>
-  </data>
-  <data name="SourWater" xml:space="preserve">
-    <value>Қышқыл су</value>
-  </data>
-  <data name="StronglyAcidicWater" xml:space="preserve">
-    <value>Қатты қышқыл су</value>
-  </data>
-  <data name="StronglyAlkalineWater" xml:space="preserve">
-    <value>Қатты сілтілі су</value>
-  </data>
-  <data name="SubacidWaters" xml:space="preserve">
-    <value>Суасты сулар</value>
-  </data>
-  <data name="Tough" xml:space="preserve">
-    <value>Күшті</value>
-  </data>
-  <data name="VerySoft" xml:space="preserve">
-    <value>Өте жұмсақ</value>
-  </data>
-  <data name="VeryTough" xml:space="preserve">
-    <value>Өте қатал</value>
-  </data>
-  <data name="WaterHardness" xml:space="preserve">
-    <value>Судың кермектігі</value>
-  </data>
-  <data name="WeakAlkalineWater" xml:space="preserve">
-    <value>Әлсіз сілтілік су</value>
-  </data>
-  <data name="AnionsSumMgEq" xml:space="preserve">
-    <value>MEq / dm³ көлеміндегі аниондардың мөлшері</value>
-  </data>
-  <data name="CaMg" xml:space="preserve">
-    <value>Ca²⁺, кальций катиондары, мг / дм³</value>
-  </data>
-  <data name="CaMgEq" xml:space="preserve">
-    <value>Ca²⁺, кальций иондар, % экв</value>
-  </data>
-  <data name="CaPerEq" xml:space="preserve">
-    <value>Ca²⁺, кальций катиондары,% экв</value>
-  </data>
-  <data name="CationsSumMgEq" xml:space="preserve">
-    <value>Мэк / дм³-де катионның сомалары</value>
-  </data>
-  <data name="ClMg" xml:space="preserve">
-    <value>Cl⁻, хлорлы аниондар, мг / дм³</value>
-  </data>
-  <data name="ClMgEq" xml:space="preserve">
-    <value>Cl⁻, хлорлы иондар, % экв</value>
-  </data>
-  <data name="ClPerEq" xml:space="preserve">
-    <value>Cl⁻, хлорлы аниондар,% экв</value>
-  </data>
-  <data name="HCOMg" xml:space="preserve">
-    <value>HCO₃⁻, көмірсутекті аниондар, мг / дм³</value>
-  </data>
-  <data name="HCOMgEq" xml:space="preserve">
-    <value>HCO₃⁻, көмірсутекті иондар, % экв</value>
-  </data>
-  <data name="HCOPerEq" xml:space="preserve">
-    <value>HCO₃⁻, көмірсутекті аниондар,% экв</value>
-  </data>
-  <data name="IonsaltWaterComposition" xml:space="preserve">
-    <value>Судың ион-тұзды құрамы</value>
-  </data>
-  <data name="IonsaltWaterCompositions" xml:space="preserve">
-    <value>Судың ион-тұзды құрамы</value>
-  </data>
-  <data name="IonsSumMgEq" xml:space="preserve">
-    <value>МЭк / дм³-де иондардың мөлшері</value>
-  </data>
-  <data name="IonsSumPerEq" xml:space="preserve">
-    <value>Иондық мөлшердегі% eq</value>
-  </data>
-  <data name="MgMg" xml:space="preserve">
-    <value>Mg²⁺, магний катиондары, мг / дм³</value>
-  </data>
-  <data name="MgMgEq" xml:space="preserve">
-    <value>Mg²⁺, магний иондар, % eq</value>
-  </data>
-  <data name="MgPerEq" xml:space="preserve">
-    <value>Mg²⁺, магний катиондары,% eq</value>
-  </data>
-  <data name="NaKMg" xml:space="preserve">
-    <value>Na⁺ + K⁺, натрий калий катиондары, мг / дм³</value>
-  </data>
-  <data name="NaKMgEq" xml:space="preserve">
-    <value>Na⁺ + K⁺, натрий калий иондар, % экв</value>
-  </data>
-  <data name="NaKPerEq" xml:space="preserve">
-    <value>Na⁺ + K⁺, натрий калий катиондары,% экв</value>
-  </data>
-  <data name="SOMg" xml:space="preserve">
-    <value>SO₄²⁻, сульфатты аниондар, мг / дм³</value>
-  </data>
-  <data name="SOMgEq" xml:space="preserve">
-    <value>SO₄²⁻, сульфатты иондар, % экв</value>
-  </data>
-  <data name="SOPerEq" xml:space="preserve">
-    <value>SO₄²⁻, сульфатты аниондар,% экв</value>
-  </data>
-  <data name="CalciumGroup" xml:space="preserve">
-    <value>Cа</value>
-  </data>
-  <data name="Cd" xml:space="preserve">
-    <value>Кадмий Cd</value>
-  </data>
-  <data name="ChlorideClass" xml:space="preserve">
-    <value>Cl</value>
-  </data>
-  <data name="Co" xml:space="preserve">
-    <value>Кобальт Co</value>
-  </data>
-  <data name="Cu" xml:space="preserve">
-    <value>Мыс Cu</value>
-  </data>
-  <data name="DocumentType" xml:space="preserve">
-    <value>Құжат түрі</value>
-  </data>
-  <data name="DocumentTypes" xml:space="preserve">
-    <value>Құжаттардың түрлері</value>
-  </data>
-  <data name="Group" xml:space="preserve">
-    <value>Топ</value>
-  </data>
-  <data name="HydrocarbonateCarbonateClass" xml:space="preserve">
-    <value>C</value>
-  </data>
-  <data name="IZVCd" xml:space="preserve">
-    <value>IZV Cd</value>
-  </data>
-  <data name="IZVCo" xml:space="preserve">
-    <value>IZV Co</value>
-  </data>
-  <data name="IZVCu" xml:space="preserve">
-    <value>IZV Cu</value>
-  </data>
-  <data name="IZVMn" xml:space="preserve">
-    <value>СМИ</value>
-  </data>
-  <data name="IZVNH4" xml:space="preserve">
-    <value>IZV NH₄</value>
-  </data>
-  <data name="IZVNi" xml:space="preserve">
-    <value>IZV Ni</value>
-  </data>
-  <data name="IZVNO2" xml:space="preserve">
-    <value>IZV NO2</value>
-  </data>
-  <data name="IZVNO3" xml:space="preserve">
-    <value>IZV NO₃</value>
-  </data>
-  <data name="IZVPb" xml:space="preserve">
-    <value>IZV Pb</value>
-  </data>
-  <data name="IZVPPO4" xml:space="preserve">
-    <value>IZV PPO₄</value>
-  </data>
-  <data name="IZVZn" xml:space="preserve">
-    <value>IZV Zn</value>
-  </data>
-  <data name="KIZV" xml:space="preserve">
-    <value>KIZV</value>
-  </data>
-  <data name="KIZVkoCd" xml:space="preserve">
-    <value>KIZVko Cd</value>
-  </data>
-  <data name="KIZVkoCo" xml:space="preserve">
-    <value>KIZVko Co.</value>
-  </data>
-  <data name="KIZVkoCu" xml:space="preserve">
-    <value>KIZVko Cu</value>
-  </data>
-  <data name="KIZVkoMn" xml:space="preserve">
-    <value>KIZVko Mn</value>
-  </data>
-  <data name="KIZVkoNH4" xml:space="preserve">
-    <value>KIZVko NH₄</value>
-  </data>
-  <data name="KIZVkoNi" xml:space="preserve">
-    <value>KIZVko Ni</value>
-  </data>
-  <data name="KIZVkoNO2" xml:space="preserve">
-    <value>KIZVko NO2</value>
-  </data>
-  <data name="KIZVkoNO3" xml:space="preserve">
-    <value>КОЗВКО NO₃</value>
-  </data>
-  <data name="KIZVkoPb" xml:space="preserve">
-    <value>KIZVko Pb</value>
-  </data>
-  <data name="KIZVkoPPO4" xml:space="preserve">
-    <value>KIZVko PPO₄</value>
-  </data>
-  <data name="KIZVkoZn" xml:space="preserve">
-    <value>KIZVko Zn</value>
-  </data>
-  <data name="KurlovFormula" xml:space="preserve">
-    <value>М Курловтың химиялық құрамының формуласы</value>
-  </data>
-  <data name="MagnesiumGroup" xml:space="preserve">
-    <value>Mg</value>
-  </data>
-  <data name="Mn" xml:space="preserve">
-    <value>Марганец Mn</value>
-  </data>
-  <data name="NH4" xml:space="preserve">
-    <value>Аммоний ионы NH₄⁺</value>
-  </data>
-  <data name="Ni" xml:space="preserve">
-    <value>Никель Ni</value>
-  </data>
-  <data name="NO2" xml:space="preserve">
-    <value>Нитрит анионы NO₂⁻</value>
-  </data>
-  <data name="NO3" xml:space="preserve">
-    <value>Нитратты анион NO₃⁻</value>
-  </data>
-  <data name="Pb" xml:space="preserve">
-    <value>Қорғасын Pb</value>
-  </data>
-  <data name="PPO4" xml:space="preserve">
-    <value>Фосфаттар PPO₄⁻</value>
+  <data name="SO" xml:space="preserve">
+    <value>SO₄²⁻, сульфатты аниондар, мг-экв/дм³</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value>Na</value>
   </data>
+  <data name="Soft" xml:space="preserve">
+    <value>Жұмсақ</value>
+  </data>
+  <data name="SOMg" xml:space="preserve">
+    <value>SO₄²⁻, сульфатты аниондар, мг/дм³</value>
+  </data>
+  <data name="SOMgEq" xml:space="preserve">
+    <value>SO₄²⁻, сульфатты аниондар, мг-экв/дм³</value>
+  </data>
+  <data name="SOPerEq" xml:space="preserve">
+    <value>SO₄²⁻, сульфатты аниондар,%-экв</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Көзі</value>
+  </data>
+  <data name="SourWater" xml:space="preserve">
+    <value>Қышқыл сулар</value>
+  </data>
+  <data name="SpeciesWealthIndex" xml:space="preserve">
+    <value>Түрлердің байлық индексі, бірлік</value>
+  </data>
+  <data name="StronglyAcidicWater" xml:space="preserve">
+    <value>Өте қышқыл су</value>
+  </data>
+  <data name="StronglyAlkalineWater" xml:space="preserve">
+    <value>Өте сілтілі су</value>
+  </data>
+  <data name="StyleEvaporation" xml:space="preserve">
+    <value>Булану стилі</value>
+  </data>
+  <data name="StyleHydrochemistryCa" xml:space="preserve">
+    <value>Кальций катиондарының стилі</value>
+  </data>
+  <data name="StyleHydrochemistryCd" xml:space="preserve">
+    <value>Cd стилі</value>
+  </data>
+  <data name="StyleHydrochemistryCIWP" xml:space="preserve">
+    <value>Қауіптілік класын ескере отырып есептелген СЛКИ стилі</value>
+  </data>
+  <data name="StyleHydrochemistryCl" xml:space="preserve">
+    <value>Хлоридті аниондардың стилі</value>
+  </data>
+  <data name="StyleHydrochemistryCo" xml:space="preserve">
+    <value>Co стилі</value>
+  </data>
+  <data name="StyleHydrochemistryCu" xml:space="preserve">
+    <value>Cu стилі</value>
+  </data>
+  <data name="StyleHydrochemistryDissOxygWater" xml:space="preserve">
+    <value>Суда еріген оттегі стилі</value>
+  </data>
+  <data name="StyleHydrochemistryHCO" xml:space="preserve">
+    <value>Гидрокоронатты аниондар стилі</value>
+  </data>
+  <data name="StyleHydrochemistryMg" xml:space="preserve">
+    <value>Магний катиондарының стилі</value>
+  </data>
+  <data name="StyleHydrochemistryMineralization" xml:space="preserve">
+    <value>Минерализация стилі</value>
+  </data>
+  <data name="StyleHydrochemistryMn" xml:space="preserve">
+    <value>Mn стиль </value>
+  </data>
+  <data name="StyleHydrochemistryNaK" xml:space="preserve">
+    <value>Натрий калий катиондарының стилі</value>
+  </data>
+  <data name="StyleHydrochemistryNH" xml:space="preserve">
+    <value>NH стилі</value>
+  </data>
+  <data name="StyleHydrochemistryNi" xml:space="preserve">
+    <value> Ni стилі</value>
+  </data>
+  <data name="StyleHydrochemistryNO2" xml:space="preserve">
+    <value>NO2 стилі</value>
+  </data>
+  <data name="StyleHydrochemistryNO3" xml:space="preserve">
+    <value>NO3 стилі</value>
+  </data>
+  <data name="StyleHydrochemistryOrganicSubstances" xml:space="preserve">
+    <value>Органикалық заттардың стилі</value>
+  </data>
+  <data name="StyleHydrochemistryPb" xml:space="preserve">
+    <value>Pb стилі</value>
+  </data>
+  <data name="StyleHydrochemistryPercentOxygWater" xml:space="preserve">
+    <value>Қанығу процентінің стилі</value>
+  </data>
+  <data name="StyleHydrochemistrypH" xml:space="preserve">
+    <value>рH стилі</value>
+  </data>
+  <data name="StyleHydrochemistryPPO" xml:space="preserve">
+    <value>PPO стилі</value>
+  </data>
+  <data name="StyleHydrochemistrySO" xml:space="preserve">
+    <value>Сульфатты аниондар стилі</value>
+  </data>
+  <data name="StyleHydrochemistryTotalHardness" xml:space="preserve">
+    <value>Судың жалпы кермектік стилі</value>
+  </data>
+  <data name="StyleHydrochemistryZn" xml:space="preserve">
+    <value>Zn стилі</value>
+  </data>
+  <data name="StylePrecipitation" xml:space="preserve">
+    <value>Жауын-шашын стилі</value>
+  </data>
+  <data name="StyleSurfaceFlow" xml:space="preserve">
+    <value>Жер беті ағындарының стилі</value>
+  </data>
+  <data name="StyleSurfaceOutflow" xml:space="preserve">
+    <value>Жербеті ағынының ағып кету стилі</value>
+  </data>
+  <data name="StyleUndergroundFlow" xml:space="preserve">
+    <value>Жерасты ағынының ағып келу стилі</value>
+  </data>
+  <data name="StyleUndergroundOutflow" xml:space="preserve">
+    <value>Жерасты ағынының ағып кету стилі</value>
+  </data>
+  <data name="StyleWaterLevel" xml:space="preserve">
+    <value>Көл суы деңгейінің стилі</value>
+  </data>
+  <data name="SubacidWaters" xml:space="preserve">
+    <value>Әлсіз қышқылды сулар</value>
+  </data>
   <data name="SulphateClass" xml:space="preserve">
     <value>S</value>
   </data>
+  <data name="SurfaceFlow" xml:space="preserve">
+    <value>Жербеті ағынының келуі, млн.м³</value>
+  </data>
+  <data name="SurfaceFlowPer" xml:space="preserve">
+    <value>Беттік ағыны,%</value>
+  </data>
+  <data name="SurfaceFlows" xml:space="preserve">
+    <value>Жербеті ағындары</value>
+  </data>
+  <data name="SurfaceOutflow" xml:space="preserve">
+    <value>Жербеті ағынының ағып кетуі, млн.м³</value>
+  </data>
+  <data name="SurfaceOutflowPer" xml:space="preserve">
+    <value>Беткі шығыс,%</value>
+  </data>
+  <data name="SurfaceOutflows" xml:space="preserve">
+    <value>Жербеті ағындарының ағып кетуі</value>
+  </data>
+  <data name="SurveyYear" xml:space="preserve">
+    <value>Топографиялық зерттеу жылы</value>
+  </data>
+  <data name="Table" xml:space="preserve">
+    <value>Кесте</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Кестелер</value>
+  </data>
+  <data name="Tags" xml:space="preserve">
+    <value>Тегтер</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Барлығы</value>
+  </data>
+  <data name="TotalHardness" xml:space="preserve">
+    <value>Судың жалпы кермектігі, мг-экв/дм³</value>
+  </data>
+  <data name="Tough" xml:space="preserve">
+    <value>Кермек </value>
+  </data>
   <data name="ToxicologicalIndicator" xml:space="preserve">
-    <value>Токсикологиялық көрсеткіштер</value>
+    <value>Токсикологиялық көрсеткіш</value>
   </data>
   <data name="ToxicologicalIndicators" xml:space="preserve">
     <value>Токсикологиялық көрсеткіштер</value>
+  </data>
+  <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: Көл Id, жыл, көлдің бөлігі, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
+  </data>
+  <data name="Transition" xml:space="preserve">
+    <value>Өту</value>
+  </data>
+  <data name="Transitions" xml:space="preserve">
+    <value>The Water Transitions (Су жағдайының өзгеруі) </value>
+  </data>
+  <data name="TransitionUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: көл Id, өзгеріссіз, тұрақты, жаңа тұрақты, жоғалған тұрақты, маусымдық, жаңа маусымдық, жоғалған маусымдық, маусымдық судан тұрақты суға ауысқан сулар, тұрақты судан маусымдық суға ауысқан сулар, тұрақты эфемерлік сулар, маусымдық эфемерлік сулар</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Типі</value>
   </data>
   <data name="Type1" xml:space="preserve">
     <value>I</value>
@@ -1227,526 +1602,175 @@
   <data name="Type4" xml:space="preserve">
     <value>IV</value>
   </data>
-  <data name="WaterClass" xml:space="preserve">
-    <value>Су классы</value>
+  <data name="UndergroundFlow" xml:space="preserve">
+    <value>Жерасты ағынының келуі, млн.м3</value>
   </data>
-  <data name="WatersType" xml:space="preserve">
-    <value>Судың түрі</value>
+  <data name="UndergroundFlowPer" xml:space="preserve">
+    <value>Жерасты ағыны,%</value>
   </data>
-  <data name="Zn" xml:space="preserve">
-    <value>Мырыш Zn</value>
+  <data name="UndergroundFlows" xml:space="preserve">
+    <value>Жерасты ағындары</value>
   </data>
-  <data name="Archival" xml:space="preserve">
-    <value>Мұрағат</value>
+  <data name="UndergroundOutflow" xml:space="preserve">
+    <value>Жерасты ағынының ағып кетуі,млн.м³</value>
   </data>
-  <data name="DeletingJustification" xml:space="preserve">
-    <value>Құжатты жою үшін негіздеме</value>
+  <data name="UndergroundOutflowPer" xml:space="preserve">
+    <value>Жерасты шығару,%</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Сипаттама</value>
+  <data name="UndergroundOutflows" xml:space="preserve">
+    <value>Жерастымен ағындарының ағып кетуі</value>
   </data>
-  <data name="Download" xml:space="preserve">
+  <data name="Unpublish" xml:space="preserve">
+    <value>Жарияламау</value>
+  </data>
+  <data name="UnpublishGeoTIFF" xml:space="preserve">
+    <value>GeoTIFF файлын жарияламаңыз</value>
+  </data>
+  <data name="UnpublishGeoTIFFWater" xml:space="preserve">
+    <value>Су бойынша GeoTIFF файлын жарияламаңыз</value>
+  </data>
+  <data name="UnpublishShape" xml:space="preserve">
+    <value>Shape-файлды жарияламау</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Жаңарту</value>
+  </data>
+  <data name="UpdateLakeLayerStyle" xml:space="preserve">
+    <value>Көл қабаты стилін жаңарту</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
     <value>Жүктеу</value>
   </data>
-  <data name="ForceEntryDay" xml:space="preserve">
-    <value>Күшіне ену күні</value>
+  <data name="uploaded" xml:space="preserve">
+    <value>Жүктелді</value>
   </data>
-  <data name="ForceEntryDayDateYear" xml:space="preserve">
-    <value>Күшіне ену күні (жылы)</value>
+  <data name="UploadedCount" xml:space="preserve">
+    <value>Жүктелгендердің барлығы</value>
   </data>
-  <data name="ForceEntryMonth" xml:space="preserve">
-    <value>Күшіне ену айлығы</value>
+  <data name="UploadGeoTIFFFiles" xml:space="preserve">
+    <value>GeoTIFF-файлдарды жүктеу</value>
   </data>
-  <data name="ForceEntryYear" xml:space="preserve">
-    <value>Күшіне енген жылы</value>
+  <data name="UploadGeoTIFFFilesWater" xml:space="preserve">
+    <value>Су бойынша GeoTIFF-файлдарын жүктеңіз</value>
   </data>
-  <data name="NewDocument" xml:space="preserve">
-    <value>Жаңа құжат</value>
-  </data>
-  <data name="Number" xml:space="preserve">
-    <value>Нөмірі</value>
-  </data>
-  <data name="PreviousDocument" xml:space="preserve">
-    <value>Алдыңғы құжат</value>
-  </data>
-  <data name="RegulatoryDocument" xml:space="preserve">
-    <value>Нормативтік құжат</value>
-  </data>
-  <data name="RegulatoryDocuments" xml:space="preserve">
-    <value>Нормативтік құжаттар</value>
-  </data>
-  <data name="Directories" xml:space="preserve">
-    <value>Анықтамалар</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicatorStandard" xml:space="preserve">
-    <value>Жалпы гидрохимиялық көрсеткіштердің стандарттары</value>
-  </data>
-  <data name="GeneralHydrochemicalIndicatorStandards" xml:space="preserve">
-    <value>Жалпы гидрохимиялық көрсеткіштердің стандарттары</value>
-  </data>
-  <data name="HazardClassCd" xml:space="preserve">
-    <value>Қауіптілік класы Cd</value>
-  </data>
-  <data name="HazardClassCo" xml:space="preserve">
-    <value>Hazard Class Co.</value>
-  </data>
-  <data name="HazardClassCu" xml:space="preserve">
-    <value>Cu қауіп классы</value>
-  </data>
-  <data name="HazardClassMn" xml:space="preserve">
-    <value>Қауіптілік класы Mn</value>
-  </data>
-  <data name="HazardClassNH4" xml:space="preserve">
-    <value>NHS қауіптілік класы</value>
-  </data>
-  <data name="HazardClassNi" xml:space="preserve">
-    <value>Ni қауіптілік класы</value>
-  </data>
-  <data name="HazardClassNO2" xml:space="preserve">
-    <value>NO2 қауіп классы</value>
-  </data>
-  <data name="HazardClassNO3" xml:space="preserve">
-    <value>Қауіпті класс NO₃</value>
-  </data>
-  <data name="HazardClassPb" xml:space="preserve">
-    <value>Қауіптілік класы Pb</value>
-  </data>
-  <data name="HazardClassPPO4" xml:space="preserve">
-    <value>Қауіптілік класы PPO PP</value>
-  </data>
-  <data name="HazardClassZn" xml:space="preserve">
-    <value>Қауіптілік класы Zn</value>
-  </data>
-  <data name="Hydrology" xml:space="preserve">
-    <value>Гидрология</value>
-  </data>
-  <data name="Indicator" xml:space="preserve">
-    <value>Көрсеткіш</value>
-  </data>
-  <data name="LowerLimit" xml:space="preserve">
-    <value>Төменгі шек</value>
-  </data>
-  <data name="MeasurementUnit" xml:space="preserve">
-    <value>Өлшем бірлігі</value>
-  </data>
-  <data name="MeasurementUnits" xml:space="preserve">
-    <value>Өлшем бірлік</value>
-  </data>
-  <data name="MPCCd" xml:space="preserve">
-    <value>MPC Cd мәні</value>
-  </data>
-  <data name="MPCCo" xml:space="preserve">
-    <value>MPC Co мәні</value>
-  </data>
-  <data name="MPCCu" xml:space="preserve">
-    <value>MPC мәні Cu</value>
-  </data>
-  <data name="MPCMn" xml:space="preserve">
-    <value>MPN мәні Mn</value>
-  </data>
-  <data name="MPCNH4" xml:space="preserve">
-    <value>MPC мәні NH₄</value>
-  </data>
-  <data name="MPCNi" xml:space="preserve">
-    <value>MPC мәні Ni</value>
-  </data>
-  <data name="MPCNO2" xml:space="preserve">
-    <value>MPC мәні NO2</value>
-  </data>
-  <data name="MPCNO3" xml:space="preserve">
-    <value>MPC мәні NO₃</value>
-  </data>
-  <data name="MPCPb" xml:space="preserve">
-    <value>MPC мәні Pb</value>
-  </data>
-  <data name="MPCPPO4" xml:space="preserve">
-    <value>MPC мәні PPO₄</value>
-  </data>
-  <data name="MPCZn" xml:space="preserve">
-    <value>MPC мәні Zn</value>
-  </data>
-  <data name="NutrientsHeavyMetalsStandard" xml:space="preserve">
-    <value>Қоректік заттар мен ауыр металдардың стандарты</value>
-  </data>
-  <data name="NutrientsHeavyMetalsStandards" xml:space="preserve">
-    <value>Қоректік заттар мен ауыр металдардың стандарттары</value>
+  <data name="UploadShapeFiles" xml:space="preserve">
+    <value>Shape файлдарды жүктеу</value>
   </data>
   <data name="UpperLimit" xml:space="preserve">
     <value>Жоғарғы шегі</value>
   </data>
-  <data name="KIZVs" xml:space="preserve">
-    <value>KIZV</value>
+  <data name="UseALocalAccountToLogIn" xml:space="preserve">
+    <value>Жүйеге кіру үшін жергілікті есептік жазбаны пайдаланыңыз.</value>
   </data>
-  <data name="FreshPart" xml:space="preserve">
-    <value>Таза</value>
+  <data name="User" xml:space="preserve">
+    <value>Пайдаланушы</value>
   </data>
-  <data name="FullyPart" xml:space="preserve">
-    <value>Толығымен</value>
+  <data name="Users" xml:space="preserve">
+    <value>Пайдаланушылар</value>
   </data>
-  <data name="GeneralHydrochemicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандар тәртібі: көлдің Id, жыл, көлдің бір бөлігі, тұздылығы, жалпы судың қаттылығы, суда ерітілген оттегі, ерітілген оттегі, қаныққан рН мәні, органикалық заттар</value>
+  <data name="Value" xml:space="preserve">
+    <value>Мағынасы</value>
   </data>
-  <data name="IonsaltWaterCompositionUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандардың тәртібі: көлдің Id, жыл, көлдің бір бөлігі, кальций катиондары, магний катиондары, натрий калий катиондары, хлориді аниондары, көмірсутегі аниондары, сульфатты аниондар</value>
+  <data name="VerySoft" xml:space="preserve">
+    <value>Өте жұмсақ</value>
   </data>
-  <data name="LakePart" xml:space="preserve">
-    <value>Көлдің бір бөлігі</value>
+  <data name="VeryTough" xml:space="preserve">
+    <value>Өте кермек</value>
   </data>
-  <data name="SaltyPart" xml:space="preserve">
-    <value>Тұзды</value>
+  <data name="VHB" xml:space="preserve">
+    <value>США (Сушаруашылық алап)</value>
   </data>
-  <data name="ToxicologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандар тәртібі: Id көлдер, жыл, көлдің бөлігі, NH₄, NO2, NO₃, PPO₄, Cu, Zn, Mn, Pb, Ni, Cd, Co</value>
+  <data name="VHBEN" xml:space="preserve">
+    <value>Сушаруашылық алаптың ағылшынша атауы</value>
   </data>
-  <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
-    <value>Көлдің батправиялық және көлемдік қисық сызығы</value>
+  <data name="VHBKK" xml:space="preserve">
+    <value>Сушаруашылық алаптың қазақша атауы</value>
   </data>
-  <data name="BathigraphicAndVolumetricCurveDatas" xml:space="preserve">
-    <value>Ваннографиялық және көлемдік қисық туралы мәліметтер</value>
+  <data name="VHBRU" xml:space="preserve">
+    <value>Сушаруашылық алаптың орысша атауы</value>
   </data>
-  <data name="BathigraphicAndVolumetricCurveDataUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандар тәртібі: Id Id, су деңгейі, көл аймағы, су массасы</value>
+  <data name="VHU" xml:space="preserve">
+    <value>СШУ (Сушарауашылық учаске)</value>
   </data>
-  <data name="LakeArea" xml:space="preserve">
-    <value>Көлдің ауданы, км²</value>
+  <data name="Vol_total" xml:space="preserve">
+    <value>Көлдің жалпы көлемі, млн.м3</value>
   </data>
-  <data name="LakesArchiveDataUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандар тәртібі: көлдің идентификациясы, топографиялық зерттеу жылы, көлдік длин, көлдің жағалаулық сазы, көлдің айна ауданы, көлдің биіктігі, көлдің ені, көлдің тереңдігі, көлдің су массасының көлемі, мұрағаттық ақпарат көзі</value>
+  <data name="WaterBalance" xml:space="preserve">
+    <value>Су теңгерімі</value>
   </data>
-  <data name="LakesGlobalDataUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағанның тәртібі: Id Id, Lake Unique Identifier, Lake Name (Ағылшын тілі), Lake Name (Орыс), Lake Name (Kazakh), Country (English), Country (Russian), Country (Kazakh), Continent (English) деректер базасы (қазақ), көлдің түрі индикаторы, деректер базасында резервуардың бірегей идентификаторы, көлдер бетінің ауданы, жағалау сызығының ұзындығы, жағалаулық жағалау сызығы, барлығы Көлдің көлемі, су қоймасының көлемі , көлдің тереңдігі, көл арқылы өтетін орташа ұзақ мерзімді су ағымы, көлде орташа судың болуы, теңіз деңгейінен жоғары көлдің биіктігі, көлдің қоқыс полигонындағы 100 метрлік аралықтағы орташа көлбеу, қону алаңы, бойлық, ендік</value>
+  <data name="WaterBalanceExpenditure" xml:space="preserve">
+    <value>Су теңгерімінің шығыс бөлігі</value>
   </data>
-  <data name="WaterLevelUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандардың тәртібі: Id Id, жыл, көлдің орташа жылдық деңгейі</value>
+  <data name="WaterBalanceReceipt" xml:space="preserve">
+    <value>Су теңгерімінің кіріс бөлігі</value>
   </data>
-  <data name="WaterMassVolume" xml:space="preserve">
-    <value>Су массасының көлемі, млн. М3</value>
+  <data name="WaterBalances" xml:space="preserve">
+    <value>Су теңгерімі</value>
   </data>
-  <data name="BenthosBiomass" xml:space="preserve">
-    <value>Бентос биомасса, г / м2</value>
+  <data name="WaterBalanceUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандар тәртібі: Көл Id, Жыл, Жербеті ағынының келуі, Жербетімен ағынның ағып кетуі, Жерасты ағынының келуі, Жерасты ағынының ағып кетуі, Жауын-шашын, Булану</value>
   </data>
-  <data name="CurrentCommercialFishProductivity" xml:space="preserve">
-    <value>Ағымдағы коммерциялық балық өнімділігі, кг / га</value>
-  </data>
-  <data name="CurrentUsage" xml:space="preserve">
-    <value>Қолданыстағы пайдалану</value>
-  </data>
-  <data name="FamilyId" xml:space="preserve">
-    <value>Id отбасы</value>
-  </data>
-  <data name="FamilyNameKK" xml:space="preserve">
-    <value>Қазақ тіліндегі балықтың отбасы</value>
-  </data>
-  <data name="FamilyNameLA" xml:space="preserve">
-    <value>Латын тіліндегі балықтың отбасы</value>
-  </data>
-  <data name="FamilyNameRU" xml:space="preserve">
-    <value>Орыс тіліндегі балықтың отбасы</value>
-  </data>
-  <data name="FishCatchLimit" xml:space="preserve">
-    <value>Балық аулау лимиті, тонна</value>
-  </data>
-  <data name="FishId" xml:space="preserve">
-    <value>Id balıq</value>
-  </data>
-  <data name="FishKind" xml:space="preserve">
-    <value>Балықтың түрі</value>
-  </data>
-  <data name="FishKinds" xml:space="preserve">
-    <value>Балық түрлері</value>
-  </data>
-  <data name="FishKindUploadDescription" xml:space="preserve">
-    <value>Файлдағы баған тәртібі: балықтың иесі, отбасының аты, қазақ тіліндегі балықтың атауы, орыс тіліндегі балықтың атауы, латын тіліндегі балықтың атауы, қазақ тіліндегі балықтың отбасының аты, орыс тіліндегі балықтың отбасы, латын</value>
-  </data>
-  <data name="FishNameKK" xml:space="preserve">
-    <value>Қазақ тіліндегі балықтардың атауы</value>
-  </data>
-  <data name="FishNameLA" xml:space="preserve">
-    <value>Латын тіліндегі балық атауы</value>
-  </data>
-  <data name="FishNameRU" xml:space="preserve">
-    <value>Орыс тіліндегі балықтың атауы</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicator" xml:space="preserve">
-    <value>Көлдің жалпы гидробиологиялық көрсеткіші</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicators" xml:space="preserve">
-    <value>Көлдердің жалпы гидробиологиялық көрсеткіштері</value>
-  </data>
-  <data name="GeneralHydrobiologicalIndicatorUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағанның тәртібі: Id Id Id, балық идентификаторы, зерттеу жылы, zooplankton биомассасы, бентос биомасса, өсімдік түрінің индексі, балық аулау лимиті, қазіргі коммерциялық балық өнімділігі, потенциалды балық өндірісі, әлеуетті өсіру, қолданыстағы пайдалану, ұсынылған пайдалану</value>
-  </data>
-  <data name="PotentialFishProducts" xml:space="preserve">
-    <value>Әлеуетті балық өнімдері, кг / га</value>
-  </data>
-  <data name="PotentialGrowingVolume" xml:space="preserve">
-    <value>Әлеуетті өсім көлемі, кг / га</value>
-  </data>
-  <data name="RecommendedUse" xml:space="preserve">
-    <value>Ұсынылған қолдану</value>
-  </data>
-  <data name="SpeciesWealthIndex" xml:space="preserve">
-    <value>Түрлердің байлық индексі, бірлік</value>
-  </data>
-  <data name="ZooplanktonBiomass" xml:space="preserve">
-    <value>Зоопланктон биомасса, г / м³</value>
-  </data>
-  <data name="EphemeralPermanent" xml:space="preserve">
-    <value>Эфемерлі тұрақты</value>
-  </data>
-  <data name="EphemeralSeasonal" xml:space="preserve">
-    <value>Емдік маусымдық</value>
-  </data>
-  <data name="Hydrobiology" xml:space="preserve">
-    <value>Гидробиология</value>
-  </data>
-  <data name="LostPermanent" xml:space="preserve">
-    <value>Тұрақты жоғалтты</value>
-  </data>
-  <data name="LostSeasonal" xml:space="preserve">
-    <value>Маусымдық жоғалтты</value>
-  </data>
-  <data name="NewPermanent" xml:space="preserve">
-    <value>Жаңа тұрақты</value>
-  </data>
-  <data name="NewSeasonal" xml:space="preserve">
-    <value>Жаңа маусымдық</value>
-  </data>
-  <data name="NoСhange" xml:space="preserve">
-    <value>Өзгерістер жоқ</value>
-  </data>
-  <data name="Permanent" xml:space="preserve">
-    <value>Тұрақты</value>
-  </data>
-  <data name="PermanentToDeasonal" xml:space="preserve">
-    <value>Маусымдық тұрақты</value>
-  </data>
-  <data name="Seasonal" xml:space="preserve">
-    <value>Маусымдық</value>
-  </data>
-  <data name="SeasonalToPermanent" xml:space="preserve">
-    <value>Маусымдық тұрақты</value>
-  </data>
-  <data name="Transition" xml:space="preserve">
-    <value>Өтпелі кезең</value>
-  </data>
-  <data name="Transitions" xml:space="preserve">
-    <value>Өтпелулер</value>
-  </data>
-  <data name="TransitionUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандар тәртібі: көлде Id, өзгеріссіз, тұрақты, тұрақты, тұрақты, маусымдық, маусымдық, маусымдық, маусымдық, маусымдық, маусымдық, тұрақты, эфемерлі</value>
-  </data>
-  <data name="April" xml:space="preserve">
-    <value>Сәуір</value>
-  </data>
-  <data name="August" xml:space="preserve">
-    <value>Тамыз</value>
-  </data>
-  <data name="December" xml:space="preserve">
-    <value>Желтоқсан</value>
-  </data>
-  <data name="DynamicsLakeAreas" xml:space="preserve">
-    <value>Көл аймағының динамикасы</value>
-  </data>
-  <data name="February" xml:space="preserve">
-    <value>Ақпан</value>
-  </data>
-  <data name="January" xml:space="preserve">
-    <value>Қаңтар</value>
-  </data>
-  <data name="July" xml:space="preserve">
-    <value>Шілде</value>
-  </data>
-  <data name="June" xml:space="preserve">
-    <value>Маусым</value>
-  </data>
-  <data name="March" xml:space="preserve">
-    <value>Наурыз</value>
-  </data>
-  <data name="May" xml:space="preserve">
-    <value>Мамыр</value>
-  </data>
-  <data name="NoData" xml:space="preserve">
-    <value>Деректер жоқ</value>
-  </data>
-  <data name="November" xml:space="preserve">
-    <value>Қараша</value>
-  </data>
-  <data name="October" xml:space="preserve">
-    <value>Қазан</value>
-  </data>
-  <data name="Seasonalit" xml:space="preserve">
-    <value>Мезгілдік</value>
-  </data>
-  <data name="Seasonalits" xml:space="preserve">
-    <value>Мерзімділік</value>
-  </data>
-  <data name="SeasonalitUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандардың тәртібі: Көлеңке Id, деректер жоқ, қаңтар, ақпан, наурыз, сәуір, мамыр, маусым, шілде, тамыз, қыркүйек, қазан, қараша, желтоқсан</value>
-  </data>
-  <data name="September" xml:space="preserve">
-    <value>Қыркүйек</value>
-  </data>
-  <data name="LakeSystem" xml:space="preserve">
-    <value>Көл жүйесі</value>
-  </data>
-  <data name="LakeSystemId" xml:space="preserve">
-    <value>Көл жүйесі</value>
-  </data>
-  <data name="LakeSystems" xml:space="preserve">
-    <value>Көл жүйелер</value>
-  </data>
-  <data name="LakeSystemUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағаналық тапсырыс: Id жүйесі, атауы (орыс), атауы (қазақ), атағы (ағылшын)</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Іздеу</value>
-  </data>
-  <data name="SearchByLakeName" xml:space="preserve">
-    <value>Көлдің аты бойынша іздеу</value>
-  </data>
-  <data name="FilterKATO" xml:space="preserve">
-    <value>Аймақ, аудан</value>
-  </data>
-  <data name="FilterVHBVHU" xml:space="preserve">
-    <value>VHB, VCU</value>
-  </data>
-  <data name="Found" xml:space="preserve">
-    <value>Табылды</value>
-  </data>
-  <data name="Reset" xml:space="preserve">
-    <value>Қалпына келтіру</value>
-  </data>
-  <data name="Chart" xml:space="preserve">
-    <value>Диаграмма</value>
-  </data>
-  <data name="Dynamics" xml:space="preserve">
-    <value>Динамика</value>
-  </data>
-  <data name="QualitativeAssessment" xml:space="preserve">
-    <value>Сапалы бағалау</value>
-  </data>
-  <data name="Table" xml:space="preserve">
-    <value>Кесте</value>
-  </data>
-  <data name="AlekinWaterCompositionClass" xml:space="preserve">
-    <value>Су құрамының класы (О.А. Алекин бойынша)</value>
-  </data>
-  <data name="IonName" xml:space="preserve">
-    <value>Ион атауы</value>
-  </data>
-  <data name="IonUnit" xml:space="preserve">
-    <value>мг / дм³ /% эг / дм³</value>
-  </data>
-  <data name="MPCExceeding" xml:space="preserve">
-    <value>Шекті рұқсат етілген шоғырланудан асып кету коэффициенті</value>
-  </data>
-  <data name="Total" xml:space="preserve">
-    <value>Барлығы</value>
-  </data>
-  <data name="ChangeWaterCondition" xml:space="preserve">
-    <value>Судың күйін өзгерту</value>
-  </data>
-  <data name="MaximumWater" xml:space="preserve">
-    <value>Ең көп су</value>
-  </data>
-  <data name="PermanentAndSeasonalDynamics" xml:space="preserve">
-    <value>Тұрақты және маусымдық судың аудандарының динамикасы</value>
+  <data name="WaterClass" xml:space="preserve">
+    <value>Су класы</value>
   </data>
   <data name="WaterFrequency" xml:space="preserve">
-    <value>Су жиілігі</value>
+    <value>Судың қайталануы</value>
   </data>
-  <data name="WaterMonthsPresence" xml:space="preserve">
-    <value>Бір айда судың болуы</value>
-  </data>
-  <data name="HeavyMetals" xml:space="preserve">
-    <value>Ауыр металдар</value>
-  </data>
-  <data name="KIZVDegree" xml:space="preserve">
-    <value>Қауіп-қатер классын ескере отырып, ҚТЖО су объектілерінің ластану дәрежесі</value>
-  </data>
-  <data name="Nutrients" xml:space="preserve">
-    <value>Қоректік заттар</value>
-  </data>
-  <data name="Source" xml:space="preserve">
-    <value>Көзі</value>
-  </data>
-  <data name="DynamicsLakeArea" xml:space="preserve">
-    <value>Көл аймағының динамикасы</value>
-  </data>
-  <data name="NoWater" xml:space="preserve">
-    <value>Су жоқ, км²</value>
-  </data>
-  <data name="PermanentWaterArea" xml:space="preserve">
-    <value>Тұрақты судың ауданы, км²</value>
-  </data>
-  <data name="SeasonalWaterArea" xml:space="preserve">
-    <value>Маусымды судың ауданы, км²</value>
-  </data>
-  <data name="DynamicsLakeAreaUploadDescription" xml:space="preserve">
-    <value>Файлдағы бағандардың тәртібі: Id Id, жыл, деректер жоқ, су жоқ, маусымдық су аймағы, тұрақты су аймағы</value>
-  </data>
-  <data name="Analytics" xml:space="preserve">
-    <value>Аналитика</value>
-  </data>
-  <data name="AND" xml:space="preserve">
-    <value>Және</value>
-  </data>
-  <data name="AnErrorOccurredWhileUsingTheFormula" xml:space="preserve">
-    <value>Формуланы пайдалану кезінде қате пайда болды!</value>
-  </data>
-  <data name="FormulaContainsInvalidCharacters" xml:space="preserve">
-    <value>Формула жарамсыз таңбаларды қамтиды!</value>
-  </data>
-  <data name="OR" xml:space="preserve">
-    <value>Немесе</value>
-  </data>
-  <data name="average" xml:space="preserve">
-    <value>орташа</value>
-  </data>
-  <data name="maximum" xml:space="preserve">
-    <value>максимум</value>
-  </data>
-  <data name="minimum" xml:space="preserve">
-    <value>ең аз</value>
-  </data>
-  <data name="NOT" xml:space="preserve">
-    <value>Емес</value>
-  </data>
-  <data name="Areakm2" xml:space="preserve">
-    <value>Ауданы, км²</value>
-  </data>
-  <data name="BaseLayer" xml:space="preserve">
-    <value>Негізгі қабат</value>
-  </data>
-  <data name="MaximumWaterArea" xml:space="preserve">
-    <value>Судың максималды ауданы</value>
-  </data>
-  <data name="MaximumWaterExtent" xml:space="preserve">
-    <value>Судың максималды көлемі</value>
-  </data>
-  <data name="Occurrence" xml:space="preserve">
-    <value>Кіріс</value>
-  </data>
-  <data name="OccurrenceChangeIntensity" xml:space="preserve">
-    <value>Өзгерістердің қарқындылығы</value>
-  </data>
-  <data name="Recurrence" xml:space="preserve">
-    <value>Қайталану</value>
-  </data>
-  <data name="Seasonality" xml:space="preserve">
-    <value>Мезгілдік</value>
-  </data>
-  <data name="District" xml:space="preserve">
-    <value>Ауданы</value>
-  </data>
-  <data name="Region" xml:space="preserve">
-    <value>Аймақ</value>
+  <data name="WaterHardness" xml:space="preserve">
+    <value>Су кермектік дәрежесі</value>
   </data>
   <data name="WaterLavelM" xml:space="preserve">
     <value>Судың орташа деңгейі, м</value>
   </data>
+  <data name="WaterLavelMy" xml:space="preserve">
+    <value>H, м.абс.</value>
+  </data>
+  <data name="WaterLevel" xml:space="preserve">
+    <value>Көлдің су деңгейі</value>
+  </data>
+  <data name="WaterLevels" xml:space="preserve">
+    <value>Көлдің су деңгейлері</value>
+  </data>
+  <data name="WaterLevelUploadDescription" xml:space="preserve">
+    <value>Файлдағы бағандардың тәртібі: Көл Id, Жыл, Көлдің орташа жылдық деңгейі</value>
+  </data>
+  <data name="WaterMassVolume" xml:space="preserve">
+    <value>Су массасының көлемі, млн. м3</value>
+  </data>
   <data name="WaterMassVolumeX" xml:space="preserve">
-    <value>V, млн. м³</value>
+    <value>V, миллион м³</value>
+  </data>
+  <data name="WaterMonthsPresence" xml:space="preserve">
+    <value>Айлар бойынша судың болуы</value>
+  </data>
+  <data name="WatersType" xml:space="preserve">
+    <value>Судың типі</value>
+  </data>
+  <data name="WaterType" xml:space="preserve">
+    <value>Су бойынша деректер типі</value>
+  </data>
+  <data name="WeakAlkalineWater" xml:space="preserve">
+    <value>Әлсіз сілтілі су</value>
+  </data>
+  <data name="Wshd_area" xml:space="preserve">
+    <value>Сужинау ауданы, км2</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>Жыл</value>
+  </data>
+  <data name="YearlyHistory" xml:space="preserve">
+    <value>Жылдар бойынша</value>
+  </data>
+  <data name="Zn" xml:space="preserve">
+    <value>Zn</value>
+  </data>
+  <data name="ZonalStatWater" xml:space="preserve">
+    <value>Зоналық статистика</value>
+  </data>
+  <data name="ZonalStatWaters" xml:space="preserve">
+    <value>Зоналық статистика</value>
+  </data>
+  <data name="ZooplanktonBiomass" xml:space="preserve">
+    <value>Зоопланктон биомассасы, г/м³</value>
   </data>
 </root>

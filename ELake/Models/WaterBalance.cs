@@ -61,7 +61,7 @@ namespace ELake.Models
             }
         }
 
-        [Display(Name = "%")]
+        [Display(Name = "SurfaceFlowPer")]
         public decimal SurfaceFlowPer
         {
             get
@@ -77,7 +77,7 @@ namespace ELake.Models
             }
         }
 
-        [Display(Name = "%")]
+        [Display(Name = "UndergroundFlowPer")]
         public decimal UndergroundFlowPer
         {
             get
@@ -93,7 +93,7 @@ namespace ELake.Models
             }
         }
 
-        [Display(Name = "%")]
+        [Display(Name = "PrecipitationPer")]
         public decimal PrecipitationPer
         {
             get
@@ -109,7 +109,7 @@ namespace ELake.Models
             }
         }
 
-        [Display(Name = "%")]
+        [Display(Name = "SurfaceOutflowPer")]
         public decimal SurfaceOutflowPer
         {
             get
@@ -125,7 +125,7 @@ namespace ELake.Models
             }
         }
 
-        [Display(Name = "%")]
+        [Display(Name = "UndergroundOutflowPer")]
         public decimal UndergroundOutflowPer
         {
             get
@@ -141,7 +141,7 @@ namespace ELake.Models
             }
         }
 
-        [Display(Name = "%")]
+        [Display(Name = "EvaporationPer")]
         public decimal EvaporationPer
         {
             get
@@ -157,7 +157,7 @@ namespace ELake.Models
             }
         }
 
-        [Display(Name = "%")]
+        [Display(Name = "WaterBalanceReceiptPer")]
         public decimal WaterBalanceReceiptPer
         {
             get
@@ -173,7 +173,7 @@ namespace ELake.Models
             }
         }
 
-        [Display(Name = "%")]
+        [Display(Name = "WaterBalanceExpenditurePer")]
         public decimal WaterBalanceExpenditurePer
         {
             get
