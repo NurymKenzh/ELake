@@ -21,6 +21,7 @@
     }
 
     var ChartWB = null,
+        ChartWB2 = null,
         dataWB,
         ChartWL = null,
         ChartBAVCD = null;
@@ -28,6 +29,7 @@
     function ChartWBX(data) {
         var year = $('#chartWBYear').val();
         var ctx1 = document.getElementById("chartWB").getContext('2d');
+        var ctx2 = document.getElementById("chartWB2").getContext('2d');
         var dataSurfaceFlow = 0,
             dataPrecipitation = 0,
             dataUndergroundFlow = 0,
@@ -37,12 +39,42 @@
         if (data.wbtable != null) {
             for (var i = 0; i < data.wbtable.length; i++) {
                 if (data.wbtable[i].year == year) {
-                    dataSurfaceFlow = data.wbtable[i].surfaceFlow;
-                    dataPrecipitation = data.wbtable[i].precipitation;
-                    dataUndergroundFlow = data.wbtable[i].undergroundFlow;
-                    dataSurfaceOutflow = data.wbtable[i].surfaceOutflow;
-                    dataEvaporation = data.wbtable[i].evaporation;
-                    dataUndergroundOutflow = data.wbtable[i].undergroundOutflow;
+                    try {
+                        dataSurfaceFlow = data.wbtable[i].surfaceFlow.toFixed(1);
+                    }
+                    catch {
+                        dataSurfaceFlow = data.wbtable[i].surfaceFlow;
+                    }
+                    try {
+                        dataPrecipitation = data.wbtable[i].precipitation.toFixed(1);
+                    }
+                    catch {
+                        dataPrecipitation = data.wbtable[i].precipitation;
+                    }
+                    try {
+                        dataUndergroundFlow = data.wbtable[i].undergroundFlow.toFixed(1);
+                    }
+                    catch {
+                        dataUndergroundFlow = data.wbtable[i].undergroundFlow;
+                    }
+                    try {
+                        dataSurfaceOutflow = data.wbtable[i].surfaceOutflow.toFixed(1);
+                    }
+                    catch {
+                        dataSurfaceOutflow = data.wbtable[i].surfaceOutflow;
+                    }
+                    try {
+                        dataEvaporation = data.wbtable[i].evaporation.toFixed(1);
+                    }
+                    catch {
+                        dataEvaporation = data.wbtable[i].evaporation;
+                    }
+                    try {
+                        dataUndergroundOutflow = data.wbtable[i].undergroundOutflow.toFixed(1);
+                    }
+                    catch {
+                        dataUndergroundOutflow = data.wbtable[i].undergroundOutflow;
+                    }
                 }
             }
         }
@@ -54,27 +86,27 @@
                         data: [
                             dataSurfaceFlow,
                             dataPrecipitation,
-                            dataUndergroundFlow,
-                            dataSurfaceOutflow,
-                            dataEvaporation,
-                            dataUndergroundOutflow
+                            dataUndergroundFlow
+                            //dataSurfaceOutflow,
+                            //dataEvaporation,
+                            //dataUndergroundOutflow
                         ],
                         backgroundColor: [
                             chartColorWBSurfaceFlow,
                             chartColorWBPrecipitation,
-                            chartColorWBUndergroundFlow,
-                            chartColorWBSurfaceOutflow,
-                            chartColorWBEvaporation,
-                            chartColorWBUndergroundOutflow
+                            chartColorWBUndergroundFlow
+                            //chartColorWBSurfaceOutflow,
+                            //chartColorWBEvaporation,
+                            //chartColorWBUndergroundOutflow
                         ]
                     }],
                     labels: [
                         $('#HiddenSurfaceFlow').val(),
                         $('#HiddenPrecipitation').val(),
-                        $('#HiddenUndergroundFlow').val(),
-                        $('#HiddenSurfaceOutflow').val(),
-                        $('#HiddenEvaporation').val(),
-                        $('#HiddenUndergroundOutflow').val()
+                        $('#HiddenUndergroundFlow').val()
+                        //$('#HiddenSurfaceOutflow').val(),
+                        //$('#HiddenEvaporation').val(),
+                        //$('#HiddenUndergroundOutflow').val()
                     ]
                 },
                 options: {
@@ -90,11 +122,61 @@
             ChartWB.config.data.datasets[0].data[0] = [dataSurfaceFlow];
             ChartWB.config.data.datasets[0].data[1] = [dataPrecipitation];
             ChartWB.config.data.datasets[0].data[2] = [dataUndergroundFlow];
-            ChartWB.config.data.datasets[0].data[3] = [dataSurfaceOutflow];
-            ChartWB.config.data.datasets[0].data[4] = [dataEvaporation];
-            ChartWB.config.data.datasets[0].data[5] = [dataUndergroundOutflow];
+            //ChartWB.config.data.datasets[0].data[3] = [dataSurfaceOutflow];
+            //ChartWB.config.data.datasets[0].data[4] = [dataEvaporation];
+            //ChartWB.config.data.datasets[0].data[5] = [dataUndergroundOutflow];
             ChartWB.config.options.title.text = $('#BILName').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). ';
             ChartWB.update();
+        }
+        if (ChartWB2 == null) {
+            ChartWB2 = new Chart(ctx2, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            //dataSurfaceFlow,
+                            //dataPrecipitation,
+                            //dataUndergroundFlow,
+                            dataSurfaceOutflow,
+                            dataEvaporation,
+                            dataUndergroundOutflow
+                        ],
+                        backgroundColor: [
+                            //chartColorWBSurfaceFlow,
+                            //chartColorWBPrecipitation,
+                            //chartColorWBUndergroundFlow,
+                            chartColorWBSurfaceOutflow,
+                            chartColorWBEvaporation,
+                            chartColorWBUndergroundOutflow
+                        ]
+                    }],
+                    labels: [
+                        //$('#HiddenSurfaceFlow').val(),
+                        //$('#HiddenPrecipitation').val(),
+                        //$('#HiddenUndergroundFlow').val(),
+                        $('#HiddenSurfaceOutflow').val(),
+                        $('#HiddenEvaporation').val(),
+                        $('#HiddenUndergroundOutflow').val()
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    title: {
+                        display: true,
+                        //text: $('#BILName').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). '
+                    },
+                }
+            });
+        }
+        else {
+            //ChartWB2.config.data.datasets[0].data[0] = [dataSurfaceFlow];
+            //ChartWB2.config.data.datasets[0].data[1] = [dataPrecipitation];
+            //ChartWB2.config.data.datasets[0].data[2] = [dataUndergroundFlow];
+            ChartWB2.config.data.datasets[0].data[0] = [dataSurfaceOutflow];
+            ChartWB2.config.data.datasets[0].data[1] = [dataEvaporation];
+            ChartWB2.config.data.datasets[0].data[2] = [dataUndergroundOutflow];
+            //ChartWB2.config.options.title.text = $('#BILName').text() + ' (' + $('#LakeIdInfo').text() + '). ' + $('#WaterBalance').val() + ' (' + $('#chartWBYear').val() + '). ';
+            ChartWB2.update();
         }
     }
 
@@ -255,6 +337,7 @@
     function ShowChartWB() {
         $('.WB').hide();
         $('#chartWB').show();
+        $('#chartWB2').show();
         $('#chartWBYear').show();
     }
 
