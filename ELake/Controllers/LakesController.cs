@@ -680,6 +680,8 @@ namespace ELake.Controllers
         [Authorize(Roles = "Administrator, Moderator")]
         public async Task<IActionResult> CreateFileToAnalytics()
         {
+            DateTime start = DateTime.Now;
+
             string sContentRootPath = _hostingEnvironment.WebRootPath;
             sContentRootPath = Path.Combine(sContentRootPath, "Analytics");
             string assemblyName = "lakes.txt";
@@ -724,8 +726,9 @@ namespace ELake.Controllers
                     //    });
                     //    ";
                     string line = lake.Id.ToString();
-                    // Analyze2
+                    // Analyze2.1
                     line += "\t" + PopulateDecimal(lake.LakeId);
+                    line += "\t" + 0.ToString();
                     line += "\t" + PopulateDecimal(lake.Area2015);
                     line += "\t" + PopulateDecimal(lake.LakeShorelineLength2015);
                     line += "\t" + PopulateDecimal(lakesArchiveData?.LakeLength);
@@ -745,6 +748,13 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(lakesGlobalData?.Elevation);
                     line += "\t" + PopulateDecimal(lakesGlobalData?.Slope_100);
                     line += "\t" + PopulateDecimal(lakesGlobalData?.Wshd_area);
+                    // WaterBalance
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.SurfaceFlow));
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.SurfaceOutflow));
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.UndergroundFlow));
@@ -763,6 +773,8 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.UndergroundOutflow));
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.Precipitation));
                     line += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.Evaporation));
+                    // WaterLevel
+                    line += "\t" + 0.ToString();
                     line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.WaterLavelM));
                     line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.WaterLavelM));
                     line += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.WaterLavelM));
@@ -775,6 +787,13 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.WaterLevel));
                     line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.LakeArea));
                     line += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.WaterMassVolume));
+                    // GeneralHydrochemicalIndicator
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.Mineralization));
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.TotalHardness));
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.DissOxygWater));
@@ -793,6 +812,13 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.PercentOxygWater));
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.pH));
                     line += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.OrganicSubstances));
+                    // IonsaltWaterComposition
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.CaMgEq));
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.MgMgEq));
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.NaKMgEq));
@@ -811,6 +837,18 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.ClMgEq));
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.HCOMgEq));
                     line += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.SOMgEq));
+                    // ToxicologicalIndicator
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
                     line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NH4));
                     line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NO2));
                     line += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NO3));
@@ -868,6 +906,11 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(seasonalit?.October);
                     line += "\t" + PopulateDecimal(seasonalit?.November);
                     line += "\t" + PopulateDecimal(seasonalit?.December);
+                    // DynamicsLakeArea
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
+                    line += "\t" + 0.ToString();
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoData));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoWater));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.SeasonalWaterArea));
@@ -880,10 +923,220 @@ namespace ELake.Controllers
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NoWater));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.SeasonalWaterArea));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.PermanentWaterArea));
-
+                    foreach (int year in _context.WaterBalance.Where(w => w.LakeId == lake.LakeId).Select(w => w.Year).Distinct())
+                    {
+                        string lineWaterBalance = lake.Id.ToString();
+                        // Analyze2.2
+                        lineWaterBalance += "\t" + PopulateDecimal(lake.LakeId);
+                        lineWaterBalance += "\t" + year.ToString();
+                        lineWaterBalance += "\t" + PopulateDecimal(lake.Area2015);
+                        lineWaterBalance += "\t" + PopulateDecimal(lake.LakeShorelineLength2015);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesArchiveData?.LakeLength);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesArchiveData?.LakeShorelineLength);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesArchiveData?.LakeMirrorArea);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesArchiveData?.LakeAbsoluteHeight);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesArchiveData?.LakeWidth);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesArchiveData?.LakeMaxDepth);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesArchiveData?.LakeWaterMass);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Lake_area);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Shore_len);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Shore_dev);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Vol_total);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Depth_avg);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Dis_avg);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Res_time);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Elevation);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Slope_100);
+                        lineWaterBalance += "\t" + PopulateDecimal(lakesGlobalData?.Wshd_area);
+                        // WaterBalance
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.SurfaceFlow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.SurfaceOutflow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.UndergroundFlow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.UndergroundOutflow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.Precipitation));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.Evaporation));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.SurfaceFlow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.SurfaceOutflow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.UndergroundFlow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.UndergroundOutflow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.Precipitation));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.Evaporation));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.SurfaceFlow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.SurfaceOutflow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.UndergroundFlow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.UndergroundOutflow));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.Precipitation));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterBalance.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.Evaporation));
+                        WaterBalance waterBalance = _context.WaterBalance.Where(w => w.LakeId == lake.LakeId).FirstOrDefault(w => w.Year == year);
+                        lineWaterBalance += "\t" + PopulateDecimal(waterBalance?.SurfaceFlow);
+                        lineWaterBalance += "\t" + PopulateDecimal(waterBalance?.SurfaceOutflow);
+                        lineWaterBalance += "\t" + PopulateDecimal(waterBalance?.UndergroundFlow);
+                        lineWaterBalance += "\t" + PopulateDecimal(waterBalance?.UndergroundOutflow);
+                        lineWaterBalance += "\t" + PopulateDecimal(waterBalance?.Precipitation);
+                        lineWaterBalance += "\t" + PopulateDecimal(waterBalance?.Evaporation);
+                        // WaterLevel
+                        WaterLevel waterLevel = _context.WaterLevel.Where(w => w.LakeId == lake.LakeId).FirstOrDefault(w => w.Year == year);
+                        lineWaterBalance += "\t" + PopulateDecimal(waterLevel?.WaterLavelM);
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Average(w => w.WaterLavelM));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Max(w => w.WaterLavelM));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.WaterLevel.Where(w => w.LakeId == lake.LakeId).DefaultIfEmpty().Min(w => w.WaterLavelM));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Average(h => h.WaterLevel));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Average(h => h.LakeArea));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Average(h => h.WaterMassVolume));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Max(h => h.WaterLevel));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Max(h => h.LakeArea));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Max(h => h.WaterMassVolume));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.WaterLevel));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.LakeArea));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.BathigraphicAndVolumetricCurveData.Where(h => h.LakeId == lake.LakeId).DefaultIfEmpty().Min(h => h.WaterMassVolume));
+                        // GeneralHydrochemicalIndicator
+                        GeneralHydrochemicalIndicator generalHydrochemicalIndicator = _context.GeneralHydrochemicalIndicator.Where(w => w.LakeId == lake.LakeId).FirstOrDefault(w => w.Year == year);
+                        lineWaterBalance += "\t" + PopulateDecimal(generalHydrochemicalIndicator?.Mineralization);
+                        lineWaterBalance += "\t" + PopulateDecimal(generalHydrochemicalIndicator?.TotalHardness);
+                        lineWaterBalance += "\t" + PopulateDecimal(generalHydrochemicalIndicator?.DissOxygWater);
+                        lineWaterBalance += "\t" + PopulateDecimal(generalHydrochemicalIndicator?.PercentOxygWater);
+                        lineWaterBalance += "\t" + PopulateDecimal(generalHydrochemicalIndicator?.pH);
+                        lineWaterBalance += "\t" + PopulateDecimal(generalHydrochemicalIndicator?.OrganicSubstances);
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.Mineralization));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.TotalHardness));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.DissOxygWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.PercentOxygWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.pH));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Average(g => g.OrganicSubstances));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.Mineralization));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.TotalHardness));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.DissOxygWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.PercentOxygWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.pH));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Max(g => g.OrganicSubstances));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.Mineralization));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.TotalHardness));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.DissOxygWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.PercentOxygWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.pH));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.GeneralHydrochemicalIndicator.Where(g => g.LakeId == lake.LakeId).DefaultIfEmpty().Min(g => g.OrganicSubstances));
+                        // IonsaltWaterComposition
+                        IonsaltWaterComposition ionsaltWaterComposition = _context.IonsaltWaterComposition.Where(w => w.LakeId == lake.LakeId).FirstOrDefault(w => w.Year == year);
+                        lineWaterBalance += "\t" + PopulateDecimal(ionsaltWaterComposition?.CaMgEq);
+                        lineWaterBalance += "\t" + PopulateDecimal(ionsaltWaterComposition?.MgMgEq);
+                        lineWaterBalance += "\t" + PopulateDecimal(ionsaltWaterComposition?.NaKMgEq);
+                        lineWaterBalance += "\t" + PopulateDecimal(ionsaltWaterComposition?.ClMgEq);
+                        lineWaterBalance += "\t" + PopulateDecimal(ionsaltWaterComposition?.HCOMgEq);
+                        lineWaterBalance += "\t" + PopulateDecimal(ionsaltWaterComposition?.SOMgEq);
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.CaMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.MgMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.NaKMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.ClMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.HCOMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Average(i => i.SOMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.CaMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.MgMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.NaKMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.ClMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.HCOMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Max(i => i.SOMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.CaMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.MgMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.NaKMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.ClMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.HCOMgEq));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.IonsaltWaterComposition.Where(i => i.LakeId == lake.LakeId).DefaultIfEmpty().Min(i => i.SOMgEq));
+                        // ToxicologicalIndicator
+                        ToxicologicalIndicator toxicologicalIndicator = _context.ToxicologicalIndicator.Where(w => w.LakeId == lake.LakeId).FirstOrDefault(w => w.Year == year);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.NH4);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.NO2);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.NO3);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.PPO4);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.Cu);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.Zn);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.Mn);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.Pb);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.Ni);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.Cd);
+                        lineWaterBalance += "\t" + PopulateDecimal(toxicologicalIndicator?.Co);
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NH4));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NO2));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.NO3));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.PPO4));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Cu));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Zn));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Mn));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Pb));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Ni));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Cd));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Average(t => t.Co));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.NH4));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.NO2));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.NO3));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.PPO4));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Cu));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Zn));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Mn));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Pb));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Ni));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Cd));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Max(t => t.Co));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.NH4));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.NO2));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.NO3));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.PPO4));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Cu));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Zn));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Mn));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Pb));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Ni));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Cd));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.ToxicologicalIndicator.Where(t => t.LakeId == lake.LakeId).DefaultIfEmpty().Min(t => t.Co));
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.NoСhange);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.Permanent);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.NewPermanent);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.LostPermanent);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.Seasonal);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.NewSeasonal);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.LostSeasonal);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.SeasonalToPermanent);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.PermanentToDeasonal);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.EphemeralPermanent);
+                        lineWaterBalance += "\t" + PopulateDecimal(transition?.EphemeralSeasonal);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.NoData);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.January);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.February);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.March);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.April);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.May);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.June);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.July);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.August);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.September);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.October);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.November);
+                        lineWaterBalance += "\t" + PopulateDecimal(seasonalit?.December);
+                        // DynamicsLakeArea
+                        DynamicsLakeArea dynamicsLakeArea = _context.DynamicsLakeArea.Where(w => w.LakeId == lake.LakeId).FirstOrDefault(w => w.Year == year);
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.NoData);
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.NoWater);
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.SeasonalWaterArea);
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.PermanentWaterArea);
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoData));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.SeasonalWaterArea));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.PermanentWaterArea));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.NoData));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.NoWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.SeasonalWaterArea));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.PermanentWaterArea));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NoData));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NoWater));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.SeasonalWaterArea));
+                        lineWaterBalance += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.PermanentWaterArea));
+                        file.WriteLine(lineWaterBalance);
+                    }
                     file.WriteLine(line);
                 }
             }
+
+            TimeSpan timeSpan = start - DateTime.Now;
+            ViewBag.Time = timeSpan.ToString();
 
             return View();
         }
@@ -925,6 +1178,12 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("GlobalElevation", "");
             formula_test = formula_test.Replace("GlobalSlope", "");
             formula_test = formula_test.Replace("GlobalCatchmentArea", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceFlow", "");
+            formula_test = formula_test.Replace("WaterBalanceSurfaceOutflow", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundFlow", "");
+            formula_test = formula_test.Replace("WaterBalanceUndergroundOutflow", "");
+            formula_test = formula_test.Replace("WaterBalancePrecipitation", "");
+            formula_test = formula_test.Replace("WaterBalanceEvaporation", "");
             formula_test = formula_test.Replace("WaterBalanceSurfaceFlowAvg", "");
             formula_test = formula_test.Replace("WaterBalanceSurfaceOutflowAvg", "");
             formula_test = formula_test.Replace("WaterBalanceUndergroundFlowAvg", "");
@@ -943,6 +1202,7 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("WaterBalanceUndergroundOutflowMin", "");
             formula_test = formula_test.Replace("WaterBalancePrecipitationMin", "");
             formula_test = formula_test.Replace("WaterBalanceEvaporationMin", "");
+            formula_test = formula_test.Replace("WaterLevelWaterLavel", "");
             formula_test = formula_test.Replace("WaterLevelWaterLavelAvg", "");
             formula_test = formula_test.Replace("WaterLevelWaterLavelMax", "");
             formula_test = formula_test.Replace("WaterLevelWaterLavelMin", "");
@@ -955,6 +1215,12 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("HypsometricWaterLevelMin", "");
             formula_test = formula_test.Replace("HypsometricAreaMin", "");
             formula_test = formula_test.Replace("HypsometricVolumeMin", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryMineralization", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryTotalHardness", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryDissOxygWater", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryPercentOxygWater", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistrypH", "");
+            formula_test = formula_test.Replace("GeneralHydroChemistryOrganicSubstances", "");
             formula_test = formula_test.Replace("GeneralHydroChemistryMineralizationAvg", "");
             formula_test = formula_test.Replace("GeneralHydroChemistryTotalHardnessAvg", "");
             formula_test = formula_test.Replace("GeneralHydroChemistryDissOxygWaterAvg", "");
@@ -973,6 +1239,12 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("GeneralHydroChemistryPercentOxygWaterMin", "");
             formula_test = formula_test.Replace("GeneralHydroChemistrypHMin", "");
             formula_test = formula_test.Replace("GeneralHydroChemistryOrganicSubstancesMin", "");
+            formula_test = formula_test.Replace("IonsaltCa", "");
+            formula_test = formula_test.Replace("IonsaltMg", "");
+            formula_test = formula_test.Replace("IonsaltNaK", "");
+            formula_test = formula_test.Replace("IonsaltCl", "");
+            formula_test = formula_test.Replace("IonsaltHCO", "");
+            formula_test = formula_test.Replace("IonsaltSO", "");
             formula_test = formula_test.Replace("IonsaltCaAvg", "");
             formula_test = formula_test.Replace("IonsaltMgAvg", "");
             formula_test = formula_test.Replace("IonsaltNaKAvg", "");
@@ -991,6 +1263,17 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("IonsaltClMin", "");
             formula_test = formula_test.Replace("IonsaltHCOMin", "");
             formula_test = formula_test.Replace("IonsaltSOMin", "");
+            formula_test = formula_test.Replace("ToxicNH4", "");
+            formula_test = formula_test.Replace("ToxicNO2", "");
+            formula_test = formula_test.Replace("ToxicNO3", "");
+            formula_test = formula_test.Replace("ToxicPPO4", "");
+            formula_test = formula_test.Replace("ToxicCu", "");
+            formula_test = formula_test.Replace("ToxicZn", "");
+            formula_test = formula_test.Replace("ToxicMn", "");
+            formula_test = formula_test.Replace("ToxicPb", "");
+            formula_test = formula_test.Replace("ToxicNi", "");
+            formula_test = formula_test.Replace("ToxicCd", "");
+            formula_test = formula_test.Replace("ToxicCo", "");
             formula_test = formula_test.Replace("ToxicNH4Avg", "");
             formula_test = formula_test.Replace("ToxicNO2Avg", "");
             formula_test = formula_test.Replace("ToxicNO3Avg", "");
@@ -1048,6 +1331,10 @@ namespace ELake.Controllers
             formula_test = formula_test.Replace("SeasonalityOctober", "");
             formula_test = formula_test.Replace("SeasonalityNovember", "");
             formula_test = formula_test.Replace("SeasonalityDecember", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaNoData", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaNoWater", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaSeasonal", "");
+            formula_test = formula_test.Replace("DynamicsLakeAreaPermanent", "");
             formula_test = formula_test.Replace("DynamicsLakeAreaNoDataAvg", "");
             formula_test = formula_test.Replace("DynamicsLakeAreaNoWaterAvg", "");
             formula_test = formula_test.Replace("DynamicsLakeAreaSeasonalAvg", "");
@@ -1129,6 +1416,12 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("GlobalElevation", "lake.GlobalElevation");
             codeFilter = codeFilter.Replace("GlobalSlope", "lake.GlobalSlope");
             codeFilter = codeFilter.Replace("GlobalCatchmentArea", "lake.GlobalCatchmentArea");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlow", "lake.WaterBalanceSurfaceFlow");
+            codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflow", "lake.WaterBalanceSurfaceOutflow");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlow", "lake.WaterBalanceUndergroundFlow");
+            codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflow", "lake.WaterBalanceUndergroundOutflow");
+            codeFilter = codeFilter.Replace("WaterBalancePrecipitation", "lake.WaterBalancePrecipitation");
+            codeFilter = codeFilter.Replace("WaterBalanceEvaporation", "lake.WaterBalanceEvaporation");
             codeFilter = codeFilter.Replace("WaterBalanceSurfaceFlowAvg", "lake.WaterBalanceSurfaceFlowAvg");
             codeFilter = codeFilter.Replace("WaterBalanceSurfaceOutflowAvg", "lake.WaterBalanceSurfaceOutflowAvg");
             codeFilter = codeFilter.Replace("WaterBalanceUndergroundFlowAvg", "lake.WaterBalanceUndergroundFlowAvg");
@@ -1147,6 +1440,7 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("WaterBalanceUndergroundOutflowMin", "lake.WaterBalanceUndergroundOutflowMin");
             codeFilter = codeFilter.Replace("WaterBalancePrecipitationMin", "lake.WaterBalancePrecipitationMin");
             codeFilter = codeFilter.Replace("WaterBalanceEvaporationMin", "lake.WaterBalanceEvaporationMin");
+            codeFilter = codeFilter.Replace("WaterLevelWaterLavel", "lake.WaterLevelWaterLavel");
             codeFilter = codeFilter.Replace("WaterLevelWaterLavelAvg", "lake.WaterLevelWaterLavelAvg");
             codeFilter = codeFilter.Replace("WaterLevelWaterLavelMax", "lake.WaterLevelWaterLavelMax");
             codeFilter = codeFilter.Replace("WaterLevelWaterLavelMin", "lake.WaterLevelWaterLavelMin");
@@ -1159,6 +1453,12 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("HypsometricWaterLevelMin", "lake.HypsometricWaterLevelMin");
             codeFilter = codeFilter.Replace("HypsometricAreaMin", "lake.HypsometricAreaMin");
             codeFilter = codeFilter.Replace("HypsometricVolumeMin", "lake.HypsometricVolumeMin");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryMineralization", "lake.GeneralHydroChemistryMineralization");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryTotalHardness", "lake.GeneralHydroChemistryTotalHardness");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryDissOxygWater", "lake.GeneralHydroChemistryDissOxygWater");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryPercentOxygWater", "lake.GeneralHydroChemistryPercentOxygWater");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistrypH", "lake.GeneralHydroChemistrypH");
+            codeFilter = codeFilter.Replace("GeneralHydroChemistryOrganicSubstances", "lake.GeneralHydroChemistryOrganicSubstances");
             codeFilter = codeFilter.Replace("GeneralHydroChemistryMineralizationAvg", "lake.GeneralHydroChemistryMineralizationAvg");
             codeFilter = codeFilter.Replace("GeneralHydroChemistryTotalHardnessAvg", "lake.GeneralHydroChemistryTotalHardnessAvg");
             codeFilter = codeFilter.Replace("GeneralHydroChemistryDissOxygWaterAvg", "lake.GeneralHydroChemistryDissOxygWaterAvg");
@@ -1177,6 +1477,12 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("GeneralHydroChemistryPercentOxygWaterMin", "lake.GeneralHydroChemistryPercentOxygWaterMin");
             codeFilter = codeFilter.Replace("GeneralHydroChemistrypHMin", "lake.GeneralHydroChemistrypHMin");
             codeFilter = codeFilter.Replace("GeneralHydroChemistryOrganicSubstancesMin", "lake.GeneralHydroChemistryOrganicSubstancesMin");
+            codeFilter = codeFilter.Replace("IonsaltCa", "lake.IonsaltCa");
+            codeFilter = codeFilter.Replace("IonsaltMg", "lake.IonsaltMg");
+            codeFilter = codeFilter.Replace("IonsaltNaK", "lake.IonsaltNaK");
+            codeFilter = codeFilter.Replace("IonsaltCl", "lake.IonsaltCl");
+            codeFilter = codeFilter.Replace("IonsaltHCO", "lake.IonsaltHCO");
+            codeFilter = codeFilter.Replace("IonsaltSO", "lake.IonsaltSO");
             codeFilter = codeFilter.Replace("IonsaltCaAvg", "lake.IonsaltCaAvg");
             codeFilter = codeFilter.Replace("IonsaltMgAvg", "lake.IonsaltMgAvg");
             codeFilter = codeFilter.Replace("IonsaltNaKAvg", "lake.IonsaltNaKAvg");
@@ -1195,6 +1501,17 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("IonsaltClMin", "lake.IonsaltClMin");
             codeFilter = codeFilter.Replace("IonsaltHCOMin", "lake.IonsaltHCOMin");
             codeFilter = codeFilter.Replace("IonsaltSOMin", "lake.IonsaltSOMin");
+            codeFilter = codeFilter.Replace("ToxicNH4", "lake.ToxicNH4");
+            codeFilter = codeFilter.Replace("ToxicNO2", "lake.ToxicNO2");
+            codeFilter = codeFilter.Replace("ToxicNO3", "lake.ToxicNO3");
+            codeFilter = codeFilter.Replace("ToxicPPO4", "lake.ToxicPPO4");
+            codeFilter = codeFilter.Replace("ToxicCu", "lake.ToxicCu");
+            codeFilter = codeFilter.Replace("ToxicZn", "lake.ToxicZn");
+            codeFilter = codeFilter.Replace("ToxicMn", "lake.ToxicMn");
+            codeFilter = codeFilter.Replace("ToxicPb", "lake.ToxicPb");
+            codeFilter = codeFilter.Replace("ToxicNi", "lake.ToxicNi");
+            codeFilter = codeFilter.Replace("ToxicCd", "lake.ToxicCd");
+            codeFilter = codeFilter.Replace("ToxicCo", "lake.ToxicCo");
             codeFilter = codeFilter.Replace("ToxicNH4Avg", "lake.ToxicNH4Avg");
             codeFilter = codeFilter.Replace("ToxicNO2Avg", "lake.ToxicNO2Avg");
             codeFilter = codeFilter.Replace("ToxicNO3Avg", "lake.ToxicNO3Avg");
@@ -1252,6 +1569,10 @@ namespace ELake.Controllers
             codeFilter = codeFilter.Replace("SeasonalityOctober", "lake.SeasonalityOctober");
             codeFilter = codeFilter.Replace("SeasonalityNovember", "lake.SeasonalityNovember");
             codeFilter = codeFilter.Replace("SeasonalityDecember", "lake.SeasonalityDecember");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaNoData", "lake.DynamicsLakeAreaNoData");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaNoWater", "lake.DynamicsLakeAreaNoWater");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaSeasonal", "lake.DynamicsLakeAreaSeasonal");
+            codeFilter = codeFilter.Replace("DynamicsLakeAreaPermanent", "lake.DynamicsLakeAreaPermanent");
             codeFilter = codeFilter.Replace("DynamicsLakeAreaNoDataAvg", "lake.DynamicsLakeAreaNoDataAvg");
             codeFilter = codeFilter.Replace("DynamicsLakeAreaNoWaterAvg", "lake.DynamicsLakeAreaNoWaterAvg");
             codeFilter = codeFilter.Replace("DynamicsLakeAreaSeasonalAvg", "lake.DynamicsLakeAreaSeasonalAvg");
@@ -1287,6 +1608,7 @@ namespace ELake.Controllers
             string codeToCompile = @"using System;
                 using System.Collections.Generic;
                 using System.IO;
+                using System.Linq;
                 //using System.Linq;
                 namespace RoslynCompile
                 {
@@ -1295,6 +1617,7 @@ namespace ELake.Controllers
                     {
                         public int Id { get; set; }
                         public int LakeId { get; set; }
+                        public int Year { get; set; }
                         public decimal Area2015 { get; set; }
                         public decimal Shoreline2015 { get; set; }
                         public decimal ArchiveLength { get; set; }
@@ -1314,6 +1637,12 @@ namespace ELake.Controllers
                         public decimal GlobalElevation { get; set; }
                         public decimal GlobalSlope { get; set; }
                         public decimal GlobalCatchmentArea { get; set; }
+                        public decimal WaterBalanceSurfaceFlow { get; set; }
+                        public decimal WaterBalanceSurfaceOutflow { get; set; }
+                        public decimal WaterBalanceUndergroundFlow { get; set; }
+                        public decimal WaterBalanceUndergroundOutflow { get; set; }
+                        public decimal WaterBalancePrecipitation { get; set; }
+                        public decimal WaterBalanceEvaporation { get; set; }
                         public decimal WaterBalanceSurfaceFlowAvg { get; set; }
                         public decimal WaterBalanceSurfaceOutflowAvg { get; set; }
                         public decimal WaterBalanceUndergroundFlowAvg { get; set; }
@@ -1332,6 +1661,7 @@ namespace ELake.Controllers
                         public decimal WaterBalanceUndergroundOutflowMin { get; set; }
                         public decimal WaterBalancePrecipitationMin { get; set; }
                         public decimal WaterBalanceEvaporationMin { get; set; }
+                        public decimal WaterLevelWaterLavel { get; set; }
                         public decimal WaterLevelWaterLavelAvg { get; set; }
                         public decimal WaterLevelWaterLavelMax { get; set; }
                         public decimal WaterLevelWaterLavelMin { get; set; }
@@ -1344,6 +1674,12 @@ namespace ELake.Controllers
                         public decimal HypsometricWaterLevelMin { get; set; }
                         public decimal HypsometricAreaMin { get; set; }
                         public decimal HypsometricVolumeMin { get; set; }
+                        public decimal GeneralHydroChemistryMineralization { get; set; }
+                        public decimal GeneralHydroChemistryTotalHardness { get; set; }
+                        public decimal GeneralHydroChemistryDissOxygWater { get; set; }
+                        public decimal GeneralHydroChemistryPercentOxygWater { get; set; }
+                        public decimal GeneralHydroChemistrypH { get; set; }
+                        public decimal GeneralHydroChemistryOrganicSubstances { get; set; }
                         public decimal GeneralHydroChemistryMineralizationAvg { get; set; }
                         public decimal GeneralHydroChemistryTotalHardnessAvg { get; set; }
                         public decimal GeneralHydroChemistryDissOxygWaterAvg { get; set; }
@@ -1362,6 +1698,12 @@ namespace ELake.Controllers
                         public decimal GeneralHydroChemistryPercentOxygWaterMin { get; set; }
                         public decimal GeneralHydroChemistrypHMin { get; set; }
                         public decimal GeneralHydroChemistryOrganicSubstancesMin { get; set; }
+                        public decimal IonsaltCa { get; set; }
+                        public decimal IonsaltMg { get; set; }
+                        public decimal IonsaltNaK { get; set; }
+                        public decimal IonsaltCl { get; set; }
+                        public decimal IonsaltHCO { get; set; }
+                        public decimal IonsaltSO { get; set; }
                         public decimal IonsaltCaAvg { get; set; }
                         public decimal IonsaltMgAvg { get; set; }
                         public decimal IonsaltNaKAvg { get; set; }
@@ -1380,6 +1722,17 @@ namespace ELake.Controllers
                         public decimal IonsaltClMin { get; set; }
                         public decimal IonsaltHCOMin { get; set; }
                         public decimal IonsaltSOMin { get; set; }
+                        public decimal ToxicNH4 { get; set; }
+                        public decimal ToxicNO2 { get; set; }
+                        public decimal ToxicNO3 { get; set; }
+                        public decimal ToxicPPO4 { get; set; }
+                        public decimal ToxicCu { get; set; }
+                        public decimal ToxicZn { get; set; }
+                        public decimal ToxicMn { get; set; }
+                        public decimal ToxicPb { get; set; }
+                        public decimal ToxicNi { get; set; }
+                        public decimal ToxicCd { get; set; }
+                        public decimal ToxicCo { get; set; }
                         public decimal ToxicNH4Avg { get; set; }
                         public decimal ToxicNO2Avg { get; set; }
                         public decimal ToxicNO3Avg { get; set; }
@@ -1437,6 +1790,10 @@ namespace ELake.Controllers
                         public decimal SeasonalityOctober { get; set; }
                         public decimal SeasonalityNovember { get; set; }
                         public decimal SeasonalityDecember { get; set; }
+                        public decimal DynamicsLakeAreaNoData { get; set; }
+                        public decimal DynamicsLakeAreaNoWater { get; set; }
+                        public decimal DynamicsLakeAreaSeasonal { get; set; }
+                        public decimal DynamicsLakeAreaPermanent { get; set; }
                         public decimal DynamicsLakeAreaNoDataAvg { get; set; }
                         public decimal DynamicsLakeAreaNoWaterAvg { get; set; }
                         public decimal DynamicsLakeAreaSeasonalAvg { get; set; }
@@ -1476,160 +1833,201 @@ namespace ELake.Controllers
                                 {
                                     Id = Convert.ToInt32(lineS[0]),
                                     LakeId = Convert.ToInt32(lineS[1]),
-                                    Area2015 = FromLine(lineS[2]),
-                                    Shoreline2015 = FromLine(lineS[3]),
-                                    ArchiveLength = FromLine(lineS[4]),
-                                    ArchiveShoreline = FromLine(lineS[5]),
-                                    ArchiveMirrorArea = FromLine(lineS[6]),
-                                    ArchiveAbsoluteHeight = FromLine(lineS[7]),
-                                    ArchiveWidth = FromLine(lineS[8]),
-                                    ArchiveMaxDepth = FromLine(lineS[9]),
-                                    ArchiveWaterMass = FromLine(lineS[10]),
-                                    GlobalArea = FromLine(lineS[11]),
-                                    GlobalShoreLength = FromLine(lineS[12]),
-                                    GlobalIndentation = FromLine(lineS[13]),
-                                    GlobalVolume = FromLine(lineS[14]),
-                                    GlobalDepth = FromLine(lineS[15]),
-                                    GlobalFlow = FromLine(lineS[16]),
-                                    GlobalStayTime = FromLine(lineS[17]),
-                                    GlobalElevation = FromLine(lineS[18]),
-                                    GlobalSlope = FromLine(lineS[19]),
-                                    GlobalCatchmentArea = FromLine(lineS[20]),
-                                    WaterBalanceSurfaceFlowAvg = FromLine(lineS[21]),
-                                    WaterBalanceSurfaceOutflowAvg = FromLine(lineS[22]),
-                                    WaterBalanceUndergroundFlowAvg = FromLine(lineS[23]),
-                                    WaterBalanceUndergroundOutflowAvg = FromLine(lineS[24]),
-                                    WaterBalancePrecipitationAvg = FromLine(lineS[25]),
-                                    WaterBalanceEvaporationAvg = FromLine(lineS[26]),
-                                    WaterBalanceSurfaceFlowMax = FromLine(lineS[27]),
-                                    WaterBalanceSurfaceOutflowMax = FromLine(lineS[28]),
-                                    WaterBalanceUndergroundFlowMax = FromLine(lineS[29]),
-                                    WaterBalanceUndergroundOutflowMax = FromLine(lineS[30]),
-                                    WaterBalancePrecipitationMax = FromLine(lineS[31]),
-                                    WaterBalanceEvaporationMax = FromLine(lineS[32]),
-                                    WaterBalanceSurfaceFlowMin = FromLine(lineS[33]),
-                                    WaterBalanceSurfaceOutflowMin = FromLine(lineS[34]),
-                                    WaterBalanceUndergroundFlowMin = FromLine(lineS[35]),
-                                    WaterBalanceUndergroundOutflowMin = FromLine(lineS[36]),
-                                    WaterBalancePrecipitationMin = FromLine(lineS[37]),
-                                    WaterBalanceEvaporationMin = FromLine(lineS[38]),
-                                    WaterLevelWaterLavelAvg = FromLine(lineS[39]),
-                                    WaterLevelWaterLavelMax = FromLine(lineS[40]),
-                                    WaterLevelWaterLavelMin = FromLine(lineS[41]),
-                                    HypsometricWaterLevelAvg = FromLine(lineS[42]),
-                                    HypsometricAreaAvg = FromLine(lineS[43]),
-                                    HypsometricVolumeAvg = FromLine(lineS[44]),
-                                    HypsometricWaterLevelMax = FromLine(lineS[45]),
-                                    HypsometricAreaMax = FromLine(lineS[46]),
-                                    HypsometricVolumeMax = FromLine(lineS[47]),
-                                    HypsometricWaterLevelMin = FromLine(lineS[48]),
-                                    HypsometricAreaMin = FromLine(lineS[49]),
-                                    HypsometricVolumeMin = FromLine(lineS[50]),
-                                    GeneralHydroChemistryMineralizationAvg = FromLine(lineS[51]),
-                                    GeneralHydroChemistryTotalHardnessAvg = FromLine(lineS[52]),
-                                    GeneralHydroChemistryDissOxygWaterAvg = FromLine(lineS[53]),
-                                    GeneralHydroChemistryPercentOxygWaterAvg = FromLine(lineS[54]),
-                                    GeneralHydroChemistrypHAvg = FromLine(lineS[55]),
-                                    GeneralHydroChemistryOrganicSubstancesAvg = FromLine(lineS[56]),
-                                    GeneralHydroChemistryMineralizationMax = FromLine(lineS[57]),
-                                    GeneralHydroChemistryTotalHardnessMax = FromLine(lineS[58]),
-                                    GeneralHydroChemistryDissOxygWaterMax = FromLine(lineS[59]),
-                                    GeneralHydroChemistryPercentOxygWaterMax = FromLine(lineS[60]),
-                                    GeneralHydroChemistrypHMax = FromLine(lineS[61]),
-                                    GeneralHydroChemistryOrganicSubstancesMax = FromLine(lineS[62]),
-                                    GeneralHydroChemistryMineralizationMin = FromLine(lineS[63]),
-                                    GeneralHydroChemistryTotalHardnessMin = FromLine(lineS[64]),
-                                    GeneralHydroChemistryDissOxygWaterMin = FromLine(lineS[65]),
-                                    GeneralHydroChemistryPercentOxygWaterMin = FromLine(lineS[66]),
-                                    GeneralHydroChemistrypHMin = FromLine(lineS[67]),
-                                    GeneralHydroChemistryOrganicSubstancesMin = FromLine(lineS[68]),
-                                    IonsaltCaAvg = FromLine(lineS[69]),
-                                    IonsaltMgAvg = FromLine(lineS[70]),
-                                    IonsaltNaKAvg = FromLine(lineS[71]),
-                                    IonsaltClAvg = FromLine(lineS[72]),
-                                    IonsaltHCOAvg = FromLine(lineS[73]),
-                                    IonsaltSOAvg = FromLine(lineS[74]),
-                                    IonsaltCaMax = FromLine(lineS[75]),
-                                    IonsaltMgMax = FromLine(lineS[76]),
-                                    IonsaltNaKMax = FromLine(lineS[77]),
-                                    IonsaltClMax = FromLine(lineS[78]),
-                                    IonsaltHCOMax = FromLine(lineS[79]),
-                                    IonsaltSOMax = FromLine(lineS[80]),
-                                    IonsaltCaMin = FromLine(lineS[81]),
-                                    IonsaltMgMin = FromLine(lineS[82]),
-                                    IonsaltNaKMin = FromLine(lineS[83]),
-                                    IonsaltClMin = FromLine(lineS[84]),
-                                    IonsaltHCOMin = FromLine(lineS[85]),
-                                    IonsaltSOMin = FromLine(lineS[86]),
-                                    ToxicNH4Avg = FromLine(lineS[87]),
-                                    ToxicNO2Avg = FromLine(lineS[88]),
-                                    ToxicNO3Avg = FromLine(lineS[89]),
-                                    ToxicPPO4Avg = FromLine(lineS[90]),
-                                    ToxicCuAvg = FromLine(lineS[91]),
-                                    ToxicZnAvg = FromLine(lineS[92]),
-                                    ToxicMnAvg = FromLine(lineS[93]),
-                                    ToxicPbAvg = FromLine(lineS[94]),
-                                    ToxicNiAvg = FromLine(lineS[95]),
-                                    ToxicCdAvg = FromLine(lineS[96]),
-                                    ToxicCoAvg = FromLine(lineS[97]),
-                                    ToxicNH4Max = FromLine(lineS[98]),
-                                    ToxicNO2Max = FromLine(lineS[99]),
-                                    ToxicNO3Max = FromLine(lineS[100]),
-                                    ToxicPPO4Max = FromLine(lineS[101]),
-                                    ToxicCuMax = FromLine(lineS[102]),
-                                    ToxicZnMax = FromLine(lineS[103]),
-                                    ToxicMnMax = FromLine(lineS[104]),
-                                    ToxicPbMax = FromLine(lineS[105]),
-                                    ToxicNiMax = FromLine(lineS[106]),
-                                    ToxicCdMax = FromLine(lineS[107]),
-                                    ToxicCoMax = FromLine(lineS[108]),
-                                    ToxicNH4Min = FromLine(lineS[109]),
-                                    ToxicNO2Min = FromLine(lineS[110]),
-                                    ToxicNO3Min = FromLine(lineS[111]),
-                                    ToxicPPO4Min = FromLine(lineS[112]),
-                                    ToxicCuMin = FromLine(lineS[113]),
-                                    ToxicZnMin = FromLine(lineS[114]),
-                                    ToxicMnMin = FromLine(lineS[115]),
-                                    ToxicPbMin = FromLine(lineS[116]),
-                                    ToxicNiMin = FromLine(lineS[117]),
-                                    ToxicCdMin = FromLine(lineS[118]),
-                                    ToxicCoMin = FromLine(lineS[119]),
-                                    TransitionNoСhange = FromLine(lineS[120]),
-                                    TransitionPermanent = FromLine(lineS[121]),
-                                    TransitionNewPermanent = FromLine(lineS[122]),
-                                    TransitionLostPermanent = FromLine(lineS[123]),
-                                    TransitionSeasonal = FromLine(lineS[124]),
-                                    TransitionNewSeasonal = FromLine(lineS[125]),
-                                    TransitionLostSeasonal = FromLine(lineS[126]),
-                                    TransitionSeasonalToPermanent = FromLine(lineS[127]),
-                                    TransitionPermanentToDeasonal = FromLine(lineS[128]),
-                                    TransitionEphemeralPermanent = FromLine(lineS[129]),
-                                    TransitionEphemeralSeasonal = FromLine(lineS[130]),
-                                    SeasonalityNoData = FromLine(lineS[131]),
-                                    SeasonalityJanuary = FromLine(lineS[132]),
-                                    SeasonalityFebruary = FromLine(lineS[133]),
-                                    SeasonalityMarch = FromLine(lineS[134]),
-                                    SeasonalityApril = FromLine(lineS[135]),
-                                    SeasonalityMay = FromLine(lineS[136]),
-                                    SeasonalityJune = FromLine(lineS[137]),
-                                    SeasonalityJuly = FromLine(lineS[138]),
-                                    SeasonalityAugust = FromLine(lineS[139]),
-                                    SeasonalitySeptember = FromLine(lineS[140]),
-                                    SeasonalityOctober = FromLine(lineS[141]),
-                                    SeasonalityNovember = FromLine(lineS[142]),
-                                    SeasonalityDecember = FromLine(lineS[143]),
-                                    DynamicsLakeAreaNoDataAvg = FromLine(lineS[144]),
-                                    DynamicsLakeAreaNoWaterAvg = FromLine(lineS[145]),
-                                    DynamicsLakeAreaSeasonalAvg = FromLine(lineS[146]),
-                                    DynamicsLakeAreaPermanentAvg = FromLine(lineS[147]),
-                                    DynamicsLakeAreaNoDataMax = FromLine(lineS[148]),
-                                    DynamicsLakeAreaNoWaterMax = FromLine(lineS[149]),
-                                    DynamicsLakeAreaSeasonalMax = FromLine(lineS[150]),
-                                    DynamicsLakeAreaPermanentMax = FromLine(lineS[151]),
-                                    DynamicsLakeAreaNoDataMin = FromLine(lineS[152]),
-                                    DynamicsLakeAreaNoWaterMin = FromLine(lineS[153]),
-                                    DynamicsLakeAreaSeasonalMin = FromLine(lineS[154]),
-                                    DynamicsLakeAreaPermanentMin = FromLine(lineS[155]),
+                                    Year = Convert.ToInt32(lineS[2]),
+                                    Area2015 = FromLine(lineS[3]),
+                                    Shoreline2015 = FromLine(lineS[4]),
+                                    ArchiveLength = FromLine(lineS[5]),
+                                    ArchiveShoreline = FromLine(lineS[6]),
+                                    ArchiveMirrorArea = FromLine(lineS[7]),
+                                    ArchiveAbsoluteHeight = FromLine(lineS[8]),
+                                    ArchiveWidth = FromLine(lineS[9]),
+                                    ArchiveMaxDepth = FromLine(lineS[10]),
+                                    ArchiveWaterMass = FromLine(lineS[11]),
+                                    GlobalArea = FromLine(lineS[12]),
+                                    GlobalShoreLength = FromLine(lineS[13]),
+                                    GlobalIndentation = FromLine(lineS[14]),
+                                    GlobalVolume = FromLine(lineS[15]),
+                                    GlobalDepth = FromLine(lineS[16]),
+                                    GlobalFlow = FromLine(lineS[17]),
+                                    GlobalStayTime = FromLine(lineS[18]),
+                                    GlobalElevation = FromLine(lineS[19]),
+                                    GlobalSlope = FromLine(lineS[20]),
+                                    GlobalCatchmentArea = FromLine(lineS[21]),
+
+                                    WaterBalanceSurfaceFlow = FromLine(lineS[22]),
+                                    WaterBalanceSurfaceOutflow = FromLine(lineS[23]),
+                                    WaterBalanceUndergroundFlow = FromLine(lineS[24]),
+                                    WaterBalanceUndergroundOutflow = FromLine(lineS[25]),
+                                    WaterBalancePrecipitation = FromLine(lineS[26]),
+                                    WaterBalanceEvaporation = FromLine(lineS[27]),
+
+                                    WaterBalanceSurfaceFlowAvg = FromLine(lineS[28]),
+                                    WaterBalanceSurfaceOutflowAvg = FromLine(lineS[29]),
+                                    WaterBalanceUndergroundFlowAvg = FromLine(lineS[30]),
+                                    WaterBalanceUndergroundOutflowAvg = FromLine(lineS[31]),
+                                    WaterBalancePrecipitationAvg = FromLine(lineS[32]),
+                                    WaterBalanceEvaporationAvg = FromLine(lineS[33]),
+                                    WaterBalanceSurfaceFlowMax = FromLine(lineS[34]),
+                                    WaterBalanceSurfaceOutflowMax = FromLine(lineS[35]),
+                                    WaterBalanceUndergroundFlowMax = FromLine(lineS[36]),
+                                    WaterBalanceUndergroundOutflowMax = FromLine(lineS[37]),
+                                    WaterBalancePrecipitationMax = FromLine(lineS[38]),
+                                    WaterBalanceEvaporationMax = FromLine(lineS[39]),
+                                    WaterBalanceSurfaceFlowMin = FromLine(lineS[40]),
+                                    WaterBalanceSurfaceOutflowMin = FromLine(lineS[41]),
+                                    WaterBalanceUndergroundFlowMin = FromLine(lineS[42]),
+                                    WaterBalanceUndergroundOutflowMin = FromLine(lineS[43]),
+                                    WaterBalancePrecipitationMin = FromLine(lineS[44]),
+                                    WaterBalanceEvaporationMin = FromLine(lineS[45]),
+
+                                    WaterLevelWaterLavel = FromLine(lineS[46]),
+                                    WaterLevelWaterLavelAvg = FromLine(lineS[47]),
+                                    WaterLevelWaterLavelMax = FromLine(lineS[48]),
+                                    WaterLevelWaterLavelMin = FromLine(lineS[49]),
+
+                                    HypsometricWaterLevelAvg = FromLine(lineS[50]),
+                                    HypsometricAreaAvg = FromLine(lineS[51]),
+                                    HypsometricVolumeAvg = FromLine(lineS[52]),
+                                    HypsometricWaterLevelMax = FromLine(lineS[53]),
+                                    HypsometricAreaMax = FromLine(lineS[54]),
+                                    HypsometricVolumeMax = FromLine(lineS[55]),
+                                    HypsometricWaterLevelMin = FromLine(lineS[56]),
+                                    HypsometricAreaMin = FromLine(lineS[57]),
+                                    HypsometricVolumeMin = FromLine(lineS[58]),
+
+                                    GeneralHydroChemistryMineralization = FromLine(lineS[59]),
+                                    GeneralHydroChemistryTotalHardness = FromLine(lineS[60]),
+                                    GeneralHydroChemistryDissOxygWater = FromLine(lineS[61]),
+                                    GeneralHydroChemistryPercentOxygWater = FromLine(lineS[62]),
+                                    GeneralHydroChemistrypH = FromLine(lineS[63]),
+                                    GeneralHydroChemistryOrganicSubstances = FromLine(lineS[64]),
+
+                                    GeneralHydroChemistryMineralizationAvg = FromLine(lineS[65]),
+                                    GeneralHydroChemistryTotalHardnessAvg = FromLine(lineS[66]),
+                                    GeneralHydroChemistryDissOxygWaterAvg = FromLine(lineS[67]),
+                                    GeneralHydroChemistryPercentOxygWaterAvg = FromLine(lineS[68]),
+                                    GeneralHydroChemistrypHAvg = FromLine(lineS[69]),
+                                    GeneralHydroChemistryOrganicSubstancesAvg = FromLine(lineS[70]),
+                                    GeneralHydroChemistryMineralizationMax = FromLine(lineS[71]),
+                                    GeneralHydroChemistryTotalHardnessMax = FromLine(lineS[72]),
+                                    GeneralHydroChemistryDissOxygWaterMax = FromLine(lineS[73]),
+                                    GeneralHydroChemistryPercentOxygWaterMax = FromLine(lineS[74]),
+                                    GeneralHydroChemistrypHMax = FromLine(lineS[75]),
+                                    GeneralHydroChemistryOrganicSubstancesMax = FromLine(lineS[76]),
+                                    GeneralHydroChemistryMineralizationMin = FromLine(lineS[77]),
+                                    GeneralHydroChemistryTotalHardnessMin = FromLine(lineS[78]),
+                                    GeneralHydroChemistryDissOxygWaterMin = FromLine(lineS[79]),
+                                    GeneralHydroChemistryPercentOxygWaterMin = FromLine(lineS[80]),
+                                    GeneralHydroChemistrypHMin = FromLine(lineS[81]),
+                                    GeneralHydroChemistryOrganicSubstancesMin = FromLine(lineS[82]),
+                                    IonsaltCa = FromLine(lineS[83]),
+                                    IonsaltMg = FromLine(lineS[84]),
+                                    IonsaltNaK = FromLine(lineS[85]),
+                                    IonsaltCl = FromLine(lineS[86]),
+                                    IonsaltHCO = FromLine(lineS[87]),
+                                    IonsaltSO = FromLine(lineS[88]),
+                                    IonsaltCaAvg = FromLine(lineS[89]),
+                                    IonsaltMgAvg = FromLine(lineS[90]),
+                                    IonsaltNaKAvg = FromLine(lineS[91]),
+                                    IonsaltClAvg = FromLine(lineS[92]),
+                                    IonsaltHCOAvg = FromLine(lineS[93]),
+                                    IonsaltSOAvg = FromLine(lineS[94]),
+                                    IonsaltCaMax = FromLine(lineS[95]),
+                                    IonsaltMgMax = FromLine(lineS[96]),
+                                    IonsaltNaKMax = FromLine(lineS[97]),
+                                    IonsaltClMax = FromLine(lineS[98]),
+                                    IonsaltHCOMax = FromLine(lineS[99]),
+                                    IonsaltSOMax = FromLine(lineS[100]),
+                                    IonsaltCaMin = FromLine(lineS[101]),
+                                    IonsaltMgMin = FromLine(lineS[102]),
+                                    IonsaltNaKMin = FromLine(lineS[103]),
+                                    IonsaltClMin = FromLine(lineS[104]),
+                                    IonsaltHCOMin = FromLine(lineS[105]),
+                                    IonsaltSOMin = FromLine(lineS[106]),
+                                    ToxicNH4 = FromLine(lineS[107]),
+                                    ToxicNO2 = FromLine(lineS[108]),
+                                    ToxicNO3 = FromLine(lineS[109]),
+                                    ToxicPPO4 = FromLine(lineS[110]),
+                                    ToxicCu = FromLine(lineS[111]),
+                                    ToxicZn = FromLine(lineS[112]),
+                                    ToxicMn = FromLine(lineS[113]),
+                                    ToxicPb = FromLine(lineS[114]),
+                                    ToxicNi = FromLine(lineS[115]),
+                                    ToxicCd = FromLine(lineS[116]),
+                                    ToxicCo = FromLine(lineS[117]),
+                                    ToxicNH4Avg = FromLine(lineS[118]),
+                                    ToxicNO2Avg = FromLine(lineS[119]),
+                                    ToxicNO3Avg = FromLine(lineS[120]),
+                                    ToxicPPO4Avg = FromLine(lineS[121]),
+                                    ToxicCuAvg = FromLine(lineS[122]),
+                                    ToxicZnAvg = FromLine(lineS[123]),
+                                    ToxicMnAvg = FromLine(lineS[124]),
+                                    ToxicPbAvg = FromLine(lineS[125]),
+                                    ToxicNiAvg = FromLine(lineS[126]),
+                                    ToxicCdAvg = FromLine(lineS[127]),
+                                    ToxicCoAvg = FromLine(lineS[128]),
+                                    ToxicNH4Max = FromLine(lineS[129]),
+                                    ToxicNO2Max = FromLine(lineS[130]),
+                                    ToxicNO3Max = FromLine(lineS[131]),
+                                    ToxicPPO4Max = FromLine(lineS[132]),
+                                    ToxicCuMax = FromLine(lineS[133]),
+                                    ToxicZnMax = FromLine(lineS[134]),
+                                    ToxicMnMax = FromLine(lineS[135]),
+                                    ToxicPbMax = FromLine(lineS[136]),
+                                    ToxicNiMax = FromLine(lineS[137]),
+                                    ToxicCdMax = FromLine(lineS[138]),
+                                    ToxicCoMax = FromLine(lineS[139]),
+                                    ToxicNH4Min = FromLine(lineS[140]),
+                                    ToxicNO2Min = FromLine(lineS[141]),
+                                    ToxicNO3Min = FromLine(lineS[142]),
+                                    ToxicPPO4Min = FromLine(lineS[143]),
+                                    ToxicCuMin = FromLine(lineS[144]),
+                                    ToxicZnMin = FromLine(lineS[145]),
+                                    ToxicMnMin = FromLine(lineS[146]),
+                                    ToxicPbMin = FromLine(lineS[147]),
+                                    ToxicNiMin = FromLine(lineS[148]),
+                                    ToxicCdMin = FromLine(lineS[149]),
+                                    ToxicCoMin = FromLine(lineS[150]),
+                                    TransitionNoСhange = FromLine(lineS[151]),
+                                    TransitionPermanent = FromLine(lineS[152]),
+                                    TransitionNewPermanent = FromLine(lineS[153]),
+                                    TransitionLostPermanent = FromLine(lineS[154]),
+                                    TransitionSeasonal = FromLine(lineS[155]),
+                                    TransitionNewSeasonal = FromLine(lineS[156]),
+                                    TransitionLostSeasonal = FromLine(lineS[157]),
+                                    TransitionSeasonalToPermanent = FromLine(lineS[158]),
+                                    TransitionPermanentToDeasonal = FromLine(lineS[159]),
+                                    TransitionEphemeralPermanent = FromLine(lineS[160]),
+                                    TransitionEphemeralSeasonal = FromLine(lineS[161]),
+                                    SeasonalityNoData = FromLine(lineS[162]),
+                                    SeasonalityJanuary = FromLine(lineS[163]),
+                                    SeasonalityFebruary = FromLine(lineS[164]),
+                                    SeasonalityMarch = FromLine(lineS[165]),
+                                    SeasonalityApril = FromLine(lineS[166]),
+                                    SeasonalityMay = FromLine(lineS[167]),
+                                    SeasonalityJune = FromLine(lineS[168]),
+                                    SeasonalityJuly = FromLine(lineS[169]),
+                                    SeasonalityAugust = FromLine(lineS[170]),
+                                    SeasonalitySeptember = FromLine(lineS[171]),
+                                    SeasonalityOctober = FromLine(lineS[172]),
+                                    SeasonalityNovember = FromLine(lineS[173]),
+                                    SeasonalityDecember = FromLine(lineS[174]),
+                                    DynamicsLakeAreaNoData = FromLine(lineS[175]),
+                                    DynamicsLakeAreaNoWater = FromLine(lineS[176]),
+                                    DynamicsLakeAreaSeasonal = FromLine(lineS[177]),
+                                    DynamicsLakeAreaPermanent = FromLine(lineS[178]),
+                                    DynamicsLakeAreaNoDataAvg = FromLine(lineS[179]),
+                                    DynamicsLakeAreaNoWaterAvg = FromLine(lineS[180]),
+                                    DynamicsLakeAreaSeasonalAvg = FromLine(lineS[181]),
+                                    DynamicsLakeAreaPermanentAvg = FromLine(lineS[182]),
+                                    DynamicsLakeAreaNoDataMax = FromLine(lineS[183]),
+                                    DynamicsLakeAreaNoWaterMax = FromLine(lineS[184]),
+                                    DynamicsLakeAreaSeasonalMax = FromLine(lineS[185]),
+                                    DynamicsLakeAreaPermanentMax = FromLine(lineS[186]),
+                                    DynamicsLakeAreaNoDataMin = FromLine(lineS[187]),
+                                    DynamicsLakeAreaNoWaterMin = FromLine(lineS[188]),
+                                    DynamicsLakeAreaSeasonalMin = FromLine(lineS[189]),
+                                    DynamicsLakeAreaPermanentMin = FromLine(lineS[190]),
 
                                 });
                             }
@@ -1648,6 +2046,7 @@ namespace ELake.Controllers
                             }
 
                             return rLakes
+                                .Distinct()
                                 .ToArray();
                         }
                     }
