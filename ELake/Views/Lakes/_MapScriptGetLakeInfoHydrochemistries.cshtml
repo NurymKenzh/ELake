@@ -843,12 +843,12 @@
                 if (data.iwctable2[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
                     tr.append('<td>' + data.iwctable2[i].year + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + data.iwctable2[i].alekinWaterCompositionClass + '</td>');
                 }
             }
@@ -881,12 +881,12 @@
                 if (data.iwctable2[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
                     tr.append('<td>' + data.iwctable2[i].year + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + data.iwctable2[i].kurlovFormula + '</td>');
                 }
             }
@@ -2825,7 +2825,7 @@
         $('.FreshPart').hide();
         $('.SaltyPart').hide();
         if (twoparts) {
-            $('.FreshPart').show();
+            $('.SaltyPart').show();
         }
     }
 
@@ -2847,7 +2847,7 @@
         $('.FreshPart').hide();
         $('.SaltyPart').hide();
         if (twoparts) {
-            $('.FreshPart').show();
+            $('.SaltyPart').show();
         }
     }
 
