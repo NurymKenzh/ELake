@@ -2422,6 +2422,7 @@
                     var tr = $('<tr/>').appendTo(tablebody1);
                     tr.append('<td>' + data.titable1[i].year + '</td>');
                     tr.append('<td>' + (data.titable1[i].kizv != null ? data.titable1[i].kizv.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + data.titable1[i].kizVs + '</td>');
                 }
             }
         }
@@ -2432,6 +2433,7 @@
                     var tr = $('<tr/>').appendTo(tablebody2);
                     tr.append('<td>' + data.titable2[i].year + '</td>');
                     tr.append('<td>' + (data.titable2[i].kizv != null ? data.titable2[i].kizv.toFixed(2) : null) + '</td>');
+                    tr.append('<td>' + data.titable2[i].kizVs + '</td>');
                 }
             }
         }

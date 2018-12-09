@@ -1632,8 +1632,10 @@
                 $('#IZVCo2').text($('#NoData').val());
                 $('#YearKIZV1').text($('#NoData').val());
                 $('#KIZV1').text($('#NoData').val());
+                $('#KIZVs1').text('');
                 $('#YearKIZV2').text($('#NoData').val());
                 $('#KIZV2').text($('#NoData').val());
+                $('#KIZVs2').text('');
                 if (data.titable1 != null) {
                     for (i = 0; i < data.titable1.length; i++) {
                         if (data.titable1[i].nH4 != null) {
@@ -1693,6 +1695,7 @@
                         }
                         if (data.titable1[i].kizv != null) {
                             $('#KIZV1').text((data.titable1[i].kizv != null ? data.titable1[i].kizv.toFixed(2) : null));
+                            $('#KIZVs1').text(data.titable1[i].kizVs);
                             $('#YearKIZV1').text(data.titable1[i].year);
                         }
                         if (data.titable1[i].nutrientsHeavyMetalsStandard != null) {
@@ -1760,6 +1763,7 @@
                         }
                         if (data.titable2[i].kizv != null) {
                             $('#KIZV2').text((data.titable2[i].kizv != null ? data.titable2[i].kizv.toFixed(2) : null));
+                            $('#KIZVs2').text(data.titable2[i].kizVs);
                             $('#YearKIZV2').text(data.titable2[i].year);
                         }
                         if (data.titable2[i].nutrientsHeavyMetalsStandard != null) {
