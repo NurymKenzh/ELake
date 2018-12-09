@@ -10,6 +10,7 @@
     <link href="~/lib/distribution/css/style.green.css" rel="stylesheet" id="theme-stylesheet" />
     <!-- Custom stylesheet - for your changes-->
     <link href="~/lib/distribution/css/custom.css" rel="stylesheet" />
+    <script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
 </head>
 <header class="page-header">
     <div class="container-fluid">
@@ -23,7 +24,7 @@
     <input id="Details" type="hidden" value='@SharedLocalizer["Details"]' />
 </div>
 <!-- Dashboard Header Section    -->
-<div class="container-fluid">
+<div id="main" class="container-fluid">
     <div class="row">
         <div class="col-md-2 offset-md-1 mt-3">
             <div class="card" id="accordion">
@@ -264,7 +265,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="list-inform9" role="tabpanel" aria-labelledby="list-inform9-list">
                                             <h4>@SharedLocalizer["Hydrochemistries"]. @SharedLocalizer["ToxicologicalIndicators"]</h4>
-                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'KIZV')" value="@SharedLocalizer["KIZV"] (KIZV)" /></small>
+                                            <small><input id="ToxicKIZV" type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicKIZV')" value="@SharedLocalizer["KIZV"] (ToxicKIZV)" /></small>
                                             <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNH4')" value="@SharedLocalizer["NH4"] (ToxicNH4)" /></small>
                                             <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNO2')" value="@SharedLocalizer["NO2"] (ToxicNO2)" /></small>
                                             <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'ToxicNO3')" value="@SharedLocalizer["NO3"] (ToxicNO3)" /></small>
@@ -439,6 +440,7 @@
         });
     }*@
     function Analyze() {
+        $("#main").LoadingOverlay("show");
         $('#message').text('');
         $.ajax({
             url: '@Url.Action("Analyze")',
@@ -448,6 +450,7 @@
                 Adm2KATOId: $('#adm2').val() },
             type: 'POST',
             success: function (data) {
+                $("#main").LoadingOverlay("hide");
                 var tablebody = $('#tablebodyLakes');
                 tablebody.html('');
                 if (data.lakes != null) {
@@ -482,6 +485,9 @@
                         }
                         if ($('#formula').val().includes('ArchiveWaterMass')) {
                             tr.append('<td>' + data.lakes[i].lakeWaterMass + '</td>');
+                        }
+                        if ($('#formula').val().includes('ToxicKIZV')) {
+                            tr.append('<td>' + data.lakes[i].toxicKIZV + '</td>');
                         }
                     }
                 }
@@ -519,9 +525,13 @@
                 if ($('#formula').val().includes('ArchiveWaterMass')) {
                     th.append('<th>' + $('#ArchiveWaterMass').val() + '</th>');
                 }
+                if ($('#formula').val().includes('ToxicKIZV')) {
+                    th.append('<th>' + $('#ToxicKIZV').val() + '</th>');
+                }
                 $('#message').text(data.message);
             },
             error: function () {
+                $("#main").LoadingOverlay("hide");
             }
         });
     }

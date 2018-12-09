@@ -2313,6 +2313,8 @@ namespace ELake.Controllers
                 lakes[i].LakeWidth = lakesArchiveData?.LakeWidth;
                 lakes[i].LakeMaxDepth = lakesArchiveData?.LakeMaxDepth;
                 lakes[i].LakeWaterMass = lakesArchiveData?.LakeWaterMass;
+                ToxicologicalIndicator toxicologicalIndicator = _context.ToxicologicalIndicator.FirstOrDefault(l => l.LakeId == lakes[i].LakeId);
+                lakes[i].ToxicKIZV = toxicologicalIndicator?.KIZV;
             }
 
             if (message == "")

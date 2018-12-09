@@ -112,6 +112,8 @@ namespace ELake.Models
         public decimal? LakeMaxDepth { get; set; }
         [NotMapped]
         public decimal? LakeWaterMass { get; set; }
+        [NotMapped]
+        public decimal? ToxicKIZV { get; set; }
     }
 
     public class LakeIndexPageViewModel
