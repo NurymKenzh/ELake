@@ -1,5 +1,6 @@
 ﻿@using ELake.Controllers
 @using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Builder;
 @inject IStringLocalizer<SharedResources> SharedLocalizer
 @{
     ViewData["Title"] = @SharedLocalizer["Home"];
@@ -17,32 +18,84 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner" role="listbox">
-                <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url(../images/sl01.JPG)">
-                    <h1 class="mb59"> Lakes of the Republic of Kazakhstan!</h1>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Ulken Shabakty lake </h3>
-                        <p>Lake Ulken Shabakty is the largest of all ShchBSO lakes by area and depth.</p>
+            @if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "en")
+            {
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active" style="background-image: url(../images/sl01.JPG)">
+                        <h1 class="mb59"> Lakes of the Republic of Kazakhstan!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Ulken Shabakty lake </h3>
+                            <p>Lake Ulken Shabakty is the largest of all ShchBSO lakes by area and depth.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url(../images/sl04.JPG)">
+                        <h1 class="mb59"> Lakes of the Republic of Kazakhstan!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Zhasibay lake</h3>
+                            <p>Lake Zhasybay is located in a natural hollow between mountain ranges with Akbet peaks (1022 m) from the north-east and Ogolek (958 m) from the south-west.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url(../images/sl06.JPG)">
+                        <h1 class="mb59"> Lakes of the Republic of Kazakhstan!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Inder lake</h3>
+                            <p>Located in the northern part of the Caspian Lowland, 10 km to the east of the Ural River, 5 km from the southern border of the West Kazakhstan region.</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url(../images/sl04.JPG)">
-                    <h1 class="mb59"> Lakes of the Republic of Kazakhstan!</h1>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Zhasibay lake</h3>
-                        <p>Lake Zhasybay is located in a natural hollow between mountain ranges with Akbet peaks (1022 m) from the north-east and Ogolek (958 m) from the south-west.</p>
+            }
+            else if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "kk")
+            {
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active" style="background-image: url(../images/sl01.JPG)">
+                        <h1 class="mb59"> Қазақстан Республикасының көлдері!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Үлкен Шабақты көлі </h3>
+                            <p>Lake Ulken Shabakty is the largest of all ShchBSO lakes by area and depth.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url(../images/sl04.JPG)">
+                        <h1 class="mb59"> Қазақстан Республикасының көлдері!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Zhasibay lake</h3>
+                            <p>Lake Zhasybay is located in a natural hollow between mountain ranges with Akbet peaks (1022 m) from the north-east and Ogolek (958 m) from the south-west.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url(../images/sl06.JPG)">
+                        <h1 class="mb59"> Қазақстан Республикасының көлдері!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Inder lake</h3>
+                            <p>Located in the northern part of the Caspian Lowland, 10 km to the east of the Ural River, 5 km from the southern border of the West Kazakhstan region.</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url(../images/sl06.JPG)">
-                    <h1 class="mb59" Lakes of the Republic of Kazakhstan!</h1>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>Inder lake</h3>
-                        <p>Located in the northern part of the Caspian Lowland, 10 km to the east of the Ural River, 5 km from the southern border of the West Kazakhstan region.</p>
+            }
+            else
+            {
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active" style="background-image: url(../images/sl01.JPG)">
+                        <h1 class="mb59"> Озера Республики Казахстан!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Озеро Улькен Шабакты </h3>
+                            <p>Lake Ulken Shabakty is the largest of all ShchBSO lakes by area and depth.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url(../images/sl04.JPG)">
+                        <h1 class="mb59"> Озера Республики Казахстан!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Zhasibay lake</h3>
+                            <p>Lake Zhasybay is located in a natural hollow between mountain ranges with Akbet peaks (1022 m) from the north-east and Ogolek (958 m) from the south-west.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" style="background-image: url(../images/sl06.JPG)">
+                        <h1 class="mb59"> Озера Республики Казахстан!</h1>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3>Inder lake</h3>
+                            <p>Located in the northern part of the Caspian Lowland, 10 km to the east of the Ural River, 5 km from the southern border of the West Kazakhstan region.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -56,41 +109,120 @@
     <!-- Icons Grid -->
     <section class="features-icons bg-light text-center">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Map">
-                            <div class="features-icons-icon d-flex">
-                                <i class="icon-magnifier m-auto text-primary"></i>
-                            </div>
-                        </a>
-                        <h3>Advanced Lakes Search</h3>
-                        <p class="lead mb-0">Go to the page where you can find any lake not only by its name, but also by its administrative (region, district) or water management location (water basin, water sector).</p>
+            @if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "en")
+            {
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Map">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-magnifier m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Advanced Lakes Search</h3>
+                            <p class="lead mb-0">Go to the page where you can find any lake not only by its name, but also by its administrative (region, district) or water management location (water basin, water sector).</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Analytics">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-settings m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Analytics</h3>
+                            <p class="lead mb-0">Go to the page where you can find the lakes corresponding to the specified parameters (morphometric, hydrological, hydrochemical and other parameters). Available only for registered users.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Layers" asp-action="Index">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-layers m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Map layers</h3>
+                            <p class="lead mb-0">Go to the page where you have published a list of raster and vector layers that you can view separately in the map viewer. <br /><span class=" text-muted">This page is under construction</span>.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                        <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Analytics">
-                            <div class="features-icons-icon d-flex">
-                                <i class="icon-settings m-auto text-primary"></i>
-                            </div>
-                        </a>
-                        <h3>Analytics</h3>
-                        <p class="lead mb-0">Go to the page where you can find the lakes corresponding to the specified parameters (morphometric, hydrological, hydrochemical and other parameters). Available only for registered users.</p>
+            }
+            else if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "kk")
+            {
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Map">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-magnifier m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Кеңейтілген көлдерді іздеу</h3>
+                            <p class="lead mb-0">Кез келген көлді тек аты бойынша ғана емес, оның әкімшілік (облыс, аудан) немесе сушаруашылық (Сушаруашылық бассейні, сушаруашылық учаскесі) орны бойынша да таба алатын бетке өту.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Analytics">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-settings m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Аналитика</h3>
+                            <p class="lead mb-0">Берілген параметрлерге (морфометриялық, гидрологиялық, гидрохимиялық және басқа параметрлерге) сәйкес келетін көлдерді таба алатын бетке өту. Тек тіркелген пайдаланушылар үшін қол жетімді.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Layers" asp-action="Index">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-layers m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Карта қабаттары</h3>
+                            <p class="lead mb-0">Жеке картографиялық вьюверде көру мүмкіндігі бар, растрлық және векторлық қабаттар тізімі жарияланған бетке өту. <br /><span class=" text-muted">Бұл бет әзірленуде.</span>.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <a class="btn btn-outline-light" asp-controller="Layers" asp-action="Index">
-                            <div class="features-icons-icon d-flex">
-                                <i class="icon-layers m-auto text-primary"></i>
-                            </div>
-                        </a>
-                        <h3>Map layers</h3>
-                        <p class="lead mb-0">Go to the page where you have published a list of raster and vector layers that you can view separately in the map viewer. <br /><span class=" text-muted">This page is under construction</span>.</p>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Map">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-magnifier m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Расширенный Поиск озер</h3>
+                            <p class="lead mb-0">Переход на страницу, где Вы можете найти любое озеро не только по названию, но и по его административному (область, район) или водохозяйственному расположению (водохозяйственный бассейн, водохозяйственный участок).</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Lakes" asp-action="Analytics">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-settings m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Аналитика</h3>
+                            <p class="lead mb-0">Переход на страницу, где Вы можете найти озера, соответствующие заданным параметрам (морфометрическим, гидрологическим, гидрохимическим и другим параметрам). Доступна только для зарегистрированных пользователей.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <a class="btn btn-outline-light" asp-controller="Layers" asp-action="Index">
+                                <div class="features-icons-icon d-flex">
+                                    <i class="icon-layers m-auto text-primary"></i>
+                                </div>
+                            </a>
+                            <h3>Слои карт</h3>
+                            <p class="lead mb-0">Переход на страницу, где опубликован перечень растровых и векторных слоев, которые Вы можете отдельно просмотреть в  картографическом вьювере. <br /><span class=" text-muted">Страница в разработке.</span>.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </section>
     <!-- Call to Action -->
@@ -105,7 +237,18 @@
                     <form>
                         <div class="form-row" id="LakeIdDiv">
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
-                                <input id="LakeId" class="form-control form-control-lg" placeholder="Enter lake name..." onclick="GoToLake()">
+                                @if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "en")
+                                {
+                                    <input id="LakeId" class="form-control form-control-lg" placeholder="Enter lake name..." onclick="GoToLake()">
+                                }
+                                else if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "kk")
+                                {
+                                    <input id="LakeId" class="form-control form-control-lg" placeholder="Көлдің атын енгізіңіз..." onclick="GoToLake()">
+                                }
+                                else
+                                {
+                                    <input id="LakeId" class="form-control form-control-lg" placeholder="Введите название озера..." onclick="GoToLake()">
+                                }
                             </div>
                             <div class="col-12 col-md-3">
                                 <button id="btnSearch" type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">@SharedLocalizer["Search"]</button>
@@ -117,48 +260,144 @@
         </div>
     </section>
     <!-- Greeting -->
-    <section class="greeting text-center bg-light">
-        <img class="mb-0" src="~/images/ELake v02.png" alt="" height="150">
-        <h2>Welcome to the web Atlas &quot;Lakes of Kazakhstan&quot;!</h2>
-        <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
-            The web application “Atlas of Lakes of Kazakhstan” (“E-Lake”) was developed by the Institute of Geography of the Republic of Kazakhstan in 2018. 
-            Atlas information is presented in the form of interactive layers of maps, tables and graphs. At the moment, the 
-            Atlas of Lakes contains information about location and general characteristics of 2328 lakes in Kazakhstan with area more than 1 km<sup>2</sup>.</p>
-        <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
-            The Internet - resource of Kazakhstan lakes is intended for decision makers in the field of water management, for the scientific and educational community, and for all who want to learn more about lakes.
-            resources.
-        </p>
-
-    </section>
+    @if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "en")
+    {
+        <section class="greeting text-center bg-light">
+            <img class="mb-0" src="~/images/ELake v02.png" alt="" height="150">
+            <h2>Welcome to the web Atlas &quot;Lakes of Kazakhstan&quot;!</h2>
+            <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+                The web application “Atlas of Lakes of Kazakhstan” (“E-Lake”) was developed by the Institute of Geography of the Republic of Kazakhstan in 2018.
+                Atlas information is presented in the form of interactive layers of maps, tables and graphs. At the moment, the
+                Atlas of Lakes contains information about location and general characteristics of 2328 lakes in Kazakhstan with area more than 1 km<sup>2</sup>.
+            </p>
+            <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+                The Internet - resource of Kazakhstan lakes is intended for decision makers in the field of water management, for the scientific and educational community, and for all who want to learn more about lakes.
+                resources.
+            </p>
+        </section>
+    }
+    else if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "kk")
+    {
+        <section class="greeting text-center bg-light">
+            <img class="mb-0" src="~/images/ELake v02.png" alt="" height="150">
+            <h2>«Қазақстан көлдері» веб-атласына қош келдіңіз!</h2>
+            <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+                «Қазақстан көлдерінің атласы» ("E-Lake") веб-қосымшасы 2018 жылы Қазақстан Республикасының География институтымен әзірленген. Атластағы ақпараттар интерактивті картаның қабаттары, кестелер және графиктер түрінде берілген. Қазіргі уақытта Көлдер атласы Қазақстанның ауданы 1 км<sup>2</sup> жоғары 2328 көлдерінің орналасу орны мен жалпы сипаттамалары туралы ақпараттан тұрады.
+            </p>
+            <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+                Қазақстанның көлдері бойынша Интернет-ресурс су ресурстарын басқару саласында шешім қабылдайтын тұлғаларға, ғылым және білім беру қоғамдастығына және көлдер туралы көбірек білгісі келетіндерге арналған.
+            </p>
+        </section>
+    }
+    else
+    {
+        <section class="greeting text-center bg-light">
+            <img class="mb-0" src="~/images/ELake v02.png" alt="" height="150">
+            <h2>Добро пожаловать в веб атлас «Озера Казахстана»!</h2>
+            <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+                Веб-приложение «Атлас озер Казахстана» (“E-Lake”) разработано Институтом географии Республики Казахстан в 2018 году. Информация Атласа представлена  в виде интерактивных слоев карт, таблиц и графиков. На данный момент Атлас озер содержит информацию о местоположении и общих характеристиках 2328 озерах Казахстана площадью более 1 км<sup>2</sup>.
+            </p>
+            <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+                Интернет-ресурс по озерам Казахстана предназначен для лиц, принимающих решения в области управления водными ресурсами, для научного и образовательного сообщества и для всех желающих узнать больше об озерах.
+            </p>
+        </section>
+    }
     <!-- Image Showcases -->
     <section class="showcase pb-5">
         <div class="container-fluid p-0">
             <div class="row no-gutters">
                 <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(../images/sl07.JPG);"></div>
-                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Data of the web Atlas  &quot;Lakes of Kazakhstan&quot;</h2>
-                    <p class="lead text-justify mb-0" style="text-indent: 2.5em;">The Atlas of Lakes of Kazakhstan provides the following data: morphometric characteristics of lakes obtained from remote sensing data, historical data and 
-                    data from the global lake base, as well as hydrological indicators (water balance elements) and hydrochemical indicators (general hydrochemistry, ion-salt composition, toxicology) 
-                    of individual lakes, area more than 10 km<sup>2</sup>.</p>
-                </div>
+                @if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "en")
+                {
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Data of the web Atlas  &quot;Lakes of Kazakhstan&quot;</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            The Atlas of Lakes of Kazakhstan provides the following data: morphometric characteristics of lakes obtained from remote sensing data, historical data and
+                            data from the global lake base, as well as hydrological indicators (water balance elements) and hydrochemical indicators (general hydrochemistry, ion-salt composition, toxicology)
+                            of individual lakes, area more than 10 km<sup>2</sup>.
+                        </p>
+                    </div>
+                }
+                else if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "kk")
+                {
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>«Қазақстан көлдері» веб-атласының деректері</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            Қазақстан көлдерінің атласы мынадай деректерден тұрады: ЖҚЗ деректері бойынша алынған көлдердің морфометриялық сипаттамалары, мұрағаттық деректер және ғаламдық көлдер базасының деректері, сондай-ақ ауданы 10 км<sup>2</sup> жоғары жекелеген көлдердің гидрологиялық көрсеткіштері (су балансының элементтері) және гидрохимиялық көрсеткіштері (жалпы гидрохимия, иондық-тұздық құрамы, токсикология).
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Данные веб-атласа «Озера Казахстана»</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            Атлас озер Казахстана представляет следующие данные: морфометрические характеристики озер, полученные по данным ДЗЗ, архивные данные и данные глобальной базы озер, а также гидрологические показатели (элементы водного баланса) и гидрохимические показатели (общая гидрохимия, ионно-солевой состав, токсикология) отдельных озер, площадью более 10 км<sup>2</sup>.
+                        </p>
+                    </div>
+                }
             </div>
             <div class="row no-gutters">
                 <div class="col-lg-6 text-white showcase-img" style="background-image: url(../images/sl08.JPG);"></div>
-                <div class="col-lg-6 my-auto showcase-text">
-                    <h2>Functionality of the web Atlas &quot;Lakes of Kazakhstan&quot;</h2>
-                    <p class="lead text-justify mb-0" style="text-indent: 2.5em;">The functions of the Atlas of Lakes of Kazakhstan allows finding lakes by administrative and water management location, viewing the dynamics of values of indicators of individual lakes, 
-                    and the analytical query designer will allow determining lakes corresponding to the specified parameters to determine status and perspectives of using lakes.</p>
-                </div>
+                @if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "en")
+                {
+                    <div class="col-lg-6 my-auto showcase-text">
+                        <h2>Functionality of the web Atlas &quot;Lakes of Kazakhstan&quot;</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            The functions of the Atlas of Lakes of Kazakhstan allows finding lakes by administrative and water management location, viewing the dynamics of values of indicators of individual lakes,
+                            and the analytical query designer will allow determining lakes corresponding to the specified parameters to determine status and perspectives of using lakes.
+                        </p>
+                    </div>
+                }
+                else if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "kk")
+                {
+                    <div class="col-lg-6 my-auto showcase-text">
+                        <h2>«Қазақстан көлдері» веб-атласының функционалы</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            Қазақстан көлдері атласының функционалы көлдерді әкімшілік және сушаруашылық орналасу орны бойынша табуға, жекелеген көлдердің көрсеткіштер мәндерінің динамикасын көруге мүмкіндік береді, ал аналитикалық сұрау конструкторы Қазақстан көлдерінің жағдайы мен пайдалану болашағын анықтау үшін берілген параметрлерге сәйкес келетін көлдерді анықтауға мүмкіндік береді.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-6 my-auto showcase-text">
+                        <h2>Функционал веб-атласа «Озера Казахстана»</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            Функционал атласа озер Казахстана позволяет найти озера по административному и водохозяйственному расположению, просмотреть динамику значений показателей отдельных озер, а конструктор аналитического запроса позволит определить озера, соответствующие заданным параметрам, для определения состояния и перспектив использования озер Казахстан.
+                        </p>
+                    </div>
+                }
             </div>
             <div class="row no-gutters">
                 <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(../images/sl09.JPG);"></div>
-                <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Limitations on the use of data &quot;Lakes of Kazakhstan&quot;</h2>
-                    <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
-                        Separate data of the Atlas of lakes of Kazakhstan (the data which do not have references to a data source) created by Institute of geography of the Republic of Kazakhstan and are provided on free of charge with the requirement
-                        of observance of copyright and obligation of the reference to this web resource <a href="http://elake.geoset.kz">(http://elake.geoset.kz)</a>.
-                    </p>
-                </div>
+                @if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "en")
+                {
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Limitations on the use of data &quot;Lakes of Kazakhstan&quot;</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            Separate data of the Atlas of lakes of Kazakhstan (the data which do not have references to a data source) created by Institute of geography of the Republic of Kazakhstan and are provided on free of charge with the requirement
+                            of observance of copyright and obligation of the reference to this web resource <a href="http://elake.geoset.kz">(http://elake.geoset.kz)</a>.
+                        </p>
+                    </div>
+                }
+                else if (new RequestLocalizationOptions().DefaultRequestCulture.Culture.Name == "kk")
+                {
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>«Қазақстанның көлдері» деректерін пайдалануды шектеу</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            Қазақстанның көлдер атласының (деректер көзіне сілтемесі жоқ деректер) жекелеген деректері Қазақстан Республикасының География институтының мәліметтері, авторлық құқықты сақтап, осы веб-ресурсқа міндетті түрде сілтеме жасау талап етіле отырып тегін ұсынылды <a href="http://elake.geoset.kz">(http://elake.geoset.kz)</a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Ограничения использования данных «Озера Казахстана»</h2>
+                        <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                            Отдельные данные атласа озер Казахстана (данные, не имеющие ссылок на источник данных), созданы Институтом географии Республики Казахстан и предоставляются на бесплатной основе с требованием соблюдения авторских прав и обязательностью указания ссылки на данный веб-ресурс . <a href="http://elake.geoset.kz">(http://elake.geoset.kz)</a>.
+                        </p>
+                    </div>
+                }
             </div>
         </div>
     </section>
@@ -175,7 +414,7 @@
 
 <script>
     function GoToLake() {
-        alert($('#LakeId').val());
+        //alert($('#LakeId').val());
         $.ajax({
             url: '@Url.Action("GetLakeId")',
             data: {
