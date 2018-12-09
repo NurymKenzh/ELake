@@ -1773,4 +1773,16 @@
   <data name="ZooplanktonBiomass" xml:space="preserve">
     <value>Биомасса зоопланктона, г/м³</value>
   </data>
+  <data name="Extras" xml:space="preserve">
+    <value>Дополнительно</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Меню</value>
+  </data>
+  <data name="SearchWithilters" xml:space="preserve">
+    <value>Поиск с фильтрами</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
 </root>

@@ -1773,4 +1773,16 @@
   <data name="ZooplanktonBiomass" xml:space="preserve">
     <value>Zooplankton biomass, g / m³</value>
   </data>
+  <data name="Extras" xml:space="preserve">
+    <value>Extras</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="SearchWithilters" xml:space="preserve">
+    <value>Search with Filters</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

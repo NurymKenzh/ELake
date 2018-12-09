@@ -495,6 +495,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string ClPerEq {
             get {
                 return ResourceManager.GetString("ClPerEq", resourceCulture);
@@ -984,6 +993,15 @@ namespace ELake.Resources.Controllers {
         public static string exist {
             get {
                 return ResourceManager.GetString("exist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Extras {
+            get {
+                return ResourceManager.GetString("Extras", resourceCulture);
             }
         }
         
@@ -2700,6 +2718,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Menu {
+            get {
+                return ResourceManager.GetString("Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string MessageCantBeDeleted {
             get {
                 return ResourceManager.GetString("MessageCantBeDeleted", resourceCulture);
@@ -3756,6 +3783,15 @@ namespace ELake.Resources.Controllers {
         public static string SearchByLakeName {
             get {
                 return ResourceManager.GetString("SearchByLakeName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string SearchWithilters {
+            get {
+                return ResourceManager.GetString("SearchWithilters", resourceCulture);
             }
         }
         

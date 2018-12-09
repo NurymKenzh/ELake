@@ -1773,4 +1773,16 @@
   <data name="ZooplanktonBiomass" xml:space="preserve">
     <value />
   </data>
+  <data name="Extras" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SearchWithilters" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value />
+  </data>
 </root>
