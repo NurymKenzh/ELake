@@ -17,7 +17,7 @@
                     <div class="card-close">
                         <div class="dropdown">
                             <button type="button" id="closeCard4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-gear"></i></button>
-                            <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a class="dropdown-item tab" onclick="ShowTableWB()" href="#tableWB"><i class="fa fa-table"></i> @SharedLocalizer["Table"]</a><a class="dropdown-item chart" onclick="ShowChartWB()" href="#ChartWB"><i class="fa fa-bar-chart"></i> @SharedLocalizer["Chart"]</a></div>
+                            <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a class="dropdown-item tab" onclick="ShowTableWB()" href="#crumbWB"><i class="fa fa-table"></i> @SharedLocalizer["Table"]</a><a class="dropdown-item chart" onclick="ShowChartWB()" href="#crumbWB"><i class="fa fa-bar-chart"></i> @SharedLocalizer["Chart"]</a></div>
                         </div>
                     </div>
                     <div class="card-header  bg-success text-white d-flex">
@@ -132,15 +132,15 @@
                         <canvas id="chartBAVCD" class="BAVCD"></canvas>
                     </div>
                 </div>
-            </div>            
+            </div>
         </div>
-        <div class="breadcrumb-holder container-fluid">
+        <div class="breadcrumb-holder container-fluid mt-2">
             <ul class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">@SharedLocalizer["WaterBalances"]</a></li>
-                <li class="breadcrumb-item active">Charts            </li>
+                <li class="breadcrumb-item"><a href="#contenthy1">@SharedLocalizer["WaterBalances"]</a></li>
             </ul>
-            <!-- Tab & Chart Articles-->
-            <div class="card-body no-padding">
+            <!-- Tab & Chart Articles-->            
+            <div class="card-body no-padding" id="crumbWB">
+                <!-- Tab Articles-->
                 <div class="table-responsive">
                     <table class="WB table table-striped table-sm" id="tableWB">
                         <thead>
@@ -166,10 +166,23 @@
                         <tbody id="tablebodyWB"></tbody>
                     </table>
                 </div>
-                <canvas id="chartWB" class="WB" width="400" height="200"></canvas>
-                <canvas id="chartWB2" class="WB" width="400" height="200"></canvas>
-                <input id="chartWBYear" class="WB" type="range" style="width: 100%;" value="0" />
-            </div>            
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card-body no-padding">
+                            <canvas id="chartWB" class="WB" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <!-- Chart List -->
+                    <div class="col-lg-6 p-0">
+                        <div class="card-body no-padding">
+                            <canvas id="chartWB2" class="WB" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                    <input id="chartWBYear" class="WB" type="range" style="width: 100%;" value="0" />
+                </div>
+            </div>
+            
         </div>
+        
     </div>    
 </section>

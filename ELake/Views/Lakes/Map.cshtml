@@ -113,7 +113,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#Tables" aria-expanded="false" data-toggle="collapse"> <i class="fa fa-table"></i>@SharedLocalizer["Tables"]</a>
+                    <a href="#Tables" aria-expanded="false" data-toggle="collapse"> <i class="icon-docs"></i>@SharedLocalizer["Tables"]</a>
                     <ul id="Tables" class="collapse list-unstyled ">
                         <li>
                             <a asp-controller="WaterBalances" asp-action="Index">@SharedLocalizer["Hydrology"]</a>
@@ -127,10 +127,10 @@
             </ul>
             <span class="heading">Extras</span>
             <ul class="list-unstyled">
-                <li> <a href="#"> <i class="fa fa-tag"></i>Demo </a></li>
-                <li> <a href="#"> <i class="fa fa-paper-plane-o"></i>Demo </a></li>
-                <li> <a href="#"> <i class="fa fa-paper-plane-o"></i>Demo </a></li>
-                <li> <a href="#"> <i class="icon-picture"></i>Demo </a></li>
+                <li> <a asp-controller="Home" asp-action="Index"><i class="fa fa-home"></i>@SharedLocalizer["Home"]</a></li>
+                <li> <a asp-controller="Home" asp-action="About"><i class="icon-note"></i>@SharedLocalizer["About"]</a></li>
+                <li> <a asp-controller="Home" asp-action="Information"><i class="icon-directions"></i>@SharedLocalizer["Information"]</a></li>
+                <li> <a asp-controller="Home" asp-action="Contact"><i class="icon-call-out"></i>@SharedLocalizer["Contact"]</a></li>
             </ul>
         </nav>
         <div class="content-inner">
@@ -138,7 +138,6 @@
             <div class="breadcrumb-holder container-fluid">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#content1">@SharedLocalizer["BasicInfoLake"]</a></li>
-                    <li class="breadcrumb-item"><a href="#" id="BILAdm1"></a></li>
                     <li class="breadcrumb-item active" id="BILName"> </li>
                 </ul>
             </div>
@@ -177,20 +176,20 @@
                                         <div class="form-group">
                                             <label>@SharedLocalizer["Lakes"]</label>
                                             <input id="layerLakesShow" type="checkbox" checked="checked" onchange="ChangeLayers()" />
-                                            <input id="layerLakesOpacity" class="custom-range" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
+                                            <input id="layerLakesOpacity" class="range" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
                                         </div>
                                         <div class="form-group">
                                             <label class="text-body">@SharedLocalizer["BaseLayer"]</label>
-                                            <input id="layerBaseShow" type="checkbox" checked="checked" onchange="ChangeLayers()" /><i class="material-icons btn-sm" id="legend" value="Легенда" onclick="NDVILegend()">info_outline</i>
+                                            <input id="layerBaseShow" type="checkbox" checked="checked" onchange="ChangeLayers()" />
                                             <select id="layerBaseType" class="form-control form-control-sm" onchange="ChangeLayers()">
                                                 <option value="OSM">OpenStreetMap</option>
                                                 <option value="BingAerialWithLabels">Bing Aerial</option>
                                             </select>
                                             <input id="layerBaseOpacity" class="range" type="range" min="0" max="100" value="100" style="width: 100%;" oninput="ChangeLayers()" />
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group mb-0">
                                             <label>@SharedLocalizer["GlobalSurfaceWater"]</label>
-                                            <input id="layerGlobalSurfaceWaterShow" type="checkbox" onchange="ChangeLayers()" /><i href="#" class="material-icons btn-sm" data-toggle="modal" data-target="#Legend" style="cursor: pointer;">info_outline</i>
+                                            <input id="layerGlobalSurfaceWaterShow" type="checkbox" checked="checked" onchange="ChangeLayers()" /><i href="#" class="material-icons btn-sm" data-toggle="modal" data-target="#Legend" style="cursor: pointer;">info_outline</i>
                                             <select id="layerGlobalSurfaceWaterType" class="form-control form-control-sm" onchange="ChangeLayers()">
                                                 <option value="OccurrenceChangeIntensity">@SharedLocalizer["OccurrenceChangeIntensity"]</option>
                                                 <option value="Seasonality">@SharedLocalizer["Seasonality"]</option>
@@ -206,16 +205,63 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-1">
-                                                        <h5 class="modal-title" id="Legend">Legend</h5>
+                                                        <h3 class="h4 ml-3">@SharedLocalizer["GlobalSurfaceWater"]</h3>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        ...
+                                                        <div class="container-fluid">
+                                                            <div class="legend-activities">
+                                                                <h5>«The Water Occurrence»</h5>
+                                                                <img src="~/images/legends/OccurrenceRU.svg" class="img-fluid float-left" alt="Responsive image">
+                                                                <p class="text-justify">
+                                                                    (Повторяемость воды) показывает распространение водной поверхности и содержит информацию о динамике общей воды между 1984 и 2015
+                                                                    годами (в %). Occurrence &ndash; это измерение частоты присутствия воды. Постоянные водные поверхности &ndash; это 100 % появления
+                                                                    воды за 32 года представлены синим цветом, а области, где иногда возникает вода, показаны от розового до фиолетового
+                                                                    (0% &lt;встречаемость &lt;100%). Более бледные оттенки - это области, где вода встречается реже
+                                                                </p>
+                                                                <h5>«The Water Seasonality»</h5>
+                                                                <img src="~/images/legends/SeasonalityRU.svg" class="img-fluid float-left" alt="Responsive image">
+                                                                <p class="text-justify">
+                                                                    <em>(Присутствие воды в месяцах)</em> показывает информацию о внутригодовом поведении водных поверхностей номинально в год.
+                                                                    Постоянная вода показано темно-синем цветом, а участки сезонной воды показаны светло-голубым.
+                                                                </p>
+                                                                <h5>«The Maximum Water Extent»</h5>
+                                                                <img src="~/images/legends/MaximumWaterRU.svg" class="img-fluid float-left" alt="Responsive image">
+                                                                <p class="text-justify">
+                                                                    <em>(Присутствие воды в месяцах)</em> показывает изменение состояния воды с начала года наблюдений и последнего года наблюдений.
+                                                                </p>
+                                                                <h5>«The Water Transitions»</h5>
+                                                                <img src="~/images/legends/TransitionsRU.svg" class="img-fluid float-left" alt="Responsive image"><br>
+                                                                <p class="text-justify"><br>
+                                                                    <em>(Изменение состояния воды)</em>  показывает максимальное распространение обнаруженной воды за период 1984-2015 гг.
+                                                                </p>
+                                                                <h5 class="text-left">«The Water Occurrence Change»</h5>
+                                                                <p class="text-justify">
+                                                                    <em>(Интенсивность изменения воды)</em>  показывает, где уровень поверхностных вод увеличивался, уменьшался или оставался
+                                                                    неизменным между 1984 и 2015 годами. Увеличение уровня воды показано зеленым, а уменьшение - красным. Черные области -
+                                                                    это те районы, где в период 1984-2015 гг. существенных изменений не произошло. Интенсивность цвета отражает степень изменения (в %).
+                                                                </p>
+                                                                <h5>«The Annual Water Recurrence»</h5>
+                                                                <img src="~/images/legends/RecurrenceRU.svg" class="img-fluid float-left" alt="Responsive image">
+                                                                <p class="text-justify">
+                                                                    <em>(Возвращение воды)</em>  показывает межгодовую изменчивость доступности воды, т.е. как часто вода возвращается из года в год (в %).
+                                                                    Повторение воды на 100% означает, что вода присутствует каждый год с начала года наблюдений за водой. Напротив, низкие проценты характеризуют не постоянность
+                                                                    <blockquote class="blockquote text-justify m-0">
+                                                                        <small>
+                                                                            <footer class="blockquote-footer ml-1">
+                                                                                Все данные находятся здесь в рамках программы Copernicus и предоставляются бесплатно,
+                                                                                без ограничений использования. Для получения полной информации о лицензии <a href="https://www.copernicus.eu/main/data-access/">см. Регламент Коперника</a>
+                                                                            </footer>
+                                                                        </small>
+                                                                    </blockquote>
+                                                            </div>
+                                                            
+                                                        </div>
                                                     </div>
                                                     <div class="modal-footer p-1">
-                                                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-primary btn-sm mr-3" data-dismiss="modal">Close</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -231,7 +277,7 @@
             <header class="page-header pt-0">
                 <div class="container-fluid" id="maindiv">
                     <div class='mtabs ml-0'>
-                        <input id="tab1" type="radio" name="tabs" checked>
+                        <input id="tab1" type="radio" name="tabs" href="#content1" checked>
                         <label for="tab1">Сведение об озере</label>
                         <input id="tab2" type="radio" name="tabs">
                         <label for="tab2">@SharedLocalizer["Hydrology"]</label>
@@ -241,7 +287,7 @@
                         <label for="tab4">@SharedLocalizer["Hydrobiology"]</label>
                         <input id="tab5" type="radio" name="tabs">
                         <label for="tab5">@SharedLocalizer["DynamicsLakeAreas"]</label>
-                        <section id="content1">
+                        <section id="content1" data-spy="scroll" data-target="#mtabs" data-offset="0" class="scrollspy-example">
                             <div class="container-fluid  p-0">
                                 <div class="row">
                                     <!--/.Основная информация об озере-->
