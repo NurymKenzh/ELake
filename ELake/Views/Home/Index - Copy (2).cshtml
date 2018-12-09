@@ -20,26 +20,26 @@
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One - Set the background image for this slide in the line below -->
                 <div class="carousel-item active" style="background-image: url(../images/sl01.JPG)">
-                    <h1 class="mb59">Internet resource: <br> Lakes of the Republic of Kazakhstan!</h1>
+                    <h1 class="mb59">&quot;Қазақстан көлдері&quot;<br> веб-атласы!</h1>
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>Ulken Shabakty lake </h3>
-                        <p>Lake Ulken Shabakty is the largest of all ShchBSO lakes by area and depth.</p>
+                        <h3>Үлкен Шабақты көлі</h3>
+                        <p>Үлкен Шабақты көлі ЩБСО көлдерінің ең үлкені және тереңі.</p>
                     </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url(../images/sl04.JPG)">
-                    <h1 class="mb59">Internet resource: <br> Lakes of the Republic of Kazakhstan!</h1>
+                    <h1 class="mb59">&quot;Қазақстан көлдері&quot;<br> веб-атласы!</h1>
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>Zhasibay lake</h3>
-                        <p>Lake Zhasybay is located in a natural hollow between mountain ranges with Akbet peaks (1022 m) from the north-east and Ogolek (958 m) from the south-west.</p>
+                        <h3>Жасыбай көлі</h3>
+                        <p>Жасыбай көлі солтүстік-шығысқа қарай Ақбет шыңдары (1022 м) және оңтүстік-батысқа қарай Огонек (958 м) таулы аймақтары арасында табиғи құдықта орналасқан.</p>
                     </div>
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url(../images/sl06.JPG)">
-                    <h1 class="mb59">Internet resource: <br> Lakes of the Republic of Kazakhstan!</h1>
+                    <h1 class="mb59">Веб Атлас: <br> &quot;Озера Казахстана&quot;!</h1>
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>Inder lake</h3>
-                        <p>Located in the northern part of the Caspian Lowland, 10 km to the east of the Ural River, 5 km from the southern border of the West Kazakhstan region.</p>
+                        <h3>Индер көлі</h3>
+                        <p>Ол Каспий маңы ойпатының солтүстік бөлігінде, Батыс Қазақстан облысының оңтүстік шекарасынан 5 шақырым, Жайық өзенінен 10 км шығысында орналасқан.</p>
                     </div>
                 </div>
             </div>
@@ -64,8 +64,11 @@
                                 <i class="icon-magnifier m-auto text-primary"></i>
                             </div>
                         </a>
-                        <h3>Advanced Lakes Search</h3>
-                        <p class="lead mb-0">Go to the page where you can find any lake not only by its name, but also by its administrative (region, district) or water management location (water basin, water sector).</p>
+                        <h3>Кеңейтілген іздеу беті</h3>
+                        <p class="lead mb-0">
+                            Кез келген көлді тек аты бойынша ғана емес, оның әкімшілік (облыс, аудан) немесе сушаруашылық (Сушаруашылық бассейні, сушаруашылық учаскесі) 
+                            орны бойынша да таба алатын бетке өту
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -75,8 +78,11 @@
                                 <i class="icon-settings m-auto text-primary"></i>
                             </div>
                         </a>
-                        <h3>Analytics</h3>
-                        <p class="lead mb-0">Go to the page where you can find the lakes corresponding to the specified parameters (morphometric, hydrological, hydrochemical and other parameters). Available only for registered users.</p>
+                        <h3>Аналитика</h3>
+                        <p class="lead mb-0">
+                            Берілген параметрлерге (морфометриялық, гидрологиялық, гидрохимиялық және басқа параметрлерге) сәйкес келетін көлдерді таба алатын бетке өту. 
+                            Тек тіркелген пайдаланушылар үшін қол жетімді.
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -86,8 +92,8 @@
                                 <i class="icon-layers m-auto text-primary"></i>
                             </div>
                         </a>
-                        <h3>Map layers</h3>
-                        <p class="lead mb-0">Go to the page where you have published a list of raster and vector layers that you can view separately in the map viewer. <br /><span class=" text-muted">This page is under construction</span>.</p>
+                        <h3>Карта қабаттары</h3>
+                        <p class="lead mb-0">Жеке картографиялық вьюверде көру мүмкіндігі бар, растрлық және векторлық қабаттар тізімі жарияланған бетке өту <br /> <span class=" text-muted">Бұл бет әзірленуде</span>.</p>
                     </div>
                 </div>
             </div>
@@ -105,7 +111,7 @@
                     <form>
                         <div class="form-row" id="LakeIdDiv">
                             <div class="col-12 col-md-9 mb-2 mb-md-0">
-                                <input id="LakeId" class="form-control form-control-lg" placeholder="Enter lake name..." onclick="GoToLake()">
+                                <input id="LakeId" class="form-control form-control-lg" placeholder="Көлдің атын енгізіңіз..." onclick="GoToLake()">
                             </div>
                             <div class="col-12 col-md-3">
                                 <button id="btnSearch" type="button" class="btn btn-block btn-lg btn-primary" onclick="GoToLake()">@SharedLocalizer["Search"]</button>
@@ -119,16 +125,16 @@
     <!-- Greeting -->
     <section class="greeting text-center bg-light">
         <img class="mb-0" src="~/images/ELake v02.png" alt="" height="150">
-        <h2>Welcome to the web Atlas &quot;Lakes of Kazakhstan&quot;!</h2>
+        <h2>&quot;Қазақстан көлдері&quot; веб-атласына қош келдіңіз!!</h2>
         <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
-            The web application “Atlas of Lakes of Kazakhstan” (“E-Lake”) was developed by the Institute of Geography of the Republic of Kazakhstan in 2018. 
-            Atlas information is presented in the form of interactive layers of maps, tables and graphs. At the moment, the 
-            Atlas of Lakes contains information about location and general characteristics of 2328 lakes in Kazakhstan with area more than 1 km<sup>2</sup>.</p>
-        <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
-            The Internet - resource of Kazakhstan lakes is intended for decision makers in the field of water management, for the scientific and educational community, and for all who want to learn more about lakes.
-            resources.
+            «Қазақстан көлдерінің атласы» ("E-Lake") веб-қосымшасы 2018 жылы Қазақстан Республикасының География институтымен әзірленген. Атластағы ақпараттар интерактивті картаның қабаттары, 
+            кестелер және графиктер түрінде берілген. 
+            Қазіргі уақытта Көлдер атласы Қазақстанның ауданы 1 км<sup>2</sup> жоғары 2328 көлдерінің орналасу орны мен жалпы сипаттамалары туралы ақпараттан тұрады.
         </p>
-
+        <p class="lead ml-5 mr-5 text-justify" style="text-indent: 2.5em;">
+            Қазақстанның көлдері бойынша Интернет-ресурс су ресурстарын басқару саласында шешім қабылдайтын тұлғаларға, ғылым және білім беру қоғамдастығына және көлдер 
+            туралы көбірек білгісі келетіндерге арналған.
+        </p>
     </section>
     <!-- Image Showcases -->
     <section class="showcase pb-5">
@@ -136,34 +142,38 @@
             <div class="row no-gutters">
                 <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(../images/sl07.JPG);"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Data of the web Atlas  &quot;Lakes of Kazakhstan&quot;</h2>
-                    <p class="lead text-justify mb-0" style="text-indent: 2.5em;">The Atlas of Lakes of Kazakhstan provides the following data: morphometric characteristics of lakes obtained from remote sensing data, historical data and 
-                    data from the global lake base, as well as hydrological indicators (water balance elements) and hydrochemical indicators (general hydrochemistry, ion-salt composition, toxicology) 
-                    of individual lakes, area more than 10 km<sup>2</sup>.</p>
+                    <h2>&quot;Қазақстан көлдері&quot; веб-атласының деректері</h2>
+                    <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                        Қазақстан көлдерінің атласы мынадай деректерден тұрады: ЖҚЗ деректері бойынша алынған көлдердің морфометриялық сипаттамалары, мұрағаттық деректер және ғаламдық 
+                        көлдер базасының деректері, сондай-ақ ауданы 10 км<sup>2</sup> жоғары жекелеген көлдердің гидрологиялық көрсеткіштері (су балансының элементтері) және гидрохимиялық көрсеткіштері 
+                        (жалпы гидрохимия, иондық-тұздық құрамы, токсикология).
+                    </p>
                 </div>
             </div>
             <div class="row no-gutters">
                 <div class="col-lg-6 text-white showcase-img" style="background-image: url(../images/sl08.JPG);"></div>
                 <div class="col-lg-6 my-auto showcase-text">
-                    <h2>Functionality of the web Atlas &quot;Lakes of Kazakhstan&quot;</h2>
-                    <p class="lead text-justify mb-0" style="text-indent: 2.5em;">The functions of the Atlas of Lakes of Kazakhstan allows finding lakes by administrative and water management location, viewing the dynamics of values of indicators of individual lakes, 
-                    and the analytical query designer will allow determining lakes corresponding to the specified parameters to determine status and perspectives of using lakes.</p>
+                    <h2>&quot;Қазақстан көлдері&quot; веб-атласының функционалы</h2>
+                    <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
+                        Қазақстан көлдері атласының функционалы көлдерді әкімшілік және сушаруашылық орналасу орны бойынша табуға, жекелеген көлдердің көрсеткіштер мәндерінің 
+                        динамикасын көруге мүмкіндік береді, ал аналитикалық сұрау конструкторы Қазақстан көлдерінің жағдайы мен пайдалану болашағын анықтау үшін берілген параметрлерге 
+                        сәйкес келетін көлдерді анықтауға мүмкіндік береді.
+                    </p>
                 </div>
             </div>
             <div class="row no-gutters">
                 <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url(../images/sl09.JPG);"></div>
                 <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                    <h2>Limitations on the use of data &quot;Lakes of Kazakhstan&quot;</h2>
+                    <h2>&quot;Қазақстан көлдері&quot; деректерін пайдалануды шектеу</h2>
                     <p class="lead text-justify mb-0" style="text-indent: 2.5em;">
-                        Separate data of the Atlas of lakes of Kazakhstan (the data which do not have references to a data source) created by Institute of geography of the Republic of Kazakhstan and are provided on free of charge with the requirement
-                        of observance of copyright and obligation of the reference to this web resource <a href="http://elake.geoset.kz">(http://elake.geoset.kz)</a>.
+                        Қазақстанның көлдер атласының (деректер көзіне сілтемесі жоқ деректер) жекелеген деректері Қазақстан Республикасының География институтының мәліметтері, 
+                        авторлық құқықты сақтап, осы веб-ресурсқа міндетті түрде сілтеме жасау талап етіле отырып тегін ұсынылды <a href="http://elake.geoset.kz">(http://elake.geoset.kz)</a>.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 </body>
-
 <script>
     $("#LakeId").keypress(function (event) {
         if (event.which == 13) {
