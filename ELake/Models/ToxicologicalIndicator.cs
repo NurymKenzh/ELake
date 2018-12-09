@@ -319,17 +319,79 @@ namespace ELake.Models
         {
             get
             {
-                return ((KIZVkoNH4 ?? 0) +
-                    (KIZVkoNO2 ?? 0) +
-                    (KIZVkoNO3 ?? 0) +
-                    (KIZVkoPPO4 ?? 0) +
-                    (KIZVkoCu ?? 0) +
-                    (KIZVkoZn ?? 0) +
-                    (KIZVkoMn ?? 0) +
-                    (KIZVkoPb ?? 0) +
-                    (KIZVkoNi ?? 0) +
-                    (KIZVkoCd ?? 0) +
-                    (KIZVkoCo ?? 0)) / 11;
+                //return ((KIZVkoNH4 ?? 0) +
+                //    (KIZVkoNO2 ?? 0) +
+                //    (KIZVkoNO3 ?? 0) +
+                //    (KIZVkoPPO4 ?? 0) +
+                //    (KIZVkoCu ?? 0) +
+                //    (KIZVkoZn ?? 0) +
+                //    (KIZVkoMn ?? 0) +
+                //    (KIZVkoPb ?? 0) +
+                //    (KIZVkoNi ?? 0) +
+                //    (KIZVkoCd ?? 0) +
+                //    (KIZVkoCo ?? 0)) / 11;
+                decimal sum = 0;
+                int count = 0;
+                if((IZVNH4 ?? 0)>1)
+                {
+                    sum += (IZVNH4 ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassNH4 ?? 0);
+                    count++;
+                }
+                if ((IZVNO2 ?? 0) > 1)
+                {
+                    sum += (IZVNO2 ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassNO2 ?? 0);
+                    count++;
+                }
+                if ((IZVNO3 ?? 0) > 1)
+                {
+                    sum += (IZVNO3 ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassNO3 ?? 0);
+                    count++;
+                }
+                if ((IZVPPO4 ?? 0) > 1)
+                {
+                    sum += (IZVPPO4 ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassPPO4 ?? 0);
+                    count++;
+                }
+                if ((IZVCu ?? 0) > 1)
+                {
+                    sum += (IZVCu ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassCu ?? 0);
+                    count++;
+                }
+                if ((IZVZn ?? 0) > 1)
+                {
+                    sum += (IZVZn ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassZn ?? 0);
+                    count++;
+                }
+                if ((IZVMn ?? 0) > 1)
+                {
+                    sum += (IZVMn ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassMn ?? 0);
+                    count++;
+                }
+                if ((IZVPb ?? 0) > 1)
+                {
+                    sum += (IZVPb ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassPb ?? 0);
+                    count++;
+                }
+                if ((IZVNi ?? 0) > 1)
+                {
+                    sum += (IZVNi ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassNi ?? 0);
+                    count++;
+                }
+                if ((IZVCd ?? 0) > 1)
+                {
+                    sum += (IZVCd ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassCd ?? 0);
+                    count++;
+                }
+                if ((IZVCo ?? 0) > 1)
+                {
+                    sum += (IZVCo ?? 0) / (NutrientsHeavyMetalsStandard?.HazardClassCo ?? 0);
+                    count++;
+                }
+                if (count != 0)
+                {
+                    return sum / count;
+                }
+                return 0;
             }
         }
 
