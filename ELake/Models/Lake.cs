@@ -150,6 +150,18 @@ namespace ELake.Models
         public decimal? WaterBalancePrecipitationPerMin { get; set; }
         [NotMapped]
         public decimal? WaterBalanceEvaporationPerMin { get; set; }
+        [NotMapped]
+        public decimal? DynamicsLakeAreaSeasonalWaterAreaPerAvg { get; set; }
+        [NotMapped]
+        public decimal? DynamicsLakeAreaPermanentWaterAreaPerAvg { get; set; }
+        [NotMapped]
+        public decimal? DynamicsLakeAreaSeasonalWaterAreaPerMax { get; set; }
+        [NotMapped]
+        public decimal? DynamicsLakeAreaPermanentWaterAreaPerMax { get; set; }
+        [NotMapped]
+        public decimal? DynamicsLakeAreaSeasonalWaterAreaPerMin { get; set; }
+        [NotMapped]
+        public decimal? DynamicsLakeAreaPermanentWaterAreaPerMin { get; set; }
     }
 
     public class LakeIndexPageViewModel

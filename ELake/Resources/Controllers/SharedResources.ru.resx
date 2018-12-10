@@ -787,7 +787,7 @@
     <value>Июнь</value>
   </data>
   <data name="KIZV" xml:space="preserve">
-    <value>КИЗВ</value>
+    <value>КИЗВко</value>
   </data>
   <data name="KIZVDegree" xml:space="preserve">
     <value>Степень загрязнения водных объектов по КИЗВ с учетом класса опасности</value>
@@ -826,7 +826,7 @@
     <value>КИЗВко Zn</value>
   </data>
   <data name="KIZVs" xml:space="preserve">
-    <value>Класс качества</value>
+    <value>Степень загрязнения</value>
   </data>
   <data name="KurlovFormula" xml:space="preserve">
     <value>Формула химсостава воды по М.Г.Курлову</value>
