@@ -143,24 +143,24 @@
             </div>
             <!-- Page Header-->
             <!-- Map Section-->
-            <section class="mapsection p-2">
+            <section class="mapsection p-3">
                 <div class="container-fluid p-0">
                     <div class="row">
                         <!-- Maps-->
-                        <div class="col-lg-9">
+                        <div class="col-lg-8">                            
                             <div class="card">
                                 <div class="card-close">
                                     <div class="close">
                                         <button type="button" id="closeCard1" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><a href="#" class="remove"> <i class="fa fa-times"></i></a></button>
                                     </div>
                                 </div>
-                                <div class="card-body p-1">
-                                    <div id="map"></div>
+                                <div class="card-body p-0">
+                                    <div class="embed-responsive-item" id="map"></div>
                                 </div>
                             </div>
                         </div>
                         <!-- Legend-->
-                        <div class="col-lg-3 pl-0">
+                        <div class="col-lg-4 pl-0">
                             <div class="card no-margin-bottom">
                                 <div class="card-close">
                                     <div class="dropdown">
@@ -230,14 +230,16 @@
                                                                 <h5>«The Maximum Water Extent»</h5>
                                                                 <img src="~/images/legends/MaximumWaterRU.svg" class="img-fluid float-left" alt="Responsive image">
                                                                 <p class="text-justify">
-                                                                    <em>(Присутствие воды в месяцах)</em> показывает изменение состояния воды с начала года наблюдений и последнего года наблюдений.
+                                                                    <em>(Максимальная площадь воды)</em> ппоказывает максимальное распространение обнаруженной воды за период 1984-2015 гг.
                                                                 </p>
                                                                 <h5>«The Water Transitions»</h5>
                                                                 <img src="~/images/legends/TransitionsRU.svg" class="img-fluid float-left" alt="Responsive image"><br>
-                                                                <p class="text-justify"><br>
-                                                                    <em>(Изменение состояния воды)</em>  показывает максимальное распространение обнаруженной воды за период 1984-2015 гг.
+                                                                <p class="text-justify">
+                                                                    <br>
+                                                                    <em>(Изменение состояния воды)</em> показывает изменение состояния воды с начала года наблюдений и последнего года наблюдений. 
                                                                 </p>
                                                                 <h5 class="text-left">«The Water Occurrence Change»</h5>
+                                                                <img src="~/images/legends/OccurrenceChangeRU.svg" class="img-fluid float-left" alt="Responsive image"><br>
                                                                 <p class="text-justify">
                                                                     <em>(Интенсивность изменения воды)</em>  показывает, где уровень поверхностных вод увеличивался, уменьшался или оставался
                                                                     неизменным между 1984 и 2015 годами. Увеличение уровня воды показано зеленым, а уменьшение - красным. Черные области -
@@ -276,7 +278,7 @@
             <!-- List Section-->
             <header class="page-header pt-0">
                 <div class="container-fluid" id="maindiv">
-                    <div class='mtabs ml-0'>
+                    <div class='mtabs ml-1'>
                         <input id="tab1" type="radio" name="tabs" href="#content1" checked>
                         <label for="tab1">Сведение об озере</label>
                         <input id="tab2" type="radio" name="tabs">
@@ -576,6 +578,7 @@
     <input id="Month" type="hidden" value='@SharedLocalizer["Month"]' />
     <input id="NoData" type="hidden" value='@SharedLocalizer["NoData"]' />
 </div>
+
 @* map and layers *@
 <script type="text/javascript">
     var layers = [];

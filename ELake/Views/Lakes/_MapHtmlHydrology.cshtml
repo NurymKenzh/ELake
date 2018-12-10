@@ -20,13 +20,13 @@
                             <div aria-labelledby="closeCard4" class="dropdown-menu dropdown-menu-right has-shadow bg-light"><a class="dropdown-item tab" onclick="ShowTableWB()" href="#crumbWB"><i class="fa fa-table"></i> @SharedLocalizer["Table"]</a><a class="dropdown-item chart" onclick="ShowChartWB()" href="#crumbWB"><i class="fa fa-bar-chart"></i> @SharedLocalizer["Chart"]</a></div>
                         </div>
                     </div>
-                    <div class="card-header  bg-success text-white d-flex">
+                    <div class="card-header bg-transparent border-success  d-flex">
                         <h2 class="h4">@SharedLocalizer["WaterBalances"]</h2>
                     </div>
                     <div class="card-body no-padding">
                         <div class="table-responsive">
                             <table class="table table-striped table-sm">
-                                <thead>
+                                <thead class="table-info">
                                     <tr>
                                         <th>@SharedLocalizer["Indicator"]</th>
                                         <th> @SharedLocalizer["Value"]</th>
@@ -34,7 +34,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr class="bg-green">
                                         <td colspan="3">
                                             @SharedLocalizer["WaterBalanceReceipt"]
                                         </td>
@@ -67,7 +67,7 @@
                                         <td id="WaterBalanceReceipt"></td>
                                         <td id="WaterBalanceReceiptPer"></td>
                                     </tr>
-                                    <tr>
+                                    <tr class="bg-green">
                                         <td colspan="3">
                                             @SharedLocalizer["WaterBalanceExpenditure"]
                                         </td>
