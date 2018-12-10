@@ -114,6 +114,42 @@ namespace ELake.Models
         public decimal? LakeWaterMass { get; set; }
         [NotMapped]
         public decimal? ToxicKIZV { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceSurfaceFlowPerAvg { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceSurfaceOutflowPerAvg { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceUndergroundFlowPerAvg { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceUndergroundOutflowPerAvg { get; set; }
+        [NotMapped]
+        public decimal? WaterBalancePrecipitationPerAvg { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceEvaporationPerAvg { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceSurfaceFlowPerMax { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceSurfaceOutflowPerMax { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceUndergroundFlowPerMax { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceUndergroundOutflowPerMax { get; set; }
+        [NotMapped]
+        public decimal? WaterBalancePrecipitationPerMax { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceEvaporationPerMax { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceSurfaceFlowPerMin { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceSurfaceOutflowPerMin { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceUndergroundFlowPerMin { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceUndergroundOutflowPerMin { get; set; }
+        [NotMapped]
+        public decimal? WaterBalancePrecipitationPerMin { get; set; }
+        [NotMapped]
+        public decimal? WaterBalanceEvaporationPerMin { get; set; }
     }
 
     public class LakeIndexPageViewModel
