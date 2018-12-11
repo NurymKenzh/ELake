@@ -1785,4 +1785,10 @@
   <data name="Close" xml:space="preserve">
     <value>Закрыть</value>
   </data>
+  <data name="MineralizationDimension" xml:space="preserve">
+    <value>мг/дм³</value>
+  </data>
+  <data name="MineralizationName" xml:space="preserve">
+    <value>Значение минерализации</value>
+  </data>
 </root>

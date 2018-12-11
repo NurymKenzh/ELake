@@ -1785,4 +1785,10 @@
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
+  <data name="MineralizationDimension" xml:space="preserve">
+    <value>mg / dm3</value>
+  </data>
+  <data name="MineralizationName" xml:space="preserve">
+    <value>Value of mineralization</value>
+  </data>
 </root>

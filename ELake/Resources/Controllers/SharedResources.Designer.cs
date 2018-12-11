@@ -2826,6 +2826,24 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string MineralizationDimension {
+            get {
+                return ResourceManager.GetString("MineralizationDimension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MineralizationName {
+            get {
+                return ResourceManager.GetString("MineralizationName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string MineralizationType {
             get {
                 return ResourceManager.GetString("MineralizationType", resourceCulture);
