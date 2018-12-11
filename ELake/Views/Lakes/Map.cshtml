@@ -73,12 +73,12 @@
                             <div class="col-sm-auto m-1">
                                 <div class="input-group">
                                     <select id="svhb" class="form-control form-control-sm" asp-items="ViewBag.VHB" onchange="GetVHU(); SearchChange(0);">
-                                        <option selected>ВХБ...</option>
+                                        <option selected>@SharedLocalizer["VHB"]...</option>
                                     </select>
                                 </div>
                                 <div class="input-group">
                                     <select id="svhu" class="form-control form-control-sm mt-2" onchange="SearchChange(0);">
-                                        <option selected>ВХУ...</option>
+                                        <option selected>@SharedLocalizer["VHU"]...</option>
                                     </select>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                             <div class="col-sm-auto m-1">
                                 <div class="input-group">
                                     <select id="ssystem" class="form-control form-control-sm" asp-items="ViewBag.System" onchange="SearchChange(0);">
-                                        <option selected>Система...</option>
+                                        <option selected>@SharedLocalizer["LakeSystem"]...</option>
                                     </select>
                                 </div>
                             </div>
