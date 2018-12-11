@@ -1791,4 +1791,7 @@
   <data name="MineralizationName" xml:space="preserve">
     <value>Минерализация мәні</value>
   </data>
+  <data name="DissOxygWaterDimension" xml:space="preserve">
+    <value>мг/дм³</value>
+  </data>
 </root>

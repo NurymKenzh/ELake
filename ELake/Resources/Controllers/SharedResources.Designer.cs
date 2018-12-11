@@ -846,6 +846,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string DissOxygWaterDimension {
+            get {
+                return ResourceManager.GetString("DissOxygWaterDimension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string District {
             get {
                 return ResourceManager.GetString("District", resourceCulture);
