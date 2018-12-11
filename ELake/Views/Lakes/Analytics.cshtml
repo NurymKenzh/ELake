@@ -205,7 +205,7 @@
                                             <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowMin')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundOutflowMin)" /></small>
                                             <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationMin')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["minimum"]) (WaterBalancePrecipitationMin)" /></small>
                                             <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationMin')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["minimum"]) (WaterBalanceEvaporationMin)" /></small>
-
+                                            
                                             <small><input id="WaterBalanceSurfaceFlowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPerMin')" value="@SharedLocalizer["SurfaceFlowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceFlowPerMin)" /></small>
                                             <small><input id="WaterBalanceSurfaceOutflowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPerMin')" value="@SharedLocalizer["SurfaceOutflowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceOutflowPerMin)" /></small>
                                             <small><input id="WaterBalanceUndergroundFlowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPerMin')" value="@SharedLocalizer["UndergroundFlowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundFlowPerMin)" /></small>
@@ -582,24 +582,24 @@
                             tr.append('<td>' + data.lakes[i].waterBalanceEvaporationPerMin + '</td>');
                         }
 
-                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalPerAvg')) {
+                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerAvg')) {
                             tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerAvg + '</td>');
                         }
-                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentPerAvg')) {
+                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerAvg')) {
                             tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerAvg + '</td>');
                         }
 
-                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalPerMax')) {
+                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMax')) {
                             tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerMax + '</td>');
                         }
-                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentPerMax')) {
+                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMax')) {
                             tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerMax + '</td>');
                         }
 
-                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalPerMin')) {
+                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMin')) {
                             tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerMin + '</td>');
                         }
-                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentPerMin')) {
+                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMin')) {
                             tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerMin + '</td>');
                         }
                     }
@@ -698,25 +698,25 @@
                     th.append('<th>' + $('#WaterBalanceEvaporationPerMin').val() + '</th>');
                 }
 
-                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalPerAvg')) {
-                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalPerAvg').val() + '</th>');
+                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerAvg')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerAvg').val() + '</th>');
                 }
-                if ($('#formula').val().includes('DynamicsLakeAreaPermanentPerAvg')) {
-                    th.append('<th>' + $('#DynamicsLakeAreaPermanentPerAvg').val() + '</th>');
-                }
-
-                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalPerMax')) {
-                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalPerMax').val() + '</th>');
-                }
-                if ($('#formula').val().includes('DynamicsLakeAreaPermanentPerMax')) {
-                    th.append('<th>' + $('#DynamicsLakeAreaPermanentPerMax').val() + '</th>');
+                if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerAvg')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerAvg').val() + '</th>');
                 }
 
-                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalPerMin')) {
-                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalPerMin').val() + '</th>');
+                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMax')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerMax').val() + '</th>');
                 }
-                if ($('#formula').val().includes('DynamicsLakeAreaPermanentPerMin')) {
-                    th.append('<th>' + $('#DynamicsLakeAreaPermanentPerMin').val() + '</th>');
+                if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMax')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerMax').val() + '</th>');
+                }
+
+                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMin')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerMin').val() + '</th>');
+                }
+                if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMin')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerMin').val() + '</th>');
                 }
                 $('#message').text(data.message);
             },
