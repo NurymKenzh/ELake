@@ -48,7 +48,7 @@
                 </li>
                 <li><span class="heading">@SharedLocalizer["SearchWithilters"]</span></li>
                 <li>
-                    <a href="#filtertab1" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterKATO" onchange="SearchChange(0);"> <i class="icon-grid"></i>@SharedLocalizer["FilterKATO"]</a>
+                    <a href="#filtertab1" id="filtertab1Link" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterKATO" onchange="SearchChange(0);" onclick="Folding(this.id)"> <i class="icon-grid"></i>@SharedLocalizer["FilterKATO"]</a>
                     <ul id="filtertab1" class="collapse">
                         <li>
                             <div class="col-sm-auto m-1">
@@ -67,7 +67,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#filtertab2" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterVHBVHU" onchange="SearchChange(0);"> <i class="fa fa-th-list"></i>@SharedLocalizer["FilterVHBVHU"]</a>
+                    <a href="#filtertab2" id="filtertab2Link" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterVHBVHU" onchange="SearchChange(0);" onclick="Folding(this.id)"> <i class="fa fa-th-list"></i>@SharedLocalizer["FilterVHBVHU"]</a>
                     <ul id="filtertab2" class="collapse list-unstyled ">
                         <li>
                             <div class="col-sm-auto m-1">
@@ -87,7 +87,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#filtertab3" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterSystem" onchange="SearchChange(0);"><i class="icon-list"></i>@SharedLocalizer["LakeSystem"]</a>
+                    <a href="#filtertab3" id="filtertab3Link" aria-expanded="false" data-toggle="collapse" name="filtertabs" value="filterSystem" onchange="SearchChange(0);" onclick="Folding(this.id)"><i class="icon-list"></i>@SharedLocalizer["LakeSystem"]</a>
                     <ul id="filtertab3" class="collapse list-unstyled ">
                         <li>
                             <div class="col-sm-auto m-1">
@@ -2043,6 +2043,38 @@
         GetVHU();
         GetSystem();
         SearchChange(0);
+    }
+
+    function Folding(obj) {
+        if (obj == 'filtertab1Link') {
+            $('#filtertab2Link').attr("aria-expanded", "false");
+            $('#filtertab2Link').addClass("collapsed");
+            $('#filtertab2').removeClass("show");
+
+            $('#filtertab3Link').attr("aria-expanded", "false");
+            $('#filtertab3Link').addClass("collapsed");
+            $('#filtertab3').removeClass("show");
+        }
+
+        if (obj == 'filtertab2Link') {
+            $('#filtertab1Link').attr("aria-expanded", "false");
+            $('#filtertab1Link').addClass("collapsed");
+            $('#filtertab1').removeClass("show");
+
+            $('#filtertab3Link').attr("aria-expanded", "false");
+            $('#filtertab3Link').addClass("collapsed");
+            $('#filtertab3').removeClass("show");
+        }
+
+        if (obj == 'filtertab3Link') {
+            $('#filtertab1Link').attr("aria-expanded", "false");
+            $('#filtertab1Link').addClass("collapsed");
+            $('#filtertab1').removeClass("show");
+
+            $('#filtertab2Link').attr("aria-expanded", "false");
+            $('#filtertab2Link').addClass("collapsed");
+            $('#filtertab2').removeClass("show");
+        }
     }
 </script>
 @* $(document).ready(function () {}) *@
