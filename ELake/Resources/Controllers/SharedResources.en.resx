@@ -121,7 +121,7 @@
     <value>About</value>
   </data>
   <data name="AcidityOfWaterDegree" xml:space="preserve">
-    <value>The degree of acidity of water</value>
+    <value>Classification pH</value>
   </data>
   <data name="Action" xml:space="preserve">
     <value>Action</value>
@@ -367,7 +367,7 @@
     <value>Discrepancy</value>
   </data>
   <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
-    <value>The degree of dissolved oxygen in water</value>
+    <value>Class of water pollution in terms of dissolved oxygen</value>
   </data>
   <data name="DissOxygWater" xml:space="preserve">
     <value>Dissolved oxygen in water, mg-eqv / dm3</value>
@@ -1027,7 +1027,7 @@
     <value>MG²⁺, magnesium cations,% eq</value>
   </data>
   <data name="Mineralization" xml:space="preserve">
-    <value>Value of mineralization, mg / dm3</value>
+    <value>Total water salinity, mg / dm3</value>
   </data>
   <data name="MineralizationType" xml:space="preserve">
     <value>Type of mineralization</value>
@@ -1228,7 +1228,7 @@
     <value>Area of constant water,%</value>
   </data>
   <data name="pH" xml:space="preserve">
-    <value>PH value</value>
+    <value>Hydrogen index - pH</value>
   </data>
   <data name="PotentialFishProducts" xml:space="preserve">
     <value>Potential fish products, kg / ha</value>
@@ -1717,7 +1717,7 @@
     <value>Water frequency</value>
   </data>
   <data name="WaterHardness" xml:space="preserve">
-    <value>Water hardness</value>
+    <value>Water hardness classification</value>
   </data>
   <data name="WaterLavelM" xml:space="preserve">
     <value>Average water level, m</value>

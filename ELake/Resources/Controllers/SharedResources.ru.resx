@@ -121,7 +121,7 @@
     <value>О сайте</value>
   </data>
   <data name="AcidityOfWaterDegree" xml:space="preserve">
-    <value>Степень кислотности воды</value>
+    <value>Классификация вод по pH</value>
   </data>
   <data name="Action" xml:space="preserve">
     <value>Действие</value>
@@ -367,7 +367,7 @@
     <value>Невязка</value>
   </data>
   <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
-    <value>Степень по растворенному кислороду в воде</value>
+    <value>Класс загрязнения воды по показателям растворенного кислорода</value>
   </data>
   <data name="DissOxygWater" xml:space="preserve">
     <value>Растворенный в воде кислород, мг/дм³</value>
@@ -1027,7 +1027,7 @@
     <value>Mg²⁺, катионы магния, %-экв</value>
   </data>
   <data name="Mineralization" xml:space="preserve">
-    <value>Значение минерализации, мг/дм³</value>
+    <value>Общая минерализация воды, мг/дм³</value>
   </data>
   <data name="MineralizationType" xml:space="preserve">
     <value>Тип минерализации</value>
@@ -1228,7 +1228,7 @@
     <value>Площадь постоянной воды, %</value>
   </data>
   <data name="pH" xml:space="preserve">
-    <value>Значение рН</value>
+    <value>Водородный показатель - pH</value>
   </data>
   <data name="PotentialFishProducts" xml:space="preserve">
     <value>Потенциальная рыбопродуктинвость, кг/га</value>
@@ -1717,7 +1717,7 @@
     <value>Повторяемость воды</value>
   </data>
   <data name="WaterHardness" xml:space="preserve">
-    <value>Степень жесткости воды</value>
+    <value>Классификация воды по жесткости</value>
   </data>
   <data name="WaterLavelM" xml:space="preserve">
     <value>Средний уровень воды, м</value>

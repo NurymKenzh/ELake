@@ -8,7 +8,12 @@
                 if (data.ghitable1[i].mineralization != null) {
                     var tr = $('<tr/>').appendTo(tablebody1);
                     tr.append('<td>' + data.ghitable1[i].year + '</td>');
-                    tr.append('<td>' + data.ghitable1[i].mineralization + '</td>');
+                    if (data.ghitable1[i].mineralization < 100) {
+                        tr.append('<td>' + data.ghitable1[i].mineralization.toFixed(1) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + data.ghitable1[i].mineralization.toFixed(0) + '</td>');
+                    }
                     tr.append('<td>' + data.ghitable1[i].mineralizationType + '</td>');
                 }
             }
@@ -19,7 +24,12 @@
                 if (data.ghitable2[i].mineralization != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
                     tr.append('<td>' + data.ghitable2[i].year + '</td>');
-                    tr.append('<td>' + data.ghitable2[i].mineralization + '</td>');
+                    if (data.ghitable2[i].mineralization < 100) {
+                        tr.append('<td>' + data.ghitable2[i].mineralization.toFixed(1) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + data.ghitable2[i].mineralization.toFixed(0) + '</td>');
+                    }
                     tr.append('<td>' + data.ghitable2[i].mineralizationType + '</td>');
                 }
             }
@@ -426,7 +436,12 @@
                 if (data.ghitable1[i].percentOxygWater != null) {
                     var tr = $('<tr/>').appendTo(tablebody1);
                     tr.append('<td>' + data.ghitable1[i].year + '</td>');
-                    tr.append('<td>' + data.ghitable1[i].percentOxygWater + '</td>');
+                    if (data.ghitable1[i].percentOxygWater < 100) {
+                        tr.append('<td>' + data.ghitable1[i].percentOxygWater.toFixed(1) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + data.ghitable1[i].percentOxygWater + '</td>');
+                    }
                 }
             }
         }
@@ -436,7 +451,12 @@
                 if (data.ghitable2[i].percentOxygWater != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
                     tr.append('<td>' + data.ghitable2[i].year + '</td>');
-                    tr.append('<td>' + data.ghitable2[i].percentOxygWater + '</td>');
+                    if (data.ghitable2[i].percentOxygWater < 100) {
+                        tr.append('<td>' + data.ghitable2[i].percentOxygWater.toFixed(1) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + data.ghitable2[i].percentOxygWater + '</td>');
+                    }
                 }
             }
         }
@@ -698,7 +718,7 @@
                 if (data.ghitable1[i].organicSubstances != null) {
                     var tr = $('<tr/>').appendTo(tablebody1);
                     tr.append('<td>' + data.ghitable1[i].year + '</td>');
-                    tr.append('<td>' + data.ghitable1[i].organicSubstances + '</td>');
+                    tr.append('<td>' + data.ghitable1[i].organicSubstances.toFixed(1) + '</td>');
                 }
             }
         }
@@ -708,7 +728,7 @@
                 if (data.ghitable2[i].organicSubstances != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
                     tr.append('<td>' + data.ghitable2[i].year + '</td>');
-                    tr.append('<td>' + data.ghitable2[i].organicSubstances + '</td>');
+                    tr.append('<td>' + data.ghitable2[i].organicSubstances.toFixed(1) + '</td>');
                 }
             }
         }

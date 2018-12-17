@@ -121,7 +121,7 @@
     <value>Сайт туралы</value>
   </data>
   <data name="AcidityOfWaterDegree" xml:space="preserve">
-    <value>Судың қышқылдық дәрежесі</value>
+    <value>Сыныптамасы pH</value>
   </data>
   <data name="Action" xml:space="preserve">
     <value>Әрекет</value>
@@ -367,7 +367,7 @@
     <value>Сәйкессіздік</value>
   </data>
   <data name="DissolvedOxygenInWaterDegree" xml:space="preserve">
-    <value>Судағы еріген оттегі бойынша дәрежесі</value>
+    <value>Ерітілген оттегі тұрғысынан судың ластану дәрежесі</value>
   </data>
   <data name="DissOxygWater" xml:space="preserve">
     <value>Судағы еріген оттегі, мг/дм3</value>
@@ -1027,7 +1027,7 @@
     <value>Mg²⁺,  магний катиондары, %-экв</value>
   </data>
   <data name="Mineralization" xml:space="preserve">
-    <value>Минерализация мәні, мг/дм3</value>
+    <value>Судың тұздылығы, мг/дм3</value>
   </data>
   <data name="MineralizationType" xml:space="preserve">
     <value>Минерализация түрі</value>
@@ -1228,7 +1228,7 @@
     <value>Тұрақты судың ауданы,%</value>
   </data>
   <data name="pH" xml:space="preserve">
-    <value>рH мәні</value>
+    <value>Cутегі индексі - pH</value>
   </data>
   <data name="PotentialFishProducts" xml:space="preserve">
     <value>Потенциалдық балық өнімділігі, кг/га</value>
@@ -1717,7 +1717,7 @@
     <value>Судың қайталануы</value>
   </data>
   <data name="WaterHardness" xml:space="preserve">
-    <value>Су кермектік дәрежесі</value>
+    <value>Судың қаттылық классификациясы</value>
   </data>
   <data name="WaterLavelM" xml:space="preserve">
     <value>Судың орташа деңгейі, м</value>
