@@ -626,11 +626,11 @@
     <input id="Seasonalit" type="hidden" value='@SharedLocalizer["Seasonalit"]' />
     <input id="Month" type="hidden" value='@SharedLocalizer["Month"]' />
     <input id="NoData" type="hidden" value='@SharedLocalizer["NoData"]' />
+    <input id="IonUnitValue" type="hidden" value='@SharedLocalizer["IonUnit"]' />
 </div>
 
 @* map and layers *@
 <script type="text/javascript">
-
 
     var layers = [];
     var Source_OSM = new ol.source.OSM(),
@@ -1825,29 +1825,60 @@
                     for (i = 0; i < data.iwctable1.length; i++) {
                         if (data.iwctable1[i].caMg != null) {
                             $('#YearCa1').text(data.iwctable1[i].year);
-                            $('#Ca1').text((data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].caPerEq != null ? data.iwctable1[i].caPerEq.toFixed(2) : null));
+                            //$('#Ca1').text((data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].caPerEq != null ? data.iwctable1[i].caPerEq.toFixed(2) : null));
+                            if (data.iwctable1[i].caMg < 100) {
+                                $('#Ca1').text((data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#Ca1').text((data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(0) : null));
+                            }
                             $('#AlekinWaterCompositionClass1').text(data.iwctable1[i].alekinWaterCompositionClass);
                             $('#KurlovFormula1').text(data.iwctable1[i].kurlovFormula);
                         }
                         if (data.iwctable1[i].mgMg != null) {
                             $('#YearMg1').text(data.iwctable1[i].year);
-                            $('#Mg1').text((data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].mgPerEq != null ? data.iwctable1[i].mgPerEq.toFixed(2) : null));
+                            if (data.iwctable1[i].mgMg < 100) {
+                                $('#Mg1').text((data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#Mg1').text((data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(0) : null));
+                            }
                         }
                         if (data.iwctable1[i].naKMg != null) {
                             $('#YearNaK1').text(data.iwctable1[i].year);
-                            $('#NaK1').text((data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].naKPerEq != null ? data.iwctable1[i].naKPerEq.toFixed(2) : null));
+                            if (data.iwctable1[i].naKMg < 100) {
+                                $('#NaK1').text((data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#NaK1').text((data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(0) : null));
+                            }
                         }
                         if (data.iwctable1[i].clMg != null) {
                             $('#YearCl1').text(data.iwctable1[i].year);
-                            $('#Cl1').text((data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].clPerEq != null ? data.iwctable1[i].clPerEq.toFixed(2) : null));
+                            if (data.iwctable1[i].clMg < 100) {
+                                $('#Cl1').text((data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#Cl1').text((data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(0) : null));
+                            }
                         }
                         if (data.iwctable1[i].hcoMg != null) {
                             $('#YearHCO1').text(data.iwctable1[i].year);
-                            $('#HCO1').text((data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].hcoPerEq != null ? data.iwctable1[i].hcoPerEq.toFixed(2) : null));
+                            if (data.iwctable1[i].hcoMg < 100) {
+                                $('#HCO1').text((data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#HCO1').text((data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(0) : null));
+                            }
                         }
                         if (data.iwctable1[i].soMg != null) {
                             $('#YearSO1').text(data.iwctable1[i].year);
-                            $('#SO1').text((data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + ' / ' + (data.iwctable1[i].soPerEq != null ? data.iwctable1[i].soPerEq.toFixed(2) : null));
+                            if (data.iwctable1[i].soMg < 100) {
+                                $('#SO1').text((data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#SO1').text((data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(0) : null));
+                            }
                         }
                     }
                 }
@@ -1855,29 +1886,59 @@
                     for (i = 0; i < data.iwctable2.length; i++) {
                         if (data.iwctable2[i].caMg != null) {
                             $('#YearCa2').text(data.iwctable2[i].year);
-                            $('#Ca2').text((data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].caPerEq != null ? data.iwctable2[i].caPerEq.toFixed(2) : null));
+                            if (data.iwctable2[i].caMg < 100) {
+                                $('#Ca2').text((data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#Ca2').text((data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(0) : null));
+                            }
                             $('#AlekinWaterCompositionClass2').text(data.iwctable2[i].alekinWaterCompositionClass);
                             $('#KurlovFormula2').text(data.iwctable2[i].kurlovFormula);
                         }
                         if (data.iwctable2[i].mgMg != null) {
                             $('#YearMg2').text(data.iwctable2[i].year);
-                            $('#Mg2').text((data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].mgPerEq != null ? data.iwctable2[i].mgPerEq.toFixed(2) : null));
+                            if (data.iwctable2[i].mgMg < 100) {
+                                $('#Mg2').text((data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#Mg2').text((data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(0) : null));
+                            }
                         }
                         if (data.iwctable2[i].naKMg != null) {
                             $('#YearNaK2').text(data.iwctable2[i].year);
-                            $('#NaK2').text((data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].naKPerEq != null ? data.iwctable2[i].naKPerEq.toFixed(2) : null));
+                            if (data.iwctable2[i].naKMg < 100) {
+                                $('#NaK2').text((data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#NaK2').text((data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(0) : null));
+                            }
                         }
                         if (data.iwctable2[i].clMg != null) {
                             $('#YearCl2').text(data.iwctable2[i].year);
-                            $('#Cl2').text((data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].clPerEq != null ? data.iwctable2[i].clPerEq.toFixed(2) : null));
+                            if (data.iwctable2[i].clMg < 100) {
+                                $('#Cl2').text((data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#Cl2').text((data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(0) : null));
+                            }
                         }
                         if (data.iwctable2[i].hcoMg != null) {
                             $('#YearHCO2').text(data.iwctable2[i].year);
-                            $('#HCO2').text((data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].hcoPerEq != null ? data.iwctable2[i].hcoPerEq.toFixed(2) : null));
+                            if (data.iwctable2[i].hcoMg < 100) {
+                                $('#HCO2').text((data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#HCO2').text((data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(0) : null));
+                            }
                         }
                         if (data.iwctable2[i].soMg != null) {
                             $('#YearSO2').text(data.iwctable2[i].year);
-                            $('#SO2').text((data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(2) : null) + ' / ' + (data.iwctable2[i].soPerEq != null ? data.iwctable2[i].soPerEq.toFixed(2) : null));
+                            if (data.iwctable2[i].soMg < 100) {
+                                $('#SO2').text((data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(1) : null));
+                            }
+                            else {
+                                $('#SO2').text((data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(0) : null));
+                            }
                         }
                     }
                 }
@@ -1980,37 +2041,37 @@
                         }
                         if (data.titable1[i].cu != null) {
                             $('#YearCu1').text(data.titable1[i].year);
-                            $('#Cu1').text(data.titable1[i].cu);
+                            $('#Cu1').text(data.titable1[i].cu.toFixed(3));
                             $('#IZVCu1').text((data.titable1[i].izvCu != null ? data.titable1[i].izvCu.toFixed(2) : null));
                         }
                         if (data.titable1[i].zn != null) {
                             $('#YearZn1').text(data.titable1[i].year);
-                            $('#Zn1').text(data.titable1[i].zn);
+                            $('#Zn1').text(data.titable1[i].zn.toFixed(3));
                             $('#IZVZn1').text((data.titable1[i].izvZn != null ? data.titable1[i].izvZn.toFixed(2) : null));
                         }
                         if (data.titable1[i].mn != null) {
                             $('#YearMn1').text(data.titable1[i].year);
-                            $('#Mn1').text(data.titable1[i].mn);
+                            $('#Mn1').text(data.titable1[i].mn.toFixed(3));
                             $('#IZVMn1').text((data.titable1[i].izvMn != null ? data.titable1[i].izvMn.toFixed(2) : null));
                         }
                         if (data.titable1[i].pb != null) {
                             $('#YearPb1').text(data.titable1[i].year);
-                            $('#Pb1').text(data.titable1[i].pb);
+                            $('#Pb1').text(data.titable1[i].pb.toFixed(3));
                             $('#IZVPb1').text((data.titable1[i].izvPb != null ? data.titable1[i].izvPb.toFixed(2) : null));
                         }
                         if (data.titable1[i].ni != null) {
                             $('#YearNi1').text(data.titable1[i].year);
-                            $('#Ni1').text(data.titable1[i].ni);
+                            $('#Ni1').text(data.titable1[i].ni.toFixed(3));
                             $('#IZVNi1').text((data.titable1[i].izvNi != null ? data.titable1[i].izvNi.toFixed(2) : null));
                         }
                         if (data.titable1[i].cd != null) {
                             $('#YearCd1').text(data.titable1[i].year);
-                            $('#Cd1').text(data.titable1[i].cd);
+                            $('#Cd1').text(data.titable1[i].cd.toFixed(3));
                             $('#IZVCd1').text((data.titable1[i].izvCd != null ? data.titable1[i].izvCd.toFixed(2) : null));
                         }
                         if (data.titable1[i].co != null) {
                             $('#YearCo1').text(data.titable1[i].year);
-                            $('#Co1').text(data.titable1[i].co);
+                            $('#Co1').text(data.titable1[i].co.toFixed(3));
                             $('#IZVCo1').text((data.titable1[i].izvCo != null ? data.titable1[i].izvCo.toFixed(2) : null));
                         }
                         if (data.titable1[i].kizv != null) {
@@ -2048,37 +2109,37 @@
                         }
                         if (data.titable2[i].cu != null) {
                             $('#YearCu2').text(data.titable2[i].year);
-                            $('#Cu2').text(data.titable2[i].cu);
+                            $('#Cu2').text(data.titable2[i].cu.toFixed(3));
                             $('#IZVCu2').text((data.titable2[i].izvCu != null ? data.titable2[i].izvCu.toFixed(2) : null));
                         }
                         if (data.titable2[i].zn != null) {
                             $('#YearZn2').text(data.titable2[i].year);
-                            $('#Zn2').text(data.titable2[i].zn);
+                            $('#Zn2').text(data.titable2[i].zn.toFixed(3));
                             $('#IZVZn2').text((data.titable2[i].izvZn != null ? data.titable2[i].izvZn.toFixed(2) : null));
                         }
                         if (data.titable2[i].mn != null) {
                             $('#YearMn2').text(data.titable2[i].year);
-                            $('#Mn2').text(data.titable2[i].mn);
+                            $('#Mn2').text(data.titable2[i].mn.toFixed(3));
                             $('#IZVMn2').text((data.titable2[i].izvMn != null ? data.titable2[i].izvMn.toFixed(2) : null));
                         }
                         if (data.titable2[i].pb != null) {
                             $('#YearPb2').text(data.titable2[i].year);
-                            $('#Pb2').text(data.titable2[i].pb);
+                            $('#Pb2').text(data.titable2[i].pb.toFixed(3));
                             $('#IZVPb2').text((data.titable2[i].izvPb != null ? data.titable2[i].izvPb.toFixed(2) : null));
                         }
                         if (data.titable2[i].ni != null) {
                             $('#YearNi2').text(data.titable2[i].year);
-                            $('#Ni2').text(data.titable2[i].ni);
+                            $('#Ni2').text(data.titable2[i].ni.toFixed(3));
                             $('#IZVNi2').text((data.titable2[i].izvNi != null ? data.titable2[i].izvNi.toFixed(2) : null));
                         }
                         if (data.titable2[i].cd != null) {
                             $('#YearCd2').text(data.titable2[i].year);
-                            $('#Cd2').text(data.titable2[i].cd);
+                            $('#Cd2').text(data.titable2[i].cd.toFixed(3));
                             $('#IZVCd2').text((data.titable2[i].izvCd != null ? data.titable2[i].izvCd.toFixed(2) : null));
                         }
                         if (data.titable2[i].co != null) {
                             $('#YearCo2').text(data.titable2[i].year);
-                            $('#Co2').text(data.titable2[i].co);
+                            $('#Co2').text(data.titable2[i].co.toFixed(3));
                             $('#IZVCo2').text((data.titable2[i].izvCo != null ? data.titable2[i].izvCo.toFixed(2) : null));
                         }
                         if (data.titable2[i].kizv != null) {
@@ -2116,6 +2177,12 @@
                 ChartCo(data);
                 TableKIZV(data);
                 ChartKIZV(data);
+                TableCa(data);
+                TableMg(data);
+                TableNaK(data);
+                TableCl(data);
+                TableHCO(data);
+                TableSO(data);
                 // Переходы
                 //ChartPASD1X(data);
                 //if (data.wbtable != null) {

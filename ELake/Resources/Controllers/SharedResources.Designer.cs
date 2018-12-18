@@ -198,6 +198,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string Anions {
+            get {
+                return ResourceManager.GetString("Anions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string AnionsSumMgEq {
             get {
                 return ResourceManager.GetString("AnionsSumMgEq", resourceCulture);
@@ -408,6 +417,15 @@ namespace ELake.Resources.Controllers {
         public static string CaPerEq {
             get {
                 return ResourceManager.GetString("CaPerEq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Cations {
+            get {
+                return ResourceManager.GetString("Cations", resourceCulture);
             }
         }
         
@@ -1938,6 +1956,24 @@ namespace ELake.Resources.Controllers {
         public static string IonsaltWaterCompositionUploadDescription {
             get {
                 return ResourceManager.GetString("IonsaltWaterCompositionUploadDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IonsDenominator {
+            get {
+                return ResourceManager.GetString("IonsDenominator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string IonsNumerator {
+            get {
+                return ResourceManager.GetString("IonsNumerator", resourceCulture);
             }
         }
         

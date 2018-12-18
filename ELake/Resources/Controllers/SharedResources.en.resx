@@ -220,13 +220,13 @@
     <value>Brine</value>
   </data>
   <data name="Ca" xml:space="preserve">
-    <value>Calcium cations, mg / dm3</value>
+    <value>Calcium ions, mg / dm3</value>
   </data>
   <data name="CalciumGroup" xml:space="preserve">
     <value>Cа</value>
   </data>
   <data name="CaMg" xml:space="preserve">
-    <value>Ca²⁺, calcium cations, mg / dm³</value>
+    <value>Ca²⁺</value>
   </data>
   <data name="CaMgEq" xml:space="preserve">
     <value>Ca²⁺, calcium cations, mEq / dm³</value>
@@ -253,10 +253,10 @@
     <value>KIZV including Co</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>Chloride anions, mg / dm3</value>
+    <value>Chloride ions, mg / dm3</value>
   </data>
   <data name="ClMg" xml:space="preserve">
-    <value>Cl⁻, chloride anions, mg / dm³</value>
+    <value>Cl⁻</value>
   </data>
   <data name="ClMgEq" xml:space="preserve">
     <value>Cl⁻, chloride anions, mEq / dm³</value>
@@ -601,10 +601,10 @@
     <value>Hazard Class Zn</value>
   </data>
   <data name="HCO" xml:space="preserve">
-    <value>Hydrocorbonate anions, mg / dm3</value>
+    <value>Hydrocorbonate ions, mg / dm3</value>
   </data>
   <data name="HCOMg" xml:space="preserve">
-    <value>HCO₃⁻, hydrocarbonate anions, mg / dm³</value>
+    <value>HCO₃⁻</value>
   </data>
   <data name="HCOMgEq" xml:space="preserve">
     <value>HCO₃⁻, hydrocarbonate anions, mEq / dm³</value>
@@ -742,7 +742,7 @@
     <value>Amount of ions in% eq</value>
   </data>
   <data name="IonUnit" xml:space="preserve">
-    <value>mg / dm³ /% eq / dm³</value>
+    <value>mg / dm³</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>IZV Cd</value>
@@ -1015,16 +1015,16 @@
     <value>Layer {0} isn't exist in {1} workspace!</value>
   </data>
   <data name="Mg" xml:space="preserve">
-    <value>Magnesium cations, mg / dm3</value>
+    <value>Magnesium ions, mg / dm3</value>
   </data>
   <data name="MgMg" xml:space="preserve">
-    <value>MG²⁺, magnesium cations, mg / dm³</value>
+    <value>Mg²⁺</value>
   </data>
   <data name="MgMgEq" xml:space="preserve">
-    <value>MG²⁺, magnesium cations, mEq / dm³</value>
+    <value>Mg²⁺, magnesium cations, mEq / dm³</value>
   </data>
   <data name="MgPerEq" xml:space="preserve">
-    <value>MG²⁺, magnesium cations,% eq</value>
+    <value>Mg²⁺, magnesium cations,% eq</value>
   </data>
   <data name="Mineralization" xml:space="preserve">
     <value>Total water salinity, mg / dm3</value>
@@ -1093,10 +1093,10 @@
     <value>MPC value Zn</value>
   </data>
   <data name="NaK" xml:space="preserve">
-    <value>Sodium potassium cations, mg / dm3</value>
+    <value>Sodium potassium ions, mg / dm3</value>
   </data>
   <data name="NaKMg" xml:space="preserve">
-    <value>Na⁺ + K⁺, sodium potassium cations, mg / dm³</value>
+    <value>Na⁺ + K⁺</value>
   </data>
   <data name="NaKMgEq" xml:space="preserve">
     <value>Na⁺ + K⁺, sodium potassium cations, mEq / dm³</value>
@@ -1399,7 +1399,7 @@
     <value>Average slope within a 100 meter buffer around the lake polygon, in degrees</value>
   </data>
   <data name="SO" xml:space="preserve">
-    <value>Sulphate anions, mg / dm3</value>
+    <value>Sulfate ions, mg / dm3</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value>Na</value>
@@ -1408,7 +1408,7 @@
     <value>Soft</value>
   </data>
   <data name="SOMg" xml:space="preserve">
-    <value>SO₄²⁻, sulfate anions, mg / dm³</value>
+    <value>SO₄²⁻</value>
   </data>
   <data name="SOMgEq" xml:space="preserve">
     <value>SO₄²⁻, sulfate anions, mEq / dm³</value>
@@ -1793,5 +1793,20 @@
   </data>
   <data name="DissOxygWaterDimension" xml:space="preserve">
     <value>mg / dm3</value>
+  </data>
+  <data name="ToxicologyMeasurementUnit" xml:space="preserve">
+    <value>mg / l</value>
+  </data>
+  <data name="Anions" xml:space="preserve">
+    <value>Anions</value>
+  </data>
+  <data name="Cations" xml:space="preserve">
+    <value>Cations</value>
+  </data>
+  <data name="IonsDenominator" xml:space="preserve">
+    <value>% eq</value>
+  </data>
+  <data name="IonsNumerator" xml:space="preserve">
+    <value>mg-equ / dm3</value>
   </data>
 </root>

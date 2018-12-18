@@ -1794,4 +1794,16 @@
   <data name="DissOxygWaterDimension" xml:space="preserve">
     <value />
   </data>
+  <data name="Anions" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Cations" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IonsDenominator" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IonsNumerator" xml:space="preserve">
+    <value />
+  </data>
 </root>

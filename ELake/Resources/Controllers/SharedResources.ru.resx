@@ -220,13 +220,13 @@
     <value>Рассол</value>
   </data>
   <data name="Ca" xml:space="preserve">
-    <value>Ca²⁺, катионы кальция, мг-экв/дм³</value>
+    <value>Ca²⁺, ионы кальция, мг-экв/дм³</value>
   </data>
   <data name="CalciumGroup" xml:space="preserve">
     <value>Cа</value>
   </data>
   <data name="CaMg" xml:space="preserve">
-    <value>Ca²⁺, катионы кальция, мг/дм³</value>
+    <value>Ca²⁺</value>
   </data>
   <data name="CaMgEq" xml:space="preserve">
     <value>Ca²⁺, катионы кальция, мг-экв/дм³</value>
@@ -253,10 +253,10 @@
     <value>КИЗВ с учетом Ко</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>Cl⁻,хлоридные анионы, мг-экв/дм³</value>
+    <value>Cl⁻,хлорид-ионы, мг-экв/дм³</value>
   </data>
   <data name="ClMg" xml:space="preserve">
-    <value>Cl⁻, хлоридные анионы, мг/дм³</value>
+    <value>Cl⁻</value>
   </data>
   <data name="ClMgEq" xml:space="preserve">
     <value>Cl⁻, хлоридные анионы, мг-экв/дм³</value>
@@ -601,10 +601,10 @@
     <value>Класс опасности Zn</value>
   </data>
   <data name="HCO" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонатные анионы, мг-экв/дм³</value>
+    <value>HCO₃⁻, гидрокорбонатные-ионы, мг-экв/дм³</value>
   </data>
   <data name="HCOMg" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонатные анионы, мг/дм³</value>
+    <value>HCO₃⁻</value>
   </data>
   <data name="HCOMgEq" xml:space="preserve">
     <value>HCO₃⁻, гидрокорбонатные анионы, мг-экв/дм³</value>
@@ -742,7 +742,7 @@
     <value>Сумма ионов в %-экв</value>
   </data>
   <data name="IonUnit" xml:space="preserve">
-    <value>мг/дм³ / %-экв</value>
+    <value>мг/дм³</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>ИЗВ Cd</value>
@@ -1015,10 +1015,10 @@
     <value>Слой {0} не существует в рабочем пространстве {1}!</value>
   </data>
   <data name="Mg" xml:space="preserve">
-    <value>Mg²⁺, катионы магния, мг-экв/дм³</value>
+    <value>Mg²⁺, ионы магния, мг-экв/дм³</value>
   </data>
   <data name="MgMg" xml:space="preserve">
-    <value>Mg²⁺, катионы магния, мг/дм³</value>
+    <value>Mg²⁺</value>
   </data>
   <data name="MgMgEq" xml:space="preserve">
     <value>Mg²⁺, катионы магния, мг-экв/дм³</value>
@@ -1093,10 +1093,10 @@
     <value>Значение ПДК Zn</value>
   </data>
   <data name="NaK" xml:space="preserve">
-    <value>Na⁺+K⁺, катионы натрий калия, мг-экв/дм³</value>
+    <value>Na⁺+K⁺, ионы натрий-калия, мг-экв/дм³</value>
   </data>
   <data name="NaKMg" xml:space="preserve">
-    <value>Na⁺+K⁺, катионы натрий калия, мг/дм³</value>
+    <value>Na⁺+K⁺</value>
   </data>
   <data name="NaKMgEq" xml:space="preserve">
     <value>Na⁺+K⁺, катионы натрий калия, мг-экв/дм³</value>
@@ -1399,7 +1399,7 @@
     <value>Средний уклон в пределах 100-метрового буфера вокруг полигона озера, в градусах</value>
   </data>
   <data name="SO" xml:space="preserve">
-    <value>SO₄²⁻, сульфатные анионы, мг-экв/дм³</value>
+    <value>SO₄²⁻, сульфат-ионы, мг-экв/дм³</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value>Na</value>
@@ -1408,7 +1408,7 @@
     <value>Мягкая</value>
   </data>
   <data name="SOMg" xml:space="preserve">
-    <value>SO₄²⁻, сульфатные анионы, мг/дм³</value>
+    <value>SO₄²⁻</value>
   </data>
   <data name="SOMgEq" xml:space="preserve">
     <value>SO₄²⁻, сульфатные анионы, мг-экв/дм³</value>
@@ -1793,5 +1793,20 @@
   </data>
   <data name="DissOxygWaterDimension" xml:space="preserve">
     <value>мг/дм³</value>
+  </data>
+  <data name="ToxicologyMeasurementUnit" xml:space="preserve">
+    <value>мг/л</value>
+  </data>
+  <data name="Anions" xml:space="preserve">
+    <value>Анионы</value>
+  </data>
+  <data name="Cations" xml:space="preserve">
+    <value>Катионы</value>
+  </data>
+  <data name="IonsDenominator" xml:space="preserve">
+    <value>%-экв</value>
+  </data>
+  <data name="IonsNumerator" xml:space="preserve">
+    <value>мг-экв/дм³</value>
   </data>
 </root>

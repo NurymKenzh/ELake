@@ -847,6 +847,13 @@
     function TableAlekinWaterCompositionClass(data) {
         var tablebody1 = $('#tablebodyAlekinWaterCompositionClass1'),
             tablebody2 = $('#tablebodyAlekinWaterCompositionClass2');
+        var str1 = "", str2 = "",
+            upInd1 = "", upInd2 = "",
+            downInd1 = "", downInd2 = "",
+            startUpInd1 = "", startUpInd2 = "",
+            endUpInd1 = "", endUpInd2 = "",
+            startDownInd1 = "", startDownInd2 = "",
+            endStr1 = "", endStr2 = "";
         tablebody1.html('');
         if (data.iwctable1 != null) {
             for (var i = 0; i < data.iwctable1.length; i++) {
@@ -859,7 +866,18 @@
                     tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].alekinWaterCompositionClass + '</td>');
+
+                    str1 = data.iwctable1[i].alekinWaterCompositionClass;
+                    startUpInd1 = str1.indexOf('(') + 1;
+                    endUpInd1 = str1.indexOf(')');
+                    upInd1 = str1.substring(startUpInd1, endUpInd1);
+
+                    startDownInd1 = str1.indexOf(')') + 1;
+                    downInd1 = str1.substring(startDownInd1, str1.length);
+                    endStr1 = str1.substring(0, startUpInd1 - 1);
+                    str1 = endStr1 + '<i>' + '<sup>' + upInd1 + '</sup>' + '<sub>' + downInd1 + '</sub>' + '</i>';
+
+                    tr.append('<td>' + str1 + '</td>');
                 }
             }
         }
@@ -875,7 +893,18 @@
                     tr.append('<td>' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + data.iwctable2[i].alekinWaterCompositionClass + '</td>');
+
+                    str2 = data.iwctable2[i].alekinWaterCompositionClass;
+                    startUpInd2 = str2.indexOf('(') + 1;
+                    endUpInd2 = str2.indexOf(')');
+                    upInd2 = str2.substring(startUpInd2, endUpInd2);
+
+                    startDownInd2 = str2.indexOf(')') + 1;
+                    downInd2 = str2.substring(startDownInd2, str2.length);
+                    endStr2 = str2.substring(0, startUpInd2 - 1);
+                    str2 = endStr2 + '<i>' + '<sup>' + upInd2 + '</sup>' + '<sub>' + downInd2 + '</sub>' + '</i>';
+
+                    tr.append('<td>' + str2 + '</td>');
                 }
             }
         }
@@ -885,6 +914,11 @@
     function TableKurlovFormula(data) {
         var tablebody1 = $('#tablebodyKurlovFormula1'),
             tablebody2 = $('#tablebodyKurlovFormula2');
+        var numerator = "",
+            denominator = "",
+            number = "",
+            symbol = "",
+            index = "";
         tablebody1.html('');
         if (data.iwctable1 != null) {
             for (var i = 0; i < data.iwctable1.length; i++) {
@@ -897,7 +931,36 @@
                     tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + data.iwctable1[i].kurlovFormula + '</td>');
+                    if (data.ghitable1[i].mineralization < 100) {
+                        tr.append('<td>' + data.ghitable1[i].mineralization.toFixed(1) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + data.ghitable1[i].mineralization.toFixed(0) + '</td>');
+                    }
+                    var str1 = data.iwctable1[i].kurlovFormula;
+                    try {
+                        var res1 = str1.replace("MG", "Mg");
+                    }
+                    catch{
+                        var res1 = str1;
+                    }
+                    number = res1.substring(0, res1.indexOf('('));
+                    symbol = number.charAt(0);
+                    index = number.substring(number.indexOf('M') + 1, number.length);
+                    numerator = res1.substring(res1.indexOf('(') + 1, res1.indexOf(')'));
+                    denominator = res1.substring(res1.indexOf('/') + 2, res1.length - 1);
+                    tr.append('<td>' + symbol + '<i><sub>' + index + '</sub></i>' +
+                        '<table style="display:inline;">' +
+                            '<thead>' +
+                                '<tr>' +
+                                    '<td style="border-top:hidden;">' + numerator + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                    '<td style="border-color:#666;">' + denominator + '</td>' +
+                                '</tr>' +
+                            '</thead>' +
+                        '</table>' +
+                    '</td>');
                 }
             }
         }
@@ -913,7 +976,21 @@
                     tr.append('<td>' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(2) : null) + '</td>');
                     tr.append('<td>' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + data.iwctable2[i].kurlovFormula + '</td>');
+                    if (data.ghitable2[i].mineralization < 100) {
+                        tr.append('<td>' + data.ghitable2[i].mineralization.toFixed(1) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + data.ghitable2[i].mineralization.toFixed(0) + '</td>');
+                    }
+                    //tr.append('<td>' + data.iwctable2[i].kurlovFormula + '</td>');
+                    var str2 = data.iwctable2[i].kurlovFormula;
+                    try {
+                        var res2 = str2.replace("MG", "Mg");
+                    }
+                    catch{
+                        var res2 = str2;
+                    }
+                    tr.append('<td>' + res2 + '</td>');
                 }
             }
         }
@@ -2576,6 +2653,234 @@
         });
     }
 
+    function TableCa(data) {
+        var tablebody1 = $('#tablebodyCa1');
+            tablebody2 = $('#tablebodyCa2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable1[i].caMg < 100) {
+                        tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].caMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable2[i].caMg < 100) {
+                        tr.append('<td>' + (data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    function TableMg(data) {
+        var tablebody1 = $('#tablebodyMg1');
+        tablebody2 = $('#tablebodyMg2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].mgMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable1[i].mgMg < 100) {
+                        tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].mgMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable2[i].mgMg < 100) {
+                        tr.append('<td>' + (data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    function TableNaK(data) {
+        var tablebody1 = $('#tablebodyNaK1');
+        tablebody2 = $('#tablebodyNaK2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].naKMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable1[i].naKMg < 100) {
+                        tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].naKMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable2[i].naKMg < 100) {
+                        tr.append('<td>' + (data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    function TableCl(data) {
+        var tablebody1 = $('#tablebodyCl1');
+        tablebody2 = $('#tablebodyCl2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].clMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable1[i].clMg < 100) {
+                        tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].clMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable2[i].clMg < 100) {
+                        tr.append('<td>' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    function TableHCO(data) {
+        var tablebody1 = $('#tablebodyHCO1');
+        tablebody2 = $('#tablebodyHCO2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].hcoMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable1[i].hcoMg < 100) {
+                        tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].hcoMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable2[i].hcoMg < 100) {
+                        tr.append('<td>' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
+    function TableSO(data) {
+        var tablebody1 = $('#tablebodySO1');
+        tablebody2 = $('#tablebodySO2');
+        tablebody1.html('');
+        if (data.iwctable1 != null) {
+            for (var i = 0; i < data.iwctable1.length; i++) {
+                if (data.iwctable1[i].soMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody1);
+                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable1[i].soMg < 100) {
+                        tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        tablebody2.html('');
+        if (data.iwctable2 != null) {
+            for (var i = 0; i < data.iwctable2.length; i++) {
+                if (data.iwctable2[i].soMg != null) {
+                    var tr = $('<tr/>').appendTo(tablebody2);
+                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td>' + $('#IonUnitValue').val() + '</td>');
+                    if (data.iwctable2[i].soMg < 100) {
+                        tr.append('<td>' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(1) : null) + '</td>');
+                    }
+                    else {
+                        tr.append('<td>' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(0) : null) + '</td>');
+                    }
+                }
+            }
+        }
+        $('.TI').hide();
+    }
+
     ///////////////////////////
 
     function ShowTableMineralization1() {
@@ -3398,6 +3703,138 @@
         SelectTab();
         $('.TI').hide();
         $('#chartKIZV2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableCa1() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableCa1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableCa2() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableCa2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableMg1() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableMg1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableMg2() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableMg2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableNaK1() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableNaK1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableNaK2() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableNaK2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableCl1() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableCl1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableCl2() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableCl2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableHCO1() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableHCO1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableHCO2() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableHCO2').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.SaltyPart').show();
+        }
+    }
+
+    function ShowTableSO1() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableSO1').show();
+        $('.FreshPart').hide();
+        $('.SaltyPart').hide();
+        if (twoparts) {
+            $('.FreshPart').show();
+        }
+    }
+
+    function ShowTableSO2() {
+        SelectTab();
+        $('.TI').hide();
+        $('#tableSO2').show();
         $('.FreshPart').hide();
         $('.SaltyPart').hide();
         if (twoparts) {

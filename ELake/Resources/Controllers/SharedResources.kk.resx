@@ -220,13 +220,13 @@
     <value>Тұзды</value>
   </data>
   <data name="Ca" xml:space="preserve">
-    <value>Ca²⁺,Кальций катиондары, мг-экв/дм3</value>
+    <value>Ca²⁺,Кальций иондар, мг-экв/дм3</value>
   </data>
   <data name="CalciumGroup" xml:space="preserve">
     <value>Cа</value>
   </data>
   <data name="CaMg" xml:space="preserve">
-    <value>Ca²⁺, кальций катиондары, мг/дм³</value>
+    <value>Ca²⁺</value>
   </data>
   <data name="CaMgEq" xml:space="preserve">
     <value>Ca²⁺, кальций катиондары, мг-экв/дм³</value>
@@ -253,10 +253,10 @@
     <value>Қауіптілік класын ескере отырып есептелген СЛКИ</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>Хлоридті аниондар, мг-экв/дм³</value>
+    <value>Хлорид иондары, мг-экв/дм³</value>
   </data>
   <data name="ClMg" xml:space="preserve">
-    <value>Cl⁻, хлорлы аниондар, мг/дм³</value>
+    <value>Cl⁻</value>
   </data>
   <data name="ClMgEq" xml:space="preserve">
     <value>Cl⁻, хлорлы аниондар, мг-экв/дм³</value>
@@ -601,10 +601,10 @@
     <value>Zn қауіптілік класы </value>
   </data>
   <data name="HCO" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонаттық аниондар, мг-экв/дм³</value>
+    <value>HCO₃⁻, гидрокорбонаттық иондар, мг-экв/дм³</value>
   </data>
   <data name="HCOMg" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонаттық аниондар, мг/дм³</value>
+    <value>HCO₃⁻</value>
   </data>
   <data name="HCOMgEq" xml:space="preserve">
     <value>HCO₃⁻, гидрокорбонаттық аниондар, мг-экв/дм³</value>
@@ -742,7 +742,7 @@
     <value>Иондар суммасы, %-экв</value>
   </data>
   <data name="IonUnit" xml:space="preserve">
-    <value>мг/дм³ / %-экв</value>
+    <value>мг/дм³</value>
   </data>
   <data name="IZVCd" xml:space="preserve">
     <value>Cd бойынша СЛИ</value>
@@ -1015,10 +1015,10 @@
     <value>{0} қабаты жұмыс кеңістігінде {1} жоқ!</value>
   </data>
   <data name="Mg" xml:space="preserve">
-    <value>Mg²⁺,  магний катиондары, мг-экв/дм³</value>
+    <value>Mg²⁺,  магний иондар, мг-экв/дм³</value>
   </data>
   <data name="MgMg" xml:space="preserve">
-    <value>Mg²⁺,  магний катиондары, мг/дм³</value>
+    <value>Mg²⁺</value>
   </data>
   <data name="MgMgEq" xml:space="preserve">
     <value>Mg²⁺,  магний катиондары, мг-экв/дм³</value>
@@ -1093,10 +1093,10 @@
     <value>Zn бойынша ШРК мәні</value>
   </data>
   <data name="NaK" xml:space="preserve">
-    <value>Na⁺+K⁺, натрий калий катиондары, мг-экв/дм³</value>
+    <value>Na⁺+K⁺, натрий калий иондары, мг-экв/дм³</value>
   </data>
   <data name="NaKMg" xml:space="preserve">
-    <value>Na⁺+K⁺, натрий калий катиондары, мг/дм³</value>
+    <value>Na⁺+K⁺</value>
   </data>
   <data name="NaKMgEq" xml:space="preserve">
     <value>Na⁺+K⁺, натрий калий катиондары, мг-экв/дм³</value>
@@ -1399,7 +1399,7 @@
     <value>Көл айналасындағы 100-метрлік буферлік аумақтың орташа еңістік, градус</value>
   </data>
   <data name="SO" xml:space="preserve">
-    <value>SO₄²⁻, сульфатты аниондар, мг-экв/дм³</value>
+    <value>SO₄²⁻, сульфат иондары, мг-экв/дм³</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value>Na</value>
@@ -1408,7 +1408,7 @@
     <value>Жұмсақ</value>
   </data>
   <data name="SOMg" xml:space="preserve">
-    <value>SO₄²⁻, сульфатты аниондар, мг/дм³</value>
+    <value>SO₄²⁻</value>
   </data>
   <data name="SOMgEq" xml:space="preserve">
     <value>SO₄²⁻, сульфатты аниондар, мг-экв/дм³</value>
@@ -1793,5 +1793,20 @@
   </data>
   <data name="DissOxygWaterDimension" xml:space="preserve">
     <value>мг/дм³</value>
+  </data>
+  <data name="ToxicologyMeasurementUnit" xml:space="preserve">
+    <value>мг / л</value>
+  </data>
+  <data name="Anions" xml:space="preserve">
+    <value>Аниондар</value>
+  </data>
+  <data name="Cations" xml:space="preserve">
+    <value>Катиондар</value>
+  </data>
+  <data name="IonsDenominator" xml:space="preserve">
+    <value>%-экв</value>
+  </data>
+  <data name="IonsNumerator" xml:space="preserve">
+    <value>мг-экв/дм³</value>
   </data>
 </root>
