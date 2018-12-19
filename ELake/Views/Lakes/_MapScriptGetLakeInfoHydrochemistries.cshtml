@@ -941,7 +941,7 @@
                     try {
                         var res1 = str1.replace("MG", "Mg");
                     }
-                    catch{
+                    catch (err){
                         var res1 = str1;
                     }
                     number = res1.substring(0, res1.indexOf('('));
@@ -987,7 +987,7 @@
                     try {
                         var res2 = str2.replace("MG", "Mg");
                     }
-                    catch{
+                    catch (err){
                         var res2 = str2;
                     }
                     tr.append('<td>' + res2 + '</td>');
