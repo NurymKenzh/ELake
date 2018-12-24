@@ -245,6 +245,7 @@
                                                 <option value="Transitions">@SharedLocalizer["Transitions"]</option>
                                             </select>
                                             <input id="layerGlobalSurfaceWaterOpacity" type="range" min="0" max="100" value="80" style="width: 100%;" oninput="ChangeLayers()" />
+                                            <label id="bandInfo"></label>
                                         </div>
                                         <!-- Modal -->
                                         <div class="modal fade" id="Legend"  role="dialog" aria-labelledby="Legend" aria-hidden="true">
@@ -2222,8 +2223,9 @@
 <script>
     map.on('singleclick', function (evt) {
         Source_Lake.clear();
+        $("#bandInfo").text("");
         var viewResolution = (map.getView().getResolution());
-        var url = Source_Lakes.getGetFeatureInfoUrl(
+        var url = layers[3].getSource().getGetFeatureInfoUrl(
             evt.coordinate, viewResolution, 'EPSG:3857',
             {
                 'INFO_FORMAT': 'text/javascript'
@@ -2245,11 +2247,59 @@
             }).then(function (response) {
                 var result = parser.readFeatures(response);
                 if (result.length > 0) {
-                    SelectLakeZoom(result[0].get('id'), false);
+                    if ($('#layerGlobalSurfaceWaterShow').is(':checked')) {
+                        var bands = [];
+                        bands[0] = result[0].get('Band1');
+                        bands[1] = result[0].get('Band2');
+                        bands[2] = result[0].get('Band3');
+                        bands[3] = result[0].get('Band4');
+                        bands[4] = result[0].get('Band5');
+                        bands[5] = result[0].get('Band6');
+                        var str = "";
+                        for (var i = 1; i < bands.length + 1; i++) {
+                            if (i < 6) {
+                                str = str + "канал " + i + ": " + bands[i - 1] + ", ";
+                            }
+                            else {
+                                str = str + "канал " + i + ": " + bands[i - 1] + ".";
+                            }
+                        }
+                        $("#bandInfo").text(str);
+                    }
+                    lakes(evt.coordinate, viewResolution);
                 }
             })
         }
-    })
+        
+    })
+    function lakes(coord, res) {
+        var urlLake = Source_Lakes.getGetFeatureInfoUrl(
+            coord, res, 'EPSG:3857',
+            {
+                'INFO_FORMAT': 'text/javascript'
+                //'FEATURE_COUNT': '10000'
+            });
+        if (urlLake) {
+            var parserLake = new ol.format.GeoJSON();
+            $.ajax({
+                jsonp: false,
+                jsonpCallback: 'getJson',
+                type: 'GET',
+                url: urlLake + "&format_options=callback:getJson",
+                async: false,
+                dataType: 'jsonp',
+                //jsonpCallback: 'parseResponse',
+                error: function (xhr, status, error) {
+
+                }
+            }).then(function (response) {
+                var resultLake = parserLake.readFeatures(response);
+                if (resultLake.length > 0) {
+                    SelectLakeZoom(resultLake[0].get('id'), false);
+                }
+            })
+        }
+    }
 </script>
 @* SearchChange *@
 <script>
