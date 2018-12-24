@@ -1080,17 +1080,33 @@
     //};
 
     //addInteraction();
+    function ChangeRaster(nameSource) {
+        map.getLayers().forEach(function (layer) {
+            if (layer.get('name') == 'raster') {
+                if (nameSource == 'Source_OSM') {
+                    layer.setSource(Source_OSM);
+                } else if (nameSource == 'Source_BingAerialWithLabels') {
+                    layer.setSource(Source_BingAerialWithLabels);
+                }
+            }
+        })
+    }
 
     function ChangeLayers() {
         map.getLayers().forEach(function (layer) {
             if (layer.get('name') == 'Base') {
+                var nameSource = "";
                 layer.setVisible($('#layerBaseShow').is(':checked'));
                 layer.setOpacity($('#layerBaseOpacity').val() / 100);
                 if ($('#layerBaseType').val() == 'OSM') {
                     layer.setSource(Source_OSM);
+                    nameSource = "Source_OSM";
+                    ChangeRaster(nameSource);
                 }
                 else if ($('#layerBaseType').val() == 'BingAerialWithLabels') {
                     layer.setSource(Source_BingAerialWithLabels);
+                    nameSource = "Source_BingAerialWithLabels";
+                    ChangeRaster(nameSource);
                 }
             }
             if (layer.get('name') == 'GlobalSurfaceWater') {
