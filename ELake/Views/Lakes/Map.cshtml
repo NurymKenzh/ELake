@@ -1737,31 +1737,62 @@
                     for (i = 0; i < data.ghitable1.length; i++) {
                         if (data.ghitable1[i].mineralization != null) {
                             $('#YearMineralization1').text(data.ghitable1[i].year);
-                            $('#Mineralization1').text(data.ghitable1[i].mineralization);
+                            if (data.ghitable1[i].mineralization < 100) {
+                                $('#Mineralization1').text((data.ghitable1[i].mineralization != null ? data.ghitable1[i].mineralization.toFixed(1) : null));
+                            }
+                            else {
+                                $('#Mineralization1').text((data.ghitable1[i].mineralization != null ? data.ghitable1[i].mineralization.toFixed(0) : null));
+                            }
                             $('#MineralizationType1').text(data.ghitable1[i].mineralizationType);
                         }
                         if (data.ghitable1[i].totalHardness != null) {
                             $('#YearTotalHardness1').text(data.ghitable1[i].year);
-                            $('#TotalHardness1').text(data.ghitable1[i].totalHardness);
+                            if (data.ghitable1[i].totalHardness < 100) {
+                                $('#TotalHardness1').text((data.ghitable1[i].totalHardness != null ? data.ghitable1[i].totalHardness.toFixed(1) : null));
+                            }
+                            else {
+                                $('#TotalHardness1').text((data.ghitable1[i].totalHardness != null ? data.ghitable1[i].totalHardness.toFixed(0) : null));
+                            }
                             $('#WaterHardness1').text(data.ghitable1[i].waterHardness);
                         }
                         if (data.ghitable1[i].dissOxygWater != null) {
                             $('#YearDissOxygWater1').text(data.ghitable1[i].year);
-                            $('#DissOxygWater1').text(data.ghitable1[i].dissOxygWater);
+                            if (data.ghitable1[i].dissOxygWater < 100) {
+                                $('#DissOxygWater1').text((data.ghitable1[i].dissOxygWater != null ? data.ghitable1[i].dissOxygWater.toFixed(1) : null));
+                            }
+                            else {
+                                $('#DissOxygWater1').text((data.ghitable1[i].dissOxygWater != null ? data.ghitable1[i].dissOxygWater.toFixed(0) : null));
+                            }
                             $('#DissolvedOxygenInWaterDegree1').text(data.ghitable1[i].dissolvedOxygenInWaterDegree);
                         }
                         if (data.ghitable1[i].percentOxygWater != null) {
                             $('#YearPercentOxygWater1').text(data.ghitable1[i].year);
-                            $('#PercentOxygWater1').text(data.ghitable1[i].percentOxygWater);
+                            if (data.ghitable1[i].percentOxygWater < 100) {
+                                $('#PercentOxygWater1').text((data.ghitable1[i].percentOxygWater != null ? data.ghitable1[i].percentOxygWater.toFixed(1) : null));
+                            }
+                            else {
+                                $('#PercentOxygWater1').text((data.ghitable1[i].percentOxygWater != null ? data.ghitable1[i].percentOxygWater.toFixed(0) : null));
+                            }
                         }
                         if (data.ghitable1[i].pH != null) {
                             $('#YearpH1').text(data.ghitable1[i].year);
-                            $('#pH1').text(data.ghitable1[i].pH);
+                            $('#YearPercentOxygWater1').text(data.ghitable1[i].year);
+                            if (data.ghitable1[i].pH < 100) {
+                                $('#pH1').text((data.ghitable1[i].pH != null ? data.ghitable1[i].pH.toFixed(1) : null));
+                            }
+                            else {
+                                $('#pH1').text((data.ghitable1[i].pH != null ? data.ghitable1[i].pH.toFixed(0) : null));
+                            }
                             $('#AcidityOfWaterDegree1').text(data.ghitable1[i].acidityOfWaterDegree);
                         }
                         if (data.ghitable1[i].organicSubstances != null) {
                             $('#YearOrganicSubstances1').text(data.ghitable1[i].year);
-                            $('#OrganicSubstances1').text(data.ghitable1[i].organicSubstances);
+                            if (data.ghitable1[i].organicSubstances < 100) {
+                                $('#OrganicSubstances1').text((data.ghitable1[i].organicSubstances != null ? data.ghitable1[i].organicSubstances.toFixed(1) : null));
+                            }
+                            else {
+                                $('#OrganicSubstances1').text((data.ghitable1[i].organicSubstances != null ? data.ghitable1[i].organicSubstances.toFixed(0) : null));
+                            }
                         }
                     }
                 }
@@ -1769,32 +1800,62 @@
                     for (i = 0; i < data.ghitable2.length; i++) {
                         if (data.ghitable2[i].mineralization != null) {
                             $('#YearMineralization2').text(data.ghitable2[i].year);
-                            $('#Mineralization2').text(data.ghitable2[i].mineralization);
+                            if (data.ghitable2[i].mineralization < 100) {
+                                $('#Mineralization2').text((data.ghitable2[i].mineralization != null ? data.ghitable2[i].mineralization.toFixed(1) : null));
+                            }
+                            else {
+                                $('#Mineralization2').text((data.ghitable2[i].mineralization != null ? data.ghitable2[i].mineralization.toFixed(0) : null));
+                            }
                             $('#MineralizationType2').text(data.ghitable2[i].mineralizationType);
                         }
                         if (data.ghitable2[i].totalHardness != null) {
                             $('#YearTotalHardness2').text(data.ghitable2[i].year);
-                            $('#TotalHardness2').text(data.ghitable2[i].totalHardness);
+                            if (data.ghitable2[i].totalHardness < 100) {
+                                $('#TotalHardness2').text((data.ghitable2[i].totalHardness != null ? data.ghitable2[i].totalHardness.toFixed(1) : null));
+                            }
+                            else {
+                                $('#TotalHardness2').text((data.ghitable2[i].totalHardness != null ? data.ghitable2[i].totalHardness.toFixed(0) : null));
+                            }
                             $('#WaterHardness2').text(data.ghitable2[i].waterHardness);
                         }
                         if (data.ghitable2[i].dissOxygWater != null) {
                             $('#YearDissOxygWater2').text(data.ghitable2[i].year);
-                            $('#DissOxygWater2').text(data.ghitable2[i].dissOxygWater);
+                            if (data.ghitable2[i].dissOxygWater < 100) {
+                                $('#DissOxygWater2').text((data.ghitable2[i].dissOxygWater != null ? data.ghitable2[i].dissOxygWater.toFixed(1) : null));
+                            }
+                            else {
+                                $('#DissOxygWater2').text((data.ghitable2[i].dissOxygWater != null ? data.ghitable2[i].dissOxygWater.toFixed(0) : null));
+                            }
                             $('#DissolvedOxygenInWaterDegree2').text(data.ghitable2[i].dissolvedOxygenInWaterDegree);
                         }
                         if (data.ghitable2[i].percentOxygWater != null) {
                             $('#YearPercentOxygWater2').text(data.ghitable2[i].year);
-                            $('#PercentOxygWater2').text(data.ghitable2[i].percentOxygWater);
+                            if (data.ghitable2[i].percentOxygWater < 100) {
+                                $('#PercentOxygWater2').text((data.ghitable2[i].percentOxygWater != null ? data.ghitable2[i].percentOxygWater.toFixed(1) : null));
+                            }
+                            else {
+                                $('#PercentOxygWater2').text((data.ghitable2[i].percentOxygWater != null ? data.ghitable2[i].percentOxygWater.toFixed(0) : null));
+                            }
                             $('#WaterHardness2').text(data.ghitable2[i].waterHardness);
                         }
                         if (data.ghitable2[i].pH != null) {
                             $('#YearpH2').text(data.ghitable2[i].year);
-                            $('#pH2').text(data.ghitable2[i].pH);
+                            if (data.ghitable2[i].pH < 100) {
+                                $('#pH2').text((data.ghitable2[i].pH != null ? data.ghitable2[i].pH.toFixed(1) : null));
+                            }
+                            else {
+                                $('#pH2').text((data.ghitable2[i].pH != null ? data.ghitable2[i].pH.toFixed(0) : null));
+                            }
                             $('#AcidityOfWaterDegree2').text(data.ghitable2[i].acidityOfWaterDegree);
                         }
                         if (data.ghitable2[i].organicSubstances != null) {
                             $('#YearOrganicSubstances2').text(data.ghitable2[i].year);
-                            $('#OrganicSubstances2').text(data.ghitable2[i].organicSubstances);
+                            if (data.ghitable2[i].organicSubstances < 100) {
+                                $('#OrganicSubstances2').text((data.ghitable2[i].organicSubstances != null ? data.ghitable2[i].organicSubstances.toFixed(1) : null));
+                            }
+                            else {
+                                $('#OrganicSubstances2').text((data.ghitable2[i].organicSubstances != null ? data.ghitable2[i].organicSubstances.toFixed(0) : null));
+                            }
                         }
                     }
                 }

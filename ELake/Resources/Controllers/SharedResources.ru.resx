@@ -220,7 +220,7 @@
     <value>Рассол</value>
   </data>
   <data name="Ca" xml:space="preserve">
-    <value>Ca²⁺, ионы кальция, мг-экв/дм³</value>
+    <value>Ca²⁺ (ионы кальция)</value>
   </data>
   <data name="CalciumGroup" xml:space="preserve">
     <value>Cа</value>
@@ -238,7 +238,7 @@
     <value>Суммы катионов в мг-экв/дм³</value>
   </data>
   <data name="Cd" xml:space="preserve">
-    <value>Кадмий Cd</value>
+    <value>Cd (кадмий)</value>
   </data>
   <data name="ChangeWaterCondition" xml:space="preserve">
     <value>Изменение состояния воды</value>
@@ -253,7 +253,7 @@
     <value>КИЗВ с учетом Ко</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>Cl⁻,хлорид-ионы, мг-экв/дм³</value>
+    <value>Cl⁻ (хлорид-ионы)</value>
   </data>
   <data name="ClMg" xml:space="preserve">
     <value>Cl⁻</value>
@@ -265,7 +265,7 @@
     <value>Cl⁻, хлоридные анионы, %-экв</value>
   </data>
   <data name="Co" xml:space="preserve">
-    <value>Кобальт Co</value>
+    <value>Co (кобальт)</value>
   </data>
   <data name="ColorPicker" xml:space="preserve">
     <value>Тематические цвета, Стандартные цвета, Цветовая гамма, Цвет темы, Назад в палитру, История, История еще не существует.</value>
@@ -313,7 +313,7 @@
     <value>Создать новый аккаунт.</value>
   </data>
   <data name="Cu" xml:space="preserve">
-    <value>Медь Cu</value>
+    <value>Cu (медь)</value>
   </data>
   <data name="CurrentCommercialFishProductivity" xml:space="preserve">
     <value>Текущая промысловая рыбопродуктивность, кг/га</value>
@@ -601,7 +601,7 @@
     <value>Класс опасности Zn</value>
   </data>
   <data name="HCO" xml:space="preserve">
-    <value>HCO₃⁻, гидрокорбонатные-ионы, мг-экв/дм³</value>
+    <value>HCO₃⁻ (гидрокорбонатные-ионы)</value>
   </data>
   <data name="HCOMg" xml:space="preserve">
     <value>HCO₃⁻</value>
@@ -1015,7 +1015,7 @@
     <value>Слой {0} не существует в рабочем пространстве {1}!</value>
   </data>
   <data name="Mg" xml:space="preserve">
-    <value>Mg²⁺, ионы магния, мг-экв/дм³</value>
+    <value>Mg²⁺ (ионы магния)</value>
   </data>
   <data name="MgMg" xml:space="preserve">
     <value>Mg²⁺</value>
@@ -1039,7 +1039,7 @@
     <value>Минимальные значения</value>
   </data>
   <data name="Mn" xml:space="preserve">
-    <value>Марганец Mn</value>
+    <value>Mn (марганец)</value>
   </data>
   <data name="ModeratelyTough" xml:space="preserve">
     <value>Умеренно жесткая</value>
@@ -1093,7 +1093,7 @@
     <value>Значение ПДК Zn</value>
   </data>
   <data name="NaK" xml:space="preserve">
-    <value>Na⁺+K⁺, ионы натрий-калия, мг-экв/дм³</value>
+    <value>Na⁺+K⁺ (ионы натрий-калия)</value>
   </data>
   <data name="NaKMg" xml:space="preserve">
     <value>Na⁺+K⁺</value>
@@ -1132,16 +1132,16 @@
     <value>NH</value>
   </data>
   <data name="NH4" xml:space="preserve">
-    <value>Аммоний-ион NH₄</value>
+    <value>NH₄⁺ (азот аммонийный)</value>
   </data>
   <data name="Ni" xml:space="preserve">
-    <value>Никель Ni</value>
+    <value>Ni (никель)</value>
   </data>
   <data name="NO2" xml:space="preserve">
-    <value>Нитрит-анион NO₂</value>
+    <value>NO₂⁻ (азот нитритный)</value>
   </data>
   <data name="NO3" xml:space="preserve">
-    <value>Нитрат-анион NO₃</value>
+    <value>NO₃⁻  (азот нитратный)</value>
   </data>
   <data name="NoData" xml:space="preserve">
     <value>Нет данных</value>
@@ -1207,7 +1207,7 @@
     <value>Пароль</value>
   </data>
   <data name="Pb" xml:space="preserve">
-    <value>Свинец Pb</value>
+    <value>Pb (свинец)</value>
   </data>
   <data name="PercentOxygWater" xml:space="preserve">
     <value>Процент насыщенности воды растворенным кислородом, %</value>
@@ -1246,7 +1246,7 @@
     <value>PPO</value>
   </data>
   <data name="PPO4" xml:space="preserve">
-    <value>ФосфатыPPO₄</value>
+    <value>Ppo₄⁻ (фосфаты)</value>
   </data>
   <data name="Precipitation" xml:space="preserve">
     <value>Осадки, млн.м³</value>
@@ -1399,7 +1399,7 @@
     <value>Средний уклон в пределах 100-метрового буфера вокруг полигона озера, в градусах</value>
   </data>
   <data name="SO" xml:space="preserve">
-    <value>SO₄²⁻, сульфат-ионы, мг-экв/дм³</value>
+    <value>SO₄²⁻ (сульфат-ионы)</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value>Na</value>
@@ -1762,7 +1762,7 @@
     <value>По годам</value>
   </data>
   <data name="Zn" xml:space="preserve">
-    <value>Цинк Zn</value>
+    <value>Zn (цинк)</value>
   </data>
   <data name="ZonalStatWater" xml:space="preserve">
     <value>Зональная статистика</value>
@@ -1795,7 +1795,7 @@
     <value>мг/дм³</value>
   </data>
   <data name="ToxicologyMeasurementUnit" xml:space="preserve">
-    <value>мг/л</value>
+    <value>мг/дм³</value>
   </data>
   <data name="Anions" xml:space="preserve">
     <value>Анионы</value>

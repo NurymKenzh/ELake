@@ -859,13 +859,13 @@
             for (var i = 0; i < data.iwctable1.length; i++) {
                 if (data.iwctable1[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody1);
-                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMgEq.toFixed(2) + "/" + data.iwctable1[i].caPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMgEq.toFixed(2) + "/" + data.iwctable1[i].mgPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMgEq.toFixed(2) + "/" + data.iwctable1[i].naKPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMgEq.toFixed(2) + "/" + data.iwctable1[i].clPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMgEq.toFixed(2) + "/" + data.iwctable1[i].hcoPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMgEq.toFixed(2) + "/" + data.iwctable1[i].soPerEq.toFixed(2)  : null) + '</td>');
 
                     str1 = data.iwctable1[i].alekinWaterCompositionClass;
                     startUpInd1 = str1.indexOf('(') + 1;
@@ -877,7 +877,7 @@
                     endStr1 = str1.substring(0, startUpInd1 - 1);
                     str1 = endStr1 + '<i>' + '<sup>' + upInd1 + '</sup>' + '<sub>' + downInd1 + '</sub>' + '</i>';
 
-                    tr.append('<td>' + str1 + '</td>');
+                    tr.append('<td style="text-align:center;">' + str1 + '</td>');
                 }
             }
         }
@@ -886,13 +886,13 @@
             for (var i = 0; i < data.iwctable2.length; i++) {
                 if (data.iwctable2[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
-                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].caMg != null ? data.iwctable2[i].caMgEq.toFixed(2) + "/" + data.iwctable2[i].caPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMgEq.toFixed(2) + "/" + data.iwctable2[i].mgPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMgEq.toFixed(2) + "/" + data.iwctable2[i].naKPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMgEq.toFixed(2) + "/" + data.iwctable2[i].clPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMgEq.toFixed(2) + "/" + data.iwctable2[i].hcoPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMgEq.toFixed(2) + "/" + data.iwctable2[i].soPerEq.toFixed(2) : null) + '</td>');
 
                     str2 = data.iwctable2[i].alekinWaterCompositionClass;
                     startUpInd2 = str2.indexOf('(') + 1;
@@ -904,7 +904,7 @@
                     endStr2 = str2.substring(0, startUpInd2 - 1);
                     str2 = endStr2 + '<i>' + '<sup>' + upInd2 + '</sup>' + '<sub>' + downInd2 + '</sub>' + '</i>';
 
-                    tr.append('<td>' + str2 + '</td>');
+                    tr.append('<td style="text-align:center;">' + str2 + '</td>');
                 }
             }
         }
@@ -914,28 +914,28 @@
     function TableKurlovFormula(data) {
         var tablebody1 = $('#tablebodyKurlovFormula1'),
             tablebody2 = $('#tablebodyKurlovFormula2');
-        var numerator = "",
-            denominator = "",
-            number = "",
-            symbol = "",
-            index = "";
+        var numerator = "", numerator2 = "",
+            denominator = "", denominator2 = "",
+            number = "", number2 = "",
+            symbol = "", symbol2 = "",
+            index = "", index2 = "";
         tablebody1.html('');
         if (data.iwctable1 != null) {
             for (var i = 0; i < data.iwctable1.length; i++) {
                 if (data.iwctable1[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody1);
-                    tr.append('<td>' + data.iwctable1[i].year + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + data.iwctable1[i].year + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].caMg != null ? data.iwctable1[i].caPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].mgMg != null ? data.iwctable1[i].mgPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].naKMg != null ? data.iwctable1[i].naKPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].clMg != null ? data.iwctable1[i].clPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].hcoMg != null ? data.iwctable1[i].hcoPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable1[i].soMg != null ? data.iwctable1[i].soPerEq.toFixed(2) : null) + '</td>');
                     if (data.ghitable1[i].mineralization < 100) {
-                        tr.append('<td>' + data.ghitable1[i].mineralization.toFixed(1) + '</td>');
+                        tr.append('<td style="text-align:center;">' + data.ghitable1[i].mineralization.toFixed(1) + '</td>');
                     }
                     else {
-                        tr.append('<td>' + data.ghitable1[i].mineralization.toFixed(0) + '</td>');
+                        tr.append('<td style="text-align:center;">' + data.ghitable1[i].mineralization.toFixed(0) + '</td>');
                     }
                     var str1 = data.iwctable1[i].kurlovFormula;
                     try {
@@ -949,7 +949,7 @@
                     index = number.substring(number.indexOf('M') + 1, number.length);
                     numerator = res1.substring(res1.indexOf('(') + 1, res1.indexOf(')'));
                     denominator = res1.substring(res1.indexOf('/') + 2, res1.length - 1);
-                    tr.append('<td>' + symbol + '<i><sub>' + index + '</sub></i>' +
+                    tr.append('<td style="text-align:center;">' + symbol + '<i><sub>' + index + '</sub></i>' +
                         '<table style="display:inline;">' +
                             '<thead>' +
                                 '<tr>' +
@@ -969,18 +969,18 @@
             for (var i = 0; i < data.iwctable2.length; i++) {
                 if (data.iwctable2[i].caMg != null) {
                     var tr = $('<tr/>').appendTo(tablebody2);
-                    tr.append('<td>' + data.iwctable2[i].year + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].caMg != null ? data.iwctable2[i].caMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoMg.toFixed(2) : null) + '</td>');
-                    tr.append('<td>' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soMg.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + data.iwctable2[i].year + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].caMg != null ? data.iwctable2[i].caPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].mgMg != null ? data.iwctable2[i].mgPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].naKMg != null ? data.iwctable2[i].naKPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].clMg != null ? data.iwctable2[i].clPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].hcoMg != null ? data.iwctable2[i].hcoPerEq.toFixed(2) : null) + '</td>');
+                    tr.append('<td style="text-align:center;">' + (data.iwctable2[i].soMg != null ? data.iwctable2[i].soPerEq.toFixed(2) : null) + '</td>');
                     if (data.ghitable2[i].mineralization < 100) {
-                        tr.append('<td>' + data.ghitable2[i].mineralization.toFixed(1) + '</td>');
+                        tr.append('<td style="text-align:center;">' + data.ghitable2[i].mineralization.toFixed(1) + '</td>');
                     }
                     else {
-                        tr.append('<td>' + data.ghitable2[i].mineralization.toFixed(0) + '</td>');
+                        tr.append('<td style="text-align:center;">' + data.ghitable2[i].mineralization.toFixed(0) + '</td>');
                     }
                     //tr.append('<td>' + data.iwctable2[i].kurlovFormula + '</td>');
                     var str2 = data.iwctable2[i].kurlovFormula;
@@ -990,7 +990,24 @@
                     catch (err){
                         var res2 = str2;
                     }
-                    tr.append('<td>' + res2 + '</td>');
+                    number2 = res2.substring(0, res2.indexOf('('));
+                    symbol2 = number2.charAt(0);
+                    index2 = number2.substring(number2.indexOf('M') + 1, number2.length);
+                    numerator2 = res2.substring(res2.indexOf('(') + 1, res2.indexOf(')'));
+                    denominator2 = res2.substring(res2.indexOf('/') + 2, res2.length - 1);
+                    tr.append('<td style="text-align:center;">' + symbol2 + '<i><sub>' + index2 + '</sub></i>' +
+                        '<table style="display:inline;">' +
+                            '<thead>' +
+                                '<tr>' +
+                                    '<td style="border-top:hidden;">' + numerator2 + '</td>' +
+                                '</tr>' +
+                                '<tr>' +
+                                    '<td style="border-color:#666;">' + denominator2 + '</td>' +
+                                '</tr>' +
+                            '</thead>' +
+                        '</table>' +
+                    '</td>');
+                    //tr.append('<td>' + res2 + '</td>');
                 }
             }
         }

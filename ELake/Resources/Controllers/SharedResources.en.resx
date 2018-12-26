@@ -220,7 +220,7 @@
     <value>Brine</value>
   </data>
   <data name="Ca" xml:space="preserve">
-    <value>Calcium ions, mg / dm3</value>
+    <value>Ca²⁺ (calcium ions)</value>
   </data>
   <data name="CalciumGroup" xml:space="preserve">
     <value>Cа</value>
@@ -238,7 +238,7 @@
     <value>Cation Sums in mEq / dm³</value>
   </data>
   <data name="Cd" xml:space="preserve">
-    <value>Cd</value>
+    <value>Cd (cadmium)</value>
   </data>
   <data name="ChangeWaterCondition" xml:space="preserve">
     <value>Change in water condition</value>
@@ -253,7 +253,7 @@
     <value>KIZV including Co</value>
   </data>
   <data name="Cl" xml:space="preserve">
-    <value>Chloride ions, mg / dm3</value>
+    <value>Cl⁻ (chloride ions)</value>
   </data>
   <data name="ClMg" xml:space="preserve">
     <value>Cl⁻</value>
@@ -265,7 +265,7 @@
     <value>Cl⁻, chloride anions,% eq</value>
   </data>
   <data name="Co" xml:space="preserve">
-    <value>Co</value>
+    <value>Co (cobalt)</value>
   </data>
   <data name="ColorPicker" xml:space="preserve">
     <value>Thematic colors, Standard colors, Colors, Theme color, Back to the palette, History, History does not yet exist.</value>
@@ -313,7 +313,7 @@
     <value>Create a new account.</value>
   </data>
   <data name="Cu" xml:space="preserve">
-    <value>Cu</value>
+    <value>Cu (copper)</value>
   </data>
   <data name="CurrentCommercialFishProductivity" xml:space="preserve">
     <value>Current fishery productivity of fish,kg/ha</value>
@@ -601,7 +601,7 @@
     <value>Hazard Class Zn</value>
   </data>
   <data name="HCO" xml:space="preserve">
-    <value>Hydrocorbonate ions, mg / dm3</value>
+    <value>HCO₃⁻ (hydrocorbonate ions)</value>
   </data>
   <data name="HCOMg" xml:space="preserve">
     <value>HCO₃⁻</value>
@@ -1015,7 +1015,7 @@
     <value>Layer {0} isn't exist in {1} workspace!</value>
   </data>
   <data name="Mg" xml:space="preserve">
-    <value>Magnesium ions, mg / dm3</value>
+    <value>Mg²⁺ (magnesium ions)</value>
   </data>
   <data name="MgMg" xml:space="preserve">
     <value>Mg²⁺</value>
@@ -1039,7 +1039,7 @@
     <value>Minimum values</value>
   </data>
   <data name="Mn" xml:space="preserve">
-    <value>Mn</value>
+    <value>Mn (manganese)</value>
   </data>
   <data name="ModeratelyTough" xml:space="preserve">
     <value>Moderately tough</value>
@@ -1093,7 +1093,7 @@
     <value>MPC value Zn</value>
   </data>
   <data name="NaK" xml:space="preserve">
-    <value>Sodium potassium ions, mg / dm3</value>
+    <value>Na⁺ + K⁺ (sodium potassium ions)</value>
   </data>
   <data name="NaKMg" xml:space="preserve">
     <value>Na⁺ + K⁺</value>
@@ -1132,16 +1132,16 @@
     <value>NH</value>
   </data>
   <data name="NH4" xml:space="preserve">
-    <value>NH₄</value>
+    <value>NH₄⁺ (ammonia nitrogen)</value>
   </data>
   <data name="Ni" xml:space="preserve">
-    <value>Ni</value>
+    <value>Ni (nickel)</value>
   </data>
   <data name="NO2" xml:space="preserve">
-    <value>NO2</value>
+    <value>NO₂⁻ (nitrite nitrogen)</value>
   </data>
   <data name="NO3" xml:space="preserve">
-    <value>NO₃</value>
+    <value>NO₃⁻ (nitrate nitrogen)</value>
   </data>
   <data name="NoData" xml:space="preserve">
     <value>No data</value>
@@ -1207,7 +1207,7 @@
     <value>Password</value>
   </data>
   <data name="Pb" xml:space="preserve">
-    <value>Pb</value>
+    <value>Pb (lead)</value>
   </data>
   <data name="PercentOxygWater" xml:space="preserve">
     <value>Saturation percentage,%</value>
@@ -1246,7 +1246,7 @@
     <value>PPO</value>
   </data>
   <data name="PPO4" xml:space="preserve">
-    <value>PPO₄</value>
+    <value>Ppo₄⁻ (phosphates)</value>
   </data>
   <data name="Precipitation" xml:space="preserve">
     <value>Precipitation</value>
@@ -1399,7 +1399,7 @@
     <value>Average slope within a 100 meter buffer around the lake polygon, in degrees</value>
   </data>
   <data name="SO" xml:space="preserve">
-    <value>Sulfate ions, mg / dm3</value>
+    <value>SO₄²⁻ (sulfate ions)</value>
   </data>
   <data name="SodiumGroup" xml:space="preserve">
     <value>Na</value>
@@ -1762,7 +1762,7 @@
     <value>By years</value>
   </data>
   <data name="Zn" xml:space="preserve">
-    <value>Zn</value>
+    <value>Zn (zinc)</value>
   </data>
   <data name="ZonalStatWater" xml:space="preserve">
     <value>Zone statistics</value>
@@ -1795,7 +1795,7 @@
     <value>mg / dm3</value>
   </data>
   <data name="ToxicologyMeasurementUnit" xml:space="preserve">
-    <value>mg / l</value>
+    <value>mg / dm3</value>
   </data>
   <data name="Anions" xml:space="preserve">
     <value>Anions</value>
