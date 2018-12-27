@@ -959,24 +959,24 @@ namespace ELake.Controllers
                     line += "\t" + 0.ToString();
                     line += "\t" + 0.ToString();
                     line += "\t" + 0.ToString();
-                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoData));
-                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoWater));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NoDataPers));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.NotWater));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.SeasonalWaterArea));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.PermanentWaterArea));
 
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.SeasonalWaterAreaPer));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Average(d => d.PermanentWaterAreaPer));
 
-                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.NoData));
-                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.NoWater));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.NoDataPers));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.NotWater));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.SeasonalWaterArea));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.PermanentWaterArea));
 
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.SeasonalWaterAreaPer));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Max(d => d.PermanentWaterAreaPer));
 
-                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NoData));
-                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NoWater));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NoDataPers));
+                    line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.NotWater));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.SeasonalWaterArea));
                     line += "\t" + PopulateDecimal(_context.DynamicsLakeArea.Where(d => d.LakeId == lake.LakeId).DefaultIfEmpty().Min(d => d.PermanentWaterArea));
 
@@ -1219,31 +1219,31 @@ namespace ELake.Controllers
                         // DynamicsLakeArea
                         List<DynamicsLakeArea> dynamicsLakeAreas = _context.DynamicsLakeArea.Where(w => w.LakeId == lake.LakeId).ToList();
                         DynamicsLakeArea dynamicsLakeArea = dynamicsLakeAreas.FirstOrDefault(w => w.Year == year);
-                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.NoData);
-                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.NoWater);
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.NoDataPers);
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.NotWater);
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.SeasonalWaterArea);
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.PermanentWaterArea);
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.SeasonalWaterAreaPer);
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeArea?.PermanentWaterAreaPer);
 
-                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoData).DefaultIfEmpty(0).Average());
-                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoWater).DefaultIfEmpty(0).Average());
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoDataPers).DefaultIfEmpty(0).Average());
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NotWater).DefaultIfEmpty(0).Average());
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.SeasonalWaterArea).DefaultIfEmpty(0).Average());
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.PermanentWaterArea).DefaultIfEmpty(0).Average());
 
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(w => w.SeasonalWaterAreaPer).DefaultIfEmpty(0).Average());
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(w => w.PermanentWaterAreaPer).DefaultIfEmpty(0).Average());
 
-                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoData).DefaultIfEmpty(0).Max());
-                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoWater).DefaultIfEmpty(0).Max());
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoDataPers).DefaultIfEmpty(0).Max());
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NotWater).DefaultIfEmpty(0).Max());
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.SeasonalWaterArea).DefaultIfEmpty(0).Max());
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.PermanentWaterArea).DefaultIfEmpty(0).Max());
 
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(w => w.SeasonalWaterAreaPer).DefaultIfEmpty(0).Max());
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(w => w.PermanentWaterAreaPer).DefaultIfEmpty(0).Max());
 
-                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoData).DefaultIfEmpty(0).Min());
-                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoWater).DefaultIfEmpty(0).Min());
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NoDataPers).DefaultIfEmpty(0).Min());
+                        lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.NotWater).DefaultIfEmpty(0).Min());
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.SeasonalWaterArea).DefaultIfEmpty(0).Min());
                         lineWaterBalance += "\t" + PopulateDecimal(dynamicsLakeAreas.Select(d => d.PermanentWaterArea).DefaultIfEmpty(0).Min());
 

@@ -1167,8 +1167,8 @@
   <data name="November" xml:space="preserve">
     <value>November</value>
   </data>
-  <data name="NoWater" xml:space="preserve">
-    <value>No water, km²</value>
+  <data name="NotWater" xml:space="preserve">
+    <value>Not water</value>
   </data>
   <data name="NoСhange" xml:space="preserve">
     <value>No change</value>
@@ -1808,5 +1808,8 @@
   </data>
   <data name="IonsNumerator" xml:space="preserve">
     <value>mg-equ / dm3</value>
+  </data>
+  <data name="NoDataPers" xml:space="preserve">
+    <value>No data, %</value>
   </data>
 </root>

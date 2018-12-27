@@ -16,11 +16,11 @@ namespace ELake.Models
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "Year")]
         public int Year { get; set; }
 
-        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NoData")]
-        public decimal NoData { get; set; }
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NoDataPers")]
+        public decimal NoDataPers { get; set; }
 
-        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NoWater")]
-        public decimal NoWater { get; set; }
+        [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "NotWater")]
+        public decimal NotWater { get; set; }
 
         [Display(ResourceType = typeof(Resources.Controllers.SharedResources), Name = "SeasonalWaterArea")]
         public decimal SeasonalWaterArea { get; set; }
@@ -42,7 +42,7 @@ namespace ELake.Models
         {
             get
             {
-                if(MaximumWaterArea!=0)
+                if (MaximumWaterArea != 0)
                 {
                     return SeasonalWaterArea / MaximumWaterArea * 100;
                 }

@@ -3240,6 +3240,15 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string NoDataPers {
+            get {
+                return ResourceManager.GetString("NoDataPers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string noMetaData {
             get {
                 return ResourceManager.GetString("noMetaData", resourceCulture);
@@ -3294,18 +3303,18 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        public static string November {
+        public static string NotWater {
             get {
-                return ResourceManager.GetString("November", resourceCulture);
+                return ResourceManager.GetString("NotWater", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        public static string NoWater {
+        public static string November {
             get {
-                return ResourceManager.GetString("NoWater", resourceCulture);
+                return ResourceManager.GetString("November", resourceCulture);
             }
         }
         

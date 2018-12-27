@@ -1167,8 +1167,8 @@
   <data name="November" xml:space="preserve">
     <value>Қараша</value>
   </data>
-  <data name="NoWater" xml:space="preserve">
-    <value>Су жоқ, км²</value>
+  <data name="NotWater" xml:space="preserve">
+    <value>Су емес</value>
   </data>
   <data name="NoСhange" xml:space="preserve">
     <value>Өзгерістер жоқ</value>
@@ -1808,5 +1808,8 @@
   </data>
   <data name="IonsNumerator" xml:space="preserve">
     <value>мг-экв/дм³</value>
+  </data>
+  <data name="NoDataPers" xml:space="preserve">
+    <value>Деректер жоқ, %</value>
   </data>
 </root>

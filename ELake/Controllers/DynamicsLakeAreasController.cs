@@ -10,9 +10,9 @@ using ELake.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Localization;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using System.IO;
 using OfficeOpenXml;
+using Microsoft.AspNetCore.Http;
 
 namespace ELake.Controllers
 {
@@ -119,7 +119,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Create([Bind("Id,LakeId,Year,NoData,NoWater,SeasonalWaterArea,PermanentWaterArea")] DynamicsLakeArea dynamicsLakeArea)
+        public async Task<IActionResult> Create([Bind("Id,LakeId,Year,NoDataPers,NotWater,SeasonalWaterArea,PermanentWaterArea")] DynamicsLakeArea dynamicsLakeArea)
         {
             if (ModelState.IsValid)
             {
@@ -131,7 +131,6 @@ namespace ELake.Controllers
         }
 
         // GET: DynamicsLakeAreas/Edit/5
-        [Authorize(Roles = "Administrator, Moderator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -153,7 +152,7 @@ namespace ELake.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator, Moderator")]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,Year,NoData,NoWater,SeasonalWaterArea,PermanentWaterArea")] DynamicsLakeArea dynamicsLakeArea)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,LakeId,Year,NoDataPers,NotWater,SeasonalWaterArea,PermanentWaterArea")] DynamicsLakeArea dynamicsLakeArea)
         {
             if (id != dynamicsLakeArea.Id)
             {
@@ -271,8 +270,8 @@ namespace ELake.Controllers
                         {
                             dynamicsLakeArea.LakeId = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 1].Value);
                             dynamicsLakeArea.Year = Convert.ToInt32(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 2].Value);
-                            dynamicsLakeArea.NoData = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
-                            dynamicsLakeArea.NoWater = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value);
+                            dynamicsLakeArea.NoDataPers = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 3].Value);
+                            dynamicsLakeArea.NotWater = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 4].Value);
                             dynamicsLakeArea.SeasonalWaterArea = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 5].Value);
                             dynamicsLakeArea.PermanentWaterArea = Convert.ToDecimal(package.Workbook.Worksheets.FirstOrDefault().Cells[i, 6].Value);
                         }

@@ -15,22 +15,28 @@
         if (data.pasdtable != null) {
             for (var i = 0; i < data.pasdtable.length; i++) {
                 if (data.pasdtable[i].seasonalWaterArea != null) {
-                    data1.push({
-                        'x': data.pasdtable[i].year,
-                        'y': data.pasdtable[i].seasonalWaterArea.toFixed(1)
-                    });
+                    if (data.pasdtable[i].noDataPers > 20.0) {
+                        data1.push({
+                            'x': data.pasdtable[i].year,
+                            'y': data.pasdtable[i].seasonalWaterArea.toFixed(1)
+                        });
+                    }
                 }
                 if (data.pasdtable[i].permanentWaterArea != null) {
-                    data2.push({
-                        'x': data.pasdtable[i].year,
-                        'y': data.pasdtable[i].permanentWaterArea.toFixed(1)
-                    });
+                    if (data.pasdtable[i].noDataPers > 20.0) {
+                        data2.push({
+                            'x': data.pasdtable[i].year,
+                            'y': data.pasdtable[i].permanentWaterArea.toFixed(1)
+                        });
+                    }
                 }
                 if (data.pasdtable[i].maximumWaterArea != null) {
-                    data3.push({
-                        'x': data.pasdtable[i].year,
-                        'y': data.pasdtable[i].maximumWaterArea.toFixed(1)
-                    });
+                    if (data.pasdtable[i].noDataPers > 20.0) {
+                        data3.push({
+                            'x': data.pasdtable[i].year,
+                            'y': data.pasdtable[i].maximumWaterArea.toFixed(1)
+                        });
+                    }
                 }
             }
         }
