@@ -1809,4 +1809,34 @@
   <data name="NoDataPers" xml:space="preserve">
     <value />
   </data>
+  <data name="MeasureArea" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MeasureClickDrawLine" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MeasureClickDrawPolygon" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MeasureClickStartDraw" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Measurekm" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MeasureLength" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Measurem" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MeasureOnTheMap" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MeasureType" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MeasureUseGeodesic" xml:space="preserve">
+    <value />
+  </data>
 </root>

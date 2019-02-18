@@ -2745,6 +2745,69 @@ namespace ELake.Resources.Controllers {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string MeasureArea {
+            get {
+                return ResourceManager.GetString("MeasureArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasureClickDrawLine {
+            get {
+                return ResourceManager.GetString("MeasureClickDrawLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasureClickDrawPolygon {
+            get {
+                return ResourceManager.GetString("MeasureClickDrawPolygon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasureClickStartDraw {
+            get {
+                return ResourceManager.GetString("MeasureClickStartDraw", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Measurekm {
+            get {
+                return ResourceManager.GetString("Measurekm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasureLength {
+            get {
+                return ResourceManager.GetString("MeasureLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Measurem {
+            get {
+                return ResourceManager.GetString("Measurem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string MeasurementUnit {
             get {
                 return ResourceManager.GetString("MeasurementUnit", resourceCulture);
@@ -2757,6 +2820,33 @@ namespace ELake.Resources.Controllers {
         public static string MeasurementUnits {
             get {
                 return ResourceManager.GetString("MeasurementUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasureOnTheMap {
+            get {
+                return ResourceManager.GetString("MeasureOnTheMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasureType {
+            get {
+                return ResourceManager.GetString("MeasureType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string MeasureUseGeodesic {
+            get {
+                return ResourceManager.GetString("MeasureUseGeodesic", resourceCulture);
             }
         }
         

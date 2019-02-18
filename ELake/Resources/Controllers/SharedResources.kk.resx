@@ -1812,4 +1812,34 @@
   <data name="NoDataPers" xml:space="preserve">
     <value>Деректер жоқ, %</value>
   </data>
+  <data name="MeasureArea" xml:space="preserve">
+    <value>аудан</value>
+  </data>
+  <data name="MeasureClickDrawLine" xml:space="preserve">
+    <value>Сызықты салуды жалғастыру үшін басыңыз</value>
+  </data>
+  <data name="MeasureClickDrawPolygon" xml:space="preserve">
+    <value>Көпбұрыштың салуды жалғастыру үшін басыңыз</value>
+  </data>
+  <data name="MeasureClickStartDraw" xml:space="preserve">
+    <value>Сала бастау үшін басыңыз</value>
+  </data>
+  <data name="Measurekm" xml:space="preserve">
+    <value>км</value>
+  </data>
+  <data name="MeasureLength" xml:space="preserve">
+    <value>ұзындық</value>
+  </data>
+  <data name="Measurem" xml:space="preserve">
+    <value>м</value>
+  </data>
+  <data name="MeasureOnTheMap" xml:space="preserve">
+    <value>Картада Өлшеулер</value>
+  </data>
+  <data name="MeasureType" xml:space="preserve">
+    <value>өлшеу түрі</value>
+  </data>
+  <data name="MeasureUseGeodesic" xml:space="preserve">
+    <value>Геодезиялық шараларды қолданыңыз</value>
+  </data>
 </root>

@@ -199,7 +199,7 @@
     <value>Основной слой</value>
   </data>
   <data name="BasicInfoLake" xml:space="preserve">
-    <value>Основная информация об озере</value>
+    <value>Дополнительные сведения об озере</value>
   </data>
   <data name="BathigraphicAndVolumetricCurveData" xml:space="preserve">
     <value>Батиграфическая и объемная кривая</value>
@@ -1811,5 +1811,35 @@
   </data>
   <data name="NoDataPers" xml:space="preserve">
     <value>Нет данных, %</value>
+  </data>
+  <data name="MeasureArea" xml:space="preserve">
+    <value>Площадь</value>
+  </data>
+  <data name="MeasureClickDrawLine" xml:space="preserve">
+    <value>Нажмите, чтобы продолжить рисование линии</value>
+  </data>
+  <data name="MeasureClickDrawPolygon" xml:space="preserve">
+    <value>Нажмите, чтобы продолжить рисование полигона</value>
+  </data>
+  <data name="MeasureClickStartDraw" xml:space="preserve">
+    <value>Нажмите, чтобы начать рисование</value>
+  </data>
+  <data name="Measurekm" xml:space="preserve">
+    <value>км</value>
+  </data>
+  <data name="MeasureLength" xml:space="preserve">
+    <value>Длина</value>
+  </data>
+  <data name="Measurem" xml:space="preserve">
+    <value>м</value>
+  </data>
+  <data name="MeasureOnTheMap" xml:space="preserve">
+    <value>Измерения на карте</value>
+  </data>
+  <data name="MeasureType" xml:space="preserve">
+    <value>Тип измерения</value>
+  </data>
+  <data name="MeasureUseGeodesic" xml:space="preserve">
+    <value>Использовать геодезические меры</value>
   </data>
 </root>

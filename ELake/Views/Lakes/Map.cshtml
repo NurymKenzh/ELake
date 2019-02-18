@@ -12,6 +12,12 @@
 <script src="~/lib/chart.js/Chart.js"></script>
 <script src="~/lib/gasparesganga-jquery-loading-overlay/src/loadingoverlay.js"></script>
 
+<style>
+    .hidden {
+        display: none !important;
+    } 
+</style>
+
 @*<input type="button" name="Text" value="VTest" onclick="Test()" />*@
 @*<input type="text" id="Test" />*@
 <head>
@@ -58,6 +64,19 @@
             }
     </style>
 </head>
+
+<div id="dialog_measure" title="MeasureOnTheMap" hidden="hidden" style="box-sizing: content-box;">
+    <label>MeasureType</label>
+    @*<select id="measure_type">
+        <option value="length">MeasureLength</option>
+        <option value="area">MeasureArea</option>
+    </select>*@
+    <label class="checkbox">
+        <input type="checkbox" id="geodesic" style="margin: 0px; position: initial;">
+        MeasureUseGeodesic
+    </label>
+</div>
+
 <div class="page">
     <div class="page-content d-flex align-items-stretch">
         <!-- Side Navbar -->
@@ -185,22 +204,19 @@
                 <div class="container-fluid p-0">
                     <div class="row">
                         <!-- Maps-->
-                        <div class="col-lg-8">                            
+                        <div class="col-lg-8">
                             <div class="card">
-                                <div class="card-close">
-                                    <div class="close">
-                                        <button type="button" id="closeCard1" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><a href="#" class="remove"> <i class="fa fa-times"></i></a></button>
-                                    </div>
-                                </div>
                                 <div class="card-body p-0">
+                                    <label style="display:inline;"><input id="measurecheckbox" type="checkbox">Измерение расстояний и площадей</label>
+                                    <div style="display:inline;" id="measurediv" hidden="hidden">
+                                        <label>@SharedLocalizer["MeasureType"]&nbsp;</label>
+                                        <select id="measure_type">
+                                            <option value="length">@SharedLocalizer["MeasureLength"]</option>
+                                            <option value="area">@SharedLocalizer["MeasureArea"]</option>
+                                        </select>
+                                    </div>
                                     <div class="embed-responsive-item" id="map">
-                                        @*<form class="form-inline">
-                                            <label>Measurement type &nbsp;</label>
-                                            <select id="type">
-                                                <option value="length">Length (LineString)</option>
-                                                <option value="area">Area (Polygon)</option>
-                                            </select>
-                                        </form>*@
+
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +264,7 @@
                                             <label id="bandInfo"></label>
                                         </div>
                                         <!-- Modal -->
-                                        <div class="modal fade" id="Legend"  role="dialog" aria-labelledby="Legend" aria-hidden="true">
+                                        <div class="modal fade" id="Legend" role="dialog" aria-labelledby="Legend" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header p-1">
@@ -283,7 +299,7 @@
                                                                 <img src="~/images/legends/TransitionsRU.svg" class="img-fluid float-left" alt="Responsive image"><br>
                                                                 <p class="text-justify">
                                                                     <br>
-                                                                    <em>(Изменение состояния воды)</em> показывает изменение состояния воды с начала года наблюдений и последнего года наблюдений. 
+                                                                    <em>(Изменение состояния воды)</em> показывает изменение состояния воды с начала года наблюдений и последнего года наблюдений.
                                                                 </p>
                                                                 <h5 class="text-left">«The Water Occurrence Change»</h5>
                                                                 <img src="~/images/legends/OccurrenceChangeRU.svg" class="img-fluid float-left" alt="Responsive image"><br>
@@ -306,7 +322,7 @@
                                                                         </small>
                                                                     </blockquote>
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer p-1">
@@ -628,6 +644,16 @@
     <input id="Month" type="hidden" value='@SharedLocalizer["Month"]' />
     <input id="NoData" type="hidden" value='@SharedLocalizer["NoData"]' />
     <input id="IonUnitValue" type="hidden" value='@SharedLocalizer["IonUnit"]' />
+    <div id="MeasureOnTheMap">@SharedLocalizer["MeasureOnTheMap"]</div>
+    <div id="MeasureType">@SharedLocalizer["MeasureType"]</div>
+    <div id="MeasureLength">@SharedLocalizer["MeasureLength"]</div>
+    <div id="MeasureArea">@SharedLocalizer["MeasureArea"]</div>
+    <div id="MeasureUseGeodesic">@SharedLocalizer["MeasureUseGeodesic"]</div>
+    <div id="MeasureClickDrawPolygon">@SharedLocalizer["MeasureClickDrawPolygon"]</div>
+    <div id="MeasureClickDrawLine">@SharedLocalizer["MeasureClickDrawLine"]</div>
+    <div id="MeasureClickStartDraw">@SharedLocalizer["MeasureClickStartDraw"]</div>
+    <div id="Measurekm">@SharedLocalizer["Measurekm"]</div>
+    <div id="Measurem">@SharedLocalizer["Measurem"]</div>
 </div>
 
 @* map and layers *@
@@ -2347,8 +2373,9 @@
                 }
             })
         }
-        
-    })
+
+    })
+
     function lakes(coord, res) {
         var urlLake = Source_Lakes.getGetFeatureInfoUrl(
             coord, res, 'EPSG:3857',
@@ -2583,6 +2610,301 @@
         }
     }
 </script>
+
+@* измерения на карте *@
+<script>
+    var wgs84Sphere = new ol.Sphere(6378137);
+    var sketch;
+    var helpTooltipElement;
+    var helpTooltip;
+    var measureTooltipElement;
+    var measureTooltip;
+    var continuePolygonMsg = $('#MeasureClickDrawPolygon').html();
+    var continueLineMsg = $('#MeasureClickDrawLine').html();
+    var draw;
+    var typeSelect = document.getElementById('measure_type');
+    //var pointerMoveHandler = function (evt) {
+    //    if (evt.dragging) {
+    //        return;
+    //    }
+    //    var helpMsg = 'Click to start drawing';
+    //    if (sketch) {
+    //        var geom = (sketch.getGeometry());
+    //        if (geom instanceof ol.geom.Polygon) {
+    //            helpMsg = continuePolygonMsg;
+    //        } else if (geom instanceof ol.geom.LineString) {
+    //            helpMsg = continueLineMsg;
+    //        }
+    //    }
+    //    helpTooltipElement.innerHTML = helpMsg;
+    //    helpTooltip.setPosition(evt.coordinate);
+    //    helpTooltipElement.classList.remove('hidden');
+    //};
+    //map.on('pointermove', pointerMoveHandler);
+    //map.getViewport().addEventListener('mouseout', function () {
+    //    helpTooltipElement.classList.add('hidden');
+    //});
+    //var typeSelect = document.getElementById('type');
+    //var geodesicCheckbox = document.getElementById('geodesic');
+    //var formatLength = function (line) {
+    //    var length;
+    //    if (geodesicCheckbox.checked) {
+    //        var coordinates = line.getCoordinates();
+    //        length = 0;
+    //        var sourceProj = map.getView().getProjection();
+    //        for (var i = 0, ii = coordinates.length - 1; i < ii; ++i) {
+    //            var c1 = ol.proj.transform(coordinates[i], sourceProj, 'EPSG:4326');
+    //            var c2 = ol.proj.transform(coordinates[i + 1], sourceProj, 'EPSG:4326');
+    //            length += wgs84Sphere.haversineDistance(c1, c2);
+    //        }
+    //    } else {
+    //        length = Math.round(line.getLength() * 100) / 100;
+    //    }
+    //    var output;
+    //    if (length > 100) {
+    //        output = (Math.round(length / 1000 * 100) / 100) +
+    //            ' ' + 'km';
+    //    } else {
+    //        output = (Math.round(length * 100) / 100) +
+    //            ' ' + 'm';
+    //    }
+    //    return output;
+    //};
+    //var formatArea = function (polygon) {
+    //    var area;
+    //    if (geodesicCheckbox.checked) {
+    //        var sourceProj = map.getView().getProjection();
+    //        var geom = (polygon.clone().transform(
+    //            sourceProj, 'EPSG:4326'));
+    //        var coordinates = geom.getLinearRing(0).getCoordinates();
+    //        area = Math.abs(wgs84Sphere.geodesicArea(coordinates));
+    //    } else {
+    //        area = polygon.getArea();
+    //    }
+    //    var output;
+    //    if (area > 10000) {
+    //        output = (Math.round(area / 1000000 * 100) / 100) +
+    //            ' ' + 'km<sup>2</sup>';
+    //    } else {
+    //        output = (Math.round(area * 100) / 100) +
+    //            ' ' + 'm<sup>2</sup>';
+    //    }
+    //    return output;
+    //};
+
+    function addInteraction() {
+        pointerMoveHandler = function (evt) {
+            if (evt.dragging) {
+                return;
+            }
+            var helpMsg = $('#MeasureClickStartDraw').html();
+
+            if (sketch) {
+                var geom = (sketch.getGeometry());
+                if (geom instanceof ol.geom.Polygon) {
+                    helpMsg = continuePolygonMsg;
+                } else if (geom instanceof ol.geom.LineString) {
+                    helpMsg = continueLineMsg;
+                }
+            }
+
+            helpTooltipElement.innerHTML = helpMsg;
+            helpTooltip.setPosition(evt.coordinate);
+
+            helpTooltipElement.classList.remove('hidden');
+        };
+        map.on('pointermove', pointerMoveHandler);
+        map.getViewport().addEventListener('mouseout', function () {
+            helpTooltipElement.classList.add('hidden');
+        });
+        typeSelect = document.getElementById('measure_type');
+        geodesicCheckbox = document.getElementById('geodesic');
+        formatLength = function (line) {
+            var length;
+            if (geodesicCheckbox.checked) {
+                var coordinates = line.getCoordinates();
+                length = 0;
+                var sourceProj = map.getView().getProjection();
+                for (var i = 0, ii = coordinates.length - 1; i < ii; ++i) {
+                    var c1 = ol.proj.transform(coordinates[i], sourceProj, 'EPSG:4326');
+                    var c2 = ol.proj.transform(coordinates[i + 1], sourceProj, 'EPSG:4326');
+                    length += wgs84Sphere.haversineDistance(c1, c2);
+                }
+            } else {
+                length = Math.round(line.getLength() * 100) / 100;
+            }
+            var output;
+            if (length > 100) {
+                output = (Math.round(length / 1000 * 100) / 100) +
+                    ' ' + $('#Measurekm').html();
+            } else {
+                output = (Math.round(length * 100) / 100) +
+                    ' ' + $('#Measurem').html();
+            }
+            return output;
+        };
+        formatArea = function (polygon) {
+            var area;
+            if (geodesicCheckbox.checked) {
+                var sourceProj = map.getView().getProjection();
+                var geom = (polygon.clone().transform(
+                    sourceProj, 'EPSG:4326'));
+                var coordinates = geom.getLinearRing(0).getCoordinates();
+                area = Math.abs(wgs84Sphere.geodesicArea(coordinates));
+            } else {
+                area = polygon.getArea();
+            }
+            var output;
+            if (area > 10000) {
+                output = (Math.round(area / 1000000 * 100) / 100) +
+                    ' ' + $('#Measurekm').html() + '<sup>2</sup>';
+            } else {
+                output = (Math.round(area * 100) / 100) +
+                    ' ' + $('#Measurem').html() + '<sup>2</sup>';
+            }
+            return output;
+        };
+
+
+
+        var type = (typeSelect.value == 'area' ? 'Polygon' : 'LineString');
+        draw = new ol.interaction.Draw({
+            source: source,
+            type: (type),
+            style: new ol.style.Style({
+                fill: new ol.style.Fill({
+                    color: 'rgba(255, 255, 255, 0.2)'
+                }),
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 0, 0.5)',
+                    lineDash: [10, 10],
+                    width: 2
+                }),
+                image: new ol.style.Circle({
+                    radius: 5,
+                    stroke: new ol.style.Stroke({
+                        color: 'rgba(0, 0, 0, 0.7)'
+                    }),
+                    fill: new ol.style.Fill({
+                        color: 'rgba(255, 255, 255, 0.2)'
+                    })
+                })
+            })
+        });
+        map.addInteraction(draw);
+        createMeasureTooltip();
+        createHelpTooltip();
+
+        var listener;
+        draw.on('drawstart',
+            function (evt) {
+                // set sketch
+                sketch = evt.feature;
+
+                var tooltipCoord = evt.coordinate;
+
+                listener = sketch.getGeometry().on('change', function (evt) {
+                    var geom = evt.target;
+                    var output;
+                    if (geom instanceof ol.geom.Polygon) {
+                        output = formatArea(geom);
+                        tooltipCoord = geom.getInteriorPoint().getCoordinates();
+                    } else if (geom instanceof ol.geom.LineString) {
+                        output = formatLength(geom);
+                        tooltipCoord = geom.getLastCoordinate();
+                    }
+                    measureTooltipElement.innerHTML = output;
+                    measureTooltip.setPosition(tooltipCoord);
+                });
+            }, this);
+
+        draw.on('drawend',
+            function () {
+                measureTooltipElement.className = 'tooltip tooltip-static';
+                measureTooltip.setOffset([0, -7]);
+                // unset sketch
+                sketch = null;
+                // unset tooltip so that a new one can be created
+                measureTooltipElement = null;
+                createMeasureTooltip();
+                //ol.Observable.unByKey(listener);
+                ol.Observable.unByKey(listener);
+            }, this);
+    }
+    function createHelpTooltip() {
+        if (helpTooltipElement) {
+            helpTooltipElement.parentNode.removeChild(helpTooltipElement);
+        }
+        helpTooltipElement = document.createElement('div');
+        helpTooltipElement.className = 'tooltip hidden';
+        helpTooltip = new ol.Overlay({
+            element: helpTooltipElement,
+            offset: [15, 0],
+            positioning: 'center-left'
+        });
+        map.addOverlay(helpTooltip);
+    }
+    function createMeasureTooltip() {
+        if (measureTooltipElement) {
+            measureTooltipElement.parentNode.removeChild(measureTooltipElement);
+        }
+        measureTooltipElement = document.createElement('div');
+        measureTooltipElement.className = 'tooltip tooltip-measure';
+        measureTooltip = new ol.Overlay({
+            element: measureTooltipElement,
+            offset: [0, -15],
+            positioning: 'bottom-center'
+        });
+        map.addOverlay(measureTooltip);
+    }
+    typeSelect.onchange = function () {
+        map.removeInteraction(draw);
+        addInteraction();
+    };
+
+    //addInteraction();
+    function removeInteraction() {
+        map.removeInteraction(draw);
+
+        var dblclickzoom;
+        map.getInteractions().forEach(function (interaction) {
+            if (interaction instanceof ol.interaction.Draw) {
+                dblclickzoom = interaction;
+            }
+        });
+
+        // Remove the interaction from the map.
+        if (dblclickzoom) { map.removeInteraction(dblclickzoom); }
+        helpTooltipElement = null;
+        //createHelpTooltip();
+        //map.unByKey('mouseout');
+        ol.Observable.unByKey('mouseout');
+        map.on('pointermove', null);
+        $(".tooltip-static").remove();
+        source.clear();
+    };
+</script>
+
+<script>
+    $('#measurecheckbox').change(function () {
+        if (this.checked) {
+            $('#measurediv').show();
+
+            addInteraction();
+            //$("#dialog_measure").dialog({
+            //    width: 300,
+            //    height: 200,
+            //    appendTo: "#fullscreen"
+            //});
+        }
+        else {
+            $('#measurediv').hide();
+
+            removeInteraction();
+        }
+    });
+</script>
+
 @* $(document).ready(function () {}) *@
 <script>
     //function Test() {
@@ -2591,6 +2913,7 @@
     //}
 
     $(document).ready(function () {
+        $('#measurediv').hide();
         $("#LakeGroup").hide();
         ChangeDataType();
         $('#searchlake').val($('#LakeName').val());
