@@ -62,6 +62,16 @@ namespace ELake.Controllers
 
             //ViewBag.Lakes = new SelectList(_context.Lake.Where(l => !string.IsNullOrEmpty(l.Name)).OrderBy(l => l.Name), "LakeId", "Name");
 
+            //foreach (var lake in _context.Lake)
+            //{
+            //    if(lake.VHBRU == "Zhaiykh-Caspian")
+            //    {
+            //        lake.VHBRU = "Жаик-Каспийский";
+            //    }
+            //    _context.Update(lake);
+            //}
+            //_context.SaveChanges();
+
             return View();
         }
 
