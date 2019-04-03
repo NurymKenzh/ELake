@@ -15,7 +15,7 @@
         if (data.pasdtable != null) {
             for (var i = 0; i < data.pasdtable.length; i++) {
                 if (data.pasdtable[i].seasonalWaterArea != null) {
-                    if (data.pasdtable[i].noDataPers > 20.0) {
+                    if (data.pasdtable[i].noDataPers < 20) {
                         data1.push({
                             'x': data.pasdtable[i].year,
                             'y': data.pasdtable[i].seasonalWaterArea.toFixed(1)
@@ -23,7 +23,7 @@
                     }
                 }
                 if (data.pasdtable[i].permanentWaterArea != null) {
-                    if (data.pasdtable[i].noDataPers > 20.0) {
+                    if (data.pasdtable[i].noDataPers < 20) {
                         data2.push({
                             'x': data.pasdtable[i].year,
                             'y': data.pasdtable[i].permanentWaterArea.toFixed(1)
@@ -31,7 +31,7 @@
                     }
                 }
                 if (data.pasdtable[i].maximumWaterArea != null) {
-                    if (data.pasdtable[i].noDataPers > 20.0) {
+                    if (data.pasdtable[i].noDataPers < 20) {
                         data3.push({
                             'x': data.pasdtable[i].year,
                             'y': data.pasdtable[i].maximumWaterArea.toFixed(1)
