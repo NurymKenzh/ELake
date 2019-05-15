@@ -132,112 +132,87 @@
                                     <div class="tab-content" id="nav-tabContent">
                                         <div class="tab-pane fade show active" id="list-inform1" role="tabpanel" aria-labelledby="list-inform1-list">
                                             <h4>@SharedLocalizer["BasicInfoLake"]</h4>
-                                            <small><input id="Area2015" type="button" onclick="$('#formula').val($('#formula').val() + '_Area2015_')" value="@SharedLocalizer["Area2015"] (_Area2015_)" /></small>
-                                            <small><input id="LakeShorelineLength2015" type="button" onclick="$('#formula').val($('#formula').val() + '_LakeShorelineLength2015_')" value="@SharedLocalizer["LakeShorelineLength2015"] (_LakeShorelineLength2015_)" /></small>
+                                            <small><input id="Area2015" type="button" onclick="$('#formula').val($('#formula').val() + 'Area2015')" value="@SharedLocalizer["Area2015"] (Area2015)" /></small>
+                                            <small><input id="Shoreline2015" type="button" onclick="$('#formula').val($('#formula').val() + 'Shoreline2015')" value="@SharedLocalizer["LakeShorelineLength2015"] (Shoreline2015)" /></small>
                                         </div>
                                         <div class="tab-pane fade" id="list-inform2" role="tabpanel" aria-labelledby="list-inform2-list">
                                             <h4>@SharedLocalizer["LakeArchiveData"]</h4>
-                                            <small><input id="LakesArchiveDataLakeLength" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesArchiveDataLakeLength_')" value="@SharedLocalizer["LakeLength"] (_LakesArchiveDataLakeLength_)" /></small>
-                                            <small><input id="LakesArchiveDataLakeShorelineLength" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesArchiveDataLakeShorelineLength_')" value="@SharedLocalizer["LakeShorelineLength"] (_LakesArchiveDataLakeShorelineLength_)" /></small>
-                                            <small><input id="LakesArchiveDataLakeMirrorArea" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesArchiveDataLakeMirrorArea_')" value="@SharedLocalizer["LakeMirrorArea"] (_LakesArchiveDataLakeMirrorArea_)" /></small>
-                                            <small><input id="LakesArchiveDataLakeAbsoluteHeight" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesArchiveDataLakeAbsoluteHeight_')" value="@SharedLocalizer["LakeAbsoluteHeight"] (_LakesArchiveDataLakeAbsoluteHeight_)" /></small>
-                                            <small><input id="LakesArchiveDataLakeWidth" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesArchiveDataLakeWidth_')" value="@SharedLocalizer["LakeWidth"] (_LakesArchiveDataLakeWidth_)" /></small>
-                                            <small><input id="LakesArchiveDataLakeMaxDepth" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesArchiveDataLakeMaxDepth_')" value="@SharedLocalizer["LakeMaxDepth"] (_LakesArchiveDataLakeMaxDepth_)" /></small>
-                                            <small><input id="LakesArchiveDataLakeWaterMass" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesArchiveDataLakeWaterMass_')" value="@SharedLocalizer["LakeWaterMass"] (_LakesArchiveDataLakeWaterMass_)" /></small>
-
+                                            <small><input id="ArchiveLength" type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveLength')" value="@SharedLocalizer["LakeLength"] (ArchiveLength)" /></small>
+                                            <small><input id="ArchiveShoreline" type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveShoreline')" value="@SharedLocalizer["LakeShorelineLength"] (ArchiveShoreline)" /></small>
+                                            <small><input id="ArchiveMirrorArea" type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveMirrorArea')" value="@SharedLocalizer["LakeMirrorArea"] (ArchiveMirrorArea)" /></small>
+                                            <small><input id="ArchiveAbsoluteHeight" type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveAbsoluteHeight')" value="@SharedLocalizer["LakeAbsoluteHeight"] (ArchiveAbsoluteHeight)" /></small>
+                                            <small><input id="ArchiveWidth" type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveWidth')" value="@SharedLocalizer["LakeWidth"] (ArchiveWidth)" /></small>
+                                            <small><input id="ArchiveMaxDepth" type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveMaxDepth')" value="@SharedLocalizer["LakeMaxDepth"] (ArchiveMaxDepth)" /></small>
+                                            <small><input id="ArchiveWaterMass" type="button" onclick="$('#formula').val($('#formula').val() + 'ArchiveWaterMass')" value="@SharedLocalizer["LakeWaterMass"] (ArchiveWaterMass)" /></small>
                                         </div>
                                         <div class="tab-pane fade" id="list-inform3" role="tabpanel" aria-labelledby="list-inform3-list">
                                             <h4>@SharedLocalizer["LakeGlobalData"]</h4>
-                                            <small><input id="LakesGlobalDataLake_area" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataLake_area_')" value="@SharedLocalizer["Lake_area"] (_LakesGlobalDataLake_area_)" /></small>
-                                            <small><input id="LakesGlobalDataShore_len" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataShore_len_')" value="@SharedLocalizer["Shore_len"] (_LakesGlobalDataShore_len_)" /></small>
-                                            <small><input id="LakesGlobalDataShore_dev" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataShore_dev_')" value="@SharedLocalizer["Shore_dev"] (_LakesGlobalDataShore_dev_)" /></small>
-                                            <small><input id="LakesGlobalDataVol_total" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataVol_total_')" value="@SharedLocalizer["Vol_total"] (_LakesGlobalDataVol_total_)" /></small>
-                                            <small><input id="LakesGlobalDataDepth_avg" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataDepth_avg_')" value="@SharedLocalizer["Depth_avg"] (_LakesGlobalDataDepth_avg_)" /></small>
-                                            <small><input id="LakesGlobalDataDis_avg" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataDis_avg_')" value="@SharedLocalizer["Dis_avg"] (_LakesGlobalDataDis_avg_)" /></small>
-                                            <small><input id="LakesGlobalDataRes_time" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataRes_time_')" value="@SharedLocalizer["Res_time"] (_LakesGlobalDataRes_time_)" /></small>
-                                            <small><input id="LakesGlobalDataElevation" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataElevation_')" value="@SharedLocalizer["Elevation"] (_LakesGlobalDataElevation_)" /></small>
-                                            <small><input id="LakesGlobalDataSlope_100" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataSlope_100_')" value="@SharedLocalizer["Slope_100"] (_LakesGlobalDataSlope_100_)" /></small>
-                                            <small><input id="LakesGlobalDataWshd_area" type="button" onclick="$('#formula').val($('#formula').val() + '_LakesGlobalDataWshd_area_')" value="@SharedLocalizer["Wshd_area"] (_LakesGlobalDataWshd_area_)" /></small>
-
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalArea')" value="@SharedLocalizer["Lake_area"] (GlobalArea)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalShoreLength')" value="@SharedLocalizer["Shore_len"] (GlobalShoreLength)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalIndentation')" value="@SharedLocalizer["Shore_dev"] (GlobalIndentation)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalVolume')" value="@SharedLocalizer["Vol_total"] (GlobalVolume)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalDepth')" value="@SharedLocalizer["Depth_avg"] (GlobalDepth)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalFlow')" value="@SharedLocalizer["Dis_avg"] (GlobalFlow)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalStayTime')" value="@SharedLocalizer["Res_time"] (GlobalStayTime)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalElevation')" value="@SharedLocalizer["Elevation"] (GlobalElevation)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalSlope')" value="@SharedLocalizer["Slope_100"] (GlobalSlope)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'GlobalCatchmentArea')" value="@SharedLocalizer["Wshd_area"] (GlobalCatchmentArea)" /></small>
                                         </div>
                                         <div class="tab-pane fade" id="list-inform4" role="tabpanel" aria-labelledby="list-inform4-list">
                                             <h4>@SharedLocalizer["Hydrology"]. @SharedLocalizer["WaterBalances"]</h4>
-                                            <small><input id="WaterBalanceSurfaceFlowAvg" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceSurfaceFlowAvg_')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["average"]) (_WaterBalanceSurfaceFlowAvg_)" /></small>
-                                            <small><input id="WaterBalanceSurfaceOutflowAvg" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceSurfaceOutflowAvg_')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["average"]) (_WaterBalanceSurfaceOutflowAvg_)" /></small>
-                                            <small><input id="WaterBalanceUndergroundFlowAvg" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceUndergroundFlowAvg_')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["average"]) (_WaterBalanceUndergroundFlowAvg_)" /></small>
-                                            <small><input id="WaterBalanceUndergroundOutflowAvg" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceUndergroundOutflowAvg_')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["average"]) (_WaterBalanceUndergroundOutflowAvg_)" /></small>
-                                            <small><input id="WaterBalancePrecipitationAvg" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalancePrecipitationAvg_')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["average"]) (_WaterBalancePrecipitationAvg_)" /></small>
-                                            <small><input id="WaterBalanceEvaporationAvg" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceEvaporationAvg_')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["average"]) (_WaterBalanceEvaporationAvg_)" /></small>
-                                            <br />
-                                            <br />
-                                            <small><input id="WaterBalanceSurfaceFlowMax" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceSurfaceFlowMax_')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["maximum"]) (_WaterBalanceSurfaceFlowMax_)" /></small>
-                                            <small><input id="WaterBalanceSurfaceOutflowMax" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceSurfaceOutflowMax_')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["maximum"]) (_WaterBalanceSurfaceOutflowMax_)" /></small>
-                                            <small><input id="WaterBalanceUndergroundFlowMax" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceUndergroundFlowMax_')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["maximum"]) (_WaterBalanceUndergroundFlowMax_)" /></small>
-                                            <small><input id="WaterBalanceUndergroundOutflowMax" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceUndergroundOutflowMax_')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["maximum"]) (_WaterBalanceUndergroundOutflowMax_)" /></small>
-                                            <small><input id="WaterBalancePrecipitationMax" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalancePrecipitationMax_')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["maximum"]) (_WaterBalancePrecipitationMax_)" /></small>
-                                            <small><input id="WaterBalanceEvaporationMax" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceEvaporationMax_')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["maximum"]) (_WaterBalanceEvaporationMax_)" /></small>
-                                            <br />
-                                            <br />
-                                            <small><input id="WaterBalanceSurfaceFlowMin" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceSurfaceFlowMin_')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["minimum"]) (_WaterBalanceSurfaceFlowMin_)" /></small>
-                                            <small><input id="WaterBalanceSurfaceOutflowMin" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceSurfaceOutflowMin_')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["minimum"]) (_WaterBalanceSurfaceOutflowMin_)" /></small>
-                                            <small><input id="WaterBalanceUndergroundFlowMin" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceUndergroundFlowMin_')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["minimum"]) (_WaterBalanceUndergroundFlowMin_)" /></small>
-                                            <small><input id="WaterBalanceUndergroundOutflowMin" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceUndergroundOutflowMin_')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["minimum"]) (_WaterBalanceUndergroundOutflowMin_)" /></small>
-                                            <small><input id="WaterBalancePrecipitationMin" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalancePrecipitationMin_')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["minimum"]) (_WaterBalancePrecipitationMin_)" /></small>
-                                            <small><input id="WaterBalanceEvaporationMin" type="button" onclick="$('#formula').val($('#formula').val() + '_WaterBalanceEvaporationMin_')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["minimum"]) (_WaterBalanceEvaporationMin_)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowYear')" value="@SharedLocalizer["SurfaceFlow"] (WaterBalanceSurfaceFlowYear)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowYear')" value="@SharedLocalizer["SurfaceOutflow"] (WaterBalanceSurfaceOutflowYear)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowYear')" value="@SharedLocalizer["UndergroundFlow"] (WaterBalanceUndergroundFlowYear)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowYear')" value="@SharedLocalizer["UndergroundOutflow"] (WaterBalanceUndergroundOutflowYear)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationYear')" value="@SharedLocalizer["Precipitation"] (WaterBalancePrecipitationYear)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationYear')" value="@SharedLocalizer["Evaporation"] (WaterBalanceEvaporationYear)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPer')" value="@SharedLocalizer["SurfaceFlowPer"] (WaterBalanceSurfaceFlowPer)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPer')" value="@SharedLocalizer["SurfaceOutflowPer"] (WaterBalanceSurfaceOutflowPer)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPer')" value="@SharedLocalizer["UndergroundFlowPer"] (WaterBalanceUndergroundFlowPer)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowPer')" value="@SharedLocalizer["UndergroundOutflowPer"] (WaterBalanceUndergroundOutflowPer)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationPer')" value="@SharedLocalizer["PrecipitationPer"] (WaterBalancePrecipitationPer)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationPer')" value="@SharedLocalizer["EvaporationPer"] (WaterBalanceEvaporationPer)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowAvg')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceFlowAvg)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowAvg')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceOutflowAvg)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowAvg')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundFlowAvg)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowAvg')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundOutflowAvg)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationAvg')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["average"]) (WaterBalancePrecipitationAvg)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationAvg')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["average"]) (WaterBalanceEvaporationAvg)" /></small>
 
-                                            @*<small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowYear')" value="@SharedLocalizer["SurfaceFlow"] (WaterBalanceSurfaceFlowYear)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowYear')" value="@SharedLocalizer["SurfaceOutflow"] (WaterBalanceSurfaceOutflowYear)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowYear')" value="@SharedLocalizer["UndergroundFlow"] (WaterBalanceUndergroundFlowYear)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowYear')" value="@SharedLocalizer["UndergroundOutflow"] (WaterBalanceUndergroundOutflowYear)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationYear')" value="@SharedLocalizer["Precipitation"] (WaterBalancePrecipitationYear)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationYear')" value="@SharedLocalizer["Evaporation"] (WaterBalanceEvaporationYear)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPer')" value="@SharedLocalizer["SurfaceFlowPer"] (WaterBalanceSurfaceFlowPer)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPer')" value="@SharedLocalizer["SurfaceOutflowPer"] (WaterBalanceSurfaceOutflowPer)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPer')" value="@SharedLocalizer["UndergroundFlowPer"] (WaterBalanceUndergroundFlowPer)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowPer')" value="@SharedLocalizer["UndergroundOutflowPer"] (WaterBalanceUndergroundOutflowPer)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationPer')" value="@SharedLocalizer["PrecipitationPer"] (WaterBalancePrecipitationPer)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationPer')" value="@SharedLocalizer["EvaporationPer"] (WaterBalanceEvaporationPer)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowAvg')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceFlowAvg)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowAvg')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceOutflowAvg)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowAvg')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundFlowAvg)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowAvg')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundOutflowAvg)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationAvg')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["average"]) (WaterBalancePrecipitationAvg)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationAvg')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["average"]) (WaterBalanceEvaporationAvg)" /></small>
+                                            <small><input id="WaterBalanceSurfaceFlowPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPerAvg')" value="@SharedLocalizer["SurfaceFlowPer"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceFlowPerAvg)" /></small>
+                                            <small><input id="WaterBalanceSurfaceOutflowPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPerAvg')" value="@SharedLocalizer["SurfaceOutflowPer"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceOutflowPerAvg)" /></small>
+                                            <small><input id="WaterBalanceUndergroundFlowPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPerAvg')" value="@SharedLocalizer["UndergroundFlowPer"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundFlowPerAvg)" /></small>
+                                            <small><input id="WaterBalanceUndergroundOutflowPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowPerAvg')" value="@SharedLocalizer["UndergroundOutflowPer"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundOutflowPerAvg)" /></small>
+                                            <small><input id="WaterBalancePrecipitationPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationPerAvg')" value="@SharedLocalizer["PrecipitationPer"] (@SharedLocalizer["average"]) (WaterBalancePrecipitationPerAvg)" /></small>
+                                            <small><input id="WaterBalanceEvaporationPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationPerAvg')" value="@SharedLocalizer["EvaporationPer"] (@SharedLocalizer["average"]) (WaterBalanceEvaporationPerAvg)" /></small>
 
-        <small><input id="WaterBalanceSurfaceFlowPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPerAvg')" value="@SharedLocalizer["SurfaceFlowPer"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceFlowPerAvg)" /></small>
-        <small><input id="WaterBalanceSurfaceOutflowPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPerAvg')" value="@SharedLocalizer["SurfaceOutflowPer"] (@SharedLocalizer["average"]) (WaterBalanceSurfaceOutflowPerAvg)" /></small>
-        <small><input id="WaterBalanceUndergroundFlowPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPerAvg')" value="@SharedLocalizer["UndergroundFlowPer"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundFlowPerAvg)" /></small>
-        <small><input id="WaterBalanceUndergroundOutflowPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowPerAvg')" value="@SharedLocalizer["UndergroundOutflowPer"] (@SharedLocalizer["average"]) (WaterBalanceUndergroundOutflowPerAvg)" /></small>
-        <small><input id="WaterBalancePrecipitationPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationPerAvg')" value="@SharedLocalizer["PrecipitationPer"] (@SharedLocalizer["average"]) (WaterBalancePrecipitationPerAvg)" /></small>
-        <small><input id="WaterBalanceEvaporationPerAvg" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationPerAvg')" value="@SharedLocalizer["EvaporationPer"] (@SharedLocalizer["average"]) (WaterBalanceEvaporationPerAvg)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowMax')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceFlowMax)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowMax')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceOutflowMax)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowMax')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundFlowMax)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowMax')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundOutflowMax)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationMax')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["maximum"]) (WaterBalancePrecipitationMax)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationMax')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["maximum"]) (WaterBalanceEvaporationMax)" /></small>
 
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowMax')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceFlowMax)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowMax')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceOutflowMax)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowMax')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundFlowMax)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowMax')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundOutflowMax)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationMax')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["maximum"]) (WaterBalancePrecipitationMax)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationMax')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["maximum"]) (WaterBalanceEvaporationMax)" /></small>
+                                            <small><input id="WaterBalanceSurfaceFlowPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPerMax')" value="@SharedLocalizer["SurfaceFlowPer"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceFlowPerMax)" /></small>
+                                            <small><input id="WaterBalanceSurfaceOutflowPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPerMax')" value="@SharedLocalizer["SurfaceOutflowPer"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceOutflowPerMax)" /></small>
+                                            <small><input id="WaterBalanceUndergroundFlowPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPerMax')" value="@SharedLocalizer["UndergroundFlowPer"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundFlowPerMax)" /></small>
+                                            <small><input id="WaterBalanceUndergroundOutflowPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowPerMax')" value="@SharedLocalizer["UndergroundOutflowPer"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundOutflowPerMax)" /></small>
+                                            <small><input id="WaterBalancePrecipitationPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationPerMax')" value="@SharedLocalizer["PrecipitationPer"] (@SharedLocalizer["maximum"]) (WaterBalancePrecipitationPerMax)" /></small>
+                                            <small><input id="WaterBalanceEvaporationPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationPerMax')" value="@SharedLocalizer["EvaporationPer"] (@SharedLocalizer["maximum"]) (WaterBalanceEvaporationPerMax)" /></small>
 
-        <small><input id="WaterBalanceSurfaceFlowPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPerMax')" value="@SharedLocalizer["SurfaceFlowPer"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceFlowPerMax)" /></small>
-        <small><input id="WaterBalanceSurfaceOutflowPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPerMax')" value="@SharedLocalizer["SurfaceOutflowPer"] (@SharedLocalizer["maximum"]) (WaterBalanceSurfaceOutflowPerMax)" /></small>
-        <small><input id="WaterBalanceUndergroundFlowPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPerMax')" value="@SharedLocalizer["UndergroundFlowPer"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundFlowPerMax)" /></small>
-        <small><input id="WaterBalanceUndergroundOutflowPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowPerMax')" value="@SharedLocalizer["UndergroundOutflowPer"] (@SharedLocalizer["maximum"]) (WaterBalanceUndergroundOutflowPerMax)" /></small>
-        <small><input id="WaterBalancePrecipitationPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationPerMax')" value="@SharedLocalizer["PrecipitationPer"] (@SharedLocalizer["maximum"]) (WaterBalancePrecipitationPerMax)" /></small>
-        <small><input id="WaterBalanceEvaporationPerMax" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationPerMax')" value="@SharedLocalizer["EvaporationPer"] (@SharedLocalizer["maximum"]) (WaterBalanceEvaporationPerMax)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowMin')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceFlowMin)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowMin')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceOutflowMin)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowMin')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundFlowMin)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowMin')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundOutflowMin)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationMin')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["minimum"]) (WaterBalancePrecipitationMin)" /></small>
+                                            <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationMin')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["minimum"]) (WaterBalanceEvaporationMin)" /></small>
 
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowMin')" value="@SharedLocalizer["SurfaceFlow"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceFlowMin)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowMin')" value="@SharedLocalizer["SurfaceOutflow"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceOutflowMin)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowMin')" value="@SharedLocalizer["UndergroundFlow"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundFlowMin)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowMin')" value="@SharedLocalizer["UndergroundOutflow"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundOutflowMin)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationMin')" value="@SharedLocalizer["Precipitation"] (@SharedLocalizer["minimum"]) (WaterBalancePrecipitationMin)" /></small>
-        <small><input type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationMin')" value="@SharedLocalizer["Evaporation"] (@SharedLocalizer["minimum"]) (WaterBalanceEvaporationMin)" /></small>
-
-        <small><input id="WaterBalanceSurfaceFlowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPerMin')" value="@SharedLocalizer["SurfaceFlowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceFlowPerMin)" /></small>
-        <small><input id="WaterBalanceSurfaceOutflowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPerMin')" value="@SharedLocalizer["SurfaceOutflowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceOutflowPerMin)" /></small>
-        <small><input id="WaterBalanceUndergroundFlowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPerMin')" value="@SharedLocalizer["UndergroundFlowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundFlowPerMin)" /></small>
-        <small><input id="WaterBalanceUndergroundOutflowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowPerMin')" value="@SharedLocalizer["UndergroundOutflowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundOutflowPerMin)" /></small>
-        <small><input id="WaterBalancePrecipitationPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationPerMin')" value="@SharedLocalizer["PrecipitationPer"] (@SharedLocalizer["minimum"]) (WaterBalancePrecipitationPerMin)" /></small>
-        <small><input id="WaterBalanceEvaporationPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationPerMin')" value="@SharedLocalizer["EvaporationPer"] (@SharedLocalizer["minimum"]) (WaterBalanceEvaporationPerMin)" /></small>*@
+                                            <small><input id="WaterBalanceSurfaceFlowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceFlowPerMin')" value="@SharedLocalizer["SurfaceFlowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceFlowPerMin)" /></small>
+                                            <small><input id="WaterBalanceSurfaceOutflowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceSurfaceOutflowPerMin')" value="@SharedLocalizer["SurfaceOutflowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceSurfaceOutflowPerMin)" /></small>
+                                            <small><input id="WaterBalanceUndergroundFlowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundFlowPerMin')" value="@SharedLocalizer["UndergroundFlowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundFlowPerMin)" /></small>
+                                            <small><input id="WaterBalanceUndergroundOutflowPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceUndergroundOutflowPerMin')" value="@SharedLocalizer["UndergroundOutflowPer"] (@SharedLocalizer["minimum"]) (WaterBalanceUndergroundOutflowPerMin)" /></small>
+                                            <small><input id="WaterBalancePrecipitationPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalancePrecipitationPerMin')" value="@SharedLocalizer["PrecipitationPer"] (@SharedLocalizer["minimum"]) (WaterBalancePrecipitationPerMin)" /></small>
+                                            <small><input id="WaterBalanceEvaporationPerMin" type="button" onclick="$('#formula').val($('#formula').val() + 'WaterBalanceEvaporationPerMin')" value="@SharedLocalizer["EvaporationPer"] (@SharedLocalizer["minimum"]) (WaterBalanceEvaporationPerMin)" /></small>
                                         </div>
                                         <div class="tab-pane fade" id="list-inform5" role="tabpanel" aria-labelledby="list-inform5-list">
                                             <h4>@SharedLocalizer["Hydrology"]. @SharedLocalizer["WaterLevels"]</h4>
@@ -424,7 +399,7 @@
                                         </div>
                                         <div class="tab-pane fade" id="list-inform13" role="tabpanel" aria-labelledby="list-inform13-list">...</div>
                                     </div>
-                                    @*<a href="#" class="card-link">to tab</a>*@
+                                    <a href="#" class="card-link">to tab</a>
                                 </div>
                             </div>
                         </div>
@@ -520,130 +495,115 @@
                         tr.append('<td>' + data.lakes[i].name + '</td>');
                         tr.append('<td>' + data.lakes[i].lakeId + '</td>');
                         tr.append('<td><a href="Map/' + data.lakes[i].lakeId + '" target="_blank">' + $('#Map').val() + '</a></td>');
-                        if ($('#formula').val().includes('Area2015')) { tr.append('<td>' + data.lakes[i].area2015 + '</td>'); }
-                        if ($('#formula').val().includes('LakeShorelineLength2015')) { tr.append('<td>' + data.lakes[i].lakeShorelineLength2015 + '</td>'); }
-                        if ($('#formula').val().includes('LakesArchiveDataLakeLength')) { tr.append('<td>' + data.lakes[i].lakesArchiveDataLakeLength + '</td>'); }
-                        if ($('#formula').val().includes('LakesArchiveDataLakeShorelineLength')) { tr.append('<td>' + data.lakes[i].lakesArchiveDataLakeShorelineLength + '</td>'); }
-                        if ($('#formula').val().includes('LakesArchiveDataLakeMirrorArea')) { tr.append('<td>' + data.lakes[i].lakesArchiveDataLakeMirrorArea + '</td>'); }
-                        if ($('#formula').val().includes('LakesArchiveDataLakeAbsoluteHeight')) { tr.append('<td>' + data.lakes[i].lakesArchiveDataLakeAbsoluteHeight + '</td>'); }
-                        if ($('#formula').val().includes('LakesArchiveDataLakeWidth')) { tr.append('<td>' + data.lakes[i].lakesArchiveDataLakeWidth + '</td>'); }
-                        if ($('#formula').val().includes('LakesArchiveDataLakeMaxDepth')) { tr.append('<td>' + data.lakes[i].lakesArchiveDataLakeMaxDepth + '</td>'); }
-                        if ($('#formula').val().includes('LakesArchiveDataLakeWaterMass')) { tr.append('<td>' + data.lakes[i].lakesArchiveDataLakeWaterMass + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataLake_area')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataLake_area + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataShore_len')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataShore_len + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataShore_dev')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataShore_dev + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataVol_total')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataVol_total + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataDepth_avg')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataDepth_avg + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataDis_avg')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataDis_avg + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataRes_time')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataRes_time + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataElevation')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataElevation + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataSlope_100')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataSlope_100 + '</td>'); }
-                        if ($('#formula').val().includes('LakesGlobalDataWshd_area')) { tr.append('<td>' + data.lakes[i].lakesGlobalDataWshd_area + '</td>'); }
-
-                        if ($('#formula').val().includes('WaterBalanceSurfaceFlowAvg')) { tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowAvg + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceOutflowAvg')) { tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowAvg + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundFlowAvg')) { tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowAvg + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundOutflowAvg')) { tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowAvg + '</td>'); }
-if ($('#formula').val().includes('WaterBalancePrecipitationAvg')) { tr.append('<td>' + data.lakes[i].waterBalancePrecipitationAvg + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceEvaporationAvg')) { tr.append('<td>' + data.lakes[i].waterBalanceEvaporationAvg + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceFlowMax')) { tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowMax + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceOutflowMax')) { tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowMax + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundFlowMax')) { tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowMax + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundOutflowMax')) { tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowMax + '</td>'); }
-if ($('#formula').val().includes('WaterBalancePrecipitationMax')) { tr.append('<td>' + data.lakes[i].waterBalancePrecipitationMax + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceEvaporationMax')) { tr.append('<td>' + data.lakes[i].waterBalanceEvaporationMax + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceFlowMin')) { tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowMin + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceOutflowMin')) { tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowMin + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundFlowMin')) { tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowMin + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundOutflowMin')) { tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowMin + '</td>'); }
-if ($('#formula').val().includes('WaterBalancePrecipitationMin')) { tr.append('<td>' + data.lakes[i].waterBalancePrecipitationMin + '</td>'); }
-if ($('#formula').val().includes('WaterBalanceEvaporationMin')) { tr.append('<td>' + data.lakes[i].waterBalanceEvaporationMin + '</td>'); }
-
-
-
-
-                        ////if ($('#formula').val().includes('ToxicKIZV')) {
-                        ////    tr.append('<td>' + data.lakes[i].toxicKIZV + '</td>');
-                        ////}
-                        //if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerAvg')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowPerAvg + '</td>');
+                        if ($('#formula').val().includes('Area2015')) {
+                            tr.append('<td>' + data.lakes[i].area2015 + '</td>');
+                        }
+                        if ($('#formula').val().includes('Shoreline2015')) {
+                            tr.append('<td>' + data.lakes[i].lakeShorelineLength2015 + '</td>');
+                        }
+                        if ($('#formula').val().includes('ArchiveLength')) {
+                            tr.append('<td>' + data.lakes[i].lakeLength + '</td>');
+                        }
+                        if ($('#formula').val().includes('ArchiveShoreline')) {
+                            tr.append('<td>' + data.lakes[i].lakeShorelineLength + '</td>');
+                        }
+                        if ($('#formula').val().includes('ArchiveMirrorArea')) {
+                            tr.append('<td>' + data.lakes[i].lakeMirrorArea + '</td>');
+                        }
+                        if ($('#formula').val().includes('ArchiveAbsoluteHeight')) {
+                            tr.append('<td>' + data.lakes[i].lakeAbsoluteHeight + '</td>');
+                        }
+                        if ($('#formula').val().includes('ArchiveWidth')) {
+                            tr.append('<td>' + data.lakes[i].lakeWidth + '</td>');
+                        }
+                        if ($('#formula').val().includes('ArchiveMaxDepth')) {
+                            tr.append('<td>' + data.lakes[i].lakeMaxDepth + '</td>');
+                        }
+                        if ($('#formula').val().includes('ArchiveWaterMass')) {
+                            tr.append('<td>' + data.lakes[i].lakeWaterMass + '</td>');
+                        }
+                        //if ($('#formula').val().includes('ToxicKIZV')) {
+                        //    tr.append('<td>' + data.lakes[i].toxicKIZV + '</td>');
                         //}
-                        //if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerAvg')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowPerAvg + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerAvg')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowPerAvg + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerAvg')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowPerAvg + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalancePrecipitationPerAvg')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalancePrecipitationPerAvg + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceEvaporationPerAvg')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceEvaporationPerAvg + '</td>');
-                        //}
+                        if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerAvg')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowPerAvg + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerAvg')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowPerAvg + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerAvg')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowPerAvg + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerAvg')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowPerAvg + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalancePrecipitationPerAvg')) {
+                            tr.append('<td>' + data.lakes[i].waterBalancePrecipitationPerAvg + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceEvaporationPerAvg')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceEvaporationPerAvg + '</td>');
+                        }
 
 
-                        //if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerMax')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowPerMax + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerMax')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowPerMax + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerMax')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowPerMax + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerMax')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowPerMax + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalancePrecipitationPerMax')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalancePrecipitationPerMax + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceEvaporationPerMax')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceEvaporationPerMax + '</td>');
-                        //}
+                        if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerMax')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowPerMax + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerMax')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowPerMax + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerMax')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowPerMax + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerMax')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowPerMax + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalancePrecipitationPerMax')) {
+                            tr.append('<td>' + data.lakes[i].waterBalancePrecipitationPerMax + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceEvaporationPerMax')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceEvaporationPerMax + '</td>');
+                        }
 
 
-                        //if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerMin')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowPerMin + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerMin')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowPerMin + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerMin')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowPerMin + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerMin')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowPerMin + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalancePrecipitationPerMin')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalancePrecipitationPerMin + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('WaterBalanceEvaporationPerMin')) {
-                        //    tr.append('<td>' + data.lakes[i].waterBalanceEvaporationPerMin + '</td>');
-                        //}
+                        if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerMin')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceSurfaceFlowPerMin + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerMin')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceSurfaceOutflowPerMin + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerMin')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceUndergroundFlowPerMin + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerMin')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceUndergroundOutflowPerMin + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalancePrecipitationPerMin')) {
+                            tr.append('<td>' + data.lakes[i].waterBalancePrecipitationPerMin + '</td>');
+                        }
+                        if ($('#formula').val().includes('WaterBalanceEvaporationPerMin')) {
+                            tr.append('<td>' + data.lakes[i].waterBalanceEvaporationPerMin + '</td>');
+                        }
 
-                        //if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerAvg')) {
-                        //    tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerAvg + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerAvg')) {
-                        //    tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerAvg + '</td>');
-                        //}
+                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerAvg')) {
+                            tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerAvg + '</td>');
+                        }
+                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerAvg')) {
+                            tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerAvg + '</td>');
+                        }
 
-                        //if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMax')) {
-                        //    tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerMax + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMax')) {
-                        //    tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerMax + '</td>');
-                        //}
+                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMax')) {
+                            tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerMax + '</td>');
+                        }
+                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMax')) {
+                            tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerMax + '</td>');
+                        }
 
-                        //if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMin')) {
-                        //    tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerMin + '</td>');
-                        //}
-                        //if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMin')) {
-                        //    tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerMin + '</td>');
-                        //}
+                        if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMin')) {
+                            tr.append('<td>' + data.lakes[i].dynamicsLakeAreaSeasonalWaterAreaPerMin + '</td>');
+                        }
+                        if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMin')) {
+                            tr.append('<td>' + data.lakes[i].dynamicsLakeAreaPermanentWaterAreaPerMin + '</td>');
+                        }
                     }
                 }
 
@@ -654,124 +614,113 @@ if ($('#formula').val().includes('WaterBalanceEvaporationMin')) { tr.append('<td
                 th.append('<th>' + $('#LakeId').val() + '</th>');
                 th.append('<th>' + $('#Details').val() + '</th>');
                 // View 3
-                if ($('#formula').val().includes('Area2015')) { th.append('<th>' + $('#Area2015').val() + '</th>'); }
-                if ($('#formula').val().includes('LakeShorelineLength2015')) { th.append('<th>' + $('#LakeShorelineLength2015').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesArchiveDataLakeLength')) { th.append('<th>' + $('#LakesArchiveDataLakeLength').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesArchiveDataLakeShorelineLength')) { th.append('<th>' + $('#LakesArchiveDataLakeShorelineLength').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesArchiveDataLakeMirrorArea')) { th.append('<th>' + $('#LakesArchiveDataLakeMirrorArea').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesArchiveDataLakeAbsoluteHeight')) { th.append('<th>' + $('#LakesArchiveDataLakeAbsoluteHeight').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesArchiveDataLakeWidth')) { th.append('<th>' + $('#LakesArchiveDataLakeWidth').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesArchiveDataLakeMaxDepth')) { th.append('<th>' + $('#LakesArchiveDataLakeMaxDepth').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesArchiveDataLakeWaterMass')) { th.append('<th>' + $('#LakesArchiveDataLakeWaterMass').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataLake_area')) { th.append('<th>' + $('#LakesGlobalDataLake_area').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataShore_len')) { th.append('<th>' + $('#LakesGlobalDataShore_len').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataShore_dev')) { th.append('<th>' + $('#LakesGlobalDataShore_dev').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataVol_total')) { th.append('<th>' + $('#LakesGlobalDataVol_total').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataDepth_avg')) { th.append('<th>' + $('#LakesGlobalDataDepth_avg').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataDis_avg')) { th.append('<th>' + $('#LakesGlobalDataDis_avg').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataRes_time')) { th.append('<th>' + $('#LakesGlobalDataRes_time').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataElevation')) { th.append('<th>' + $('#LakesGlobalDataElevation').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataSlope_100')) { th.append('<th>' + $('#LakesGlobalDataSlope_100').val() + '</th>'); }
-                if ($('#formula').val().includes('LakesGlobalDataWshd_area')) { th.append('<th>' + $('#LakesGlobalDataWshd_area').val() + '</th>'); }
+                if ($('#formula').val().includes('Area2015')) {
+                    th.append('<th>' + $('#Area2015').val() + '</th>');
+                }
+                if ($('#formula').val().includes('Shoreline2015')) {
+                    th.append('<th>' + $('#Shoreline2015').val() + '</th>');
+                }
+                if ($('#formula').val().includes('ArchiveLength')) {
+                    th.append('<th>' + $('#ArchiveLength').val() + '</th>');
+                }
+                if ($('#formula').val().includes('ArchiveShoreline')) {
+                    th.append('<th>' + $('#ArchiveShoreline').val() + '</th>');
+                }
+                if ($('#formula').val().includes('ArchiveMirrorArea')) {
+                    th.append('<th>' + $('#ArchiveMirrorArea').val() + '</th>');
+                }
+                if ($('#formula').val().includes('ArchiveAbsoluteHeight')) {
+                    th.append('<th>' + $('#ArchiveAbsoluteHeight').val() + '</th>');
+                }
+                if ($('#formula').val().includes('ArchiveWidth')) {
+                    th.append('<th>' + $('#ArchiveWidth').val() + '</th>');
+                }
+                if ($('#formula').val().includes('ArchiveMaxDepth')) {
+                    th.append('<th>' + $('#ArchiveMaxDepth').val() + '</th>');
+                }
+                if ($('#formula').val().includes('ArchiveWaterMass')) {
+                    th.append('<th>' + $('#ArchiveWaterMass').val() + '</th>');
+                }
+                //if ($('#formula').val().includes('ToxicKIZV')) {
+                //    th.append('<th>' + $('#ToxicKIZV').val() + '</th>');
+                //}
+                if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerAvg')) {
+                    th.append('<th>' + $('#WaterBalanceSurfaceFlowPerAvg').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerAvg')) {
+                    th.append('<th>' + $('#WaterBalanceSurfaceOutflowPerAvg').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerAvg')) {
+                    th.append('<th>' + $('#WaterBalanceUndergroundFlowPerAvg').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerAvg')) {
+                    th.append('<th>' + $('#WaterBalanceUndergroundOutflowPerAvg').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalancePrecipitationPerAvg')) {
+                    th.append('<th>' + $('#WaterBalancePrecipitationPerAvg').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceEvaporationPerAvg')) {
+                    th.append('<th>' + $('#WaterBalanceEvaporationPerAvg').val() + '</th>');
+                }
 
-                if ($('#formula').val().includes('WaterBalanceSurfaceFlowAvg')) { th.append('<th>' + $('#WaterBalanceSurfaceFlowAvg').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceOutflowAvg')) { th.append('<th>' + $('#WaterBalanceSurfaceOutflowAvg').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundFlowAvg')) { th.append('<th>' + $('#WaterBalanceUndergroundFlowAvg').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundOutflowAvg')) { th.append('<th>' + $('#WaterBalanceUndergroundOutflowAvg').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalancePrecipitationAvg')) { th.append('<th>' + $('#WaterBalancePrecipitationAvg').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceEvaporationAvg')) { th.append('<th>' + $('#WaterBalanceEvaporationAvg').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceFlowMax')) { th.append('<th>' + $('#WaterBalanceSurfaceFlowMax').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceOutflowMax')) { th.append('<th>' + $('#WaterBalanceSurfaceOutflowMax').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundFlowMax')) { th.append('<th>' + $('#WaterBalanceUndergroundFlowMax').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundOutflowMax')) { th.append('<th>' + $('#WaterBalanceUndergroundOutflowMax').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalancePrecipitationMax')) { th.append('<th>' + $('#WaterBalancePrecipitationMax').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceEvaporationMax')) { th.append('<th>' + $('#WaterBalanceEvaporationMax').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceFlowMin')) { th.append('<th>' + $('#WaterBalanceSurfaceFlowMin').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceSurfaceOutflowMin')) { th.append('<th>' + $('#WaterBalanceSurfaceOutflowMin').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundFlowMin')) { th.append('<th>' + $('#WaterBalanceUndergroundFlowMin').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceUndergroundOutflowMin')) { th.append('<th>' + $('#WaterBalanceUndergroundOutflowMin').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalancePrecipitationMin')) { th.append('<th>' + $('#WaterBalancePrecipitationMin').val() + '</th>'); }
-if ($('#formula').val().includes('WaterBalanceEvaporationMin')) { th.append('<th>' + $('#WaterBalanceEvaporationMin').val() + '</th>'); }
+                if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerMax')) {
+                    th.append('<th>' + $('#WaterBalanceSurfaceFlowPerMax').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerMax')) {
+                    th.append('<th>' + $('#WaterBalanceSurfaceOutflowPerMax').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerMax')) {
+                    th.append('<th>' + $('#WaterBalanceUndergroundFlowPerMax').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerMax')) {
+                    th.append('<th>' + $('#WaterBalanceUndergroundOutflowPerMax').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalancePrecipitationPerMax')) {
+                    th.append('<th>' + $('#WaterBalancePrecipitationPerMax').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceEvaporationPerMax')) {
+                    th.append('<th>' + $('#WaterBalanceEvaporationPerMax').val() + '</th>');
+                }
 
+                if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerMin')) {
+                    th.append('<th>' + $('#WaterBalanceSurfaceFlowPerMin').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerMin')) {
+                    th.append('<th>' + $('#WaterBalanceSurfaceOutflowPerMin').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerMin')) {
+                    th.append('<th>' + $('#WaterBalanceUndergroundFlowPerMin').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerMin')) {
+                    th.append('<th>' + $('#WaterBalanceUndergroundOutflowPerMin').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalancePrecipitationPerMin')) {
+                    th.append('<th>' + $('#WaterBalancePrecipitationPerMin').val() + '</th>');
+                }
+                if ($('#formula').val().includes('WaterBalanceEvaporationPerMin')) {
+                    th.append('<th>' + $('#WaterBalanceEvaporationPerMin').val() + '</th>');
+                }
 
+                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerAvg')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerAvg').val() + '</th>');
+                }
+                if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerAvg')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerAvg').val() + '</th>');
+                }
 
-                //if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerAvg')) {
-                //    th.append('<th>' + $('#WaterBalanceSurfaceFlowPerAvg').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerAvg')) {
-                //    th.append('<th>' + $('#WaterBalanceSurfaceOutflowPerAvg').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerAvg')) {
-                //    th.append('<th>' + $('#WaterBalanceUndergroundFlowPerAvg').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerAvg')) {
-                //    th.append('<th>' + $('#WaterBalanceUndergroundOutflowPerAvg').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalancePrecipitationPerAvg')) {
-                //    th.append('<th>' + $('#WaterBalancePrecipitationPerAvg').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceEvaporationPerAvg')) {
-                //    th.append('<th>' + $('#WaterBalanceEvaporationPerAvg').val() + '</th>');
-                //}
+                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMax')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerMax').val() + '</th>');
+                }
+                if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMax')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerMax').val() + '</th>');
+                }
 
-                //if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerMax')) {
-                //    th.append('<th>' + $('#WaterBalanceSurfaceFlowPerMax').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerMax')) {
-                //    th.append('<th>' + $('#WaterBalanceSurfaceOutflowPerMax').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerMax')) {
-                //    th.append('<th>' + $('#WaterBalanceUndergroundFlowPerMax').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerMax')) {
-                //    th.append('<th>' + $('#WaterBalanceUndergroundOutflowPerMax').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalancePrecipitationPerMax')) {
-                //    th.append('<th>' + $('#WaterBalancePrecipitationPerMax').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceEvaporationPerMax')) {
-                //    th.append('<th>' + $('#WaterBalanceEvaporationPerMax').val() + '</th>');
-                //}
-
-                //if ($('#formula').val().includes('WaterBalanceSurfaceFlowPerMin')) {
-                //    th.append('<th>' + $('#WaterBalanceSurfaceFlowPerMin').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceSurfaceOutflowPerMin')) {
-                //    th.append('<th>' + $('#WaterBalanceSurfaceOutflowPerMin').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceUndergroundFlowPerMin')) {
-                //    th.append('<th>' + $('#WaterBalanceUndergroundFlowPerMin').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceUndergroundOutflowPerMin')) {
-                //    th.append('<th>' + $('#WaterBalanceUndergroundOutflowPerMin').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalancePrecipitationPerMin')) {
-                //    th.append('<th>' + $('#WaterBalancePrecipitationPerMin').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('WaterBalanceEvaporationPerMin')) {
-                //    th.append('<th>' + $('#WaterBalanceEvaporationPerMin').val() + '</th>');
-                //}
-
-                //if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerAvg')) {
-                //    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerAvg').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerAvg')) {
-                //    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerAvg').val() + '</th>');
-                //}
-
-                //if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMax')) {
-                //    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerMax').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMax')) {
-                //    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerMax').val() + '</th>');
-                //}
-
-                //if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMin')) {
-                //    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerMin').val() + '</th>');
-                //}
-                //if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMin')) {
-                //    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerMin').val() + '</th>');
-                //}
+                if ($('#formula').val().includes('DynamicsLakeAreaSeasonalWaterAreaPerMin')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaSeasonalWaterAreaPerMin').val() + '</th>');
+                }
+                if ($('#formula').val().includes('DynamicsLakeAreaPermanentWaterAreaPerMin')) {
+                    th.append('<th>' + $('#DynamicsLakeAreaPermanentWaterAreaPerMin').val() + '</th>');
+                }
                 $('#message').text(data.message);
             },
             error: function () {

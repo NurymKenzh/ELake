@@ -99,69 +99,91 @@ namespace ELake.Models
         }
 
         [NotMapped]
-        public decimal? LakeLength { get; set; }
+        public decimal? LakesArchiveDataLakeLength { get; set; }
         [NotMapped]
-        public decimal? LakeShorelineLength { get; set; }
+        public decimal? LakesArchiveDataLakeShorelineLength { get; set; }
         [NotMapped]
-        public decimal? LakeMirrorArea { get; set; }
+        public decimal? LakesArchiveDataLakeMirrorArea { get; set; }
         [NotMapped]
-        public decimal? LakeAbsoluteHeight { get; set; }
+        public decimal? LakesArchiveDataLakeAbsoluteHeight { get; set; }
         [NotMapped]
-        public decimal? LakeWidth { get; set; }
+        public decimal? LakesArchiveDataLakeWidth { get; set; }
         [NotMapped]
-        public decimal? LakeMaxDepth { get; set; }
+        public decimal? LakesArchiveDataLakeMaxDepth { get; set; }
         [NotMapped]
-        public decimal? LakeWaterMass { get; set; }
+        public decimal? LakesArchiveDataLakeWaterMass { get; set; }
+
+        [NotMapped]
+        public decimal? LakesGlobalDataLake_area { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataShore_len { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataShore_dev { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataVol_total { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataDepth_avg { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataDis_avg { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataRes_time { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataElevation { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataSlope_100 { get; set; }
+        [NotMapped]
+        public decimal? LakesGlobalDataWshd_area { get; set; }
+
         [NotMapped]
         public decimal? ToxicKIZV { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceSurfaceFlowPerAvg { get; set; }
+        public decimal? WaterBalanceSurfaceFlowAvg { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceSurfaceOutflowPerAvg { get; set; }
+        public decimal? WaterBalanceSurfaceOutflowAvg { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceUndergroundFlowPerAvg { get; set; }
+        public decimal? WaterBalanceUndergroundFlowAvg { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceUndergroundOutflowPerAvg { get; set; }
+        public decimal? WaterBalanceUndergroundOutflowAvg { get; set; }
         [NotMapped]
-        public decimal? WaterBalancePrecipitationPerAvg { get; set; }
+        public decimal? WaterBalancePrecipitationAvg { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceEvaporationPerAvg { get; set; }
+        public decimal? WaterBalanceEvaporationAvg { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceSurfaceFlowPerMax { get; set; }
+        public decimal? WaterBalanceSurfaceFlowMax { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceSurfaceOutflowPerMax { get; set; }
+        public decimal? WaterBalanceSurfaceOutflowMax { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceUndergroundFlowPerMax { get; set; }
+        public decimal? WaterBalanceUndergroundFlowMax { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceUndergroundOutflowPerMax { get; set; }
+        public decimal? WaterBalanceUndergroundOutflowMax { get; set; }
         [NotMapped]
-        public decimal? WaterBalancePrecipitationPerMax { get; set; }
+        public decimal? WaterBalancePrecipitationMax { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceEvaporationPerMax { get; set; }
+        public decimal? WaterBalanceEvaporationMax { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceSurfaceFlowPerMin { get; set; }
+        public decimal? WaterBalanceSurfaceFlowMin { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceSurfaceOutflowPerMin { get; set; }
+        public decimal? WaterBalanceSurfaceOutflowMin { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceUndergroundFlowPerMin { get; set; }
+        public decimal? WaterBalanceUndergroundFlowMin { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceUndergroundOutflowPerMin { get; set; }
+        public decimal? WaterBalanceUndergroundOutflowMin { get; set; }
         [NotMapped]
-        public decimal? WaterBalancePrecipitationPerMin { get; set; }
+        public decimal? WaterBalancePrecipitationMin { get; set; }
         [NotMapped]
-        public decimal? WaterBalanceEvaporationPerMin { get; set; }
+        public decimal? WaterBalanceEvaporationMin { get; set; }
         [NotMapped]
-        public decimal? DynamicsLakeAreaSeasonalWaterAreaPerAvg { get; set; }
+        public decimal? DynamicsLakeAreaSeasonalWaterAreaAvg { get; set; }
         [NotMapped]
-        public decimal? DynamicsLakeAreaPermanentWaterAreaPerAvg { get; set; }
+        public decimal? DynamicsLakeAreaPermanentWaterAreaAvg { get; set; }
         [NotMapped]
-        public decimal? DynamicsLakeAreaSeasonalWaterAreaPerMax { get; set; }
+        public decimal? DynamicsLakeAreaSeasonalWaterAreaMax { get; set; }
         [NotMapped]
-        public decimal? DynamicsLakeAreaPermanentWaterAreaPerMax { get; set; }
+        public decimal? DynamicsLakeAreaPermanentWaterAreaMax { get; set; }
         [NotMapped]
-        public decimal? DynamicsLakeAreaSeasonalWaterAreaPerMin { get; set; }
+        public decimal? DynamicsLakeAreaSeasonalWaterAreaMin { get; set; }
         [NotMapped]
-        public decimal? DynamicsLakeAreaPermanentWaterAreaPerMin { get; set; }
+        public decimal? DynamicsLakeAreaPermanentWaterAreaMin { get; set; }
     }
 
     public class LakeIndexPageViewModel
